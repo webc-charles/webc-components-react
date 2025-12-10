@@ -1,7 +1,11 @@
 {
-  "name": "@webc/components-react",
+  "name": "@webc-charles/components-react",
   "version": "1.0.0",
-  "private": true,
+  "description": "A lightweight React component library with CSS variables for easy theming",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webc-charles/webc-components-react.git"
+  },
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,6 +20,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "tsup",
     "test": "react-scripts test",

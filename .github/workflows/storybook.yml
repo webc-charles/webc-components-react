@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy Storybook
 
 on:
   push:
@@ -10,34 +10,7 @@ permissions:
   id-token: write
 
 jobs:
-  build-package:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build package
-        run: yarn build
-
-      - name: Commit dist
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add dist/
-          git diff --staged --quiet || git commit -m "chore: build dist [skip ci]"
-          git push
-
-  build-storybook:
-    needs: build-package
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -64,7 +37,7 @@ jobs:
           path: storybook-static
 
   deploy:
-    needs: build-storybook
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages

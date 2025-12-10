@@ -13,18 +13,25 @@ cd my-app
 ```
 
 **2. Install the library**
+
+First, create a `.npmrc` file in your project root:
+```
+@webc-charles:registry=https://npm.pkg.github.com
+```
+
+Then install:
 ```bash
-npm install github:webc-charles/webc-components-react
+npm install @webc-charles/components-react
 ```
 
 **3. Import styles in `src/index.js`**
 ```jsx
-import '@webc/components-react/styles.css'
+import '@webc-charles/components-react/styles.css'
 ```
 
 **4. Use components**
 ```jsx
-import { Button, Card, CardHeader, CardBody } from '@webc/components-react'
+import { Button, Card, CardHeader, CardBody } from '@webc-charles/components-react'
 
 function App() {
   return (
@@ -42,8 +49,14 @@ function App() {
 
 ## Installation
 
+Add to your `.npmrc`:
+```
+@webc-charles:registry=https://npm.pkg.github.com
+```
+
+Then:
 ```bash
-npm install github:webc-charles/webc-components-react
+npm install @webc-charles/components-react
 ```
 
 ## Setup

@@ -31,7 +31,6 @@
     "@fortawesome/free-solid-svg-icons": "6.4.0",
     "@fortawesome/react-fontawesome": "^3.1.0",
     "clsx": "^2.1.1",
-    "react-custom-checkbox": "^3.2.0",
     "react-datepicker": "^8.7.0",
     "sass": "^1.93.2"
   },

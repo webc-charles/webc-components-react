@@ -9043,11 +9043,6 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-custom-checkbox@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-custom-checkbox/-/react-custom-checkbox-3.2.0.tgz#bbda776a9f803413cfb0cb3259450007d3a33fdf"
-  integrity sha512-3CSI8BNH22hJBloe4h9g/2atZEmSAtSW0+jPr2abiM3EUydwDXQy4SWX/BC6hgX45SWPjb20kcdzSchqLRS4ew==
-
 react-datepicker@^8.7.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-8.10.0.tgz#dfc4534afde70b491883085d8df959b25689d10f"

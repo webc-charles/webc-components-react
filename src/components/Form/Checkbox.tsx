@@ -1,4 +1,3 @@
-import CustomCheckbox from 'react-custom-checkbox'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
@@ -22,28 +21,30 @@ export function Checkbox({
         [styles.disabled]: disabled,
       })}
     >
-      <CustomCheckbox
-        icon={<FontAwesomeIcon icon={faCheck} className={styles.checkIcon} />}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-        borderColor={borderColor}
-        borderRadius={4}
-        size={20}
-        className={styles.checkbox}
-        style={{
-          backgroundColor: bgColor,
-          cursor: disabled ? 'not-allowed' : 'pointer',
-          borderWidth: '.2rem',
-        }}
+      <span
+        role="checkbox"
+        aria-checked={checked}
         tabIndex={disabled ? -1 : 0}
+        onClick={() => !disabled && onChange(!checked)}
         onKeyDown={(e) => {
           if ([' ', 'Enter'].includes(e.key)) {
             e.preventDefault()
             if (!disabled) onChange(!checked)
           }
         }}
-      />
+        className={styles.checkbox}
+        style={{
+          backgroundColor: bgColor,
+          borderColor,
+          cursor: disabled ? 'not-allowed' : 'pointer',
+          borderWidth: '.2rem',
+        }}
+      >
+        {checked && (
+          <FontAwesomeIcon icon={faCheck} className={styles.checkIcon} />
+        )}
+      </span>
+
       {label && (
         <span className={clsx(styles.label, labelClassName)}>{label}</span>
       )}

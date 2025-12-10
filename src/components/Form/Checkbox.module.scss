@@ -12,9 +12,14 @@
 }
 
 .checkbox {
-  border-color: var(--color-grey-3);
-  cursor: pointer;
+  align-items: center;
+  border-radius: 4px;
+  border-style: solid;
+  display: flex;
   flex-shrink: 0;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
 }
 
 .checkIcon {

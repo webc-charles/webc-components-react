@@ -2,7 +2,8 @@
 
 A lightweight React component library with CSS variables for easy theming.
 
-**[Demo](https://webc-charles.github.io/webc-components-react)**
+<a href="https://webc-charles.github.io/webc-components-react" target="_blank"
+rel="noopener noreferrer">Demo</a>
 
 ## Installation
 

@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-webpack5',
     options: {},
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.modules = [

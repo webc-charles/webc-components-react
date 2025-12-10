@@ -49,7 +49,7 @@ export function Toast({
       className={clsx(
         styles.toast,
         removing && styles.removing,
-        active && !removing && styles.active
+        active && styles.active
       )}
     >
       <Alert title={title} variant={variant}>

@@ -2,7 +2,7 @@ name: Deploy Storybook
 
 on:
   push:
-    branches: ['main'] # or "master" depending on your repo
+    branches: ['main']
 
 permissions:
   contents: write
@@ -12,12 +12,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -27,9 +28,10 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: storybook-static
           path: storybook-static
 
   deploy:
@@ -40,6 +42,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

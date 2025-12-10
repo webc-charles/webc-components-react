@@ -12,6 +12,7 @@ export type ButtonTypes = {
   variant?: ButtonVariantTypes
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  ariaLabel?: string
 }
 
 export type ButtonRef = HTMLButtonElement | HTMLAnchorElement | HTMLDivElement

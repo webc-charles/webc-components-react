@@ -14,6 +14,7 @@ export const Button = forwardRef<ButtonRef, ButtonTypes>(
       className,
       type = 'button',
       variant,
+      ariaLabel,
     }: ButtonTypes,
     ref
   ) => {
@@ -44,6 +45,7 @@ export const Button = forwardRef<ButtonRef, ButtonTypes>(
           className={classList}
           tabIndex={disabled ? -1 : 0}
           onClick={disabled ? (e) => e.preventDefault() : undefined}
+          aria-label={ariaLabel}
         >
           {content}
         </a>
@@ -58,6 +60,7 @@ export const Button = forwardRef<ButtonRef, ButtonTypes>(
         onClick={action}
         disabled={disabled}
         className={classList}
+        aria-label={ariaLabel}
       >
         {content}
       </button>

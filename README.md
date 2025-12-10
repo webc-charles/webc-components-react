@@ -45,9 +45,11 @@ Displays a message with a variant style.
 ```tsx
 import { Alert } from '@webc/components-react'
 
-;<Alert variant="success" title="Success!">
-  Your changes have been saved.
-</Alert>
+const Example = () => (
+  <Alert variant="success" title="Success!">
+    Your changes have been saved.
+  </Alert>
+)
 ```
 
 | Prop       | Type                                                                    | Default  | Description   |
@@ -65,7 +67,7 @@ Small label for status or counts.
 ```tsx
 import { Badge } from '@webc/components-react'
 
-;<Badge variant="success">New</Badge>
+const Example = () => <Badge variant="success">New</Badge>
 ```
 
 | Prop        | Type                                                        | Default     | Description          |
@@ -83,11 +85,15 @@ Button or link component.
 ```tsx
 import { Button } from '@webc/components-react'
 
-<Button variant="accent" action={() => console.log('clicked')}>
-  Click me
-</Button>
+const Example = () => (
+  <>
+    <Button variant="accent" action={() => console.log('clicked')}>
+      Click me
+    </Button>
 
-<Button link="https://example.com">Visit site</Button>
+    <Button link="https://example.com">Visit site</Button>
+  </>
+)
 ```
 
 | Prop       | Type                              | Default    | Description                  |
@@ -109,11 +115,13 @@ Container component with header, body, and footer sections.
 ```tsx
 import { Card, CardBody, CardFooter, CardHeader } from '@webc/components-react'
 
-;<Card>
-  <CardHeader>Title</CardHeader>
-  <CardBody>Content goes here</CardBody>
-  <CardFooter>Footer actions</CardFooter>
-</Card>
+const Example = () => (
+  <Card>
+    <CardHeader>Title</CardHeader>
+    <CardBody>Content goes here</CardBody>
+    <CardFooter>Footer actions</CardFooter>
+  </Card>
+)
 ```
 
 All Card components accept `className` and `children` props.
@@ -127,12 +135,14 @@ Responsive grid layout system (1-12 columns).
 ```tsx
 import { Grid, GridItem } from '@webc/components-react'
 
-;<Grid col={1} colMD={2} colLG={4} gap="md">
-  <GridItem>Item 1</GridItem>
-  <GridItem>Item 2</GridItem>
-  <GridItem colMD={2}>Wide item</GridItem>
-  <GridItem>Item 4</GridItem>
-</Grid>
+const Example = () => (
+  <Grid col={1} colMD={2} colLG={4} gap="md">
+    <GridItem>Item 1</GridItem>
+    <GridItem>Item 2</GridItem>
+    <GridItem colMD={2}>Wide item</GridItem>
+    <GridItem>Item 4</GridItem>
+  </Grid>
+)
 ```
 
 #### Grid Props
@@ -268,7 +278,7 @@ function MyComponent() {
       children: 'Your changes have been saved.',
       variant: 'success',
       duration: 5000,
-      closeLabel: 'Dismiss', // for i18n
+      closeLabel: 'Dismiss',
     })
   }
 

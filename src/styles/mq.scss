@@ -1,0 +1,29 @@
+@mixin mqXS {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mqSM {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mqMD {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mqLG {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mqXL {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}

@@ -1,0 +1,94 @@
+@import "styles/mq";
+@import "styles/form";
+
+.link,
+.button {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--color-black);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--font-size-4);
+  height: 3rem;
+  justify-content: center;
+  padding: 0 1rem;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: var(--color-accent-2);
+    outline: 0;
+  }
+
+  &.basic,
+  &.accent,
+  &.danger {
+    box-shadow: inset 0 0.1rem 0 0 var(--color-white-50);
+    font-weight: var(--font-weight-lg);
+    text-decoration: none;
+  }
+
+  &.basic {
+    background: var(--color-grey-3);
+    border: 1px solid var(--color-grey-2);
+    color: var(--color-grey-1);
+
+    &:hover:not([disabled], .disabled),
+    &:focus:not([disabled], .disabled) {
+      background: var(--color-grey-2);
+      border-color: var(--color-grey-2);
+      color: var(--color-white);
+    }
+  }
+
+  &.accent {
+    background: var(--color-accent-3);
+    border: 1px solid var(--color-accent-2);
+    color: var(--color-accent-1);
+
+    &:hover:not([disabled], .disabled),
+    &:focus:not([disabled], .disabled) {
+      background: var(--color-accent-2);
+      border-color: var(--color-accent-2);
+      color: var(--color-white);
+    }
+  }
+
+  &.danger {
+    background: var(--color-danger-3);
+    border: 1px solid var(--color-danger-2);
+    color: var(--color-danger-1);
+
+    &:hover:not([disabled], .disabled),
+    &:focus:not([disabled], .disabled) {
+      background: var(--color-danger-2);
+      border-color: var(--color-danger-2);
+      color: var(--color-white);
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+
+    &:not(.basic, .accent, .danger) {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: "";
+      cursor: not-allowed;
+      height: 100%;
+      left: 0;
+      pointer-events: all;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

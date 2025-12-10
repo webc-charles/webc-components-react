@@ -1,0 +1,235 @@
+@use "sass:map";
+@use "styles/mq";
+
+$gaps: (
+  "none": 0,
+  "xs": 0.5rem,
+  "sm": 1rem,
+  "md": 1.5rem,
+  "lg": 2rem,
+  "xl": 3rem,
+);
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+// Grid columns (base)
+@for $i from 1 through 12 {
+  .grid--#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
+  }
+}
+
+@include mq.mqXS {
+  @for $i from 1 through 12 {
+    .grid--xs-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@include mq.mqSM {
+  @for $i from 1 through 12 {
+    .grid--sm-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@include mq.mqMD {
+  @for $i from 1 through 12 {
+    .grid--md-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@include mq.mqLG {
+  @for $i from 1 through 12 {
+    .grid--lg-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+@include mq.mqXL {
+  @for $i from 1 through 12 {
+    .grid--xl-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+// Gap modifiers (base)
+@each $name, $value in $gaps {
+  .grid--gap-#{$name} {
+    gap: $value;
+  }
+}
+
+// Gap modifiers (responsive)
+@include mq.mqXS {
+  @each $name, $value in $gaps {
+    .grid--gap-xs-#{$name} {
+      gap: $value;
+    }
+  }
+}
+
+@include mq.mqSM {
+  @each $name, $value in $gaps {
+    .grid--gap-sm-#{$name} {
+      gap: $value;
+    }
+  }
+}
+
+@include mq.mqMD {
+  @each $name, $value in $gaps {
+    .grid--gap-md-#{$name} {
+      gap: $value;
+    }
+  }
+}
+
+@include mq.mqLG {
+  @each $name, $value in $gaps {
+    .grid--gap-lg-#{$name} {
+      gap: $value;
+    }
+  }
+}
+
+@include mq.mqXL {
+  @each $name, $value in $gaps {
+    .grid--gap-xl-#{$name} {
+      gap: $value;
+    }
+  }
+}
+
+// GridItem column spans (base)
+.gridItem {
+  grid-column: span 1;
+}
+
+@for $i from 1 through 12 {
+  .gridItem-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+@include mq.mqXS {
+  @for $i from 1 through 12 {
+    .gridItem--xs-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include mq.mqSM {
+  @for $i from 1 through 12 {
+    .gridItem--sm-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include mq.mqMD {
+  @for $i from 1 through 12 {
+    .gridItem--md-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include mq.mqLG {
+  @for $i from 1 through 12 {
+    .gridItem--lg-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include mq.mqXL {
+  @for $i from 1 through 12 {
+    .gridItem--xl-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+// Row spans (base)
+@for $i from 1 through 6 {
+  .gridItem--row-#{$i} {
+    grid-row: span #{$i};
+
+    > * {
+      height: 100%;
+    }
+  }
+}
+
+// Row spans (responsive)
+@include mq.mqXS {
+  @for $i from 1 through 6 {
+    .gridItem--row-xs-#{$i} {
+      grid-row: span #{$i};
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include mq.mqSM {
+  @for $i from 1 through 6 {
+    .gridItem--row-sm-#{$i} {
+      grid-row: span #{$i};
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include mq.mqMD {
+  @for $i from 1 through 6 {
+    .gridItem--row-md-#{$i} {
+      grid-row: span #{$i};
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include mq.mqLG {
+  @for $i from 1 through 6 {
+    .gridItem--row-lg-#{$i} {
+      grid-row: span #{$i};
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@include mq.mqXL {
+  @for $i from 1 through 6 {
+    .gridItem--row-xl-#{$i} {
+      grid-row: span #{$i};
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}

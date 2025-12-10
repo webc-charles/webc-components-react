@@ -31,6 +31,7 @@ type ButtonTypes = {
     variant?: ButtonVariantTypes;
     disabled?: boolean;
     type?: 'button' | 'submit' | 'reset';
+    ariaLabel?: string;
 };
 type ButtonRef = HTMLButtonElement | HTMLAnchorElement | HTMLDivElement;
 
@@ -94,7 +95,7 @@ type CheckboxTypes = {
     labelClassName?: string;
 };
 
-declare function InputDate({ selected, onChange, onBlur, placeholder, dateFormat, minDate, maxDate, disabled, className, title, }: InputDateTypes): react_jsx_runtime.JSX.Element;
+declare function InputDate({ selected, onChange, placeholder, dateFormat, minDate, maxDate, disabled, className, title, }: InputDateTypes): react_jsx_runtime.JSX.Element;
 
 declare function InputNumber({ value, onChange, min, max, step, disabled, label, className, inputClassName, labelClassName, placeholder, incrementLabel, decrementLabel, }: InputNumberTypes): react_jsx_runtime.JSX.Element;
 

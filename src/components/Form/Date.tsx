@@ -11,7 +11,6 @@ import { InputDateTypes } from './types'
 export function InputDate({
   selected,
   onChange,
-  onBlur,
   placeholder = 'Select date',
   dateFormat = 'yyyy-MM-dd',
   minDate,

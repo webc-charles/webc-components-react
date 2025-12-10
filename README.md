@@ -2,15 +2,48 @@
 
 A lightweight React component library with CSS variables for easy theming.
 
-<a href="https://webc-charles.github.io/webc-components-react" target="_blank"
-rel="noopener noreferrer">Demo</a>
+**[Demo](https://webc-charles.github.io/webc-components-react)**
+
+## Quick Start
+
+**1. Create a new React app**
+```bash
+npx create-react-app my-app
+cd my-app
+```
+
+**2. Install the library**
+```bash
+npm install github:webc-charles/webc-components-react
+```
+
+**3. Import styles in `src/index.js`**
+```jsx
+import '@webc/components-react/styles.css'
+```
+
+**4. Use components**
+```jsx
+import { Button, Card, CardHeader, CardBody } from '@webc/components-react'
+
+function App() {
+  return (
+    <Card>
+      <CardHeader>Welcome</CardHeader>
+      <CardBody>
+        <Button variant="accent" action={() => console.log('clicked')}>
+          Click me
+        </Button>
+      </CardBody>
+    </Card>
+  )
+}
+```
 
 ## Installation
 
 ```bash
-npm install @webc/components-react
-# or
-yarn add @webc/components-react
+npm install github:webc-charles/webc-components-react
 ```
 
 ## Setup

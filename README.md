@@ -2,6 +2,8 @@
 
 A lightweight React component library with CSS variables for easy theming.
 
+**[Demo](https://webc-charles.github.io/webc-components-react)**
+
 ## Installation
 
 ```bash

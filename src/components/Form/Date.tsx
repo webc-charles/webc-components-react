@@ -11,13 +11,13 @@ import { InputDateTypes } from './types'
 export function InputDate({
   selected,
   onChange,
-  placeholder = 'Select date',
+  placeholder = 'Enter date',
   dateFormat = 'yyyy-MM-dd',
   minDate,
   maxDate,
   disabled = false,
   className,
-  title,
+  title = 'Select Date',
 }: InputDateTypes) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -82,11 +82,10 @@ export function InputDate({
       <Button
         type="button"
         ref={triggerButtonRef}
+        title={title}
         onClick={() => setIsOpen(true)}
         className={clsx(styles.datePickerTrigger, isOpen ? styles.focused : '')}
       >
-        <span className="hide">{title}</span>
-
         <FontAwesomeIcon
           icon={faCalendar}
           className={styles.calendarIcon}

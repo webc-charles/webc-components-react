@@ -49,6 +49,7 @@
     padding-right: 3.8rem;
   }
 
+  &:hover,
   &:focus-within {
     .datePickerInput {
       border: 0.2rem solid var(--color-accent-2) !important;
@@ -64,12 +65,6 @@
     background: var(--color-white);
   }
 }
-
-
-
-
-
-
 
 :global {
   .react-datepicker-popper {

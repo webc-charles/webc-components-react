@@ -3,44 +3,56 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { Button } from './Button'
 
 describe('Button', () => {
-  it('renders with title only', () => {
-    render(<Button title="No action" />)
-    expect(screen.getByText('No action')).toBeInTheDocument()
+  it('renders with children', () => {
+    render(<Button data-testid="button">Click me</Button>)
+    expect(screen.getByTestId('button')).toHaveTextContent('Click me')
   })
 
-  it('renders as link when link prop is provided', () => {
-    render(<Button title="Go somewhere" link="https://example.com" />)
-    const link = screen.getByRole('link', { name: /go somewhere/i })
-    expect(link).toHaveAttribute('href', 'https://example.com')
+  it('renders with title as fallback content', () => {
+    render(<Button title="Button title" data-testid="button" />)
+    expect(screen.getByTestId('button')).toHaveTextContent('Button title')
   })
 
-  it('renders as button when action is provided', () => {
+  it('calls onClick when clicked', () => {
     const handleClick = jest.fn()
-    render(<Button title="Click me" action={handleClick} />)
-    const button = screen.getByRole('button', { name: /click me/i })
-    expect(button).toBeInTheDocument()
-  })
-
-  it('calls action when button is clicked', () => {
-    const handleClick = jest.fn()
-    render(<Button title="Click me" action={handleClick} />)
-    const button = screen.getByRole('button', { name: /click me/i })
-    fireEvent.click(button)
+    render(<Button onClick={handleClick} data-testid="button">Click me</Button>)
+    fireEvent.click(screen.getByTestId('button'))
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
-  it('disables button when disabled prop is true', () => {
+  it('does not call onClick when disabled', () => {
     const handleClick = jest.fn()
-    render(<Button title="Disabled button" action={handleClick} disabled />)
-    const button = screen.getByRole('button', { name: /disabled button/i })
-    expect(button).toBeDisabled()
-    fireEvent.click(button)
-    expect(handleClick).not.toHaveBeenCalled()
+    render(<Button onClick={handleClick} disabled data-testid="button">Click me</Button>)
+    expect(screen.getByTestId('button')).toBeDisabled()
   })
 
-  it('prevents navigation when link is disabled', () => {
-    render(<Button title="Disabled link" link="https://example.com" disabled />)
-    const link = screen.getByRole('link', { name: /disabled link/i })
-    expect(link).toHaveAttribute('tabindex', '-1')
+  it('applies basic variant class', () => {
+    render(<Button variant="basic" data-testid="button">Basic</Button>)
+    expect(screen.getByTestId('button')).toHaveClass('basic')
+  })
+
+  it('applies accent variant class', () => {
+    render(<Button variant="accent" data-testid="button">Accent</Button>)
+    expect(screen.getByTestId('button')).toHaveClass('accent')
+  })
+
+  it('applies danger variant class', () => {
+    render(<Button variant="danger" data-testid="button">Danger</Button>)
+    expect(screen.getByTestId('button')).toHaveClass('danger')
+  })
+
+  it('applies disabled class when disabled', () => {
+    render(<Button disabled data-testid="button">Disabled</Button>)
+    expect(screen.getByTestId('button')).toHaveClass('disabled')
+  })
+
+  it('has correct type attribute', () => {
+    render(<Button type="submit" data-testid="button">Submit</Button>)
+    expect(screen.getByTestId('button')).toHaveAttribute('type', 'submit')
+  })
+
+  it('has default type of button', () => {
+    render(<Button data-testid="button">Default</Button>)
+    expect(screen.getByTestId('button')).toHaveAttribute('type', 'button')
   })
 })

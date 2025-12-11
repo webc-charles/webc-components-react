@@ -1,12 +1,9 @@
 @import "styles/mq";
 @import "styles/form";
 
-.button.raw {
-  background: none;
-  border: none;
+.link {
   color: var(--color-black);
   cursor: pointer;
-  font-size: var(--font-size-4);
   text-decoration: underline;
 
   &:hover,
@@ -23,7 +20,7 @@
     color: var(--color-danger-2);
   }
 
-  &[disabled] {
+  &.disabled {
     opacity: 0.5;
     pointer-events: none;
     position: relative;
@@ -42,7 +39,7 @@
   }
 }
 
-.button:not(.raw) {
+.link.fill {
   align-items: center;
   background: var(--color-grey-3);
   border: 1px solid var(--color-grey-2);
@@ -59,8 +56,8 @@
   padding: 0 1rem;
   text-decoration: none;
 
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
+  &:hover:not(.disabled),
+  &:focus:not(.disabled) {
     background: var(--color-grey-2);
     border-color: var(--color-grey-2);
     color: var(--color-white);
@@ -71,8 +68,8 @@
     border: 1px solid var(--color-accent-2);
     color: var(--color-accent-1);
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not(.disabled),
+    &:focus:not(.disabled) {
       background: var(--color-accent-2);
       border-color: var(--color-accent-2);
       color: var(--color-white);
@@ -84,15 +81,15 @@
     border: 1px solid var(--color-danger-2);
     color: var(--color-danger-1);
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not(.disabled),
+    &:focus:not(.disabled) {
       background: var(--color-danger-2);
       border-color: var(--color-danger-2);
       color: var(--color-white);
     }
   }
 
-  &[disabled] {
+  &.disabled {
     opacity: 0.5;
     pointer-events: none;
     position: relative;

@@ -11,6 +11,10 @@ const meta: Meta<typeof Title> = {
       options: ['1', '2', '3', '4', '5', '6'],
       description: 'Heading level (h1-h6)',
     },
+    size: {
+      control: 'select',
+      options: ['lg', 'xl', 'xxl'],
+    },
     children: {
       control: 'text',
       description: 'Content of the title',
@@ -63,15 +67,18 @@ export const Level6: Story = {
   },
 }
 
-export const AllLevels: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Title level="1">Heading Level 1</Title>
-      <Title level="2">Heading Level 2</Title>
-      <Title level="3">Heading Level 3</Title>
-      <Title level="4">Heading Level 4</Title>
-      <Title level="5">Heading Level 5</Title>
-      <Title level="6">Heading Level 6</Title>
-    </div>
-  ),
+export const SizeLG: Story = {
+  args: {
+    level: '1',
+    children: 'Heading LG',
+    size: 'lg',
+  },
+}
+
+export const SizeXL: Story = {
+  args: {
+    level: '1',
+    children: 'Heading XL',
+    size: 'xl',
+  },
 }

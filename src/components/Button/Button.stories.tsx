@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-webpack5'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
@@ -11,6 +11,10 @@ const meta: Meta<typeof Button> = {
       options: ['default', 'accent', 'danger'],
       description: 'Visual style variant of the button',
     },
+    raw: {
+      control: 'boolean',
+      description: 'Whether the button looks like a link',
+    },
     disabled: {
       control: 'boolean',
       description: 'Whether the button is disabled',
@@ -20,7 +24,7 @@ const meta: Meta<typeof Button> = {
       options: ['button', 'submit', 'reset'],
       description: 'HTML button type',
     },
-    action: {
+    onClick: {
       action: 'clicked',
       description: 'Click handler function',
     },
@@ -32,14 +36,29 @@ type Story = StoryObj<typeof Button>
 
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: 'Default Button',
   },
 }
 
-export const Basic: Story = {
+export const DefaultDisabled: Story = {
   args: {
-    children: 'Basic Button',
-    variant: 'basic',
+    children: 'Default Button',
+    disabled: true,
+  },
+}
+
+export const DefaultRaw: Story = {
+  args: {
+    children: 'Default Button',
+    raw: true,
+  },
+}
+
+export const DefaultRawDisabled: Story = {
+  args: {
+    children: 'Default Button',
+    raw: true,
+    disabled: true,
   },
 }
 
@@ -50,6 +69,31 @@ export const Accent: Story = {
   },
 }
 
+export const AccentDisabled: Story = {
+  args: {
+    children: 'Accent Button',
+    variant: 'accent',
+    disabled: true,
+  },
+}
+
+export const AccentRaw: Story = {
+  args: {
+    children: 'Accent Button',
+    variant: 'accent',
+    raw: true,
+  },
+}
+
+export const AccentRawDisabled: Story = {
+  args: {
+    children: 'Accent Button',
+    variant: 'accent',
+    disabled: true,
+    raw: true,
+  },
+}
+
 export const Danger: Story = {
   args: {
     children: 'Danger Button',
@@ -57,24 +101,27 @@ export const Danger: Story = {
   },
 }
 
-export const Disabled: Story = {
+export const DangerDisabled: Story = {
   args: {
-    children: 'Disabled Button',
+    children: 'Danger Button',
+    variant: 'danger',
     disabled: true,
   },
 }
 
-export const AsLink: Story = {
+export const DangerRaw: Story = {
   args: {
-    children: 'Link Button',
-    link: '/',
+    children: 'Danger Button',
+    variant: 'danger',
+    raw: true,
   },
 }
 
-export const DisabledLink: Story = {
+export const DangerRawDisabled: Story = {
   args: {
-    children: 'Disabled Link',
-    link: '/',
+    children: 'Danger Button',
+    variant: 'danger',
     disabled: true,
+    raw: true,
   },
 }

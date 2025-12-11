@@ -24,7 +24,7 @@ const ToastTrigger = ({ title, variant, duration, children }: any) => {
 
   return (
     <Button
-      action={() =>
+      onClick={() =>
         addToast({
           title,
           variant,

@@ -1,8 +1,8 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-export type GridTypes = HTMLAttributes<HTMLDivElement> & {
+export type GridTypes = {
   children: ReactNode
   col?: number
   colXS?: number
@@ -16,9 +16,11 @@ export type GridTypes = HTMLAttributes<HTMLDivElement> & {
   gapMD?: GapSize
   gapLG?: GapSize
   gapXL?: GapSize
+  className?: string
+  'data-testid'?: string
 }
 
-export type GridItemTypes = HTMLAttributes<HTMLDivElement> & {
+export type GridItemTypes = {
   children: ReactNode
   col?: number
   colXS?: number
@@ -32,4 +34,5 @@ export type GridItemTypes = HTMLAttributes<HTMLDivElement> & {
   rowMD?: number
   rowLG?: number
   rowXL?: number
+  className?: string
 }

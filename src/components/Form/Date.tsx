@@ -82,7 +82,7 @@ export function InputDate({
       <Button
         type="button"
         ref={triggerButtonRef}
-        action={() => setIsOpen(true)}
+        onClick={() => setIsOpen(true)}
         className={clsx(styles.datePickerTrigger, isOpen ? styles.focused : '')}
       >
         <span className="hide">{title}</span>

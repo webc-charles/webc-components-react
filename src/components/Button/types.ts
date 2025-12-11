@@ -1,18 +1,8 @@
-import { ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
 
-export type ButtonVariantTypes = 'basic' | 'accent' | 'danger'
-
-export type ButtonTypes = {
-  id?: string
-  title?: string
-  link?: string
-  className?: string
-  action?: () => void
+export type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement> & {
+  ref?: Ref<HTMLButtonElement>
   children?: ReactNode
-  variant?: ButtonVariantTypes
-  disabled?: boolean
-  type?: 'button' | 'submit' | 'reset'
-  ariaLabel?: string
+  raw?: boolean
+  variant?: 'default' | 'accent' | 'danger'
 }
-
-export type ButtonRef = HTMLButtonElement | HTMLAnchorElement | HTMLDivElement

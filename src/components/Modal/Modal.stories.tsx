@@ -30,7 +30,7 @@ const ModalTrigger = ({
 
   return (
     <Button
-      action={() =>
+      onClick={() =>
         addModal({
           title,
           size,
@@ -97,7 +97,7 @@ export const AutoClose: Story = {
   render: () => (
     <ModalTrigger title="Auto Close Modal" size="sm" duration={3000}>
       <p>This modal will automatically close after 3 seconds.</p>
-      <Button action={() => {}}>test</Button>
+      <Button onClick={() => {}}>test</Button>
     </ModalTrigger>
   ),
 }
@@ -107,7 +107,7 @@ export const WithButton: Story = {
     <ModalTrigger title="Auto Close Modal" size="sm">
       <p>This modal has a button</p>
 
-      <Button variant="accent" action={() => {}}>
+      <Button variant="accent" onClick={() => {}}>
         test
       </Button>
     </ModalTrigger>

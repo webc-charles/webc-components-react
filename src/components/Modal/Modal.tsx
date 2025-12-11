@@ -158,8 +158,8 @@ export function Modal({
         )}
 
         <Button
-          action={handleRemove}
           title={closeLabel}
+          onClick={handleRemove}
           aria-label={closeLabel}
           className={styles.modalClose}
         >

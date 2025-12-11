@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode, Ref } from 'react'
 
 export type BadgeVariantTypes =
   | 'default'
@@ -7,8 +7,8 @@ export type BadgeVariantTypes =
   | 'info'
   | 'success'
 
-export type BadgeTypes = {
-  className?: string
+export type BadgeTypes = HTMLAttributes<HTMLDivElement> & {
+  ref?: Ref<HTMLDivElement>
   children: ReactNode
   variant?: BadgeVariantTypes
 }

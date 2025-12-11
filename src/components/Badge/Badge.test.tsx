@@ -4,23 +4,31 @@ import { Badge } from './Badge'
 
 describe('Badge', () => {
   it('renders children text', () => {
-    render(<Badge>Test Badge</Badge>)
-    expect(screen.getByText('Test Badge')).toBeInTheDocument()
+    render(<Badge data-testid="badge">Test Badge</Badge>)
+    expect(screen.getByTestId('badge')).toBeInTheDocument()
   })
 
   it('renders with default variant', () => {
-    render(<Badge>Default Badge</Badge>)
-    expect(screen.getByText('Default Badge')).toBeInTheDocument()
+    render(<Badge data-testid="badge">Default Badge</Badge>)
+    expect(screen.getByTestId('badge')).toBeInTheDocument()
   })
 
   it('renders with accent variant', () => {
-    render(<Badge variant="accent">Accent Badge</Badge>)
-    expect(screen.getByText('Accent Badge')).toBeInTheDocument()
+    render(
+      <Badge variant="accent" data-testid="badge">
+        Accent Badge
+      </Badge>
+    )
+    expect(screen.getByTestId('badge')).toBeInTheDocument()
   })
 
   it('applies custom className', () => {
-    render(<Badge className="custom-class">Custom Badge</Badge>)
-    const element = screen.getByText('Custom Badge')
+    render(
+      <Badge className="custom-class" data-testid="badge">
+        Custom Badge
+      </Badge>
+    )
+    const element = screen.getByTestId('badge')
     expect(element).toHaveClass('custom-class')
   })
 })

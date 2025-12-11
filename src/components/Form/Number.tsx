@@ -65,7 +65,7 @@ export function InputNumber({
           <Button
             type="button"
             className={clsx(styles.button, styles.increment)}
-            action={handleIncrement}
+            onClick={handleIncrement}
             disabled={
               disabled ||
               (max !== undefined && value !== undefined && value >= max)
@@ -78,7 +78,7 @@ export function InputNumber({
           <Button
             type="button"
             className={clsx(styles.button, styles.decrement)}
-            action={handleDecrement}
+            onClick={handleDecrement}
             disabled={
               disabled ||
               (min !== undefined && value !== undefined && value <= min)

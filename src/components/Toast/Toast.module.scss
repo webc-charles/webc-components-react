@@ -38,46 +38,80 @@
     opacity: 0;
     transform: translateY(2rem);
   }
+
+  .toastClose {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: var(--color-grey-2);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-5);
+    height: 2.5rem;
+    justify-content: center;
+    opacity: 0.5;
+    padding: 0;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    width: 2.5rem;
+
+    &.accent {
+      color: var(--color-accent-1);
+
+      &:hover,
+      &:focus {
+        background-color: transparent; 
+        color: var(--color-accent-1);
+      }
+    }
+
+    &.info {
+      color: var(--color-info-1);
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: var(--color-info-1);
+      }
+    }
+
+    &.warning {
+      color: var(--color-warning-1);
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: var(--color-warning-1);
+      }
+    }
+
+    &.success {
+      color: var(--color-success-1);
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: var(--color-success-1);
+      }
+    }
+
+    &.danger {
+      color: var(--color-danger-1);
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: var(--color-danger-1);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      opacity: 1;
+    }
+  }
 }
 
-.toastClose {
-  align-items: center;
-  background: transparent;
-  color: var(--color-grey-2);
-  cursor: pointer;
-  display: flex;
-  font-size: var(--font-size-5);
-  height: 2.5rem;
-  justify-content: center;
-  opacity: 0.5;
-  padding: 0;
-  position: absolute;
-  right: 0.25rem;
-  top: 0.25rem;
-  transition: opacity 0.2s;
-  width: 2.5rem;
 
-  &.accent {
-    color: var(--color-accent-1);
-  }
-
-  &.info {
-    color: var(--color-info-1);
-  }
-
-  &.warning {
-    color: var(--color-warning-1);
-  }
-
-  &.success {
-    color: var(--color-success-1);
-  }
-
-  &.danger {
-    color: var(--color-danger-1);
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-}

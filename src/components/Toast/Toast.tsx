@@ -57,7 +57,7 @@ export function Toast({
       </Alert>
 
       <Button
-        action={handleRemove}
+        onClick={handleRemove}
         title={closeLabel}
         aria-label={closeLabel}
         className={clsx(styles.toastClose, styles[variant])}

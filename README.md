@@ -7,6 +7,7 @@ A lightweight React component library with CSS variables for easy theming.
 ## Quick Start
 
 **1. Create a new React app**
+
 ```bash
 npx create-react-app my-app
 cd my-app
@@ -15,30 +16,39 @@ cd my-app
 **2. Install the library**
 
 First, create a `.npmrc` file in your project root:
+
 ```
 @webc-charles:registry=https://npm.pkg.github.com
 ```
 
 Then install:
+
 ```bash
 npm install @webc-charles/components-react
 ```
 
 **3. Import styles in `src/index.js`**
+
 ```jsx
 import '@webc-charles/components-react/styles.css'
 ```
 
 **4. Use components**
+
 ```jsx
-import { Button, Card, CardHeader, CardBody } from '@webc-charles/components-react'
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+} from '@webc-charles/components-react'
 
 function App() {
   return (
     <Card>
       <CardHeader>Welcome</CardHeader>
       <CardBody>
-        <Button variant="accent" action={() => console.log('clicked')}>
+        <Button variant="accent" onClick={() => console.log('clicked')}>
           Click me
         </Button>
       </CardBody>
@@ -50,11 +60,13 @@ function App() {
 ## Installation
 
 Add to your `.npmrc`:
+
 ```
 @webc-charles:registry=https://npm.pkg.github.com
 ```
 
 Then:
+
 ```bash
 npm install @webc-charles/components-react
 ```
@@ -134,7 +146,7 @@ import { Button } from '@webc/components-react'
 
 const Example = () => (
   <>
-    <Button variant="accent" action={() => console.log('clicked')}>
+    <Button variant="accent" onClick={() => console.log('clicked')}>
       Click me
     </Button>
 
@@ -245,7 +257,7 @@ function MyComponent() {
     })
   }
 
-  return <Button action={openModal}>Open Modal</Button>
+  return <Button onClick={openModal}>Open Modal</Button>
 }
 ```
 
@@ -329,7 +341,7 @@ function MyComponent() {
     })
   }
 
-  return <Button action={notify}>Save</Button>
+  return <Button onClick={notify}>Save</Button>
 }
 ```
 

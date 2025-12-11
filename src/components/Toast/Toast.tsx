@@ -2,7 +2,7 @@ import { useEffect, useEffectEvent, useState } from 'react'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
-import { Alert, Button } from 'components'
+import { Button } from 'components'
 import styles from './Toast.module.scss'
 import { ToastTypes } from './types'
 
@@ -48,13 +48,16 @@ export function Toast({
       aria-modal="true"
       className={clsx(
         styles.toast,
-        removing && styles.removing,
-        active && styles.active
+        styles[variant],
+        active && styles.active,
+        removing && styles.removing
       )}
     >
-      <Alert title={title} variant={variant}>
-        {children}
-      </Alert>
+      <div className={styles.container}>
+        {title && <div className={styles.containerHeader}>{title}</div>}
+
+        {children && <div className={styles.containerBody}>{children}</div>}
+      </div>
 
       <Button
         onClick={handleRemove}

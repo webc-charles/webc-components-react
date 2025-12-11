@@ -1,10 +1,9 @@
 {
-  "extends": ["stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-recommended", "stylelint-config-standard-scss"],
   "plugins": ["stylelint-order"],
   "rules": {
-    "scss/at-mixin-pattern": null,
-    "media-feature-range-notation": null,
     "order/properties-alphabetical-order": true,
+    "scss/at-mixin-pattern": null,
     "selector-class-pattern": null,
     "selector-pseudo-class-no-unknown": [
       true,

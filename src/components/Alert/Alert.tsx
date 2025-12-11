@@ -10,7 +10,12 @@ export function Alert({
   ...rest
 }: AlertTypes) {
   return (
-    <div ref={ref} className={clsx(styles.alert, styles[variant])} {...rest}>
+    <div
+      ref={ref}
+      role="alert"
+      className={clsx(styles.alert, styles[variant])}
+      {...rest}
+    >
       {title && <div className={styles.alertHeader}>{title}</div>}
 
       {children && <div className={styles.alertBody}>{children}</div>}

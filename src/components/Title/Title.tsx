@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './Title.module.scss'
-import { TitleTypes } from './types'
+import { TitleTypes } from './Title.types'
 
 export function Title({
   level = 'h1',

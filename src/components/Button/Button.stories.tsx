@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'accent', 'danger'],
+      options: ['default', 'primary', 'danger'],
       description: 'Visual style variant of the button',
     },
     raw: {
@@ -62,33 +62,33 @@ export const DefaultRawDisabled: Story = {
   },
 }
 
-export const Accent: Story = {
+export const primaryy: Story = {
   args: {
-    children: 'Accent Button',
-    variant: 'accent',
+    children: 'primaryy Button',
+    variant: 'primaryy',
   },
 }
 
-export const AccentDisabled: Story = {
+export const primaryyDisabled: Story = {
   args: {
-    children: 'Accent Button',
-    variant: 'accent',
+    children: 'primaryy Button',
+    variant: 'primaryy',
     disabled: true,
   },
 }
 
-export const AccentRaw: Story = {
+export const primaryyRaw: Story = {
   args: {
-    children: 'Accent Button',
-    variant: 'accent',
+    children: 'primaryy Button',
+    variant: 'primaryy',
     raw: true,
   },
 }
 
-export const AccentRawDisabled: Story = {
+export const primaryyRawDisabled: Story = {
   args: {
-    children: 'Accent Button',
-    variant: 'accent',
+    children: 'primaryy Button',
+    variant: 'primaryy',
     disabled: true,
     raw: true,
   },

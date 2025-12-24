@@ -1,57 +1,43 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 import { Title } from './Title'
 
 describe('Title', () => {
   it('renders with default h1 tag', () => {
-    render(<Title>Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 1 })
-    expect(title).toBeInTheDocument()
-    expect(title).toHaveTextContent('Test Title')
+    render(<Title data-testid="title">Test Title</Title>)
+    expect(screen.getByTestId('title')).toBeInTheDocument()
+    expect(screen.getByTestId('title').tagName).toBe('H1')
+    expect(screen.getByTestId('title')).toHaveTextContent('Test Title')
   })
 
-  it('renders h2 when level is 2', () => {
-    render(<Title level="2">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 2 })
-    expect(title).toBeInTheDocument()
+  it('renders h2 when level is h2', () => {
+    render(<Title data-testid="title" level="h2">Test Title</Title>)
+    expect(screen.getByTestId('title').tagName).toBe('H2')
   })
 
-  it('renders h3 when level is 3', () => {
-    render(<Title level="3">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 3 })
-    expect(title).toBeInTheDocument()
+  it('renders h3 when level is h3', () => {
+    render(<Title data-testid="title" level="h3">Test Title</Title>)
+    expect(screen.getByTestId('title').tagName).toBe('H3')
   })
 
-  it('renders h4 when level is 4', () => {
-    render(<Title level="4">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 4 })
-    expect(title).toBeInTheDocument()
+  it('renders h4 when level is h4', () => {
+    render(<Title data-testid="title" level="h4">Test Title</Title>)
+    expect(screen.getByTestId('title').tagName).toBe('H4')
   })
 
-  it('renders h5 when level is 5', () => {
-    render(<Title level="5">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 5 })
-    expect(title).toBeInTheDocument()
+  it('renders h5 when level is h5', () => {
+    render(<Title data-testid="title" level="h5">Test Title</Title>)
+    expect(screen.getByTestId('title').tagName).toBe('H5')
   })
 
-  it('renders h6 when level is 6', () => {
-    render(<Title level="6">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 6 })
-    expect(title).toBeInTheDocument()
+  it('renders h6 when level is h6', () => {
+    render(<Title data-testid="title" level="h6">Test Title</Title>)
+    expect(screen.getByTestId('title').tagName).toBe('H6')
   })
 
   it('applies custom className', () => {
-    render(<Title className="custom-class">Test Title</Title>)
-    const title = screen.getByRole('heading', { level: 1 })
-    expect(title).toHaveClass('custom-class')
-  })
-
-  it('renders children content', () => {
-    render(
-      <Title>
-        <span>Child content</span>
-      </Title>
-    )
-    expect(screen.getByText('Child content')).toBeInTheDocument()
+    render(<Title data-testid="title" className="custom-class">Test Title</Title>)
+    expect(screen.getByTestId('title')).toHaveClass('custom-class')
   })
 })

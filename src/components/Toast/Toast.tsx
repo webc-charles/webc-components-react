@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { Button } from 'components'
 import styles from './Toast.module.scss'
-import { ToastTypes } from './types'
+import { ToastTypes } from './ToastTypes'
 
 export function Toast({
   id,
   title,
   children,
-  variant = 'accent',
+  variant = 'primary',
   duration = 10000,
   onRemove,
   closeLabel = 'Close Toast',
@@ -59,14 +59,14 @@ export function Toast({
         {children && <div className={styles.containerBody}>{children}</div>}
       </div>
 
-      <Button
-        onClick={handleRemove}
+      <button
         title={closeLabel}
+        onClick={handleRemove}
         aria-label={closeLabel}
-        className={clsx(styles.toastClose, styles[variant])}
+        className={clsx(styles.close, styles[`variant-${variant}`])}
       >
-        <FontAwesomeIcon icon={faXmark} />
-      </Button>
+        <FontAwesomeIcon icon={faXmark} aria-hidden={true} />
+      </button>
     </div>
   )
 }

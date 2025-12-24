@@ -8,7 +8,7 @@ const meta: Meta<typeof Link> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['accent', 'danger'],
+      options: ['primary', 'danger'],
       description: 'Visual style variant of the link',
     },
     disabled: {
@@ -61,39 +61,39 @@ export const DefaultFillDisabled: Story = {
   },
 }
 
-export const Accent: Story = {
+export const primaryy: Story = {
   args: {
-    children: 'Accent Link',
+    children: 'primaryy Link',
     href: '#',
-    variant: 'accent',
+    variant: 'primaryy',
   },
 }
 
-export const AccentDisabled: Story = {
+export const primaryyDisabled: Story = {
   args: {
-    children: 'Accent Link',
+    children: 'primaryy Link',
     href: '#',
-    variant: 'accent',
+    variant: 'primaryy',
     disabled: true,
   },
 }
 
-export const AccentFill: Story = {
+export const primaryyFill: Story = {
   args: {
-    children: 'Accent Link',
+    children: 'primaryy Link',
     href: '#',
     fill: true,
-    variant: 'accent',
+    variant: 'primaryy',
   },
 }
 
-export const AccentFillDisabled: Story = {
+export const primaryyFillDisabled: Story = {
   args: {
-    children: 'Accent Link',
+    children: 'primaryy Link',
     href: '#',
     fill: true,
     disabled: true,
-    variant: 'accent',
+    variant: 'primaryy',
   },
 }
 

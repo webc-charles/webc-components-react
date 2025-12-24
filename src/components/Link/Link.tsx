@@ -1,39 +1,38 @@
 import clsx from 'clsx'
 import styles from './Link.module.scss'
-import { LinkTypes } from './types'
+import { LinkTypes } from './Link.types'
 
 export function Link({
-  ref,
   href,
-  fill,
   title,
-  variant,
   disabled,
   children,
   className,
+  appearance,
+  variant = 'default',
   ...rest
 }: LinkTypes) {
-  const content = children || title
+  const value = children || title
 
   const classList = clsx(
     styles.link,
-    fill ? styles.fill : '',
-    variant ? styles[variant] : '',
+    styles[`variant-${variant}`],
+    appearance && styles[`appearance-${appearance}`],
     disabled && styles.disabled,
     className
   )
 
   return (
     <a
-      ref={ref}
       href={href}
       title={title}
       className={classList}
+      aria-disabled={disabled}
       tabIndex={disabled ? -1 : 0}
       onClick={disabled ? (e) => e.preventDefault() : undefined}
       {...rest}
     >
-      {content}
+      {value}
     </a>
   )
 }

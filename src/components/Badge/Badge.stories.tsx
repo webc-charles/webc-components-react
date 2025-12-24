@@ -8,7 +8,7 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'accent', 'warning', 'info', 'success'],
+      options: ['default', 'primary', 'warning', 'info', 'success'],
       description: 'Visual style variant of the badge',
     },
     children: {
@@ -38,7 +38,7 @@ export const AllVariants: Story = {
       }}
     >
       <Badge variant="default">Default</Badge>
-      <Badge variant="accent">Accent</Badge>
+      <Badge variant="primaryy"primaryry</Badge>
       <Badge variant="warning">Warning</Badge>
       <Badge variant="info">Info</Badge>
       <Badge variant="success">Success</Badge>

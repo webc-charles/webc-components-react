@@ -1,18 +1,18 @@
 import clsx from 'clsx'
 import styles from './Badge.module.scss'
-import { BadgeTypes } from './types'
+import { BadgeTypes } from './Badge.types'
 
 export function Badge({
   ref,
-  variant = 'default',
-  className = '',
   children,
+  className,
+  variant = 'default',
   ...rest
 }: BadgeTypes) {
   return (
     <div
       ref={ref}
-      className={clsx(styles.badge, styles[variant], className)}
+      className={clsx(styles.badge, styles[`variant-${variant}`], className)}
       {...rest}
     >
       {children}

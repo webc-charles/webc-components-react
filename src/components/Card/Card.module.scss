@@ -1,8 +1,7 @@
-@import "styles/form";
+@use 'styles/form' as *;
 
 .card {
   background-color: var(--color-white);
-  border: 0.2rem solid var(--color-black-20);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -10,28 +9,13 @@
 }
 
 .cardHeader {
-  align-items: center;
-  background-color: var(--color-grey-5);
-  border-radius: 0.5rem 0.5rem 0 0;
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
 }
 
 .cardBody {
-  border-radius: 0.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 2rem 1rem;
 }
 
 .cardFooter {
-  align-items: center;
-  background-color: var(--color-grey-4);
-  border-radius: 0 0 0.5rem 0.5rem;
   display: flex;
-  justify-content: space-between;
-  min-height: 4rem;
-  padding: 1rem;
 }

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './Grid.module.scss'
-import { GridTypes } from './types'
+import { GridTypes } from './Grid.types'
 
 export function Grid({
   children,

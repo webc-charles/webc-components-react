@@ -1,8 +1,8 @@
 import { ReactNode, useCallback, useMemo, useState } from 'react'
 import { Toast } from './Toast'
 import styles from './Toast.module.scss'
+import { ToastConfigTypes } from './ToastTypes'
 import { ToastsContext } from './ToastsContext'
-import { ToastConfigTypes } from './types'
 
 export function Toasts({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<ToastConfigTypes[]>([])

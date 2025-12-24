@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5'
-import { Button } from '../Button'
+import { Button } from 'components'
 import { Toasts } from './Toasts'
 import { useToasts } from './ToastsContext'
 
@@ -38,10 +38,10 @@ const ToastTrigger = ({ title, variant, duration, children }: any) => {
   )
 }
 
-export const Accent: Story = {
+export const primary: Story = {
   render: () => (
-    <ToastTrigger title="Accent Toast" variant="accent">
-      <p>This is an accent toast notification.</p>
+    <ToastTrigger title="primary Toast" variant="primary">
+      <p>This is an primary toast notification.</p>
     </ToastTrigger>
   ),
 }
@@ -96,7 +96,7 @@ export const LongDuration: Story = {
 
 export const ShortDuration: Story = {
   render: () => (
-    <ToastTrigger title="Quick Toast" variant="accent" duration={3000}>
+    <ToastTrigger title="Quick Toast" variant="primary" duration={3000}>
       <p>This toast disappears after 3 seconds.</p>
     </ToastTrigger>
   ),

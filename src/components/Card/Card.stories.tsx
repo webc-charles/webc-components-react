@@ -59,7 +59,7 @@ export const Complete: Story = {
         </p>
       </CardBody>
       <CardFooter>
-        <Button variant="accent" link="/">
+        <Button variant="primary" link="/">
           save
         </Button>
       </CardFooter>
@@ -72,7 +72,7 @@ export const WithBadges: Story = {
     <Card>
       <CardHeader>
         <Title level="3">Invoice #12345</Title>
-        <Badge variant="accent">Finalized</Badge>
+        <Badge variant="primaryy">Finalized</Badge>
       </CardHeader>
       <CardBody>
         <p>Customer: John Doe</p>

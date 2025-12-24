@@ -1,0 +1,15 @@
+@use 'styles/form' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  @include formLabel;
+}
+
+.input {
+  @include formInput;
+}

@@ -1,47 +1,27 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 import { Note } from './Note'
 
 describe('Note', () => {
   it('returns null when no children', () => {
-    const { container } = render(<Note />)
+    const { container } = render(<Note data-testid="note" />)
     expect(container).toBeEmptyDOMElement()
   })
 
-  it('renders children', () => {
-    render(<Note>Test content</Note>)
-    expect(screen.getByText('Test content')).toBeInTheDocument()
+  it('renders with children', () => {
+    render(<Note data-testid="note">Test content</Note>)
+    expect(screen.getByTestId('note')).toBeInTheDocument()
+    expect(screen.getByTestId('note')).toHaveTextContent('Test content')
   })
 
-  it('renders with title', () => {
-    render(<Note title="Test Title">Content</Note>)
-    expect(screen.getByText('Test Title')).toBeInTheDocument()
-    expect(screen.getByText('Content')).toBeInTheDocument()
+  it('applies variant class', () => {
+    render(<Note data-testid="note" variant="warning">Warning content</Note>)
+    expect(screen.getByTestId('note').className).toMatch(/variant-warning/)
   })
 
-  it('renders title as h3 heading', () => {
-    render(<Note title="Test Title">Content</Note>)
-    const heading = screen.getByRole('heading', { level: 3 })
-    expect(heading).toHaveTextContent('Test Title')
-  })
-
-  it('renders with default variant', () => {
-    render(<Note>Content</Note>)
-    expect(screen.getByText('Content')).toBeInTheDocument()
-  })
-
-  it('renders with danger variant', () => {
-    render(<Note variant="danger">Danger content</Note>)
-    expect(screen.getByText('Danger content')).toBeInTheDocument()
-  })
-
-  it('renders with success variant', () => {
-    render(<Note variant="success">Success content</Note>)
-    expect(screen.getByText('Success content')).toBeInTheDocument()
-  })
-
-  it('renders with warning variant', () => {
-    render(<Note variant="warning">Warning content</Note>)
-    expect(screen.getByText('Warning content')).toBeInTheDocument()
+  it('applies custom className', () => {
+    render(<Note data-testid="note" className="custom-class">Content</Note>)
+    expect(screen.getByTestId('note')).toHaveClass('custom-class')
   })
 })

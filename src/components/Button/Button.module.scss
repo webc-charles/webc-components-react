@@ -1,94 +1,134 @@
-@import "styles/mq";
-@import "styles/form";
+@use 'sass:map';
 
-.button.raw {
-  background: none;
-  border: none;
-  color: var(--color-black);
+$variants: (
+  'default': (
+    base: var(--color-black),
+    hover: var(--color-black-50),
+  ),
+  'primary': (
+    base: var(--color-primary-2),
+    hover: var(--color-primary-1),
+  ),
+  'secondary': (
+    base: var(--color-secondary-2),
+    hover: var(--color-secondary-1),
+  ),
+  'success': (
+    base: var(--color-success-2),
+    hover: var(--color-success-1),
+  ),
+  'danger': (
+    base: var(--color-danger-2),
+    hover: var(--color-danger-1),
+  ),
+  'warning': (
+    base: var(--color-warning-2),
+    hover: var(--color-warning-1),
+  ),
+  'info': (
+    base: var(--color-info-2),
+    hover: var(--color-info-1),
+  ),
+);
+
+.button {
+  align-items: center;
   cursor: pointer;
-  font-size: var(--font-size-4);
-  text-decoration: underline;
+  display: inline-flex;
+  font-size: var(--font-size-6);
+  gap: 1rem;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  transition: all 0.1s ease;
 
-  &:hover,
-  &:focus {
-    outline: 0;
+  &.appearance-button,
+  &.appearance-outline {
+    border-radius: 0.6rem;
+    height: 4.5rem;
+    padding: 0 2rem;
     text-decoration: none;
   }
 
-  &.accent {
-    color: var(--color-accent-2);
-  }
-
-  &.danger {
-    color: var(--color-danger-2);
-  }
-
-  &[disabled] {
-    opacity: 0.5;
-    pointer-events: none;
-    position: relative;
-    text-decoration: underline;
-
-    &::after {
-      content: "";
-      cursor: not-allowed;
-      height: 100%;
+  &.appearance-underline {
+    &::before {
+      bottom: 0;
+      content: '';
+      height: 0.1rem;
       left: 0;
-      pointer-events: all;
       position: absolute;
-      top: 0;
+      right: 0;
+      transform: translateY(0.1rem);
+      transition: transform 0.2s ease;
       width: 100%;
     }
-  }
-}
-
-.button:not(.raw) {
-  align-items: center;
-  background: var(--color-grey-3);
-  border: 1px solid var(--color-grey-2);
-  border-radius: 0.5rem;
-  box-shadow: inset 0 0.1rem 0 0 var(--color-white-50);
-  color: var(--color-grey-1);
-  cursor: pointer;
-  display: inline-flex;
-  font-size: var(--font-size-4);
-  font-weight: var(--font-weight-lg);
-  height: 3rem;
-  justify-content: center;
-  outline: 0;
-  padding: 0 1rem;
-  text-decoration: none;
-
-  &:hover:not([disabled]),
-  &:focus:not([disabled]) {
-    background: var(--color-grey-2);
-    border-color: var(--color-grey-2);
-    color: var(--color-white);
-  }
-
-  &.accent {
-    background: var(--color-accent-3);
-    border: 1px solid var(--color-accent-2);
-    color: var(--color-accent-1);
 
     &:hover:not([disabled]),
     &:focus:not([disabled]) {
-      background: var(--color-accent-2);
-      border-color: var(--color-accent-2);
-      color: var(--color-white);
+      &::before {
+        transform: translateY(0.4rem);
+      }
     }
   }
 
-  &.danger {
-    background: var(--color-danger-3);
-    border: 1px solid var(--color-danger-2);
-    color: var(--color-danger-1);
+  @each $name, $colors in $variants {
+    $base: map.get($colors, base);
+    $hover: map.get($colors, hover);
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
-      background: var(--color-danger-2);
-      border-color: var(--color-danger-2);
-      color: var(--color-white);
+    &.variant-#{$name} {
+      background: transparent;
+      color: $base;
+
+      &:hover:not([disabled]),
+      &:focus:not([disabled]) {
+        background: transparent;
+        color: $hover;
+      }
+
+      &.appearance-button {
+        background: $base;
+        color: var(--color-white);
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          background: $hover;
+          color: var(--color-white);
+        }
+      }
+
+      &.appearance-outline {
+        background: transparent;
+        border: 0.1rem solid $base;
+        color: $base;
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          background: $hover;
+          border-color: $hover;
+          color: var(--color-white);
+        }
+      }
+
+      &.appearance-underline {
+        background: transparent;
+        border-color: $base;
+        color: $base;
+
+        &::before {
+          background: $base;
+        }
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          background: transparent;
+          border-color: $hover;
+          color: $hover;
+
+          &::before {
+            background: $hover;
+          }
+        }
+      }
     }
   }
 
@@ -98,7 +138,7 @@
     position: relative;
 
     &::after {
-      content: "";
+      content: '';
       cursor: not-allowed;
       height: 100%;
       left: 0;

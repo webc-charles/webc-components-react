@@ -48,7 +48,7 @@ function App() {
     <Card>
       <CardHeader>Welcome</CardHeader>
       <CardBody>
-        <Button variant="accent" onClick={() => console.log('clicked')}>
+        <Button variant="primary" onClick={() => console.log('clicked')}>
           Click me
         </Button>
       </CardBody>
@@ -85,7 +85,7 @@ Components use CSS variables for styling. Override them in your own CSS:
 
 ```css
 :root {
-  --color-accent-2: #ff5500;
+  --color-primary-2: #ff5500;
   --color-danger-2: #e74c3c;
   --font-size-4: 1.8rem;
 }
@@ -111,11 +111,11 @@ const Example = () => (
 )
 ```
 
-| Prop       | Type                                                                    | Default  | Description   |
-| ---------- | ----------------------------------------------------------------------- | -------- | ------------- |
-| `title`    | `ReactNode`                                                             | -        | Alert title   |
-| `children` | `ReactNode`                                                             | -        | Alert content |
-| `variant`  | `'accent' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'default'` | `'info'` | Style variant |
+| Prop       | Type                                                                     | Default  | Description   |
+| ---------- | ------------------------------------------------------------------------ | -------- | ------------- |
+| `title`    | `ReactNode`                                                              | -        | Alert title   |
+| `children` | `ReactNode`                                                              | -        | Alert content |
+| `variant`  | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'info' \| 'default'` | `'info'` | Style variant |
 
 ---
 
@@ -129,11 +129,11 @@ import { Badge } from '@webc/components-react'
 const Example = () => <Badge variant="success">New</Badge>
 ```
 
-| Prop        | Type                                                        | Default     | Description          |
-| ----------- | ----------------------------------------------------------- | ----------- | -------------------- |
-| `children`  | `ReactNode`                                                 | -           | Badge content        |
-| `variant`   | `'default' \| 'accent' \| 'warning' \| 'info' \| 'success'` | `'default'` | Style variant        |
-| `className` | `string`                                                    | -           | Additional CSS class |
+| Prop        | Type                                                         | Default     | Description          |
+| ----------- | ------------------------------------------------------------ | ----------- | -------------------- |
+| `children`  | `ReactNode`                                                  | -           | Badge content        |
+| `variant`   | `'default' \| 'primary' \| 'warning' \| 'info' \| 'success'` | `'default'` | Style variant        |
+| `className` | `string`                                                     | -           | Additional CSS class |
 
 ---
 
@@ -146,7 +146,7 @@ import { Button } from '@webc/components-react'
 
 const Example = () => (
   <>
-    <Button variant="accent" onClick={() => console.log('clicked')}>
+    <Button variant="primary" onClick={() => console.log('clicked')}>
       Click me
     </Button>
 
@@ -155,15 +155,15 @@ const Example = () => (
 )
 ```
 
-| Prop       | Type                              | Default    | Description                  |
-| ---------- | --------------------------------- | ---------- | ---------------------------- |
-| `children` | `ReactNode`                       | -          | Button content               |
-| `variant`  | `'basic' \| 'accent' \| 'danger'` | -          | Style variant                |
-| `action`   | `() => void`                      | -          | Click handler                |
-| `link`     | `string`                          | -          | Renders as `<a>` if provided |
-| `disabled` | `boolean`                         | `false`    | Disabled state               |
-| `type`     | `'button' \| 'submit' \| 'reset'` | `'button'` | Button type                  |
-| `title`    | `string`                          | -          | Title attribute              |
+| Prop       | Type                               | Default    | Description                  |
+| ---------- | ---------------------------------- | ---------- | ---------------------------- |
+| `children` | `ReactNode`                        | -          | Button content               |
+| `variant`  | `'basic' \| 'primary' \| 'danger'` | -          | Style variant                |
+| `action`   | `() => void`                       | -          | Click handler                |
+| `link`     | `string`                           | -          | Renders as `<a>` if provided |
+| `disabled` | `boolean`                          | `false`    | Disabled state               |
+| `type`     | `'button' \| 'submit' \| 'reset'`  | `'button'` | Button type                  |
+| `title`    | `string`                           | -          | Title attribute              |
 
 ---
 
@@ -345,13 +345,13 @@ function MyComponent() {
 }
 ```
 
-| Prop         | Type                                                       | Default         | Description               |
-| ------------ | ---------------------------------------------------------- | --------------- | ------------------------- |
-| `title`      | `ReactNode`                                                | -               | Toast title               |
-| `children`   | `ReactNode`                                                | -               | Toast content             |
-| `variant`    | `'accent' \| 'success' \| 'danger' \| 'warning' \| 'info'` | `'accent'`      | Style variant             |
-| `duration`   | `number`                                                   | `10000`         | Auto-dismiss after ms     |
-| `closeLabel` | `string`                                                   | `'Close Toast'` | Close button label (a11y) |
+| Prop         | Type                                                        | Default         | Description               |
+| ------------ | ----------------------------------------------------------- | --------------- | ------------------------- |
+| `title`      | `ReactNode`                                                 | -               | Toast title               |
+| `children`   | `ReactNode`                                                 | -               | Toast content             |
+| `variant`    | `'primary' \| 'success' \| 'danger' \| 'warning' \| 'info'` | `'primary'`     | Style variant             |
+| `duration`   | `number`                                                    | `10000`         | Auto-dismiss after ms     |
+| `closeLabel` | `string`                                                    | `'Close Toast'` | Close button label (a11y) |
 
 ---
 
@@ -428,9 +428,9 @@ const [checked, setChecked] = useState(false)
   --color-grey-4: #f0f0f0;
   --color-grey-5: #f5f5f5;
   --color-grey-6: #fcfcfc;
-  --color-accent-1: #004085;
-  --color-accent-2: #007bff;
-  --color-accent-3: #b8daff;
+  --color-primary-1: #004085;
+  --color-primary-2: #007bff;
+  --color-primary-3: #b8daff;
   --color-success-1: #155724;
   --color-success-2: #3fb259;
   --color-success-3: #d4edda;

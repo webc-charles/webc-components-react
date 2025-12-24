@@ -25,7 +25,9 @@
   },
   "scripts": {
     "build": "tsup",
-    "test": "react-scripts test",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "stylelint": "stylelint \"src/**/*.scss\" --fix",
@@ -53,12 +55,14 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
-    "@types/jest": "^30.0.0",
     "@types/node": "20.4.2",
     "@types/react": "^19.2.0",
     "@types/react-datepicker": "4.11.2",
     "@types/react-dom": "^19.2.0",
     "@vitest/mocker": "^4.0.15",
+    "@vitest/ui": "^4.0.15",
+    "jsdom": "^26.1.0",
+    "vitest": "^4.0.15",
     "esbuild-sass-plugin": "^3.3.1",
     "postcss": "^8.5.6",
     "postcss-modules": "^6.0.1",
@@ -78,8 +82,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

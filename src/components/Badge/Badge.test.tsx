@@ -1,34 +1,22 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import { Badge } from './Badge'
 
 describe('Badge', () => {
-  it('renders children text', () => {
+  it('renders with children', () => {
     render(<Badge data-testid="badge">Test Badge</Badge>)
     expect(screen.getByTestId('badge')).toBeInTheDocument()
+    expect(screen.getByTestId('badge')).toHaveTextContent('Test Badge')
   })
 
-  it('renders with default variant', () => {
-    render(<Badge data-testid="badge">Default Badge</Badge>)
-    expect(screen.getByTestId('badge')).toBeInTheDocument()
-  })
-
-  it('renders with accent variant', () => {
-    render(
-      <Badge variant="accent" data-testid="badge">
-        Accent Badge
-      </Badge>
-    )
-    expect(screen.getByTestId('badge')).toBeInTheDocument()
+  it('applies variant class', () => {
+    render(<Badge data-testid="badge" variant="primary">Primary Badge</Badge>)
+    expect(screen.getByTestId('badge').className).toMatch(/variant-primary/)
   })
 
   it('applies custom className', () => {
-    render(
-      <Badge className="custom-class" data-testid="badge">
-        Custom Badge
-      </Badge>
-    )
-    const element = screen.getByTestId('badge')
-    expect(element).toHaveClass('custom-class')
+    render(<Badge data-testid="badge" className="custom-class">Custom Badge</Badge>)
+    expect(screen.getByTestId('badge')).toHaveClass('custom-class')
   })
 })

@@ -1,4 +1,4 @@
-@import "styles/mq";
+@use 'styles/mq';
 
 @mixin formTitle {
   color: var(--color-grey-2);
@@ -24,7 +24,7 @@
 
 @mixin formInput {
   background-color: var(--color-white);
-  border: 0.2rem solid var(--color-black-20);
+  border: 0.1rem solid var(--color-black-20);
   border-radius: 0.5rem;
   color: var(--color-grey-1);
   font-family: inherit;
@@ -38,11 +38,11 @@
   }
 
   &:hover {
-    border: 0.2rem solid var(--color-black-20);
+    border: 0.1rem solid var(--color-black-20);
   }
 
   &:focus {
-    border: 0.2rem solid var(--color-accent-2);
+    border: 0.1rem solid var(--color-primary-2);
     outline: none;
   }
 

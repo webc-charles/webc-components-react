@@ -1,4 +1,4 @@
-@import 'styles/mq';
+@use 'styles/mq' as *;
 
 .toasts {
   align-items: center;
@@ -22,7 +22,7 @@
 .toast {
   border-radius: 0.5rem;
   border-style: solid;
-  border-width: 0.2rem;
+  border-width: 0.1rem;
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -42,22 +42,28 @@
     transform: translateY(2rem);
   }
 
-  &.danger {
-    background-color: var(--color-danger-3);
-    border-color: var(--color-danger-2);
-    color: var(--color-danger-1);
+  &.primary {
+    background-color: var(--color-primary-3);
+    border-color: var(--color-primary-2);
+    color: var(--color-primary-1);
   }
 
-  &.accent {
-    background-color: var(--color-accent-3);
-    border-color: var(--color-accent-2);
-    color: var(--color-accent-1);
+  &.secondary {
+    background-color: var(--color-secondary-3);
+    border-color: var(--color-secondary-2);
+    color: var(--color-secondary-1);
   }
 
   &.success {
     background-color: var(--color-success-3);
     border-color: var(--color-success-2);
     color: var(--color-success-1);
+  }
+
+  &.danger {
+    background-color: var(--color-danger-3);
+    border-color: var(--color-danger-2);
+    color: var(--color-danger-1);
   }
 
   &.warning {
@@ -71,99 +77,75 @@
     border-color: var(--color-info-2);
     color: var(--color-info-1);
   }
+}
 
-  .toastClose {
-    align-items: center;
-    background: transparent;
-    border: 0;
-    color: var(--color-grey-2);
-    cursor: pointer;
-    display: flex;
-    font-size: var(--font-size-5);
-    height: 2.5rem;
-    justify-content: center;
-    opacity: 0.5;
-    padding: 0;
-    position: absolute;
-    right: 0.25rem;
-    top: 0.25rem;
-    width: 2.5rem;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
 
-    &.accent {
-      color: var(--color-accent-1);
+.containerHeader {
+  display: flex;
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-lg);
+}
 
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: var(--color-accent-1);
-      }
-    }
+.containerBody {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-4);
+  gap: 0.5rem;
+}
 
-    &.info {
-      color: var(--color-info-1);
+.close {
+  align-items: center;
+  background: transparent !important;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--font-size-5);
+  height: 2.5rem;
+  justify-content: center;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  width: 2.5rem;
 
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: var(--color-info-1);
-      }
-    }
-
-    &.warning {
-      color: var(--color-warning-1);
-
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: var(--color-warning-1);
-      }
-    }
-
-    &.success {
-      color: var(--color-success-1);
-
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: var(--color-success-1);
-      }
-    }
-
-    &.danger {
-      color: var(--color-danger-1);
-
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: var(--color-danger-1);
-      }
-    }
-
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      opacity: 1;
-    }
+  &.variant-default {
+    color: var(--color-black) !important;
   }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
-    width: 100%;
+  &.variant-primary {
+    color: var(--color-primary-1) !important;
   }
 
-  .containerHeader {
-    display: flex;
-    font-size: var(--font-size-5);
-    font-weight: var(--font-weight-lg);
+  &.variant-secondary {
+    color: var(--color-secondary-1) !important;
   }
 
-  .containerBody {
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size-4);
-    gap: 0.5rem;
+  &.variant-success {
+    color: var(--color-success-1) !important;
+  }
+
+  &.variant-danger {
+    color: var(--color-danger-1) !important;
+  }
+
+  &.variant-warning {
+    color: var(--color-warning-1) !important;
+  }
+
+  &.variant-info {
+    color: var(--color-info-1) !important;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
   }
 }

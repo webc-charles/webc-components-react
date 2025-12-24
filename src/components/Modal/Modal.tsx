@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { Button } from 'components'
 import styles from './Modal.module.scss'
-import { ModalTypes } from './types'
+import { ModalTypes } from './ModalTypes'
 
 export function Modal({
   id,
@@ -161,7 +161,7 @@ export function Modal({
           title={closeLabel}
           onClick={handleRemove}
           aria-label={closeLabel}
-          className={styles.modalClose}
+          className={styles.close}
         >
           <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
         </Button>

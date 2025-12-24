@@ -1,19 +1,40 @@
 import clsx from 'clsx'
-import { Title } from 'components'
 import styles from './Note.module.scss'
-import { NoteTypes } from './types'
+import { NoteHeaderTypes, NoteTypes } from './Note.types'
 
-export function Note({ title, variant = 'default', children }: NoteTypes) {
+export function NoteHeader({
+  className,
+  children,
+  variant = 'default',
+  ...rest
+}: NoteHeaderTypes) {
+  return (
+    <div
+      className={clsx(
+        styles.noteHeader,
+        styles[`variant-${variant}`],
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </div>
+  )
+}
+
+export function Note({
+  variant = 'default',
+  className,
+  children,
+  ...rest
+}: NoteTypes) {
   if (!children) return null
 
   return (
-    <div className={clsx(styles.note, styles[variant])}>
-      {title && (
-        <Title level="3" className={clsx(styles.title)}>
-          {title}
-        </Title>
-      )}
-
+    <div
+      className={clsx(styles.note, styles[`variant-${variant}`], className)}
+      {...rest}
+    >
       {children}
     </div>
   )

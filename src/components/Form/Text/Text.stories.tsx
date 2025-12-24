@@ -1,33 +1,19 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { str } from "@/i18n";
-import { InputText } from ".";
+import type { Meta, StoryObj } from '@storybook/react'
+import { InputText } from './Text'
 
 const meta: Meta<typeof InputText> = {
-  title: "Components/InputText",
+  title: 'Form/Text',
   component: InputText,
-  tags: ["autodocs"],
-  argTypes: {
-    disabled: {
-      control: "boolean",
-      description: "Whether the input is disabled",
-    },
-  },
-};
+  tags: ['autodocs'],
+}
 
-export default meta;
-type Story = StoryObj<typeof InputText>;
+export default meta
+type Story = StoryObj<typeof InputText>
 
 export const Default: Story = {
-  args: {
-    label: "Email",
-    placeholder: str.enter_email,
-  },
-};
+  args: { label: 'Email', placeholder: 'Enter email' },
+}
 
 export const Disabled: Story = {
-  args: {
-    label: "Email",
-    placeholder: str.enter_email,
-    disabled: true,
-  },
-};
+  args: { label: 'Email', placeholder: 'Enter email', disabled: true },
+}

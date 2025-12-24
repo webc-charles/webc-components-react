@@ -17,28 +17,48 @@ describe('Button', () => {
 
   it('calls onClick when clicked', () => {
     const handleClick = vi.fn()
-    render(<Button data-testid="button" onClick={handleClick}>Click me</Button>)
+    render(
+      <Button data-testid="button" onClick={handleClick}>
+        Click me
+      </Button>
+    )
     fireEvent.click(screen.getByTestId('button'))
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
   it('applies disabled state', () => {
-    render(<Button data-testid="button" disabled>Disabled</Button>)
+    render(
+      <Button data-testid="button" disabled>
+        Disabled
+      </Button>
+    )
     expect(screen.getByTestId('button')).toBeDisabled()
   })
 
   it('applies variant class', () => {
-    render(<Button data-testid="button" variant="primary">Primary</Button>)
+    render(
+      <Button data-testid="button" variant="primary">
+        Primary
+      </Button>
+    )
     expect(screen.getByTestId('button').className).toMatch(/variant-primary/)
   })
 
   it('has correct type attribute', () => {
-    render(<Button data-testid="button" type="submit">Submit</Button>)
+    render(
+      <Button data-testid="button" type="submit">
+        Submit
+      </Button>
+    )
     expect(screen.getByTestId('button')).toHaveAttribute('type', 'submit')
   })
 
   it('applies custom className', () => {
-    render(<Button data-testid="button" className="custom-class">Button</Button>)
+    render(
+      <Button data-testid="button" className="custom-class">
+        Button
+      </Button>
+    )
     expect(screen.getByTestId('button')).toHaveClass('custom-class')
   })
 })

@@ -191,46 +191,22 @@ export const MinimalHero: Story = {
 
 export const VerticalButtons: Story = {
   render: () => (
-    <Banner backgroundColor="var(--color-secondary-2)">
+    <Banner backgroundColor="var(--color-info-2)">
       <BannerContent textColor="light" align="center">
         <BannerTitle>Choose Your Path</BannerTitle>
         <BannerSubtitle>Select the option that fits you best</BannerSubtitle>
         <BannerActions direction="vertical">
-          <Button variant="default" appearance="button">
+          <Button variant="primary" appearance="button">
             For Individuals
           </Button>
-          <Button variant="default" appearance="button">
+          <Button variant="primary" appearance="button">
             For Teams
           </Button>
-          <Button variant="default" appearance="button">
+          <Button variant="primary" appearance="button">
             For Enterprise
           </Button>
         </BannerActions>
       </BannerContent>
     </Banner>
-  ),
-}
-
-export const AllAlignments: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      {alignOptions.map((align) => (
-        <Banner
-          key={align}
-          backgroundColor="var(--color-grey-5)"
-          minHeight="20rem"
-        >
-          <BannerContent align={align} textColor="dark">
-            <BannerTitle level="h3">Align: {align}</BannerTitle>
-            <BannerText>Content aligned to the {align}</BannerText>
-            <BannerActions>
-              <Button variant="primary" appearance="button">
-                Action
-              </Button>
-            </BannerActions>
-          </BannerContent>
-        </Banner>
-      ))}
-    </div>
   ),
 }

@@ -37,10 +37,8 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 1.5rem;
   padding: 4rem;
 
-  // Horizontal alignment
   &.align-left {
     align-items: flex-start;
     text-align: left;
@@ -56,7 +54,6 @@
     text-align: right;
   }
 
-  // Vertical justification
   &.justify-start {
     justify-content: flex-start;
   }
@@ -69,69 +66,41 @@
     justify-content: flex-end;
   }
 
-  // Text color variants
+  .title {
+    color: inherit;
+  }
+
+  .subtitle {
+    color: inherit;
+    font-size: var(--font-size-4);
+    opacity: 0.8;
+  }
+
+  .text {
+    color: inherit;
+    font-size: var(--font-size-4);
+    line-height: 1.6;
+    margin: 2rem 0 0;
+    max-width: 40rem;
+  }
+
   &.text-light {
     color: var(--color-white);
-
-    .title,
-    .subtitle,
-    .text {
-      color: inherit;
-    }
-
-    .subtitle {
-      opacity: 0.9;
-    }
-
-    .text {
-      opacity: 0.85;
-    }
   }
 
   &.text-dark {
-    color: var(--color-grey-1);
-
-    .title {
-      color: var(--color-grey-1);
-    }
-
-    .subtitle {
-      color: var(--color-grey-2);
-    }
-
-    .text {
-      color: var(--color-grey-2);
-    }
+    color: var(--color-black);
   }
-}
-
-.title {
-  margin: 0;
-}
-
-.subtitle {
-  font-size: var(--font-size-3);
-  font-weight: 500;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.text {
-  font-size: var(--font-size-4);
-  line-height: 1.6;
-  margin: 0;
-  max-width: 60ch;
 }
 
 .actions {
   align-items: center;
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: 2rem;
+  margin: 4rem 0 0;
 
   &.horizontal {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
   }
 
   &.vertical {

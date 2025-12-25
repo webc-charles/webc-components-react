@@ -4,34 +4,42 @@ $variants: (
   'default': (
     base: var(--color-default-2),
     hover: var(--color-default-1),
+    text: var(--color-white),
   ),
   'primary': (
     base: var(--color-primary-2),
     hover: var(--color-primary-1),
+    text: var(--color-white),
   ),
   'secondary': (
     base: var(--color-secondary-2),
     hover: var(--color-secondary-1),
+    text: var(--color-white),
   ),
   'success': (
     base: var(--color-success-2),
     hover: var(--color-success-1),
+    text: var(--color-white),
   ),
   'danger': (
     base: var(--color-danger-2),
     hover: var(--color-danger-1),
+    text: var(--color-white),
   ),
   'warning': (
     base: var(--color-warning-2),
     hover: var(--color-warning-1),
+    text: var(--color-white),
   ),
   'info': (
     base: var(--color-info-2),
     hover: var(--color-info-1),
+    text: var(--color-white),
   ),
   'contrast': (
     base: var(--color-contrast-2),
     hover: var(--color-contrast-1),
+    text: var(--color-grey-1),
   ),
 );
 
@@ -89,6 +97,7 @@ $variants: (
   @each $name, $colors in $variants {
     $base: map.get($colors, base);
     $hover: map.get($colors, hover);
+    $text: map.get($colors, text);
 
     &.variant-#{$name} {
       background: transparent;
@@ -102,13 +111,13 @@ $variants: (
 
       &.appearance-button {
         background: $base;
-        color: var(--color-white);
+        color: $text;
 
         &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
         &:focus:not([disabled]) {
           background: $hover;
-          color: var(--color-white);
+          color: $text;
         }
       }
 
@@ -120,7 +129,7 @@ $variants: (
         &:focus:not([disabled]) {
           background: $hover;
           border-color: $hover;
-          color: var(--color-white);
+          color: $text;
         }
       }
 

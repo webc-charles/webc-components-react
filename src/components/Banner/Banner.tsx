@@ -20,13 +20,6 @@ export function Banner({
   children,
   ...props
 }: BannerTypes) {
-  const bannerStyle = {
-    ...style,
-    '--banner-bg-image': backgroundImage ? `url(${backgroundImage})` : undefined,
-    '--banner-bg-color': backgroundColor,
-    '--banner-min-height': minHeight,
-  } as React.CSSProperties
-
   return (
     <div
       className={clsx(
@@ -34,10 +27,17 @@ export function Banner({
         overlay !== 'none' && styles[`overlay-${overlay}`],
         className
       )}
-      style={bannerStyle}
+      style={{
+        ...style,
+        backgroundImage: backgroundImage
+          ? `url(${backgroundImage})`
+          : undefined,
+        backgroundColor,
+        minHeight,
+      }}
       {...props}
     >
-      {children}
+      <div className={styles.container}>{children}</div>
     </div>
   )
 }
@@ -57,8 +57,8 @@ export function BannerContent({
       className={clsx(
         styles.content,
         styles[`align-${align}`],
-        styles[`justify-${justify}`],
         styles[`text-${textColor}`],
+        styles[`justify-${justify}`],
         className
       )}
       style={{ ...style, maxWidth }}
@@ -82,7 +82,11 @@ export function BannerTitle({
   )
 }
 
-export function BannerSubtitle({ className, children, ...props }: BannerSubtitleTypes) {
+export function BannerSubtitle({
+  className,
+  children,
+  ...props
+}: BannerSubtitleTypes) {
   return (
     <p className={clsx(styles.subtitle, className)} {...props}>
       {children}

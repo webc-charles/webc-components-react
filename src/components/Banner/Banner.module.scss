@@ -1,11 +1,10 @@
 .banner {
-  background-color: var(--banner-bg-color, var(--color-grey-5));
-  background-image: var(--banner-bg-image);
+  background-color: var(--color-grey-5);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  min-height: var(--banner-min-height, 40rem);
+  min-height: 40rem;
   position: relative;
   width: 100%;
 
@@ -25,32 +24,23 @@
   }
 }
 
-.title {
-  color: inherit;
-  margin: 0;
-}
-
-.subtitle {
-  color: inherit;
-  font-size: var(--font-size-3);
-  margin: 0;
-}
-
-.text {
-  color: inherit;
-  font-size: var(--font-size-4);
-  margin-top: 2rem;
-  max-width: 40rem;
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 
 .content {
   display: flex;
   flex: 1;
   flex-direction: column;
+  gap: 1.5rem;
   padding: 4rem;
-  position: relative;
-  z-index: 1;
 
+  // Horizontal alignment
   &.align-left {
     align-items: flex-start;
     text-align: left;
@@ -66,6 +56,7 @@
     text-align: right;
   }
 
+  // Vertical justification
   &.justify-start {
     justify-content: flex-start;
   }
@@ -78,31 +69,69 @@
     justify-content: flex-end;
   }
 
+  // Text color variants
   &.text-light {
     color: var(--color-white);
 
+    .title,
+    .subtitle,
     .text {
-      opacity: 0.8;
+      color: inherit;
+    }
+
+    .subtitle {
+      opacity: 0.9;
+    }
+
+    .text {
+      opacity: 0.85;
     }
   }
 
   &.text-dark {
-    color: var(--color-black);
+    color: var(--color-grey-1);
+
+    .title {
+      color: var(--color-grey-1);
+    }
+
+    .subtitle {
+      color: var(--color-grey-2);
+    }
 
     .text {
-      opacity: 0.8;
+      color: var(--color-grey-2);
     }
   }
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--font-size-3);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.text {
+  font-size: var(--font-size-4);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 60ch;
 }
 
 .actions {
   align-items: center;
   display: flex;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 0.5rem;
 
   &.horizontal {
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   &.vertical {

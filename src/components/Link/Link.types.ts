@@ -8,6 +8,7 @@ export type AnchorVariantTypes =
   | 'danger'
   | 'info'
   | 'warning'
+  | 'contrast'
 
 export type AnchorAppearanceTypes =
   | 'default'

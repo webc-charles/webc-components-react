@@ -6,5 +6,8 @@
   "close_modal": "Fermer la fenêtre",
   "close_toast": "Fermer la notification",
   "increment": "Augmenter",
-  "decrement": "Diminuer"
+  "decrement": "Diminuer",
+  "slider_prev": "Diapositive précédente",
+  "slider_next": "Diapositive suivante",
+  "slider_goto": "Aller à la diapositive"
 }

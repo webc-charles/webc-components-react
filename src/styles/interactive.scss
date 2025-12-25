@@ -29,6 +29,10 @@ $variants: (
     base: var(--color-info-2),
     hover: var(--color-info-1),
   ),
+  'contrast': (
+    base: var(--color-contrast-2),
+    hover: var(--color-contrast-1),
+  ),
 );
 
 @mixin interactive-base {
@@ -50,6 +54,12 @@ $variants: (
     height: var(--height-button);
     padding: 0 2rem;
     text-decoration: none;
+  }
+
+  &.appearance-underline,
+  &.appearance-default {
+    align-self: center;
+    height: auto;
   }
 
   &.appearance-underline {

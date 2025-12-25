@@ -8,6 +8,7 @@ export type ButtonVariantTypes =
   | 'danger'
   | 'info'
   | 'warning'
+  | 'contrast'
 
 export type ButtonAppearanceTypes =
   | 'default'

@@ -59,14 +59,14 @@ export function Toast({
         {children && <div className={styles.containerBody}>{children}</div>}
       </div>
 
-      <Button
+      <button
         title={closeLabel}
         onClick={handleRemove}
         aria-label={closeLabel}
         className={clsx(styles.close, styles[`variant-${variant}`])}
       >
         <FontAwesomeIcon icon={faXmark} aria-hidden={true} />
-      </Button>
+      </button>
     </div>
   )
 }

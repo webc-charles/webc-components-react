@@ -102,7 +102,7 @@
 
 .close {
   align-items: center;
-  background: transparent !important;
+  background: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
@@ -117,31 +117,31 @@
   width: 2.5rem;
 
   &.variant-default {
-    color: var(--color-black) !important;
+    color: var(--color-black);
   }
 
   &.variant-primary {
-    color: var(--color-primary-1) !important;
+    color: var(--color-primary-1);
   }
 
   &.variant-secondary {
-    color: var(--color-secondary-1) !important;
+    color: var(--color-secondary-1);
   }
 
   &.variant-success {
-    color: var(--color-success-1) !important;
+    color: var(--color-success-1);
   }
 
   &.variant-danger {
-    color: var(--color-danger-1) !important;
+    color: var(--color-danger-1);
   }
 
   &.variant-warning {
-    color: var(--color-warning-1) !important;
+    color: var(--color-warning-1);
   }
 
   &.variant-info {
-    color: var(--color-info-1) !important;
+    color: var(--color-info-1);
   }
 
   &:hover,

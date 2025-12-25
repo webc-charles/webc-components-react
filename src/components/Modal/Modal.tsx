@@ -22,21 +22,18 @@ export function Modal({
   const previousFocusRef = useRef<HTMLElement | null>(null)
   const modalTitleId = `modal-title-${id}`
 
-  // Close Modal
   const handleRemove = useEffectEvent(() => {
     previousFocusRef.current?.focus()
     setRemoving(true)
     setTimeout(() => id && onRemove(id), 200)
   })
 
-  // handle backdrop clicks
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (closeOnBackdrop && e.target === e.currentTarget) {
       handleRemove()
     }
   }
 
-  // Capture focus on mount
   useEffect(() => {
     previousFocusRef.current = document.activeElement as HTMLElement
     modalRef.current?.querySelector('button')?.focus()
@@ -44,7 +41,6 @@ export function Modal({
     return () => clearTimeout(timer)
   }, [active])
 
-  // Focus trap
   useEffect(() => {
     if (!active || removing) return
 
@@ -79,7 +75,6 @@ export function Modal({
     return () => document.removeEventListener('keydown', handleFocusTrap)
   }, [active, removing])
 
-  // Escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -95,7 +90,6 @@ export function Modal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, removing])
 
-  // Auto-remove with duration
   useEffect(() => {
     if (duration === Infinity) return
 
@@ -108,7 +102,6 @@ export function Modal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration])
 
-  // Body scroll
   useEffect(() => {
     if (active && !removing) {
       const clientWidth = document.documentElement.clientWidth
@@ -157,14 +150,14 @@ export function Modal({
           </div>
         )}
 
-        <Button
+        <button
           title={closeLabel}
           onClick={handleRemove}
           aria-label={closeLabel}
           className={styles.close}
         >
           <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
-        </Button>
+        </button>
 
         <div className={styles.modalBody}>{children}</div>
       </div>

@@ -53,7 +53,7 @@ export function InputNumber({
         />
 
         <div className={styles.nav}>
-          <Button
+          <button
             type="button"
             className={clsx(styles.button, styles.increment)}
             onClick={increment}
@@ -61,9 +61,9 @@ export function InputNumber({
             title={incrementLabel}
           >
             <FontAwesomeIcon icon={faChevronUp} aria-hidden={true} />
-          </Button>
+          </button>
 
-          <Button
+          <button
             type="button"
             className={clsx(styles.button, styles.decrement)}
             onClick={decrement}
@@ -71,7 +71,7 @@ export function InputNumber({
             title={decrementLabel}
           >
             <FontAwesomeIcon icon={faChevronDown} aria-hidden={true} />
-          </Button>
+          </button>
         </div>
       </div>
     </label>

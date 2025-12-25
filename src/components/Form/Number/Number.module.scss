@@ -89,6 +89,14 @@
       outline: none;
     }
 
+    &.increment {
+      border-radius: 0 0.4rem 0 0;
+    }
+
+    &.decrement {
+      border-radius: 0 0 0.4rem;
+    }
+
     svg {
       font-size: var(--font-size-3);
     }

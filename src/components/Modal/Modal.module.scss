@@ -99,7 +99,7 @@
 
 .close {
   align-items: center;
-  background: transparent !important;
+  background: transparent;
   border: none;
   color: var(--color-grey-2);
   cursor: pointer;
@@ -116,7 +116,7 @@
 
   &:hover,
   &:focus {
-    color: var(--color-black) !important;
+    color: var(--color-black);
     opacity: 1;
   }
 }

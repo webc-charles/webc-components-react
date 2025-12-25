@@ -29,7 +29,7 @@ export function InputPassword({
           className={clsx(styles.input, inputClassName)}
         />
 
-        <Button
+        <button
           type="button"
           disabled={disabled}
           className={styles.toggleButton}
@@ -40,7 +40,7 @@ export function InputPassword({
             icon={showPassword ? faEyeSlash : faEye}
             aria-hidden
           />
-        </Button>
+        </button>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
-import { Button } from 'components'
 import styles from './Date.module.scss'
 import { InputDateTypes } from './Date.types'
 
@@ -80,7 +79,7 @@ export function InputDate({
         onCalendarClose={() => setIsOpen(false)}
       />
 
-      <Button
+      <button
         type="button"
         ref={triggerButtonRef}
         title={title}
@@ -92,7 +91,7 @@ export function InputDate({
           className={styles.calendarIcon}
           aria-hidden={true}
         />
-      </Button>
+      </button>
     </div>
   )
 }

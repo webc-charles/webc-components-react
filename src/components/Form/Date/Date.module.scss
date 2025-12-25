@@ -108,7 +108,7 @@
 
     .react-datepicker__day,
     .react-datepicker__day--today {
-      border-radius: 0.3rem;
+      border-radius: var(--radius-small);
       color: var(--color-black);
       font-size: var(--font-size-4);
       font-weight: var(--font-weight-md);

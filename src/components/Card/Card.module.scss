@@ -2,10 +2,8 @@
 
 .card {
   background-color: var(--color-white);
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .cardHeader {
@@ -14,6 +12,7 @@
 
 .cardBody {
   display: flex;
+  flex-direction: column;
 }
 
 .cardFooter {

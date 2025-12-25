@@ -1,0 +1,139 @@
+@use 'sass:map';
+
+$variants: (
+  'default': (
+    base: var(--color-black),
+    hover: var(--color-black-50),
+  ),
+  'primary': (
+    base: var(--color-primary-2),
+    hover: var(--color-primary-1),
+  ),
+  'secondary': (
+    base: var(--color-secondary-2),
+    hover: var(--color-secondary-1),
+  ),
+  'success': (
+    base: var(--color-success-2),
+    hover: var(--color-success-1),
+  ),
+  'danger': (
+    base: var(--color-danger-2),
+    hover: var(--color-danger-1),
+  ),
+  'warning': (
+    base: var(--color-warning-2),
+    hover: var(--color-warning-1),
+  ),
+  'info': (
+    base: var(--color-info-2),
+    hover: var(--color-info-1),
+  ),
+);
+
+@mixin interactive-base {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(--font-size-5);
+  gap: 1rem;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  transition: all 0.1s ease;
+}
+
+@mixin interactive-appearances {
+  &.appearance-button,
+  &.appearance-outline {
+    border-radius: var(--radius-button);
+    height: 4rem;
+    padding: 0 2rem;
+    text-decoration: none;
+  }
+
+  &.appearance-underline {
+    &::before {
+      background: currentcolor;
+      bottom: 0;
+      content: '';
+      height: 0.1rem;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transform: translateY(0.1rem);
+      transition: transform 0.2s ease;
+      width: 100%;
+    }
+
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
+      &::before {
+        transform: translateY(0.4rem);
+      }
+    }
+  }
+}
+
+@mixin interactive-variants {
+  @each $name, $colors in $variants {
+    $base: map.get($colors, base);
+    $hover: map.get($colors, hover);
+
+    &.variant-#{$name} {
+      background: transparent;
+      color: $base;
+
+      &:hover:not([disabled]),
+      &:focus:not([disabled]) {
+        color: $hover;
+      }
+
+      &.appearance-button {
+        background: $base;
+        color: var(--color-white);
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          background: $hover;
+          color: var(--color-white);
+        }
+      }
+
+      &.appearance-outline {
+        border: 0.1rem solid $base;
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          background: $hover;
+          border-color: $hover;
+          color: var(--color-white);
+        }
+      }
+
+      &.appearance-underline::before {
+        background: $base;
+      }
+
+      &.appearance-underline:hover:not([disabled])::before,
+      &.appearance-underline:focus:not([disabled])::before {
+        background: $hover;
+      }
+    }
+  }
+}
+
+@mixin interactive-disabled {
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      cursor: not-allowed;
+      inset: 0;
+      pointer-events: all;
+      position: absolute;
+    }
+  }
+}

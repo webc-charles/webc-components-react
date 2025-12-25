@@ -1,117 +1,37 @@
-@use "sass:map";
-@use "styles/mq";
+@use 'sass:map';
+@use 'styles/mq' as *;
 
 $gaps: (
-  "none": 0,
-  "xs": 0.5rem,
-  "sm": 1rem,
-  "md": 1.5rem,
-  "lg": 2rem,
-  "xl": 3rem,
+  none: 0,
+  xs: 0.5rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 3rem,
 );
 
+// Base grid
 .grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(1, 1fr);
 }
 
-// Grid columns (base)
+// Grid columns - base
 @for $i from 1 through 12 {
   .grid--#{$i} {
     grid-template-columns: repeat(#{$i}, 1fr);
   }
 }
 
-@include mq.mqXS {
-  @for $i from 1 through 12 {
-    .grid--xs-#{$i} {
-      grid-template-columns: repeat(#{$i}, 1fr);
-    }
-  }
-}
-
-@include mq.mqSM {
-  @for $i from 1 through 12 {
-    .grid--sm-#{$i} {
-      grid-template-columns: repeat(#{$i}, 1fr);
-    }
-  }
-}
-
-@include mq.mqMD {
-  @for $i from 1 through 12 {
-    .grid--md-#{$i} {
-      grid-template-columns: repeat(#{$i}, 1fr);
-    }
-  }
-}
-
-@include mq.mqLG {
-  @for $i from 1 through 12 {
-    .grid--lg-#{$i} {
-      grid-template-columns: repeat(#{$i}, 1fr);
-    }
-  }
-}
-
-@include mq.mqXL {
-  @for $i from 1 through 12 {
-    .grid--xl-#{$i} {
-      grid-template-columns: repeat(#{$i}, 1fr);
-    }
-  }
-}
-
-// Gap modifiers (base)
+// Gap - base
 @each $name, $value in $gaps {
   .grid--gap-#{$name} {
     gap: $value;
   }
 }
 
-// Gap modifiers (responsive)
-@include mq.mqXS {
-  @each $name, $value in $gaps {
-    .grid--gap-xs-#{$name} {
-      gap: $value;
-    }
-  }
-}
-
-@include mq.mqSM {
-  @each $name, $value in $gaps {
-    .grid--gap-sm-#{$name} {
-      gap: $value;
-    }
-  }
-}
-
-@include mq.mqMD {
-  @each $name, $value in $gaps {
-    .grid--gap-md-#{$name} {
-      gap: $value;
-    }
-  }
-}
-
-@include mq.mqLG {
-  @each $name, $value in $gaps {
-    .grid--gap-lg-#{$name} {
-      gap: $value;
-    }
-  }
-}
-
-@include mq.mqXL {
-  @each $name, $value in $gaps {
-    .grid--gap-xl-#{$name} {
-      gap: $value;
-    }
-  }
-}
-
-// GridItem column spans (base)
+// GridItem column spans - base
 .gridItem {
   grid-column: span 1;
 }
@@ -122,47 +42,7 @@ $gaps: (
   }
 }
 
-@include mq.mqXS {
-  @for $i from 1 through 12 {
-    .gridItem--xs-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-@include mq.mqSM {
-  @for $i from 1 through 12 {
-    .gridItem--sm-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-@include mq.mqMD {
-  @for $i from 1 through 12 {
-    .gridItem--md-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-@include mq.mqLG {
-  @for $i from 1 through 12 {
-    .gridItem--lg-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-@include mq.mqXL {
-  @for $i from 1 through 12 {
-    .gridItem--xl-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-// Row spans (base)
+// Row spans - base
 @for $i from 1 through 6 {
   .gridItem--row-#{$i} {
     grid-row: span #{$i};
@@ -173,8 +53,23 @@ $gaps: (
   }
 }
 
-// Row spans (responsive)
-@include mq.mqXS {
+// Responsive - XS
+@include mqXS {
+  @for $i from 1 through 12 {
+    .grid--xs-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .gridItem--xs-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .grid--gap-xs-#{$name} {
+      gap: $value;
+    }
+  }
+
   @for $i from 1 through 6 {
     .gridItem--row-xs-#{$i} {
       grid-row: span #{$i};
@@ -186,7 +81,23 @@ $gaps: (
   }
 }
 
-@include mq.mqSM {
+// Responsive - SM
+@include mqSM {
+  @for $i from 1 through 12 {
+    .grid--sm-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .gridItem--sm-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .grid--gap-sm-#{$name} {
+      gap: $value;
+    }
+  }
+
   @for $i from 1 through 6 {
     .gridItem--row-sm-#{$i} {
       grid-row: span #{$i};
@@ -198,7 +109,23 @@ $gaps: (
   }
 }
 
-@include mq.mqMD {
+// Responsive - MD
+@include mqMD {
+  @for $i from 1 through 12 {
+    .grid--md-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .gridItem--md-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .grid--gap-md-#{$name} {
+      gap: $value;
+    }
+  }
+
   @for $i from 1 through 6 {
     .gridItem--row-md-#{$i} {
       grid-row: span #{$i};
@@ -210,7 +137,23 @@ $gaps: (
   }
 }
 
-@include mq.mqLG {
+// Responsive - LG
+@include mqLG {
+  @for $i from 1 through 12 {
+    .grid--lg-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .gridItem--lg-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .grid--gap-lg-#{$name} {
+      gap: $value;
+    }
+  }
+
   @for $i from 1 through 6 {
     .gridItem--row-lg-#{$i} {
       grid-row: span #{$i};
@@ -222,7 +165,23 @@ $gaps: (
   }
 }
 
-@include mq.mqXL {
+// Responsive - XL
+@include mqXL {
+  @for $i from 1 through 12 {
+    .grid--xl-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+    .gridItem--xl-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .grid--gap-xl-#{$name} {
+      gap: $value;
+    }
+  }
+
   @for $i from 1 through 6 {
     .gridItem--row-xl-#{$i} {
       grid-row: span #{$i};

@@ -1,40 +1,12 @@
+$title-sizes: (h1: 8, h2: 7, h3: 6, h4: 5, h5: 4, h6: 3, lg: lg, xl: xl, xxl: xxl);
+
 .title {
   font-weight: var(--font-weight-lg);
   line-height: 1.5;
 }
 
-.h1 {
-  font-size: var(--font-size-8);
-}
-
-.h2 {
-  font-size: var(--font-size-7);
-}
-
-.h3 {
-  font-size: var(--font-size-6);
-}
-
-.h4 {
-  font-size: var(--font-size-5);
-}
-
-.h5 {
-  font-size: var(--font-size-4);
-}
-
-.h6 {
-  font-size: var(--font-size-3);
-}
-
-.lg {
-  font-size: var(--font-size-lg);
-}
-
-.xl {
-  font-size: var(--font-size-xl);
-}
-
-.xxl {
-  font-size: var(--font-size-xxl);
+@each $level, $size in $title-sizes {
+  .#{$level} {
+    font-size: var(--font-size-#{$size});
+  }
 }

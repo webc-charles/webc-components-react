@@ -1,4 +1,5 @@
 @use 'styles/mq' as *;
+@use 'styles/variants' as *;
 
 .toasts {
   align-items: center;
@@ -20,63 +21,16 @@
 }
 
 .toast {
-  border-radius: 0.5rem;
-  border-style: solid;
-  border-width: 0.1rem;
+  border: 0.1rem solid;
+  border-radius: var(--radius-medium);
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  opacity: 0;
   position: relative;
-  transform: translateY(2rem);
-  transition: all 0.2s ease;
   width: 35.5rem;
 
-  &.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &.removing {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-
-  &.primary {
-    background-color: var(--color-primary-3);
-    border-color: var(--color-primary-2);
-    color: var(--color-primary-1);
-  }
-
-  &.secondary {
-    background-color: var(--color-secondary-3);
-    border-color: var(--color-secondary-2);
-    color: var(--color-secondary-1);
-  }
-
-  &.success {
-    background-color: var(--color-success-3);
-    border-color: var(--color-success-2);
-    color: var(--color-success-1);
-  }
-
-  &.danger {
-    background-color: var(--color-danger-3);
-    border-color: var(--color-danger-2);
-    color: var(--color-danger-1);
-  }
-
-  &.warning {
-    background-color: var(--color-warning-3);
-    border-color: var(--color-warning-2);
-    color: var(--color-warning-1);
-  }
-
-  &.info {
-    background-color: var(--color-info-3);
-    border-color: var(--color-info-2);
-    color: var(--color-info-1);
-  }
+  @include slide-up-transition;
+  @include color-variants($prefix: '');
 }
 
 .container {
@@ -101,51 +55,10 @@
 }
 
 .close {
-  align-items: center;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  display: flex;
-  font-size: var(--font-size-5);
-  height: 2.5rem;
-  justify-content: center;
+  @include close-button;
+
+  color: inherit;
   opacity: 0.5;
-  padding: 0;
-  position: absolute;
   right: 0.25rem;
   top: 0.25rem;
-  width: 2.5rem;
-
-  &.variant-default {
-    color: var(--color-black);
-  }
-
-  &.variant-primary {
-    color: var(--color-primary-1);
-  }
-
-  &.variant-secondary {
-    color: var(--color-secondary-1);
-  }
-
-  &.variant-success {
-    color: var(--color-success-1);
-  }
-
-  &.variant-danger {
-    color: var(--color-danger-1);
-  }
-
-  &.variant-warning {
-    color: var(--color-warning-1);
-  }
-
-  &.variant-info {
-    color: var(--color-info-1);
-  }
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
 }

@@ -11,37 +11,24 @@
   --color-grey-5: #ddd;
   --color-grey-6: #eee;
   --color-default: black;
-
-  /* Primary - Blue (4.5:1 contrast on white) */
   --color-primary-1: #0050a0;
-  --color-primary-2: #0066cc;
+  --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
-
-  /* Secondary - Purple (4.5:1 contrast on white) */
   --color-secondary-1: #5b21b6;
   --color-secondary-2: #7c3aed;
   --color-secondary-3: #ede9fe;
-
-  /* Success - Green (4.5:1 contrast on white) */
   --color-success-1: #166534;
   --color-success-2: #16a34a;
   --color-success-3: #dcfce7;
-
-  /* Danger - Red (4.5:1 contrast on white) */
   --color-danger-1: #991b1b;
   --color-danger-2: #dc2626;
   --color-danger-3: #fee2e2;
-
-  /* Warning - Amber (4.5:1 contrast on white) */
   --color-warning-1: #92400e;
   --color-warning-2: #d97706;
   --color-warning-3: #fef3c7;
-
-  /* Info - Cyan (4.5:1 contrast on white) */
   --color-info-1: #155e75;
   --color-info-2: #0891b2;
   --color-info-3: #cffafe;
-
   --font-size-1: 1rem;
   --font-size-2: 1.2rem;
   --font-size-3: 1.4rem;
@@ -64,6 +51,6 @@
   --container-max-width: 120rem;
   --site-font: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', arial,
     sans-serif;
-  --fade-in: fade-in 0.2s ease-out forwards;
-  --fade-in-up: fade-in-up 0.2s ease-out forwards;
+  --radius-small: 0.4rem;
+  --radius-medium: 0.5rem;
 }

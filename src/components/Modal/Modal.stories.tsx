@@ -3,22 +3,66 @@ import { Button } from '../Button'
 import { Modals } from './Modals'
 import { useModals } from './ModalsContext'
 
+const sizes = ['sm', 'md', 'lg'] as const
+
 const meta: Meta = {
   title: 'Components/Modal',
   tags: ['autodocs'],
   decorators: [(Story) => <Modals><Story /></Modals>],
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'Modal title',
+    },
+    size: {
+      control: 'select',
+      options: sizes,
+      description: 'Modal size',
+      table: {
+        defaultValue: { summary: 'md' },
+      },
+    },
+  },
+  args: {
+    title: 'Modal Title',
+    size: 'md',
+  },
 }
 
 export default meta
 type Story = StoryObj
 
-const ModalTrigger = ({ title, size, children }: any) => {
+const ModalTrigger = ({
+  title = 'Modal Title',
+  size = 'md',
+  children = <p>Modal content goes here.</p>,
+}: {
+  title?: string
+  size?: 'sm' | 'md' | 'lg'
+  children?: React.ReactNode
+}) => {
   const { addModal } = useModals()
   return (
-    <Button onClick={() => addModal({ title, size, children })}>
+    <Button
+      variant="primary"
+      appearance="button"
+      onClick={() => addModal({ title, size, children })}
+    >
       Open Modal
     </Button>
   )
+}
+
+export const Playground: Story = {
+  render: (args) => (
+    <ModalTrigger title={args.title} size={args.size}>
+      <p>Click the button to open the modal.</p>
+    </ModalTrigger>
+  ),
+  args: {
+    title: 'Modal Title',
+    size: 'md',
+  },
 }
 
 export const Small: Story = {

@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { str } from 'i18n'
-import { Button } from 'components/Button/Button'
 import styles from './Password.module.scss'
 import type { InputPasswordTypes } from './Password.types'
 
@@ -15,15 +14,19 @@ export function InputPassword({
   labelClassName,
   ...rest
 }: InputPasswordTypes) {
+  const id = useId()
   const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div className={clsx(styles.wrapper, className)}>
-      <label className={clsx(styles.label, labelClassName)}>{label}</label>
+      <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+        {label}
+      </label>
 
-      <div className={styles.wrapper}>
+      <div className={styles.inputWrapper}>
         <input
           {...rest}
+          id={id}
           type={showPassword ? 'text' : 'password'}
           disabled={disabled}
           className={clsx(styles.input, inputClassName)}

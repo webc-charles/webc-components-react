@@ -8,12 +8,15 @@ const cardStyles = {
   borderRadius: '.5rem',
   border: '.1rem solid var(--color-grey-6)',
 }
+
 const cardHeaderStyles = {
   padding: '1rem 1rem 0 1rem',
 }
+
 const cardBodyStyles = {
   padding: '1rem',
 }
+
 const cardFooterStyles = {
   padding: '0 1rem 1rem 1rem',
 }
@@ -22,10 +25,34 @@ const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
   tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: false,
+      description: 'Card content (CardHeader, CardBody, CardFooter)',
+    },
+  },
 }
 
 export default meta
 type Story = StoryObj<typeof Card>
+
+export const Playground: Story = {
+  render: () => (
+    <Card style={cardStyles}>
+      <CardHeader style={cardHeaderStyles}>
+        <Title level="h3">Card Title</Title>
+      </CardHeader>
+      <CardBody style={cardBodyStyles}>
+        This is the card body content. You can put any content here.
+      </CardBody>
+      <CardFooter style={cardFooterStyles}>
+        <Button variant="primary" appearance="button">
+          Action
+        </Button>
+      </CardFooter>
+    </Card>
+  ),
+}
 
 export const Basic: Story = {
   render: () => (

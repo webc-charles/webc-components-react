@@ -1,43 +1,106 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { InputRadio } from './Radio'
+import { RadioOptionTypes } from './Radio.types'
 
-const meta: Meta<typeof InputRadio> = {
-  title: 'Form/Radio',
-  component: InputRadio,
-  tags: ['autodocs'],
-}
+const directions = ['vertical', 'horizontal'] as const
 
-export default meta
-type Story = StoryObj<typeof InputRadio>
-
-const options = [
+const defaultOptions: RadioOptionTypes[] = [
   { value: 'option1', label: 'Option 1' },
   { value: 'option2', label: 'Option 2' },
   { value: 'option3', label: 'Option 3' },
 ]
 
-const RadioWithState = (args: any) => {
+const meta: Meta<typeof InputRadio> = {
+  title: 'Form/Radio',
+  component: InputRadio,
+  tags: ['autodocs'],
+  argTypes: {
+    label: {
+      control: 'text',
+      description: 'Radio group label',
+    },
+    direction: {
+      control: 'select',
+      options: directions,
+      description: 'Layout direction',
+      table: {
+        defaultValue: { summary: 'vertical' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the radio group is disabled',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    name: {
+      control: 'text',
+      description: 'Name attribute for the radio group',
+    },
+  },
+  args: {
+    name: 'radio-group',
+    direction: 'vertical',
+    disabled: false,
+  },
+}
+
+export default meta
+type Story = StoryObj<typeof InputRadio>
+
+const RadioWithState = (args: {
+  name: string
+  options?: RadioOptionTypes[]
+  label?: string
+  direction?: 'vertical' | 'horizontal'
+  disabled?: boolean
+  value?: string
+}) => {
+  const id = useId()
   const [value, setValue] = useState(args.value || '')
-  return <InputRadio {...args} value={value} onChange={setValue} />
+  return (
+    <InputRadio
+      {...args}
+      name={`${args.name}-${id}`}
+      options={args.options || defaultOptions}
+      value={value}
+      onChange={setValue}
+    />
+  )
 }
 
-export const Default: Story = {
-  render: (args) => <RadioWithState {...args} />,
-  args: { name: 'default', options },
-}
-
-export const WithLabel: Story = {
-  render: (args) => <RadioWithState {...args} />,
-  args: { name: 'labeled', label: 'Select option', options },
+export const Playground: Story = {
+  render: (args) => <RadioWithState {...args} options={defaultOptions} />,
+  args: {
+    name: 'playground',
+    label: 'Select an option',
+    direction: 'vertical',
+  },
 }
 
 export const Horizontal: Story = {
-  render: (args) => <RadioWithState {...args} />,
-  args: { name: 'horizontal', options, direction: 'horizontal' },
+  render: (args) => <RadioWithState {...args} options={defaultOptions} />,
+  args: {
+    name: 'horizontal',
+    label: 'Select an option',
+    direction: 'horizontal',
+  },
+}
+
+export const WithoutLabel: Story = {
+  render: (args) => <RadioWithState {...args} options={defaultOptions} />,
+  args: {
+    name: 'no-label',
+  },
 }
 
 export const Disabled: Story = {
-  render: (args) => <RadioWithState {...args} />,
-  args: { name: 'disabled', options, disabled: true },
+  render: (args) => <RadioWithState {...args} options={defaultOptions} />,
+  args: {
+    name: 'disabled',
+    label: 'Disabled options',
+    disabled: true,
+  },
 }

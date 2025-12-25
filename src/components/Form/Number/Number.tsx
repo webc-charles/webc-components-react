@@ -1,7 +1,8 @@
+import { useId } from 'react'
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
-import { Button } from 'components'
+import { str } from 'i18n'
 import styles from './Number.module.scss'
 import { InputNumberTypes } from './Number.types'
 
@@ -12,14 +13,15 @@ export function InputNumber({
   max,
   step = 1,
   disabled,
-  label,
   className,
   inputClassName,
   labelClassName,
-  incrementLabel = 'Increment',
-  decrementLabel = 'Decrement',
+  label,
+  incrementLabel = str.increment,
+  decrementLabel = str.decrement,
   ...rest
 }: InputNumberTypes) {
+  const id = useId()
   const current = value ?? 0
   const canIncrement = max === undefined || current + step <= max
   const canDecrement = min === undefined || current - step >= min
@@ -30,18 +32,21 @@ export function InputNumber({
     !disabled && canDecrement && onChange?.(current - step)
 
   return (
-    <label
+    <div
       className={clsx(styles.wrapper, className, {
         [styles.disabled]: disabled,
       })}
     >
       {label && (
-        <span className={clsx(styles.label, labelClassName)}>{label}</span>
+        <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+          {label}
+        </label>
       )}
 
       <div className={styles.inputWrapper}>
         <input
           {...rest}
+          id={id}
           type="number"
           value={value ?? ''}
           onChange={(e) => onChange?.(Number(e.target.value))}
@@ -74,6 +79,6 @@ export function InputNumber({
           </button>
         </div>
       </div>
-    </label>
+    </div>
   )
 }

@@ -4,19 +4,20 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
+import { str } from 'i18n'
 import styles from './Date.module.scss'
 import { InputDateTypes } from './Date.types'
 
 export function InputDate({
   selected,
   onChange,
-  placeholder = 'Enter date',
-  dateFormat = 'yyyy-MM-dd',
   minDate,
   maxDate,
-  disabled = false,
   className,
-  title = 'Select Date',
+  disabled = false,
+  title = str.select_date,
+  dateFormat = 'yyyy-MM-dd',
+  placeholder = str.enter_date,
   ...rest
 }: InputDateTypes) {
   const [isOpen, setIsOpen] = useState(false)

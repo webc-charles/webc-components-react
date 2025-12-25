@@ -3,6 +3,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { Button } from 'components'
+import { str } from 'i18n'
 import styles from './Modal.module.scss'
 import { ModalTypes } from './ModalTypes'
 
@@ -14,7 +15,7 @@ export function Modal({
   onRemove,
   duration = Infinity,
   closeOnBackdrop = false,
-  closeLabel = 'Close Modal',
+  closeLabel = str.close_modal,
 }: ModalTypes) {
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)

@@ -2,8 +2,8 @@
 
 $variants: (
   'default': (
-    base: var(--color-black),
-    hover: var(--color-black-50),
+    base: var(--color-default-2),
+    hover: var(--color-default-1),
   ),
   'primary': (
     base: var(--color-primary-2),
@@ -35,7 +35,7 @@ $variants: (
   align-items: center;
   cursor: pointer;
   display: inline-flex;
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-4);
   gap: 1rem;
   justify-content: center;
   outline: 0;
@@ -46,8 +46,8 @@ $variants: (
 @mixin interactive-appearances {
   &.appearance-button,
   &.appearance-outline {
-    border-radius: var(--radius-button);
-    height: 4rem;
+    border-radius: var(--radius-medium);
+    height: var(--height-button);
     padding: 0 2rem;
     text-decoration: none;
   }
@@ -84,6 +84,7 @@ $variants: (
       background: transparent;
       color: $base;
 
+      &[aria-selected='true']:not([disabled]),
       &:hover:not([disabled]),
       &:focus:not([disabled]) {
         color: $hover;
@@ -93,6 +94,7 @@ $variants: (
         background: $base;
         color: var(--color-white);
 
+        &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
         &:focus:not([disabled]) {
           background: $hover;
@@ -103,6 +105,7 @@ $variants: (
       &.appearance-outline {
         border: 0.1rem solid $base;
 
+        &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
         &:focus:not([disabled]) {
           background: $hover;
@@ -115,6 +118,7 @@ $variants: (
         background: $base;
       }
 
+      &.appearance-underline[aria-selected='true']:not([disabled])::before,
       &.appearance-underline:hover:not([disabled])::before,
       &.appearance-underline:focus:not([disabled])::before {
         background: $hover;

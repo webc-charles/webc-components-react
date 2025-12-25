@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import clsx from 'clsx'
 import styles from './Radio.module.scss'
 import type { InputRadioTypes } from './Radio.types'
@@ -15,14 +16,17 @@ export function InputRadio({
   direction = 'vertical',
   ...rest
 }: InputRadioTypes) {
+  const id = useId()
+  const labelId = `${id}-label`
+
   return (
     <div
       className={clsx(styles.wrapper, className, { [styles.disabled]: disabled })}
       role="radiogroup"
-      aria-labelledby={label ? `${name}-label` : undefined}
+      aria-labelledby={label ? labelId : undefined}
     >
       {label && (
-        <span id={`${name}-label`} className={clsx(styles.groupLabel, labelClassName)}>
+        <span id={labelId} className={clsx(styles.groupLabel, labelClassName)}>
           {label}
         </span>
       )}

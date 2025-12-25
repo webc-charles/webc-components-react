@@ -3,6 +3,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { Button } from 'components'
+import { str } from 'i18n'
 import styles from './Toast.module.scss'
 import { ToastTypes } from './ToastTypes'
 
@@ -13,7 +14,7 @@ export function Toast({
   variant = 'primary',
   duration = 10000,
   onRemove,
-  closeLabel = 'Close Toast',
+  closeLabel = str.close_toast,
 }: ToastTypes) {
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)

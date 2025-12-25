@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import clsx from 'clsx'
 import styles from './Text.module.scss'
 import type { InputTextTypes } from './Text.types'
@@ -9,10 +10,14 @@ export function InputText({
   labelClassName,
   ...rest
 }: InputTextTypes) {
+  const id = useId()
+
   return (
     <div className={clsx(styles.wrapper, className)}>
-      <label className={clsx(styles.label, labelClassName)}>{label}</label>
-      <input {...rest} className={clsx(styles.input, inputClassName)} />
+      <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+        {label}
+      </label>
+      <input id={id} {...rest} className={clsx(styles.input, inputClassName)} />
     </div>
   )
 }

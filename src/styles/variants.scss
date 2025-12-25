@@ -3,9 +3,9 @@ $color-variants: (default, primary, secondary, success, danger, warning, info);
 @mixin color-variants($prefix: 'variant-') {
   @each $name in $color-variants {
     &.#{$prefix}#{$name} {
-      background-color: var(--color-#{$name}-3, var(--color-info-3));
-      border-color: var(--color-#{$name}-2, var(--color-info-2));
-      color: var(--color-#{$name}-1, var(--color-info-1));
+      background-color: var(--color-#{$name}-3, var(--color-default-3));
+      border-color: var(--color-#{$name}-2, var(--color-default-2));
+      color: var(--color-#{$name}-1, var(--color-default-1));
     }
   }
 }

@@ -1,6 +1,5 @@
 import { useId } from 'react'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Check } from 'lucide-react'
 import clsx from 'clsx'
 import styles from './Checkbox.module.scss'
 import { CheckboxTypes } from './Checkbox.types'
@@ -37,9 +36,7 @@ export function Checkbox({
         className={clsx(styles.checkbox, { [styles.checked]: checked })}
         aria-hidden={true}
       >
-        {checked && (
-          <FontAwesomeIcon icon={faCheck} className={styles.checkIcon} />
-        )}
+        {checked && <Check size={14} className={styles.checkIcon} />}
       </div>
 
       <span className={clsx(styles.label, labelClassName)}>{label}</span>

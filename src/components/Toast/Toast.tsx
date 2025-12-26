@@ -1,6 +1,5 @@
 import { useEffect, useEffectEvent, useState } from 'react'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { X } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import styles from './Toast.module.scss'
@@ -65,7 +64,7 @@ export function Toast({
         aria-label={closeLabel}
         className={clsx(styles.close, styles[`variant-${variant}`])}
       >
-        <FontAwesomeIcon icon={faXmark} aria-hidden={true} />
+        <X size={18} aria-hidden />
       </button>
     </div>
   )

@@ -1,6 +1,5 @@
 import { useId, useState } from 'react'
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Eye, EyeOff } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import styles from './Password.module.scss'
@@ -39,10 +38,7 @@ export function InputPassword({
           onClick={() => setShowPassword(!showPassword)}
           aria-label={showPassword ? str.hide : str.show}
         >
-          <FontAwesomeIcon
-            icon={showPassword ? faEyeSlash : faEye}
-            aria-hidden
-          />
+          {showPassword ? <EyeOff size={18} aria-hidden /> : <Eye size={18} aria-hidden />}
         </button>
       </div>
     </div>

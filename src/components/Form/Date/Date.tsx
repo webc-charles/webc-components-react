@@ -1,10 +1,5 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
-import { faCalendar } from '@fortawesome/free-regular-svg-icons'
-import {
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { Modal } from 'components/Modal'
@@ -247,7 +242,7 @@ export function InputDate({
           aria-expanded={isOpen}
           aria-haspopup="dialog"
         >
-          <FontAwesomeIcon icon={faCalendar} aria-hidden />
+          <Calendar size={18} aria-hidden />
         </button>
       </div>
 
@@ -266,7 +261,7 @@ export function InputDate({
                 className={styles.navButton}
                 aria-label={str.previous_month}
               >
-                <FontAwesomeIcon icon={faChevronLeft} aria-hidden />
+                <ChevronLeft size={18} aria-hidden />
               </button>
 
               <span className={styles.monthYear}>
@@ -279,7 +274,7 @@ export function InputDate({
                 className={styles.navButton}
                 aria-label={str.next_month}
               >
-                <FontAwesomeIcon icon={faChevronRight} aria-hidden />
+                <ChevronRight size={18} aria-hidden />
               </button>
             </div>
 

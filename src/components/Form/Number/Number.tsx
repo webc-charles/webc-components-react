@@ -1,6 +1,5 @@
 import { useId } from 'react'
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import styles from './Number.module.scss'
@@ -65,7 +64,7 @@ export function InputNumber({
             disabled={disabled || !canIncrement}
             title={incrementLabel}
           >
-            <FontAwesomeIcon icon={faChevronUp} aria-hidden={true} />
+            <ChevronUp size={14} aria-hidden />
           </button>
 
           <button
@@ -75,7 +74,7 @@ export function InputNumber({
             disabled={disabled || !canDecrement}
             title={decrementLabel}
           >
-            <FontAwesomeIcon icon={faChevronDown} aria-hidden={true} />
+            <ChevronDown size={14} aria-hidden />
           </button>
         </div>
       </div>

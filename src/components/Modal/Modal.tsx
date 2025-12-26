@@ -1,6 +1,5 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { X } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import styles from './Modal.module.scss'
@@ -156,7 +155,7 @@ export function Modal({
           aria-label={closeLabel}
           className={styles.close}
         >
-          <FontAwesomeIcon icon={faXmark} aria-hidden="true" />
+          <X size={20} aria-hidden />
         </button>
 
         <div className={styles.modalBody}>{children}</div>

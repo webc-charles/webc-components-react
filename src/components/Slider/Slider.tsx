@@ -2,8 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import styles from './Slider.module.scss'
@@ -128,7 +127,7 @@ export function SliderPrev({
       aria-label={label}
       {...props}
     >
-      {children || <FontAwesomeIcon icon={faChevronLeft} aria-hidden />}
+      {children || <ChevronLeft size={20} aria-hidden />}
     </button>
   )
 }
@@ -150,7 +149,7 @@ export function SliderNext({
       aria-label={label}
       {...props}
     >
-      {children || <FontAwesomeIcon icon={faChevronRight} aria-hidden />}
+      {children || <ChevronRight size={20} aria-hidden />}
     </button>
   )
 }

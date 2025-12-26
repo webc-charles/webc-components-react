@@ -1,98 +1,341 @@
-import { useEffect, useRef, useState } from 'react'
-import ReactDatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { str } from 'i18n'
+import { Modal } from 'components/Modal'
 import styles from './Date.module.scss'
 import { InputDateTypes } from './Date.types'
+
+// Calendar utility functions
+const getDaysInMonth = (year: number, month: number): number => {
+  return new Date(year, month + 1, 0).getDate()
+}
+
+const getFirstDayOfMonth = (year: number, month: number): number => {
+  return new Date(year, month, 1).getDay()
+}
+
+const isSameDay = (date1: Date, date2: Date): boolean => {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  )
+}
+
+const isDateDisabled = (
+  date: Date,
+  minDate?: Date,
+  maxDate?: Date
+): boolean => {
+  if (minDate) {
+    const min = new Date(minDate)
+    min.setHours(0, 0, 0, 0)
+    if (date < min) return true
+  }
+  if (maxDate) {
+    const max = new Date(maxDate)
+    max.setHours(23, 59, 59, 999)
+    if (date > max) return true
+  }
+  return false
+}
+
+const formatDate = (date: Date | null, format: string): string => {
+  if (!date) return ''
+
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return format
+    .replace('yyyy', String(year))
+    .replace('MM', month)
+    .replace('dd', day)
+}
 
 export function InputDate({
   selected,
   onChange,
+  onBlur,
+  placeholder = str.select_date,
+  dateFormat = 'yyyy-MM-dd',
   minDate,
   maxDate,
-  className,
   disabled = false,
-  title = str.select_date,
-  dateFormat = 'yyyy-MM-dd',
-  placeholder = str.enter_date,
+  label,
+  className,
   ...rest
 }: InputDateTypes) {
+  const id = useId()
   const [isOpen, setIsOpen] = useState(false)
+  const [viewDate, setViewDate] = useState(() => selected || new Date())
 
-  const wasOpenRef = useRef(false)
-  const triggerButtonRef = useRef<HTMLButtonElement | null>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const gridRef = useRef<HTMLDivElement>(null)
 
-  const handleChange = (date: Date | null) => {
-    onChange(date)
-    setIsOpen(false)
-  }
+  const today = useMemo(() => new Date(), [])
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      e.key === 'Escape' && setIsOpen(false)
+  const year = viewDate.getFullYear()
+  const month = viewDate.getMonth()
+  const daysInMonth = getDaysInMonth(year, month)
+  const firstDayOfMonth = getFirstDayOfMonth(year, month)
+
+  // Generate calendar days
+  const calendarDays = useMemo(() => {
+    const days: (Date | null)[] = []
+
+    // Add empty slots for days before the first day of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+      days.push(null)
     }
-    document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
+
+    // Add actual days
+    for (let day = 1; day <= daysInMonth; day++) {
+      days.push(new Date(year, month, day))
+    }
+
+    return days
+  }, [year, month, daysInMonth, firstDayOfMonth])
+
+  const handleOpen = useCallback(() => {
+    if (disabled) return
+    setViewDate(selected || new Date())
+    setIsOpen(true)
+  }, [disabled, selected])
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false)
+    setTimeout(() => triggerRef.current?.focus(), 0)
   }, [])
 
-  useEffect(() => {
-    if (!isOpen) {
-      if (wasOpenRef.current) {
-        const triggerButton = triggerButtonRef?.current
-        setTimeout(() => triggerButton?.focus())
+  const handleSelectDate = useCallback(
+    (date: Date) => {
+      if (isDateDisabled(date, minDate, maxDate)) return
+      onChange(date)
+      handleClose()
+    },
+    [onChange, handleClose, minDate, maxDate]
+  )
+
+  const handlePrevMonth = useCallback(() => {
+    setViewDate((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1))
+  }, [])
+
+  const handleNextMonth = useCallback(() => {
+    setViewDate((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1))
+  }, [])
+
+  // Keyboard navigation for calendar grid
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent, date: Date | null) => {
+      if (!date) return
+
+      const currentIndex = calendarDays.findIndex(
+        (d) => d && isSameDay(d, date)
+      )
+      let newIndex = currentIndex
+      let newDate: Date | null = null
+
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault()
+          newIndex = currentIndex - 1
+          break
+        case 'ArrowRight':
+          e.preventDefault()
+          newIndex = currentIndex + 1
+          break
+        case 'ArrowUp':
+          e.preventDefault()
+          newIndex = currentIndex - 7
+          break
+        case 'ArrowDown':
+          e.preventDefault()
+          newIndex = currentIndex + 7
+          break
+        case 'Enter':
+        case ' ':
+          e.preventDefault()
+          handleSelectDate(date)
+          return
+        default:
+          return
       }
-      wasOpenRef.current = false
-      return
-    }
 
-    wasOpenRef.current = true
+      // Handle month boundary navigation
+      if (newIndex < firstDayOfMonth) {
+        // Go to previous month
+        const prevMonthDays = getDaysInMonth(year, month - 1)
+        const daysBack = firstDayOfMonth - newIndex
+        newDate = new Date(year, month - 1, prevMonthDays - daysBack + 1)
+        setViewDate(new Date(year, month - 1, 1))
+      } else if (newIndex >= calendarDays.length) {
+        // Go to next month
+        const daysForward = newIndex - calendarDays.length + 1
+        newDate = new Date(year, month + 1, daysForward)
+        setViewDate(new Date(year, month + 1, 1))
+      } else {
+        newDate = calendarDays[newIndex]
+      }
 
-    const selectedDay: HTMLElement | null = document.querySelector(
-      '.react-datepicker__day--selected'
-    )
+      // Focus the new date button after render
+      if (newDate) {
+        setTimeout(() => {
+          const buttons = gridRef.current?.querySelectorAll('button[data-date]')
+          buttons?.forEach((btn) => {
+            if (btn.getAttribute('data-date') === newDate!.toISOString()) {
+              ;(btn as HTMLButtonElement).focus()
+            }
+          })
+        }, 0)
+      }
+    },
+    [calendarDays, firstDayOfMonth, year, month, handleSelectDate]
+  )
 
-    const todayDay: HTMLElement | null = document.querySelector(
-      '.react-datepicker__day--today'
-    )
+  // Focus selected/today day when modal content mounts
+  const handleModalReady = useCallback(() => {
+    setTimeout(() => {
+      const selectedBtn = gridRef.current?.querySelector(
+        'button[data-selected="true"]'
+      ) as HTMLButtonElement
+      const todayBtn = gridRef.current?.querySelector(
+        'button[data-today="true"]'
+      ) as HTMLButtonElement
+      const firstBtn = gridRef.current?.querySelector(
+        'button[data-date]:not(:disabled)'
+      ) as HTMLButtonElement
 
-    selectedDay?.focus() || todayDay?.focus()
-  }, [isOpen])
+      ;(selectedBtn || todayBtn || firstBtn)?.focus()
+    }, 50)
+  }, [])
 
   return (
-    <div className={clsx(styles.datePickerWrapper, className)} {...rest}>
-      <ReactDatePicker
-        selected={selected}
-        onChange={handleChange}
-        dateFormat={dateFormat}
-        placeholderText={placeholder}
-        minDate={minDate}
-        maxDate={maxDate}
-        disabled={disabled}
-        className={styles.datePickerInput}
-        wrapperClassName={styles.datePickerContainer}
-        calendarClassName={styles.calendar}
-        title={title}
-        open={isOpen}
-        onClickOutside={() => setIsOpen(false)}
-        onCalendarClose={() => setIsOpen(false)}
-      />
+    <div className={clsx(styles.wrapper, className)} {...rest}>
+      {label && (
+        <label htmlFor={id} className={styles.label}>
+          {label}
+        </label>
+      )}
 
-      <button
-        type="button"
-        ref={triggerButtonRef}
-        title={title}
-        onClick={() => setIsOpen(true)}
-        className={clsx(styles.datePickerTrigger, isOpen ? styles.focused : '')}
-      >
-        <FontAwesomeIcon
-          icon={faCalendar}
-          className={styles.calendarIcon}
-          aria-hidden={true}
+      <div className={styles.inputWrapper}>
+        <input
+          id={id}
+          type="text"
+          readOnly
+          disabled={disabled}
+          placeholder={placeholder}
+          value={formatDate(selected, dateFormat)}
+          onClick={handleOpen}
+          onBlur={onBlur}
+          className={styles.input}
         />
-      </button>
+
+        <button
+          type="button"
+          ref={triggerRef}
+          disabled={disabled}
+          onClick={handleOpen}
+          className={styles.trigger}
+          aria-label={str.select_date}
+          aria-expanded={isOpen}
+          aria-haspopup="dialog"
+        >
+          <FontAwesomeIcon icon={faCalendar} aria-hidden />
+        </button>
+      </div>
+
+      {isOpen && (
+        <Modal id={1} size="sm" onRemove={handleClose} closeOnBackdrop>
+          <div
+            className={styles.calendar}
+            ref={(el) => {
+              if (el) handleModalReady()
+            }}
+          >
+            <div className={styles.header}>
+              <button
+                type="button"
+                onClick={handlePrevMonth}
+                className={styles.navButton}
+                aria-label={str.previous_month}
+              >
+                <FontAwesomeIcon icon={faChevronLeft} aria-hidden />
+              </button>
+
+              <span className={styles.monthYear}>
+                {str.months[month]} {year}
+              </span>
+
+              <button
+                type="button"
+                onClick={handleNextMonth}
+                className={styles.navButton}
+                aria-label={str.next_month}
+              >
+                <FontAwesomeIcon icon={faChevronRight} aria-hidden />
+              </button>
+            </div>
+
+            <div className={styles.weekdays} role="row">
+              {str.days_short.map((day) => (
+                <span key={day} className={styles.weekday} role="columnheader">
+                  {day}
+                </span>
+              ))}
+            </div>
+
+            <div
+              ref={gridRef}
+              className={styles.grid}
+              role="grid"
+              aria-label={`${str.months[month]} ${year}`}
+            >
+              {calendarDays.map((date, index) => {
+                if (!date) {
+                  return (
+                    <span key={`empty-${index}`} className={styles.empty} role="gridcell" />
+                  )
+                }
+
+                const isDisabled = isDateDisabled(date, minDate, maxDate)
+                const isSelected = selected && isSameDay(date, selected)
+                const isToday = isSameDay(date, today)
+
+                return (
+                  <button
+                    key={date.toISOString()}
+                    role="gridcell"
+                    type="button"
+                    data-date={date.toISOString()}
+                    data-selected={isSelected}
+                    data-today={isToday}
+                    disabled={isDisabled}
+                    onClick={() => handleSelectDate(date)}
+                    onKeyDown={(e) => handleKeyDown(e, date)}
+                    className={clsx(
+                      styles.day,
+                      isSelected && styles.selected,
+                      isToday && !isSelected && styles.today
+                    )}
+                    aria-selected={isSelected || undefined}
+                    aria-disabled={isDisabled || undefined}
+                    tabIndex={isSelected || (isToday && !selected) ? 0 : -1}
+                  >
+                    {date.getDate()}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
   )
 }

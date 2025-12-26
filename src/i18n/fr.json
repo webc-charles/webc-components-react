@@ -1,13 +1,17 @@
 {
-  "select_date": "sélectionnez une Date",
+  "select_date": "Sélectionnez une date",
   "enter_date": "Entrer une date",
-  "show": "montrer",
-  "hide": "cacher",
+  "show": "Montrer",
+  "hide": "Cacher",
   "close_modal": "Fermer la fenêtre",
   "close_toast": "Fermer la notification",
   "increment": "Augmenter",
   "decrement": "Diminuer",
   "slider_prev": "Diapositive précédente",
   "slider_next": "Diapositive suivante",
-  "slider_goto": "Aller à la diapositive"
+  "slider_goto": "Aller à la diapositive",
+  "previous_month": "Mois précédent",
+  "next_month": "Mois suivant",
+  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+  "days_short": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
 }

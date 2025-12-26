@@ -18,4 +18,5 @@ export type {
   BannerJustifyTypes,
   BannerOverlayTypes,
   BannerTextColorTypes,
+  BannerTextAlignTypes,
 } from './Banner.types'

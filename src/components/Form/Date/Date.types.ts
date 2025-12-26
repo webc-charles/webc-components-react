@@ -9,5 +9,5 @@ export type InputDateTypes = Omit<ComponentProps<'div'>, 'onChange'> & {
   minDate?: Date
   maxDate?: Date
   disabled?: boolean
-  title?: string
+  label?: string
 }

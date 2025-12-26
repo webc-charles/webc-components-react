@@ -18,6 +18,8 @@ export function Banner({
   className,
   style,
   children,
+  horizontalAlign = 'left',
+  verticalAlign = 'center',
   ...props
 }: BannerTypes) {
   return (
@@ -37,14 +39,21 @@ export function Banner({
       }}
       {...props}
     >
-      <div className={styles.container}>{children}</div>
+      <div
+        className={clsx(
+          styles.container,
+          styles[`horizontal-align-${horizontalAlign}`],
+          styles[`vertical-align-${verticalAlign}`]
+        )}
+      >
+        {children}
+      </div>
     </div>
   )
 }
 
 export function BannerContent({
-  align = 'left',
-  justify = 'center',
+  textAlign,
   textColor = 'dark',
   maxWidth,
   className,
@@ -56,9 +65,9 @@ export function BannerContent({
     <div
       className={clsx(
         styles.content,
-        styles[`align-${align}`],
+
+        textAlign && styles[`text-align-${textAlign}`],
         styles[`text-${textColor}`],
-        styles[`justify-${justify}`],
         className
       )}
       style={{ ...style, maxWidth }}
@@ -103,16 +112,12 @@ export function BannerText({ className, children, ...props }: BannerTextTypes) {
 }
 
 export function BannerActions({
-  direction = 'horizontal',
   className,
   children,
   ...props
 }: BannerActionsTypes) {
   return (
-    <div
-      className={clsx(styles.actions, styles[direction], className)}
-      {...props}
-    >
+    <div className={clsx(styles.actions, className)} {...props}>
       {children}
     </div>
   )

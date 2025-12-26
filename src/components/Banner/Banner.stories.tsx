@@ -9,10 +9,21 @@ import {
   BannerText,
   BannerTitle,
 } from './Banner'
-import { BannerAlignTypes, BannerOverlayTypes } from './Banner.types'
+import {
+  BannerOverlayTypes,
+  BannerTextAlignTypes,
+  horizontalAlignTypes,
+  verticalAlignTypes,
+} from './Banner.types'
 
-const alignOptions: BannerAlignTypes[] = ['left', 'center', 'right']
+const horizontalAlignOptions: horizontalAlignTypes[] = [
+  'left',
+  'center',
+  'right',
+]
+const verticalAlignOptions: verticalAlignTypes[] = ['start', 'center', 'end']
 const overlayOptions: BannerOverlayTypes[] = ['none', 'light', 'dark']
+const textAlignOptions: BannerTextAlignTypes[] = ['left', 'center', 'right']
 
 const sampleImage =
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80'
@@ -45,10 +56,28 @@ const meta: Meta<typeof Banner> = {
         defaultValue: { summary: '40rem' },
       },
     },
+    horizontalAlign: {
+      control: 'select',
+      options: horizontalAlignOptions,
+      description: 'Horizontal alignment of content',
+      table: {
+        defaultValue: { summary: 'left' },
+      },
+    },
+    verticalAlign: {
+      control: 'select',
+      options: verticalAlignOptions,
+      description: 'Vertical alignment of content',
+      table: {
+        defaultValue: { summary: 'center' },
+      },
+    },
   },
   args: {
     overlay: 'none',
     minHeight: '40rem',
+    horizontalAlign: 'left',
+    verticalAlign: 'center',
   },
 }
 
@@ -56,8 +85,8 @@ export default meta
 type Story = StoryObj<typeof Banner>
 
 export const Default: Story = {
-  render: () => (
-    <Banner backgroundColor="var(--color-primary-2)">
+  render: (args) => (
+    <Banner {...args} backgroundColor="var(--color-primary-2)">
       <BannerContent textColor="light">
         <BannerTitle>Welcome to Our Platform</BannerTitle>
         <BannerSubtitle>Build something amazing today</BannerSubtitle>
@@ -66,7 +95,7 @@ export const Default: Story = {
           Start your journey with us and transform the way you work.
         </BannerText>
         <BannerActions>
-          <Button variant="info" appearance="button">
+          <Button variant="contrast" appearance="button">
             Get Started
           </Button>
           <Button variant="contrast" appearance="outline">
@@ -79,9 +108,14 @@ export const Default: Story = {
 }
 
 export const WithBackgroundImage: Story = {
-  render: () => (
-    <Banner backgroundImage={sampleImage} overlay="dark">
-      <BannerContent textColor="light" align="center">
+  render: (args) => (
+    <Banner
+      {...args}
+      backgroundImage={sampleImage}
+      overlay="dark"
+      horizontalAlign="center"
+    >
+      <BannerContent textColor="light">
         <BannerTitle>Explore the Mountains</BannerTitle>
         <BannerSubtitle>Adventure awaits beyond the horizon</BannerSubtitle>
         <BannerText>
@@ -102,9 +136,14 @@ export const WithBackgroundImage: Story = {
 }
 
 export const LightOverlay: Story = {
-  render: () => (
-    <Banner backgroundImage={sampleImage} overlay="light">
-      <BannerContent textColor="dark" align="left">
+  render: (args) => (
+    <Banner
+      {...args}
+      backgroundImage={sampleImage}
+      overlay="light"
+      horizontalAlign="left"
+    >
+      <BannerContent textColor="dark">
         <BannerTitle>Nature Retreats</BannerTitle>
         <BannerSubtitle>Find your peace</BannerSubtitle>
         <BannerText>
@@ -122,9 +161,14 @@ export const LightOverlay: Story = {
 }
 
 export const RightAligned: Story = {
-  render: () => (
-    <Banner backgroundImage={sampleImage} overlay="dark">
-      <BannerContent textColor="light" align="right" maxWidth="50rem">
+  render: (args) => (
+    <Banner
+      {...args}
+      backgroundImage={sampleImage}
+      overlay="dark"
+      horizontalAlign="right"
+    >
+      <BannerContent textColor="light" maxWidth="50rem">
         <BannerTitle level="h2">Premium Collection</BannerTitle>
         <BannerSubtitle>Exclusive designs for you</BannerSubtitle>
         <BannerText>Handcrafted with attention to every detail.</BannerText>
@@ -139,9 +183,16 @@ export const RightAligned: Story = {
 }
 
 export const BottomContent: Story = {
-  render: () => (
-    <Banner backgroundImage={sampleImage} overlay="dark" minHeight="50rem">
-      <BannerContent textColor="light" align="left" justify="end">
+  render: (args) => (
+    <Banner
+      {...args}
+      backgroundImage={sampleImage}
+      overlay="dark"
+      minHeight="50rem"
+      horizontalAlign="left"
+      verticalAlign="end"
+    >
+      <BannerContent textColor="light">
         <BannerTitle level="h2">Summer Collection 2025</BannerTitle>
         <BannerSubtitle>Now Available</BannerSubtitle>
         <BannerActions>
@@ -150,60 +201,6 @@ export const BottomContent: Story = {
           </Button>
           <Button variant="contrast" appearance="outline">
             See Lookbook
-          </Button>
-        </BannerActions>
-      </BannerContent>
-    </Banner>
-  ),
-}
-
-export const TopContent: Story = {
-  render: () => (
-    <Banner backgroundImage={sampleImage} overlay="dark" minHeight="50rem">
-      <BannerContent textColor="light" align="center" justify="start">
-        <BannerSubtitle>Announcement</BannerSubtitle>
-        <BannerTitle level="h2">Free Shipping This Weekend</BannerTitle>
-        <BannerActions>
-          <Button variant="success" appearance="button">
-            Shop Now
-          </Button>
-        </BannerActions>
-      </BannerContent>
-    </Banner>
-  ),
-}
-
-export const MinimalHero: Story = {
-  render: () => (
-    <Banner backgroundColor="var(--color-grey-6)" minHeight="30rem">
-      <BannerContent align="center" textColor="dark">
-        <BannerTitle>Simple. Clean. Effective.</BannerTitle>
-        <BannerText>Less is more. Focus on what matters.</BannerText>
-        <BannerActions>
-          <Button variant="primary" appearance="button">
-            Get Started
-          </Button>
-        </BannerActions>
-      </BannerContent>
-    </Banner>
-  ),
-}
-
-export const VerticalButtons: Story = {
-  render: () => (
-    <Banner backgroundColor="var(--color-info-2)">
-      <BannerContent textColor="light" align="center">
-        <BannerTitle>Choose Your Path</BannerTitle>
-        <BannerSubtitle>Select the option that fits you best</BannerSubtitle>
-        <BannerActions direction="vertical">
-          <Button variant="primary" appearance="button">
-            For Individuals
-          </Button>
-          <Button variant="primary" appearance="button">
-            For Teams
-          </Button>
-          <Button variant="primary" appearance="button">
-            For Enterprise
           </Button>
         </BannerActions>
       </BannerContent>

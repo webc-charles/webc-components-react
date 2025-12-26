@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { str } from 'i18n'
 import { InputDate } from './Date'
 
 const meta: Meta<typeof InputDate> = {
@@ -14,7 +13,7 @@ const meta: Meta<typeof InputDate> = {
     },
     dateFormat: {
       control: 'text',
-      description: 'Date format string',
+      description: 'Date format string (yyyy-MM-dd)',
     },
     disabled: {
       control: 'boolean',
@@ -23,13 +22,14 @@ const meta: Meta<typeof InputDate> = {
         defaultValue: { summary: 'false' },
       },
     },
-    title: {
+    label: {
       control: 'text',
-      description: 'Title/label for the date picker',
+      description: 'Label for the date picker',
     },
   },
   args: {
-    placeholder: str.select_date,
+    placeholder: 'Select a date',
+    dateFormat: 'yyyy-MM-dd',
     disabled: false,
   },
 }
@@ -41,7 +41,7 @@ const DateWithState = (args: {
   placeholder?: string
   dateFormat?: string
   disabled?: boolean
-  title?: string
+  label?: string
   selected?: Date | null
   minDate?: Date
   maxDate?: Date
@@ -56,11 +56,11 @@ const DateWithState = (args: {
   )
 }
 
-export const Playground: Story = {
+export const Default: Story = {
   render: (args) => <DateWithState {...args} />,
   args: {
-    placeholder: str.select_date,
-    title: str.select_date,
+    placeholder: 'Select a date',
+    label: 'Date',
   },
 }
 
@@ -68,15 +68,15 @@ export const WithValue: Story = {
   render: (args) => <DateWithState {...args} />,
   args: {
     selected: new Date(),
-    title: str.select_date,
+    label: 'Date',
   },
 }
 
 export const WithMinMax: Story = {
   render: (args) => <DateWithState {...args} />,
   args: {
-    placeholder: str.select_date,
-    title: str.select_date,
+    placeholder: 'Select a date',
+    label: 'Date (next 30 days only)',
     minDate: new Date(),
     maxDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
   },
@@ -85,8 +85,34 @@ export const WithMinMax: Story = {
 export const Disabled: Story = {
   render: (args) => <DateWithState {...args} />,
   args: {
-    placeholder: str.select_date,
-    title: str.select_date,
+    placeholder: 'Select a date',
+    label: 'Date',
     disabled: true,
+  },
+}
+
+export const CustomFormat: Story = {
+  render: (args) => <DateWithState {...args} />,
+  args: {
+    placeholder: 'Select a date',
+    label: 'Date (dd/MM/yyyy)',
+    dateFormat: 'dd/MM/yyyy',
+    selected: new Date(),
+  },
+}
+
+export const WithoutLabel: Story = {
+  render: (args) => <DateWithState {...args} />,
+  args: {
+    placeholder: 'Select a date',
+  },
+}
+
+export const PastDatesOnly: Story = {
+  render: (args) => <DateWithState {...args} />,
+  args: {
+    placeholder: 'Select a past date',
+    label: 'Birth date',
+    maxDate: new Date(),
   },
 }

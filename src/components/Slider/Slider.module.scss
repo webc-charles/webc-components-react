@@ -38,20 +38,14 @@
   transition: all 0.2s ease;
   width: 4rem;
 
-  &:hover:not(:disabled) {
-    background: var(--color-primary-2);
-    color: var(--color-white);
-  }
-
-  &:focus:not(:disabled) {
-    background: var(--color-primary-2);
-    color: var(--color-white);
-    outline: none;
-  }
-
   &:disabled {
     cursor: not-allowed;
     opacity: 0.4;
+  }
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-2);
+    color: var(--color-white);
   }
 
   svg {

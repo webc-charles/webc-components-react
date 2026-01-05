@@ -12,6 +12,17 @@
   }
 }
 
+// Global focus-visible style for accessibility (WCAG 2.4.7)
+:focus-visible {
+  outline: 0.2rem solid var(--color-primary-2);
+  outline-offset: 0.2rem;
+}
+
+// Remove default focus for mouse users, keep for keyboard
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 html {
   background: var(--color-grey-4);
   font-family: var(--site-font);

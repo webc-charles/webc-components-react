@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Form/Button'
+import { ToastBody, ToastHeader } from './Toast'
 import { Toasts } from './Toasts'
 import { useToasts } from './ToastsContext'
 
@@ -49,7 +50,7 @@ type Story = StoryObj
 const ToastTrigger = ({
   title = 'Toast Title',
   variant = 'default',
-  children = <p>Toast message.</p>,
+  body = 'Toast message.',
 }: {
   title?: string
   variant?:
@@ -60,14 +61,24 @@ const ToastTrigger = ({
     | 'danger'
     | 'warning'
     | 'info'
-  children?: React.ReactNode
+  body?: string
 }) => {
   const { addToast } = useToasts()
   return (
     <Button
       variant="primary"
       appearance="button"
-      onClick={() => addToast({ title, variant, children })}
+      onClick={() =>
+        addToast({
+          variant,
+          children: (
+            <>
+              <ToastHeader>{title}</ToastHeader>
+              <ToastBody>{body}</ToastBody>
+            </>
+          ),
+        })
+      }
     >
       Show Toast
     </Button>
@@ -76,9 +87,11 @@ const ToastTrigger = ({
 
 export const Playground: Story = {
   render: (args) => (
-    <ToastTrigger title={args.title} variant={args.variant}>
-      <p>Toast notification content.</p>
-    </ToastTrigger>
+    <ToastTrigger
+      title={args.title}
+      variant={args.variant}
+      body="Toast notification content."
+    />
   ),
   args: {
     title: 'Notification',
@@ -88,25 +101,27 @@ export const Playground: Story = {
 
 export const Success: Story = {
   render: () => (
-    <ToastTrigger title="Success" variant="success">
-      <p>Changes saved successfully!</p>
-    </ToastTrigger>
+    <ToastTrigger
+      title="Success"
+      variant="success"
+      body="Changes saved successfully!"
+    />
   ),
 }
 
 export const Danger: Story = {
   render: () => (
-    <ToastTrigger title="Error" variant="danger">
-      <p>Something went wrong.</p>
-    </ToastTrigger>
+    <ToastTrigger title="Error" variant="danger" body="Something went wrong." />
   ),
 }
 
 export const Warning: Story = {
   render: () => (
-    <ToastTrigger title="Warning" variant="warning">
-      <p>Please review your input.</p>
-    </ToastTrigger>
+    <ToastTrigger
+      title="Warning"
+      variant="warning"
+      body="Please review your input."
+    />
   ),
 }
 
@@ -114,9 +129,12 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((variant) => (
-        <ToastTrigger key={variant} title={variant} variant={variant}>
-          <p>This is a {variant} toast.</p>
-        </ToastTrigger>
+        <ToastTrigger
+          key={variant}
+          title={variant}
+          variant={variant}
+          body={`This is a ${variant} toast.`}
+        />
       ))}
     </div>
   ),

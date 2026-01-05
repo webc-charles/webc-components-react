@@ -39,7 +39,11 @@ export function InputTextarea({
 
       {showCount && maxLength && (
         <div className={styles.footer}>
-          <span className={styles.count}>
+          <span
+            className={styles.count}
+            aria-live={value && value.length >= maxLength * 0.9 ? 'polite' : 'off'}
+            aria-atomic="true"
+          >
             {value?.length ?? 0}/{maxLength}
           </span>
         </div>

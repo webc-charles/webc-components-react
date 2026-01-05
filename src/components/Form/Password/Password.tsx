@@ -17,6 +17,7 @@ export function InputPassword({
 }: InputPasswordTypes) {
   const id = useId()
   const [showPassword, setShowPassword] = useState(false)
+  const toggleId = `${id}-toggle`
 
   return (
     <div className={clsx(styles.wrapper, className)}>
@@ -39,10 +40,12 @@ export function InputPassword({
 
         <button
           type="button"
+          id={toggleId}
           disabled={disabled}
           className={styles.toggleButton}
           onClick={() => setShowPassword(!showPassword)}
           aria-label={showPassword ? str.hide : str.show}
+          aria-pressed={showPassword}
         >
           {showPassword ? <EyeOff size={18} aria-hidden /> : <Eye size={18} aria-hidden />}
         </button>

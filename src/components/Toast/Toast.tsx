@@ -3,11 +3,45 @@ import clsx from 'clsx'
 import { str } from 'i18n'
 import { X } from 'lucide-react'
 import styles from './Toast.module.scss'
-import { ToastTypes } from './Toast.types'
+import { ToastBodyTypes, ToastHeaderTypes, ToastTypes } from './Toast.types'
+
+export function ToastHeader({
+  ref,
+  className,
+  children,
+  variant = 'primary',
+  ...rest
+}: ToastHeaderTypes) {
+  return (
+    <div
+      ref={ref}
+      className={clsx(
+        styles.toastHeader,
+        styles[`variant-${variant}`],
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </div>
+  )
+}
+
+export function ToastBody({
+  ref,
+  className,
+  children,
+  ...rest
+}: ToastBodyTypes) {
+  return (
+    <div ref={ref} className={clsx(styles.toastBody, className)} {...rest}>
+      {children}
+    </div>
+  )
+}
 
 export function Toast({
   id,
-  title,
   children,
   variant = 'primary',
   duration = 10000,
@@ -55,10 +89,7 @@ export function Toast({
         removing && styles.removing
       )}
     >
-      <div className={styles.container}>
-        {title && <div className={styles.containerHeader}>{title}</div>}
-        {children && <div className={styles.containerBody}>{children}</div>}
-      </div>
+      <div className={styles.container}>{children}</div>
 
       <button
         type="button"

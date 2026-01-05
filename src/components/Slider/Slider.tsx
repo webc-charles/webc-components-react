@@ -85,6 +85,27 @@ export function Slider({
         <div className={styles.viewport} ref={emblaRef}>
           {children}
         </div>
+        {/* Visually hidden live region for screen readers */}
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: 0,
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: 0,
+          }}
+        >
+          {str.slider_status
+            .replace('{current}', String(selectedIndex + 1))
+            .replace('{total}', String(scrollSnaps.length))}
+        </div>
       </div>
     </SliderContext.Provider>
   )

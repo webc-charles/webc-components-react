@@ -13,6 +13,6 @@ export type NoteHeaderTypes = ComponentPropsWithRef<'div'> & {
   variant?: NoteVariantTypes
 }
 
-export type NoteTypes = ComponentPropsWithRef<'aside'> & {
+export type NoteTypes = ComponentPropsWithRef<'div'> & {
   variant?: NoteVariantTypes
 }

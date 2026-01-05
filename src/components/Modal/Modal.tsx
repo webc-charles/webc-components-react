@@ -21,6 +21,7 @@ export function Modal({
   const modalRef = useRef<HTMLDivElement>(null)
   const previousFocusRef = useRef<HTMLElement | null>(null)
   const modalTitleId = `modal-title-${id}`
+  const modalDescId = `modal-desc-${id}`
 
   const handleRemove = useEffectEvent(() => {
     previousFocusRef.current?.focus()
@@ -131,6 +132,7 @@ export function Modal({
         role="dialog"
         aria-modal="true"
         aria-labelledby={title ? modalTitleId : undefined}
+        aria-describedby={modalDescId}
         ref={modalRef}
         className={clsx(
           styles.modal,
@@ -158,7 +160,7 @@ export function Modal({
           </button>
         )}
 
-        <div className={styles.modalBody}>{children}</div>
+        <div id={modalDescId} className={styles.modalBody}>{children}</div>
       </div>
     </div>
   )

@@ -22,6 +22,7 @@ export type AccordionItemContextValue = {
   isExpanded: boolean
   triggerId: string
   contentId: string
+  disabled: boolean
 }
 
 export type AccordionItemTypes = ComponentPropsWithRef<'div'> & {
@@ -29,6 +30,9 @@ export type AccordionItemTypes = ComponentPropsWithRef<'div'> & {
   disabled?: boolean
 }
 
-export type AccordionTriggerTypes = ComponentPropsWithRef<'button'>
+export type AccordionTriggerTypes = ComponentPropsWithRef<'button'> & {
+  /** Heading level for proper document structure (default: 'h3') */
+  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+}
 
 export type AccordionContentTypes = ComponentPropsWithRef<'div'>

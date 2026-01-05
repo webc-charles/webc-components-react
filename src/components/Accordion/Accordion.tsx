@@ -129,8 +129,8 @@ export function AccordionItem({
   const contentId = `${accordionId}-content-${value}`
 
   const itemContextValue = useMemo(
-    () => ({ value, isExpanded, triggerId, contentId }),
-    [value, isExpanded, triggerId, contentId]
+    () => ({ value, isExpanded, triggerId, contentId, disabled }),
+    [value, isExpanded, triggerId, contentId, disabled]
   )
 
   return (
@@ -157,14 +157,15 @@ export function AccordionTrigger({
   ref,
   className,
   children,
+  headingLevel: Heading = 'h3',
   ...props
 }: AccordionTriggerTypes) {
   const { toggleItem } = useAccordionContext()
-  const { value, isExpanded, triggerId, contentId } = useAccordionItemContext()
+  const { value, isExpanded, triggerId, contentId, disabled } = useAccordionItemContext()
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   const handleClick = () => {
-    toggleItem(value)
+    if (!disabled) toggleItem(value)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -206,7 +207,7 @@ export function AccordionTrigger({
   }
 
   return (
-    <h3 className={styles.header}>
+    <Heading className={styles.header}>
       <button
         ref={(node) => {
           buttonRef.current = node
@@ -215,6 +216,7 @@ export function AccordionTrigger({
         }}
         type="button"
         id={triggerId}
+        disabled={disabled}
         className={clsx(styles.trigger, className)}
         aria-expanded={isExpanded}
         aria-controls={contentId}
@@ -229,7 +231,7 @@ export function AccordionTrigger({
           aria-hidden
         />
       </button>
-    </h3>
+    </Heading>
   )
 }
 

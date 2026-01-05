@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import '@testing-library/jest-dom/vitest'
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { ToastHeader, ToastBody } from './Toast'
 import { Toasts } from './Toasts'
 import { ToastsContext } from './ToastsContext'
 
@@ -16,7 +17,14 @@ describe('Toasts', () => {
     const TestComponent = () => {
       const { addToast } = useContext(ToastsContext)!
       useEffect(() => {
-        addToast({ title: 'Toast Title', children: <span data-testid="toast-body">Toast Body</span> })
+        addToast({
+          children: (
+            <>
+              <ToastHeader>Toast Title</ToastHeader>
+              <ToastBody data-testid="toast-body">Toast Body</ToastBody>
+            </>
+          ),
+        })
       }, [addToast])
       return null
     }
@@ -34,7 +42,14 @@ describe('Toasts', () => {
     const TestComponent = () => {
       const { addToast } = useContext(ToastsContext)!
       useEffect(() => {
-        addToast({ title: 'Close Test', children: <span>Body</span> })
+        addToast({
+          children: (
+            <>
+              <ToastHeader>Close Test</ToastHeader>
+              <ToastBody>Body</ToastBody>
+            </>
+          ),
+        })
       }, [addToast])
       return null
     }

@@ -8,6 +8,7 @@ import { InputNumberTypes } from './Number.types'
 export function InputNumber({
   value,
   onChange,
+  ref,
   min,
   max,
   step = 1,
@@ -45,6 +46,7 @@ export function InputNumber({
       <div className={styles.inputWrapper}>
         <input
           {...rest}
+          ref={ref}
           id={id}
           type="number"
           value={value ?? ''}

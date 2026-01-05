@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
-export type InputTextTypes = ComponentProps<'input'> & {
+export type InputTextTypes = ComponentPropsWithRef<'input'> & {
   label: string
   inputClassName?: string
   labelClassName?: string

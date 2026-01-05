@@ -1,14 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../Button'
+import { Button } from '../Form/Button'
 import { Toasts } from './Toasts'
 import { useToasts } from './ToastsContext'
 
-const variants = ['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info'] as const
+const variants = [
+  'default',
+  'primary',
+  'secondary',
+  'success',
+  'danger',
+  'warning',
+  'info',
+] as const
 
 const meta: Meta = {
   title: 'Components/Toast',
   tags: ['autodocs'],
-  decorators: [(Story) => <Toasts><Story /></Toasts>],
+  decorators: [
+    (Story) => (
+      <Toasts>
+        <Story />
+      </Toasts>
+    ),
+  ],
   argTypes: {
     title: {
       control: 'text',
@@ -38,7 +52,14 @@ const ToastTrigger = ({
   children = <p>Toast message.</p>,
 }: {
   title?: string
-  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'
+  variant?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
   children?: React.ReactNode
 }) => {
   const { addToast } = useToasts()

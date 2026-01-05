@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type InputTextareaTypes = Omit<
-  ComponentProps<'textarea'>,
+  ComponentPropsWithRef<'textarea'>,
   'onChange' | 'value'
 > & {
   value?: string

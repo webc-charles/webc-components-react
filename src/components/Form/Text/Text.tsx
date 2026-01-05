@@ -5,6 +5,7 @@ import type { InputTextTypes } from './Text.types'
 
 export function InputText({
   label,
+  ref,
   className,
   inputClassName,
   labelClassName,
@@ -17,7 +18,7 @@ export function InputText({
       <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
         {label}
       </label>
-      <input id={id} {...rest} className={clsx(styles.input, inputClassName)} />
+      <input ref={ref} id={id} className={clsx(styles.input, inputClassName)} {...rest} />
     </div>
   )
 }

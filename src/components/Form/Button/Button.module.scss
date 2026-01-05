@@ -1,0 +1,25 @@
+@use 'styles/form' as *;
+@use 'styles/interactive' as *;
+
+.button {
+  @include interactive-base;
+  @include interactive-appearances;
+  @include interactive-variants;
+  @include interactive-disabled;
+}
+
+.content {
+  align-items: center;
+  display: inline-flex;
+  gap: inherit;
+}
+
+.loading .content {
+  opacity: 0;
+}
+
+.spinner {
+  @include formSpinner;
+
+  position: absolute;
+}

@@ -8,6 +8,7 @@ export function Checkbox({
   label,
   checked,
   onChange,
+  ref,
   className,
   labelClassName,
   disabled = false,
@@ -24,6 +25,7 @@ export function Checkbox({
       {...rest}
     >
       <input
+        ref={ref}
         id={id}
         type="checkbox"
         checked={checked}

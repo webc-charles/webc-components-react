@@ -7,6 +7,7 @@ import type { InputPasswordTypes } from './Password.types'
 
 export function InputPassword({
   label,
+  ref,
   disabled,
   className,
   inputClassName,
@@ -25,6 +26,7 @@ export function InputPassword({
       <div className={styles.inputWrapper}>
         <input
           {...rest}
+          ref={ref}
           id={id}
           type={showPassword ? 'text' : 'password'}
           disabled={disabled}

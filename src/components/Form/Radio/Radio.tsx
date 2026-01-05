@@ -9,6 +9,7 @@ export function InputRadio({
   options,
   name,
   label,
+  ref,
   disabled,
   className,
   optionClassName,
@@ -21,8 +22,9 @@ export function InputRadio({
 
   return (
     <div
-      className={clsx(styles.wrapper, className, { [styles.disabled]: disabled })}
+      ref={ref}
       role="radiogroup"
+      className={clsx(styles.wrapper, className)}
       aria-labelledby={label ? labelId : undefined}
     >
       {label && (
@@ -31,7 +33,11 @@ export function InputRadio({
         </span>
       )}
 
-      <div className={clsx(styles.options, styles[direction])}>
+      <div
+        className={clsx(styles.options, styles[direction], {
+          [styles.disabled]: disabled,
+        })}
+      >
         {options.map((option) => (
           <label
             key={option.value}
@@ -41,13 +47,13 @@ export function InputRadio({
           >
             <input
               {...rest}
-              type="radio"
               name={name}
+              type="radio"
               value={option.value}
-              checked={value === option.value}
-              onChange={() => onChange?.(option.value)}
-              disabled={disabled || option.disabled}
               className={styles.input}
+              checked={value === option.value}
+              disabled={disabled || option.disabled}
+              onChange={() => onChange?.(option.value)}
             />
             <span className={styles.radio} aria-hidden />
             <span className={styles.label}>{option.label}</span>

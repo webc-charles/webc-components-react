@@ -10,6 +10,7 @@ export type ModalConfigTypes = {
   closeOnBackdrop?: boolean
   duration?: number
   closeLabel?: string
+  hideCloseButton?: boolean
 }
 
 export type ModalTypes = ModalConfigTypes & {

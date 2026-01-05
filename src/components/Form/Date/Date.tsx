@@ -1,8 +1,8 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
-import { Modal } from 'components/Modal'
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button, Modal } from 'components'
 import styles from './Date.module.scss'
 import { InputDateTypes } from './Date.types'
 
@@ -58,6 +58,7 @@ export function InputDate({
   selected,
   onChange,
   onBlur,
+  ref,
   placeholder = str.select_date,
   dateFormat = 'yyyy-MM-dd',
   minDate,
@@ -70,9 +71,11 @@ export function InputDate({
   const id = useId()
   const [isOpen, setIsOpen] = useState(false)
   const [viewDate, setViewDate] = useState(() => selected || new Date())
+  const [pendingDate, setPendingDate] = useState<Date | null>(null)
 
-  const triggerRef = useRef<HTMLButtonElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const applyButtonRef = useRef<HTMLButtonElement>(null)
 
   const today = useMemo(() => new Date(), [])
 
@@ -101,21 +104,33 @@ export function InputDate({
   const handleOpen = useCallback(() => {
     if (disabled) return
     setViewDate(selected || new Date())
+    setPendingDate(selected)
     setIsOpen(true)
   }, [disabled, selected])
 
   const handleClose = useCallback(() => {
     setIsOpen(false)
+    setPendingDate(null)
     setTimeout(() => triggerRef.current?.focus(), 0)
   }, [])
+
+  const handleCancel = useCallback(() => {
+    handleClose()
+  }, [handleClose])
+
+  const handleApply = useCallback(() => {
+    if (pendingDate) {
+      onChange(pendingDate)
+    }
+    handleClose()
+  }, [pendingDate, onChange, handleClose])
 
   const handleSelectDate = useCallback(
     (date: Date) => {
       if (isDateDisabled(date, minDate, maxDate)) return
-      onChange(date)
-      handleClose()
+      setPendingDate(date)
     },
-    [onChange, handleClose, minDate, maxDate]
+    [minDate, maxDate]
   )
 
   const handlePrevMonth = useCallback(() => {
@@ -211,6 +226,9 @@ export function InputDate({
     }, 50)
   }, [])
 
+  // The date to highlight as selected in the grid
+  const displaySelected = pendingDate
+
   return (
     <div className={clsx(styles.wrapper, className)} {...rest}>
       {label && (
@@ -221,6 +239,7 @@ export function InputDate({
 
       <div className={styles.inputWrapper}>
         <input
+          ref={ref}
           id={id}
           type="text"
           readOnly
@@ -247,7 +266,7 @@ export function InputDate({
       </div>
 
       {isOpen && (
-        <Modal id={1} size="sm" onRemove={handleClose} closeOnBackdrop>
+        <Modal id={1} size="sm" onRemove={handleCancel} hideCloseButton>
           <div
             className={styles.calendar}
             ref={(el) => {
@@ -295,12 +314,17 @@ export function InputDate({
               {calendarDays.map((date, index) => {
                 if (!date) {
                   return (
-                    <span key={`empty-${index}`} className={styles.empty} role="gridcell" />
+                    <span
+                      key={`empty-${index}`}
+                      className={styles.empty}
+                      role="gridcell"
+                    />
                   )
                 }
 
                 const isDisabled = isDateDisabled(date, minDate, maxDate)
-                const isSelected = selected && isSameDay(date, selected)
+                const isSelected =
+                  displaySelected && isSameDay(date, displaySelected)
                 const isToday = isSameDay(date, today)
 
                 return (
@@ -321,12 +345,37 @@ export function InputDate({
                     )}
                     aria-selected={isSelected || undefined}
                     aria-disabled={isDisabled || undefined}
-                    tabIndex={isSelected || (isToday && !selected) ? 0 : -1}
+                    tabIndex={
+                      isSelected || (isToday && !displaySelected) ? 0 : -1
+                    }
                   >
                     {date.getDate()}
                   </button>
                 )
               })}
+            </div>
+
+            <div className={styles.footer}>
+              <Button
+                type="button"
+                appearance="button"
+                onClick={handleCancel}
+                className={styles.footerButton}
+              >
+                {str.cancel}
+              </Button>
+
+              <Button
+                type="button"
+                ref={applyButtonRef}
+                onClick={handleApply}
+                disabled={!pendingDate}
+                appearance="button"
+                variant="primary"
+                className={styles.footerButton}
+              >
+                {str.apply}
+              </Button>
             </div>
           </div>
         </Modal>

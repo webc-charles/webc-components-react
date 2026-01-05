@@ -19,4 +19,5 @@ export type ButtonAppearanceTypes =
 export type ButtonTypes = ComponentPropsWithRef<'button'> & {
   variant?: ButtonVariantTypes
   appearance?: ButtonAppearanceTypes
+  loading?: boolean
 }

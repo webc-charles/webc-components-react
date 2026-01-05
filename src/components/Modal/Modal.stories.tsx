@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../Button'
+import { Button } from '../Form/Button'
 import { Modals } from './Modals'
 import { useModals } from './ModalsContext'
 
@@ -8,7 +8,13 @@ const sizes = ['sm', 'md', 'lg'] as const
 const meta: Meta = {
   title: 'Components/Modal',
   tags: ['autodocs'],
-  decorators: [(Story) => <Modals><Story /></Modals>],
+  decorators: [
+    (Story) => (
+      <Modals>
+        <Story />
+      </Modals>
+    ),
+  ],
   argTypes: {
     title: {
       control: 'text',

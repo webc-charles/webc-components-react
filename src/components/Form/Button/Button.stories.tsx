@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import { ButtonVariantTypes, ButtonAppearanceTypes } from './Button.types'
+import { ButtonAppearanceTypes, ButtonVariantTypes } from './Button.types'
 
 const variants: ButtonVariantTypes[] = [
   'default',
@@ -20,7 +20,7 @@ const appearances: ButtonAppearanceTypes[] = [
 ]
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Form/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

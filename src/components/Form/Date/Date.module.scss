@@ -79,7 +79,7 @@
 }
 
 .monthYear {
-  color: var(--color-grey-1);
+  color: var(--color-black);
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-lg);
 }
@@ -110,7 +110,7 @@
   }
 
   &.today {
-    border: 0.2rem solid var(--color-primary-2);
+    border: 0.1rem solid var(--color-primary-2);
   }
 
   &.selected {
@@ -118,8 +118,8 @@
     color: var(--color-white);
 
     &:focus {
-      outline: 0.2rem solid var(--color-primary-1);
-      outline-offset: 0.2rem;
+      // outline: 0.2rem solid var(--color-primary-1);
+      // outline-offset: 0.2rem;
     }
   }
 }
@@ -128,18 +128,20 @@
   align-items: center;
   background: transparent;
   border: none;
+  border: 0.1rem solid var(--color-grey-4);
   border-radius: var(--radius-small);
-  color: var(--color-grey-2);
+  color: var(--color-black);
   cursor: pointer;
   display: flex;
-  height: 3.2rem;
+  height: 4rem;
   justify-content: center;
   transition: all 0.2s ease;
-  width: 3.2rem;
+  width: 4rem;
 
   &:is(:hover, :focus) {
-    background: var(--color-grey-6);
-    color: var(--color-primary-2);
+    background-color: var(--color-primary-2);
+    border-color: var(--color-primary-2);
+    color: var(--color-white);
     outline: none;
   }
 }
@@ -167,4 +169,14 @@
 
 .empty {
   aspect-ratio: 1;
+}
+
+.footer {
+  display: flex;
+  gap: 1rem;
+}
+
+.footerButton {
+  flex: 1;
+  margin: 2rem 0 0;
 }

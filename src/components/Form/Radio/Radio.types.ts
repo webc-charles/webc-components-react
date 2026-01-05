@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, Ref } from 'react'
 
 export type RadioOptionTypes = {
   value: string
@@ -8,10 +8,11 @@ export type RadioOptionTypes = {
 
 export type InputRadioTypes = Omit<
   ComponentProps<'input'>,
-  'onChange' | 'value'
+  'onChange' | 'value' | 'ref'
 > & {
   value?: string
   onChange?: (value: string) => void
+  ref?: Ref<HTMLDivElement>
   options: RadioOptionTypes[]
   name: string
   label?: string

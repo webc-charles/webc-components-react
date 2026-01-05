@@ -43,8 +43,9 @@ export function Toast({
 
   return (
     <div
-      role="dialog"
-      aria-modal="true"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
       className={clsx(
         styles.toast,
         styles[variant],

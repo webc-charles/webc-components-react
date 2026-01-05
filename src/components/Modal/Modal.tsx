@@ -14,6 +14,7 @@ export function Modal({
   duration = Infinity,
   closeOnBackdrop = false,
   closeLabel = str.close_modal,
+  hideCloseButton = false,
 }: ModalTypes) {
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)
@@ -149,14 +150,16 @@ export function Modal({
           </div>
         )}
 
-        <button
-          title={closeLabel}
-          onClick={handleRemove}
-          aria-label={closeLabel}
-          className={styles.close}
-        >
-          <X size={20} aria-hidden />
-        </button>
+        {!hideCloseButton && (
+          <button
+            title={closeLabel}
+            onClick={handleRemove}
+            aria-label={closeLabel}
+            className={styles.close}
+          >
+            <X size={20} aria-hidden />
+          </button>
+        )}
 
         <div className={styles.modalBody}>{children}</div>
       </div>

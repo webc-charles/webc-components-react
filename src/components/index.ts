@@ -1,6 +1,6 @@
 export * from './Badge'
 export * from './Banner'
-export * from './Button'
+export * from './Form/Button'
 export * from './Card'
 export * from './Form'
 export * from './Grid'

@@ -8,9 +8,7 @@ export function Toasts({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<ToastConfigTypes[]>([])
 
   const addToast = useCallback((options: ToastConfigTypes) => {
-    setTimeout(() => {
-      setToasts((prev) => [...prev, { ...options, id: Date.now() }])
-    }, 1000)
+    setToasts((prev) => [...prev, { ...options, id: Date.now() }])
   }, [])
 
   const removeToast = useCallback((id: number) => {

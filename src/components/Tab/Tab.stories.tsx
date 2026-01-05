@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Tab, TabList, TabButton, TabPanels, TabPanel } from './Tab'
-import { ButtonVariantTypes, ButtonAppearanceTypes } from '../Button/Button.types'
+import {
+  ButtonAppearanceTypes,
+  ButtonVariantTypes,
+} from '../Form/Button/Button.types'
+import { Tab, TabButton, TabList, TabPanel, TabPanels } from './Tab'
 
 const meta: Meta<typeof Tab> = {
   title: 'Components/Tab',

@@ -5,20 +5,21 @@ import type { InputTextareaTypes } from './Textarea.types'
 
 export function InputTextarea({
   value,
-  onChange,
   label,
+  ref,
+  onChange,
   disabled,
-  className,
-  textareaClassName,
-  labelClassName,
   maxLength,
+  className,
+  labelClassName,
+  textareaClassName,
   showCount = false,
   ...rest
 }: InputTextareaTypes) {
   const id = useId()
 
   return (
-    <div className={clsx(styles.wrapper, className, { [styles.disabled]: disabled })}>
+    <div className={clsx(styles.wrapper, className)}>
       {label && (
         <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
           {label}
@@ -27,6 +28,7 @@ export function InputTextarea({
 
       <textarea
         {...rest}
+        ref={ref}
         id={id}
         value={value ?? ''}
         onChange={(e) => onChange?.(e.target.value)}
@@ -37,7 +39,9 @@ export function InputTextarea({
 
       {showCount && maxLength && (
         <div className={styles.footer}>
-          <span className={styles.count}>{value?.length ?? 0}/{maxLength}</span>
+          <span className={styles.count}>
+            {value?.length ?? 0}/{maxLength}
+          </span>
         </div>
       )}
     </div>

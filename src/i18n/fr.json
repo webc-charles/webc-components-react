@@ -12,6 +12,26 @@
   "slider_goto": "Aller à la diapositive",
   "previous_month": "Mois précédent",
   "next_month": "Mois suivant",
-  "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-  "days_short": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"]
+  "cancel": "Annuler",
+  "apply": "Appliquer",
+  "months": [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre"
+  ],
+  "days_short": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+  "select_option": "Sélectionner une option",
+  "clear_all": "Tout effacer",
+  "remove": "Enlève",
+  "search": "Rechercher",
+  "selected_options": "Options sélectionnées"
 }

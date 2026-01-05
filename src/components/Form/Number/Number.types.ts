@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type InputNumberTypes = Omit<
-  ComponentProps<'input'>,
+  ComponentPropsWithRef<'input'>,
   'onChange' | 'value' | 'step' | 'min' | 'max'
 > & {
   value?: number

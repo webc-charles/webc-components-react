@@ -1,8 +1,0 @@
-@use 'styles/interactive' as *;
-
-.button {
-  @include interactive-base;
-  @include interactive-appearances;
-  @include interactive-variants;
-  @include interactive-disabled;
-}

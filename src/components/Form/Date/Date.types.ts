@@ -1,9 +1,10 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, Ref } from 'react'
 
-export type InputDateTypes = Omit<ComponentProps<'div'>, 'onChange'> & {
+export type InputDateTypes = Omit<ComponentProps<'div'>, 'onChange' | 'ref'> & {
   selected: Date | null
   onChange: (date: Date | null) => void
   onBlur?: () => void
+  ref?: Ref<HTMLInputElement>
   placeholder?: string
   dateFormat?: string
   minDate?: Date

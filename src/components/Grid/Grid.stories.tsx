@@ -35,6 +35,13 @@ const meta: Meta<typeof Grid> = {
         defaultValue: { summary: 'none' },
       },
     },
+    masonry: {
+      control: 'boolean',
+      description: 'Enable masonry layout',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
     colXS: {
       control: { type: 'number', min: 1, max: 12 },
       description: 'Columns at XS breakpoint',
@@ -59,6 +66,7 @@ const meta: Meta<typeof Grid> = {
   args: {
     col: 3,
     gap: 'md',
+    masonry: false,
   },
 }
 
@@ -141,4 +149,115 @@ export const GapSizes: Story = {
       ))}
     </div>
   ),
+}
+
+// Sample data with varying heights for masonry demo
+const masonryItems = [
+  { id: 1, height: '12rem', label: 'Short' },
+  { id: 2, height: '20rem', label: 'Tall' },
+  { id: 3, height: '15rem', label: 'Medium' },
+  { id: 4, height: '10rem', label: 'Tiny' },
+  { id: 5, height: '18rem', label: 'Large' },
+  { id: 6, height: '14rem', label: 'Medium' },
+  { id: 7, height: '22rem', label: 'Extra Tall' },
+  { id: 8, height: '11rem', label: 'Small' },
+  { id: 9, height: '16rem', label: 'Medium' },
+  { id: 10, height: '13rem', label: 'Short' },
+  { id: 11, height: '19rem', label: 'Tall' },
+  { id: 12, height: '12rem', label: 'Short' },
+]
+
+export const Masonry: Story = {
+  render: () => (
+    <Grid masonry col={3} gap="md" style={gridStyles}>
+      {masonryItems.map((item) => (
+        <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
+          <CardBody>
+            <strong>{item.id}</strong>
+            <br />
+            {item.label}
+          </CardBody>
+        </Card>
+      ))}
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Masonry layout using CSS columns. Items flow vertically first, then horizontally.',
+      },
+    },
+  },
+}
+
+export const MasonryFourColumns: Story = {
+  render: () => (
+    <Grid masonry col={4} gap="lg" style={gridStyles}>
+      {masonryItems.map((item) => (
+        <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
+          <CardBody>
+            <strong>{item.id}</strong>
+            <br />
+            {item.label}
+          </CardBody>
+        </Card>
+      ))}
+    </Grid>
+  ),
+}
+
+export const MasonryResponsive: Story = {
+  render: () => (
+    <Grid masonry col={1} colSM={2} colMD={3} colLG={4} gap="md" style={gridStyles}>
+      {masonryItems.map((item) => (
+        <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
+          <CardBody>
+            <strong>{item.id}</strong>
+            <br />
+            {item.label}
+          </CardBody>
+        </Card>
+      ))}
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Responsive masonry: 1 column on mobile, 2 on SM, 3 on MD, 4 on LG.',
+      },
+    },
+  },
+}
+
+export const MasonryWithImages: Story = {
+  render: () => (
+    <Grid masonry col={3} gap="md" style={gridStyles}>
+      {[
+        { id: 1, height: 300 },
+        { id: 2, height: 200 },
+        { id: 3, height: 350 },
+        { id: 4, height: 250 },
+        { id: 5, height: 180 },
+        { id: 6, height: 320 },
+        { id: 7, height: 220 },
+        { id: 8, height: 280 },
+        { id: 9, height: 190 },
+      ].map((item) => (
+        <Card key={item.id} style={{ overflow: 'hidden' }}>
+          <img
+            src={`https://picsum.photos/400/${item.height}?random=${item.id}`}
+            alt={`Sample ${item.id}`}
+            style={{ width: '100%', display: 'block' }}
+          />
+        </Card>
+      ))}
+    </Grid>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Masonry layout with images of varying heights - perfect for galleries.',
+      },
+    },
+  },
 }

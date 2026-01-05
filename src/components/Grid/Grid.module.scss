@@ -192,3 +192,139 @@ $gaps: (
     }
   }
 }
+
+// Masonry layout using CSS columns
+.masonry {
+  column-count: 1;
+  column-gap: 1rem;
+  display: block;
+
+  // Override grid display
+  grid-template-columns: unset;
+}
+
+// Masonry columns - base
+@for $i from 1 through 12 {
+  .masonry.grid--#{$i} {
+    column-count: #{$i};
+  }
+}
+
+// Masonry gaps - base
+@each $name, $value in $gaps {
+  .masonry.grid--gap-#{$name} {
+    column-gap: $value;
+  }
+}
+
+// Masonry item
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@each $name, $value in $gaps {
+  .masonry.grid--gap-#{$name} .masonryItem {
+    margin-bottom: $value;
+  }
+}
+
+// Remove margin from last items (CSS can't do this perfectly with columns)
+.masonry.grid--gap-none .masonryItem {
+  margin-bottom: 0;
+}
+
+// Masonry responsive - XS
+@include mqXS {
+  @for $i from 1 through 12 {
+    .masonry.grid--xs-#{$i} {
+      column-count: #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .masonry.grid--gap-xs-#{$name} {
+      column-gap: $value;
+    }
+
+    .masonry.grid--gap-xs-#{$name} .masonryItem {
+      margin-bottom: $value;
+    }
+  }
+}
+
+// Masonry responsive - SM
+@include mqSM {
+  @for $i from 1 through 12 {
+    .masonry.grid--sm-#{$i} {
+      column-count: #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .masonry.grid--gap-sm-#{$name} {
+      column-gap: $value;
+    }
+
+    .masonry.grid--gap-sm-#{$name} .masonryItem {
+      margin-bottom: $value;
+    }
+  }
+}
+
+// Masonry responsive - MD
+@include mqMD {
+  @for $i from 1 through 12 {
+    .masonry.grid--md-#{$i} {
+      column-count: #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .masonry.grid--gap-md-#{$name} {
+      column-gap: $value;
+    }
+
+    .masonry.grid--gap-md-#{$name} .masonryItem {
+      margin-bottom: $value;
+    }
+  }
+}
+
+// Masonry responsive - LG
+@include mqLG {
+  @for $i from 1 through 12 {
+    .masonry.grid--lg-#{$i} {
+      column-count: #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .masonry.grid--gap-lg-#{$name} {
+      column-gap: $value;
+    }
+
+    .masonry.grid--gap-lg-#{$name} .masonryItem {
+      margin-bottom: $value;
+    }
+  }
+}
+
+// Masonry responsive - XL
+@include mqXL {
+  @for $i from 1 through 12 {
+    .masonry.grid--xl-#{$i} {
+      column-count: #{$i};
+    }
+  }
+
+  @each $name, $value in $gaps {
+    .masonry.grid--gap-xl-#{$name} {
+      column-gap: $value;
+    }
+
+    .masonry.grid--gap-xl-#{$name} .masonryItem {
+      margin-bottom: $value;
+    }
+  }
+}

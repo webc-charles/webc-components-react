@@ -15,6 +15,8 @@ export type GridTypes = ComponentPropsWithRef<'div'> & {
   gapMD?: GapSize
   gapLG?: GapSize
   gapXL?: GapSize
+  /** Enable masonry layout (items flow vertically then horizontally) */
+  masonry?: boolean
 }
 
 export type GridItemTypes = ComponentPropsWithRef<'div'> & {

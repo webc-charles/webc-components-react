@@ -6,7 +6,6 @@ import {
   useContext,
   useId,
   useMemo,
-  useRef,
   useState,
 } from 'react'
 import clsx from 'clsx'
@@ -22,12 +21,16 @@ import {
 } from './Accordion.types'
 
 const AccordionContext = createContext<AccordionContextValue | null>(null)
-const AccordionItemContext = createContext<AccordionItemContextValue | null>(null)
+const AccordionItemContext = createContext<AccordionItemContextValue | null>(
+  null
+)
 
 function useAccordionContext() {
   const context = useContext(AccordionContext)
   if (!context) {
-    throw new Error('Accordion components must be used within an <Accordion> provider')
+    throw new Error(
+      'Accordion components must be used within an <Accordion> provider'
+    )
   }
   return context
 }
@@ -35,7 +38,9 @@ function useAccordionContext() {
 function useAccordionItemContext() {
   const context = useContext(AccordionItemContext)
   if (!context) {
-    throw new Error('AccordionTrigger/Content must be used within an <AccordionItem>')
+    throw new Error(
+      'AccordionTrigger/Content must be used within an <AccordionItem>'
+    )
   }
   return context
 }
@@ -58,7 +63,8 @@ export function Accordion({
     return Array.isArray(defaultValue) ? defaultValue : [defaultValue]
   }
 
-  const [internalExpanded, setInternalExpanded] = useState<string[]>(getInitialExpanded)
+  const [internalExpanded, setInternalExpanded] =
+    useState<string[]>(getInitialExpanded)
 
   const expandedItems = useMemo(() => {
     if (value === undefined) return internalExpanded
@@ -117,9 +123,9 @@ export function Accordion({
 export function AccordionItem({
   ref,
   value,
-  disabled = false,
-  className,
   children,
+  className,
+  disabled = false,
   ...props
 }: AccordionItemTypes) {
   const { expandedItems, accordionId } = useAccordionContext()
@@ -133,18 +139,20 @@ export function AccordionItem({
     [value, isExpanded, triggerId, contentId, disabled]
   )
 
+  const classList = clsx(
+    styles.item,
+    isExpanded && styles.expanded,
+    disabled && styles.disabled,
+    className
+  )
+
   return (
     <AccordionItemContext.Provider value={itemContextValue}>
       <div
         ref={ref}
-        className={clsx(
-          styles.item,
-          isExpanded && styles.expanded,
-          disabled && styles.disabled,
-          className
-        )}
-        data-state={isExpanded ? 'open' : 'closed'}
+        className={classList}
         data-disabled={disabled || undefined}
+        data-state={isExpanded ? 'open' : 'closed'}
         {...props}
       >
         {children}
@@ -155,21 +163,21 @@ export function AccordionItem({
 
 export function AccordionTrigger({
   ref,
-  className,
   children,
+  className,
   headingLevel: Heading = 'h3',
   ...props
 }: AccordionTriggerTypes) {
   const { toggleItem } = useAccordionContext()
-  const { value, isExpanded, triggerId, contentId, disabled } = useAccordionItemContext()
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const { value, isExpanded, triggerId, contentId, disabled } =
+    useAccordionItemContext()
 
   const handleClick = () => {
     if (!disabled) toggleItem(value)
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    const accordion = buttonRef.current?.closest(`.${styles.accordion}`)
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const accordion = e.currentTarget.closest(`.${styles.accordion}`)
     const triggers = accordion?.querySelectorAll<HTMLButtonElement>(
       `.${styles.trigger}:not([disabled])`
     )
@@ -177,7 +185,7 @@ export function AccordionTrigger({
     if (!triggers || triggers.length === 0) return
 
     const currentIndex = Array.from(triggers).findIndex(
-      (trigger) => trigger === buttonRef.current
+      (trigger) => trigger === e.currentTarget
     )
 
     let nextIndex: number | null = null
@@ -209,11 +217,7 @@ export function AccordionTrigger({
   return (
     <Heading className={styles.header}>
       <button
-        ref={(node) => {
-          buttonRef.current = node
-          if (typeof ref === 'function') ref(node)
-          else if (ref) ref.current = node
-        }}
+        ref={ref}
         type="button"
         id={triggerId}
         disabled={disabled}
@@ -225,6 +229,7 @@ export function AccordionTrigger({
         {...props}
       >
         <span className={styles.triggerText}>{children}</span>
+
         <ChevronDown
           size={18}
           className={clsx(styles.icon, isExpanded && styles.iconRotated)}
@@ -249,7 +254,11 @@ export function AccordionContent({
       id={contentId}
       role="region"
       aria-labelledby={triggerId}
-      className={clsx(styles.content, isExpanded && styles.contentExpanded, className)}
+      className={clsx(
+        styles.content,
+        isExpanded && styles.contentExpanded,
+        className
+      )}
       hidden={!isExpanded}
       {...props}
     >

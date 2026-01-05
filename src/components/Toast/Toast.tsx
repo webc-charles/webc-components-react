@@ -64,9 +64,9 @@ export function Toast({
     }, 200)
   })
 
-  // Activation animation
+  // Activation animation (small delay ensures CSS transition triggers)
   useEffect(() => {
-    const timer = setTimeout(() => setActive(true), 100)
+    const timer = setTimeout(() => setActive(true), 10)
     return () => clearTimeout(timer)
   }, [])
 

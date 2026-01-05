@@ -28,3 +28,10 @@ storybook-static/
 *.local
 .env
 .env.*
+
+# Claude / BMAD
+.claude/
+.agentvibes/
+_bmad/
+_bmad-output/
+.mcp.json

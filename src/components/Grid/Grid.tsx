@@ -1,3 +1,4 @@
+import { Children, isValidElement, cloneElement, ReactElement } from 'react'
 import clsx from 'clsx'
 import styles from './Grid.module.scss'
 import { GridTypes } from './Grid.types'
@@ -17,6 +18,7 @@ export function Grid({
   colMD,
   colLG,
   colXL,
+  masonry,
   className,
   ...rest
 }: GridTypes) {
@@ -38,11 +40,30 @@ export function Grid({
     gapXL && styles[`grid--gap-xl-${gapXL}`]
   )
 
-  const gridClasses = clsx(styles.grid, gapClasses, colClasses, className)
+  const gridClasses = clsx(
+    styles.grid,
+    masonry && styles.masonry,
+    gapClasses,
+    colClasses,
+    className
+  )
+
+  // Wrap children with masonryItem class when in masonry mode
+  const wrappedChildren = masonry
+    ? Children.map(children, (child) => {
+        if (isValidElement(child)) {
+          const element = child as ReactElement<{ className?: string }>
+          return cloneElement(element, {
+            className: clsx(styles.masonryItem, element.props.className),
+          })
+        }
+        return child
+      })
+    : children
 
   return (
     <div ref={ref} className={gridClasses} {...rest}>
-      {children}
+      {wrappedChildren}
     </div>
   )
 }

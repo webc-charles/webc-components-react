@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ColorVariant } from '../../types'
 import { Link } from './Link'
-import { AnchorVariantTypes, AnchorAppearanceTypes } from './Link.types'
+import { AnchorAppearanceTypes } from './Link.types'
 
-const variants: AnchorVariantTypes[] = [
+const variants: ColorVariant[] = [
   'default',
   'primary',
   'secondary',
   'success',
   'danger',
-  'info',
   'warning',
+  'info',
 ]
 
 const appearances: AnchorAppearanceTypes[] = [
@@ -41,6 +42,13 @@ const meta: Meta<typeof Link> = {
         defaultValue: { summary: 'default' },
       },
     },
+    contrast: {
+      control: 'boolean',
+      description: 'Enable contrast mode for dark backgrounds',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
     disabled: {
       control: 'boolean',
       description: 'Whether the link is disabled',
@@ -61,6 +69,7 @@ const meta: Meta<typeof Link> = {
     children: 'Link',
     variant: 'default',
     appearance: 'underline',
+    contrast: false,
     disabled: false,
     href: '#',
   },
@@ -77,11 +86,11 @@ export const Playground: Story = {
   },
 }
 
-export const VariantButtons: Story = {
+export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
-        <Link key={v} variant={v} appearance="button">
+        <Link key={v} href="#" variant={v} appearance="button">
           {v}
         </Link>
       ))}
@@ -89,11 +98,11 @@ export const VariantButtons: Story = {
   ),
 }
 
-export const VariantOutlines: Story = {
+export const AllOutlines: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
-        <Link key={v} variant={v} appearance="outline">
+        <Link key={v} href="#" variant={v} appearance="outline">
           {v}
         </Link>
       ))}
@@ -101,11 +110,11 @@ export const VariantOutlines: Story = {
   ),
 }
 
-export const VariantUnderlines: Story = {
+export const AllUnderlines: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
-        <Link key={v} variant={v} appearance="underline">
+        <Link key={v} href="#" variant={v} appearance="underline">
           {v}
         </Link>
       ))}
@@ -119,5 +128,51 @@ export const Disabled: Story = {
     disabled: true,
     variant: 'primary',
     appearance: 'button',
+  },
+}
+
+export const Contrast: Story = {
+  render: () => (
+    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Solid links</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Link key={v} href="#" variant={v} appearance="button" contrast>
+                {v}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Outline links</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Link key={v} href="#" variant={v} appearance="outline" contrast>
+                {v}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Underline links</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Link key={v} href="#" variant={v} appearance="underline" contrast>
+                {v}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the `contrast` prop to adapt links for dark backgrounds. Works with all variants and appearances.',
+      },
+    },
   },
 }

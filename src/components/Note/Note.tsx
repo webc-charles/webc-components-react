@@ -27,6 +27,7 @@ export function NoteHeader({
 export function Note({
   ref,
   variant = 'default',
+  contrast,
   className,
   children,
   ...rest
@@ -34,13 +35,18 @@ export function Note({
   if (!children) return null
 
   return (
-    <div
+    <aside
       ref={ref}
       role="note"
-      className={clsx(styles.note, styles[`variant-${variant}`], className)}
+      className={clsx(
+        styles.note,
+        styles[`variant-${variant}`],
+        contrast && styles.contrast,
+        className
+      )}
       {...rest}
     >
       {children}
-    </div>
+    </aside>
   )
 }

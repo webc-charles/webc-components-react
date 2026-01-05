@@ -10,6 +10,7 @@ export function Button({
   children,
   className,
   appearance,
+  contrast,
   loading = false,
   type = 'button',
   variant = 'default',
@@ -21,6 +22,7 @@ export function Button({
     styles.button,
     styles[`variant-${variant}`],
     appearance && styles[`appearance-${appearance}`],
+    contrast && styles.contrast,
     loading && styles.loading,
     className
   )

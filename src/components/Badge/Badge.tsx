@@ -7,12 +7,18 @@ export function Badge({
   children,
   className,
   variant = 'default',
+  contrast,
   ...rest
 }: BadgeTypes) {
   return (
     <div
       ref={ref}
-      className={clsx(styles.badge, styles[`variant-${variant}`], className)}
+      className={clsx(
+        styles.badge,
+        styles[`variant-${variant}`],
+        contrast && styles.contrast,
+        className
+      )}
       {...rest}
     >
       {children}

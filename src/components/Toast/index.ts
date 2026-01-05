@@ -4,7 +4,6 @@ export { useToasts } from './ToastsContext'
 export type {
   ToastTypes,
   ToastConfigTypes,
-  ToastVariantTypes,
   ToastHeaderTypes,
   ToastBodyTypes,
 } from './Toast.types'

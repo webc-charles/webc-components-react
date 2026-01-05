@@ -12,16 +12,12 @@ import {
 import {
   BannerOverlayTypes,
   BannerTextAlignTypes,
-  horizontalAlignTypes,
-  verticalAlignTypes,
+  HorizontalAlignTypes,
+  VerticalAlignTypes,
 } from './Banner.types'
 
-const horizontalAlignOptions: horizontalAlignTypes[] = [
-  'left',
-  'center',
-  'right',
-]
-const verticalAlignOptions: verticalAlignTypes[] = ['start', 'center', 'end']
+const horizontalAlignOptions: HorizontalAlignTypes[] = ['left', 'center', 'right']
+const verticalAlignOptions: VerticalAlignTypes[] = ['start', 'center', 'end']
 const overlayOptions: BannerOverlayTypes[] = ['none', 'light', 'dark']
 const textAlignOptions: BannerTextAlignTypes[] = ['left', 'center', 'right']
 
@@ -95,10 +91,10 @@ export const Default: Story = {
           Start your journey with us and transform the way you work.
         </BannerText>
         <BannerActions>
-          <Button variant="contrast" appearance="button">
+          <Button variant="default" contrast appearance="button">
             Get Started
           </Button>
-          <Button variant="contrast" appearance="outline">
+          <Button variant="default" contrast appearance="outline">
             Learn More
           </Button>
         </BannerActions>
@@ -123,10 +119,10 @@ export const WithBackgroundImage: Story = {
           most spectacular landscapes.
         </BannerText>
         <BannerActions>
-          <Button variant="primary" appearance="button">
+          <Button variant="primary" contrast appearance="button">
             Book Now
           </Button>
-          <Link variant="contrast" appearance="underline">
+          <Link variant="default" contrast appearance="underline">
             View Gallery
           </Link>
         </BannerActions>
@@ -173,7 +169,7 @@ export const RightAligned: Story = {
         <BannerSubtitle>Exclusive designs for you</BannerSubtitle>
         <BannerText>Handcrafted with attention to every detail.</BannerText>
         <BannerActions>
-          <Button variant="secondary" appearance="button">
+          <Button variant="secondary" contrast appearance="button">
             Shop Now
           </Button>
         </BannerActions>
@@ -196,14 +192,41 @@ export const BottomContent: Story = {
         <BannerTitle level="h2">Summer Collection 2025</BannerTitle>
         <BannerSubtitle>Now Available</BannerSubtitle>
         <BannerActions>
-          <Button variant="primary" appearance="button">
+          <Button variant="primary" contrast appearance="button">
             View Collection
           </Button>
-          <Button variant="contrast" appearance="outline">
+          <Button variant="default" contrast appearance="outline">
             See Lookbook
           </Button>
         </BannerActions>
       </BannerContent>
     </Banner>
   ),
+}
+
+export const AllVariantsContrast: Story = {
+  render: (args) => (
+    <Banner {...args} backgroundColor="#1a1a1a">
+      <BannerContent textColor="light" textAlign="center">
+        <BannerTitle level="h2">Contrast Button Variants</BannerTitle>
+        <BannerSubtitle>All variants with contrast prop on dark background</BannerSubtitle>
+        <BannerActions>
+          <Button variant="default" contrast appearance="button">Default</Button>
+          <Button variant="primary" contrast appearance="button">Primary</Button>
+          <Button variant="secondary" contrast appearance="button">Secondary</Button>
+          <Button variant="success" contrast appearance="button">Success</Button>
+          <Button variant="danger" contrast appearance="button">Danger</Button>
+          <Button variant="warning" contrast appearance="button">Warning</Button>
+          <Button variant="info" contrast appearance="button">Info</Button>
+        </BannerActions>
+      </BannerContent>
+    </Banner>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the `contrast` prop on Button and Link components for visibility on dark backgrounds.',
+      },
+    },
+  },
 }

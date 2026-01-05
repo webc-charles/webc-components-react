@@ -1,4 +1,84 @@
 .image {
+  display: block;
   height: auto;
   max-width: 100%;
+}
+
+// Object-fit variants
+.fitCover {
+  object-fit: cover;
+}
+
+.fitContain {
+  object-fit: contain;
+}
+
+.fitFill {
+  object-fit: fill;
+}
+
+.fitNone {
+  object-fit: none;
+}
+
+.fitScaleDown {
+  object-fit: scale-down;
+}
+
+// Object-position variants
+.positionCenter {
+  object-position: center;
+}
+
+.positionTop {
+  object-position: top;
+}
+
+.positionBottom {
+  object-position: bottom;
+}
+
+.positionLeft {
+  object-position: left;
+}
+
+.positionRight {
+  object-position: right;
+}
+
+.positionTopLeft {
+  object-position: top left;
+}
+
+.positionTopRight {
+  object-position: top right;
+}
+
+.positionBottomLeft {
+  object-position: bottom left;
+}
+
+.positionBottomRight {
+  object-position: bottom right;
+}
+
+// Border-radius variants
+.radiusNone {
+  border-radius: 0;
+}
+
+.radiusSmall {
+  border-radius: var(--radius-small);
+}
+
+.radiusMedium {
+  border-radius: var(--radius-medium);
+}
+
+.radiusLarge {
+  border-radius: var(--radius-large);
+}
+
+.radiusFull {
+  border-radius: 50%;
 }

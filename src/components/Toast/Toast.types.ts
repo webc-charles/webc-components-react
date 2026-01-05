@@ -1,21 +1,16 @@
 import { ComponentPropsWithRef } from 'react'
-
-export type ToastVariantTypes =
-  | 'primary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info'
+import { ColorVariant } from '../../types'
 
 export type ToastHeaderTypes = ComponentPropsWithRef<'div'> & {
-  variant?: ToastVariantTypes
+  variant?: ColorVariant
 }
 
 export type ToastBodyTypes = ComponentPropsWithRef<'div'>
 
 export type ToastConfigTypes = {
   id?: number
-  variant?: ToastVariantTypes
+  variant?: ColorVariant
+  contrast?: boolean
   duration?: number
   children: React.ReactNode
   closeLabel?: string

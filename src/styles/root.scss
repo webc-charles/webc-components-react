@@ -11,30 +11,64 @@
   --color-grey-4: #949494;
   --color-grey-5: #ddd;
   --color-grey-6: #eee;
+
+  // Default variant
   --color-default-1: #222;
   --color-default-2: #666;
   --color-default-3: #eee;
+  --color-default-contrast-1: #fff;
+  --color-default-contrast-2: rgb(255 255 255 / 50%);
+  --color-default-contrast-3: rgb(255 255 255 / 10%);
+
+  // Primary variant
   --color-primary-1: #002f5f;
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
+  --color-primary-contrast-1: #cce0ff;
+  --color-primary-contrast-2: #60a5fa;
+  --color-primary-contrast-3: rgb(96 165 250 / 15%);
+
+  // Secondary variant
   --color-secondary-1: #3d1480;
   --color-secondary-2: #7c3aed;
   --color-secondary-3: #ede9fe;
+  --color-secondary-contrast-1: #ede9fe;
+  --color-secondary-contrast-2: #a78bfa;
+  --color-secondary-contrast-3: rgb(167 139 250 / 15%);
+
+  // Success variant
   --color-success-1: #115129;
   --color-success-2: #15803d;
   --color-success-3: #dcfce7;
+  --color-success-contrast-1: #dcfce7;
+  --color-success-contrast-2: #4ade80;
+  --color-success-contrast-3: rgb(74 222 128 / 15%);
+
+  // Danger variant
   --color-danger-1: #7c1515;
   --color-danger-2: #dc2626;
   --color-danger-3: #fee2e2;
+  --color-danger-contrast-1: #fecaca;
+  --color-danger-contrast-2: #f87171;
+  --color-danger-contrast-3: rgb(248 113 113 / 15%);
+
+  // Warning variant
   --color-warning-1: #71320b;
   --color-warning-2: #b45309;
   --color-warning-3: #fef3c7;
+  --color-warning-contrast-1: #fef3c7;
+  --color-warning-contrast-2: #fbbf24;
+  --color-warning-contrast-3: rgb(251 191 36 / 15%);
+
+  // Info variant
   --color-info-1: #104b5d;
   --color-info-2: #0e7490;
   --color-info-3: #cffafe;
-  --color-contrast-1: #fff;
-  --color-contrast-2: #fff;
-  --color-contrast-3: #fff;
+  --color-info-contrast-1: #cffafe;
+  --color-info-contrast-2: #22d3ee;
+  --color-info-contrast-3: rgb(34 211 238 / 15%);
+
+  // Typography
   --font-size-1: 1rem;
   --font-size-2: 1.2rem;
   --font-size-3: 1.4rem;
@@ -47,19 +81,29 @@
   --font-size-xl: 8rem;
   --font-weight-md: 500;
   --font-weight-lg: 700;
+
+  // Z-index layers
   --z-index-1: 100;
   --z-index-2: 200;
   --z-index-3: 300;
   --z-index-4: 400;
   --z-index-5: 500;
   --z-index-6: 600;
+
+  // Layout
   --screen-max-width: 168rem;
   --container-max-width: 120rem;
+
+  // Font
   --site-font: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', arial,
     sans-serif;
+
+  // Border radius
   --radius-small: 0.4rem;
   --radius-medium: 0.5rem;
   --radius-large: 0.6rem;
+
+  // Component sizes
   --height-button: 4rem;
   --height-badge: 2.6rem;
 }

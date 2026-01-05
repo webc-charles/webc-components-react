@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ColorVariant } from '../../../types'
 import { Button } from './Button'
-import { ButtonAppearanceTypes, ButtonVariantTypes } from './Button.types'
+import { ButtonAppearanceTypes } from './Button.types'
 
-const variants: ButtonVariantTypes[] = [
+const variants: ColorVariant[] = [
   'default',
   'primary',
   'secondary',
   'success',
   'danger',
-  'info',
   'warning',
+  'info',
 ]
 
 const appearances: ButtonAppearanceTypes[] = [
@@ -40,6 +41,20 @@ const meta: Meta<typeof Button> = {
         defaultValue: { summary: 'default' },
       },
     },
+    contrast: {
+      control: 'boolean',
+      description: 'Enable contrast mode for dark backgrounds',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Whether the button is in loading state',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
     disabled: {
       control: 'boolean',
       description: 'Whether the button is disabled',
@@ -56,7 +71,9 @@ const meta: Meta<typeof Button> = {
     children: 'Button',
     variant: 'default',
     appearance: 'button',
+    contrast: false,
     disabled: false,
+    loading: false,
   },
 }
 
@@ -71,7 +88,7 @@ export const Playground: Story = {
   },
 }
 
-export const VariantButtons: Story = {
+export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
@@ -83,7 +100,7 @@ export const VariantButtons: Story = {
   ),
 }
 
-export const VariantOutlines: Story = {
+export const AllOutlines: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
@@ -95,7 +112,7 @@ export const VariantOutlines: Story = {
   ),
 }
 
-export const VariantUnderlines: Story = {
+export const AllUnderlines: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {variants.map((v) => (
@@ -107,11 +124,66 @@ export const VariantUnderlines: Story = {
   ),
 }
 
+export const Loading: Story = {
+  args: {
+    children: 'Submitting...',
+    loading: true,
+    variant: 'primary',
+    appearance: 'button',
+  },
+}
+
 export const Disabled: Story = {
   args: {
     children: 'Disabled',
     disabled: true,
     variant: 'primary',
     appearance: 'button',
+  },
+}
+
+export const Contrast: Story = {
+  render: () => (
+    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Solid buttons</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Button variant={v} appearance="button" contrast key={v}>
+                {v}
+              </Button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Outline buttons</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Button variant={v} appearance="outline" contrast key={v}>
+                {v}
+              </Button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Underline buttons</p>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            {variants.map((v) => (
+              <Button variant={v} appearance="underline" contrast key={v}>
+                {v}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the `contrast` prop to adapt buttons for dark backgrounds. Works with all variants and appearances.',
+      },
+    },
   },
 }

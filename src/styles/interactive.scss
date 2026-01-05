@@ -5,41 +5,57 @@ $variants: (
     base: var(--color-default-2),
     hover: var(--color-default-1),
     text: var(--color-white),
+    contrast-base: var(--color-default-contrast-2),
+    contrast-hover: var(--color-default-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'primary': (
     base: var(--color-primary-2),
     hover: var(--color-primary-1),
     text: var(--color-white),
+    contrast-base: var(--color-primary-contrast-2),
+    contrast-hover: var(--color-primary-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'secondary': (
     base: var(--color-secondary-2),
     hover: var(--color-secondary-1),
     text: var(--color-white),
+    contrast-base: var(--color-secondary-contrast-2),
+    contrast-hover: var(--color-secondary-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'success': (
     base: var(--color-success-2),
     hover: var(--color-success-1),
     text: var(--color-white),
+    contrast-base: var(--color-success-contrast-2),
+    contrast-hover: var(--color-success-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'danger': (
     base: var(--color-danger-2),
     hover: var(--color-danger-1),
     text: var(--color-white),
+    contrast-base: var(--color-danger-contrast-2),
+    contrast-hover: var(--color-danger-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'warning': (
     base: var(--color-warning-2),
     hover: var(--color-warning-1),
     text: var(--color-white),
+    contrast-base: var(--color-warning-contrast-2),
+    contrast-hover: var(--color-warning-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
   'info': (
     base: var(--color-info-2),
     hover: var(--color-info-1),
     text: var(--color-white),
-  ),
-  'contrast': (
-    base: var(--color-contrast-2),
-    hover: var(--color-contrast-1),
-    text: var(--color-grey-1),
+    contrast-base: var(--color-info-contrast-2),
+    contrast-hover: var(--color-info-contrast-1),
+    contrast-text: var(--color-grey-1),
   ),
 );
 
@@ -97,6 +113,9 @@ $variants: (
     $base: map.get($colors, base);
     $hover: map.get($colors, hover);
     $text: map.get($colors, text);
+    $contrast-base: map.get($colors, contrast-base);
+    $contrast-hover: map.get($colors, contrast-hover);
+    $contrast-text: map.get($colors, contrast-text);
 
     &.variant-#{$name} {
       background: transparent;
@@ -140,6 +159,51 @@ $variants: (
       &.appearance-underline:hover:not([disabled])::before,
       &.appearance-underline:focus:not([disabled])::before {
         background: $hover;
+      }
+
+      // Contrast mode styles
+      &.contrast {
+        color: $contrast-base;
+
+        &[aria-selected='true']:not([disabled]),
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          color: $contrast-hover;
+        }
+
+        &.appearance-button {
+          background: $contrast-base;
+          color: $contrast-text;
+
+          &[aria-selected='true']:not([disabled]),
+          &:hover:not([disabled]),
+          &:focus:not([disabled]) {
+            background: $contrast-hover;
+            color: $contrast-text;
+          }
+        }
+
+        &.appearance-outline {
+          border-color: $contrast-base;
+
+          &[aria-selected='true']:not([disabled]),
+          &:hover:not([disabled]),
+          &:focus:not([disabled]) {
+            background: $contrast-hover;
+            border-color: $contrast-hover;
+            color: $contrast-text;
+          }
+        }
+
+        &.appearance-underline::before {
+          background: $contrast-base;
+        }
+
+        &.appearance-underline[aria-selected='true']:not([disabled])::before,
+        &.appearance-underline:hover:not([disabled])::before,
+        &.appearance-underline:focus:not([disabled])::before {
+          background: $contrast-hover;
+        }
       }
     }
   }

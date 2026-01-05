@@ -13,3 +13,5 @@ export * from './Slider'
 export * from './Tab'
 export * from './Title'
 export * from './Toast'
+
+export type { ColorVariant } from '../types'

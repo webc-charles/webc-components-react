@@ -1,14 +1,5 @@
 import { ComponentPropsWithRef } from 'react'
-
-export type AnchorVariantTypes =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'info'
-  | 'warning'
-  | 'contrast'
+import { ColorVariant } from '../../types'
 
 export type AnchorAppearanceTypes =
   | 'default'
@@ -19,6 +10,7 @@ export type AnchorAppearanceTypes =
 
 export type LinkTypes = ComponentPropsWithRef<'a'> & {
   disabled?: boolean
-  variant?: AnchorVariantTypes
+  variant?: ColorVariant
   appearance?: AnchorAppearanceTypes
+  contrast?: boolean
 }

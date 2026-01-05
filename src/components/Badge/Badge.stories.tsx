@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { ColorVariant } from '../../types'
 import { Badge } from './Badge'
-import { BadgeVariantTypes } from './Badge.types'
 
-const variants: BadgeVariantTypes[] = [
+const variants: ColorVariant[] = [
   'default',
   'primary',
   'secondary',
@@ -25,6 +25,13 @@ const meta: Meta<typeof Badge> = {
         defaultValue: { summary: 'default' },
       },
     },
+    contrast: {
+      control: 'boolean',
+      description: 'Enable contrast mode for dark backgrounds',
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
     children: {
       control: 'text',
       description: 'Badge content',
@@ -33,6 +40,7 @@ const meta: Meta<typeof Badge> = {
   args: {
     children: 'Badge',
     variant: 'default',
+    contrast: false,
   },
 }
 
@@ -56,4 +64,25 @@ export const AllVariants: Story = {
       ))}
     </div>
   ),
+}
+
+export const Contrast: Story = {
+  render: () => (
+    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        {variants.map((v) => (
+          <Badge variant={v} contrast key={v}>
+            {v}
+          </Badge>
+        ))}
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Use the `contrast` prop to adapt badges for dark backgrounds.',
+      },
+    },
+  },
 }

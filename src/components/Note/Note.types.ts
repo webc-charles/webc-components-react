@@ -1,18 +1,11 @@
 import { ComponentPropsWithRef } from 'react'
-
-export type NoteVariantTypes =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info'
+import { ColorVariant } from '../../types'
 
 export type NoteHeaderTypes = ComponentPropsWithRef<'div'> & {
-  variant?: NoteVariantTypes
+  variant?: ColorVariant
 }
 
 export type NoteTypes = ComponentPropsWithRef<'div'> & {
-  variant?: NoteVariantTypes
+  variant?: ColorVariant
+  contrast?: boolean
 }

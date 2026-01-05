@@ -1,14 +1,5 @@
 import { ComponentPropsWithRef } from 'react'
-
-export type ButtonVariantTypes =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'info'
-  | 'warning'
-  | 'contrast'
+import { ColorVariant } from '../../../types'
 
 export type ButtonAppearanceTypes =
   | 'default'
@@ -17,7 +8,8 @@ export type ButtonAppearanceTypes =
   | 'button'
 
 export type ButtonTypes = ComponentPropsWithRef<'button'> & {
-  variant?: ButtonVariantTypes
+  variant?: ColorVariant
   appearance?: ButtonAppearanceTypes
+  contrast?: boolean
   loading?: boolean
 }

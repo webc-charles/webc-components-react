@@ -44,6 +44,7 @@ export function Toast({
   id,
   children,
   variant = 'primary',
+  contrast,
   duration = 10000,
   onRemove,
   closeLabel = str.close_toast,
@@ -84,7 +85,8 @@ export function Toast({
       aria-atomic="true"
       className={clsx(
         styles.toast,
-        styles[variant],
+        styles[`variant-${variant}`],
+        contrast && styles.contrast,
         active && styles.active,
         removing && styles.removing
       )}
@@ -96,7 +98,11 @@ export function Toast({
         title={closeLabel}
         onClick={handleRemove}
         aria-label={closeLabel}
-        className={clsx(styles.close, styles[`variant-${variant}`])}
+        className={clsx(
+          styles.close,
+          styles[`variant-${variant}`],
+          contrast && styles.contrast
+        )}
       >
         <X size={18} aria-hidden />
       </button>

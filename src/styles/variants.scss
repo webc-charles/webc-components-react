@@ -5,16 +5,22 @@ $color-variants: (
   success,
   danger,
   warning,
-  info,
-  contrast
+  info
 );
 
 @mixin color-variants($prefix: 'variant-') {
   @each $name in $color-variants {
     &.#{$prefix}#{$name} {
-      background-color: var(--color-#{$name}-3, var(--color-default-3));
-      border-color: var(--color-#{$name}-2, var(--color-default-2));
-      color: var(--color-#{$name}-1, var(--color-default-1));
+      background-color: var(--color-#{$name}-3);
+      border-color: var(--color-#{$name}-2);
+      color: var(--color-#{$name}-1);
+
+      // Contrast mode for dark backgrounds
+      &.contrast {
+        background-color: var(--color-#{$name}-contrast-3);
+        border-color: var(--color-#{$name}-contrast-2);
+        color: var(--color-#{$name}-contrast-1);
+      }
     }
   }
 }

@@ -1,6 +1,2 @@
 export { Button } from './Button'
-export type {
-  ButtonTypes,
-  ButtonVariantTypes,
-  ButtonAppearanceTypes,
-} from './Button.types'
+export type { ButtonTypes, ButtonAppearanceTypes } from './Button.types'

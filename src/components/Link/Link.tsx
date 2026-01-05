@@ -10,6 +10,7 @@ export function Link({
   children,
   className,
   appearance,
+  contrast,
   variant = 'default',
   ...rest
 }: LinkTypes) {
@@ -19,6 +20,7 @@ export function Link({
     styles.link,
     styles[`variant-${variant}`],
     appearance && styles[`appearance-${appearance}`],
+    contrast && styles.contrast,
     disabled && styles.disabled,
     className
   )

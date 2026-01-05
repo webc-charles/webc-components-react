@@ -85,7 +85,6 @@
     &:hover:not(:disabled) {
       background: var(--color-primary-2);
       color: var(--color-white);
-      outline: none;
     }
 
     &.increment {

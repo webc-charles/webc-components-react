@@ -1,14 +1,7 @@
 import { ComponentPropsWithRef } from 'react'
-
-export type BadgeVariantTypes =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'warning'
-  | 'info'
-  | 'success'
-  | 'danger'
+import { ColorVariant } from '../../types'
 
 export type BadgeTypes = ComponentPropsWithRef<'div'> & {
-  variant?: BadgeVariantTypes
+  variant?: ColorVariant
+  contrast?: boolean
 }

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 import { useState } from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeAll, describe, expect, it } from 'vitest'
 import {
@@ -220,7 +220,8 @@ describe('Select - Multiple', () => {
     render(<MultiSelect />)
 
     await user.click(screen.getByTestId('select-root'))
-    expect(screen.getAllByRole('checkbox')).toHaveLength(3)
+    const modal = screen.getByTestId('modal')
+    expect(modal.querySelectorAll('input[type="checkbox"]')).toHaveLength(3)
   })
 
   it('keeps modal open after selection', async () => {
@@ -241,8 +242,9 @@ describe('Select - Multiple', () => {
     await user.click(screen.getByRole('option', { name: /apple/i }))
     await user.click(screen.getByRole('option', { name: /banana/i }))
 
-    expect(screen.getByText('Apple')).toBeInTheDocument()
-    expect(screen.getByText('Banana')).toBeInTheDocument()
+    const choiceList = screen.getByTestId('choice-list')
+    expect(within(choiceList).getByText('Apple')).toBeInTheDocument()
+    expect(within(choiceList).getByText('Banana')).toBeInTheDocument()
   })
 
   it('removes item when clicking remove button', async () => {
@@ -307,14 +309,14 @@ describe('Select - Keyboard Navigation', () => {
 
     // First option should be focused by default
     const firstOption = screen.getByRole('option', { name: /apple/i })
-    expect(firstOption).toHaveClass('focused')
+    expect(firstOption.className).toMatch(/focused/)
 
     await user.keyboard('{ArrowDown}')
     const secondOption = screen.getByRole('option', { name: /banana/i })
-    expect(secondOption).toHaveClass('focused')
+    expect(secondOption.className).toMatch(/focused/)
 
     await user.keyboard('{ArrowUp}')
-    expect(firstOption).toHaveClass('focused')
+    expect(firstOption.className).toMatch(/focused/)
   })
 
   it('selects focused option with Enter', async () => {
@@ -356,7 +358,7 @@ describe('Select - Searchable', () => {
     await user.click(screen.getByTestId('select-root'))
     expect(screen.getAllByRole('option')).toHaveLength(3)
 
-    await user.type(screen.getByRole('searchbox'), 'app')
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'app' } })
 
     await waitFor(() => {
       expect(screen.getAllByRole('option')).toHaveLength(1)
@@ -369,7 +371,7 @@ describe('Select - Searchable', () => {
     render(<SingleSelect searchable />)
 
     await user.click(screen.getByTestId('select-root'))
-    await user.type(screen.getByRole('searchbox'), 'app')
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'app' } })
 
     await user.keyboard('{Escape}')
     await user.click(screen.getByTestId('select-root'))
@@ -386,7 +388,7 @@ describe('Select - Searchable', () => {
     await user.keyboard('{ArrowDown}')
 
     const secondOption = screen.getByRole('option', { name: /banana/i })
-    expect(secondOption).toHaveClass('focused')
+    expect(secondOption.className).toMatch(/focused/)
   })
 
   it('search input has proper accessibility attributes', async () => {

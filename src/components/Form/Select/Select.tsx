@@ -172,7 +172,10 @@ const OptionListItem = memo((props: OptionListItemTypes) => {
       id={`${controlId}-option-${index}`}
       aria-selected={isSelected}
       aria-disabled={disabled || undefined}
-      onClick={() => !disabled && toggleOption(option)}
+      onClick={(e) => {
+        e.stopPropagation()
+        if (!disabled) toggleOption(option)
+      }}
     >
       {multiple && (
         <input
@@ -192,7 +195,7 @@ OptionListItem.displayName = 'OptionListItem'
 
 // OPTION LIST
 const OptionList = memo((props: OptionListTypes) => {
-  const { controlId, children, className } = props
+  const { controlId, children, className, ...rest } = props
   const { multiple } = useSelectContext()
 
   return (
@@ -201,6 +204,7 @@ const OptionList = memo((props: OptionListTypes) => {
       id={`${controlId}-listbox`}
       className={clsx(styles.optionList, className)}
       aria-multiselectable={multiple || undefined}
+      {...rest}
     >
       {children}
     </ul>
@@ -239,7 +243,7 @@ ChoiceClear.displayName = 'ChoiceClear'
 
 // CHOICE LIST
 const ChoiceList = memo((props: ChoiceListTypes) => {
-  const { className, selectedOptions, children } = props
+  const { className, selectedOptions, children, ...rest } = props
 
   if (!selectedOptions.length) return null
 
@@ -248,6 +252,7 @@ const ChoiceList = memo((props: ChoiceListTypes) => {
       role="list"
       aria-label={str.selected_options}
       className={clsx(styles.choiceList, className)}
+      {...rest}
     >
       {children}
     </ul>
@@ -283,7 +288,7 @@ const ChoiceListItem = memo(
 ChoiceListItem.displayName = 'ChoiceListItem'
 
 // SELECT MODAL
-const SelectModal = memo(({ children, className }: SelectModalTypes) => {
+const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) => {
   const {
     isOpen,
     menuPosition,
@@ -336,6 +341,7 @@ const SelectModal = memo(({ children, className }: SelectModalTypes) => {
         left: `${menuPosition.left}px`,
         width: `${menuPosition.width}px`,
       }}
+      {...rest}
     >
       <SelectSearch />
       {children}

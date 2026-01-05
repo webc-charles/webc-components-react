@@ -249,7 +249,6 @@ const ChoiceList = memo((props: ChoiceListTypes) => {
 
   return (
     <ul
-      role="list"
       aria-label={str.selected_options}
       className={clsx(styles.choiceList, className)}
       {...rest}

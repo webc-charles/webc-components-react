@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { ToastConfigTypes } from './ToastTypes'
+import { ToastConfigTypes } from './Toast.types'
 
 type ToastContextTypes = {
   toasts: ToastConfigTypes[]

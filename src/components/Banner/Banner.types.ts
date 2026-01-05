@@ -1,22 +1,22 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { TitleTypes } from '../Title/Title.types'
 
-export type horizontalAlignTypes = 'left' | 'center' | 'right'
-export type verticalAlignTypes = 'start' | 'center' | 'end'
+export type HorizontalAlignTypes = 'left' | 'center' | 'right'
+export type VerticalAlignTypes = 'start' | 'center' | 'end'
 export type BannerOverlayTypes = 'none' | 'light' | 'dark'
 export type BannerTextColorTypes = 'light' | 'dark'
 export type BannerTextAlignTypes = 'left' | 'center' | 'right'
 
-export type BannerTypes = ComponentProps<'div'> & {
+export type BannerTypes = ComponentPropsWithRef<'div'> & {
   backgroundImage?: string
   backgroundColor?: string
-  horizontalAlign?: horizontalAlignTypes
-  verticalAlign?: verticalAlignTypes
+  horizontalAlign?: HorizontalAlignTypes
+  verticalAlign?: VerticalAlignTypes
   minHeight?: string
   overlay?: BannerOverlayTypes
 }
 
-export type BannerContentTypes = ComponentProps<'div'> & {
+export type BannerContentTypes = ComponentPropsWithRef<'div'> & {
   maxWidth?: string
   textAlign?: BannerTextAlignTypes
   textColor?: BannerTextColorTypes
@@ -24,8 +24,8 @@ export type BannerContentTypes = ComponentProps<'div'> & {
 
 export type BannerTitleTypes = TitleTypes
 
-export type BannerSubtitleTypes = ComponentProps<'p'>
+export type BannerSubtitleTypes = ComponentPropsWithRef<'p'>
 
-export type BannerTextTypes = ComponentProps<'p'>
+export type BannerTextTypes = ComponentPropsWithRef<'p'>
 
-export type BannerActionsTypes = ComponentProps<'div'>
+export type BannerActionsTypes = ComponentPropsWithRef<'div'>

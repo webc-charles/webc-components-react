@@ -4,6 +4,7 @@ import styles from './Button.module.scss'
 import type { ButtonTypes } from './Button.types'
 
 export function Button({
+  ref,
   title,
   disabled,
   children,
@@ -14,7 +15,7 @@ export function Button({
   variant = 'default',
   ...rest
 }: ButtonTypes) {
-  const value = children || title
+  const value = children ?? title
 
   const classList = clsx(
     styles.button,
@@ -26,6 +27,7 @@ export function Button({
 
   return (
     <button
+      ref={ref}
       type={type}
       title={title}
       className={classList}

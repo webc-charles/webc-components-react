@@ -7,41 +7,43 @@ import {
   CardTypes,
 } from './Card.types'
 
-export function Card({ className = '', children, ...rest }: CardTypes) {
+export function Card({ ref, className, children, ...rest }: CardTypes) {
   return (
-    <div className={clsx(styles.card, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.card, className)} {...rest}>
       {children}
     </div>
   )
 }
 
 export function CardHeader({
-  className = '',
+  ref,
+  className,
   children,
   ...rest
 }: CardHeaderTypes) {
   return (
-    <div className={clsx(styles.cardHeader, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.cardHeader, className)} {...rest}>
       {children}
     </div>
   )
 }
 
-export function CardBody({ className = '', children, ...rest }: CardBodyTypes) {
+export function CardBody({ ref, className, children, ...rest }: CardBodyTypes) {
   return (
-    <div className={clsx(styles.cardBody, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.cardBody, className)} {...rest}>
       {children}
     </div>
   )
 }
 
 export function CardFooter({
-  className = '',
+  ref,
+  className,
   children,
   ...rest
 }: CardFooterTypes) {
   return (
-    <div className={clsx(styles.cardFooter, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.cardFooter, className)} {...rest}>
       {children}
     </div>
   )

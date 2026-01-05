@@ -1,3 +1,3 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
-export type ImageTypes = ComponentProps<'img'>
+export type ImageTypes = ComponentPropsWithRef<'img'>

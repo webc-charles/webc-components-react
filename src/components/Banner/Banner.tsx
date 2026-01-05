@@ -11,6 +11,7 @@ import {
 } from './Banner.types'
 
 export function Banner({
+  ref,
   backgroundImage,
   backgroundColor,
   overlay = 'none',
@@ -24,6 +25,7 @@ export function Banner({
 }: BannerTypes) {
   return (
     <div
+      ref={ref}
       className={clsx(
         styles.banner,
         overlay !== 'none' && styles[`overlay-${overlay}`],
@@ -53,6 +55,7 @@ export function Banner({
 }
 
 export function BannerContent({
+  ref,
   textAlign,
   textColor = 'dark',
   maxWidth,
@@ -63,9 +66,9 @@ export function BannerContent({
 }: BannerContentTypes) {
   return (
     <div
+      ref={ref}
       className={clsx(
         styles.content,
-
         textAlign && styles[`text-align-${textAlign}`],
         styles[`text-${textColor}`],
         className
@@ -92,32 +95,39 @@ export function BannerTitle({
 }
 
 export function BannerSubtitle({
+  ref,
   className,
   children,
   ...props
 }: BannerSubtitleTypes) {
   return (
-    <p className={clsx(styles.subtitle, className)} {...props}>
+    <p ref={ref} className={clsx(styles.subtitle, className)} {...props}>
       {children}
     </p>
   )
 }
 
-export function BannerText({ className, children, ...props }: BannerTextTypes) {
+export function BannerText({
+  ref,
+  className,
+  children,
+  ...props
+}: BannerTextTypes) {
   return (
-    <p className={clsx(styles.text, className)} {...props}>
+    <p ref={ref} className={clsx(styles.text, className)} {...props}>
       {children}
     </p>
   )
 }
 
 export function BannerActions({
+  ref,
   className,
   children,
   ...props
 }: BannerActionsTypes) {
   return (
-    <div className={clsx(styles.actions, className)} {...props}>
+    <div ref={ref} className={clsx(styles.actions, className)} {...props}>
       {children}
     </div>
   )

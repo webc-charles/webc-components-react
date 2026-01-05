@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
-export type CardTypes = ComponentProps<'div'>
+export type CardTypes = ComponentPropsWithRef<'div'>
 
-export type CardHeaderTypes = ComponentProps<'div'>
+export type CardHeaderTypes = ComponentPropsWithRef<'div'>
 
-export type CardBodyTypes = ComponentProps<'div'>
+export type CardBodyTypes = ComponentPropsWithRef<'div'>
 
-export type CardFooterTypes = ComponentProps<'div'>
+export type CardFooterTypes = ComponentPropsWithRef<'div'>

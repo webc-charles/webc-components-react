@@ -1,25 +1,26 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { ButtonTypes } from 'components'
 
-export interface TabContextValue {
+export type TabContextValue = {
   activeTab: string
   setActiveTab: (value: string) => void
+  tabId: string
 }
 
-export type TabTypes = ComponentProps<'div'> & {
+export type TabTypes = ComponentPropsWithRef<'div'> & {
   value?: string
   defaultValue: string
   onValueChange?: (value: string) => void
 }
 
-export type TabListTypes = ComponentProps<'div'>
+export type TabListTypes = ComponentPropsWithRef<'div'>
 
 export type TabButtonTypes = Omit<ButtonTypes, 'value'> & {
   value: string
 }
 
-export type TabPanelsTypes = ComponentProps<'div'>
+export type TabPanelsTypes = ComponentPropsWithRef<'div'>
 
-export type TabPanelTypes = ComponentProps<'div'> & {
+export type TabPanelTypes = ComponentPropsWithRef<'div'> & {
   value: string
 }

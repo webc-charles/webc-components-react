@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useId, useState } from 'react'
 import { Check } from 'lucide-react'
 import clsx from 'clsx'
 import styles from './Checkbox.module.scss'
@@ -7,6 +7,7 @@ import { CheckboxTypes } from './Checkbox.types'
 export function Checkbox({
   label,
   checked,
+  defaultChecked = false,
   onChange,
   ref,
   className,
@@ -15,6 +16,17 @@ export function Checkbox({
   ...rest
 }: CheckboxTypes) {
   const id = useId()
+  const [internalChecked, setInternalChecked] = useState(defaultChecked)
+
+  const isControlled = checked !== undefined
+  const isChecked = isControlled ? checked : internalChecked
+
+  const handleChange = (newChecked: boolean) => {
+    if (!isControlled) {
+      setInternalChecked(newChecked)
+    }
+    onChange?.(newChecked)
+  }
 
   return (
     <label
@@ -28,20 +40,22 @@ export function Checkbox({
         ref={ref}
         id={id}
         type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
+        checked={isChecked}
+        onChange={(e) => handleChange(e.target.checked)}
         disabled={disabled}
         className={styles.hiddenInput}
       />
 
       <div
-        className={clsx(styles.checkbox, { [styles.checked]: checked })}
+        className={clsx(styles.checkbox, { [styles.checked]: isChecked })}
         aria-hidden={true}
       >
-        {checked && <Check size={14} className={styles.checkIcon} />}
+        {isChecked && <Check size={14} className={styles.checkIcon} />}
       </div>
 
-      <span className={clsx(styles.label, labelClassName)}>{label}</span>
+      {label && (
+        <span className={clsx(styles.label, labelClassName)}>{label}</span>
+      )}
     </label>
   )
 }

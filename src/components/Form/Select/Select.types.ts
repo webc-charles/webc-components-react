@@ -30,20 +30,13 @@ export type ChoiceListItemTypes = {
   disabled?: boolean
 }
 
-export type ChoiceClearTypes = {
-  className?: string
-}
+export type ChoiceClearTypes = ComponentProps<'button'>
 
 // SELECT
 
-export type SelectActionsTypes = {
-  children: ReactNode
-  className?: string
-}
+export type SelectActionsTypes = ComponentProps<'div'>
 
-export type SelectPlaceholderTypes = {
-  className?: string
-}
+export type SelectPlaceholderTypes = ComponentProps<'span'>
 
 export type SelectModalTypes = ComponentProps<'div'>
 

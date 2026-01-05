@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 
 export type SliderContextValue = {
@@ -11,25 +11,24 @@ export type SliderContextValue = {
   scrollTo: (index: number) => void
 }
 
-export type SliderTypes = ComponentProps<'div'> & {
+export type SliderTypes = ComponentPropsWithRef<'div'> & {
   options?: EmblaOptionsType
-  children: ReactNode
 }
 
-export type SliderContainerTypes = ComponentProps<'div'>
+export type SliderContainerTypes = ComponentPropsWithRef<'div'>
 
-export type SliderSlideTypes = ComponentProps<'div'>
+export type SliderSlideTypes = ComponentPropsWithRef<'div'>
 
-export type SliderControlsTypes = ComponentProps<'div'>
+export type SliderControlsTypes = ComponentPropsWithRef<'div'>
 
-export type SliderPrevTypes = ComponentProps<'button'> & {
+export type SliderPrevTypes = ComponentPropsWithRef<'button'> & {
   label?: string
 }
 
-export type SliderNextTypes = ComponentProps<'button'> & {
+export type SliderNextTypes = ComponentPropsWithRef<'button'> & {
   label?: string
 }
 
-export type SliderDotsTypes = ComponentProps<'div'> & {
+export type SliderDotsTypes = ComponentPropsWithRef<'div'> & {
   label?: string
 }

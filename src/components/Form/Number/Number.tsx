@@ -65,6 +65,7 @@ export function InputNumber({
             onClick={increment}
             disabled={disabled || !canIncrement}
             title={incrementLabel}
+            aria-label={incrementLabel}
           >
             <ChevronUp size={14} aria-hidden />
           </button>
@@ -75,6 +76,7 @@ export function InputNumber({
             onClick={decrement}
             disabled={disabled || !canDecrement}
             title={decrementLabel}
+            aria-label={decrementLabel}
           >
             <ChevronDown size={14} aria-hidden />
           </button>

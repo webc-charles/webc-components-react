@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react'
 
 export type InputTextTypes = ComponentPropsWithRef<'input'> & {
-  label: string
+  label?: string
   inputClassName?: string
   labelClassName?: string
 }

@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
@@ -35,7 +36,7 @@ describe('InputDate', () => {
     const user = userEvent.setup()
     render(<InputDate selected={null} onChange={() => {}} />)
 
-    const trigger = screen.getByRole('button', { name: /select/i })
+    const trigger = screen.getByRole('button', { name: /sélectionnez/i })
     await user.click(trigger)
 
     expect(screen.getByRole('dialog')).toBeInTheDocument()
@@ -52,16 +53,19 @@ describe('InputDate', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument()
   })
 
-  it('calls onChange when date is selected', async () => {
+  it('calls onChange when date is selected and applied', async () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
 
     render(<InputDate selected={null} onChange={handleChange} />)
 
-    await user.click(screen.getByRole('button', { name: /select/i }))
+    await user.click(screen.getByRole('button', { name: /sélectionnez/i }))
 
     // Click on day 15
     await user.click(screen.getByText('15'))
+
+    // Click Apply button to confirm
+    await user.click(screen.getByRole('button', { name: /appliquer/i }))
 
     expect(handleChange).toHaveBeenCalledWith(expect.any(Date))
     expect(handleChange.mock.calls[0][0].getDate()).toBe(15)
@@ -82,7 +86,7 @@ describe('InputDate', () => {
       />
     )
 
-    await user.click(screen.getByRole('button', { name: /select/i }))
+    await user.click(screen.getByRole('button', { name: /sélectionnez/i }))
 
     // Day 5 should be disabled
     const day5 = screen.getByText('5')

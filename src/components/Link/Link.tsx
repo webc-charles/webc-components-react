@@ -3,6 +3,7 @@ import styles from './Link.module.scss'
 import { LinkTypes } from './Link.types'
 
 export function Link({
+  ref,
   href,
   title,
   disabled,
@@ -12,7 +13,7 @@ export function Link({
   variant = 'default',
   ...rest
 }: LinkTypes) {
-  const value = children || title
+  const value = children ?? title
 
   const classList = clsx(
     styles.link,
@@ -24,11 +25,12 @@ export function Link({
 
   return (
     <a
-      href={href}
+      ref={ref}
+      href={disabled ? undefined : href}
       title={title}
       className={classList}
-      aria-disabled={disabled}
-      tabIndex={disabled ? -1 : 0}
+      aria-disabled={disabled || undefined}
+      tabIndex={disabled ? -1 : undefined}
       onClick={disabled ? (e) => e.preventDefault() : undefined}
       {...rest}
     >

@@ -209,7 +209,7 @@ const OptionList = memo((props: OptionListTypes) => {
 OptionList.displayName = 'OptionList'
 
 // CHOICE CLEAR
-const ChoiceClear = memo(({ className }: ChoiceClearTypes) => {
+const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
   const { clearAll, disabled, value } = useSelectContext()
 
   if (!value.length) return null
@@ -229,6 +229,7 @@ const ChoiceClear = memo(({ className }: ChoiceClearTypes) => {
       }}
       aria-label={str.clear_all}
       className={clsx(styles.choiceClear, className)}
+      {...rest}
     >
       <X size={16} aria-hidden />
     </button>
@@ -355,8 +356,8 @@ const SelectModal = memo(({ children, className }: SelectModalTypes) => {
 SelectModal.displayName = 'SelectModal'
 
 // SELECT ACTIONS
-const SelectActions = memo(({ children, className }: SelectActionsTypes) => (
-  <div className={clsx(styles.selectActions, className)}>{children}</div>
+const SelectActions = memo(({ children, className, ...rest }: SelectActionsTypes) => (
+  <div className={clsx(styles.selectActions, className)} {...rest}>{children}</div>
 ))
 SelectActions.displayName = 'SelectActions'
 
@@ -376,13 +377,13 @@ const SelectTrigger = memo(() => {
 SelectTrigger.displayName = 'SelectTrigger'
 
 // SELECT PLACEHOLDER
-const SelectPlaceholder = memo(({ className }: SelectPlaceholderTypes) => {
+const SelectPlaceholder = memo(({ className, ...rest }: SelectPlaceholderTypes) => {
   const { placeholder, value, multiple } = useSelectContext()
 
   // Single select: show selected label
   if (!multiple && value.length) {
     return (
-      <span className={clsx(styles.selectValue, className)}>
+      <span className={clsx(styles.selectValue, className)} {...rest}>
         {value[0].label}
       </span>
     )
@@ -392,7 +393,7 @@ const SelectPlaceholder = memo(({ className }: SelectPlaceholderTypes) => {
   if (multiple && value.length) return null
 
   return (
-    <span className={clsx(styles.selectPlaceholder, className)}>
+    <span className={clsx(styles.selectPlaceholder, className)} {...rest}>
       {placeholder}
     </span>
   )

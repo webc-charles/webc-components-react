@@ -3,6 +3,7 @@ import styles from './Title.module.scss'
 import { TitleTypes } from './Title.types'
 
 export function Title({
+  ref,
   level = 'h1',
   children,
   className,
@@ -11,7 +12,11 @@ export function Title({
   const Tag = level
 
   return (
-    <Tag className={clsx(styles.title, styles[Tag], className)} {...rest}>
+    <Tag
+      ref={ref as React.Ref<HTMLHeadingElement>}
+      className={clsx(styles.title, styles[Tag], className)}
+      {...rest}
+    >
       {children}
     </Tag>
   )

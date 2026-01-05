@@ -1,7 +1,7 @@
 import { ReactNode, useCallback, useMemo, useState } from 'react'
 import { Toast } from './Toast'
 import styles from './Toast.module.scss'
-import { ToastConfigTypes } from './ToastTypes'
+import { ToastConfigTypes } from './Toast.types'
 import { ToastsContext } from './ToastsContext'
 
 export function Toasts({ children }: { children: ReactNode }) {

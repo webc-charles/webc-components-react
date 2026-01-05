@@ -9,16 +9,25 @@ export function InputText({
   className,
   inputClassName,
   labelClassName,
+  'aria-label': ariaLabel,
   ...rest
 }: InputTextTypes) {
   const id = useId()
 
   return (
     <div className={clsx(styles.wrapper, className)}>
-      <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
-        {label}
-      </label>
-      <input ref={ref} id={id} className={clsx(styles.input, inputClassName)} {...rest} />
+      {label && (
+        <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+          {label}
+        </label>
+      )}
+      <input
+        ref={ref}
+        id={label ? id : undefined}
+        aria-label={!label ? ariaLabel : undefined}
+        className={clsx(styles.input, inputClassName)}
+        {...rest}
+      />
     </div>
   )
 }

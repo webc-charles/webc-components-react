@@ -1,9 +1,9 @@
 import { useEffect, useEffectEvent, useState } from 'react'
-import { X } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
+import { X } from 'lucide-react'
 import styles from './Toast.module.scss'
-import { ToastTypes } from './ToastTypes'
+import { ToastTypes } from './Toast.types'
 
 export function Toast({
   id,
@@ -17,6 +17,11 @@ export function Toast({
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)
 
+  // Use alert role for urgent variants (danger/warning)
+  const isUrgent = variant === 'danger' || variant === 'warning'
+  const role = isUrgent ? 'alert' : 'status'
+  const ariaLive = isUrgent ? 'assertive' : 'polite'
+
   const handleRemove = useEffectEvent(() => {
     setRemoving(true)
     setTimeout(() => {
@@ -24,27 +29,24 @@ export function Toast({
     }, 200)
   })
 
+  // Activation animation
   useEffect(() => {
     const timer = setTimeout(() => setActive(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
+  // Auto-close duration
   useEffect(() => {
     if (duration === Infinity) return
 
-    const timer = setTimeout(() => {
-      handleRemove()
-    }, duration)
-
+    const timer = setTimeout(handleRemove, duration)
     return () => clearTimeout(timer)
-
-    // eslint-disable-next-line
-  }, [duration])
+  }, [duration, handleRemove])
 
   return (
     <div
-      role="status"
-      aria-live="polite"
+      role={role}
+      aria-live={ariaLive}
       aria-atomic="true"
       className={clsx(
         styles.toast,
@@ -55,11 +57,11 @@ export function Toast({
     >
       <div className={styles.container}>
         {title && <div className={styles.containerHeader}>{title}</div>}
-
         {children && <div className={styles.containerBody}>{children}</div>}
       </div>
 
       <button
+        type="button"
         title={closeLabel}
         onClick={handleRemove}
         aria-label={closeLabel}

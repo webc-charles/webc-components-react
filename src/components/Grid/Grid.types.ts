@@ -1,9 +1,8 @@
-import { ComponentProps, ReactNode } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-export type GridTypes = ComponentProps<'div'> & {
-  children: ReactNode
+export type GridTypes = ComponentPropsWithRef<'div'> & {
   col?: number
   colXS?: number
   colSM?: number
@@ -16,12 +15,9 @@ export type GridTypes = ComponentProps<'div'> & {
   gapMD?: GapSize
   gapLG?: GapSize
   gapXL?: GapSize
-  className?: string
-  'data-testid'?: string
 }
 
-export type GridItemTypes = ComponentProps<'div'> & {
-  children: ReactNode
+export type GridItemTypes = ComponentPropsWithRef<'div'> & {
   col?: number
   colXS?: number
   colSM?: number
@@ -34,5 +30,4 @@ export type GridItemTypes = ComponentProps<'div'> & {
   rowMD?: number
   rowLG?: number
   rowXL?: number
-  className?: string
 }

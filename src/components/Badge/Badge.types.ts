@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type BadgeVariantTypes =
   | 'default'
@@ -9,6 +9,6 @@ export type BadgeVariantTypes =
   | 'success'
   | 'danger'
 
-export type BadgeTypes = ComponentProps<'div'> & {
+export type BadgeTypes = ComponentPropsWithRef<'div'> & {
   variant?: BadgeVariantTypes
 }

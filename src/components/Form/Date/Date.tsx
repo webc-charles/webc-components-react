@@ -283,7 +283,7 @@ export function InputDate({
                 <ChevronLeft size={18} aria-hidden />
               </button>
 
-              <span className={styles.monthYear}>
+              <span className={styles.monthYear} aria-live="polite" aria-atomic="true">
                 {str.months[month]} {year}
               </span>
 

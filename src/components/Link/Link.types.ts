@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type AnchorVariantTypes =
   | 'default'
@@ -17,7 +17,7 @@ export type AnchorAppearanceTypes =
   | 'arrow'
   | 'button'
 
-export type LinkTypes = ComponentProps<'a'> & {
+export type LinkTypes = ComponentPropsWithRef<'a'> & {
   disabled?: boolean
   variant?: AnchorVariantTypes
   appearance?: AnchorAppearanceTypes

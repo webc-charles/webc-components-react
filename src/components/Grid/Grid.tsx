@@ -3,6 +3,7 @@ import styles from './Grid.module.scss'
 import { GridTypes } from './Grid.types'
 
 export function Grid({
+  ref,
   children,
   gap,
   gapXS,
@@ -40,7 +41,7 @@ export function Grid({
   const gridClasses = clsx(styles.grid, gapClasses, colClasses, className)
 
   return (
-    <div className={gridClasses} {...rest}>
+    <div ref={ref} className={gridClasses} {...rest}>
       {children}
     </div>
   )

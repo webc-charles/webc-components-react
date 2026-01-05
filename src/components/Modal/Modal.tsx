@@ -1,9 +1,9 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
-import { X } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
+import { X } from 'lucide-react'
 import styles from './Modal.module.scss'
-import { ModalTypes } from './ModalTypes'
+import { ModalTypes } from './Modal.types'
 
 export function Modal({
   id,
@@ -34,13 +34,15 @@ export function Modal({
     }
   }
 
+  // Initial setup
   useEffect(() => {
     previousFocusRef.current = document.activeElement as HTMLElement
     modalRef.current?.querySelector('button')?.focus()
     const timer = setTimeout(() => setActive(true), 100)
     return () => clearTimeout(timer)
-  }, [active])
+  }, [])
 
+  // Focus trap
   useEffect(() => {
     if (!active || removing) return
 
@@ -54,7 +56,6 @@ export function Modal({
       if (!focusableElements || focusableElements.length === 0) return
 
       const focusableArray = Array.from(focusableElements) as HTMLElement[]
-
       const lastIndex = focusableArray.length - 1
       const currentIndex = focusableArray.findIndex(
         (el) => el === document.activeElement
@@ -75,49 +76,44 @@ export function Modal({
     return () => document.removeEventListener('keydown', handleFocusTrap)
   }, [active, removing])
 
+  // Escape key
   useEffect(() => {
+    if (!active || removing) return
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         handleRemove()
       }
     }
 
-    if (active && !removing) {
-      document.addEventListener('keydown', handleEscape)
-      return () => document.removeEventListener('keydown', handleEscape)
-    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [active, removing, handleRemove])
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, removing])
-
+  // Auto-close duration
   useEffect(() => {
     if (duration === Infinity) return
 
-    const timer = setTimeout(() => {
-      handleRemove()
-    }, duration)
-
+    const timer = setTimeout(handleRemove, duration)
     return () => clearTimeout(timer)
+  }, [duration, handleRemove])
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duration])
-
+  // Body scroll lock
   useEffect(() => {
-    if (active && !removing) {
-      const clientWidth = document.documentElement.clientWidth
-      const scrollbarWidth = window.innerWidth - clientWidth
+    if (!active || removing) return
 
-      document.documentElement.style.setProperty(
-        '--scrollbar-width',
-        `${scrollbarWidth}px`
-      )
+    const clientWidth = document.documentElement.clientWidth
+    const scrollbarWidth = window.innerWidth - clientWidth
 
-      document.body.classList.add('freeze')
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      `${scrollbarWidth}px`
+    )
+    document.body.classList.add('freeze')
 
-      return () => {
-        document.body.classList.remove('freeze')
-        document.documentElement.style.removeProperty('--scrollbar-width')
-      }
+    return () => {
+      document.body.classList.remove('freeze')
+      document.documentElement.style.removeProperty('--scrollbar-width')
     }
   }, [active, removing])
 
@@ -152,6 +148,7 @@ export function Modal({
 
         {!hideCloseButton && (
           <button
+            type="button"
             title={closeLabel}
             onClick={handleRemove}
             aria-label={closeLabel}

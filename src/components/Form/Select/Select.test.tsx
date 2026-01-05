@@ -1,21 +1,27 @@
 import '@testing-library/jest-dom/vitest'
+import { useState } from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { useState } from 'react'
+import { beforeAll, describe, expect, it } from 'vitest'
 import {
-  SelectRoot,
-  SelectTrigger,
-  SelectPlaceholder,
-  SelectModal,
-  SelectActions,
-  OptionList,
-  OptionListItem,
+  ChoiceClear,
   ChoiceList,
   ChoiceListItem,
-  ChoiceClear,
+  OptionList,
+  OptionListItem,
+  SelectActions,
+  SelectModal,
+  SelectPlaceholder,
+  SelectRoot,
+  SelectTrigger,
 } from './Select'
-import { useSelectContext } from './SelectContext'
 import type { OptionTypes } from './Select.types'
+import { useSelectContext } from './SelectContext'
+
+// Mock scrollIntoView (not implemented in JSDOM)
+beforeAll(() => {
+  Element.prototype.scrollIntoView = () => {}
+})
 
 const options: OptionTypes[] = [
   { value: 'apple', label: 'Apple' },
@@ -84,11 +90,11 @@ const MultiSelect = ({
 
   return (
     <SelectRoot
-      options={options}
+      multiple
       value={value}
+      options={options}
       onChange={setValue}
       disabled={disabled}
-      multiple
       data-testid="select-root"
     >
       <SelectPlaceholder data-testid="placeholder" />

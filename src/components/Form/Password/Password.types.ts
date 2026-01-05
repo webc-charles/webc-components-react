@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react'
 
 export type InputPasswordTypes = Omit<ComponentPropsWithRef<'input'>, 'type'> & {
-  label: string
+  label?: string
   inputClassName?: string
   labelClassName?: string
 }

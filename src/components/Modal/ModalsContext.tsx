@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { ModalConfigTypes } from './ModalTypes'
+import { ModalConfigTypes } from './Modal.types'
 
 export type ModalsContextTypes = {
   modals: ModalConfigTypes[]

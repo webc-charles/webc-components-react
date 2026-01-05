@@ -12,6 +12,7 @@ export function InputPassword({
   className,
   inputClassName,
   labelClassName,
+  'aria-label': ariaLabel,
   ...rest
 }: InputPasswordTypes) {
   const id = useId()
@@ -19,17 +20,20 @@ export function InputPassword({
 
   return (
     <div className={clsx(styles.wrapper, className)}>
-      <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+          {label}
+        </label>
+      )}
 
       <div className={styles.inputWrapper}>
         <input
           {...rest}
           ref={ref}
-          id={id}
+          id={label ? id : undefined}
           type={showPassword ? 'text' : 'password'}
           disabled={disabled}
+          aria-label={!label ? ariaLabel : undefined}
           className={clsx(styles.input, inputClassName)}
         />
 

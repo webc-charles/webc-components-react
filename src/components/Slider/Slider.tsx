@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import clsx from 'clsx'
@@ -28,6 +28,7 @@ function useSliderContext() {
 }
 
 export function Slider({
+  ref,
   options,
   className,
   children,
@@ -65,19 +66,22 @@ export function Slider({
     }
   }, [emblaApi, onSelect])
 
+  const contextValue = useMemo(
+    () => ({
+      selectedIndex,
+      scrollSnaps,
+      canScrollPrev,
+      canScrollNext,
+      scrollPrev,
+      scrollNext,
+      scrollTo,
+    }),
+    [selectedIndex, scrollSnaps, canScrollPrev, canScrollNext, scrollPrev, scrollNext, scrollTo]
+  )
+
   return (
-    <SliderContext.Provider
-      value={{
-        selectedIndex,
-        scrollSnaps,
-        canScrollPrev,
-        canScrollNext,
-        scrollPrev,
-        scrollNext,
-        scrollTo,
-      }}
-    >
-      <div className={clsx(styles.slider, className)} {...props}>
+    <SliderContext.Provider value={contextValue}>
+      <div ref={ref} className={clsx(styles.slider, className)} {...props}>
         <div className={styles.viewport} ref={emblaRef}>
           {children}
         </div>
@@ -86,31 +90,47 @@ export function Slider({
   )
 }
 
-export function SliderContainer({ className, children, ...props }: SliderContainerTypes) {
+export function SliderContainer({
+  ref,
+  className,
+  children,
+  ...props
+}: SliderContainerTypes) {
   return (
-    <div className={clsx(styles.container, className)} {...props}>
+    <div ref={ref} className={clsx(styles.container, className)} {...props}>
       {children}
     </div>
   )
 }
 
-export function SliderSlide({ className, children, ...props }: SliderSlideTypes) {
+export function SliderSlide({
+  ref,
+  className,
+  children,
+  ...props
+}: SliderSlideTypes) {
   return (
-    <div className={clsx(styles.slide, className)} {...props}>
+    <div ref={ref} className={clsx(styles.slide, className)} {...props}>
       {children}
     </div>
   )
 }
 
-export function SliderControls({ className, children, ...props }: SliderControlsTypes) {
+export function SliderControls({
+  ref,
+  className,
+  children,
+  ...props
+}: SliderControlsTypes) {
   return (
-    <div className={clsx(styles.controls, className)} {...props}>
+    <div ref={ref} className={clsx(styles.controls, className)} {...props}>
       {children}
     </div>
   )
 }
 
 export function SliderPrev({
+  ref,
   className,
   label = str.slider_prev,
   children,
@@ -120,6 +140,7 @@ export function SliderPrev({
 
   return (
     <button
+      ref={ref}
       type="button"
       className={clsx(styles.button, styles.prev, className)}
       onClick={scrollPrev}
@@ -127,12 +148,13 @@ export function SliderPrev({
       aria-label={label}
       {...props}
     >
-      {children || <ChevronLeft size={20} aria-hidden />}
+      {children ?? <ChevronLeft size={20} aria-hidden />}
     </button>
   )
 }
 
 export function SliderNext({
+  ref,
   className,
   label = str.slider_next,
   children,
@@ -142,6 +164,7 @@ export function SliderNext({
 
   return (
     <button
+      ref={ref}
       type="button"
       className={clsx(styles.button, styles.next, className)}
       onClick={scrollNext}
@@ -149,12 +172,13 @@ export function SliderNext({
       aria-label={label}
       {...props}
     >
-      {children || <ChevronRight size={20} aria-hidden />}
+      {children ?? <ChevronRight size={20} aria-hidden />}
     </button>
   )
 }
 
 export function SliderDots({
+  ref,
   className,
   label = str.slider_goto,
   ...props
@@ -162,15 +186,20 @@ export function SliderDots({
   const { selectedIndex, scrollSnaps, scrollTo } = useSliderContext()
 
   return (
-    <div className={clsx(styles.dots, className)} role="tablist" {...props}>
+    <div
+      ref={ref}
+      className={clsx(styles.dots, className)}
+      role="group"
+      aria-label={str.slider_navigation}
+      {...props}
+    >
       {scrollSnaps.map((_, index) => (
         <button
           key={index}
           type="button"
-          role="tab"
           className={clsx(styles.dot, selectedIndex === index && styles.active)}
           onClick={() => scrollTo(index)}
-          aria-selected={selectedIndex === index}
+          aria-current={selectedIndex === index || undefined}
           aria-label={`${label} ${index + 1}`}
         />
       ))}

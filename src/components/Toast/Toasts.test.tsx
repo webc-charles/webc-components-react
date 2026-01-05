@@ -24,7 +24,7 @@ describe('Toasts', () => {
     render(<Toasts><TestComponent /></Toasts>)
     await act(async () => vi.advanceTimersByTime(1000))
 
-    const toast = document.querySelector('[role="dialog"]')
+    const toast = document.querySelector('[role="status"]')
     expect(toast).toBeInTheDocument()
     expect(toast).toHaveTextContent('Toast Title')
     expect(screen.getByTestId('toast-body')).toBeInTheDocument()
@@ -42,11 +42,11 @@ describe('Toasts', () => {
     render(<Toasts><TestComponent /></Toasts>)
     await act(async () => vi.advanceTimersByTime(1000))
 
-    const toast = document.querySelector('[role="dialog"]')
+    const toast = document.querySelector('[role="status"]')
     const closeButton = toast?.querySelector('button')
     fireEvent.click(closeButton!)
     await act(async () => vi.advanceTimersByTime(1500))
 
-    expect(document.querySelector('[role="dialog"]')).not.toBeInTheDocument()
+    expect(document.querySelector('[role="status"]')).not.toBeInTheDocument()
   })
 })

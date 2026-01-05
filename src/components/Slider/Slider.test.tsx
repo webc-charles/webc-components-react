@@ -1,5 +1,6 @@
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { describe, expect, it, vi } from 'vitest'
 import {
   Slider,
   SliderContainer,
@@ -9,6 +10,24 @@ import {
   SliderNext,
   SliderDots,
 } from './Slider'
+
+// Mock embla-carousel-react (requires DOM measurements)
+vi.mock('embla-carousel-react', () => ({
+  default: () => [
+    () => {},
+    {
+      scrollPrev: () => {},
+      scrollNext: () => {},
+      scrollTo: () => {},
+      canScrollPrev: () => true,
+      canScrollNext: () => true,
+      selectedScrollSnap: () => 0,
+      scrollSnapList: () => [0, 1, 2],
+      on: () => {},
+      off: () => {},
+    },
+  ],
+}))
 
 describe('Slider', () => {
   it('renders slides correctly', () => {
@@ -59,7 +78,7 @@ describe('Slider', () => {
       </Slider>
     )
 
-    expect(screen.getByRole('tablist')).toBeInTheDocument()
+    expect(screen.getByRole('group', { name: /navigation/i })).toBeInTheDocument()
   })
 
   it('applies custom className', () => {

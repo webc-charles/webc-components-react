@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type NoteVariantTypes =
   | 'default'
@@ -9,10 +9,10 @@ export type NoteVariantTypes =
   | 'warning'
   | 'info'
 
-export type NoteHeaderTypes = ComponentProps<'div'> & {
+export type NoteHeaderTypes = ComponentPropsWithRef<'div'> & {
   variant?: NoteVariantTypes
 }
 
-export type NoteTypes = ComponentProps<'div'> & {
+export type NoteTypes = ComponentPropsWithRef<'aside'> & {
   variant?: NoteVariantTypes
 }

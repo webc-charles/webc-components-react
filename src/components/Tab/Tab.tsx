@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useCallback, useContext, useId, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import styles from './Tab.module.scss'
@@ -24,6 +24,7 @@ function useTabContext() {
 }
 
 export function Tab({
+  ref,
   defaultValue,
   value,
   onValueChange,
@@ -32,25 +33,85 @@ export function Tab({
   ...props
 }: TabTypes) {
   const [internalValue, setInternalValue] = useState(defaultValue)
+  const tabId = useId()
 
   const activeTab = value ?? internalValue
-  const setActiveTab = (newValue: string) => {
-    setInternalValue(newValue)
-    onValueChange?.(newValue)
-  }
+
+  const setActiveTab = useCallback(
+    (newValue: string) => {
+      setInternalValue(newValue)
+      onValueChange?.(newValue)
+    },
+    [onValueChange]
+  )
+
+  const contextValue = useMemo(
+    () => ({ activeTab, setActiveTab, tabId }),
+    [activeTab, setActiveTab, tabId]
+  )
 
   return (
-    <TabContext.Provider value={{ activeTab, setActiveTab }}>
-      <div className={clsx(styles.tab, className)} {...props}>
+    <TabContext.Provider value={contextValue}>
+      <div ref={ref} className={clsx(styles.tab, className)} {...props}>
         {children}
       </div>
     </TabContext.Provider>
   )
 }
 
-export function TabList({ className, children, ...props }: TabListTypes) {
+export function TabList({ ref, className, children, ...props }: TabListTypes) {
+  const listRef = useRef<HTMLDivElement>(null)
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    const tabs = listRef.current?.querySelectorAll<HTMLButtonElement>(
+      '[role="tab"]:not([disabled])'
+    )
+    if (!tabs || tabs.length === 0) return
+
+    const currentIndex = Array.from(tabs).findIndex(
+      (tab) => tab === document.activeElement
+    )
+    if (currentIndex === -1) return
+
+    let nextIndex: number | null = null
+
+    switch (e.key) {
+      case 'ArrowLeft':
+        e.preventDefault()
+        nextIndex = currentIndex > 0 ? currentIndex - 1 : tabs.length - 1
+        break
+      case 'ArrowRight':
+        e.preventDefault()
+        nextIndex = currentIndex < tabs.length - 1 ? currentIndex + 1 : 0
+        break
+      case 'Home':
+        e.preventDefault()
+        nextIndex = 0
+        break
+      case 'End':
+        e.preventDefault()
+        nextIndex = tabs.length - 1
+        break
+    }
+
+    if (nextIndex !== null) {
+      tabs[nextIndex].focus()
+      tabs[nextIndex].click()
+    }
+  }
+
   return (
-    <div className={clsx(styles.tabList, className)} role="tablist" {...props}>
+    <div
+      ref={(node) => {
+        listRef.current = node
+        if (typeof ref === 'function') ref(node)
+        else if (ref) ref.current = node
+      }}
+      role="tablist"
+      className={clsx(styles.tabList, className)}
+      onKeyDown={handleKeyDown}
+      {...props}
+    >
       {children}
     </div>
   )
@@ -64,15 +125,18 @@ export function TabButton({
   variant = 'default',
   ...props
 }: TabButtonTypes) {
-  const { activeTab, setActiveTab } = useTabContext()
+  const { activeTab, setActiveTab, tabId } = useTabContext()
   const isActive = activeTab === value
 
   return (
     <Button
       role="tab"
+      id={`${tabId}-tab-${value}`}
       variant={variant}
       appearance={appearance}
       aria-selected={isActive}
+      aria-controls={`${tabId}-panel-${value}`}
+      tabIndex={isActive ? 0 : -1}
       onClick={() => setActiveTab(value)}
       className={clsx(styles.tabButton, className)}
       {...props}
@@ -82,21 +146,27 @@ export function TabButton({
   )
 }
 
-export function TabPanels({ className, children, ...props }: TabPanelsTypes) {
+export function TabPanels({
+  ref,
+  className,
+  children,
+  ...props
+}: TabPanelsTypes) {
   return (
-    <div className={clsx(styles.tabPanels, className)} {...props}>
+    <div ref={ref} className={clsx(styles.tabPanels, className)} {...props}>
       {children}
     </div>
   )
 }
 
 export function TabPanel({
+  ref,
   value,
   className,
   children,
   ...props
 }: TabPanelTypes) {
-  const { activeTab } = useTabContext()
+  const { activeTab, tabId } = useTabContext()
 
   if (activeTab !== value) {
     return null
@@ -104,8 +174,12 @@ export function TabPanel({
 
   return (
     <div
+      ref={ref}
       role="tabpanel"
+      id={`${tabId}-panel-${value}`}
+      aria-labelledby={`${tabId}-tab-${value}`}
       className={clsx(styles.tabPanel, className)}
+      tabIndex={0}
       {...props}
     >
       {children}

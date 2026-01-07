@@ -288,6 +288,7 @@ ChoiceListItem.displayName = 'ChoiceListItem'
 
 // SELECT MODAL
 const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) => {
+  const [mounted, setMounted] = useState(false)
   const {
     isOpen,
     menuPosition,
@@ -300,6 +301,11 @@ const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) =>
     setIsOpen,
     rootRef,
   } = useSelectContext()
+
+  // SSR safety: only render portal after mount
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     if (!onLoadMore || !hasMore || loading) return
@@ -326,7 +332,7 @@ const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) =>
     return () => document.removeEventListener('keydown', handleTab)
   }, [isOpen, searchable, setIsOpen, rootRef])
 
-  if (!isOpen) return null
+  if (!isOpen || !mounted) return null
 
   return createPortal(
     <div

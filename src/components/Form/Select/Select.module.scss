@@ -66,12 +66,6 @@
   padding: 0.8rem;
 }
 
-.selectSpinner {
-  @include formSpinner;
-
-  color: var(--color-grey-3);
-}
-
 .selectTrigger {
   align-items: center;
   color: var(--color-grey-2);

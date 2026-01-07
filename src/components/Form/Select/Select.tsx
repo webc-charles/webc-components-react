@@ -12,7 +12,8 @@ import {
 import { createPortal } from 'react-dom'
 import clsx from 'clsx'
 import { str } from 'i18n'
-import { ChevronDown, LoaderCircle, X } from 'lucide-react'
+import { ChevronDown, X } from 'lucide-react'
+import { Spinner } from '../../Spinner'
 import styles from './Select.module.scss'
 import type {
   ChoiceClearTypes,
@@ -353,11 +354,7 @@ const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) =>
 
       {loading && (
         <div className={styles.selectLoading}>
-          <LoaderCircle
-            size={18}
-            aria-hidden
-            className={styles.selectSpinner}
-          />
+          <Spinner size="sm" inline />
         </div>
       )}
     </div>,

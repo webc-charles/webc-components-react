@@ -104,7 +104,7 @@ function App() {
 |----------|------------|
 | **Form** | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [Checkbox](#checkbox) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
 | **Display** | [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link) |
-| **Feedback** | [Toast](#toast) · [Modal](#modal) |
+| **Feedback** | [Spinner](#spinner) · [Toast](#toast) · [Modal](#modal) |
 | **Layout** | [Grid](#grid) · [Card](#card) · [Banner](#banner) · [Accordion](#accordion) · [Tab](#tab) · [Slider](#slider) |
 
 ### Form Components
@@ -621,6 +621,37 @@ import { Link } from '@webc-charles/components-react'
 ---
 
 ### Feedback Components
+
+#### Spinner
+
+Loading indicator with size and color variants.
+
+```tsx
+import { Spinner } from '@webc-charles/components-react'
+
+// Default
+<Spinner />
+
+// With variant and size
+<Spinner variant="primary" size="lg" />
+
+// Custom label for screen readers
+<Spinner label="Loading data..." />
+
+// On dark backgrounds
+<Spinner contrast />
+```
+
+**Props**: Extends `ComponentPropsWithRef<'div'>`
+
+| Prop       | Type                     | Default     | Description                      |
+| ---------- | ------------------------ | ----------- | -------------------------------- |
+| `variant`  | `ColorVariant`           | `'default'` | Color theme                      |
+| `size`     | `'sm' \| 'md' \| 'lg'`   | `'md'`      | Size of the spinner              |
+| `label`    | `string`                 | i18n        | Accessible label                 |
+| `contrast` | `boolean`                | `false`     | Light colors for dark backgrounds |
+
+---
 
 #### Toast
 

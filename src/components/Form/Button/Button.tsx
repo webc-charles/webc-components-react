@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { LoaderCircle } from 'lucide-react'
+import { Spinner } from '../../Spinner'
 import styles from './Button.module.scss'
 import type { ButtonTypes } from './Button.types'
 
@@ -17,6 +17,9 @@ export function Button({
   ...rest
 }: ButtonTypes) {
   const value = children ?? title
+
+  // Spinner should be white on solid colored backgrounds
+  const spinnerContrast = appearance === 'button' && !contrast
 
   const classList = clsx(
     styles.button,
@@ -38,7 +41,12 @@ export function Button({
       {...rest}
     >
       {loading && (
-        <LoaderCircle size={18} className={styles.spinner} aria-hidden />
+        <Spinner
+          inline
+          size="sm"
+          contrast={spinnerContrast}
+          className={styles.spinner}
+        />
       )}
 
       <span className={styles.content}>{value}</span>

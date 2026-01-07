@@ -2,6 +2,8 @@
 
 A lightweight, accessible React component library built with TypeScript, SCSS Modules, and React 19.
 
+📚 **[Live Storybook Demo](https://webc-charles.github.io/webc-components-react/)**
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -14,8 +16,8 @@ A lightweight, accessible React component library built with TypeScript, SCSS Mo
   - [Layout Components](#layout-components)
 - [Theming](#theming)
   - [Color Variants](#color-variants)
+  - [Contrast Mode](#contrast-mode)
   - [CSS Variables](#css-variables)
-  - [Dark Mode (Future)](#dark-mode-future)
 - [Accessibility](#accessibility)
 - [Architecture](#architecture)
 - [TypeScript](#typescript)
@@ -39,11 +41,11 @@ Estimated ~30-50kb gzipped (no heavy framework dependencies)
 
 ### Dependencies
 
-| Package | Purpose |
-|---------|---------|
-| `clsx` | Conditional className utility |
+| Package                | Purpose                       |
+| ---------------------- | ----------------------------- |
+| `clsx`                 | Conditional className utility |
 | `embla-carousel-react` | Slider/carousel functionality |
-| `lucide-react` | Icon set |
+| `lucide-react`         | Icon set                      |
 
 ---
 
@@ -72,7 +74,7 @@ import '@webc-charles/components-react/styles'
 ## Quick Start
 
 ```tsx
-import { Button, Badge, Note, NoteHeader } from '@webc-charles/components-react'
+import { Badge, Button, Note, NoteHeader } from '@webc-charles/components-react'
 
 function App() {
   return (
@@ -80,9 +82,9 @@ function App() {
       <Button variant="primary" appearance="button">
         Click me
       </Button>
-      
+
       <Badge variant="success">New</Badge>
-      
+
       <Note variant="info">
         <NoteHeader>Information</NoteHeader>
         <p>This is an informational note.</p>
@@ -126,11 +128,11 @@ import { Button } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'button'>`
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `ColorVariant` | `'default'` | Color theme |
-| `appearance` | `'default' \| 'button' \| 'outline' \| 'underline'` | `'default'` | Visual style |
-| `loading` | `boolean` | `false` | Shows spinner, disables button |
+| Prop         | Type                                                | Default     | Description                    |
+| ------------ | --------------------------------------------------- | ----------- | ------------------------------ |
+| `variant`    | `ColorVariant`                                      | `'default'` | Color theme                    |
+| `appearance` | `'default' \| 'button' \| 'outline' \| 'underline'` | `'default'` | Visual style                   |
+| `loading`    | `boolean`                                           | `false`     | Shows spinner, disables button |
 
 ---
 
@@ -141,14 +143,14 @@ Basic text input with label support.
 ```tsx
 import { InputText } from '@webc-charles/components-react'
 
-<InputText 
+<InputText
   label="Email"
   placeholder="Enter your email"
   type="email"
 />
 
 // Without visible label (accessibility)
-<InputText 
+<InputText
   aria-label="Search"
   placeholder="Search..."
 />
@@ -156,9 +158,9 @@ import { InputText } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'input'>`
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `label` | `string` | Visible label text |
+| Prop             | Type     | Description        |
+| ---------------- | -------- | ------------------ |
+| `label`          | `string` | Visible label text |
 | `labelClassName` | `string` | Label custom class |
 | `inputClassName` | `string` | Input custom class |
 
@@ -171,10 +173,7 @@ Password input with visibility toggle.
 ```tsx
 import { InputPassword } from '@webc-charles/components-react'
 
-<InputPassword 
-  label="Password"
-  placeholder="Enter password"
-/>
+;<InputPassword label="Password" placeholder="Enter password" />
 ```
 
 **Props**: Same as InputText
@@ -188,7 +187,7 @@ Numeric input with increment/decrement buttons.
 ```tsx
 import { InputNumber } from '@webc-charles/components-react'
 
-<InputNumber
+;<InputNumber
   label="Quantity"
   value={quantity}
   onChange={setQuantity}
@@ -200,15 +199,15 @@ import { InputNumber } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'input'>`
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number` | - | Controlled value |
-| `onChange` | `(value: number) => void` | - | Change handler |
-| `min` | `number` | - | Minimum value |
-| `max` | `number` | - | Maximum value |
-| `step` | `number` | `1` | Increment step |
-| `incrementLabel` | `string` | i18n | Accessibility label |
-| `decrementLabel` | `string` | i18n | Accessibility label |
+| Prop             | Type                      | Default | Description         |
+| ---------------- | ------------------------- | ------- | ------------------- |
+| `value`          | `number`                  | -       | Controlled value    |
+| `onChange`       | `(value: number) => void` | -       | Change handler      |
+| `min`            | `number`                  | -       | Minimum value       |
+| `max`            | `number`                  | -       | Maximum value       |
+| `step`           | `number`                  | `1`     | Increment step      |
+| `incrementLabel` | `string`                  | i18n    | Accessibility label |
+| `decrementLabel` | `string`                  | i18n    | Accessibility label |
 
 ---
 
@@ -219,7 +218,7 @@ Multi-line text input with optional character count.
 ```tsx
 import { InputTextarea } from '@webc-charles/components-react'
 
-<InputTextarea
+;<InputTextarea
   label="Bio"
   value={bio}
   onChange={setBio}
@@ -230,12 +229,12 @@ import { InputTextarea } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'textarea'>`
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Controlled value |
-| `onChange` | `(value: string) => void` | - | Change handler |
-| `maxLength` | `number` | - | Maximum characters |
-| `showCount` | `boolean` | `false` | Show character counter |
+| Prop        | Type                      | Default | Description            |
+| ----------- | ------------------------- | ------- | ---------------------- |
+| `value`     | `string`                  | -       | Controlled value       |
+| `onChange`  | `(value: string) => void` | -       | Change handler         |
+| `maxLength` | `number`                  | -       | Maximum characters     |
+| `showCount` | `boolean`                 | `false` | Show character counter |
 
 ---
 
@@ -250,7 +249,7 @@ import { Checkbox } from '@webc-charles/components-react'
 <Checkbox label="Accept terms" defaultChecked />
 
 // Controlled
-<Checkbox 
+<Checkbox
   label="Subscribe to newsletter"
   checked={subscribed}
   onChange={setSubscribed}
@@ -259,13 +258,13 @@ import { Checkbox } from '@webc-charles/components-react'
 
 **Props**:
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `label` | `string` | Label text |
-| `checked` | `boolean` | Controlled state |
-| `defaultChecked` | `boolean` | Initial state (uncontrolled) |
-| `onChange` | `(checked: boolean) => void` | Change handler |
-| `disabled` | `boolean` | Disable interaction |
+| Prop             | Type                         | Description                  |
+| ---------------- | ---------------------------- | ---------------------------- |
+| `label`          | `string`                     | Label text                   |
+| `checked`        | `boolean`                    | Controlled state             |
+| `defaultChecked` | `boolean`                    | Initial state (uncontrolled) |
+| `onChange`       | `(checked: boolean) => void` | Change handler               |
+| `disabled`       | `boolean`                    | Disable interaction          |
 
 ---
 
@@ -276,7 +275,7 @@ Radio button group.
 ```tsx
 import { InputRadio } from '@webc-charles/components-react'
 
-<InputRadio
+;<InputRadio
   label="Select size"
   name="size"
   value={size}
@@ -292,13 +291,13 @@ import { InputRadio } from '@webc-charles/components-react'
 
 **Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `options` | `{ value: string; label: string; disabled?: boolean }[]` | - | Radio options |
-| `value` | `string` | - | Selected value |
-| `onChange` | `(value: string) => void` | - | Change handler |
-| `name` | `string` | - | Form field name |
-| `direction` | `'vertical' \| 'horizontal'` | `'vertical'` | Layout direction |
+| Prop        | Type                                                     | Default      | Description      |
+| ----------- | -------------------------------------------------------- | ------------ | ---------------- |
+| `options`   | `{ value: string; label: string; disabled?: boolean }[]` | -            | Radio options    |
+| `value`     | `string`                                                 | -            | Selected value   |
+| `onChange`  | `(value: string) => void`                                | -            | Change handler   |
+| `name`      | `string`                                                 | -            | Form field name  |
+| `direction` | `'vertical' \| 'horizontal'`                             | `'vertical'` | Layout direction |
 
 ---
 
@@ -309,7 +308,7 @@ Date picker with calendar modal.
 ```tsx
 import { InputDate } from '@webc-charles/components-react'
 
-<InputDate
+;<InputDate
   label="Birth date"
   selected={birthDate}
   onChange={setBirthDate}
@@ -321,14 +320,14 @@ import { InputDate } from '@webc-charles/components-react'
 
 **Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `selected` | `Date \| null` | - | Selected date |
-| `onChange` | `(date: Date) => void` | - | Change handler |
-| `dateFormat` | `string` | `'yyyy-MM-dd'` | Display format |
-| `minDate` | `Date` | - | Earliest selectable date |
-| `maxDate` | `Date` | - | Latest selectable date |
-| `placeholder` | `string` | i18n | Placeholder text |
+| Prop          | Type                   | Default        | Description              |
+| ------------- | ---------------------- | -------------- | ------------------------ |
+| `selected`    | `Date \| null`         | -              | Selected date            |
+| `onChange`    | `(date: Date) => void` | -              | Change handler           |
+| `dateFormat`  | `string`               | `'yyyy-MM-dd'` | Display format           |
+| `minDate`     | `Date`                 | -              | Earliest selectable date |
+| `maxDate`     | `Date`                 | -              | Latest selectable date   |
+| `placeholder` | `string`               | i18n           | Placeholder text         |
 
 ---
 
@@ -338,16 +337,16 @@ Feature-rich select with single/multiple modes, search, and async loading.
 
 ```tsx
 import {
-  SelectRoot,
-  SelectModal,
-  SelectPlaceholder,
-  SelectActions,
-  SelectTrigger,
+  ChoiceClear,
   ChoiceList,
   ChoiceListItem,
-  ChoiceClear,
   OptionList,
   OptionListItem,
+  SelectActions,
+  SelectModal,
+  SelectPlaceholder,
+  SelectRoot,
+  SelectTrigger,
 } from '@webc-charles/components-react'
 
 const options = [
@@ -401,7 +400,9 @@ function MultiSelect() {
           <ChoiceListItem
             key={option.value}
             option={option}
-            onRemove={(opt) => setValue(value.filter(v => v.value !== opt.value))}
+            onRemove={(opt) =>
+              setValue(value.filter((v) => v.value !== opt.value))
+            }
           />
         ))}
       </ChoiceList>
@@ -439,7 +440,7 @@ function AsyncSelect() {
 
   const handleLoadMore = async () => {
     const more = await fetchMoreOptions()
-    setOptions(prev => [...prev, ...more])
+    setOptions((prev) => [...prev, ...more])
     setHasMore(more.length > 0)
   }
 
@@ -462,22 +463,22 @@ function AsyncSelect() {
 
 **SelectRoot Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `options` | `OptionTypes[]` | - | Available options |
-| `value` | `OptionTypes[]` | - | Selected options |
-| `onChange` | `(value: OptionTypes[]) => void` | - | Change handler |
-| `multiple` | `boolean` | `false` | Allow multiple selections |
-| `searchable` | `boolean` | `false` | Enable search input |
-| `onSearch` | `(query: string) => void` | - | Async search handler |
-| `searchDebounce` | `number` | `300` | Search debounce ms |
-| `onLoadMore` | `() => void` | - | Infinite scroll handler |
-| `hasMore` | `boolean` | - | More items available |
-| `loading` | `boolean` | - | Show loading spinner |
-| `flip` | `boolean` | `true` | Flip menu when near viewport edge |
-| `label` | `string` | - | Visible label |
-| `placeholder` | `string` | i18n | Placeholder text |
-| `disabled` | `boolean` | `false` | Disable interaction |
+| Prop             | Type                             | Default | Description                       |
+| ---------------- | -------------------------------- | ------- | --------------------------------- |
+| `options`        | `OptionTypes[]`                  | -       | Available options                 |
+| `value`          | `OptionTypes[]`                  | -       | Selected options                  |
+| `onChange`       | `(value: OptionTypes[]) => void` | -       | Change handler                    |
+| `multiple`       | `boolean`                        | `false` | Allow multiple selections         |
+| `searchable`     | `boolean`                        | `false` | Enable search input               |
+| `onSearch`       | `(query: string) => void`        | -       | Async search handler              |
+| `searchDebounce` | `number`                         | `300`   | Search debounce ms                |
+| `onLoadMore`     | `() => void`                     | -       | Infinite scroll handler           |
+| `hasMore`        | `boolean`                        | -       | More items available              |
+| `loading`        | `boolean`                        | -       | Show loading spinner              |
+| `flip`           | `boolean`                        | `true`  | Flip menu when near viewport edge |
+| `label`          | `string`                         | -       | Visible label                     |
+| `placeholder`    | `string`                         | i18n    | Placeholder text                  |
+| `disabled`       | `boolean`                        | `false` | Disable interaction               |
 
 ---
 
@@ -497,8 +498,8 @@ import { Badge } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop | Type | Default |
-|------|------|---------|
+| Prop      | Type           | Default     |
+| --------- | -------------- | ----------- |
 | `variant` | `ColorVariant` | `'default'` |
 
 ---
@@ -523,8 +524,8 @@ import { Note, NoteHeader } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'aside'>`
 
-| Prop | Type | Default |
-|------|------|---------|
+| Prop      | Type           | Default     |
+| --------- | -------------- | ----------- |
 | `variant` | `ColorVariant` | `'default'` |
 
 ---
@@ -543,9 +544,9 @@ import { Title } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'h1'>`
 
-| Prop | Type | Default |
-|------|------|---------|
-| `level` | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h1'` |
+| Prop    | Type                                           | Default |
+| ------- | ---------------------------------------------- | ------- |
+| `level` | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h1'`  |
 
 ---
 
@@ -564,9 +565,9 @@ import { Image } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'img'>`
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `alt` | `string` | **Yes** | Alt text (use `""` for decorative images) |
+| Prop  | Type     | Required | Description                               |
+| ----- | -------- | -------- | ----------------------------------------- |
+| `alt` | `string` | **Yes**  | Alt text (use `""` for decorative images) |
 
 ---
 
@@ -587,11 +588,11 @@ import { Link } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'a'>`
 
-| Prop | Type | Default |
-|------|------|---------|
-| `variant` | `ColorVariant` | `'default'` |
+| Prop         | Type                                                           | Default     |
+| ------------ | -------------------------------------------------------------- | ----------- |
+| `variant`    | `ColorVariant`                                                 | `'default'` |
 | `appearance` | `'default' \| 'button' \| 'outline' \| 'underline' \| 'arrow'` | `'default'` |
-| `disabled` | `boolean` | `false` |
+| `disabled`   | `boolean`                                                      | `false`     |
 
 ---
 
@@ -602,7 +603,12 @@ import { Link } from '@webc-charles/components-react'
 Non-blocking notification system.
 
 ```tsx
-import { Toasts, useToasts, ToastHeader, ToastBody } from '@webc-charles/components-react'
+import {
+  ToastBody,
+  ToastHeader,
+  Toasts,
+  useToasts,
+} from '@webc-charles/components-react'
 
 // Wrap your app
 function App() {
@@ -639,12 +645,12 @@ function SaveButton() {
 
 **addToast Options**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `ColorVariant` | `'primary'` | Color theme |
-| `duration` | `number` | `10000` | Auto-close delay (ms) |
-| `children` | `ReactNode` | - | Toast content |
-| `closeLabel` | `string` | i18n | Close button aria-label |
+| Prop         | Type           | Default     | Description             |
+| ------------ | -------------- | ----------- | ----------------------- |
+| `variant`    | `ColorVariant` | `'primary'` | Color theme             |
+| `duration`   | `number`       | `10000`     | Auto-close delay (ms)   |
+| `children`   | `ReactNode`    | -           | Toast content           |
+| `closeLabel` | `string`       | i18n        | Close button aria-label |
 
 ---
 
@@ -654,6 +660,8 @@ Dialog/modal system.
 
 ```tsx
 import { Modals, useModals } from '@webc-charles/components-react'
+// Direct usage (controlled)
+import { Modal } from '@webc-charles/components-react'
 
 // Wrap your app
 function App() {
@@ -674,10 +682,10 @@ function DeleteButton() {
       size: 'sm', // 'sm' | 'md' | 'lg' | 'xl' | 'full'
       closeOnBackdrop: true,
       children: (
-        <div>
+        <>
           <p>Are you sure you want to delete this item?</p>
           <Button variant="danger">Delete</Button>
-        </div>
+        </>
       ),
     })
   }
@@ -685,33 +693,33 @@ function DeleteButton() {
   return <Button onClick={handleClick}>Delete</Button>
 }
 
-// Direct usage (controlled)
-import { Modal } from '@webc-charles/components-react'
-
-{showModal && (
-  <Modal
-    id={1}
-    title="Edit Profile"
-    size="md"
-    onRemove={() => setShowModal(false)}
-  >
-    <form>...</form>
-  </Modal>
-)}
+{
+  showModal && (
+    <Modal
+      id={1}
+      title="Edit Profile"
+      size="md"
+      onRemove={() => setShowModal(false)}
+    >
+      <form>...</form>
+    </Modal>
+  )
+}
 ```
 
 **Modal Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `title` | `ReactNode` | - | Header title |
-| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'lg'` | Modal width |
-| `closeOnBackdrop` | `boolean` | `false` | Close when clicking outside |
-| `hideCloseButton` | `boolean` | `false` | Hide the X button |
-| `duration` | `number` | `Infinity` | Auto-close delay |
-| `closeLabel` | `string` | i18n | Close button aria-label |
+| Prop              | Type                                     | Default    | Description                 |
+| ----------------- | ---------------------------------------- | ---------- | --------------------------- |
+| `title`           | `ReactNode`                              | -          | Header title                |
+| `size`            | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'lg'`     | Modal width                 |
+| `closeOnBackdrop` | `boolean`                                | `false`    | Close when clicking outside |
+| `hideCloseButton` | `boolean`                                | `false`    | Hide the X button           |
+| `duration`        | `number`                                 | `Infinity` | Auto-close delay            |
+| `closeLabel`      | `string`                                 | i18n       | Close button aria-label     |
 
 **Accessibility Features**:
+
 - Focus trap (Tab cycles within modal)
 - Escape key closes modal
 - Restores focus to trigger element on close
@@ -737,10 +745,10 @@ import { Grid } from '@webc-charles/components-react'
 </Grid>
 
 // Responsive
-<Grid 
-  col={1} 
-  colSM={2} 
-  colMD={3} 
+<Grid
+  col={1}
+  colSM={2}
+  colMD={3}
   colLG={4}
   gap={2}
   gapMD={4}
@@ -751,16 +759,16 @@ import { Grid } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `col` | `1-12` | Base column count |
-| `colXS` | `1-12` | Columns at XS breakpoint |
-| `colSM` | `1-12` | Columns at SM breakpoint |
-| `colMD` | `1-12` | Columns at MD breakpoint |
-| `colLG` | `1-12` | Columns at LG breakpoint |
-| `colXL` | `1-12` | Columns at XL breakpoint |
-| `gap` | `1-10` | Base gap |
-| `gapXS` - `gapXL` | `1-10` | Responsive gaps |
+| Prop              | Type   | Description              |
+| ----------------- | ------ | ------------------------ |
+| `col`             | `1-12` | Base column count        |
+| `colXS`           | `1-12` | Columns at XS breakpoint |
+| `colSM`           | `1-12` | Columns at SM breakpoint |
+| `colMD`           | `1-12` | Columns at MD breakpoint |
+| `colLG`           | `1-12` | Columns at LG breakpoint |
+| `colXL`           | `1-12` | Columns at XL breakpoint |
+| `gap`             | `1-10` | Base gap                 |
+| `gapXS` - `gapXL` | `1-10` | Responsive gaps          |
 
 ---
 
@@ -769,9 +777,14 @@ import { Grid } from '@webc-charles/components-react'
 Content container with header, body, footer sections.
 
 ```tsx
-import { Card, CardHeader, CardBody, CardFooter } from '@webc-charles/components-react'
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+} from '@webc-charles/components-react'
 
-<Card>
+;<Card>
   <CardHeader>
     <Title level="h3">Card Title</Title>
   </CardHeader>
@@ -791,16 +804,16 @@ import { Card, CardHeader, CardBody, CardFooter } from '@webc-charles/components
 Hero/banner section with background and content positioning.
 
 ```tsx
-import { 
-  Banner, 
-  BannerContent, 
-  BannerTitle, 
-  BannerSubtitle, 
+import {
+  Banner,
+  BannerActions,
+  BannerContent,
+  BannerSubtitle,
   BannerText,
-  BannerActions 
+  BannerTitle,
 } from '@webc-charles/components-react'
 
-<Banner
+;<Banner
   backgroundImage="/hero.jpg"
   overlay="dark"
   minHeight="50rem"
@@ -812,8 +825,12 @@ import {
     <BannerSubtitle>Build something amazing</BannerSubtitle>
     <BannerText>Get started with our component library.</BannerText>
     <BannerActions>
-      <Button variant="contrast" appearance="button">Get Started</Button>
-      <Link variant="contrast" appearance="outline">Learn More</Link>
+      <Button contrast appearance="button">
+        Get Started
+      </Button>
+      <Link contrast appearance="outline">
+        Learn More
+      </Link>
     </BannerActions>
   </BannerContent>
 </Banner>
@@ -821,14 +838,14 @@ import {
 
 **Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `backgroundImage` | `string` | - | Background image URL |
-| `backgroundColor` | `string` | - | Background color |
-| `overlay` | `'none' \| 'light' \| 'dark'` | `'none'` | Overlay effect |
-| `minHeight` | `string` | `'40rem'` | Minimum height |
-| `horizontalAlign` | `'left' \| 'center' \| 'right'` | `'left'` | Content horizontal position |
-| `verticalAlign` | `'start' \| 'center' \| 'end'` | `'center'` | Content vertical position |
+| Prop              | Type                            | Default    | Description                 |
+| ----------------- | ------------------------------- | ---------- | --------------------------- |
+| `backgroundImage` | `string`                        | -          | Background image URL        |
+| `backgroundColor` | `string`                        | -          | Background color            |
+| `overlay`         | `'none' \| 'light' \| 'dark'`   | `'none'`   | Overlay effect              |
+| `minHeight`       | `string`                        | `'40rem'`  | Minimum height              |
+| `horizontalAlign` | `'left' \| 'center' \| 'right'` | `'left'`   | Content horizontal position |
+| `verticalAlign`   | `'start' \| 'center' \| 'end'`  | `'center'` | Content vertical position   |
 
 ---
 
@@ -837,11 +854,11 @@ import {
 Collapsible content sections.
 
 ```tsx
-import { 
-  Accordion, 
-  AccordionItem, 
-  AccordionTrigger, 
-  AccordionContent 
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
 } from '@webc-charles/components-react'
 
 // Single mode (only one open at a time)
@@ -872,19 +889,19 @@ import {
 
 **Accordion Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `'single' \| 'multiple'` | `'single'` | Expansion mode |
-| `defaultValue` | `string \| string[]` | - | Initially expanded items |
-| `value` | `string \| string[]` | - | Controlled expanded items |
-| `onValueChange` | `(value) => void` | - | Change handler |
-| `collapsible` | `boolean` | `true` | Allow collapsing all (single mode) |
+| Prop            | Type                     | Default    | Description                        |
+| --------------- | ------------------------ | ---------- | ---------------------------------- |
+| `type`          | `'single' \| 'multiple'` | `'single'` | Expansion mode                     |
+| `defaultValue`  | `string \| string[]`     | -          | Initially expanded items           |
+| `value`         | `string \| string[]`     | -          | Controlled expanded items          |
+| `onValueChange` | `(value) => void`        | -          | Change handler                     |
+| `collapsible`   | `boolean`                | `true`     | Allow collapsing all (single mode) |
 
 **AccordionTrigger Props**:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `headingLevel` | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h3'` | Semantic heading level |
+| Prop           | Type                                           | Default | Description            |
+| -------------- | ---------------------------------------------- | ------- | ---------------------- |
+| `headingLevel` | `'h1' \| 'h2' \| 'h3' \| 'h4' \| 'h5' \| 'h6'` | `'h3'`  | Semantic heading level |
 
 **Keyboard Navigation**: Arrow Up/Down, Home, End (with wrap-around)
 
@@ -903,7 +920,7 @@ import { Tab, TabList, TabButton, TabPanels, TabPanel } from '@webc-charles/comp
     <TabButton value="tab2">Features</TabButton>
     <TabButton value="tab3">Pricing</TabButton>
   </TabList>
-  
+
   <TabPanels>
     <TabPanel value="tab1">Overview content...</TabPanel>
     <TabPanel value="tab2">Features content...</TabPanel>
@@ -949,7 +966,7 @@ import {
     <SliderSlide>Slide 2</SliderSlide>
     <SliderSlide>Slide 3</SliderSlide>
   </SliderContainer>
-  
+
   <SliderControls>
     <SliderPrev />
     <SliderDots />
@@ -965,8 +982,8 @@ import {
 
 **Slider Props**:
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop      | Type               | Description            |
+| --------- | ------------------ | ---------------------- |
 | `options` | `EmblaOptionsType` | Embla carousel options |
 
 See [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for available options.
@@ -981,15 +998,26 @@ All themed components accept a `variant` prop:
 
 ```tsx
 type ColorVariant =
-  | 'default'   // Grey tones
-  | 'primary'   // Blue
+  | 'default' // Grey tones
+  | 'primary' // Blue
   | 'secondary' // Purple
-  | 'success'   // Green
-  | 'danger'    // Red
-  | 'warning'   // Orange
-  | 'info'      // Cyan
-  | 'contrast'  // White (for dark backgrounds)
+  | 'success' // Green
+  | 'danger' // Red
+  | 'warning' // Orange
+  | 'info' // Cyan
 ```
+
+### Contrast Mode
+
+For dark backgrounds (banners, heroes), use the `contrast` boolean prop instead of a variant:
+
+```tsx
+// On dark backgrounds
+<Button variant="primary" contrast appearance="button">Light button</Button>
+<Link contrast>Light link</Link>
+```
+
+This inverts colors for readability on dark surfaces.
 
 ### CSS Variables
 
@@ -1009,7 +1037,7 @@ Override these in your CSS to customize the theme:
   /* Level 1: Dark (text on light bg) */
   /* Level 2: Base (buttons, borders) */
   /* Level 3: Light (backgrounds) */
-  
+
   --color-primary-1: #002f5f;
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
@@ -1030,7 +1058,7 @@ Override these in your CSS to customize the theme:
   --color-info-2: #0e7490;
   --color-info-3: #cffafe;
 
-  /* Contrast (for dark backgrounds) */
+  /* Contrast mode colors (used when contrast prop is true) */
   --color-contrast-1: #fff;
   --color-contrast-2: #fff;
   --color-contrast-3: #fff;
@@ -1059,36 +1087,6 @@ Override these in your CSS to customize the theme:
 }
 ```
 
-### Dark Mode (Future)
-
-The library is prepared for dark mode. Override variables in a `.dark` class or media query:
-
-```css
-.dark,
-[data-theme="dark"] {
-  --color-black: #fff;
-  --color-white: #1a1a1a;
-  
-  /* Invert grey scale */
-  --color-grey-1: #eee;
-  --color-grey-2: #ccc;
-  --color-grey-3: #999;
-  --color-grey-4: #666;
-  --color-grey-5: #444;
-  --color-grey-6: #333;
-
-  /* Adjust variant colors for dark bg */
-  --color-primary-1: #cce0ff;
-  --color-primary-2: #60a5fa;
-  --color-primary-3: #1e3a5f;
-
-  /* Contrast becomes dark for light-on-dark */
-  --color-contrast-1: #1a1a1a;
-  --color-contrast-2: #1a1a1a;
-  --color-contrast-3: #1a1a1a;
-}
-```
-
 ---
 
 ## Accessibility
@@ -1097,26 +1095,26 @@ This library targets **WCAG 2.1 AA** compliance.
 
 ### Implemented Features
 
-| Feature | Components | Standard |
-|---------|------------|----------|
-| **Focus indicators** | All interactive | WCAG 2.4.7 |
-| **Color contrast** | All variants ≥4.5:1 | WCAG 1.4.3 |
+| Feature                 | Components                            | Standard   |
+| ----------------------- | ------------------------------------- | ---------- |
+| **Focus indicators**    | All interactive                       | WCAG 2.4.7 |
+| **Color contrast**      | All variants ≥4.5:1                   | WCAG 1.4.3 |
 | **Keyboard navigation** | Accordion, Tab, Select, Modal, Slider | WCAG 2.1.1 |
-| **Focus trap** | Modal, Select | WCAG 2.4.3 |
-| **ARIA attributes** | All components | WCAG 4.1.2 |
-| **Live regions** | Toast, Slider, Textarea | WCAG 4.1.3 |
-| **Required alt text** | Image | WCAG 1.1.1 |
-| **Semantic HTML** | Note (aside), headings | WCAG 1.3.1 |
+| **Focus trap**          | Modal, Select                         | WCAG 2.4.3 |
+| **ARIA attributes**     | All components                        | WCAG 4.1.2 |
+| **Live regions**        | Toast, Slider, Textarea               | WCAG 4.1.3 |
+| **Required alt text**   | Image                                 | WCAG 1.1.1 |
+| **Semantic HTML**       | Note (aside), headings                | WCAG 1.3.1 |
 
 ### Keyboard Patterns
 
-| Component | Keys |
-|-----------|------|
+| Component     | Keys                                                                  |
+| ------------- | --------------------------------------------------------------------- |
 | **Accordion** | Arrow Up/Down (navigate), Home/End (first/last), Enter/Space (toggle) |
-| **Tab** | Arrow Left/Right (navigate), Home/End (first/last) |
-| **Select** | Arrow Up/Down (navigate), Enter (select), Escape (close), Tab (close) |
-| **Modal** | Tab (cycle focus), Escape (close) |
-| **Date** | Arrows (navigate days), Enter/Space (select) |
+| **Tab**       | Arrow Left/Right (navigate), Home/End (first/last)                    |
+| **Select**    | Arrow Up/Down (navigate), Enter (select), Escape (close), Tab (close) |
+| **Modal**     | Tab (cycle focus), Escape (close)                                     |
+| **Date**      | Arrows (navigate days), Enter/Space (select)                          |
 
 ### Screen Reader Support
 
@@ -1179,18 +1177,27 @@ src/
 ### Component Patterns
 
 **Simple Components** (Badge, Image, Title):
+
 ```tsx
 export function Component({ ref, className, ...props }: ComponentTypes) {
-  return <element ref={ref} className={clsx(styles.base, className)} {...props} />
+  return (
+    <element ref={ref} className={clsx(styles.base, className)} {...props} />
+  )
 }
 ```
 
 **Compound Components** (Accordion, Tab, Select):
+
 ```tsx
 const Context = createContext<ContextType | null>(null)
 
 export function Root({ children }) {
-  const value = useMemo(() => ({ /* state */ }), [])
+  const value = useMemo(
+    () => ({
+      /* state */
+    }),
+    []
+  )
   return <Context.Provider value={value}>{children}</Context.Provider>
 }
 
@@ -1201,6 +1208,7 @@ export function Child() {
 ```
 
 **Provider Components** (Toasts, Modals):
+
 ```tsx
 export function Provider({ children }) {
   const [items, setItems] = useState([])
@@ -1233,7 +1241,7 @@ All components use `ComponentPropsWithRef<'element'>` for full HTML attribute su
 
 ```tsx
 // All native button props work
-<Button 
+<Button
   type="submit"
   form="my-form"
   disabled={isSubmitting}
@@ -1250,12 +1258,12 @@ const buttonRef = useRef<HTMLButtonElement>(null)
 ### Type Exports
 
 ```tsx
-import type { 
-  ColorVariant,
-  ButtonTypes,
-  ButtonAppearanceTypes,
+import type {
   BadgeTypes,
   // ... all component types
+  ButtonAppearanceTypes,
+  ButtonTypes,
+  ColorVariant,
 } from '@webc-charles/components-react'
 ```
 
@@ -1295,9 +1303,9 @@ describe('Button', () => {
   it('calls onClick when clicked', async () => {
     const handleClick = vi.fn()
     render(<Button onClick={handleClick}>Click me</Button>)
-    
+
     await userEvent.click(screen.getByRole('button'))
-    
+
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 })
@@ -1323,7 +1331,7 @@ Strings are in `src/i18n/fr.json`. Import with:
 ```tsx
 import { str } from 'i18n'
 
-<button aria-label={str.close_modal}>...</button>
+;<button aria-label={str.close_modal}>...</button>
 ```
 
 ---

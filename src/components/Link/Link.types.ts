@@ -5,7 +5,6 @@ export type AnchorAppearanceTypes =
   | 'default'
   | 'underline'
   | 'outline'
-  | 'arrow'
   | 'button'
 
 export type LinkTypes = ComponentPropsWithRef<'a'> & {

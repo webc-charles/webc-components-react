@@ -17,7 +17,6 @@ const appearances: AnchorAppearanceTypes[] = [
   'default',
   'underline',
   'outline',
-  'arrow',
   'button',
 ]
 
@@ -133,10 +132,16 @@ export const Disabled: Story = {
 
 export const Contrast: Story = {
   render: () => (
-    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+    <div
+      style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
+    >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Solid links</p>
+          <p
+            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
+          >
+            Solid links
+          </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             {variants.map((v) => (
               <Link key={v} href="#" variant={v} appearance="button" contrast>
@@ -146,7 +151,11 @@ export const Contrast: Story = {
           </div>
         </div>
         <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Outline links</p>
+          <p
+            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
+          >
+            Outline links
+          </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             {variants.map((v) => (
               <Link key={v} href="#" variant={v} appearance="outline" contrast>
@@ -156,10 +165,20 @@ export const Contrast: Story = {
           </div>
         </div>
         <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Underline links</p>
+          <p
+            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
+          >
+            Underline links
+          </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             {variants.map((v) => (
-              <Link key={v} href="#" variant={v} appearance="underline" contrast>
+              <Link
+                key={v}
+                href="#"
+                variant={v}
+                appearance="underline"
+                contrast
+              >
                 {v}
               </Link>
             ))}
@@ -171,7 +190,8 @@ export const Contrast: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use the `contrast` prop to adapt links for dark backgrounds. Works with all variants and appearances.',
+        story:
+          'Use the `contrast` prop to adapt links for dark backgrounds. Works with all variants and appearances.',
       },
     },
   },

@@ -588,11 +588,11 @@ import { Link } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'a'>`
 
-| Prop         | Type                                                           | Default     |
-| ------------ | -------------------------------------------------------------- | ----------- |
-| `variant`    | `ColorVariant`                                                 | `'default'` |
-| `appearance` | `'default' \| 'button' \| 'outline' \| 'underline' \| 'arrow'` | `'default'` |
-| `disabled`   | `boolean`                                                      | `false`     |
+| Prop         | Type                                                | Default     |
+| ------------ | --------------------------------------------------- | ----------- |
+| `variant`    | `ColorVariant`                                      | `'default'` |
+| `appearance` | `'default' \| 'button' \| 'outline' \| 'underline'` | `'default'` |
+| `disabled`   | `boolean`                                           | `false`     |
 
 ---
 
@@ -1025,6 +1025,10 @@ Override these in your CSS to customize the theme:
 
 ```css
 :root {
+  /* Base colors */
+  --color-black: #000;
+  --color-white: #fff;
+
   /* Grey scale */
   --color-grey-1: #333;
   --color-grey-2: #666;
@@ -1033,35 +1037,46 @@ Override these in your CSS to customize the theme:
   --color-grey-5: #ddd;
   --color-grey-6: #eee;
 
-  /* Each variant has 3 levels */
-  /* Level 1: Dark (text on light bg) */
-  /* Level 2: Base (buttons, borders) */
-  /* Level 3: Light (backgrounds) */
+  /* Each variant has 4 levels */
+  /* -1: Dark (hover state, text on light bg) */
+  /* -2: Base (main color) */
+  /* -3: Light (backgrounds) */
+  /* -contrast: Vibrant color for dark backgrounds */
+
+  --color-default-1: #222;
+  --color-default-2: #666;
+  --color-default-3: #eee;
+  --color-default-contrast: #fff;
 
   --color-primary-1: #002f5f;
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
+  --color-primary-contrast: #60a5fa;
+
+  --color-secondary-1: #3d1480;
+  --color-secondary-2: #7c3aed;
+  --color-secondary-3: #ede9fe;
+  --color-secondary-contrast: #a78bfa;
 
   --color-success-1: #115129;
   --color-success-2: #15803d;
   --color-success-3: #dcfce7;
+  --color-success-contrast: #4ade80;
 
-  --color-danger-1: #7c1515;
+  --color-danger-1: #5c1010;
   --color-danger-2: #dc2626;
   --color-danger-3: #fee2e2;
+  --color-danger-contrast: #f87171;
 
   --color-warning-1: #71320b;
   --color-warning-2: #b45309;
   --color-warning-3: #fef3c7;
+  --color-warning-contrast: #fbbf24;
 
   --color-info-1: #104b5d;
   --color-info-2: #0e7490;
   --color-info-3: #cffafe;
-
-  /* Contrast mode colors (used when contrast prop is true) */
-  --color-contrast-1: #fff;
-  --color-contrast-2: #fff;
-  --color-contrast-3: #fff;
+  --color-info-contrast: #22d3ee;
 
   /* Typography */
   --font-size-1: 1rem;
@@ -1128,7 +1143,7 @@ This library targets **WCAG 2.1 AA** compliance.
 Form components intentionally don't include built-in error states to allow flexibility. Implement errors using ARIA:
 
 ```tsx
-<div>
+<>
   <InputText
     aria-invalid={hasError}
     aria-describedby={hasError ? 'email-error' : undefined}
@@ -1138,7 +1153,7 @@ Form components intentionally don't include built-in error states to allow flexi
       Please enter a valid email
     </span>
   )}
-</div>
+</>
 ```
 
 ---

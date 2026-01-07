@@ -173,7 +173,7 @@ Password input with visibility toggle.
 ```tsx
 import { InputPassword } from '@webc-charles/components-react'
 
-;<InputPassword label="Password" placeholder="Enter password" />
+<InputPassword label="Password" placeholder="Enter password" />
 ```
 
 **Props**: Same as InputText
@@ -187,7 +187,7 @@ Numeric input with increment/decrement buttons.
 ```tsx
 import { InputNumber } from '@webc-charles/components-react'
 
-;<InputNumber
+<InputNumber
   label="Quantity"
   value={quantity}
   onChange={setQuantity}
@@ -218,7 +218,7 @@ Multi-line text input with optional character count.
 ```tsx
 import { InputTextarea } from '@webc-charles/components-react'
 
-;<InputTextarea
+<InputTextarea
   label="Bio"
   value={bio}
   onChange={setBio}
@@ -275,7 +275,7 @@ Radio button group.
 ```tsx
 import { InputRadio } from '@webc-charles/components-react'
 
-;<InputRadio
+<InputRadio
   label="Select size"
   name="size"
   value={size}
@@ -308,7 +308,7 @@ Date picker with calendar modal.
 ```tsx
 import { InputDate } from '@webc-charles/components-react'
 
-;<InputDate
+<InputDate
   label="Birth date"
   selected={birthDate}
   onChange={setBirthDate}
@@ -784,7 +784,7 @@ import {
   CardHeader,
 } from '@webc-charles/components-react'
 
-;<Card>
+<Card>
   <CardHeader>
     <Title level="h3">Card Title</Title>
   </CardHeader>
@@ -813,7 +813,7 @@ import {
   BannerTitle,
 } from '@webc-charles/components-react'
 
-;<Banner
+<Banner
   backgroundImage="/hero.jpg"
   overlay="dark"
   minHeight="50rem"
@@ -1346,7 +1346,7 @@ Strings are in `src/i18n/fr.json`. Import with:
 ```tsx
 import { str } from 'i18n'
 
-;<button aria-label={str.close_modal}>...</button>
+<button aria-label={str.close_modal}>...</button>
 ```
 
 ---

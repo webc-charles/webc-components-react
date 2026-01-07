@@ -231,7 +231,7 @@ export function AccordionTrigger({
         <span className={styles.triggerText}>{children}</span>
 
         <ChevronDown
-          size={18}
+          size={21}
           className={clsx(styles.icon, isExpanded && styles.iconRotated)}
           aria-hidden
         />

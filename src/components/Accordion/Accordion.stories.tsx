@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   Accordion,
   AccordionContent,
@@ -10,19 +10,26 @@ import {
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
   component: Accordion,
-  parameters: {
-    layout: 'padded',
-  },
+  tags: ['autodocs'],
   argTypes: {
     type: {
       control: 'radio',
       options: ['single', 'multiple'],
+      description: 'Whether one or multiple items can be expanded at once',
+      table: {
+        defaultValue: { summary: 'single' },
+      },
     },
     collapsible: {
       control: 'boolean',
+      description: 'When type="single", allows closing all items',
+      table: {
+        defaultValue: { summary: 'true' },
+      },
     },
     defaultValue: {
       control: 'text',
+      description: 'The initial expanded item(s)',
     },
   },
 }
@@ -199,26 +206,38 @@ export const RichContent: Story = {
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <tbody>
               <tr>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   <strong>Dimensions</strong>
                 </td>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   10 x 5 x 3 inches
                 </td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   <strong>Weight</strong>
                 </td>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   1.5 lbs
                 </td>
               </tr>
               <tr>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   <strong>Material</strong>
                 </td>
-                <td style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}>
+                <td
+                  style={{ padding: '0.5rem', borderBottom: '1px solid #eee' }}
+                >
                   Aluminum alloy
                 </td>
               </tr>

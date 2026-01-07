@@ -17,9 +17,9 @@ $color-variants: (
 
       // Contrast mode for dark backgrounds
       &.contrast {
-        background-color: var(--color-#{$name}-contrast-3);
-        border-color: var(--color-#{$name}-contrast-2);
-        color: var(--color-#{$name}-contrast-1);
+        background-color: color-mix(in srgb, var(--color-#{$name}-contrast) 15%, transparent);
+        border-color: var(--color-#{$name}-contrast);
+        color: var(--color-#{$name}-3);
       }
     }
   }

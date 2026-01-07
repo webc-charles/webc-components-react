@@ -12,61 +12,54 @@
   --color-grey-5: #ddd;
   --color-grey-6: #eee;
 
+  // Color variants
+  // Each variant has 4 colors:
+  //   -1: dark (hover state, text on light bg)
+  //   -2: base (main color)
+  //   -3: light (background, hover in contrast mode)
+  //   -contrast: vibrant color for dark backgrounds
+
   // Default variant
   --color-default-1: #222;
   --color-default-2: #666;
   --color-default-3: #eee;
-  --color-default-contrast-1: #fff;
-  --color-default-contrast-2: rgb(255 255 255 / 50%);
-  --color-default-contrast-3: rgb(255 255 255 / 10%);
+  --color-default-contrast: #fff;
 
   // Primary variant
   --color-primary-1: #002f5f;
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
-  --color-primary-contrast-1: #cce0ff;
-  --color-primary-contrast-2: #60a5fa;
-  --color-primary-contrast-3: rgb(96 165 250 / 15%);
+  --color-primary-contrast: #60a5fa;
 
   // Secondary variant
   --color-secondary-1: #3d1480;
   --color-secondary-2: #7c3aed;
   --color-secondary-3: #ede9fe;
-  --color-secondary-contrast-1: #ede9fe;
-  --color-secondary-contrast-2: #a78bfa;
-  --color-secondary-contrast-3: rgb(167 139 250 / 15%);
+  --color-secondary-contrast: #a78bfa;
 
   // Success variant
   --color-success-1: #115129;
   --color-success-2: #15803d;
   --color-success-3: #dcfce7;
-  --color-success-contrast-1: #dcfce7;
-  --color-success-contrast-2: #4ade80;
-  --color-success-contrast-3: rgb(74 222 128 / 15%);
+  --color-success-contrast: #4ade80;
 
   // Danger variant
   --color-danger-1: #7c1515;
   --color-danger-2: #dc2626;
   --color-danger-3: #fee2e2;
-  --color-danger-contrast-1: #fecaca;
-  --color-danger-contrast-2: #f87171;
-  --color-danger-contrast-3: rgb(248 113 113 / 15%);
+  --color-danger-contrast: #f87171;
 
   // Warning variant
   --color-warning-1: #71320b;
   --color-warning-2: #b45309;
   --color-warning-3: #fef3c7;
-  --color-warning-contrast-1: #fef3c7;
-  --color-warning-contrast-2: #fbbf24;
-  --color-warning-contrast-3: rgb(251 191 36 / 15%);
+  --color-warning-contrast: #fbbf24;
 
   // Info variant
   --color-info-1: #104b5d;
   --color-info-2: #0e7490;
   --color-info-3: #cffafe;
-  --color-info-contrast-1: #cffafe;
-  --color-info-contrast-2: #22d3ee;
-  --color-info-contrast-3: rgb(34 211 238 / 15%);
+  --color-info-contrast: #22d3ee;
 
   // Typography
   --font-size-1: 1rem;

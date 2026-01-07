@@ -1,5 +1,7 @@
 .accordion {
   background: var(--color-white);
+  border: 1px solid var(--color-grey-5);
+  border-radius: var(--radius-medium);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,8 +10,8 @@
 .item {
   border-bottom: 1px solid var(--color-grey-5);
 
-  &:first-child {
-    border-top: 1px solid var(--color-grey-5);
+  &:last-child {
+    border: 0;
   }
 
   &.disabled {
@@ -29,18 +31,21 @@
   color: var(--color-black);
   cursor: pointer;
   display: flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem 2rem;
   text-align: left;
   transition: background-color 0.15s ease;
   width: 100%;
 
   &:hover {
-    background-color: var(--color-grey-6);
+    color: var(--color-primary-2);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-primary-2);
+    outline: 0.2rem solid var(--color-primary-2);
     outline-offset: -2px;
   }
 
@@ -53,7 +58,7 @@
 .triggerText {
   flex: 1;
   font-size: var(--font-size-5);
-  font-weight: var(--font-weight-lg);
+  font-weight: var(--font-weight-md);
 }
 
 .icon {
@@ -72,16 +77,19 @@
   transition: grid-template-rows 0.2s ease;
 
   &.contentExpanded {
+    background: var(--color-grey-6);
     grid-template-rows: 1fr;
   }
 }
 
 .contentInner {
+  border-top: 0.1rem solid transparent;
   overflow: hidden;
-  padding: 0 1rem;
+  padding: 0 2rem;
   transition: padding 0.2s ease;
 
   .contentExpanded & {
-    padding: 1rem;
+    border-color: var(--color-grey-5);
+    padding: 2rem;
   }
 }

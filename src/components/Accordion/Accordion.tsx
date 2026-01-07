@@ -221,7 +221,11 @@ export function AccordionTrigger({
         type="button"
         id={triggerId}
         disabled={disabled}
-        className={clsx(styles.trigger, className)}
+        className={clsx(
+          styles.trigger,
+          isExpanded && styles.expanded,
+          className
+        )}
         aria-expanded={isExpanded}
         aria-controls={contentId}
         onClick={handleClick}
@@ -230,11 +234,7 @@ export function AccordionTrigger({
       >
         <span className={styles.triggerText}>{children}</span>
 
-        <ChevronDown
-          size={21}
-          className={clsx(styles.icon, isExpanded && styles.iconRotated)}
-          aria-hidden
-        />
+        <ChevronDown size={21} className={styles.icon} aria-hidden />
       </button>
     </Heading>
   )

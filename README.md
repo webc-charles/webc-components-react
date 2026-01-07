@@ -152,6 +152,7 @@ Basic text input with label support.
 ```tsx
 import { InputText } from '@webc-charles/components-react'
 
+// Basic usage
 <InputText
   label="Email"
   placeholder="Enter your email"
@@ -182,6 +183,7 @@ Password input with visibility toggle.
 ```tsx
 import { InputPassword } from '@webc-charles/components-react'
 
+// Basic usage
 <InputPassword label="Password" placeholder="Enter password" />
 ```
 
@@ -196,6 +198,7 @@ Numeric input with increment/decrement buttons.
 ```tsx
 import { InputNumber } from '@webc-charles/components-react'
 
+// Controlled input with min/max
 <InputNumber
   label="Quantity"
   value={quantity}
@@ -227,6 +230,7 @@ Multi-line text input with optional character count.
 ```tsx
 import { InputTextarea } from '@webc-charles/components-react'
 
+// With character count
 <InputTextarea
   label="Bio"
   value={bio}
@@ -284,6 +288,7 @@ Radio button group.
 ```tsx
 import { InputRadio } from '@webc-charles/components-react'
 
+// Horizontal radio group
 <InputRadio
   label="Select size"
   name="size"
@@ -317,6 +322,7 @@ Date picker with calendar modal.
 ```tsx
 import { InputDate } from '@webc-charles/components-react'
 
+// Date picker with constraints
 <InputDate
   label="Birth date"
   selected={birthDate}
@@ -500,6 +506,7 @@ Small status indicator.
 ```tsx
 import { Badge } from '@webc-charles/components-react'
 
+// Status indicators
 <Badge variant="success">Active</Badge>
 <Badge variant="danger">Expired</Badge>
 <Badge variant="warning">Pending</Badge>
@@ -520,6 +527,7 @@ Callout/alert block for important information.
 ```tsx
 import { Note, NoteHeader } from '@webc-charles/components-react'
 
+// With header
 <Note variant="warning">
   <NoteHeader>Warning</NoteHeader>
   <p>This action cannot be undone.</p>
@@ -546,6 +554,7 @@ Semantic heading component.
 ```tsx
 import { Title } from '@webc-charles/components-react'
 
+// Semantic headings
 <Title level="h1">Page Title</Title>
 <Title level="h2">Section Title</Title>
 <Title level="h3">Subsection</Title>
@@ -566,6 +575,7 @@ Basic image with required alt text.
 ```tsx
 import { Image } from '@webc-charles/components-react'
 
+// With alt text
 <Image src="/photo.jpg" alt="Description of image" />
 
 // Decorative image
@@ -587,8 +597,13 @@ Styled anchor with appearances matching Button.
 ```tsx
 import { Link } from '@webc-charles/components-react'
 
+// Default link
 <Link href="/about">About us</Link>
+
+// Button style
 <Link href="/signup" variant="primary" appearance="button">Sign up</Link>
+
+// Underline style
 <Link href="/learn" appearance="underline">Learn more</Link>
 
 // Disabled state
@@ -793,6 +808,7 @@ import {
   CardHeader,
 } from '@webc-charles/components-react'
 
+// Card with sections
 <Card>
   <CardHeader>
     <Title level="h3">Card Title</Title>
@@ -822,6 +838,7 @@ import {
   BannerTitle,
 } from '@webc-charles/components-react'
 
+// Hero banner with overlay
 <Banner
   backgroundImage="/hero.jpg"
   overlay="dark"

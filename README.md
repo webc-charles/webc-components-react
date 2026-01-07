@@ -22,6 +22,8 @@ A lightweight, accessible React component library built with TypeScript, SCSS Mo
 - [Architecture](#architecture)
 - [TypeScript](#typescript)
 - [Development](#development)
+- [Browser Support](#browser-support)
+- [Server-side Rendering](#server-side-rendering)
 
 ---
 
@@ -97,6 +99,13 @@ function App() {
 ---
 
 ## Components
+
+| Category | Components |
+|----------|------------|
+| **Form** | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [Checkbox](#checkbox) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
+| **Display** | [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link) |
+| **Feedback** | [Toast](#toast) · [Modal](#modal) |
+| **Layout** | [Grid](#grid) · [Card](#card) · [Banner](#banner) · [Accordion](#accordion) · [Tab](#tab) · [Slider](#slider) |
 
 ### Form Components
 
@@ -1357,6 +1366,34 @@ import { str } from 'i18n'
 - Firefox (last 2 versions)
 - Safari (last 2 versions)
 - Edge (last 2 versions)
+
+---
+
+## Server-side Rendering
+
+All components support SSR and SSG (Static Site Generation). Works with Next.js, Remix, Gatsby, and other frameworks.
+
+Components use React 18+ `useId()` for stable ARIA attributes during hydration.
+
+### Usage with Next.js
+
+Next.js has its own `Image` and `Link` components with built-in optimizations. To avoid naming conflicts, rename imports:
+
+```tsx
+// Rename our components to avoid conflicts with Next.js
+import { Image as BaseImage, Link as BaseLink } from '@webc-charles/components-react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+// Use Next.js components for routing and image optimization
+<Link href="/about">About</Link>
+<Image src="/photo.jpg" alt="Photo" width={500} height={300} />
+
+// Use our components for styled elements
+<BaseLink href="https://external.com" appearance="button" variant="primary">
+  External Link
+</BaseLink>
+```
 
 ---
 

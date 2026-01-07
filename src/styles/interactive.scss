@@ -1,63 +1,5 @@
 @use 'sass:map';
-
-$variants: (
-  'default': (
-    base: var(--color-default-2),
-    hover: var(--color-default-1),
-    text: var(--color-white),
-    contrast-base: var(--color-default-contrast),
-    contrast-hover: var(--color-default-3),
-    contrast-text: var(--color-default-1),
-  ),
-  'primary': (
-    base: var(--color-primary-2),
-    hover: var(--color-primary-1),
-    text: var(--color-white),
-    contrast-base: var(--color-primary-contrast),
-    contrast-hover: var(--color-primary-3),
-    contrast-text: var(--color-primary-1),
-  ),
-  'secondary': (
-    base: var(--color-secondary-2),
-    hover: var(--color-secondary-1),
-    text: var(--color-white),
-    contrast-base: var(--color-secondary-contrast),
-    contrast-hover: var(--color-secondary-3),
-    contrast-text: var(--color-secondary-1),
-  ),
-  'success': (
-    base: var(--color-success-2),
-    hover: var(--color-success-1),
-    text: var(--color-white),
-    contrast-base: var(--color-success-contrast),
-    contrast-hover: var(--color-success-3),
-    contrast-text: var(--color-success-1),
-  ),
-  'danger': (
-    base: var(--color-danger-2),
-    hover: var(--color-danger-1),
-    text: var(--color-white),
-    contrast-base: var(--color-danger-contrast),
-    contrast-hover: var(--color-danger-3),
-    contrast-text: var(--color-danger-1),
-  ),
-  'warning': (
-    base: var(--color-warning-2),
-    hover: var(--color-warning-1),
-    text: var(--color-white),
-    contrast-base: var(--color-warning-contrast),
-    contrast-hover: var(--color-warning-3),
-    contrast-text: var(--color-warning-1),
-  ),
-  'info': (
-    base: var(--color-info-2),
-    hover: var(--color-info-1),
-    text: var(--color-white),
-    contrast-base: var(--color-info-contrast),
-    contrast-hover: var(--color-info-3),
-    contrast-text: var(--color-info-1),
-  ),
-);
+@use 'colors' as *;
 
 @mixin interactive-base {
   align-items: center;
@@ -109,13 +51,13 @@ $variants: (
 }
 
 @mixin interactive-variants {
-  @each $name, $colors in $variants {
-    $base: map.get($colors, base);
-    $hover: map.get($colors, hover);
-    $text: map.get($colors, text);
-    $contrast-base: map.get($colors, contrast-base);
-    $contrast-hover: map.get($colors, contrast-hover);
-    $contrast-text: map.get($colors, contrast-text);
+  @each $name in $color-variants {
+    $base: var(--color-#{$name}-2);
+    $hover: var(--color-#{$name}-1);
+    $text: var(--color-white);
+    $contrast-base: var(--color-#{$name}-contrast);
+    $contrast-hover: var(--color-#{$name}-3);
+    $contrast-text: var(--color-#{$name}-1);
 
     &.variant-#{$name} {
       background: transparent;

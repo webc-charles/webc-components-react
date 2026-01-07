@@ -1,12 +1,7 @@
-$color-variants: (
-  default,
-  primary,
-  secondary,
-  success,
-  danger,
-  warning,
-  info
-);
+@use 'colors' as *;
+
+// Note: color-mix() requires Chrome 111+, Safari 16.2+, Firefox 113+ (~94% support)
+// For older browsers, contrast mode backgrounds may not render correctly
 
 @mixin color-variants($prefix: 'variant-') {
   @each $name in $color-variants {

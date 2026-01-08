@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Pagination } from './Pagination'
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Pagination',
+  title: 'Components/Pagination',
   component: Pagination,
   tags: ['autodocs'],
 }
@@ -76,27 +76,6 @@ export const Disabled: Story = {
     totalPages: 10,
     disabled: true,
   },
-}
-
-function InteractiveExample() {
-  const [page, setPage] = useState(1)
-  const totalPages = 15
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <p>Page actuelle : {page}</p>
-      <Pagination
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={setPage}
-        showFirstLast
-      />
-    </div>
-  )
-}
-
-export const Interactive: Story = {
-  render: () => <InteractiveExample />,
 }
 
 export const CustomHref: Story = {

@@ -67,7 +67,7 @@
 }
 
 .calendar {
-  padding: 0.5rem;
+  padding: 0;
 }
 
 .header {
@@ -87,38 +87,39 @@
   align-items: center;
   aspect-ratio: 1;
   background: transparent;
-  border: none;
+  background-color: var(--color-grey-6);
+  border: 0.1rem solid var(--color-grey-6);
   border-radius: var(--radius-sm);
-  color: var(--color-grey-1);
+  color: var(--color-grey-2);
   cursor: pointer;
   display: flex;
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-md);
   justify-content: center;
   transition: all 0.15s ease;
+  width: 4rem;
 
   &:disabled {
-    color: var(--color-grey-4);
     cursor: not-allowed;
+    opacity: 0.6;
   }
 
   &:is(:hover, :focus):not(:disabled, .selected) {
-    background: var(--color-grey-6);
-    color: var(--color-primary-2);
+    background-color: var(--color-primary-2);
+    border-color: var(--color-primary-2);
+    color: var(--color-white);
   }
 
   &.today {
-    border: 0.1rem solid var(--color-primary-2);
+    background-color: var(--color-grey-5);
+    border-color: var(--color-grey-5);
+    color: var(--color-grey-2);
   }
 
   &.selected {
-    background: var(--color-primary-2);
+    background-color: var(--color-primary-2);
+    border-color: var(--color-primary-2);
     color: var(--color-white);
-
-    &:focus {
-      // outline: 0.2rem solid var(--color-primary-1);
-      // outline-offset: 0.2rem;
-    }
   }
 }
 

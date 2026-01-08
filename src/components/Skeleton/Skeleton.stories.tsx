@@ -81,14 +81,29 @@ export const NoAnimation: Story = {
 
 export const CardSkeleton: Story = {
   render: () => (
-    <div style={{ width: '300px', padding: '1.6rem', border: '1px solid #eee', borderRadius: '8px' }}>
-      <Skeleton variant="rect" height={150} style={{ marginBottom: '1.6rem' }} />
+    <div
+      style={{
+        width: '300px',
+        padding: '1.6rem',
+        border: '0.1rem solid #eee',
+        borderRadius: '8px',
+      }}
+    >
+      <Skeleton
+        variant="rect"
+        height={150}
+        style={{ marginBottom: '1.6rem' }}
+      />
       <Skeleton variant="text" width="80%" style={{ marginBottom: '0.8rem' }} />
       <Skeleton variant="text" width="60%" style={{ marginBottom: '1.2rem' }} />
       <div style={{ display: 'flex', gap: '1rem' }}>
         <Skeleton variant="circle" width={40} height={40} />
         <div style={{ flex: 1 }}>
-          <Skeleton variant="text" width="50%" style={{ marginBottom: '0.4rem' }} />
+          <Skeleton
+            variant="text"
+            width="50%"
+            style={{ marginBottom: '0.4rem' }}
+          />
           <Skeleton variant="text" width="30%" height={12} />
         </div>
       </div>
@@ -100,10 +115,17 @@ export const ListSkeleton: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
       {[1, 2, 3].map((i) => (
-        <div key={i} style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+        <div
+          key={i}
+          style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}
+        >
           <Skeleton variant="circle" width={48} height={48} />
           <div style={{ flex: 1 }}>
-            <Skeleton variant="text" width="40%" style={{ marginBottom: '0.6rem' }} />
+            <Skeleton
+              variant="text"
+              width="40%"
+              style={{ marginBottom: '0.6rem' }}
+            />
             <Skeleton variant="text" width="70%" height={12} />
           </div>
         </div>

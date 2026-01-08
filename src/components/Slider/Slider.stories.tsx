@@ -2,17 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react'
 import {
   Slider,
   SliderContainer,
-  SliderSlide,
   SliderControls,
-  SliderPrev,
-  SliderNext,
   SliderDots,
+  SliderNext,
+  SliderPrev,
+  SliderSlide,
 } from './Slider'
 
 const slideStyle = {
   alignItems: 'center',
   background: 'var(--color-grey-5)',
-  borderRadius: 'var(--radius-medium)',
+  borderRadius: 'var(--radius-md)',
   display: 'flex',
   fontSize: 'var(--font-size-1)',
   height: '20rem',

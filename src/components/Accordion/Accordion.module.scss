@@ -1,14 +1,14 @@
 .accordion {
   background: var(--color-white);
-  border: 1px solid var(--color-grey-5);
-  border-radius: var(--radius-medium);
+  border: 0.1rem solid var(--color-grey-5);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .item {
-  border-bottom: 1px solid var(--color-grey-5);
+  border-bottom: 0.1rem solid var(--color-grey-5);
 
   &:last-child {
     border: 0;
@@ -64,7 +64,7 @@
 
 .icon {
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-default);
 
   .expanded & {
     transform: rotate(180deg);
@@ -75,7 +75,7 @@
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
-  transition: grid-template-rows 0.2s ease;
+  transition: grid-template-rows var(--transition-default);
 
   &.contentExpanded {
     background: var(--color-grey-6);
@@ -87,7 +87,7 @@
   border-top: 0.1rem solid transparent;
   overflow: hidden;
   padding: 0 2rem;
-  transition: padding 0.2s ease;
+  transition: padding var(--transition-default);
 
   .contentExpanded & {
     border-color: var(--color-grey-5);

@@ -1,0 +1,37 @@
+@use '../../styles/mq' as *;
+
+.topBar {
+  background-color: var(--color-black);
+  display: none;
+
+  @include mqMD {
+    display: block;
+  }
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  font-size: var(--font-size-2);
+  gap: 2rem;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  min-height: var(--height-topbar);
+  padding: 0 2rem;
+
+  @include mqMD {
+    padding: 0;
+  }
+}
+
+.topBarLink {
+  color: var(--color-grey-6);
+  font-size: var(--font-size-2);
+  text-decoration: none;
+  transition: color var(--transition-default);
+
+  &:hover {
+    color: var(--color-primary-contrast);
+  }
+}

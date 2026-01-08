@@ -1,0 +1,25 @@
+@use '../../styles/mq' as *;
+
+.main {
+  background-color: var(--color-white);
+  min-height: var(--height-header);
+  position: relative;
+  z-index: var(--z-index-4);
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  min-height: var(--height-header);
+  padding: 0 2rem;
+
+  @include mqMD {
+    padding: 0;
+  }
+}
+
+.menuOpen {}

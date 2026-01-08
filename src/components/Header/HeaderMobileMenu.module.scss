@@ -1,0 +1,42 @@
+@use '../../styles/mq' as *;
+
+.menu {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  inset: var(--height-header) 0 0 0;
+  overflow-y: auto;
+  padding: 2rem;
+  position: fixed;
+  transform: translateX(100%);
+  transition: transform var(--transition-menu);
+  z-index: var(--z-index-4);
+
+  @include mqMD {
+    display: none;
+  }
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+.mobileLink {
+  border-radius: var(--radius-sm);
+  color: var(--color-grey-1);
+  display: block;
+  font-size: var(--font-size-4);
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+  transition: background-color var(--transition-default);
+
+  &:hover {
+    background-color: var(--color-grey-6);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid var(--color-primary-2);
+    outline-offset: -2px;
+  }
+}

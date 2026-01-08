@@ -1,0 +1,11 @@
+@use '../../styles/mq' as *;
+
+.actions {
+  align-items: center;
+  display: none;
+  gap: 1rem;
+
+  @include mqMD {
+    display: flex;
+  }
+}

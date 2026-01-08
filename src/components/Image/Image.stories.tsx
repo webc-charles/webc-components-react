@@ -2,7 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Image } from './Image'
 import { ImageFit, ImagePosition, ImageRadius } from './Image.types'
 
-const fitOptions: ImageFit[] = ['cover', 'contain', 'fill', 'none', 'scale-down']
+const fitOptions: ImageFit[] = [
+  'cover',
+  'contain',
+  'fill',
+  'none',
+  'scale-down',
+]
 
 const positionOptions: ImagePosition[] = [
   'center',
@@ -16,7 +22,13 @@ const positionOptions: ImagePosition[] = [
   'bottom-right',
 ]
 
-const radiusOptions: ImageRadius[] = ['none', 'small', 'medium', 'large', 'full']
+const radiusOptions: ImageRadius[] = [
+  'none',
+  'small',
+  'medium',
+  'large',
+  'full',
+]
 
 const meta: Meta<typeof Image> = {
   title: 'Components/Image',
@@ -91,7 +103,8 @@ export const ObjectFitCover: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Image fills the entire container while maintaining aspect ratio. Parts may be cropped.',
+        story:
+          'Image fills the entire container while maintaining aspect ratio. Parts may be cropped.',
       },
     },
   },
@@ -111,7 +124,8 @@ export const ObjectFitContain: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Entire image is visible within the container. May have letterboxing.',
+        story:
+          'Entire image is visible within the container. May have letterboxing.',
       },
     },
   },
@@ -119,7 +133,13 @@ export const ObjectFitContain: Story = {
 
 export const AllFitOptions: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '1rem',
+      }}
+    >
       {fitOptions.map((fit) => (
         <div key={fit}>
           <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{fit}</p>
@@ -139,10 +159,18 @@ export const AllFitOptions: Story = {
 
 export const ObjectPosition: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '1rem',
+      }}
+    >
       {positionOptions.map((position) => (
         <div key={position}>
-          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{position}</p>
+          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
+            {position}
+          </p>
           <div style={containerStyle}>
             <Image
               src="https://picsum.photos/800/400"
@@ -159,7 +187,8 @@ export const ObjectPosition: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Control which part of the image is visible when using object-fit: cover.',
+        story:
+          'Control which part of the image is visible when using object-fit: cover.',
       },
     },
   },
@@ -167,7 +196,13 @@ export const ObjectPosition: Story = {
 
 export const AspectRatios: Story = {
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '1rem',
+      }}
+    >
       {['1/1', '4/3', '16/9', '21/9'].map((ratio) => (
         <div key={ratio}>
           <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{ratio}</p>
@@ -254,7 +289,14 @@ export const Avatar: Story = {
 
 export const CardThumbnail: Story = {
   render: () => (
-    <div style={{ width: '300px', border: '1px solid var(--color-grey-4)', borderRadius: 'var(--radius-medium)', overflow: 'hidden' }}>
+    <div
+      style={{
+        width: '300px',
+        border: '0.1rem solid var(--color-grey-4)',
+        borderRadius: 'var(--radius-md)',
+        overflow: 'hidden',
+      }}
+    >
       <Image
         src="https://picsum.photos/600/400"
         alt="Card thumbnail"
@@ -264,7 +306,13 @@ export const CardThumbnail: Story = {
       />
       <div style={{ padding: '1rem' }}>
         <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.6rem' }}>Card Title</h3>
-        <p style={{ margin: 0, fontSize: '1.4rem', color: 'var(--color-grey-2)' }}>
+        <p
+          style={{
+            margin: 0,
+            fontSize: '1.4rem',
+            color: 'var(--color-grey-2)',
+          }}
+        >
           Card description text goes here.
         </p>
       </div>
@@ -324,7 +372,8 @@ export const Decorative: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Decorative images use an empty alt="" to be ignored by screen readers.',
+        story:
+          'Decorative images use an empty alt="" to be ignored by screen readers.',
       },
     },
   },

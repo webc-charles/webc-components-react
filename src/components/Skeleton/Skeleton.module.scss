@@ -25,7 +25,7 @@
 
 // Variants
 .text {
-  border-radius: var(--radius-small);
+  border-radius: var(--radius-sm);
   height: 1.6rem;
   width: 100%;
 }
@@ -37,7 +37,7 @@
 }
 
 .rect {
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-md);
   height: 10rem;
   width: 100%;
 }

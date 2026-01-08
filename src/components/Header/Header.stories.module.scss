@@ -1,0 +1,28 @@
+.logo {
+  color: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.divider {
+  border: none;
+  border-top: 0.1rem solid var(--color-grey-5);
+  margin: 1.6rem 0;
+}
+
+.megaGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.megaTitle {
+  color: var(--color-grey-2);
+  display: block;
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1.2rem;
+  text-transform: uppercase;
+}

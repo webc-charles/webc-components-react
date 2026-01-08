@@ -100,12 +100,12 @@ function App() {
 
 ## Components
 
-| Category | Components |
-|----------|------------|
-| **Form** | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [InputFile](#inputfile) · [Checkbox](#checkbox) · [Switch](#switch) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
-| **Display** | [Avatar](#avatar) · [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link) |
-| **Feedback** | [Spinner](#spinner) · [Progress](#progress) · [Skeleton](#skeleton) · [Tooltip](#tooltip) · [Toast](#toast) · [Modal](#modal) |
-| **Layout** | [Grid](#grid) · [Card](#card) · [Banner](#banner) · [Accordion](#accordion) · [Tab](#tab) · [Slider](#slider) |
+| Category     | Components                                                                                                                                                                                                                                                                                    |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Form**     | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [InputFile](#inputfile) · [Checkbox](#checkbox) · [Switch](#switch) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
+| **Display**  | [Avatar](#avatar) · [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link)                                                                                                                                                                                       |
+| **Feedback** | [Spinner](#spinner) · [Progress](#progress) · [Skeleton](#skeleton) · [Tooltip](#tooltip) · [Toast](#toast) · [Modal](#modal)                                                                                                                                                                 |
+| **Layout**   | [Grid](#grid) · [Card](#card) · [Banner](#banner) · [Accordion](#accordion) · [Tab](#tab) · [Slider](#slider)                                                                                                                                                                                 |
 
 ### Form Components
 
@@ -184,7 +184,8 @@ Password input with visibility toggle.
 import { InputPassword } from '@webc-charles/components-react'
 
 // Basic usage
-<InputPassword label="Password" placeholder="Enter password" />
+
+;<InputPassword label="Password" placeholder="Enter password" />
 ```
 
 **Props**: Same as InputText
@@ -199,7 +200,8 @@ Numeric input with increment/decrement buttons.
 import { InputNumber } from '@webc-charles/components-react'
 
 // Controlled input with min/max
-<InputNumber
+
+;<InputNumber
   label="Quantity"
   value={quantity}
   onChange={setQuantity}
@@ -231,7 +233,8 @@ Multi-line text input with optional character count.
 import { InputTextarea } from '@webc-charles/components-react'
 
 // With character count
-<InputTextarea
+
+;<InputTextarea
   label="Bio"
   value={bio}
   onChange={setBio}
@@ -273,15 +276,15 @@ import { InputFile } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'input'>`
 
-| Prop            | Type                              | Default | Description               |
-| --------------- | --------------------------------- | ------- | ------------------------- |
-| `label`         | `string`                          | -       | Label text                |
+| Prop            | Type                                | Default | Description               |
+| --------------- | ----------------------------------- | ------- | ------------------------- |
+| `label`         | `string`                            | -       | Label text                |
 | `onChange`      | `(files: FileList \| null) => void` | -       | Change handler            |
-| `dropzone`      | `boolean`                         | `false` | Enable drag and drop zone |
-| `multiple`      | `boolean`                         | `false` | Allow multiple files      |
-| `accept`        | `string`                          | -       | Accepted file types       |
-| `buttonText`    | `string`                          | i18n    | Custom button text        |
-| `showFileNames` | `boolean`                         | `true`  | Show selected file names  |
+| `dropzone`      | `boolean`                           | `false` | Enable drag and drop zone |
+| `multiple`      | `boolean`                           | `false` | Allow multiple files      |
+| `accept`        | `string`                            | -       | Accepted file types       |
+| `buttonText`    | `string`                            | i18n    | Custom button text        |
+| `showFileNames` | `boolean`                           | `true`  | Show selected file names  |
 
 ---
 
@@ -355,7 +358,8 @@ Radio button group.
 import { InputRadio } from '@webc-charles/components-react'
 
 // Horizontal radio group
-<InputRadio
+
+;<InputRadio
   label="Select size"
   name="size"
   value={size}
@@ -389,7 +393,8 @@ Date picker with calendar modal.
 import { InputDate } from '@webc-charles/components-react'
 
 // Date picker with constraints
-<InputDate
+
+;<InputDate
   label="Birth date"
   selected={birthDate}
   onChange={setBirthDate}
@@ -584,13 +589,13 @@ import { Avatar } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop      | Type                          | Default     | Description                  |
-| --------- | ----------------------------- | ----------- | ---------------------------- |
-| `src`     | `string`                      | -           | Image URL                    |
-| `alt`     | `string`                      | `''`        | Alt text for image           |
-| `name`    | `string`                      | -           | Name for initials fallback   |
-| `size`    | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Size of the avatar           |
-| `variant` | `ColorVariant`                | `'default'` | Background color for fallback |
+| Prop      | Type                           | Default     | Description                   |
+| --------- | ------------------------------ | ----------- | ----------------------------- |
+| `src`     | `string`                       | -           | Image URL                     |
+| `alt`     | `string`                       | `''`        | Alt text for image            |
+| `name`    | `string`                       | -           | Name for initials fallback    |
+| `size`    | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Size of the avatar            |
+| `variant` | `ColorVariant`                 | `'default'` | Background color for fallback |
 
 ---
 
@@ -739,12 +744,12 @@ import { Spinner } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop       | Type                     | Default     | Description                      |
-| ---------- | ------------------------ | ----------- | -------------------------------- |
-| `variant`  | `ColorVariant`           | `'default'` | Color theme                      |
-| `size`     | `'sm' \| 'md' \| 'lg'`   | `'md'`      | Size of the spinner              |
-| `label`    | `string`                 | i18n        | Accessible label                 |
-| `contrast` | `boolean`                | `false`     | Light colors for dark backgrounds |
+| Prop       | Type                   | Default     | Description                       |
+| ---------- | ---------------------- | ----------- | --------------------------------- |
+| `variant`  | `ColorVariant`         | `'default'` | Color theme                       |
+| `size`     | `'sm' \| 'md' \| 'lg'` | `'md'`      | Size of the spinner               |
+| `label`    | `string`               | i18n        | Accessible label                  |
+| `contrast` | `boolean`              | `false`     | Light colors for dark backgrounds |
 
 ---
 
@@ -773,15 +778,15 @@ import { Progress } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop            | Type                   | Default     | Description              |
-| --------------- | ---------------------- | ----------- | ------------------------ |
-| `value`         | `number`               | `0`         | Current value            |
-| `max`           | `number`               | `100`       | Maximum value            |
-| `variant`       | `ColorVariant`         | `'primary'` | Color theme              |
-| `size`          | `'sm' \| 'md' \| 'lg'` | `'md'`      | Height of the bar        |
-| `showLabel`     | `boolean`              | `false`     | Show percentage label    |
-| `indeterminate` | `boolean`              | `false`     | Animated loading state   |
-| `label`         | `string`               | -           | Accessible label         |
+| Prop            | Type                   | Default     | Description            |
+| --------------- | ---------------------- | ----------- | ---------------------- |
+| `value`         | `number`               | `0`         | Current value          |
+| `max`           | `number`               | `100`       | Maximum value          |
+| `variant`       | `ColorVariant`         | `'primary'` | Color theme            |
+| `size`          | `'sm' \| 'md' \| 'lg'` | `'md'`      | Height of the bar      |
+| `showLabel`     | `boolean`              | `false`     | Show percentage label  |
+| `indeterminate` | `boolean`              | `false`     | Animated loading state |
+| `label`         | `string`               | -           | Accessible label       |
 
 ---
 
@@ -811,13 +816,13 @@ import { Skeleton } from '@webc-charles/components-react'
 
 **Props**: Extends `ComponentPropsWithRef<'div'>`
 
-| Prop           | Type                            | Default  | Description             |
-| -------------- | ------------------------------- | -------- | ----------------------- |
-| `variant`      | `'text' \| 'circle' \| 'rect'` | `'text'` | Shape variant           |
-| `width`        | `string \| number`             | -        | Width (CSS value)       |
-| `height`       | `string \| number`             | -        | Height (CSS value)      |
-| `animation`    | `boolean`                       | `true`   | Enable shimmer effect   |
-| `borderRadius` | `string \| number`             | -        | Custom border radius    |
+| Prop           | Type                           | Default  | Description           |
+| -------------- | ------------------------------ | -------- | --------------------- |
+| `variant`      | `'text' \| 'circle' \| 'rect'` | `'text'` | Shape variant         |
+| `width`        | `string \| number`             | -        | Width (CSS value)     |
+| `height`       | `string \| number`             | -        | Height (CSS value)    |
+| `animation`    | `boolean`                      | `true`   | Enable shimmer effect |
+| `borderRadius` | `string \| number`             | -        | Custom border radius  |
 
 ---
 
@@ -1044,7 +1049,8 @@ import {
 } from '@webc-charles/components-react'
 
 // Card with sections
-<Card>
+
+;<Card>
   <CardHeader>
     <Title level="h3">Card Title</Title>
   </CardHeader>
@@ -1074,7 +1080,8 @@ import {
 } from '@webc-charles/components-react'
 
 // Hero banner with overlay
-<Banner
+
+;<Banner
   backgroundImage="/hero.jpg"
   overlay="dark"
   minHeight="50rem"
@@ -1348,9 +1355,9 @@ Override these in your CSS to customize the theme:
   --font-size-6: 2rem;
 
   /* Spacing & Sizing */
-  --radius-small: 0.4rem;
-  --radius-medium: 0.5rem;
-  --radius-large: 0.6rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.6rem;
   --height-button: 4rem;
   --height-badge: 2.6rem;
 
@@ -1607,7 +1614,7 @@ Strings are in `src/i18n/fr.json`. Import with:
 ```tsx
 import { str } from 'i18n'
 
-<button aria-label={str.close_modal}>...</button>
+;<button aria-label={str.close_modal}>...</button>
 ```
 
 ---

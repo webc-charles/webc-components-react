@@ -1,14 +1,21 @@
 'use client'
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import clsx from 'clsx'
+import useEmblaCarousel from 'embla-carousel-react'
 import { str } from 'i18n'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Slider.module.scss'
 import {
-  SliderContextValue,
   SliderContainerTypes,
+  SliderContextValue,
   SliderControlsTypes,
   SliderDotsTypes,
   SliderNextTypes,
@@ -42,7 +49,10 @@ export function Slider({
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
-  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi])
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi]
+  )
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
@@ -76,7 +86,15 @@ export function Slider({
       scrollNext,
       scrollTo,
     }),
-    [selectedIndex, scrollSnaps, canScrollPrev, canScrollNext, scrollPrev, scrollNext, scrollTo]
+    [
+      selectedIndex,
+      scrollSnaps,
+      canScrollPrev,
+      canScrollNext,
+      scrollPrev,
+      scrollNext,
+      scrollTo,
+    ]
   )
 
   return (
@@ -92,10 +110,10 @@ export function Slider({
           className="sr-only"
           style={{
             position: 'absolute',
-            width: '1px',
-            height: '1px',
+            width: '0.1rem',
+            height: '0.1rem',
             padding: 0,
-            margin: '-1px',
+            margin: '-0.1rem',
             overflow: 'hidden',
             clip: 'rect(0, 0, 0, 0)',
             whiteSpace: 'nowrap',

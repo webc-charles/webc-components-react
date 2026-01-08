@@ -22,36 +22,36 @@
 
 .toast {
   border: 0.1rem solid;
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  position: relative;
-  width: 35.5rem;
+  margin-bottom: -0.5rem;
 
   // Toast-specific animation with height
   max-height: 0;
-  margin-bottom: -0.5rem; // Compensate for gap
+  max-width: 100%;
   opacity: 0;
   overflow: hidden;
+  position: relative;
   transform: translateY(1rem);
   transition:
     max-height 0.25s ease-out,
     margin-bottom 0.25s ease-out,
     opacity 0.2s ease-out 0.05s,
     transform 0.2s ease-out 0.05s;
+  width: 35.5rem;
 
   &.active {
-    max-height: 20rem; // Large enough for content
     margin-bottom: 0;
+    max-height: 20rem;
     opacity: 1;
     overflow: visible;
     transform: translateY(0);
   }
 
   &.removing {
-    max-height: 0;
     margin-bottom: -0.5rem;
+    max-height: 0;
     opacity: 0;
     overflow: hidden;
     transform: translateY(1rem);

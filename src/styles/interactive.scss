@@ -15,7 +15,7 @@
 @mixin interactive-appearances {
   &.appearance-button,
   &.appearance-outline {
-    border-radius: var(--radius-medium);
+    border-radius: var(--radius-md);
     height: var(--height-button);
     padding: 0 2rem;
     text-decoration: none;
@@ -37,7 +37,7 @@
       position: absolute;
       right: 0;
       transform: translateY(0.1rem);
-      transition: transform 0.2s ease;
+      transition: transform var(--transition-default);
       width: 100%;
     }
 

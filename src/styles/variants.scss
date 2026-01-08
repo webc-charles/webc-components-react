@@ -12,7 +12,11 @@
 
       // Contrast mode for dark backgrounds
       &.contrast {
-        background-color: color-mix(in srgb, var(--color-#{$name}-contrast) 15%, transparent);
+        background-color: color-mix(
+          in srgb,
+          var(--color-#{$name}-contrast) 15%,
+          transparent
+        );
         border-color: var(--color-#{$name}-contrast);
         color: var(--color-#{$name}-3);
       }
@@ -41,7 +45,7 @@
 
 @mixin fade-transition {
   opacity: 0;
-  transition: all 0.2s ease;
+  transition: all var(--transition-default);
 
   &.active {
     opacity: 1;
@@ -55,7 +59,7 @@
 @mixin scale-transition {
   opacity: 0;
   transform: scale(0.9);
-  transition: all 0.2s ease;
+  transition: all var(--transition-default);
 
   &.active {
     opacity: 1;
@@ -71,7 +75,7 @@
 @mixin slide-up-transition {
   opacity: 0;
   transform: translateY(2rem);
-  transition: all 0.2s ease;
+  transition: all var(--transition-default);
 
   &.active {
     opacity: 1;

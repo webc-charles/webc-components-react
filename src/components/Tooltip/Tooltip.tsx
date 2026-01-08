@@ -1,4 +1,4 @@
-import { useId, useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import styles from './Tooltip.module.scss'
 import type { TooltipPosition, TooltipTypes } from './Tooltip.types'
@@ -9,7 +9,6 @@ const getAdjustedPosition = (
   preferredPosition: TooltipPosition
 ): { position: TooltipPosition; offsetX: number } => {
   const tooltipRect = tooltipEl.getBoundingClientRect()
-  const wrapperRect = wrapperEl.getBoundingClientRect()
   const padding = 8 // Min distance from viewport edge
 
   let position = preferredPosition
@@ -18,14 +17,20 @@ const getAdjustedPosition = (
   // Check vertical overflow and flip if needed
   if (position === 'top' && tooltipRect.top < padding) {
     position = 'bottom'
-  } else if (position === 'bottom' && tooltipRect.bottom > window.innerHeight - padding) {
+  } else if (
+    position === 'bottom' &&
+    tooltipRect.bottom > window.innerHeight - padding
+  ) {
     position = 'top'
   }
 
   // Check horizontal overflow and flip if needed
   if (position === 'left' && tooltipRect.left < padding) {
     position = 'right'
-  } else if (position === 'right' && tooltipRect.right > window.innerWidth - padding) {
+  } else if (
+    position === 'right' &&
+    tooltipRect.right > window.innerWidth - padding
+  ) {
     position = 'left'
   }
 
@@ -125,12 +130,20 @@ export function Tooltip({
           id={id}
           role="tooltip"
           className={clsx(styles.tooltip, styles[adjustedPosition])}
-          style={offsetX ? { transform: `translateX(calc(-50% + ${offsetX}px))` } : undefined}
+          style={
+            offsetX
+              ? { transform: `translateX(calc(-50% + ${offsetX}px))` }
+              : undefined
+          }
         >
           {content}
           <span
             className={styles.arrow}
-            style={offsetX ? { transform: `translateX(calc(-50% - ${offsetX}px))` } : undefined}
+            style={
+              offsetX
+                ? { transform: `translateX(calc(-50% - ${offsetX}px))` }
+                : undefined
+            }
             aria-hidden
           />
         </div>

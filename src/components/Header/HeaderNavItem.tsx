@@ -1,11 +1,12 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
-import styles from './HeaderNavItem.module.scss'
 import type { HeaderNavItemTypes } from './Header.types'
+import styles from './HeaderNavItem.module.scss'
 
 export const headerNavItemStyles = {
   navLink: styles.navLink,
+  navLinkActive: styles.navLinkActive,
   dropdownLink: styles.dropdownLink,
 }
 
@@ -14,6 +15,7 @@ export function HeaderNavItem({
   children,
   dropdown,
   mega = false,
+  active = false,
   className,
   ...rest
 }: HeaderNavItemTypes) {
@@ -95,7 +97,11 @@ export function HeaderNavItem({
 
   if (!dropdown) {
     return (
-      <div ref={ref} className={clsx(styles.navItem, className)} {...rest}>
+      <div
+        ref={ref}
+        className={clsx(styles.navItem, active && styles.isActive, className)}
+        {...rest}
+      >
         {children}
       </div>
     )
@@ -104,7 +110,13 @@ export function HeaderNavItem({
   return (
     <div
       ref={itemRef}
-      className={clsx(styles.navItem, styles.hasDropdown, mega && styles.hasMega, className)}
+      className={clsx(
+        styles.navItem,
+        styles.hasDropdown,
+        mega && styles.hasMega,
+        active && styles.isActive,
+        className
+      )}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       onBlur={handleBlur}
@@ -113,19 +125,22 @@ export function HeaderNavItem({
       <button
         ref={triggerRef}
         type="button"
-        className={styles.trigger}
+        className={clsx(styles.trigger, active && styles.triggerActive)}
         aria-expanded={isOpen}
         aria-haspopup="menu"
+        aria-current={active ? 'page' : undefined}
         onClick={() => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
         {children}
+
         <ChevronDown
           size={16}
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
       </button>
+
       <div
         ref={setDropdownRef}
         role="menu"
@@ -135,7 +150,11 @@ export function HeaderNavItem({
           isOpen && styles.dropdownOpen
         )}
       >
-        {mega ? <div className={styles.megaMenuInner}>{dropdown}</div> : dropdown}
+        {mega ? (
+          <div className={styles.megaMenuInner}>{dropdown}</div>
+        ) : (
+          dropdown
+        )}
       </div>
     </div>
   )

@@ -11,7 +11,7 @@ $title-sizes: (
 );
 
 .title {
-  font-weight: var(--font-weight-lg);
+  font-weight: var(--font-weight-xl);
 }
 
 @each $level, $size in $title-sizes {

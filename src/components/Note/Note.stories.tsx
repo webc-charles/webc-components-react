@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { Note, Title } from 'components'
 import { ColorVariant } from '../../types'
-import { Note, NoteHeader } from './Note'
 
 const variants: ColorVariant[] = [
   'default',
@@ -57,7 +57,7 @@ export const Playground: Story = {
 export const WithHeader: Story = {
   render: () => (
     <Note variant="warning">
-      <NoteHeader>Warning</NoteHeader>
+      <Title level="h4">Warning</Title>
       <p>This action cannot be undone. Please proceed with caution.</p>
     </Note>
   ),
@@ -68,7 +68,7 @@ export const AllVariants: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {variants.map((v) => (
         <Note variant={v} key={v}>
-          <NoteHeader>{v}</NoteHeader>
+          <Title level="h4">{v}</Title>
           <p>This is a {v} note with a header.</p>
         </Note>
       ))}
@@ -78,11 +78,13 @@ export const AllVariants: Story = {
 
 export const Contrast: Story = {
   render: () => (
-    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+    <div
+      style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
+    >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {variants.map((v) => (
           <Note variant={v} contrast key={v}>
-            <NoteHeader>{v}</NoteHeader>
+            <Title level="h3">{v}</Title>
             <p>This is a {v} note in contrast mode for dark backgrounds.</p>
           </Note>
         ))}

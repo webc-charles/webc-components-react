@@ -1,28 +1,6 @@
 import clsx from 'clsx'
 import styles from './Note.module.scss'
-import { NoteHeaderTypes, NoteTypes } from './Note.types'
-
-export function NoteHeader({
-  ref,
-  className,
-  children,
-  variant = 'default',
-  ...rest
-}: NoteHeaderTypes) {
-  return (
-    <div
-      ref={ref}
-      className={clsx(
-        styles.noteHeader,
-        styles[`variant-${variant}`],
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </div>
-  )
-}
+import { NoteTypes } from './Note.types'
 
 export function Note({
   ref,

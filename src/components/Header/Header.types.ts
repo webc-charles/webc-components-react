@@ -31,6 +31,7 @@ export type HeaderNavItemTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   dropdown?: ReactNode
   mega?: boolean
+  active?: boolean
 }
 
 export type HeaderActionsTypes = ComponentPropsWithRef<'div'> & {

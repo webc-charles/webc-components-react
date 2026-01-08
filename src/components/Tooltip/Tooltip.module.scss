@@ -9,15 +9,16 @@ $arrow-size: 0.6rem;
 
 .tooltip {
   background-color: $tooltip-bg;
-  border-radius: var(--radius-small);
+  border-radius: var(--radius-sm);
   color: $tooltip-color;
+  display: flex;
+  flex-direction: column;
   font-size: var(--font-size-3);
   line-height: 1.4;
   max-width: 25rem;
-  padding: 0.6rem 1rem;
+  padding: 1rem;
   position: absolute;
   width: max-content;
-  z-index: var(--z-index-5);
 }
 
 .arrow {

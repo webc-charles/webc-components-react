@@ -32,6 +32,10 @@
   }
 }
 
+.navLinkActive {
+  color: var(--color-primary-2);
+}
+
 .trigger {
   align-items: center;
   background: none;
@@ -57,6 +61,14 @@
     outline: 0.2rem solid var(--color-primary-2);
     outline-offset: 0.2rem;
   }
+}
+
+.triggerActive {
+  color: var(--color-primary-2);
+}
+
+.isActive {
+  color: var(--color-primary-2);
 }
 
 .chevron {

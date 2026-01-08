@@ -67,7 +67,12 @@ export const AllPositions: Story = {
       }}
     >
       {positions.map((pos) => (
-        <Tooltip key={pos} content={`Tooltip on ${pos}`} position={pos} delay={0}>
+        <Tooltip
+          key={pos}
+          content={`Tooltip on ${pos}`}
+          position={pos}
+          delay={0}
+        >
           <Button appearance="outline">{pos}</Button>
         </Tooltip>
       ))}
@@ -77,7 +82,8 @@ export const AllPositions: Story = {
 
 export const LongContent: Story = {
   args: {
-    content: 'This is a longer tooltip with more detailed information that wraps to multiple lines.',
+    content:
+      'This is a longer tooltip with more detailed information that wraps to multiple lines.',
   },
   render: (args) => (
     <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
@@ -93,11 +99,10 @@ export const WithReactContent: Story = {
     <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
       <Tooltip
         content={
-          <div>
+          <>
             <strong>Bold title</strong>
-            <br />
             <span style={{ opacity: 0.8 }}>Additional info</span>
-          </div>
+          </>
         }
         delay={0}
       >
@@ -147,20 +152,43 @@ export const NoDelay: Story = {
 
 export const EdgeDetection: Story = {
   render: () => (
-    <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '20rem' }}>
+    <div
+      style={{
+        padding: '1rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20rem',
+      }}
+    >
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Tooltip content="This tooltip should flip to the right" position="left" delay={0}>
+        <Tooltip
+          content="This tooltip should flip to the right"
+          position="left"
+          delay={0}
+        >
           <Button appearance="outline">Left edge</Button>
         </Tooltip>
-        <Tooltip content="This tooltip should flip to the left" position="right" delay={0}>
+        <Tooltip
+          content="This tooltip should flip to the left"
+          position="right"
+          delay={0}
+        >
           <Button appearance="outline">Right edge</Button>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Tooltip content="This is a long tooltip that should shift to stay in viewport" position="top" delay={0}>
+        <Tooltip
+          content="This is a long tooltip that should shift to stay in viewport"
+          position="top"
+          delay={0}
+        >
           <Button appearance="outline">Long tooltip left</Button>
         </Tooltip>
-        <Tooltip content="This is a long tooltip that should shift to stay in viewport" position="top" delay={0}>
+        <Tooltip
+          content="This is a long tooltip that should shift to stay in viewport"
+          position="top"
+          delay={0}
+        >
           <Button appearance="outline">Long tooltip right</Button>
         </Tooltip>
       </div>

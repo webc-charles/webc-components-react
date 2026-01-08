@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Form/Button'
 import {
@@ -39,7 +40,7 @@ type Story = StoryObj<typeof HeaderRoot>
 
 const { topBarLink } = headerTopBarStyles
 const { dropdownLink: topBarDropdownLink } = headerTopBarItemStyles
-const { navLink, dropdownLink } = headerNavItemStyles
+const { navLink, navLinkActive, dropdownLink } = headerNavItemStyles
 const { mobileLink } = headerMobileMenuStyles
 const { subLink } = headerMobileNavItemStyles
 
@@ -173,8 +174,8 @@ export const Default: Story = {
         </HeaderLogo>
 
         <HeaderNav>
-          <HeaderNavItem>
-            <a href="/" className={navLink}>
+          <HeaderNavItem active>
+            <a href="/" className={clsx(navLink, navLinkActive)} aria-current="page">
               Accueil
             </a>
           </HeaderNavItem>
@@ -267,8 +268,8 @@ export const WithTopBar: Story = {
         </HeaderLogo>
 
         <HeaderNav>
-          <HeaderNavItem>
-            <a href="/" className={navLink}>
+          <HeaderNavItem active>
+            <a href="/" className={clsx(navLink, navLinkActive)} aria-current="page">
               Accueil
             </a>
           </HeaderNavItem>
@@ -331,7 +332,7 @@ export const WithDropdowns: Story = {
               Accueil
             </a>
           </HeaderNavItem>
-          <HeaderNavItem dropdown={<ProductsDropdown />}>
+          <HeaderNavItem dropdown={<ProductsDropdown />} active>
             Produits
           </HeaderNavItem>
           <HeaderNavItem dropdown={<ProductsDropdown />}>
@@ -407,7 +408,7 @@ export const MegaMenu: Story = {
               Accueil
             </a>
           </HeaderNavItem>
-          <HeaderNavItem dropdown={<MegaMenuContent />} mega>
+          <HeaderNavItem dropdown={<MegaMenuContent />} mega active>
             Solutions
           </HeaderNavItem>
           <HeaderNavItem dropdown={<ProductsDropdown />}>
@@ -486,8 +487,8 @@ export const Sticky: Story = {
           </HeaderLogo>
 
           <HeaderNav>
-            <HeaderNavItem>
-              <a href="/" className={navLink}>
+            <HeaderNavItem active>
+              <a href="/" className={clsx(navLink, navLinkActive)} aria-current="page">
                 Accueil
               </a>
             </HeaderNavItem>

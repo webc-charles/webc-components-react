@@ -31,9 +31,6 @@
   color: var(--color-black);
   cursor: pointer;
   display: flex;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
   justify-content: space-between;
   padding: 1.5rem 2rem;
   text-align: left;
@@ -59,7 +56,6 @@
 .triggerText {
   flex: 1;
   font-size: var(--font-size-5);
-  font-weight: var(--font-weight-md);
 }
 
 .icon {

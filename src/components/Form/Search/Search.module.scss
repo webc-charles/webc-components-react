@@ -54,13 +54,9 @@
   padding: 0.4rem;
   transition: color var(--transition-default);
 
-  &:hover {
-    color: var(--color-grey-1);
-  }
-
+  &:hover,
   &:focus-visible {
-    outline: 0.2rem solid var(--color-primary-2);
-    outline-offset: 0.2rem;
+    color: var(--color-grey-1);
   }
 }
 

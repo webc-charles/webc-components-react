@@ -12,13 +12,17 @@
 
       // Contrast mode for dark backgrounds
       &.contrast {
-        background-color: color-mix(
-          in srgb,
-          var(--color-#{$name}-contrast) 15%,
-          transparent
-        );
+        // background-color: color-mix(
+        //   in srgb,
+        //   var(--color-#{$name}-contrast) 15%,
+        //   transparent
+        // );
+        // border-color: var(--color-#{$name}-contrast);
+        // color: var(--color-#{$name}-3);
+
+        background-color: var(--color-white);
         border-color: var(--color-#{$name}-contrast);
-        color: var(--color-#{$name}-3);
+        color: var(--color-#{$name}-contrast);
       }
     }
   }
@@ -33,6 +37,7 @@
   font-size: var(--font-size-5);
   height: 2.5rem;
   justify-content: center;
+  outline: none;
   padding: 0;
   position: absolute;
   width: 2.5rem;

@@ -68,8 +68,7 @@
   width: 0;
 
   &:focus-visible + .radio {
-    outline: 0.2rem solid var(--color-primary-2);
-    outline-offset: 0.2rem;
+    border-color: var(--color-primary-2);
   }
 
   &:checked + .radio {

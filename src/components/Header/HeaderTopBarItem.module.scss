@@ -14,13 +14,9 @@
   padding: 0;
   transition: color var(--transition-default);
 
-  &:hover {
-    color: var(--color-primary-contrast);
-  }
-
+  &:hover,
   &:focus-visible {
-    outline: 2px solid var(--color-primary-contrast);
-    outline-offset: 0.2rem;
+    color: var(--color-primary-contrast);
   }
 }
 
@@ -79,13 +75,9 @@
   transition: background-color var(--transition-default);
   width: 100%;
 
-  &:hover {
-    background-color: var(--color-grey-6);
-  }
-
+  &:hover,
   &:focus-visible {
-    outline: 0.2rem solid var(--color-primary-2);
-    outline-offset: -2px;
+    background-color: var(--color-grey-6);
   }
 }
 

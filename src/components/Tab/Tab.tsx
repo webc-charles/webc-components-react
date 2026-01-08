@@ -136,7 +136,6 @@ export function TabButton({
       appearance={appearance}
       aria-selected={isActive}
       aria-controls={`${tabId}-panel-${value}`}
-      tabIndex={isActive ? 0 : -1}
       onClick={() => setActiveTab(value)}
       className={clsx(styles.tabButton, className)}
       {...props}

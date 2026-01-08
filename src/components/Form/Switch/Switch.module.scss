@@ -23,8 +23,7 @@ $thumb-margin: 0.3rem;
   width: 0;
 
   &:focus-visible + .track {
-    outline: 0.2rem solid var(--color-primary-2);
-    outline-offset: 0.2rem;
+    box-shadow: 0 0 0 0.2rem var(--color-primary-2);
   }
 }
 

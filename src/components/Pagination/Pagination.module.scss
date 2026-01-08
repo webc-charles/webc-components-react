@@ -33,11 +33,6 @@
     color var(--transition-default);
 }
 
-.page:focus-visible {
-  outline: 0.2rem solid var(--color-primary-2);
-  outline-offset: 0.2rem;
-}
-
 .page.disabled {
   color: var(--color-grey-3);
 }
@@ -49,7 +44,8 @@
   cursor: default;
 }
 
-.page:hover:not(.current, .disabled) {
+.page:hover:not(.current, .disabled),
+.page:focus-visible:not(.current, .disabled) {
   background-color: var(--color-primary-2);
   border-color: var(--color-primary-2);
   color: var(--color-white);
@@ -74,18 +70,14 @@
     color var(--transition-default);
 }
 
-.nav:focus-visible {
-  outline: 0.2rem solid var(--color-primary-2);
-  outline-offset: 0.2rem;
-}
-
 .nav.disabled {
   color: var(--color-grey-3);
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-.nav:hover:not(.disabled) {
+.nav:hover:not(.disabled),
+.nav:focus-visible:not(.disabled) {
   background-color: var(--color-primary-2);
   border-color: var(--color-primary-2);
   color: var(--color-white);

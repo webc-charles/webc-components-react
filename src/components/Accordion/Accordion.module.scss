@@ -32,19 +32,16 @@
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  outline: none;
   padding: 1.5rem 2rem;
   text-align: left;
   transition: background-color 0.15s ease;
   width: 100%;
 
   &.expanded,
-  &:hover {
-    color: var(--color-primary-2);
-  }
-
+  &:hover,
   &:focus-visible {
-    outline: 0.2rem solid var(--color-primary-2);
-    outline-offset: -0.2rem;
+    color: var(--color-primary-2);
   }
 
   &:disabled {

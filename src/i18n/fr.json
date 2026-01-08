@@ -49,5 +49,12 @@
   "selected_options": "Options sélectionnées",
   "main_navigation": "Navigation principale",
   "mobile_navigation": "Menu de navigation",
-  "breadcrumb": "Fil d'Ariane"
+  "breadcrumb": "Fil d'Ariane",
+  "pagination": "Pagination",
+  "first_page": "Première page",
+  "last_page": "Dernière page",
+  "previous_page": "Page précédente",
+  "next_page": "Page suivante",
+  "page": "Page",
+  "page_n": "Page {n}"
 }

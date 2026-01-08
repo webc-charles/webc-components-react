@@ -1,0 +1,108 @@
+.pagination {
+  display: flex;
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  align-items: center;
+  background-color: var(--color-grey-6);
+  border: 0.1rem solid var(--color-grey-6);
+  border-radius: var(--radius-md);
+  color: var(--color-grey-1);
+  cursor: pointer;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  min-width: 4rem;
+  padding: 0 1.2rem;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-default),
+    border-color var(--transition-default),
+    color var(--transition-default);
+}
+
+.page:focus-visible {
+  outline: 0.2rem solid var(--color-primary-2);
+  outline-offset: 0.2rem;
+}
+
+.page.disabled {
+  color: var(--color-grey-3);
+  cursor: not-allowed;
+}
+
+.page.current {
+  background-color: var(--color-white);
+  border-color: var(--color-primary-2);
+  color: var(--color-primary-2);
+  cursor: default;
+}
+
+.page:hover:not(.current, .disabled) {
+  background-color: var(--color-primary-2);
+  border-color: var(--color-primary-2);
+  color: var(--color-white);
+}
+
+.nav {
+  align-items: center;
+  background-color: var(--color-grey-6);
+  border: 0.1rem solid var(--color-grey-6);
+  border-radius: var(--radius-md);
+  color: var(--color-grey-1);
+  cursor: pointer;
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  min-width: 4rem;
+  padding: 0;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-default),
+    border-color var(--transition-default),
+    color var(--transition-default);
+}
+
+.nav:focus-visible {
+  outline: 0.2rem solid var(--color-primary-2);
+  outline-offset: 0.2rem;
+}
+
+.nav.disabled {
+  color: var(--color-grey-3);
+  cursor: not-allowed;
+}
+
+.nav:hover:not(.disabled) {
+  background-color: var(--color-primary-2);
+  border-color: var(--color-primary-2);
+  color: var(--color-white);
+}
+
+.ellipsis {
+  align-items: center;
+  color: var(--color-grey-3);
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+  min-width: 2rem;
+}
+
+.pagination.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination.disabled .page,
+.pagination.disabled .nav {
+  pointer-events: none;
+}

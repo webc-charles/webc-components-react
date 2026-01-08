@@ -1,0 +1,57 @@
+import clsx from 'clsx'
+import { ChevronRight } from 'lucide-react'
+import { str } from 'i18n'
+import styles from './Breadcrumb.module.scss'
+import type { BreadcrumbTypes } from './Breadcrumb.types'
+
+export function Breadcrumb({
+  ref,
+  items,
+  separator,
+  renderLink,
+  className,
+  'aria-label': ariaLabel,
+  ...rest
+}: BreadcrumbTypes) {
+  const separatorElement = separator ?? (
+    <ChevronRight size={16} aria-hidden="true" />
+  )
+
+  return (
+    <nav
+      ref={ref}
+      aria-label={ariaLabel ?? str.breadcrumb}
+      className={clsx(styles.breadcrumb, className)}
+      {...rest}
+    >
+      <ol className={styles.list}>
+        {items.map((item, index) => {
+          const isLast = index === items.length - 1
+
+          return (
+            <li key={index} className={styles.item}>
+              {isLast ? (
+                <span aria-current="page" className={styles.current}>
+                  {item.label}
+                </span>
+              ) : (
+                <>
+                  {renderLink ? (
+                    renderLink(item, item.label)
+                  ) : (
+                    <a href={item.href} className={styles.link}>
+                      {item.label}
+                    </a>
+                  )}
+                  <span className={styles.separator} aria-hidden="true">
+                    {separatorElement}
+                  </span>
+                </>
+              )}
+            </li>
+          )
+        })}
+      </ol>
+    </nav>
+  )
+}

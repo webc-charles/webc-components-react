@@ -48,5 +48,6 @@
   "no_results": "Aucun résultat",
   "selected_options": "Options sélectionnées",
   "main_navigation": "Navigation principale",
-  "mobile_navigation": "Menu de navigation"
+  "mobile_navigation": "Menu de navigation",
+  "breadcrumb": "Fil d'Ariane"
 }

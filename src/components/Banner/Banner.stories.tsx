@@ -11,15 +11,17 @@ import {
 } from './Banner'
 import {
   BannerOverlayTypes,
-  BannerTextAlignTypes,
   HorizontalAlignTypes,
   VerticalAlignTypes,
 } from './Banner.types'
 
-const horizontalAlignOptions: HorizontalAlignTypes[] = ['left', 'center', 'right']
+const horizontalAlignOptions: HorizontalAlignTypes[] = [
+  'left',
+  'center',
+  'right',
+]
 const verticalAlignOptions: VerticalAlignTypes[] = ['start', 'center', 'end']
 const overlayOptions: BannerOverlayTypes[] = ['none', 'light', 'dark']
-const textAlignOptions: BannerTextAlignTypes[] = ['left', 'center', 'right']
 
 const sampleImage =
   'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80'
@@ -209,15 +211,31 @@ export const AllVariantsContrast: Story = {
     <Banner {...args} backgroundColor="#1a1a1a">
       <BannerContent textColor="light" textAlign="center">
         <BannerTitle level="h2">Contrast Button Variants</BannerTitle>
-        <BannerSubtitle>All variants with contrast prop on dark background</BannerSubtitle>
+        <BannerSubtitle>
+          All variants with contrast prop on dark background
+        </BannerSubtitle>
         <BannerActions>
-          <Button variant="default" contrast appearance="button">Default</Button>
-          <Button variant="primary" contrast appearance="button">Primary</Button>
-          <Button variant="secondary" contrast appearance="button">Secondary</Button>
-          <Button variant="success" contrast appearance="button">Success</Button>
-          <Button variant="danger" contrast appearance="button">Danger</Button>
-          <Button variant="warning" contrast appearance="button">Warning</Button>
-          <Button variant="info" contrast appearance="button">Info</Button>
+          <Button variant="default" contrast appearance="button">
+            Default
+          </Button>
+          <Button variant="primary" contrast appearance="button">
+            Primary
+          </Button>
+          <Button variant="secondary" contrast appearance="button">
+            Secondary
+          </Button>
+          <Button variant="success" contrast appearance="button">
+            Success
+          </Button>
+          <Button variant="danger" contrast appearance="button">
+            Danger
+          </Button>
+          <Button variant="warning" contrast appearance="button">
+            Warning
+          </Button>
+          <Button variant="info" contrast appearance="button">
+            Info
+          </Button>
         </BannerActions>
       </BannerContent>
     </Banner>
@@ -225,7 +243,8 @@ export const AllVariantsContrast: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use the `contrast` prop on Button and Link components for visibility on dark backgrounds.',
+        story:
+          'Use the `contrast` prop on Button and Link components for visibility on dark backgrounds.',
       },
     },
   },

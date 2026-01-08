@@ -2,6 +2,7 @@
   "loading": "Chargement en cours",
   "menu": "Menu",
   "close": "Fermer",
+  "clear": "Effacer",
   "select_file": "Choisir un fichier",
   "select_files": "Choisir des fichiers",
   "no_file_selected": "Aucun fichier sélectionné",
@@ -44,6 +45,7 @@
   "clear_all": "Tout effacer",
   "remove": "Enlève",
   "search": "Rechercher",
+  "no_results": "Aucun résultat",
   "selected_options": "Options sélectionnées",
   "main_navigation": "Navigation principale",
   "mobile_navigation": "Menu de navigation"

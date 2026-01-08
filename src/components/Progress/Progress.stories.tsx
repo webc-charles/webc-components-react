@@ -22,7 +22,7 @@ const meta: Meta<typeof Progress> = {
   tags: ['autodocs'],
   argTypes: {
     value: {
-      control: { type: 'range', min: 0, max: 100 },
+      control: 'number',
       description: 'Current value',
     },
     max: {
@@ -133,6 +133,11 @@ function AnimatedProgress() {
 
 export const Animated: Story = {
   render: () => <AnimatedProgress />,
+  parameters: {
+    docs: {
+      disable: true,
+    },
+  },
 }
 
 export const UploadProgress: Story = {

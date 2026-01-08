@@ -1,0 +1,111 @@
+@use 'styles/form' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  @include formLabel;
+}
+
+.hiddenInput {
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+// Inline mode (button + file name)
+.inline {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  align-items: center;
+  background-color: var(--color-white);
+  border: 0.1rem solid var(--color-grey-4);
+  border-radius: var(--radius-medium);
+  color: var(--color-black);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: var(--font-size-4);
+  gap: 0.6rem;
+  height: 3.8rem;
+  padding: 0 1.5rem;
+  transition: border-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary-2);
+  }
+
+  &:focus {
+    border-color: var(--color-primary-2);
+    outline: none;
+  }
+
+  &:disabled {
+    @include formDisabled;
+  }
+}
+
+.fileNames {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Dropzone mode
+.dropzone {
+  align-items: center;
+  background-color: var(--color-grey-6);
+  border: 0.2rem dashed var(--color-grey-4);
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+  min-height: 12rem;
+  padding: 2rem;
+  transition: all 0.2s ease;
+
+  &:hover:not(.disabled) {
+    border-color: var(--color-primary-2);
+    background-color: var(--color-primary-3);
+  }
+
+  &:focus {
+    border-color: var(--color-primary-2);
+    outline: none;
+  }
+
+  &.dragging {
+    background-color: var(--color-primary-3);
+    border-color: var(--color-primary-2);
+  }
+
+  &.disabled {
+    @include formDisabled;
+  }
+
+  svg {
+    color: var(--color-grey-3);
+  }
+}
+
+.dropzoneText {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-4);
+}
+
+.dropzone .fileNames {
+  font-size: var(--font-size-3);
+  max-width: 100%;
+}

@@ -1,0 +1,85 @@
+$tooltip-bg: var(--color-grey-1);
+$tooltip-color: var(--color-white);
+$arrow-size: 0.6rem;
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltip {
+  background-color: $tooltip-bg;
+  border-radius: var(--radius-small);
+  color: $tooltip-color;
+  font-size: var(--font-size-3);
+  line-height: 1.4;
+  max-width: 25rem;
+  padding: 0.6rem 1rem;
+  position: absolute;
+  width: max-content;
+  z-index: var(--z-index-5);
+}
+
+.arrow {
+  border: $arrow-size solid transparent;
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+// Positions
+.top {
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: $arrow-size;
+  transform: translateX(-50%);
+
+  .arrow {
+    border-top-color: $tooltip-bg;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+  }
+}
+
+.bottom {
+  left: 50%;
+  margin-top: $arrow-size;
+  top: 100%;
+  transform: translateX(-50%);
+
+  .arrow {
+    border-bottom-color: $tooltip-bg;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.left {
+  margin-right: $arrow-size;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .arrow {
+    border-left-color: $tooltip-bg;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.right {
+  left: 100%;
+  margin-left: $arrow-size;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .arrow {
+    border-right-color: $tooltip-bg;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

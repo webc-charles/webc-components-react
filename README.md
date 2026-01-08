@@ -102,9 +102,9 @@ function App() {
 
 | Category | Components |
 |----------|------------|
-| **Form** | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [Checkbox](#checkbox) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
-| **Display** | [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link) |
-| **Feedback** | [Spinner](#spinner) · [Toast](#toast) · [Modal](#modal) |
+| **Form** | [Button](#button) · [InputText](#inputtext) · [InputPassword](#inputpassword) · [InputNumber](#inputnumber) · [InputTextarea](#inputtextarea) · [InputFile](#inputfile) · [Checkbox](#checkbox) · [Switch](#switch) · [InputRadio](#inputradio) · [InputDate](#inputdate) · [Select](#select) |
+| **Display** | [Avatar](#avatar) · [Badge](#badge) · [Note](#note) · [Title](#title) · [Image](#image) · [Link](#link) |
+| **Feedback** | [Spinner](#spinner) · [Progress](#progress) · [Skeleton](#skeleton) · [Tooltip](#tooltip) · [Toast](#toast) · [Modal](#modal) |
 | **Layout** | [Grid](#grid) · [Card](#card) · [Banner](#banner) · [Accordion](#accordion) · [Tab](#tab) · [Slider](#slider) |
 
 ### Form Components
@@ -251,6 +251,40 @@ import { InputTextarea } from '@webc-charles/components-react'
 
 ---
 
+#### InputFile
+
+File input with button or drag-and-drop zone.
+
+```tsx
+import { InputFile } from '@webc-charles/components-react'
+
+// Button mode (default)
+<InputFile label="Upload document" />
+
+// Multiple files
+<InputFile label="Upload files" multiple />
+
+// Drag and drop zone
+<InputFile label="Upload document" dropzone />
+
+// Accept specific types
+<InputFile label="Upload image" accept="image/*" />
+```
+
+**Props**: Extends `ComponentPropsWithRef<'input'>`
+
+| Prop            | Type                              | Default | Description               |
+| --------------- | --------------------------------- | ------- | ------------------------- |
+| `label`         | `string`                          | -       | Label text                |
+| `onChange`      | `(files: FileList \| null) => void` | -       | Change handler            |
+| `dropzone`      | `boolean`                         | `false` | Enable drag and drop zone |
+| `multiple`      | `boolean`                         | `false` | Allow multiple files      |
+| `accept`        | `string`                          | -       | Accepted file types       |
+| `buttonText`    | `string`                          | i18n    | Custom button text        |
+| `showFileNames` | `boolean`                         | `true`  | Show selected file names  |
+
+---
+
 #### Checkbox
 
 Checkbox with custom styling.
@@ -278,6 +312,38 @@ import { Checkbox } from '@webc-charles/components-react'
 | `defaultChecked` | `boolean`                    | Initial state (uncontrolled) |
 | `onChange`       | `(checked: boolean) => void` | Change handler               |
 | `disabled`       | `boolean`                    | Disable interaction          |
+
+---
+
+#### Switch
+
+Toggle switch for on/off states.
+
+```tsx
+import { Switch } from '@webc-charles/components-react'
+
+// Uncontrolled
+<Switch label="Enable notifications" defaultChecked />
+
+// Controlled
+<Switch
+  label="Dark mode"
+  checked={darkMode}
+  onChange={setDarkMode}
+  variant="success"
+/>
+```
+
+**Props**:
+
+| Prop             | Type                         | Default     | Description                  |
+| ---------------- | ---------------------------- | ----------- | ---------------------------- |
+| `label`          | `string`                     | -           | Label text                   |
+| `checked`        | `boolean`                    | -           | Controlled state             |
+| `defaultChecked` | `boolean`                    | `false`     | Initial state (uncontrolled) |
+| `onChange`       | `(checked: boolean) => void` | -           | Change handler               |
+| `disabled`       | `boolean`                    | `false`     | Disable interaction          |
+| `variant`        | `ColorVariant`               | `'primary'` | Color when checked           |
 
 ---
 
@@ -499,6 +565,35 @@ function AsyncSelect() {
 
 ### Display Components
 
+#### Avatar
+
+User avatar with image and initials fallback.
+
+```tsx
+import { Avatar } from '@webc-charles/components-react'
+
+// With image
+<Avatar src="/photo.jpg" alt="John Doe" name="John Doe" />
+
+// Initials fallback
+<Avatar name="John Doe" variant="primary" />
+
+// Icon fallback (no name)
+<Avatar size="lg" />
+```
+
+**Props**: Extends `ComponentPropsWithRef<'div'>`
+
+| Prop      | Type                          | Default     | Description                  |
+| --------- | ----------------------------- | ----------- | ---------------------------- |
+| `src`     | `string`                      | -           | Image URL                    |
+| `alt`     | `string`                      | `''`        | Alt text for image           |
+| `name`    | `string`                      | -           | Name for initials fallback   |
+| `size`    | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`      | Size of the avatar           |
+| `variant` | `ColorVariant`                | `'default'` | Background color for fallback |
+
+---
+
 #### Badge
 
 Small status indicator.
@@ -650,6 +745,115 @@ import { Spinner } from '@webc-charles/components-react'
 | `size`     | `'sm' \| 'md' \| 'lg'`   | `'md'`      | Size of the spinner              |
 | `label`    | `string`                 | i18n        | Accessible label                 |
 | `contrast` | `boolean`                | `false`     | Light colors for dark backgrounds |
+
+---
+
+#### Progress
+
+Progress bar for loading or completion states.
+
+```tsx
+import { Progress } from '@webc-charles/components-react'
+
+// Basic
+<Progress value={60} />
+
+// With label
+<Progress value={75} showLabel />
+
+// Custom max value
+<Progress value={3} max={5} showLabel />
+
+// Indeterminate (loading)
+<Progress indeterminate />
+
+// Variants
+<Progress value={100} variant="success" />
+```
+
+**Props**: Extends `ComponentPropsWithRef<'div'>`
+
+| Prop            | Type                   | Default     | Description              |
+| --------------- | ---------------------- | ----------- | ------------------------ |
+| `value`         | `number`               | `0`         | Current value            |
+| `max`           | `number`               | `100`       | Maximum value            |
+| `variant`       | `ColorVariant`         | `'primary'` | Color theme              |
+| `size`          | `'sm' \| 'md' \| 'lg'` | `'md'`      | Height of the bar        |
+| `showLabel`     | `boolean`              | `false`     | Show percentage label    |
+| `indeterminate` | `boolean`              | `false`     | Animated loading state   |
+| `label`         | `string`               | -           | Accessible label         |
+
+---
+
+#### Skeleton
+
+Loading placeholder with shimmer animation.
+
+```tsx
+import { Skeleton } from '@webc-charles/components-react'
+
+// Text line
+<Skeleton variant="text" />
+
+// Circle (avatar placeholder)
+<Skeleton variant="circle" width={48} height={48} />
+
+// Rectangle (image placeholder)
+<Skeleton variant="rect" height={200} />
+
+// Card skeleton
+<div>
+  <Skeleton variant="rect" height={150} />
+  <Skeleton variant="text" width="80%" />
+  <Skeleton variant="text" width="60%" />
+</div>
+```
+
+**Props**: Extends `ComponentPropsWithRef<'div'>`
+
+| Prop           | Type                            | Default  | Description             |
+| -------------- | ------------------------------- | -------- | ----------------------- |
+| `variant`      | `'text' \| 'circle' \| 'rect'` | `'text'` | Shape variant           |
+| `width`        | `string \| number`             | -        | Width (CSS value)       |
+| `height`       | `string \| number`             | -        | Height (CSS value)      |
+| `animation`    | `boolean`                       | `true`   | Enable shimmer effect   |
+| `borderRadius` | `string \| number`             | -        | Custom border radius    |
+
+---
+
+#### Tooltip
+
+Hover/focus tooltip for additional information.
+
+```tsx
+import { Tooltip } from '@webc-charles/components-react'
+
+// Basic
+<Tooltip content="Help text">
+  <Button>Hover me</Button>
+</Tooltip>
+
+// Positions
+<Tooltip content="Top tooltip" position="top">...</Tooltip>
+<Tooltip content="Bottom tooltip" position="bottom">...</Tooltip>
+<Tooltip content="Left tooltip" position="left">...</Tooltip>
+<Tooltip content="Right tooltip" position="right">...</Tooltip>
+
+// With delay
+<Tooltip content="Delayed" delay={500}>...</Tooltip>
+
+// Rich content
+<Tooltip content={<><strong>Title</strong><br/>Description</>}>...</Tooltip>
+```
+
+**Props**: Extends `ComponentPropsWithRef<'div'>`
+
+| Prop       | Type                                     | Default | Description                |
+| ---------- | ---------------------------------------- | ------- | -------------------------- |
+| `content`  | `ReactNode`                              | -       | Tooltip content            |
+| `position` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` | Position relative to child |
+| `delay`    | `number`                                 | `200`   | Show delay (ms)            |
+| `disabled` | `boolean`                                | `false` | Disable the tooltip        |
 
 ---
 

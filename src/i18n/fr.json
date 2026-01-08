@@ -1,5 +1,11 @@
 {
   "loading": "Chargement en cours",
+  "select_file": "Choisir un fichier",
+  "select_files": "Choisir des fichiers",
+  "no_file_selected": "Aucun fichier sélectionné",
+  "files_selected": "{count} fichiers sélectionnés",
+  "drop_file_here": "Déposez le fichier ici",
+  "drop_files_here": "Déposez les fichiers ici",
   "select_date": "Sélectionnez une date",
   "enter_date": "Entrer une date",
   "show": "Montrer",

@@ -1,0 +1,40 @@
+@use 'styles/typography' as *;
+
+.divider {
+  @include base-hr;
+
+  width: 100%;
+}
+
+// Variants
+.variant-solid {
+  border-top-color: var(--color-grey-5);
+  border-top-style: solid;
+}
+
+.variant-dashed {
+  border-top-color: var(--color-grey-5);
+  border-top-style: dashed;
+}
+
+.variant-dotted {
+  border-top-color: var(--color-grey-5);
+  border-top-style: dotted;
+}
+
+// Spacing
+.spacing-none {
+  margin: 0;
+}
+
+.spacing-sm {
+  margin: 0.8rem 0;
+}
+
+.spacing-md {
+  margin: 1.6rem 0;
+}
+
+.spacing-lg {
+  margin: 3.2rem 0;
+}

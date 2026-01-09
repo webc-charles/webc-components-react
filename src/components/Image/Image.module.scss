@@ -1,3 +1,5 @@
+@use 'styles/typography' as *;
+
 .image {
   display: block;
   height: auto;
@@ -10,9 +12,9 @@
 }
 
 .caption {
-  color: var(--color-grey-2);
-  font-size: var(--font-size-3);
-  margin-top: 0.5rem;
+  @include base-caption;
+
+  margin-top: 0.8rem;
 }
 
 // Object-fit variants

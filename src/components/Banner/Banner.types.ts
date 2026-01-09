@@ -7,8 +7,14 @@ export type BannerOverlayTypes = 'none' | 'light' | 'dark'
 export type BannerTextColorTypes = 'light' | 'dark'
 export type BannerTextAlignTypes = 'left' | 'center' | 'right'
 
+export type BannerBackgroundVideo = {
+  src: string
+  poster?: string
+}
+
 export type BannerTypes = ComponentPropsWithRef<'div'> & {
   backgroundImage?: string
+  backgroundVideo?: BannerBackgroundVideo
   backgroundColor?: string
   horizontalAlign?: HorizontalAlignTypes
   verticalAlign?: VerticalAlignTypes

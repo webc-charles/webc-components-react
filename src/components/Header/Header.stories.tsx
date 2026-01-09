@@ -130,15 +130,15 @@ const MegaMenuContent = () => (
       </Link>
     </GridItem>
     <GridItem>
-      <Title level="h4">Ressources</Title>
+      <Title level="h4">Get started</Title>
       <Link href="/" className={dropdownLink}>
-        Documentation
+        Free trial
       </Link>
       <Link href="/" className={dropdownLink}>
-        Tutoriels
+        Book a demo
       </Link>
       <Link href="/" className={dropdownLink}>
-        API
+        Contact sales
       </Link>
     </GridItem>
   </Grid>

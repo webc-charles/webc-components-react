@@ -133,6 +133,37 @@ export const WithBackgroundImage: Story = {
   ),
 }
 
+export const WithBackgroundVideo: Story = {
+  render: (args) => (
+    <Banner
+      {...args}
+      backgroundVideo={{
+        src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+        poster: 'https://peach.blender.org/wp-content/uploads/bbb-splash.png',
+      }}
+      overlay="dark"
+      horizontalAlign="center"
+    >
+      <BannerContent textColor="light" textAlign="center">
+        <BannerTitle>Cinematic Experience</BannerTitle>
+        <BannerSubtitle>Immerse yourself in motion</BannerSubtitle>
+        <BannerText>
+          Video backgrounds create engaging, dynamic hero sections that capture
+          attention instantly.
+        </BannerText>
+        <BannerActions>
+          <Button variant="primary" contrast appearance="button">
+            Watch Now
+          </Button>
+          <Button variant="default" contrast appearance="outline">
+            Learn More
+          </Button>
+        </BannerActions>
+      </BannerContent>
+    </Banner>
+  ),
+}
+
 export const LightOverlay: Story = {
   render: (args) => (
     <Banner

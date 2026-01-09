@@ -1,0 +1,54 @@
+// Color utility classes
+// Background and text color classes for all variants
+
+$color-variants: (default, primary, secondary, success, danger, warning, info);
+$color-levels: (1, 2, 3, contrast);
+
+// Background color classes
+@each $variant in $color-variants {
+  @each $level in $color-levels {
+    .bg-#{$variant}-#{$level} {
+      background-color: var(--color-#{$variant}-#{$level});
+    }
+  }
+}
+
+// Text color classes
+@each $variant in $color-variants {
+  @each $level in $color-levels {
+    .text-#{$variant}-#{$level} {
+      color: var(--color-#{$variant}-#{$level});
+    }
+  }
+}
+
+// Grey background classes
+@for $i from 1 through 6 {
+  .bg-grey-#{$i} {
+    background-color: var(--color-grey-#{$i});
+  }
+}
+
+// Grey text classes
+@for $i from 1 through 6 {
+  .text-grey-#{$i} {
+    color: var(--color-grey-#{$i});
+  }
+}
+
+// Black & white
+.bg-black {
+  background-color: var(--color-black);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.text-black {
+  color: var(--color-black);
+}
+
+.text-white {
+  color: var(--color-white);
+}

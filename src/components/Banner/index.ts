@@ -8,15 +8,16 @@ export {
 } from './Banner'
 
 export type {
-  BannerTypes,
-  BannerContentTypes,
-  BannerTitleTypes,
-  BannerSubtitleTypes,
-  BannerTextTypes,
   BannerActionsTypes,
+  BannerBackgroundVideo,
+  BannerContentTypes,
+  BannerOverlayTypes,
+  BannerSubtitleTypes,
+  BannerTextAlignTypes,
+  BannerTextColorTypes,
+  BannerTextTypes,
+  BannerTitleTypes,
+  BannerTypes,
   HorizontalAlignTypes,
   VerticalAlignTypes,
-  BannerOverlayTypes,
-  BannerTextColorTypes,
-  BannerTextAlignTypes,
 } from './Banner.types'

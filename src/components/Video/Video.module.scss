@@ -1,0 +1,36 @@
+@use 'styles/typography' as *;
+
+.video {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.figure {
+  display: block;
+  margin: 0;
+}
+
+.caption {
+  @include base-caption;
+
+  margin-top: 0.8rem;
+}
+
+// Border-radius variants
+.radiusNone {
+  border-radius: 0;
+}
+
+.radiusSm {
+  border-radius: var(--radius-sm);
+}
+
+.radiusMd {
+  border-radius: var(--radius-md);
+}
+
+.radiusLg {
+  border-radius: var(--radius-lg);
+}

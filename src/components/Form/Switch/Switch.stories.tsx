@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Switch } from './Switch'
 
@@ -48,20 +47,4 @@ export const DisabledChecked: Story = {
     disabled: true,
     defaultChecked: true,
   },
-}
-
-function ControlledExample() {
-  const [checked, setChecked] = useState(false)
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Switch
-        label={`Notifications: ${checked ? 'On' : 'Off'}`}
-        checked={checked}
-        onChange={setChecked}
-      />
-      <p style={{ fontSize: '1.4rem', color: '#666' }}>
-        State: {checked ? 'enabled' : 'disabled'}
-      </p>
-    </div>
-  )
 }

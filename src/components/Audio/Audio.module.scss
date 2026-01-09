@@ -1,0 +1,33 @@
+@use 'styles/typography' as *;
+
+.audio {
+  display: block;
+  width: 100%;
+}
+
+.figure {
+  display: block;
+  margin: 0;
+}
+
+.title {
+  color: var(--color-grey-1);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-md);
+  margin-bottom: 0.8rem;
+}
+
+.caption {
+  @include base-caption;
+
+  margin: 0;
+  margin-top: 0.8rem;
+}
+
+.transcript {
+  @include base-link;
+
+  display: inline-block;
+  font-size: var(--font-size-2);
+  margin-top: 0.8rem;
+}

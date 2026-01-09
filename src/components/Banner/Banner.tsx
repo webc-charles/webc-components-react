@@ -13,6 +13,7 @@ import {
 export function Banner({
   ref,
   backgroundImage,
+  backgroundVideo,
   backgroundColor,
   overlay = 'none',
   minHeight = '40rem',
@@ -41,6 +42,19 @@ export function Banner({
       }}
       {...props}
     >
+      {backgroundVideo && (
+        <video
+          className={styles.backgroundMedia}
+          src={backgroundVideo.src}
+          poster={backgroundVideo.poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+      )}
+
       <div
         className={clsx(
           styles.container,

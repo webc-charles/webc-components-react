@@ -1,20 +1,10 @@
-$title-sizes: (
-  h1: 8,
-  h2: 7,
-  h3: 6,
-  h4: 5,
-  h5: 4,
-  h6: 3,
-  lg: lg,
-  xl: xl,
-  xxl: xxl,
-);
+@use 'styles/typography' as *;
 
 .title {
-  font-weight: var(--font-weight-xl);
+  @include base-heading;
 }
 
-@each $level, $size in $title-sizes {
+@each $level, $size in $heading-sizes {
   .#{$level} {
     font-size: var(--font-size-#{$size});
   }

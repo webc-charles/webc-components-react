@@ -1,0 +1,154 @@
+// Typography mixins for consistent styling across components
+// Used by: Title, Link, RichText, Image, Video, Audio, Note, Divider, etc.
+
+$heading-sizes: (
+  h1: 8,
+  h2: 7,
+  h3: 6,
+  h4: 5,
+  h5: 4,
+  h6: 3,
+);
+
+@mixin base-heading {
+  font-weight: var(--font-weight-xl);
+  line-height: 1.3;
+}
+
+@mixin base-link {
+  color: var(--color-primary-2);
+  text-decoration: underline;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+}
+
+@mixin base-paragraph {
+  line-height: 1.6;
+}
+
+@mixin base-code-block {
+  background-color: var(--color-grey-1);
+  color: var(--color-white);
+  overflow-x: auto;
+  padding: 2rem;
+
+  code {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+@mixin base-code-inline {
+  background-color: var(--color-grey-6);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+}
+
+@mixin base-keyboard {
+  background-color: var(--color-grey-6);
+  border: 0.1rem solid var(--color-grey-5);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+}
+
+@mixin base-note {
+  background-color: var(--color-default-3);
+  border-color: var(--color-default-2);
+  border-left: 0.3rem solid;
+  color: var(--color-default-1);
+  padding: 1rem 2rem;
+}
+
+@mixin base-blockquote {
+  @include base-note;
+}
+
+@mixin base-caption {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-2);
+}
+
+@mixin base-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    border: 0.1rem solid var(--color-grey-5);
+    padding: 1rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--color-grey-6);
+    font-weight: var(--font-weight-lg);
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--color-grey-7, #f9f9f9);
+  }
+}
+
+@mixin base-hr {
+  border: none;
+  border-top: 0.1rem solid var(--color-grey-5);
+}
+
+@mixin base-mark {
+  background-color: var(--color-warning-3);
+  padding: 0.2rem 0.5rem;
+}
+
+// stylelint-disable no-descending-specificity
+@mixin base-list {
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul ul {
+    list-style-type: circle;
+  }
+
+  ol ol {
+    list-style-type: lower-alpha;
+  }
+
+  ul ul ul {
+    list-style-type: square;
+  }
+
+  ol ol ol {
+    list-style-type: lower-roman;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 2rem;
+    padding-left: 2rem;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul,
+    ol {
+      margin: 0.5rem 0 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

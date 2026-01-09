@@ -1,0 +1,218 @@
+@use 'styles/typography' as *;
+
+// stylelint-disable no-descending-specificity
+.richText {
+  color: var(--color-grey-1);
+
+  @include base-paragraph;
+  @include base-list;
+
+  // Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include base-heading;
+
+    color: var(--color-grey-1);
+    margin: 2rem 0 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @each $level, $size in $heading-sizes {
+    #{$level} {
+      font-size: var(--font-size-#{$size});
+    }
+  }
+
+  // Paragraphs
+  p {
+    margin: 0 0 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Links
+  a {
+    @include base-link;
+  }
+
+  // Bold, italic, underline
+  strong,
+  b {
+    font-weight: var(--font-weight-xl);
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  s,
+  del {
+    text-decoration: line-through;
+  }
+
+  mark {
+    @include base-mark;
+  }
+
+  small {
+    font-size: var(--font-size-2);
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  // Blockquote
+  blockquote {
+    @include base-blockquote;
+
+    margin: 2rem 0;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    cite {
+      display: block;
+      font-size: var(--font-size-2);
+      font-style: normal;
+      margin-top: 1rem;
+      opacity: 0.8;
+
+      &::before {
+        content: '— ';
+      }
+    }
+  }
+
+  // Code
+  code {
+    @include base-code-inline;
+  }
+
+  pre {
+    @include base-code-block;
+
+    margin: 2rem 0;
+  }
+
+  kbd {
+    @include base-keyboard;
+  }
+
+  // Horizontal rule
+  hr {
+    @include base-hr;
+
+    margin: 3rem 0;
+  }
+
+  // Images (display: block & max-width already in main.scss)
+  img {
+    height: auto;
+    margin: 2rem 0;
+  }
+
+  img:first-child {
+    margin-top: 0;
+  }
+
+  img:last-child {
+    margin-bottom: 0;
+  }
+
+  figure {
+    margin: 2rem 0;
+
+    img {
+      margin: 0;
+    }
+
+    figcaption {
+      @include base-caption;
+
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+
+  // Tables
+  table {
+    @include base-table;
+
+    margin: 2rem 0;
+  }
+
+  // Definition list
+  dl {
+    margin: 2rem 0;
+  }
+
+  dt {
+    font-weight: var(--font-weight-lg);
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Address
+  address {
+    font-style: normal;
+    margin: 2rem 0;
+  }
+
+  // Abbreviation
+  abbr[title] {
+    border-bottom: 0.1rem dotted var(--color-grey-3);
+    cursor: help;
+    text-decoration: none;
+  }
+
+  // Video/Audio (display: block & max-width already in main.scss)
+  video,
+  audio {
+    margin: 2rem 0;
+  }
+
+  // Iframe
+  iframe {
+    border: none;
+    display: block;
+    margin: 2rem 0;
+    max-width: 100%;
+  }
+}
+// stylelint-enable no-descending-specificity

@@ -1,18 +1,9 @@
-import { ComponentPropsWithRef } from 'react'
-import { ColorVariant } from '../../types'
-
-export type ToastHeaderTypes = ComponentPropsWithRef<'div'> & {
-  variant?: ColorVariant
-}
-
-export type ToastBodyTypes = ComponentPropsWithRef<'div'>
+import { ReactNode } from 'react'
 
 export type ToastConfigTypes = {
   id?: number
-  variant?: ColorVariant
-  contrast?: boolean
+  children?: ReactNode
   duration?: number
-  children: React.ReactNode
   closeLabel?: string
 }
 

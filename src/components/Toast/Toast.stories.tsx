@@ -1,19 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../types'
-import { Button } from '../Form/Button'
-import { ToastBody, ToastHeader } from './Toast'
-import { Toasts } from './Toasts'
-import { useToasts } from './ToastsContext'
-
-const variants: ColorVariant[] = [
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'danger',
-  'warning',
-  'info',
-]
+import { Button, Title, Toasts, useToasts } from 'components'
 
 const meta: Meta = {
   title: 'Components/Toast',
@@ -25,48 +11,12 @@ const meta: Meta = {
       </Toasts>
     ),
   ],
-  argTypes: {
-    title: {
-      control: 'text',
-      description: 'Toast title',
-    },
-    variant: {
-      control: 'select',
-      options: variants,
-      description: 'Toast color variant',
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-    },
-    contrast: {
-      control: 'boolean',
-      description: 'Enable contrast mode for dark backgrounds',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
-  },
-  args: {
-    title: 'Toast Title',
-    variant: 'default',
-    contrast: false,
-  },
 }
 
 export default meta
 type Story = StoryObj
 
-const ToastTrigger = ({
-  title = 'Toast Title',
-  variant = 'default' as ColorVariant,
-  contrast = false,
-  body = 'Toast message.',
-}: {
-  title?: string
-  variant?: ColorVariant
-  contrast?: boolean
-  body?: string
-}) => {
+function PlaygroundStory() {
   const { addToast } = useToasts()
   return (
     <Button
@@ -74,12 +24,10 @@ const ToastTrigger = ({
       appearance="button"
       onClick={() =>
         addToast({
-          variant,
-          contrast,
           children: (
             <>
-              <ToastHeader>{title}</ToastHeader>
-              <ToastBody>{body}</ToastBody>
+              <Title level="h3">Toast title</Title>
+              <p>This is a toast notification.</p>
             </>
           ),
         })
@@ -90,81 +38,36 @@ const ToastTrigger = ({
   )
 }
 
+function LongContentStory() {
+  const { addToast } = useToasts()
+  return (
+    <Button
+      variant="primary"
+      appearance="button"
+      onClick={() =>
+        addToast({
+          children: (
+            <p>
+              This is a longer toast message that contains more detailed
+              information about what happened in your application.
+            </p>
+          ),
+        })
+      }
+    >
+      Show Toast
+    </Button>
+  )
+}
+
 export const Playground: Story = {
-  render: (args) => (
-    <ToastTrigger
-      title={args.title}
-      variant={args.variant}
-      contrast={args.contrast}
-      body="Toast notification content."
-    />
-  ),
-  args: {
-    title: 'Notification',
-    variant: 'info',
-  },
+  render: () => <PlaygroundStory />,
 }
 
-export const Success: Story = {
-  render: () => (
-    <ToastTrigger
-      title="Success"
-      variant="success"
-      body="Changes saved successfully!"
-    />
-  ),
+export const Default: Story = {
+  render: () => <PlaygroundStory />,
 }
 
-export const Danger: Story = {
-  render: () => (
-    <ToastTrigger title="Error" variant="danger" body="Something went wrong." />
-  ),
-}
-
-export const Warning: Story = {
-  render: () => (
-    <ToastTrigger
-      title="Warning"
-      variant="warning"
-      body="Please review your input."
-    />
-  ),
-}
-
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {variants.map((variant) => (
-        <ToastTrigger
-          key={variant}
-          title={variant}
-          variant={variant}
-          body={`This is a ${variant} toast.`}
-        />
-      ))}
-    </div>
-  ),
-}
-
-export const Contrast: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {variants.map((variant) => (
-        <ToastTrigger
-          key={variant}
-          title={variant}
-          variant={variant}
-          contrast
-          body={`This is a ${variant} toast in contrast mode.`}
-        />
-      ))}
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'Use the `contrast` prop to adapt toasts for dark backgrounds. Works with all variants.',
-      },
-    },
-  },
+export const LongContent: Story = {
+  render: () => <LongContentStory />,
 }

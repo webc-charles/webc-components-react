@@ -31,14 +31,17 @@ export type HeaderNavItemTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   dropdown?: ReactNode
   mega?: boolean
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderActionsTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
 }
 
-export type HeaderMobileToggleTypes = Omit<ComponentPropsWithRef<'button'>, 'children'> & {
+export type HeaderMobileToggleTypes = Omit<
+  ComponentPropsWithRef<'button'>,
+  'children'
+> & {
   label?: string
 }
 

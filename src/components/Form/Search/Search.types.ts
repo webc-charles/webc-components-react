@@ -6,7 +6,7 @@ export type SearchResultTypes = {
   [key: string]: unknown
 }
 
-export type InputSearchTypes = Omit<ComponentPropsWithRef<'input'>, 'type' | 'onChange' | 'results'> & {
+export type InputSearchTypes = Omit<ComponentPropsWithRef<'input'>, 'type' | 'onChange' | 'results' | 'onSelect'> & {
   label?: string
   inputClassName?: string
   labelClassName?: string

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import clsx from 'clsx'
-import { Button } from '../Form/Button'
-import { Link } from '../Link'
+import { Button, Grid, GridItem, Link, Title } from 'components'
 import {
   HeaderActions,
   HeaderLogo,
@@ -20,6 +19,19 @@ import {
   headerTopBarItemStyles,
   headerTopBarStyles,
 } from './index'
+
+const logoStyles = {
+  fontSize: '2rem',
+  fontWeight: 700,
+  textDecoration: 'none',
+  color: 'inherit',
+}
+
+const hrStyles = {
+  margin: '1.6rem 0',
+  border: 'none',
+  borderTop: '0.1rem solid var(--color-grey-6)',
+}
 
 const meta: Meta<typeof HeaderRoot> = {
   title: 'Components/Header',
@@ -80,25 +92,9 @@ const LanguageDropdown = () => (
 )
 
 const MegaMenuContent = () => (
-  <div
-    style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '2rem',
-    }}
-  >
-    <div>
-      <strong
-        style={{
-          display: 'block',
-          padding: '0.5rem 1.2rem',
-          color: '#666',
-          fontSize: '1.2rem',
-          textTransform: 'uppercase',
-        }}
-      >
-        Produits
-      </strong>
+  <Grid col={4} gap="md">
+    <GridItem>
+      <Title level="h4">Produits</Title>
       <Link href="/" className={dropdownLink}>
         Logiciel A
       </Link>
@@ -108,19 +104,9 @@ const MegaMenuContent = () => (
       <Link href="/" className={dropdownLink}>
         Application Mobile
       </Link>
-    </div>
-    <div>
-      <strong
-        style={{
-          display: 'block',
-          padding: '0.5rem 1.2rem',
-          color: '#666',
-          fontSize: '1.2rem',
-          textTransform: 'uppercase',
-        }}
-      >
-        Services
-      </strong>
+    </GridItem>
+    <GridItem>
+      <Title level="h4">Services</Title>
       <Link href="/" className={dropdownLink}>
         Consulting
       </Link>
@@ -130,19 +116,9 @@ const MegaMenuContent = () => (
       <Link href="/" className={dropdownLink}>
         Maintenance
       </Link>
-    </div>
-    <div>
-      <strong
-        style={{
-          display: 'block',
-          padding: '0.5rem 1.2rem',
-          color: '#666',
-          fontSize: '1.2rem',
-          textTransform: 'uppercase',
-        }}
-      >
-        Ressources
-      </strong>
+    </GridItem>
+    <GridItem>
+      <Title level="h4">Ressources</Title>
       <Link href="/" className={dropdownLink}>
         Documentation
       </Link>
@@ -152,8 +128,20 @@ const MegaMenuContent = () => (
       <Link href="/" className={dropdownLink}>
         API
       </Link>
-    </div>
-  </div>
+    </GridItem>
+    <GridItem>
+      <Title level="h4">Ressources</Title>
+      <Link href="/" className={dropdownLink}>
+        Documentation
+      </Link>
+      <Link href="/" className={dropdownLink}>
+        Tutoriels
+      </Link>
+      <Link href="/" className={dropdownLink}>
+        API
+      </Link>
+    </GridItem>
+  </Grid>
 )
 
 export const Default: Story = {
@@ -161,21 +149,13 @@ export const Default: Story = {
     <HeaderRoot {...args}>
       <HeaderMain>
         <HeaderLogo>
-          <Link
-            href="/"
-            style={{
-              fontSize: '2rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
+          <Link href="/" style={logoStyles}>
             Logo
           </Link>
         </HeaderLogo>
 
         <HeaderNav>
-          <HeaderNavItem active>
+          <HeaderNavItem current>
             <Link
               href="/"
               className={clsx(navLink, navLinkActive)}
@@ -202,13 +182,16 @@ export const Default: Story = {
         </HeaderNav>
 
         <HeaderActions>
-          <Button appearance="outline">Connexion</Button>
+          <Button appearance="outline" variant="primary">
+            Connexion
+          </Button>
           <Button appearance="button" variant="primary">
             Inscription
           </Button>
         </HeaderActions>
 
         <HeaderMobileToggle />
+
         <HeaderMobileMenu>
           <Link href="/" className={mobileLink}>
             Accueil
@@ -222,13 +205,7 @@ export const Default: Story = {
           <Link href="/" className={mobileLink}>
             Contact
           </Link>
-          <hr
-            style={{
-              margin: '1.6rem 0',
-              border: 'none',
-              borderTop: '0.1rem solid #eee',
-            }}
-          />
+          <hr style={hrStyles} />
           <Button appearance="outline" style={{ width: '100%' }}>
             Connexion
           </Button>
@@ -259,21 +236,13 @@ export const WithTopBar: Story = {
       </HeaderTopBar>
       <HeaderMain>
         <HeaderLogo>
-          <Link
-            href="/"
-            style={{
-              fontSize: '2rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
+          <Link href="/" style={logoStyles}>
             Logo
           </Link>
         </HeaderLogo>
 
         <HeaderNav>
-          <HeaderNavItem active>
+          <HeaderNavItem current>
             <Link
               href="/"
               className={clsx(navLink, navLinkActive)}
@@ -322,15 +291,7 @@ export const WithDropdowns: Story = {
     <HeaderRoot>
       <HeaderMain>
         <HeaderLogo>
-          <Link
-            href="/"
-            style={{
-              fontSize: '2rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
+          <Link href="/" style={logoStyles}>
             Logo
           </Link>
         </HeaderLogo>
@@ -341,7 +302,7 @@ export const WithDropdowns: Story = {
               Accueil
             </Link>
           </HeaderNavItem>
-          <HeaderNavItem dropdown={<ProductsDropdown />} active>
+          <HeaderNavItem dropdown={<ProductsDropdown />} current>
             Produits
           </HeaderNavItem>
           <HeaderNavItem dropdown={<ProductsDropdown />}>
@@ -398,26 +359,17 @@ export const MegaMenu: Story = {
     <HeaderRoot>
       <HeaderMain>
         <HeaderLogo>
-          <Link
-            href="/"
-            style={{
-              fontSize: '2rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-          >
+          <Link href="/" style={logoStyles}>
             Enterprise
           </Link>
         </HeaderLogo>
-
         <HeaderNav>
           <HeaderNavItem>
             <Link href="/" className={navLink}>
               Accueil
             </Link>
           </HeaderNavItem>
-          <HeaderNavItem dropdown={<MegaMenuContent />} mega active>
+          <HeaderNavItem dropdown={<MegaMenuContent />} mega current>
             Solutions
           </HeaderNavItem>
           <HeaderNavItem dropdown={<ProductsDropdown />}>
@@ -429,14 +381,14 @@ export const MegaMenu: Story = {
             </Link>
           </HeaderNavItem>
         </HeaderNav>
-
         <HeaderActions>
-          <Button appearance="outline">Se connecter</Button>
+          <Button appearance="outline" variant="primary">
+            Se connecter
+          </Button>
           <Button appearance="button" variant="primary">
             Essai gratuit
           </Button>
         </HeaderActions>
-
         <HeaderMobileToggle />
         <HeaderMobileMenu>
           <Link href="/" className={mobileLink}>
@@ -482,21 +434,13 @@ export const Sticky: Story = {
       <HeaderRoot {...args}>
         <HeaderMain>
           <HeaderLogo>
-            <Link
-              href="/"
-              style={{
-                fontSize: '2rem',
-                fontWeight: 700,
-                textDecoration: 'none',
-                color: 'inherit',
-              }}
-            >
+            <Link href="/" style={logoStyles}>
               Sticky
             </Link>
           </HeaderLogo>
 
           <HeaderNav>
-            <HeaderNavItem active>
+            <HeaderNavItem current>
               <Link
                 href="/"
                 className={clsx(navLink, navLinkActive)}
@@ -539,7 +483,7 @@ export const Sticky: Story = {
       </HeaderRoot>
 
       <div style={{ padding: '2rem', height: '200vh' }}>
-        <h1>Scroll down to see sticky header</h1>
+        <Title>Scroll down to see sticky header</Title>
         <p style={{ marginTop: '2rem' }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>

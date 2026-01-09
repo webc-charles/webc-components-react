@@ -76,6 +76,7 @@ export function InputDate({
   const gridRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const applyButtonRef = useRef<HTMLButtonElement>(null)
+  const hasInitialFocusRef = useRef(false)
 
   const today = useMemo(() => new Date(), [])
 
@@ -105,6 +106,7 @@ export function InputDate({
     if (disabled) return
     setViewDate(selected || new Date())
     setPendingDate(selected)
+    hasInitialFocusRef.current = false
     setIsOpen(true)
   }, [disabled, selected])
 
@@ -209,22 +211,29 @@ export function InputDate({
     [calendarDays, firstDayOfMonth, year, month, handleSelectDate]
   )
 
-  // Focus selected/today day when modal content mounts
-  const handleModalReady = useCallback(() => {
-    setTimeout(() => {
-      const selectedBtn = gridRef.current?.querySelector(
-        'button[data-selected="true"]'
-      ) as HTMLButtonElement
-      const todayBtn = gridRef.current?.querySelector(
-        'button[data-today="true"]'
-      ) as HTMLButtonElement
-      const firstBtn = gridRef.current?.querySelector(
-        'button[data-date]:not(:disabled)'
-      ) as HTMLButtonElement
+  // Focus selected/today day when modal opens (only once)
+  const handleGridRef = useCallback(
+    (el: HTMLDivElement | null) => {
+      gridRef.current = el
+      if (el && !hasInitialFocusRef.current) {
+        hasInitialFocusRef.current = true
+        setTimeout(() => {
+          const selectedBtn = el.querySelector(
+            'button[data-selected="true"]'
+          ) as HTMLButtonElement
+          const todayBtn = el.querySelector(
+            'button[data-today="true"]'
+          ) as HTMLButtonElement
+          const firstBtn = el.querySelector(
+            'button[data-date]:not(:disabled)'
+          ) as HTMLButtonElement
 
-      ;(selectedBtn || todayBtn || firstBtn)?.focus()
-    }, 50)
-  }, [])
+          ;(selectedBtn || todayBtn || firstBtn)?.focus()
+        }, 50)
+      }
+    },
+    []
+  )
 
   // The date to highlight as selected in the grid
   const displaySelected = pendingDate
@@ -267,12 +276,7 @@ export function InputDate({
 
       {isOpen && (
         <Modal id={1} size="sm" onRemove={handleCancel} hideCloseButton>
-          <div
-            className={styles.calendar}
-            ref={(el) => {
-              if (el) handleModalReady()
-            }}
-          >
+          <div className={styles.calendar}>
             <div className={styles.header}>
               <Button
                 type="button"
@@ -310,7 +314,7 @@ export function InputDate({
             </div>
 
             <div
-              ref={gridRef}
+              ref={handleGridRef}
               className={styles.grid}
               role="grid"
               aria-label={`${str.months[month]} ${year}`}
@@ -363,6 +367,7 @@ export function InputDate({
               <Button
                 type="button"
                 appearance="button"
+                variant="default"
                 onClick={handleCancel}
                 className={styles.footerButton}
               >

@@ -6,9 +6,10 @@ import type { HeaderNavItemTypes } from './Header.types'
 import styles from './HeaderNavItem.module.scss'
 
 export const headerNavItemStyles = {
+  dropdownLink: styles.dropdownLink,
+  dropdownLinkActive: styles.dropdownLinkActive,
   navLink: styles.navLink,
   navLinkActive: styles.navLinkActive,
-  dropdownLink: styles.dropdownLink,
 }
 
 export function HeaderNavItem({
@@ -16,7 +17,7 @@ export function HeaderNavItem({
   children,
   dropdown,
   mega = false,
-  active = false,
+  current = false,
   className,
   ...rest
 }: HeaderNavItemTypes) {
@@ -58,6 +59,7 @@ export function HeaderNavItem({
 
     document.addEventListener('mousedown', handleClickOutside)
     document.addEventListener('keydown', handleEscape)
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
       document.removeEventListener('keydown', handleEscape)
@@ -76,22 +78,28 @@ export function HeaderNavItem({
       e.preventDefault()
       setIsOpen((prev) => !prev)
     }
+
     if (e.key === 'ArrowDown') {
       e.preventDefault()
+
       if (!isOpen) {
         setIsOpen(true)
       } else {
         const firstElement = dropdownRef.current?.querySelector<HTMLElement>(
           'a[href], button:not([disabled])'
         )
+
         firstElement?.focus()
       }
     }
+
     if (e.key === 'ArrowUp' && isOpen) {
       e.preventDefault()
+
       const elements = dropdownRef.current?.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled])'
       )
+
       elements?.[elements.length - 1]?.focus()
     }
   }
@@ -100,7 +108,7 @@ export function HeaderNavItem({
     return (
       <div
         ref={ref}
-        className={clsx(styles.navItem, active && styles.isActive, className)}
+        className={clsx(styles.navItem, current && styles.isCurrent, className)}
         {...rest}
       >
         {children}
@@ -115,7 +123,7 @@ export function HeaderNavItem({
         styles.navItem,
         styles.hasDropdown,
         mega && styles.hasMega,
-        active && styles.isActive,
+        current && styles.isCurrent,
         className
       )}
       onMouseEnter={() => setIsOpen(true)}
@@ -126,10 +134,10 @@ export function HeaderNavItem({
       <Button
         ref={triggerRef}
         type="button"
-        className={clsx(styles.trigger, active && styles.triggerActive)}
+        className={clsx(styles.trigger, current && styles.triggerActive)}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        aria-current={active ? 'page' : undefined}
+        aria-current={current ? 'page' : undefined}
         onClick={() => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >

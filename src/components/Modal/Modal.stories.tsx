@@ -60,7 +60,7 @@ const ModalTrigger = ({
 }
 
 export const Playground: Story = {
-  render: (args) => (
+  render: (args: { title?: string; size?: 'sm' | 'md' | 'lg' }) => (
     <ModalTrigger title={args.title} size={args.size}>
       <p>Click the button to open the modal.</p>
     </ModalTrigger>

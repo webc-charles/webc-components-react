@@ -50,24 +50,6 @@ export const TextSeparator: Story = {
   },
 }
 
-export const WithCustomRenderLink: Story = {
-  args: {
-    items: [
-      { label: 'Accueil', href: '/' },
-      { label: 'Dashboard', href: '/dashboard' },
-      { label: 'Paramètres' },
-    ],
-    renderLink: (item, children) => (
-      <a
-        href={item.href}
-        style={{ color: 'var(--color-primary-1)', fontWeight: 500 }}
-      >
-        {children}
-      </a>
-    ),
-  },
-}
-
 export const LongBreadcrumb: Story = {
   args: {
     items: [

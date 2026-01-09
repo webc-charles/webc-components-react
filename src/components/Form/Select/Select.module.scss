@@ -3,9 +3,7 @@
 // WRAPPER & LABEL
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  @include formWrapper;
 }
 
 .label {

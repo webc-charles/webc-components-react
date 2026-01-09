@@ -1,8 +1,7 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  @include formWrapper;
 }
 
 .label {

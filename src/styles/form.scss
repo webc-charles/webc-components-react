@@ -1,5 +1,11 @@
 @use 'styles/mq' as *;
 
+@mixin formWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 @mixin formLabel {
   color: var(--color-black);
   font-size: var(--font-size-3);

@@ -1,8 +1,8 @@
-@use 'styles/colors' as *;
-@use 'styles/typography' as *;
+@use 'styles/color' as *;
+@use 'styles/typo' as *;
 
 .note {
-  @include note-base;
+  @include base-note;
 
   display: flex;
   flex-direction: column;

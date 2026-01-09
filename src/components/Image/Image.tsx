@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import clsx from 'clsx'
 import styles from './Image.module.scss'
 import { ImageTypes } from './Image.types'
@@ -38,26 +39,46 @@ export function Image({
   position,
   aspectRatio,
   radius,
+  caption,
   style,
   ...props
 }: ImageTypes) {
-  const classList = clsx(
+  const captionId = useId()
+
+  const imageClass = clsx(
     styles.image,
     fit && fitClassMap[fit],
     position && positionClassMap[position],
     radius && radiusClassMap[radius],
-    className
+    !caption && className
   )
 
   const imageStyle = aspectRatio ? { ...style, aspectRatio } : style
 
-  return (
+  const img = (
     <img
       ref={ref}
-      className={classList}
+      className={imageClass}
       alt={alt}
       style={imageStyle}
       {...props}
     />
   )
+
+  if (caption) {
+    return (
+      <figure
+        role="group"
+        aria-labelledby={captionId}
+        className={clsx(styles.figure, className)}
+      >
+        {img}
+        <figcaption id={captionId} className={styles.caption}>
+          {caption}
+        </figcaption>
+      </figure>
+    )
+  }
+
+  return img
 }

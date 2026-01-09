@@ -14,11 +14,6 @@ describe('Spinner', () => {
     expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Loading data')
   })
 
-  it('applies variant class', () => {
-    render(<Spinner variant="primary" data-testid="spinner" />)
-    expect(screen.getByTestId('spinner').className).toMatch(/variant-primary/)
-  })
-
   it('applies size class', () => {
     render(<Spinner size="lg" data-testid="spinner" />)
     expect(screen.getByTestId('spinner').className).toMatch(/size-lg/)

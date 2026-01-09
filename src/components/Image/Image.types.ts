@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react'
+import { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type ImageFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
 
@@ -26,4 +26,6 @@ export type ImageTypes = Omit<ComponentPropsWithRef<'img'>, 'alt'> & {
   aspectRatio?: string
   /** Border radius preset */
   radius?: ImageRadius
+  /** Caption text displayed below the image (wraps in figure/figcaption) */
+  caption?: ReactNode
 }

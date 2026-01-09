@@ -62,6 +62,10 @@ const meta: Meta<typeof Image> = {
       options: [undefined, ...radiusOptions],
       description: 'Border radius preset',
     },
+    caption: {
+      control: 'text',
+      description: 'Caption text (wraps image in figure/figcaption)',
+    },
   },
 }
 
@@ -87,6 +91,53 @@ export const Playground: Story = {
       <Image {...args} style={{ width: '100%', height: '100%' }} />
     </div>
   ),
+}
+
+export const WithCaption: Story = {
+  render: () => (
+    <Image
+      src="https://picsum.photos/600/400"
+      alt="A beautiful landscape"
+      caption="© 2024 Photographer Name - All rights reserved"
+      radius="medium"
+      style={{ maxWidth: '400px' }}
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'When a caption is provided, the image is wrapped in a `<figure>` element with proper ARIA attributes for accessibility.',
+      },
+    },
+  },
+}
+
+export const CaptionWithLink: Story = {
+  render: () => (
+    <Image
+      src="https://picsum.photos/600/400"
+      alt="Mountain landscape at sunset"
+      caption={
+        <>
+          Photo by{' '}
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+            John Doe
+          </a>{' '}
+          on Unsplash
+        </>
+      }
+      radius="medium"
+      style={{ maxWidth: '400px' }}
+    />
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Captions can contain rich content like links.',
+      },
+    },
+  },
 }
 
 export const ObjectFitCover: Story = {

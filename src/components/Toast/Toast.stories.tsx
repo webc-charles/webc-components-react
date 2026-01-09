@@ -60,6 +60,62 @@ function LongContentStory() {
   )
 }
 
+function MultipleToastsStory() {
+  const { addToast } = useToasts()
+  return (
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <Button
+        variant="primary"
+        appearance="button"
+        onClick={() =>
+          addToast({
+            children: (
+              <>
+                <Title level="h3">First Toast</Title>
+                <p>This is the first notification.</p>
+              </>
+            ),
+          })
+        }
+      >
+        Toast 1
+      </Button>
+      <Button
+        variant="secondary"
+        appearance="button"
+        onClick={() =>
+          addToast({
+            children: (
+              <>
+                <Title level="h3">Second Toast</Title>
+                <p>This is the second notification.</p>
+              </>
+            ),
+          })
+        }
+      >
+        Toast 2
+      </Button>
+      <Button
+        variant="default"
+        appearance="button"
+        onClick={() =>
+          addToast({
+            children: (
+              <>
+                <Title level="h3">Third Toast</Title>
+                <p>This is the third notification.</p>
+              </>
+            ),
+          })
+        }
+      >
+        Toast 3
+      </Button>
+    </div>
+  )
+}
+
 export const Playground: Story = {
   render: () => <PlaygroundStory />,
 }
@@ -70,4 +126,8 @@ export const Default: Story = {
 
 export const LongContent: Story = {
   render: () => <LongContentStory />,
+}
+
+export const MultipleToasts: Story = {
+  render: () => <MultipleToastsStory />,
 }

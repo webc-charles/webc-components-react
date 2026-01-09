@@ -4,6 +4,17 @@
   max-width: 100%;
 }
 
+.figure {
+  display: inline-block;
+  margin: 0;
+}
+
+.caption {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-3);
+  margin-top: 0.5rem;
+}
+
 // Object-fit variants
 .fitCover {
   object-fit: cover;

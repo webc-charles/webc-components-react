@@ -9,6 +9,8 @@ const wrapperStyle: CSSProperties = {
   padding: '5rem',
   display: 'flex',
   justifyContent: 'center',
+  minHeight: '30rem',
+  alignItems: 'center',
 }
 const paragraphStyle: CSSProperties = {
   alignItems: 'center',
@@ -62,7 +64,7 @@ type Story = StoryObj<typeof Tooltip>
 export const Default: Story = {
   render: (args) => (
     <div style={wrapperStyle}>
-      <p>
+      <p style={paragraphStyle}>
         <Tooltip {...args}>
           <Info size={20} />
         </Tooltip>
@@ -106,12 +108,14 @@ export const LongContent: Story = {
       'This is a longer tooltip with more detailed information that wraps to multiple lines.',
   },
   render: (args) => (
-    <p style={paragraphStyle}>
-      <Tooltip {...args}>
-        <Info size={20} />
-      </Tooltip>
-      Hover for details
-    </p>
+    <div style={wrapperStyle}>
+      <p style={paragraphStyle}>
+        <Tooltip {...args}>
+          <Info size={20} />
+        </Tooltip>
+        Hover for details
+      </p>
+    </div>
   ),
 }
 
@@ -119,7 +123,7 @@ export const WithReactContent: Story = {
   render: () => {
     const TooltipContent = (
       <>
-        <Title level="h3">Bold title</Title>
+        <Title level="h5">Bold title</Title>
         <p style={{ opacity: 0.8 }}>Additional info</p>
       </>
     )
@@ -177,36 +181,51 @@ export const EdgeDetection: Story = {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Tooltip
-          content="This tooltip should flip to the right"
-          position="left"
-          delay={0}
-        >
-          <p>Left edge</p>
-        </Tooltip>
-        <Tooltip
-          content="This tooltip should flip to the left"
-          position="right"
-          delay={0}
-        >
-          <p>Right edge</p>
-        </Tooltip>
+        <p style={paragraphStyle}>
+          <Tooltip
+            content="This tooltip should flip to the right"
+            position="left"
+            delay={0}
+          >
+            <Info size={20} />
+          </Tooltip>
+          Tooltip
+        </p>
+
+        <p style={paragraphStyle}>
+          <Tooltip
+            content="This tooltip should flip to the left"
+            position="right"
+            delay={0}
+          >
+            <Info size={20} />
+          </Tooltip>
+          Tooltip
+        </p>
       </div>
+
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Tooltip
-          content="This is a long tooltip that should shift to stay in viewport"
-          position="top"
-          delay={0}
-        >
-          <p>Long tooltip left</p>
-        </Tooltip>
-        <Tooltip
-          content="This is a long tooltip that should shift to stay in viewport"
-          position="top"
-          delay={0}
-        >
-          <p>Long tooltip right</p>
-        </Tooltip>
+        <p style={paragraphStyle}>
+          <Tooltip
+            content="This is a long tooltip that should shift to stay in viewport"
+            position="top"
+            delay={0}
+          >
+            <Info size={20} />
+          </Tooltip>
+          Tooltip
+        </p>
+
+        <p style={paragraphStyle}>
+          <Tooltip
+            content="This is a long tooltip that should shift to stay in viewport"
+            position="top"
+            delay={0}
+          >
+            <Info size={20} />
+          </Tooltip>
+          Tooltip
+        </p>
       </div>
     </div>
   ),

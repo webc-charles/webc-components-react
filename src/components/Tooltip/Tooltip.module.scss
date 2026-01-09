@@ -30,7 +30,7 @@ $arrow-size: 0.6rem;
 
 // Positions
 .top {
-  bottom: 100%;
+  bottom: calc(100% + 0.5rem);
   left: 50%;
   margin-bottom: $arrow-size;
   transform: translateX(-50%);
@@ -46,7 +46,7 @@ $arrow-size: 0.6rem;
 .bottom {
   left: 50%;
   margin-top: $arrow-size;
-  top: 100%;
+  top: calc(100% + 0.5rem);
   transform: translateX(-50%);
 
   .arrow {
@@ -59,7 +59,7 @@ $arrow-size: 0.6rem;
 
 .left {
   margin-right: $arrow-size;
-  right: 100%;
+  right: calc(100% + 0.5rem);
   top: 50%;
   transform: translateY(-50%);
 
@@ -72,7 +72,7 @@ $arrow-size: 0.6rem;
 }
 
 .right {
-  left: 100%;
+  left: calc(100% + 0.5rem);
   margin-left: $arrow-size;
   top: 50%;
   transform: translateY(-50%);

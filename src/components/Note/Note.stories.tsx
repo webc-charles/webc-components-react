@@ -25,13 +25,6 @@ const meta: Meta<typeof Note> = {
         defaultValue: { summary: 'default' },
       },
     },
-    contrast: {
-      control: 'boolean',
-      description: 'Enable contrast mode for dark backgrounds',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
     children: {
       control: 'text',
       description: 'Note content',
@@ -40,7 +33,6 @@ const meta: Meta<typeof Note> = {
   args: {
     children: 'This is a note message.',
     variant: 'default',
-    contrast: false,
   },
 }
 
@@ -74,28 +66,4 @@ export const AllVariants: Story = {
       ))}
     </div>
   ),
-}
-
-export const Contrast: Story = {
-  render: () => (
-    <div
-      style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
-    >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        {variants.map((v) => (
-          <Note variant={v} contrast key={v}>
-            <Title level="h3">{v}</Title>
-            <p>This is a {v} note in contrast mode for dark backgrounds.</p>
-          </Note>
-        ))}
-      </div>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'Use the `contrast` prop to adapt notes for dark backgrounds.',
-      },
-    },
-  },
 }

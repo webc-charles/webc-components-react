@@ -5,7 +5,6 @@ import { NoteTypes } from './Note.types'
 export function Note({
   ref,
   variant = 'default',
-  contrast,
   className,
   children,
   ...rest
@@ -16,12 +15,7 @@ export function Note({
     <aside
       ref={ref}
       role="note"
-      className={clsx(
-        styles.note,
-        styles[`variant-${variant}`],
-        contrast && styles.contrast,
-        className
-      )}
+      className={clsx(styles.note, styles[`variant-${variant}`], className)}
       {...rest}
     >
       {children}

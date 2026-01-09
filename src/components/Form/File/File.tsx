@@ -2,6 +2,7 @@ import { ChangeEvent, DragEvent, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { Upload } from 'lucide-react'
+import { Button } from 'components'
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 
@@ -177,7 +178,7 @@ export function InputFile({
         </div>
       ) : (
         <div className={styles.inline}>
-          <button
+          <Button
             type="button"
             onClick={handleClick}
             disabled={disabled}
@@ -186,7 +187,7 @@ export function InputFile({
             <Upload size={16} aria-hidden />
 
             {getButtonText()}
-          </button>
+          </Button>
 
           {showFileNames && (
             <span className={styles.fileNames}>{getFileDisplay()}</span>

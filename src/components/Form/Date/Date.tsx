@@ -251,7 +251,7 @@ export function InputDate({
           className={styles.input}
         />
 
-        <button
+        <Button
           type="button"
           ref={triggerRef}
           disabled={disabled}
@@ -262,7 +262,7 @@ export function InputDate({
           aria-haspopup="dialog"
         >
           <Calendar size={18} aria-hidden />
-        </button>
+        </Button>
       </div>
 
       {isOpen && (
@@ -274,27 +274,31 @@ export function InputDate({
             }}
           >
             <div className={styles.header}>
-              <button
+              <Button
                 type="button"
                 onClick={handlePrevMonth}
                 className={styles.navButton}
                 aria-label={str.previous_month}
               >
                 <ChevronLeft size={18} aria-hidden />
-              </button>
+              </Button>
 
-              <span className={styles.monthYear} aria-live="polite" aria-atomic="true">
+              <span
+                className={styles.monthYear}
+                aria-live="polite"
+                aria-atomic="true"
+              >
                 {str.months[month]} {year}
               </span>
 
-              <button
+              <Button
                 type="button"
                 onClick={handleNextMonth}
                 className={styles.navButton}
                 aria-label={str.next_month}
               >
                 <ChevronRight size={18} aria-hidden />
-              </button>
+              </Button>
             </div>
 
             <div className={styles.weekdays} role="row">
@@ -328,7 +332,7 @@ export function InputDate({
                 const isToday = isSameDay(date, today)
 
                 return (
-                  <button
+                  <Button
                     key={date.toISOString()}
                     role="gridcell"
                     type="button"
@@ -350,7 +354,7 @@ export function InputDate({
                     }
                   >
                     {date.getDate()}
-                  </button>
+                  </Button>
                 )
               })}
             </div>

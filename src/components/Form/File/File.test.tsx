@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi, beforeAll } from 'vitest'
+import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { InputFile } from './File'
 
 // Mock DataTransfer for jsdom
@@ -49,8 +49,10 @@ describe('InputFile', () => {
     render(<InputFile onChange={handleChange} data-testid="file-input" />)
 
     const file = createFile('test.pdf', 'application/pdf')
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement
-    
+    const input = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement
+
     await user.upload(input, file)
 
     expect(handleChange).toHaveBeenCalledTimes(1)
@@ -62,7 +64,9 @@ describe('InputFile', () => {
     render(<InputFile />)
 
     const file = createFile('document.pdf', 'application/pdf')
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement
+    const input = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement
 
     await user.upload(input, file)
 
@@ -78,7 +82,9 @@ describe('InputFile', () => {
       createFile('doc2.pdf', 'application/pdf'),
       createFile('doc3.pdf', 'application/pdf'),
     ]
-    const input = document.querySelector('input[type="file"]') as HTMLInputElement
+    const input = document.querySelector(
+      'input[type="file"]'
+    ) as HTMLInputElement
 
     await user.upload(input, files)
 
@@ -87,8 +93,9 @@ describe('InputFile', () => {
 
   it('renders dropzone mode', () => {
     render(<InputFile dropzone />)
-    // No <button> element in dropzone mode, but the dropzone div has role="button"
-    expect(screen.queryByRole('button', { name: /choisir/i })).toBeInTheDocument()
+    expect(
+      screen.queryByRole('button', { name: /choisir/i })
+    ).toBeInTheDocument()
     expect(screen.getByText('Choisir un fichier')).toBeInTheDocument()
   })
 
@@ -99,7 +106,9 @@ describe('InputFile', () => {
 
   it('hides file names when showFileNames is false', () => {
     render(<InputFile showFileNames={false} />)
-    expect(screen.queryByText('Aucun fichier sélectionné')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('Aucun fichier sélectionné')
+    ).not.toBeInTheDocument()
   })
 
   it('is disabled when disabled prop is true', () => {
@@ -109,7 +118,9 @@ describe('InputFile', () => {
 
   it('handles drag and drop in dropzone mode', () => {
     const handleChange = vi.fn()
-    render(<InputFile dropzone onChange={handleChange} data-testid="dropzone" />)
+    render(
+      <InputFile dropzone onChange={handleChange} data-testid="dropzone" />
+    )
 
     const dropzone = screen.getByRole('button')
     const file = createFile('dropped.pdf', 'application/pdf')
@@ -209,7 +220,9 @@ describe('InputFile', () => {
 
     it('accepts files matching exact MIME type', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone accept="application/pdf" onChange={handleChange} />)
+      render(
+        <InputFile dropzone accept="application/pdf" onChange={handleChange} />
+      )
 
       const dropzone = screen.getByRole('button')
       const file = createFile('document.pdf', 'application/pdf')
@@ -227,7 +240,14 @@ describe('InputFile', () => {
 
     it('filters multiple dropped files by accept', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone multiple accept=".jpg,.png" onChange={handleChange} />)
+      render(
+        <InputFile
+          dropzone
+          multiple
+          accept=".jpg,.png"
+          onChange={handleChange}
+        />
+      )
 
       const dropzone = screen.getByRole('button')
       const files = [
@@ -238,7 +258,11 @@ describe('InputFile', () => {
 
       const dataTransfer = {
         files,
-        items: files.map((f) => ({ kind: 'file', type: f.type, getAsFile: () => f })),
+        items: files.map((f) => ({
+          kind: 'file',
+          type: f.type,
+          getAsFile: () => f,
+        })),
         types: ['Files'],
       }
 
@@ -251,7 +275,9 @@ describe('InputFile', () => {
 
     it('sets accept attribute on input element', () => {
       render(<InputFile accept=".pdf" />)
-      const input = document.querySelector('input[type="file"]') as HTMLInputElement
+      const input = document.querySelector(
+        'input[type="file"]'
+      ) as HTMLInputElement
       expect(input).toHaveAttribute('accept', '.pdf')
     })
   })

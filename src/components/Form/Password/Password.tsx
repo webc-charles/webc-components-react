@@ -1,7 +1,8 @@
 import { useId, useState } from 'react'
-import { Eye, EyeOff } from 'lucide-react'
 import clsx from 'clsx'
 import { str } from 'i18n'
+import { Eye, EyeOff } from 'lucide-react'
+import { Button } from 'components'
 import styles from './Password.module.scss'
 import type { InputPasswordTypes } from './Password.types'
 
@@ -38,7 +39,7 @@ export function InputPassword({
           className={clsx(styles.input, inputClassName)}
         />
 
-        <button
+        <Button
           type="button"
           id={toggleId}
           disabled={disabled}
@@ -47,8 +48,12 @@ export function InputPassword({
           aria-label={showPassword ? str.hide : str.show}
           aria-pressed={showPassword}
         >
-          {showPassword ? <EyeOff size={18} aria-hidden /> : <Eye size={18} aria-hidden />}
-        </button>
+          {showPassword ? (
+            <EyeOff size={18} aria-hidden />
+          ) : (
+            <Eye size={18} aria-hidden />
+          )}
+        </Button>
       </div>
     </div>
   )

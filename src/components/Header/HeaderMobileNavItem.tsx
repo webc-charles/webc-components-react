@@ -1,8 +1,9 @@
-import { useState, useId, useRef, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
-import styles from './HeaderMobileNavItem.module.scss'
+import { Button } from 'components'
 import type { HeaderMobileNavItemTypes } from './Header.types'
+import styles from './HeaderMobileNavItem.module.scss'
 
 export const headerMobileNavItemStyles = {
   subLink: styles.subLink,
@@ -39,7 +40,7 @@ export function HeaderMobileNavItem({
 
   return (
     <div ref={ref} className={clsx(styles.item, className)} {...rest}>
-      <button
+      <Button
         type="button"
         className={styles.trigger}
         onClick={() => setIsExpanded((prev) => !prev)}
@@ -52,7 +53,7 @@ export function HeaderMobileNavItem({
           aria-hidden="true"
           className={clsx(styles.chevron, isExpanded && styles.chevronOpen)}
         />
-      </button>
+      </Button>
       <div
         ref={setContentRef}
         id={contentId}

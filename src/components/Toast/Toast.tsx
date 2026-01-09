@@ -2,6 +2,7 @@ import { useEffect, useEffectEvent, useState } from 'react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { X } from 'lucide-react'
+import { Button } from 'components'
 import styles from './Toast.module.scss'
 import { ToastTypes } from './Toast.types'
 
@@ -49,7 +50,7 @@ export function Toast({
     >
       <div className={styles.container}>{children}</div>
 
-      <button
+      <Button
         type="button"
         title={closeLabel}
         onClick={handleRemove}
@@ -57,7 +58,7 @@ export function Toast({
         className={styles.close}
       >
         <X size={18} aria-hidden />
-      </button>
+      </Button>
     </div>
   )
 }

@@ -20,9 +20,21 @@ describe('Link', () => {
     expect(screen.getByTestId('link')).toHaveAttribute('href', 'https://example.com')
   })
 
-  it('applies variant class', () => {
+  it('has no styled class without variant or appearance', () => {
+    render(<Link data-testid="link" href="#">Unstyled</Link>)
+    expect(screen.getByTestId('link').className).not.toMatch(/styled/)
+  })
+
+  it('has styled class with variant', () => {
     render(<Link data-testid="link" href="#" variant="primary">Primary</Link>)
+    expect(screen.getByTestId('link').className).toMatch(/styled/)
     expect(screen.getByTestId('link').className).toMatch(/variant-primary/)
+  })
+
+  it('has styled class with appearance', () => {
+    render(<Link data-testid="link" href="#" appearance="button">Styled</Link>)
+    expect(screen.getByTestId('link').className).toMatch(/styled/)
+    expect(screen.getByTestId('link').className).toMatch(/appearance-button/)
   })
 
   it('applies custom className', () => {

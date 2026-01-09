@@ -1,7 +1,13 @@
 import { useMemo } from 'react'
 import clsx from 'clsx'
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
 import { str } from 'i18n'
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from 'lucide-react'
+import { Link } from 'components'
 import styles from './Pagination.module.scss'
 import type { PaginationTypes } from './Pagination.types'
 
@@ -22,8 +28,14 @@ function generatePageRange(
     return range(1, totalPages)
   }
 
-  const leftSiblingIndex = Math.max(currentPage - siblingCount, boundaryCount + 1)
-  const rightSiblingIndex = Math.min(currentPage + siblingCount, totalPages - boundaryCount)
+  const leftSiblingIndex = Math.max(
+    currentPage - siblingCount,
+    boundaryCount + 1
+  )
+  const rightSiblingIndex = Math.min(
+    currentPage + siblingCount,
+    totalPages - boundaryCount
+  )
 
   const showLeftEllipsis = leftSiblingIndex > boundaryCount + 2
   const showRightEllipsis = rightSiblingIndex < totalPages - boundaryCount - 1
@@ -44,7 +56,13 @@ function generatePageRange(
   }
 
   const middleRange = range(leftSiblingIndex, rightSiblingIndex)
-  return [...leftBoundary, 'ellipsis', ...middleRange, 'ellipsis', ...rightBoundary]
+  return [
+    ...leftBoundary,
+    'ellipsis',
+    ...middleRange,
+    'ellipsis',
+    ...rightBoundary,
+  ]
 }
 
 export function Pagination({
@@ -64,7 +82,8 @@ export function Pagination({
   ...rest
 }: PaginationTypes) {
   const pages = useMemo(
-    () => generatePageRange(currentPage, totalPages, siblingCount, boundaryCount),
+    () =>
+      generatePageRange(currentPage, totalPages, siblingCount, boundaryCount),
     [currentPage, totalPages, siblingCount, boundaryCount]
   )
 
@@ -89,7 +108,11 @@ export function Pagination({
           aria-label={ariaLabel}
           aria-current={isCurrent ? 'page' : undefined}
           aria-disabled="true"
-          className={clsx(styles.page, isCurrent && styles.current, styles.disabled)}
+          className={clsx(
+            styles.page,
+            isCurrent && styles.current,
+            styles.disabled
+          )}
         >
           {children}
         </span>
@@ -97,22 +120,18 @@ export function Pagination({
     }
 
     if (renderLink) {
-      return (
-        <span className={styles.page}>
-          {renderLink(page, children)}
-        </span>
-      )
+      return <span className={styles.page}>{renderLink(page, children)}</span>
     }
 
     return (
-      <a
+      <Link
         href={getPageHref(page)}
         aria-label={ariaLabel}
         className={styles.page}
         onClick={(e) => handleClick(e, page)}
       >
         {children}
-      </a>
+      </Link>
     )
   }
 
@@ -137,22 +156,18 @@ export function Pagination({
     }
 
     if (renderLink) {
-      return (
-        <span className={styles.nav}>
-          {renderLink(page, children)}
-        </span>
-      )
+      return <span className={styles.nav}>{renderLink(page, children)}</span>
     }
 
     return (
-      <a
+      <Link
         href={getPageHref(page)}
         aria-label={ariaLabel}
         className={styles.nav}
         onClick={(e) => handleClick(e, page)}
       >
         {children}
-      </a>
+      </Link>
     )
   }
 
@@ -162,7 +177,11 @@ export function Pagination({
     <nav
       ref={ref}
       aria-label={ariaLabel ?? str.pagination}
-      className={clsx(styles.pagination, disabled && styles.disabled, className)}
+      className={clsx(
+        styles.pagination,
+        disabled && styles.disabled,
+        className
+      )}
       {...rest}
     >
       <ul className={styles.list}>

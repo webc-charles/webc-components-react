@@ -2,6 +2,7 @@ import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { X } from 'lucide-react'
+import { Button } from 'components'
 import styles from './Modal.module.scss'
 import { ModalTypes } from './Modal.types'
 
@@ -149,7 +150,7 @@ export function Modal({
         )}
 
         {!hideCloseButton && (
-          <button
+          <Button
             type="button"
             title={closeLabel}
             onClick={handleRemove}
@@ -157,7 +158,7 @@ export function Modal({
             className={styles.close}
           >
             <X size={16} aria-hidden />
-          </button>
+          </Button>
         )}
 
         <div id={modalDescId} className={styles.modalBody}>

@@ -1,7 +1,21 @@
+import { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../Form/Button'
+import { Info } from 'lucide-react'
+import { Title } from 'components/Title'
 import { Tooltip } from './Tooltip'
 import { TooltipPosition } from './Tooltip.types'
+
+const wrapperStyle: CSSProperties = {
+  padding: '5rem',
+  display: 'flex',
+  justifyContent: 'center',
+}
+const paragraphStyle: CSSProperties = {
+  alignItems: 'center',
+  display: 'flex',
+  gap: '.5rem',
+  justifyContent: 'center',
+}
 
 const positions: TooltipPosition[] = ['top', 'bottom', 'left', 'right']
 
@@ -47,10 +61,13 @@ type Story = StoryObj<typeof Tooltip>
 
 export const Default: Story = {
   render: (args) => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
-      <Tooltip {...args}>
-        <Button appearance="button">Hover me</Button>
-      </Tooltip>
+    <div style={wrapperStyle}>
+      <p>
+        <Tooltip {...args}>
+          <Info size={20} />
+        </Tooltip>
+        Hover me
+      </p>
     </div>
   ),
 }
@@ -67,14 +84,17 @@ export const AllPositions: Story = {
       }}
     >
       {positions.map((pos) => (
-        <Tooltip
-          key={pos}
-          content={`Tooltip on ${pos}`}
-          position={pos}
-          delay={0}
-        >
-          <Button appearance="outline">{pos}</Button>
-        </Tooltip>
+        <p style={paragraphStyle}>
+          <Tooltip
+            key={pos}
+            content={`Tooltip on ${pos}`}
+            position={pos}
+            delay={0}
+          >
+            <Info size={20} />
+          </Tooltip>
+          {pos}
+        </p>
       ))}
     </div>
   ),
@@ -86,42 +106,35 @@ export const LongContent: Story = {
       'This is a longer tooltip with more detailed information that wraps to multiple lines.',
   },
   render: (args) => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
+    <p style={paragraphStyle}>
       <Tooltip {...args}>
-        <Button appearance="button">Hover for details</Button>
+        <Info size={20} />
       </Tooltip>
-    </div>
+      Hover for details
+    </p>
   ),
 }
 
 export const WithReactContent: Story = {
-  render: () => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
-      <Tooltip
-        content={
-          <>
-            <strong>Bold title</strong>
-            <span style={{ opacity: 0.8 }}>Additional info</span>
-          </>
-        }
-        delay={0}
-      >
-        <Button appearance="button">Rich tooltip</Button>
-      </Tooltip>
-    </div>
-  ),
-}
+  render: () => {
+    const TooltipContent = (
+      <>
+        <Title level="h3">Bold title</Title>
+        <p style={{ opacity: 0.8 }}>Additional info</p>
+      </>
+    )
 
-export const OnIconButton: Story = {
-  render: () => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
-      <Tooltip content="Settings" position="bottom" delay={0}>
-        <Button appearance="button" aria-label="Settings">
-          ⚙️
-        </Button>
-      </Tooltip>
-    </div>
-  ),
+    return (
+      <div style={wrapperStyle}>
+        <p style={paragraphStyle}>
+          <Tooltip content={TooltipContent} delay={0}>
+            <Info size={20} />
+          </Tooltip>
+          Hover for details
+        </p>
+      </div>
+    )
+  },
 }
 
 export const Disabled: Story = {
@@ -129,10 +142,13 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
-      <Tooltip {...args}>
-        <Button appearance="button">No tooltip</Button>
-      </Tooltip>
+    <div style={wrapperStyle}>
+      <p style={paragraphStyle}>
+        <Tooltip {...args}>
+          <Info size={20} />
+        </Tooltip>
+        No tooltip
+      </p>
     </div>
   ),
 }
@@ -142,9 +158,9 @@ export const NoDelay: Story = {
     delay: 0,
   },
   render: (args) => (
-    <div style={{ padding: '5rem', display: 'flex', justifyContent: 'center' }}>
+    <div style={wrapperStyle}>
       <Tooltip {...args}>
-        <Button appearance="button">Instant tooltip</Button>
+        <p>Instant tooltip</p>
       </Tooltip>
     </div>
   ),
@@ -166,14 +182,14 @@ export const EdgeDetection: Story = {
           position="left"
           delay={0}
         >
-          <Button appearance="outline">Left edge</Button>
+          <p>Left edge</p>
         </Tooltip>
         <Tooltip
           content="This tooltip should flip to the left"
           position="right"
           delay={0}
         >
-          <Button appearance="outline">Right edge</Button>
+          <p>Right edge</p>
         </Tooltip>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -182,14 +198,14 @@ export const EdgeDetection: Story = {
           position="top"
           delay={0}
         >
-          <Button appearance="outline">Long tooltip left</Button>
+          <p>Long tooltip left</p>
         </Tooltip>
         <Tooltip
           content="This is a long tooltip that should shift to stay in viewport"
           position="top"
           delay={0}
         >
-          <Button appearance="outline">Long tooltip right</Button>
+          <p>Long tooltip right</p>
         </Tooltip>
       </div>
     </div>

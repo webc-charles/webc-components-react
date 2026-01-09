@@ -1,6 +1,13 @@
 @use 'styles/action' as *;
 
+// Base reset - no visual styles
 .link {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Styled link (when variant or appearance is set)
+.styled {
   @include action-base;
   @include action-appearances;
   @include action-variants;

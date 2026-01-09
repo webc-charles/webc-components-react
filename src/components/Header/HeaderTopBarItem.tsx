@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
-import styles from './HeaderTopBarItem.module.scss'
+import { Button } from 'components'
 import type { HeaderTopBarItemTypes } from './Header.types'
+import styles from './HeaderTopBarItem.module.scss'
 
 export const headerTopBarItemStyles = {
   dropdownLink: styles.dropdownLink,
@@ -108,7 +109,7 @@ export function HeaderTopBarItem({
       onBlur={handleBlur}
       {...rest}
     >
-      <button
+      <Button
         ref={triggerRef}
         type="button"
         className={styles.trigger}
@@ -123,7 +124,7 @@ export function HeaderTopBarItem({
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
-      </button>
+      </Button>
       <div
         ref={setDropdownRef}
         role="menu"

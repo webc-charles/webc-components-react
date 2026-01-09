@@ -56,6 +56,9 @@
     $base: var(--color-#{$name}-2);
     $hover: var(--color-#{$name}-1);
     $text: var(--color-white);
+    $contrast-base: var(--color-#{$name}-contrast);
+    $contrast-hover: var(--color-#{$name}-3);
+    $contrast-text: var(--color-#{$name}-1);
 
     &.variant-#{$name} {
       background: transparent;
@@ -99,6 +102,51 @@
       &.appearance-underline:hover:not([disabled])::before,
       &.appearance-underline:focus:not([disabled])::before {
         background: $hover;
+      }
+
+      // Contrast mode for dark backgrounds
+      &.contrast {
+        color: $contrast-base;
+
+        &[aria-selected='true']:not([disabled]),
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+          color: $contrast-hover;
+        }
+
+        &.appearance-button {
+          background: $contrast-base;
+          color: $contrast-text;
+
+          &[aria-selected='true']:not([disabled]),
+          &:hover:not([disabled]),
+          &:focus:not([disabled]) {
+            background: $contrast-hover;
+            color: $contrast-text;
+          }
+        }
+
+        &.appearance-outline {
+          border-color: $contrast-base;
+
+          &[aria-selected='true']:not([disabled]),
+          &:hover:not([disabled]),
+          &:focus:not([disabled]) {
+            background: $contrast-hover;
+            border-color: $contrast-hover;
+            color: $contrast-text;
+          }
+        }
+
+        &.appearance-underline::before {
+          background: $contrast-base;
+        }
+
+        &.appearance-underline[aria-selected='true']:not([disabled])::before,
+        &.appearance-underline:hover:not([disabled])::before,
+        &.appearance-underline:focus:not([disabled])::before {
+          background: $contrast-hover;
+        }
       }
     }
   }

@@ -1,15 +1,11 @@
 import { ComponentPropsWithRef } from 'react'
 import { ColorVariant } from '../../types'
 
-export type AnchorAppearanceTypes =
-  | 'default'
-  | 'underline'
-  | 'outline'
-  | 'button'
+export type LinkAppearance = 'default' | 'underline' | 'outline' | 'button'
 
 export type LinkTypes = ComponentPropsWithRef<'a'> & {
   disabled?: boolean
   variant?: ColorVariant
-  appearance?: AnchorAppearanceTypes
+  appearance?: LinkAppearance
   contrast?: boolean
 }

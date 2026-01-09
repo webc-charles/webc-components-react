@@ -35,13 +35,29 @@ describe('Button', () => {
     expect(screen.getByTestId('button')).toBeDisabled()
   })
 
-  it('applies variant class', () => {
+  it('has no styled class without variant or appearance', () => {
+    render(<Button data-testid="button">Unstyled</Button>)
+    expect(screen.getByTestId('button').className).not.toMatch(/styled/)
+  })
+
+  it('has styled class with variant', () => {
     render(
       <Button data-testid="button" variant="primary">
         Primary
       </Button>
     )
+    expect(screen.getByTestId('button').className).toMatch(/styled/)
     expect(screen.getByTestId('button').className).toMatch(/variant-primary/)
+  })
+
+  it('has styled class with appearance', () => {
+    render(
+      <Button data-testid="button" appearance="button">
+        Styled
+      </Button>
+    )
+    expect(screen.getByTestId('button').className).toMatch(/styled/)
+    expect(screen.getByTestId('button').className).toMatch(/appearance-button/)
   })
 
   it('has correct type attribute', () => {

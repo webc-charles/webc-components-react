@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import { Link } from '../Link'
 import { Breadcrumb } from './Breadcrumb'
 
 describe('Breadcrumb', () => {
@@ -20,7 +21,10 @@ describe('Breadcrumb', () => {
   it('renders links for non-last items', () => {
     render(<Breadcrumb items={items} />)
     expect(screen.getByText('Home').closest('a')).toHaveAttribute('href', '/')
-    expect(screen.getByText('Products').closest('a')).toHaveAttribute('href', '/products')
+    expect(screen.getByText('Products').closest('a')).toHaveAttribute(
+      'href',
+      '/products'
+    )
   })
 
   it('renders last item as span with aria-current', () => {
@@ -37,7 +41,10 @@ describe('Breadcrumb', () => {
 
   it('renders custom aria-label', () => {
     render(<Breadcrumb items={items} aria-label="Custom breadcrumb" />)
-    expect(screen.getByRole('navigation')).toHaveAttribute('aria-label', 'Custom breadcrumb')
+    expect(screen.getByRole('navigation')).toHaveAttribute(
+      'aria-label',
+      'Custom breadcrumb'
+    )
   })
 
   it('renders custom separator', () => {
@@ -51,9 +58,9 @@ describe('Breadcrumb', () => {
       <Breadcrumb
         items={items}
         renderLink={(item, children) => (
-          <a href={item.href} data-testid="custom-link">
+          <Link href={item.href} data-testid="custom-link">
             {children}
-          </a>
+          </Link>
         )}
       />
     )
@@ -62,7 +69,9 @@ describe('Breadcrumb', () => {
   })
 
   it('applies custom className', () => {
-    const { container } = render(<Breadcrumb items={items} className="custom-class" />)
+    const { container } = render(
+      <Breadcrumb items={items} className="custom-class" />
+    )
     expect(container.querySelector('.custom-class')).toBeInTheDocument()
   })
 })

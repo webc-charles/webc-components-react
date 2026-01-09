@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { Search, X } from 'lucide-react'
-import { Spinner } from '../../Spinner'
+import { Button, Spinner } from 'components'
 import styles from './Search.module.scss'
 import type { InputSearchTypes, SearchResultTypes } from './Search.types'
 
@@ -256,14 +256,14 @@ export function InputSearch({
         <div className={styles.actions}>
           {loading && <Spinner size="sm" inline />}
           {value && (
-            <button
+            <Button
               type="button"
               onClick={handleClear}
               className={styles.clearButton}
               aria-label={str.clear}
             >
               <X size={16} aria-hidden="true" />
-            </button>
+            </Button>
           )}
         </div>
       )}

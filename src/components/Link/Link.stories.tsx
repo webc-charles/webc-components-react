@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ColorVariant } from '../../types'
 import { Link } from './Link'
-import { AnchorAppearanceTypes } from './Link.types'
+import { LinkAppearance } from './Link.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -13,7 +13,7 @@ const variants: ColorVariant[] = [
   'info',
 ]
 
-const appearances: AnchorAppearanceTypes[] = [
+const appearances: LinkAppearance[] = [
   'default',
   'underline',
   'outline',
@@ -27,33 +27,21 @@ const meta: Meta<typeof Link> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: variants,
+      options: [undefined, ...variants],
       description: 'The color variant of the link',
-      table: {
-        defaultValue: { summary: 'default' },
-      },
     },
     appearance: {
       control: 'select',
-      options: appearances,
+      options: [undefined, ...appearances],
       description: 'The visual style of the link',
-      table: {
-        defaultValue: { summary: 'default' },
-      },
     },
     contrast: {
       control: 'boolean',
       description: 'Enable contrast mode for dark backgrounds',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     disabled: {
       control: 'boolean',
       description: 'Whether the link is disabled',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     href: {
       control: 'text',
@@ -66,9 +54,6 @@ const meta: Meta<typeof Link> = {
   },
   args: {
     children: 'Link',
-    variant: 'default',
-    appearance: 'underline',
-    contrast: false,
     disabled: false,
     href: '#',
   },
@@ -82,6 +67,23 @@ export const Playground: Story = {
     children: 'Click me',
     variant: 'primary',
     appearance: 'underline',
+  },
+}
+
+export const Unstyled: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <Link href="#">No styles</Link>
+      <Link href="https://example.com">Visit example.com</Link>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Without `variant` or `appearance`, the link has no visual styles - inherits color and no text decoration.',
+      },
+    },
   },
 }
 
@@ -136,53 +138,26 @@ export const Contrast: Story = {
       style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <div>
-          <p
-            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
-          >
-            Solid links
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Link key={v} href="#" variant={v} appearance="button" contrast>
-                {v}
-              </Link>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Link key={v} href="#" variant={v} appearance="button" contrast>
+              {v}
+            </Link>
+          ))}
         </div>
-        <div>
-          <p
-            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
-          >
-            Outline links
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Link key={v} href="#" variant={v} appearance="outline" contrast>
-                {v}
-              </Link>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Link key={v} href="#" variant={v} appearance="outline" contrast>
+              {v}
+            </Link>
+          ))}
         </div>
-        <div>
-          <p
-            style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}
-          >
-            Underline links
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Link
-                key={v}
-                href="#"
-                variant={v}
-                appearance="underline"
-                contrast
-              >
-                {v}
-              </Link>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Link key={v} href="#" variant={v} appearance="underline" contrast>
+              {v}
+            </Link>
+          ))}
         </div>
       </div>
     </div>
@@ -190,8 +165,7 @@ export const Contrast: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          'Use the `contrast` prop to adapt links for dark backgrounds. Works with all variants and appearances.',
+        story: 'Use the `contrast` prop to adapt links for dark backgrounds.',
       },
     },
   },

@@ -10,6 +10,7 @@ import {
 } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
+import { Button } from 'components'
 import styles from './Accordion.module.scss'
 import {
   AccordionContentTypes,
@@ -216,7 +217,7 @@ export function AccordionTrigger({
 
   return (
     <Heading className={styles.header}>
-      <button
+      <Button
         ref={ref}
         type="button"
         id={triggerId}
@@ -235,7 +236,7 @@ export function AccordionTrigger({
         <span className={styles.triggerText}>{children}</span>
 
         <ChevronDown size={21} className={styles.icon} aria-hidden />
-      </button>
+      </Button>
     </Heading>
   )
 }

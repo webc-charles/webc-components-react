@@ -1,13 +1,14 @@
 import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import { Button } from '../form/button'
 import {
   Banner,
+  BannerActions,
   BannerContent,
-  BannerTitle,
   BannerSubtitle,
   BannerText,
-  BannerActions,
+  BannerTitle,
 } from './Banner'
 
 describe('Banner', () => {
@@ -32,7 +33,7 @@ describe('Banner', () => {
           <BannerSubtitle>Subtitle</BannerSubtitle>
           <BannerText>Body text</BannerText>
           <BannerActions>
-            <button>Action</button>
+            <Button>Action</Button>
           </BannerActions>
         </BannerContent>
       </Banner>

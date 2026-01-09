@@ -11,14 +11,16 @@ export function Link({
   className,
   appearance,
   contrast,
-  variant = 'default',
+  variant,
   ...rest
 }: LinkTypes) {
   const value = children ?? title
+  const isStyled = variant || appearance
 
   const classList = clsx(
     styles.link,
-    styles[`variant-${variant}`],
+    isStyled && styles.styled,
+    variant && styles[`variant-${variant}`],
     appearance && styles[`appearance-${appearance}`],
     contrast && styles.contrast,
     disabled && styles.disabled,

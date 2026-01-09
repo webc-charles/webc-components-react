@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Image } from './Image'
+import { Image, Link } from 'components'
 import { ImageFit, ImagePosition, ImageRadius } from './Image.types'
 
 const fitOptions: ImageFit[] = [
@@ -121,9 +121,13 @@ export const CaptionWithLink: Story = {
       caption={
         <>
           Photo by{' '}
-          <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+          <Link
+            href="https://example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             John Doe
-          </a>{' '}
+          </Link>{' '}
           on Unsplash
         </>
       }

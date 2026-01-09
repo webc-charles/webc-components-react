@@ -12,6 +12,7 @@ import clsx from 'clsx'
 import useEmblaCarousel from 'embla-carousel-react'
 import { str } from 'i18n'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button } from 'components'
 import styles from './Slider.module.scss'
 import {
   SliderContainerTypes,
@@ -178,7 +179,7 @@ export function SliderPrev({
   const { canScrollPrev, scrollPrev } = useSliderContext()
 
   return (
-    <button
+    <Button
       ref={ref}
       type="button"
       className={clsx(styles.button, styles.prev, className)}
@@ -188,7 +189,7 @@ export function SliderPrev({
       {...props}
     >
       {children ?? <ChevronLeft size={20} aria-hidden />}
-    </button>
+    </Button>
   )
 }
 
@@ -202,7 +203,7 @@ export function SliderNext({
   const { canScrollNext, scrollNext } = useSliderContext()
 
   return (
-    <button
+    <Button
       ref={ref}
       type="button"
       className={clsx(styles.button, styles.next, className)}
@@ -212,7 +213,7 @@ export function SliderNext({
       {...props}
     >
       {children ?? <ChevronRight size={20} aria-hidden />}
-    </button>
+    </Button>
   )
 }
 
@@ -233,7 +234,7 @@ export function SliderDots({
       {...props}
     >
       {scrollSnaps.map((_, index) => (
-        <button
+        <Button
           key={index}
           type="button"
           className={clsx(styles.dot, selectedIndex === index && styles.active)}

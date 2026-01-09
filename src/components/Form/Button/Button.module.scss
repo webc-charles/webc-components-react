@@ -1,22 +1,27 @@
 @use 'styles/action' as *;
 
+// Base reset - no visual styles
 .button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// Styled button (when variant or appearance is set)
+.styled {
   @include action-base;
   @include action-appearances;
   @include action-variants;
   @include action-disabled;
 }
 
-.content {
-  align-items: center;
-  display: inline-flex;
-  gap: inherit;
-}
-
-.loading .content {
-  opacity: 0;
-}
-
-.spinner {
-  position: absolute;
+.loading {
+  font-size: 0;
 }

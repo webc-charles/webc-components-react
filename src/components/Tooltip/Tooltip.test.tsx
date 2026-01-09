@@ -2,13 +2,14 @@ import '@testing-library/jest-dom/vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
+import { Button } from '../form/button'
 import { Tooltip } from './Tooltip'
 
 describe('Tooltip', () => {
   it('renders children', () => {
     render(
       <Tooltip content="Help text">
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
     expect(screen.getByRole('button', { name: 'Hover me' })).toBeInTheDocument()
@@ -18,7 +19,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" delay={0}>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
 
@@ -36,7 +37,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" delay={0}>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
 
@@ -53,7 +54,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" delay={0}>
-        <button>Focus me</button>
+        <Button>Focus me</Button>
       </Tooltip>
     )
 
@@ -68,7 +69,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" position="bottom" delay={0}>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
 
@@ -83,7 +84,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" delay={0} disabled>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
 
@@ -98,7 +99,7 @@ describe('Tooltip', () => {
     const user = userEvent.setup()
     render(
       <Tooltip content="Help text" delay={0}>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
 
@@ -117,7 +118,7 @@ describe('Tooltip', () => {
     const ref = { current: null }
     render(
       <Tooltip content="Help text" ref={ref}>
-        <button>Hover me</button>
+        <Button>Hover me</Button>
       </Tooltip>
     )
     expect(ref.current).toBeInstanceOf(HTMLDivElement)

@@ -12,13 +12,13 @@ export function Note({
   if (!children) return null
 
   return (
-    <aside
+    <div
       ref={ref}
       role="note"
       className={clsx(styles.note, styles[`variant-${variant}`], className)}
       {...rest}
     >
       {children}
-    </aside>
+    </div>
   )
 }

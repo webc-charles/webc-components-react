@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
+import { Button } from 'components'
 import type { HeaderNavItemTypes } from './Header.types'
 import styles from './HeaderNavItem.module.scss'
 
@@ -122,7 +123,7 @@ export function HeaderNavItem({
       onBlur={handleBlur}
       {...rest}
     >
-      <button
+      <Button
         ref={triggerRef}
         type="button"
         className={clsx(styles.trigger, active && styles.triggerActive)}
@@ -139,7 +140,7 @@ export function HeaderNavItem({
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
-      </button>
+      </Button>
 
       <div
         ref={setDropdownRef}

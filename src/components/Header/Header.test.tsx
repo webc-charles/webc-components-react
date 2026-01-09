@@ -2,18 +2,20 @@ import '@testing-library/jest-dom/vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
+import { Link } from '../Link'
+import { Button } from '../form/button'
 import {
+  HeaderActions,
+  HeaderLogo,
+  HeaderMain,
+  HeaderMobileMenu,
+  HeaderMobileNavItem,
+  HeaderMobileToggle,
+  HeaderNav,
+  HeaderNavItem,
   HeaderRoot,
   HeaderTopBar,
   HeaderTopBarItem,
-  HeaderMain,
-  HeaderLogo,
-  HeaderNav,
-  HeaderNavItem,
-  HeaderActions,
-  HeaderMobileToggle,
-  HeaderMobileMenu,
-  HeaderMobileNavItem,
   headerNavItemStyles,
   headerTopBarItemStyles,
 } from './index'
@@ -37,7 +39,7 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderTopBar>
-          <a href="#">Help</a>
+          <Link href="#">Help</Link>
         </HeaderTopBar>
         <HeaderMain>
           <HeaderLogo>Logo</HeaderLogo>
@@ -51,12 +53,18 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderTopBar>
-          <HeaderTopBarItem dropdown={
-            <div>
-              <a href="#" className={topBarDropdownLink}>Option 1</a>
-              <a href="#" className={topBarDropdownLink}>Option 2</a>
-            </div>
-          }>
+          <HeaderTopBarItem
+            dropdown={
+              <div>
+                <Link href="#" className={topBarDropdownLink}>
+                  Option 1
+                </Link>
+                <Link href="#" className={topBarDropdownLink}>
+                  Option 2
+                </Link>
+              </div>
+            }
+          >
             Language
           </HeaderTopBarItem>
         </HeaderTopBar>
@@ -81,7 +89,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderNav aria-label="Main menu">
             <HeaderNavItem>
-              <a href="/" className={navLink}>Home</a>
+              <Link href="/" className={navLink}>
+                Home
+              </Link>
             </HeaderNavItem>
           </HeaderNav>
         </HeaderMain>
@@ -97,10 +107,14 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderNav>
             <HeaderNavItem>
-              <a href="/" className={navLink}>Home</a>
+              <Link href="/" className={navLink}>
+                Home
+              </Link>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="/about" className={navLink}>About</a>
+              <Link href="/about" className={navLink}>
+                About
+              </Link>
             </HeaderNavItem>
           </HeaderNav>
         </HeaderMain>
@@ -115,7 +129,7 @@ describe('Header', () => {
       <HeaderRoot>
         <HeaderMain>
           <HeaderActions>
-            <button>Login</button>
+            <Button>Login</Button>
           </HeaderActions>
         </HeaderMain>
       </HeaderRoot>
@@ -130,7 +144,7 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>
@@ -178,7 +192,13 @@ describe('Header', () => {
       <HeaderRoot>
         <HeaderMain>
           <HeaderNav>
-            <HeaderNavItem dropdown={<div><a href="#">Option</a></div>}>
+            <HeaderNavItem
+              dropdown={
+                <div>
+                  <Link href="#">Option</Link>
+                </div>
+              }
+            >
               Products
             </HeaderNavItem>
           </HeaderNav>
@@ -204,7 +224,7 @@ describe('Header', () => {
           <HeaderMobileMenu>
             <HeaderMobileNavItem label="Products">
               <div>
-                <a href="#">Software</a>
+                <Link href="#">Software</Link>
               </div>
             </HeaderMobileNavItem>
           </HeaderMobileMenu>
@@ -229,7 +249,7 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>

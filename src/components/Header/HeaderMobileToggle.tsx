@@ -1,9 +1,10 @@
 import clsx from 'clsx'
-import { Menu, X } from 'lucide-react'
 import { str } from 'i18n'
+import { Menu, X } from 'lucide-react'
+import { Button } from 'components'
+import type { HeaderMobileToggleTypes } from './Header.types'
 import { useHeader } from './HeaderContext'
 import styles from './HeaderMobileToggle.module.scss'
-import type { HeaderMobileToggleTypes } from './Header.types'
 
 export function HeaderMobileToggle({
   ref,
@@ -14,7 +15,7 @@ export function HeaderMobileToggle({
   const { isOpen, toggle, mobileMenuId, mobileToggleId } = useHeader()
 
   return (
-    <button
+    <Button
       ref={ref}
       id={mobileToggleId}
       type="button"
@@ -25,7 +26,11 @@ export function HeaderMobileToggle({
       className={clsx(styles.toggle, className)}
       {...rest}
     >
-      {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-    </button>
+      {isOpen ? (
+        <X size={24} aria-hidden="true" />
+      ) : (
+        <Menu size={24} aria-hidden="true" />
+      )}
+    </Button>
   )
 }

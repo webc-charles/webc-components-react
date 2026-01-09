@@ -1,8 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  ButtonAppearanceTypes,
-  ButtonVariantTypes,
-} from '../Form/Button/Button.types'
 import { Tab, TabButton, TabList, TabPanel, TabPanels } from './Tab'
 
 const meta: Meta<typeof Tab> = {
@@ -43,74 +39,6 @@ export const Playground: Story = {
   },
 }
 
-const variants: ButtonVariantTypes[] = [
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'danger',
-  'info',
-  'warning',
-]
-
-export const AllVariants: Story = {
-  render: () => (
-    <Tab defaultValue="default">
-      <TabList>
-        {variants.map((v) => (
-          <TabButton key={v} value={v} variant={v}>
-            {v}
-          </TabButton>
-        ))}
-      </TabList>
-      <TabPanels>
-        {variants.map((v) => (
-          <TabPanel key={v} value={v}>
-            Content for {v} tab
-          </TabPanel>
-        ))}
-      </TabPanels>
-    </Tab>
-  ),
-}
-
-const appearances: ButtonAppearanceTypes[] = [
-  'default',
-  'underline',
-  'outline',
-  'button',
-]
-
-export const AllAppearances: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      {appearances.map((appearance) => (
-        <div key={appearance}>
-          <p style={{ marginBottom: '0.5rem' }}>Appearance: {appearance}</p>
-          <Tab defaultValue="tab1">
-            <TabList>
-              <TabButton value="tab1" variant="primary" appearance={appearance}>
-                Tab 1
-              </TabButton>
-              <TabButton value="tab2" variant="primary" appearance={appearance}>
-                Tab 2
-              </TabButton>
-              <TabButton value="tab3" variant="primary" appearance={appearance}>
-                Tab 3
-              </TabButton>
-            </TabList>
-            <TabPanels>
-              <TabPanel value="tab1">Content for tab 1</TabPanel>
-              <TabPanel value="tab2">Content for tab 2</TabPanel>
-              <TabPanel value="tab3">Content for tab 3</TabPanel>
-            </TabPanels>
-          </Tab>
-        </div>
-      ))}
-    </div>
-  ),
-}
-
 export const ButtonAppearance: Story = {
   render: () => (
     <Tab defaultValue="tab1">
@@ -122,29 +50,6 @@ export const ButtonAppearance: Story = {
           Tab 2
         </TabButton>
         <TabButton value="tab3" variant="primary" appearance="button">
-          Tab 3
-        </TabButton>
-      </TabList>
-      <TabPanels>
-        <TabPanel value="tab1">Content for tab 1</TabPanel>
-        <TabPanel value="tab2">Content for tab 2</TabPanel>
-        <TabPanel value="tab3">Content for tab 3</TabPanel>
-      </TabPanels>
-    </Tab>
-  ),
-}
-
-export const UnderlineAppearance: Story = {
-  render: () => (
-    <Tab defaultValue="tab1">
-      <TabList>
-        <TabButton value="tab1" variant="primary" appearance="underline">
-          Tab 1
-        </TabButton>
-        <TabButton value="tab2" variant="primary" appearance="underline">
-          Tab 2
-        </TabButton>
-        <TabButton value="tab3" variant="primary" appearance="underline">
           Tab 3
         </TabButton>
       </TabList>

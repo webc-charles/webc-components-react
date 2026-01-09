@@ -14,6 +14,7 @@ import clsx from 'clsx'
 import { str } from 'i18n'
 import { ChevronDown, X } from 'lucide-react'
 import { Spinner } from '../../Spinner'
+import { Button } from '../Button'
 import styles from './Select.module.scss'
 import type {
   ChoiceClearTypes,
@@ -220,7 +221,7 @@ const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
   if (!value.length) return null
 
   return (
-    <button
+    <Button
       type="button"
       disabled={disabled}
       onClick={(e) => {
@@ -237,7 +238,7 @@ const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
       {...rest}
     >
       <X size={16} aria-hidden />
-    </button>
+    </Button>
   )
 })
 ChoiceClear.displayName = 'ChoiceClear'
@@ -265,7 +266,7 @@ const ChoiceListItem = memo(
   ({ option, disabled, onRemove }: ChoiceListItemTypes) => (
     <li className={styles.choiceListItem}>
       <span className={styles.choiceListItemLabel}>{option.label}</span>
-      <button
+      <Button
         type="button"
         disabled={disabled}
         onClick={(e) => {
@@ -281,92 +282,98 @@ const ChoiceListItem = memo(
         className={styles.choiceListItemRemove}
       >
         <X size={16} aria-hidden />
-      </button>
+      </Button>
     </li>
   )
 )
 ChoiceListItem.displayName = 'ChoiceListItem'
 
 // SELECT MODAL
-const SelectModal = memo(({ children, className, ...rest }: SelectModalTypes) => {
-  const [mounted, setMounted] = useState(false)
-  const {
-    isOpen,
-    menuPosition,
-    menuRef,
-    controlId,
-    onLoadMore,
-    hasMore,
-    loading,
-    searchable,
-    setIsOpen,
-    rootRef,
-  } = useSelectContext()
+const SelectModal = memo(
+  ({ children, className, ...rest }: SelectModalTypes) => {
+    const [mounted, setMounted] = useState(false)
+    const {
+      isOpen,
+      menuPosition,
+      menuRef,
+      controlId,
+      onLoadMore,
+      hasMore,
+      loading,
+      searchable,
+      setIsOpen,
+      rootRef,
+    } = useSelectContext()
 
-  // SSR safety: only render portal after mount
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+    // SSR safety: only render portal after mount
+    useEffect(() => {
+      setMounted(true)
+    }, [])
 
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    if (!onLoadMore || !hasMore || loading) return
+    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+      if (!onLoadMore || !hasMore || loading) return
 
-    const { scrollTop, scrollHeight, clientHeight } = e.currentTarget
-    const nearBottom = scrollTop + clientHeight >= scrollHeight - 50
+      const { scrollTop, scrollHeight, clientHeight } = e.currentTarget
+      const nearBottom = scrollTop + clientHeight >= scrollHeight - 50
 
-    if (nearBottom) onLoadMore()
-  }
-
-  // Focus trap for non-searchable
-  useEffect(() => {
-    if (!isOpen || searchable) return
-
-    const handleTab = (e: KeyboardEvent) => {
-      if (e.key === 'Tab') {
-        e.preventDefault()
-        setIsOpen(false)
-        rootRef.current?.focus()
-      }
+      if (nearBottom) onLoadMore()
     }
 
-    document.addEventListener('keydown', handleTab)
-    return () => document.removeEventListener('keydown', handleTab)
-  }, [isOpen, searchable, setIsOpen, rootRef])
+    // Focus trap for non-searchable
+    useEffect(() => {
+      if (!isOpen || searchable) return
 
-  if (!isOpen || !mounted) return null
+      const handleTab = (e: KeyboardEvent) => {
+        if (e.key === 'Tab') {
+          e.preventDefault()
+          setIsOpen(false)
+          rootRef.current?.focus()
+        }
+      }
 
-  return createPortal(
-    <div
-      ref={menuRef}
-      id={controlId}
-      onScroll={handleScroll}
-      aria-busy={loading || undefined}
-      className={clsx(styles.selectModal, className)}
-      style={{
-        top: `${menuPosition.top}px`,
-        left: `${menuPosition.left}px`,
-        width: `${menuPosition.width}px`,
-      }}
-      {...rest}
-    >
-      <SelectSearch />
-      {children}
+      document.addEventListener('keydown', handleTab)
+      return () => document.removeEventListener('keydown', handleTab)
+    }, [isOpen, searchable, setIsOpen, rootRef])
 
-      {loading && (
-        <div className={styles.selectLoading}>
-          <Spinner size="sm" inline />
-        </div>
-      )}
-    </div>,
-    document.body
-  )
-})
+    if (!isOpen || !mounted) return null
+
+    return createPortal(
+      <div
+        ref={menuRef}
+        id={controlId}
+        onScroll={handleScroll}
+        aria-busy={loading || undefined}
+        className={clsx(styles.selectModal, className)}
+        style={{
+          top: `${menuPosition.top}px`,
+          left: `${menuPosition.left}px`,
+          width: `${menuPosition.width}px`,
+        }}
+        {...rest}
+      >
+        <SelectSearch />
+        {children}
+
+        {loading && (
+          <div className={styles.selectLoading}>
+            <Spinner size="sm" inline />
+          </div>
+        )}
+      </div>,
+      document.body
+    )
+  }
+)
 SelectModal.displayName = 'SelectModal'
 
 // SELECT ACTIONS
-const SelectActions = memo(({ children, className, ...rest }: SelectActionsTypes) => (
-  <div className={clsx(styles.selectActions, className)} {...rest}>{children}</div>
-))
+const SelectActions = memo(
+  ({ children, className, ...rest }: SelectActionsTypes) => (
+    <div className={clsx(styles.selectActions, className)} {...rest}>
+      {children}
+    </div>
+  )
+)
 SelectActions.displayName = 'SelectActions'
 
 // SELECT TRIGGER
@@ -385,27 +392,29 @@ const SelectTrigger = memo(() => {
 SelectTrigger.displayName = 'SelectTrigger'
 
 // SELECT PLACEHOLDER
-const SelectPlaceholder = memo(({ className, ...rest }: SelectPlaceholderTypes) => {
-  const { placeholder, value, multiple } = useSelectContext()
+const SelectPlaceholder = memo(
+  ({ className, ...rest }: SelectPlaceholderTypes) => {
+    const { placeholder, value, multiple } = useSelectContext()
 
-  // Single select: show selected label
-  if (!multiple && value.length) {
+    // Single select: show selected label
+    if (!multiple && value.length) {
+      return (
+        <span className={clsx(styles.selectValue, className)} {...rest}>
+          {value[0].label}
+        </span>
+      )
+    }
+
+    // Multi select: hide when has selections
+    if (multiple && value.length) return null
+
     return (
-      <span className={clsx(styles.selectValue, className)} {...rest}>
-        {value[0].label}
+      <span className={clsx(styles.selectPlaceholder, className)} {...rest}>
+        {placeholder}
       </span>
     )
   }
-
-  // Multi select: hide when has selections
-  if (multiple && value.length) return null
-
-  return (
-    <span className={clsx(styles.selectPlaceholder, className)} {...rest}>
-      {placeholder}
-    </span>
-  )
-})
+)
 SelectPlaceholder.displayName = 'SelectPlaceholder'
 
 // SELECT ROOT

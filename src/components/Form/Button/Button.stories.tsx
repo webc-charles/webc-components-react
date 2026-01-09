@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ColorVariant } from '../../../types'
 import { Button } from './Button'
-import { ButtonAppearanceTypes } from './Button.types'
+import { ButtonAppearance } from './Button.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -13,7 +13,7 @@ const variants: ColorVariant[] = [
   'info',
 ]
 
-const appearances: ButtonAppearanceTypes[] = [
+const appearances: ButtonAppearance[] = [
   'default',
   'underline',
   'outline',
@@ -27,40 +27,25 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: variants,
+      options: [undefined, ...variants],
       description: 'The color variant of the button',
-      table: {
-        defaultValue: { summary: 'default' },
-      },
     },
     appearance: {
       control: 'select',
-      options: appearances,
+      options: [undefined, ...appearances],
       description: 'The visual style of the button',
-      table: {
-        defaultValue: { summary: 'default' },
-      },
     },
     contrast: {
       control: 'boolean',
       description: 'Enable contrast mode for dark backgrounds',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     loading: {
       control: 'boolean',
       description: 'Whether the button is in loading state',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     disabled: {
       control: 'boolean',
       description: 'Whether the button is disabled',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
     },
     children: {
       control: 'text',
@@ -69,9 +54,6 @@ const meta: Meta<typeof Button> = {
   },
   args: {
     children: 'Button',
-    variant: 'default',
-    appearance: 'button',
-    contrast: false,
     disabled: false,
     loading: false,
   },
@@ -85,6 +67,23 @@ export const Playground: Story = {
     children: 'Button',
     variant: 'primary',
     appearance: 'button',
+  },
+}
+
+export const Unstyled: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <Button>No styles</Button>
+      <Button onClick={() => alert('clicked!')}>Click me</Button>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Without `variant` or `appearance`, the button has no visual styles - like a native button reset.',
+      },
+    },
   },
 }
 
@@ -144,37 +143,30 @@ export const Disabled: Story = {
 
 export const Contrast: Story = {
   render: () => (
-    <div style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}>
+    <div
+      style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
+    >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Solid buttons</p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Button variant={v} appearance="button" contrast key={v}>
-                {v}
-              </Button>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Button variant={v} appearance="button" contrast key={v}>
+              {v}
+            </Button>
+          ))}
         </div>
-        <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Outline buttons</p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Button variant={v} appearance="outline" contrast key={v}>
-                {v}
-              </Button>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Button variant={v} appearance="outline" contrast key={v}>
+              {v}
+            </Button>
+          ))}
         </div>
-        <div>
-          <p style={{ color: '#999', marginBottom: '1rem', fontSize: '1.4rem' }}>Underline buttons</p>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            {variants.map((v) => (
-              <Button variant={v} appearance="underline" contrast key={v}>
-                {v}
-              </Button>
-            ))}
-          </div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {variants.map((v) => (
+            <Button variant={v} appearance="underline" contrast key={v}>
+              {v}
+            </Button>
+          ))}
         </div>
       </div>
     </div>
@@ -182,7 +174,8 @@ export const Contrast: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use the `contrast` prop to adapt buttons for dark backgrounds. Works with all variants and appearances.',
+        story:
+          'Use the `contrast` prop to adapt buttons for dark backgrounds.',
       },
     },
   },

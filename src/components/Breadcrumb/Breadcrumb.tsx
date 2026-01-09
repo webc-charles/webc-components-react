@@ -1,6 +1,7 @@
 import clsx from 'clsx'
-import { ChevronRight } from 'lucide-react'
 import { str } from 'i18n'
+import { ChevronRight } from 'lucide-react'
+import { Link } from 'components'
 import styles from './Breadcrumb.module.scss'
 import type { BreadcrumbTypes } from './Breadcrumb.types'
 
@@ -39,9 +40,9 @@ export function Breadcrumb({
                   {renderLink ? (
                     renderLink(item, item.label)
                   ) : (
-                    <a href={item.href} className={styles.link}>
+                    <Link href={item.href} className={styles.link}>
                       {item.label}
-                    </a>
+                    </Link>
                   )}
                   <span className={styles.separator} aria-hidden="true">
                     {separatorElement}

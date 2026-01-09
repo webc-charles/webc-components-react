@@ -1,2 +1,2 @@
 export { Link } from './Link'
-export type { LinkTypes } from './Link.types'
+export type { LinkAppearance, LinkTypes } from './Link.types'

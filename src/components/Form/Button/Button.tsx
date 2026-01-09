@@ -13,17 +13,15 @@ export function Button({
   contrast,
   loading = false,
   type = 'button',
-  variant = 'default',
+  variant,
   ...rest
 }: ButtonTypes) {
-  const value = children ?? title
-
-  // Spinner should be white on solid colored backgrounds
-  const spinnerContrast = appearance === 'button' && !contrast
+  const isStyled = variant || appearance
 
   const classList = clsx(
     styles.button,
-    styles[`variant-${variant}`],
+    isStyled && styles.styled,
+    variant && styles[`variant-${variant}`],
     appearance && styles[`appearance-${appearance}`],
     contrast && styles.contrast,
     loading && styles.loading,
@@ -40,16 +38,8 @@ export function Button({
       aria-busy={loading || undefined}
       {...rest}
     >
-      {loading && (
-        <Spinner
-          inline
-          size="sm"
-          contrast={spinnerContrast}
-          className={styles.spinner}
-        />
-      )}
-
-      <span className={styles.content}>{value}</span>
+      {loading && <Spinner inline size="sm" className={styles.spinner} />}
+      {children ?? title}
     </button>
   )
 }

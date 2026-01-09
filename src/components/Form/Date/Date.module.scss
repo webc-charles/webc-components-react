@@ -3,7 +3,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   width: 100%;
 }
 
@@ -36,7 +35,6 @@
   position: absolute;
   right: 0;
   top: 0;
-  transition: all var(--transition-default);
   width: 4rem;
 
   &:disabled {
@@ -96,7 +94,6 @@
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-md);
   justify-content: center;
-  transition: all var(--transition-default);
   width: 4rem;
 
   &:disabled {
@@ -134,7 +131,6 @@
   display: flex;
   height: 4rem;
   justify-content: center;
-  transition: all var(--transition-default);
   width: 4rem;
 
   &:is(:hover, :focus) {

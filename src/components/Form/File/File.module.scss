@@ -3,7 +3,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .label {
@@ -38,13 +37,11 @@
   padding: 0 1.5rem;
   transition: border-color var(--transition-default);
 
-  &:focus {
-    border-color: var(--color-primary-2);
-    outline: none;
-  }
-
+  &:focus,
   &:hover:not(:disabled) {
+    background-color: var(--color-primary-2);
     border-color: var(--color-primary-2);
+    color: var(--color-white);
   }
 
   &:disabled {

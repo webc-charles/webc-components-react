@@ -28,6 +28,13 @@ export function Checkbox({
     onChange?.(newChecked)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !disabled) {
+      e.preventDefault()
+      handleChange(!isChecked)
+    }
+  }
+
   return (
     <label
       htmlFor={id}
@@ -42,6 +49,7 @@ export function Checkbox({
         type="checkbox"
         checked={isChecked}
         onChange={(e) => handleChange(e.target.checked)}
+        onKeyDown={handleKeyDown}
         disabled={disabled}
         className={styles.hiddenInput}
       />

@@ -1,8 +1,17 @@
-// Color utility classes
-// Background and text color classes for all variants
-
+// Color variants list
 $color-variants: (default, primary, secondary, success, danger, warning, info);
 $color-levels: (1, 2, 3, contrast);
+
+// Mixin for component color variants (used by Note, etc.)
+@mixin color-variants($prefix: 'variant-') {
+  @each $name in $color-variants {
+    &.#{$prefix}#{$name} {
+      background-color: var(--color-#{$name}-3);
+      border-color: var(--color-#{$name}-2);
+      color: var(--color-#{$name}-1);
+    }
+  }
+}
 
 // Background color classes
 @each $variant in $color-variants {

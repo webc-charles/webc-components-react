@@ -1,5 +1,5 @@
+@use 'styles/action' as *;
 @use 'styles/mq' as *;
-@use 'styles/variants' as *;
 
 .toasts {
   align-items: center;
@@ -74,7 +74,7 @@
 }
 
 .close {
-  @include close-button;
+  @include action-close;
 
   right: 0.25rem;
   top: 0.25rem;

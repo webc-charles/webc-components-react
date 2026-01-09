@@ -1,8 +1,8 @@
-@use 'styles/interactive' as *;
+@use 'styles/action' as *;
 
 .link {
-  @include interactive-base;
-  @include interactive-appearances;
-  @include interactive-variants;
-  @include interactive-disabled;
+  @include action-base;
+  @include action-appearances;
+  @include action-variants;
+  @include action-disabled;
 }

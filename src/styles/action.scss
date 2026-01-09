@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'colors' as *;
+@use 'color' as *;
 
-@mixin interactive-base {
+@mixin action-base {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -13,7 +13,7 @@
   transition: all 0.1s ease;
 }
 
-@mixin interactive-appearances {
+@mixin action-appearances {
   &.appearance-button,
   &.appearance-outline {
     border-radius: var(--radius-md);
@@ -51,14 +51,11 @@
   }
 }
 
-@mixin interactive-variants {
+@mixin action-variants {
   @each $name in $color-variants {
     $base: var(--color-#{$name}-2);
     $hover: var(--color-#{$name}-1);
     $text: var(--color-white);
-    $contrast-base: var(--color-#{$name}-contrast);
-    $contrast-hover: var(--color-#{$name}-3);
-    $contrast-text: var(--color-#{$name}-1);
 
     &.variant-#{$name} {
       background: transparent;
@@ -103,56 +100,11 @@
       &.appearance-underline:focus:not([disabled])::before {
         background: $hover;
       }
-
-      // Contrast mode styles
-      &.contrast {
-        color: $contrast-base;
-
-        &[aria-selected='true']:not([disabled]),
-        &:hover:not([disabled]),
-        &:focus:not([disabled]) {
-          color: $contrast-hover;
-        }
-
-        &.appearance-button {
-          background: $contrast-base;
-          color: $contrast-text;
-
-          &[aria-selected='true']:not([disabled]),
-          &:hover:not([disabled]),
-          &:focus:not([disabled]) {
-            background: $contrast-hover;
-            color: $contrast-text;
-          }
-        }
-
-        &.appearance-outline {
-          border-color: $contrast-base;
-
-          &[aria-selected='true']:not([disabled]),
-          &:hover:not([disabled]),
-          &:focus:not([disabled]) {
-            background: $contrast-hover;
-            border-color: $contrast-hover;
-            color: $contrast-text;
-          }
-        }
-
-        &.appearance-underline::before {
-          background: $contrast-base;
-        }
-
-        &.appearance-underline[aria-selected='true']:not([disabled])::before,
-        &.appearance-underline:hover:not([disabled])::before,
-        &.appearance-underline:focus:not([disabled])::before {
-          background: $contrast-hover;
-        }
-      }
     }
   }
 }
 
-@mixin interactive-disabled {
+@mixin action-disabled {
   &[disabled] {
     opacity: 0.5;
     pointer-events: none;
@@ -164,5 +116,29 @@
       pointer-events: all;
       position: absolute;
     }
+  }
+}
+
+@mixin action-close {
+  align-items: center;
+  background: transparent;
+  background-color: var(--color-grey-6);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--font-size-5);
+  height: 2.5rem;
+  justify-content: center;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  width: 2.5rem;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-2);
+    color: var(--color-white);
+    opacity: 1;
   }
 }

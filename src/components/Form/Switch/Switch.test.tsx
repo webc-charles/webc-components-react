@@ -75,12 +75,6 @@ describe('Switch', () => {
     expect(handleChange).not.toHaveBeenCalled()
   })
 
-  it('applies variant class when checked', () => {
-    render(<Switch label="Test" variant="success" defaultChecked data-testid="switch" />)
-    const track = screen.getByTestId('switch').querySelector('[aria-hidden="true"]')
-    expect(track?.className).toMatch(/variant-success/)
-  })
-
   it('forwards ref to input', () => {
     const ref = { current: null }
     render(<Switch label="Test" ref={ref} />)

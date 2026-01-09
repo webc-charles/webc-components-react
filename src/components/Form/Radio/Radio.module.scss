@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .groupLabel {
@@ -81,5 +81,6 @@
 }
 
 .label {
-  @include formLabel;
+  color: var(--color-black);
+  font-size: var(--font-size-4);
 }

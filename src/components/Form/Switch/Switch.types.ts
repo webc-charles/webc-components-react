@@ -1,5 +1,4 @@
 import { ComponentProps, Ref } from 'react'
-import { ColorVariant } from '../../../types'
 
 export type SwitchTypes = Omit<ComponentProps<'label'>, 'onChange' | 'ref'> & {
   checked?: boolean
@@ -9,5 +8,4 @@ export type SwitchTypes = Omit<ComponentProps<'label'>, 'onChange' | 'ref'> & {
   label?: string
   labelClassName?: string
   disabled?: boolean
-  variant?: ColorVariant
 }

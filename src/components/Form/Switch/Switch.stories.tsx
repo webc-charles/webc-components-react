@@ -1,31 +1,12 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../../types'
 import { Switch } from './Switch'
-
-const variants: ColorVariant[] = [
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'danger',
-  'warning',
-  'info',
-]
 
 const meta: Meta<typeof Switch> = {
   title: 'Form/Switch',
   component: Switch,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: variants,
-      description: 'The color variant when checked',
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
-    },
     label: {
       control: 'text',
       description: 'Label text',
@@ -41,7 +22,6 @@ const meta: Meta<typeof Switch> = {
   },
   args: {
     label: 'Enable feature',
-    variant: 'primary',
     disabled: false,
   },
 }
@@ -70,16 +50,6 @@ export const DisabledChecked: Story = {
   },
 }
 
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      {variants.map((v) => (
-        <Switch key={v} variant={v} label={v} defaultChecked />
-      ))}
-    </div>
-  ),
-}
-
 function ControlledExample() {
   const [checked, setChecked] = useState(false)
   return (
@@ -94,14 +64,4 @@ function ControlledExample() {
       </p>
     </div>
   )
-}
-
-export const Controlled: Story = {
-  render: () => <ControlledExample />,
-}
-
-export const WithoutLabel: Story = {
-  args: {
-    label: undefined,
-  },
 }

@@ -12,7 +12,6 @@ export function Switch({
   className,
   labelClassName,
   disabled = false,
-  variant = 'primary',
   ...rest
 }: SwitchTypes) {
   const id = useId()
@@ -48,11 +47,7 @@ export function Switch({
 
       <span
         aria-hidden="true"
-        className={clsx(
-          styles.track,
-          styles[`variant-${variant}`],
-          isChecked && styles.checked
-        )}
+        className={clsx(styles.track, isChecked && styles.checked)}
       >
         <span className={styles.thumb} />
       </span>

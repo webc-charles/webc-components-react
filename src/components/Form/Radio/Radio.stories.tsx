@@ -104,3 +104,12 @@ export const Disabled: Story = {
     disabled: true,
   },
 }
+
+export const Preselected: Story = {
+  render: (args) => <RadioWithState {...args} options={defaultOptions} />,
+  args: {
+    name: 'preselected',
+    label: 'Select an option',
+    value: 'option2',
+  },
+}

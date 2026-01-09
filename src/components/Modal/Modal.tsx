@@ -156,11 +156,13 @@ export function Modal({
             aria-label={closeLabel}
             className={styles.close}
           >
-            <X size={20} aria-hidden />
+            <X size={16} aria-hidden />
           </button>
         )}
 
-        <div id={modalDescId} className={styles.modalBody}>{children}</div>
+        <div id={modalDescId} className={styles.modalBody}>
+          {children}
+        </div>
       </div>
     </div>
   )

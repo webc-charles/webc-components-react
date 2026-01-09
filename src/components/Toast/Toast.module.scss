@@ -76,12 +76,6 @@
 .close {
   @include close-button;
 
-  color: var(--color-black);
   right: 0.25rem;
   top: 0.25rem;
-
-  &:hover,
-  &:focus {
-    color: var(--color-primary-2);
-  }
 }

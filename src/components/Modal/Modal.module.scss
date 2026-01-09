@@ -83,13 +83,7 @@
 .close {
   @include close-button;
 
-  color: var(--color-grey-2);
   right: 0.5rem;
   top: 0.5rem;
   z-index: var(--z-index-2);
-
-  &:hover,
-  &:focus {
-    color: var(--color-primary-2);
-  }
 }

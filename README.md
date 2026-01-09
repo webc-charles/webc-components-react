@@ -76,7 +76,7 @@ import '@webc-charles/components-react/styles'
 ## Quick Start
 
 ```tsx
-import { Badge, Button, Note, NoteHeader } from '@webc-charles/components-react'
+import { Badge, Button, Note } from '@webc-charles/components-react'
 
 function App() {
   return (
@@ -88,7 +88,7 @@ function App() {
       <Badge variant="success">New</Badge>
 
       <Note variant="info">
-        <NoteHeader>Information</NoteHeader>
+        <Title>Information</Title>
         <p>This is an informational note.</p>
       </Note>
     </div>
@@ -625,11 +625,11 @@ import { Badge } from '@webc-charles/components-react'
 Callout/alert block for important information.
 
 ```tsx
-import { Note, NoteHeader } from '@webc-charles/components-react'
+import { Note } from '@webc-charles/components-react'
 
 // With header
 <Note variant="warning">
-  <NoteHeader>Warning</NoteHeader>
+  <Title level="h3">Warning</Title>
   <p>This action cannot be undone.</p>
 </Note>
 

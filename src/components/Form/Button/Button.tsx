@@ -24,7 +24,6 @@ export function Button({
     variant && styles[`variant-${variant}`],
     appearance && styles[`appearance-${appearance}`],
     contrast && styles.contrast,
-    loading && styles.loading,
     className
   )
 
@@ -38,8 +37,7 @@ export function Button({
       aria-busy={loading || undefined}
       {...rest}
     >
-      {loading && <Spinner inline size="sm" className={styles.spinner} />}
-      {children ?? title}
+      {loading ? <Spinner inline size="sm" /> : (children ?? title)}
     </button>
   )
 }

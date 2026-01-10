@@ -22,10 +22,9 @@
   color: var(--color-grey-2);
   outline: none;
   text-decoration: none;
-  transition: color var(--transition-default);
 
   &:hover,
-  &:focus-visible {
+  &:focus {
     color: var(--color-primary-2);
     text-decoration: underline;
   }

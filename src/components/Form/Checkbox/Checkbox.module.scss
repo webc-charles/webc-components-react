@@ -24,7 +24,6 @@
   flex-shrink: 0;
   height: 2rem;
   justify-content: center;
-  transition: border-color var(--transition-default);
   width: 2rem;
 
   &.checked {
@@ -33,7 +32,7 @@
   }
 }
 
-.hiddenInput:focus-visible + .checkbox:not(.checked) {
+.hiddenInput:focus + .checkbox:not(.checked) {
   border-color: var(--color-primary-2);
 }
 

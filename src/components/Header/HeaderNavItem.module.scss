@@ -17,12 +17,9 @@
   height: 4rem;
   padding: 0 2rem;
   text-decoration: none;
-  transition:
-    color var(--transition-default),
-    background-color var(--transition-default);
 
   &:hover,
-  &:focus-visible {
+  &:focus {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }
@@ -44,12 +41,9 @@
   gap: 0.5rem;
   height: 4rem;
   padding: 0 2rem;
-  transition:
-    color var(--transition-default),
-    background-color var(--transition-default);
 
   &:hover,
-  &:focus-visible {
+  &:focus {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }
@@ -106,7 +100,7 @@
   width: 100%;
 
   &:hover,
-  &:focus-visible {
+  &:focus {
     color: var(--color-primary-2);
     text-decoration: underline;
   }

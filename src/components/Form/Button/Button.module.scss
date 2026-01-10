@@ -2,12 +2,10 @@
 
 // Base reset - no visual styles
 .button {
-  background: transparent;
   border: none;
   color: inherit;
   cursor: pointer;
   font: inherit;
-  padding: 0;
 
   &:disabled {
     cursor: not-allowed;

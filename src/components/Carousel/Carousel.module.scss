@@ -36,7 +36,6 @@
   height: 4rem;
   justify-content: center;
   outline: none;
-  transition: all var(--transition-default);
   width: 4rem;
 
   &:disabled {
@@ -45,7 +44,7 @@
   }
 
   &:hover:not(:disabled),
-  &:focus-visible:not(:disabled) {
+  &:focus:not(:disabled) {
     background: var(--color-primary-2);
     color: var(--color-white);
   }
@@ -70,15 +69,11 @@
   height: 1rem;
   outline: none;
   padding: 0;
-  transition: all var(--transition-default);
   width: 1rem;
 
+  &.active,
   &:hover:not(.active),
-  &:focus-visible:not(.active) {
-    background: var(--color-grey-3);
-  }
-
-  &.active {
+  &:focus:not(.active) {
     background: var(--color-primary-2);
   }
 }

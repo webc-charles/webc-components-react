@@ -44,7 +44,6 @@
   flex-shrink: 0;
   height: 2rem;
   position: relative;
-  transition: border-color var(--transition-default);
   width: 2rem;
 
   &::after {
@@ -67,7 +66,7 @@
   position: absolute;
   width: 0;
 
-  &:focus-visible + .radio {
+  &:focus + .radio {
     border-color: var(--color-primary-2);
   }
 

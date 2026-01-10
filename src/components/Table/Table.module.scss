@@ -1,0 +1,74 @@
+@use 'styles/typo' as *;
+
+.table {
+  @include base-table;
+
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// Remove default borders when not bordered
+.table:not(.bordered) {
+  th,
+  td {
+    border: none;
+  }
+}
+
+// Striped rows
+.table.striped tbody tr:nth-child(even) {
+  background-color: var(--color-grey-7, #fafafa);
+}
+
+.table:not(.striped) tbody tr:nth-child(even) {
+  background-color: transparent;
+}
+
+// Hoverable rows
+.table.hoverable tbody tr:hover {
+  background-color: var(--color-grey-6);
+}
+
+// Compact mode
+.table.compact th,
+.table.compact td {
+  padding: 0.5rem 0.75rem;
+}
+
+// Head
+.head {
+  background-color: var(--color-grey-6);
+}
+
+// Foot
+.foot {
+  background-color: var(--color-grey-6);
+  font-weight: var(--font-weight-lg);
+}
+
+// Header cell
+.headerCell {
+  font-weight: var(--font-weight-lg);
+  text-align: left;
+}
+
+// Cell
+.cell {
+  text-align: left;
+}
+
+// Caption
+.caption {
+  color: var(--color-grey-2);
+  font-size: var(--font-size-2);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.caption.top {
+  caption-side: top;
+}
+
+.caption.bottom {
+  caption-side: bottom;
+}

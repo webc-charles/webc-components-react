@@ -91,12 +91,12 @@ function App() {
 
 ### Overview
 
-| Category     | Components                                                                                                           |
-| ------------ | -------------------------------------------------------------------------------------------------------------------- |
-| **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select |
-| **Display**  | Avatar · Badge · Note · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                           |
-| **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                              |
-| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                 |
+| Category     | Components                                                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select · Slider |
+| **Display**  | Avatar · Badge · Note · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                                    |
+| **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                       |
+| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                          |
 
 ---
 
@@ -116,10 +116,27 @@ function App() {
 | `appearance` | `'default' \| 'button' \| 'outline' \| 'underline'` | `'default'` |
 | `loading`    | `boolean`                                           | `false`     |
 
-#### InputText / InputPassword / InputNumber / InputTextarea
+#### InputText
+
+Text input with support for text, email, URL, and telephone types.
 
 ```tsx
-<InputText label="Email" placeholder="Enter email" />
+<InputText label="Name" placeholder="Enter name" />
+<InputText label="Email" type="email" placeholder="you@example.com" />
+<InputText label="Website" type="url" placeholder="https://..." />
+<InputText label="Phone" type="tel" placeholder="+33 6 12 34 56 78" />
+```
+
+| Prop             | Type                                | Default    |
+| ---------------- | ----------------------------------- | ---------- |
+| `label`          | `string`                            | -          |
+| `type`           | `'text' \| 'email' \| 'url' \| 'tel'` | `'text'`   |
+| `inputClassName` | `string`                            | -          |
+| `labelClassName` | `string`                            | -          |
+
+#### InputPassword / InputNumber / InputTextarea
+
+```tsx
 <InputPassword label="Password" />
 <InputNumber label="Quantity" min={0} max={100} />
 <InputTextarea label="Bio" maxLength={500} showCount />
@@ -184,6 +201,54 @@ Compound component for single/multiple selection with search and async loading.
   </SelectModal>
 </SelectRoot>
 ```
+
+#### Slider
+
+Range slider with single or dual thumbs, marks, and value labels.
+
+```tsx
+// Basic slider
+<Slider defaultValue={30} aria-label="Volume" />
+
+// With value label
+<Slider value={value} onChange={setValue} valueLabelDisplay="auto" />
+
+// Range slider
+<Slider range value={[20, 80]} onChange={setRange} valueLabelDisplay="on" />
+
+// With custom marks
+<Slider
+  defaultValue={20}
+  marks={[
+    { value: 0, label: '0°C' },
+    { value: 50, label: '50°C' },
+    { value: 100, label: '100°C' },
+  ]}
+  valueLabelDisplay="auto"
+/>
+
+// Vertical orientation
+<Slider orientation="vertical" defaultValue={50} />
+```
+
+| Prop                | Type                                     | Default        |
+| ------------------- | ---------------------------------------- | -------------- |
+| `min`               | `number`                                 | `0`            |
+| `max`               | `number`                                 | `100`          |
+| `step`              | `number \| null`                         | `1`            |
+| `range`             | `boolean`                                | `false`        |
+| `value`             | `number \| [number, number]`             | -              |
+| `defaultValue`      | `number \| [number, number]`             | -              |
+| `orientation`       | `'horizontal' \| 'vertical'`             | `'horizontal'` |
+| `size`              | `'sm' \| 'md'`                           | `'md'`         |
+| `track`             | `'normal' \| 'inverted' \| false`        | `'normal'`     |
+| `marks`             | `boolean \| SliderMark[]`                | `false`        |
+| `valueLabelDisplay` | `'auto' \| 'on' \| 'off'`                | `'off'`        |
+| `valueLabelFormat`  | `(value: number) => string`              | -              |
+| `minDistance`       | `number` (range only)                    | `0`            |
+| `disableSwap`       | `boolean` (range only)                   | `false`        |
+| `onChange`          | `(value) => void`                        | -              |
+| `onChangeCommitted` | `(value) => void`                        | -              |
 
 ---
 
@@ -335,11 +400,10 @@ For CMS content (WordPress, Strapi, etc.). Styles all HTML elements.
 const { addToast } = useToasts()
 
 addToast({
-  variant: 'success',
   children: (
     <>
-      <ToastHeader>Saved!</ToastHeader>
-      <ToastBody>Changes saved successfully.</ToastBody>
+      <Title level="h3">Saved!</Title>
+      <p>Changes saved successfully.</p>
     </>
   ),
 })

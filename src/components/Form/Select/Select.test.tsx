@@ -13,6 +13,7 @@ import {
   SelectModal,
   SelectPlaceholder,
   SelectRoot,
+  SelectSearch,
   SelectTrigger,
 } from './Select'
 import type { OptionTypes } from './Select.types'
@@ -66,6 +67,7 @@ const SingleSelect = ({
       label={label}
       data-testid="select-root"
     >
+      <SelectSearch />
       <SelectPlaceholder data-testid="placeholder" />
       <SelectActions>
         <SelectTrigger />
@@ -97,7 +99,6 @@ const MultiSelect = ({
       disabled={disabled}
       data-testid="select-root"
     >
-      <SelectPlaceholder data-testid="placeholder" />
       <ChoiceList selectedOptions={value} data-testid="choice-list">
         {value.map((opt) => (
           <ChoiceListItem
@@ -107,6 +108,8 @@ const MultiSelect = ({
           />
         ))}
       </ChoiceList>
+      <SelectSearch />
+      <SelectPlaceholder data-testid="placeholder" />
       <SelectActions>
         <ChoiceClear data-testid="clear-all" />
         <SelectTrigger />
@@ -385,6 +388,11 @@ describe('Select - Searchable', () => {
     render(<SingleSelect searchable />)
 
     await user.click(screen.getByTestId('select-root'))
+    
+    // Wait for search input to be focused
+    const searchInput = screen.getByRole('searchbox')
+    await waitFor(() => expect(document.activeElement).toBe(searchInput))
+    
     await user.keyboard('{ArrowDown}')
 
     const secondOption = screen.getByRole('option', { name: /banana/i })

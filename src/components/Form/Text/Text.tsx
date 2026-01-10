@@ -9,6 +9,7 @@ export function InputText({
   className,
   inputClassName,
   labelClassName,
+  type = 'text',
   'aria-label': ariaLabel,
   ...rest
 }: InputTextTypes) {
@@ -23,6 +24,7 @@ export function InputText({
       )}
       <input
         ref={ref}
+        type={type}
         id={label ? id : undefined}
         aria-label={!label ? ariaLabel : undefined}
         className={clsx(styles.input, inputClassName)}

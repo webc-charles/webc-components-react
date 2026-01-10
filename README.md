@@ -94,7 +94,7 @@ function App() {
 | Category     | Components                                                                                                                    |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select · Slider |
-| **Display**  | Avatar · Badge · Note · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                                    |
+| **Display**  | Avatar · Badge · Note · Table · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                          |
 | **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                       |
 | **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                          |
 
@@ -276,6 +276,49 @@ Range slider with single or dual thumbs, marks, and value labels.
   <p>This action cannot be undone.</p>
 </Note>
 ```
+
+#### Table
+
+Compound component for data tables with striped rows, hover effects, and footer support.
+
+```tsx
+<Table hoverable>
+  <TableCaption>Team members</TableCaption>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>Email</TableHeaderCell>
+      <TableHeaderCell>Role</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>Alice Martin</TableCell>
+      <TableCell>alice@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Bob Dupont</TableCell>
+      <TableCell>bob@example.com</TableCell>
+      <TableCell>User</TableCell>
+    </TableRow>
+  </TableBody>
+  <TableFoot>
+    <TableRow>
+      <TableCell colSpan={3}>2 members total</TableCell>
+    </TableRow>
+  </TableFoot>
+</Table>
+```
+
+| Prop        | Type      | Default |
+| ----------- | --------- | ------- |
+| `striped`   | `boolean` | `true`  |
+| `hoverable` | `boolean` | `false` |
+| `compact`   | `boolean` | `false` |
+| `bordered`  | `boolean` | `true`  |
+
+**Sub-components:** `TableHead`, `TableBody`, `TableFoot`, `TableRow`, `TableHeaderCell`, `TableCell`, `TableCaption`
 
 #### Title
 

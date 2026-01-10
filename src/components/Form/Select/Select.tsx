@@ -88,61 +88,6 @@ const handleKeyboardNavigation = (
   }
 }
 
-// SEARCH INPUT
-const SelectSearch = memo(() => {
-  const {
-    searchQuery,
-    setSearchQuery,
-    controlId,
-    searchable,
-    placeholder,
-    filteredOptions,
-    focusedIndex,
-    setFocusedIndex,
-    toggleOption,
-    setIsOpen,
-    rootRef,
-  } = useSelectContext()
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    handleKeyboardNavigation(e, {
-      focusedIndex,
-      filteredOptions,
-      setFocusedIndex,
-      toggleOption,
-      setIsOpen,
-      rootRef,
-    })
-  }
-
-  if (!searchable) return null
-
-  return (
-    <input
-      ref={inputRef}
-      type="text"
-      role="searchbox"
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      onKeyDown={handleKeyDown}
-      placeholder={placeholder}
-      className={styles.selectSearch}
-      aria-label={str.search}
-      aria-controls={`${controlId}-listbox`}
-      aria-autocomplete="list"
-      aria-activedescendant={
-        focusedIndex >= 0 ? `${controlId}-option-${focusedIndex}` : undefined
-      }
-    />
-  )
-})
-SelectSearch.displayName = 'SelectSearch'
-
 // OPTION LIST ITEM
 const OptionListItem = memo((props: OptionListItemTypes) => {
   const { option, index, disabled, className } = props
@@ -216,18 +161,36 @@ OptionList.displayName = 'OptionList'
 
 // CHOICE CLEAR
 const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
-  const { clearAll, disabled, value } = useSelectContext()
+  const {
+    clearAll,
+    disabled,
+    value,
+    isOpen,
+    searchable,
+    searchInputRef,
+    rootRef,
+  } = useSelectContext()
 
   if (!value.length) return null
+
+  const handleClear = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    clearAll()
+    // Focus management after clear
+    requestAnimationFrame(() => {
+      if (isOpen && searchable && searchInputRef.current) {
+        searchInputRef.current.focus()
+      } else {
+        rootRef.current?.focus()
+      }
+    })
+  }
 
   return (
     <Button
       type="button"
       disabled={disabled}
-      onClick={(e) => {
-        e.stopPropagation()
-        clearAll()
-      }}
+      onClick={handleClear}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.stopPropagation()
@@ -263,28 +226,82 @@ ChoiceList.displayName = 'ChoiceList'
 
 // CHOICE LIST ITEM
 const ChoiceListItem = memo(
-  ({ option, disabled, onRemove }: ChoiceListItemTypes) => (
-    <li className={styles.choiceListItem}>
-      <span className={styles.choiceListItemLabel}>{option.label}</span>
-      <Button
-        type="button"
-        disabled={disabled}
-        onClick={(e) => {
-          e.stopPropagation()
-          if (!disabled) onRemove(option)
-        }}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.stopPropagation()
+  ({ option, disabled, onRemove }: ChoiceListItemTypes) => {
+    const {
+      isOpen,
+      searchable,
+      searchInputRef,
+      rootRef,
+      value,
+      choiceButtonRefs,
+    } = useSelectContext()
+    const buttonRef = useRef<HTMLButtonElement>(null)
+
+    // Register/unregister ref
+    useEffect(() => {
+      const refs = choiceButtonRefs.current
+      if (buttonRef.current) {
+        refs.set(option.value, buttonRef.current)
+      }
+      return () => {
+        refs.delete(option.value)
+      }
+    }, [option.value, choiceButtonRefs])
+
+    const handleRemove = (e: React.MouseEvent | React.KeyboardEvent) => {
+      e.stopPropagation()
+      if (disabled) return
+
+      // Find current index and determine next focus target
+      const currentIndex = value.findIndex((v) => v.value === option.value)
+      const remainingValues = value.filter((v) => v.value !== option.value)
+
+      onRemove(option)
+
+      // Focus management after removal
+      requestAnimationFrame(() => {
+        if (remainingValues.length > 0) {
+          // Try to focus next item, or previous if at end
+          const nextIndex = Math.min(currentIndex, remainingValues.length - 1)
+          const nextValue = remainingValues[nextIndex]
+          const nextButton = choiceButtonRefs.current.get(nextValue.value)
+          if (nextButton) {
+            nextButton.focus()
+            return
           }
-        }}
-        aria-label={`${str.remove} ${option.label}`}
-        className={styles.choiceListItemRemove}
-      >
-        <X size={16} aria-hidden />
-      </Button>
-    </li>
-  )
+        }
+
+        // No remaining choices, focus search input or root
+        if (isOpen && searchable && searchInputRef.current) {
+          searchInputRef.current.focus()
+        } else {
+          rootRef.current?.focus()
+        }
+      })
+    }
+
+    return (
+      <li className={styles.choiceListItem}>
+        <span className={styles.choiceListItemLabel}>{option.label}</span>
+        <Button
+          ref={buttonRef}
+          type="button"
+          disabled={disabled}
+          onClick={handleRemove}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              handleRemove(e)
+            }
+          }}
+          aria-label={`${str.remove} ${option.label}`}
+          className={styles.choiceListItemRemove}
+        >
+          <X size={16} aria-hidden />
+        </Button>
+      </li>
+    )
+  }
 )
 ChoiceListItem.displayName = 'ChoiceListItem'
 
@@ -351,7 +368,6 @@ const SelectModal = memo(
         }}
         {...rest}
       >
-        <SelectSearch />
         {children}
 
         {loading && (
@@ -391,10 +407,72 @@ const SelectTrigger = memo(() => {
 })
 SelectTrigger.displayName = 'SelectTrigger'
 
-// SELECT PLACEHOLDER
+// SELECT SEARCH (inline input for searchable selects)
+const SelectSearch = memo(() => {
+  const {
+    searchable,
+    isOpen,
+    searchQuery,
+    setSearchQuery,
+    controlId,
+    filteredOptions,
+    focusedIndex,
+    setFocusedIndex,
+    toggleOption,
+    setIsOpen,
+    rootRef,
+    searchInputRef,
+    placeholder,
+    value,
+  } = useSelectContext()
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    handleKeyboardNavigation(e, {
+      focusedIndex,
+      filteredOptions,
+      setFocusedIndex,
+      toggleOption,
+      setIsOpen,
+      rootRef,
+    })
+  }
+
+  // Only render when searchable and open
+  if (!searchable || !isOpen) return null
+
+  // Show placeholder only when no selections
+  const showPlaceholder = value.length === 0
+
+  return (
+    <input
+      ref={searchInputRef}
+      type="text"
+      role="searchbox"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      onKeyDown={handleKeyDown}
+      onClick={(e) => e.stopPropagation()}
+      placeholder={showPlaceholder ? placeholder : ''}
+      className={styles.selectSearchInline}
+      aria-label={str.search}
+      aria-controls={`${controlId}-listbox`}
+      aria-autocomplete="list"
+      aria-activedescendant={
+        focusedIndex >= 0 ? `${controlId}-option-${focusedIndex}` : undefined
+      }
+    />
+  )
+})
+SelectSearch.displayName = 'SelectSearch'
+
+// SELECT PLACEHOLDER (shows placeholder or selected value when closed)
 const SelectPlaceholder = memo(
   ({ className, ...rest }: SelectPlaceholderTypes) => {
-    const { placeholder, value, multiple } = useSelectContext()
+    const { placeholder, value, multiple, searchable, isOpen } =
+      useSelectContext()
+
+    // When searchable and open, SelectSearch handles the input
+    if (searchable && isOpen) return null
 
     // Single select: show selected label
     if (!multiple && value.length) {
@@ -405,7 +483,7 @@ const SelectPlaceholder = memo(
       )
     }
 
-    // Multi select: hide when has selections
+    // Multi select: hide placeholder when has selections
     if (multiple && value.length) return null
 
     return (
@@ -451,6 +529,8 @@ const SelectRoot = (props: SelectRootTypes) => {
   })
   const rootRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null)
+  const choiceButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const controlId = useId()
 
@@ -485,6 +565,13 @@ const SelectRoot = (props: SelectRootTypes) => {
     },
     [onSearch, searchDebounce]
   )
+
+  // Focus search input when opened
+  useEffect(() => {
+    if (isOpen && searchable) {
+      requestAnimationFrame(() => searchInputRef.current?.focus())
+    }
+  }, [isOpen, searchable])
 
   useEffect(() => {
     if (!isOpen) {
@@ -633,6 +720,8 @@ const SelectRoot = (props: SelectRootTypes) => {
       menuPosition,
       rootRef,
       menuRef,
+      searchInputRef,
+      choiceButtonRefs,
       controlId,
       value,
       options,

@@ -75,6 +75,8 @@ export type SelectContextTypes = {
   }
   rootRef: RefObject<HTMLDivElement | null>
   menuRef: RefObject<HTMLDivElement | null>
+  searchInputRef: RefObject<HTMLInputElement | null>
+  choiceButtonRefs: RefObject<Map<string, HTMLButtonElement>>
   controlId: string
   value: OptionTypes[]
   options: OptionTypes[]

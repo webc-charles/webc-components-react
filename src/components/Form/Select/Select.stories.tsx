@@ -4,6 +4,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectPlaceholder,
+  SelectSearch,
   SelectModal,
   SelectActions,
   OptionList,
@@ -127,7 +128,7 @@ const SelectStory = ({
       searchDebounce={searchDebounce}
       loading={loading}
     >
-      <SelectPlaceholder />
+      {/* Tags first (for multiple) */}
       {multiple && (
         <ChoiceList selectedOptions={value}>
           {value.map((opt) => (
@@ -141,6 +142,14 @@ const SelectStory = ({
           ))}
         </ChoiceList>
       )}
+
+      {/* Search input inline (after tags) */}
+      <SelectSearch />
+
+      {/* Placeholder (only when closed and no selection) */}
+      <SelectPlaceholder />
+
+      {/* Actions on the right */}
       <SelectActions>
         {multiple && showClearAll && <ChoiceClear />}
         <SelectTrigger />
@@ -253,6 +262,7 @@ const AsyncSearchStory = () => {
       loading={loading}
       label="Async Search"
     >
+      <SelectSearch />
       <SelectPlaceholder />
       <SelectActions>
         <SelectTrigger />
@@ -318,7 +328,6 @@ const InfiniteScrollStory = () => {
       multiple
       label="Infinite Scroll (100 items max)"
     >
-      <SelectPlaceholder />
       <ChoiceList selectedOptions={value}>
         {value.map((opt) => (
           <ChoiceListItem
@@ -328,6 +337,7 @@ const InfiniteScrollStory = () => {
           />
         ))}
       </ChoiceList>
+      <SelectPlaceholder />
       <SelectActions>
         <SelectTrigger />
       </SelectActions>

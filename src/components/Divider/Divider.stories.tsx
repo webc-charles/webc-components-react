@@ -13,7 +13,7 @@ const meta: Meta<typeof Divider> = {
     },
     spacing: {
       control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
+      options: ['none', 'sm', 'md', 'lg', 'xl'],
       description: 'Vertical spacing',
     },
   },

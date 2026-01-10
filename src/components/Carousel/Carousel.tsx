@@ -13,35 +13,37 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { str } from 'i18n'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from 'components'
-import styles from './Slider.module.scss'
+import styles from './Carousel.module.scss'
 import {
-  SliderContainerTypes,
-  SliderContextValue,
-  SliderControlsTypes,
-  SliderDotsTypes,
-  SliderNextTypes,
-  SliderPrevTypes,
-  SliderSlideTypes,
-  SliderTypes,
-} from './Slider.types'
+  CarouselContainerTypes,
+  CarouselContextValue,
+  CarouselControlsTypes,
+  CarouselDotsTypes,
+  CarouselNextTypes,
+  CarouselPrevTypes,
+  CarouselSlideTypes,
+  CarouselTypes,
+} from './Carousel.types'
 
-const SliderContext = createContext<SliderContextValue | null>(null)
+const CarouselContext = createContext<CarouselContextValue | null>(null)
 
-function useSliderContext() {
-  const context = useContext(SliderContext)
+function useCarouselContext() {
+  const context = useContext(CarouselContext)
   if (!context) {
-    throw new Error('Slider components must be used within a <Slider> provider')
+    throw new Error(
+      'Carousel components must be used within a <Carousel> provider'
+    )
   }
   return context
 }
 
-export function Slider({
+export function Carousel({
   ref,
   options,
   className,
   children,
   ...props
-}: SliderTypes) {
+}: CarouselTypes) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
@@ -99,8 +101,8 @@ export function Slider({
   )
 
   return (
-    <SliderContext.Provider value={contextValue}>
-      <div ref={ref} className={clsx(styles.slider, className)} {...props}>
+    <CarouselContext.Provider value={contextValue}>
+      <div ref={ref} className={clsx(styles.Carousel, className)} {...props}>
         <div className={styles.viewport} ref={emblaRef}>
           {children}
         </div>
@@ -121,21 +123,21 @@ export function Slider({
             border: 0,
           }}
         >
-          {str.slider_status
+          {str.carousel_status
             .replace('{current}', String(selectedIndex + 1))
             .replace('{total}', String(scrollSnaps.length))}
         </div>
       </div>
-    </SliderContext.Provider>
+    </CarouselContext.Provider>
   )
 }
 
-export function SliderContainer({
+export function CarouselContainer({
   ref,
   className,
   children,
   ...props
-}: SliderContainerTypes) {
+}: CarouselContainerTypes) {
   return (
     <div ref={ref} className={clsx(styles.container, className)} {...props}>
       {children}
@@ -143,12 +145,12 @@ export function SliderContainer({
   )
 }
 
-export function SliderSlide({
+export function CarouselSlide({
   ref,
   className,
   children,
   ...props
-}: SliderSlideTypes) {
+}: CarouselSlideTypes) {
   return (
     <div ref={ref} className={clsx(styles.slide, className)} {...props}>
       {children}
@@ -156,12 +158,12 @@ export function SliderSlide({
   )
 }
 
-export function SliderControls({
+export function CarouselControls({
   ref,
   className,
   children,
   ...props
-}: SliderControlsTypes) {
+}: CarouselControlsTypes) {
   return (
     <div ref={ref} className={clsx(styles.controls, className)} {...props}>
       {children}
@@ -169,14 +171,14 @@ export function SliderControls({
   )
 }
 
-export function SliderPrev({
+export function CarouselPrev({
   ref,
   className,
-  label = str.slider_prev,
+  label = str.carousel_prev,
   children,
   ...props
-}: SliderPrevTypes) {
-  const { canScrollPrev, scrollPrev } = useSliderContext()
+}: CarouselPrevTypes) {
+  const { canScrollPrev, scrollPrev } = useCarouselContext()
 
   return (
     <Button
@@ -193,14 +195,14 @@ export function SliderPrev({
   )
 }
 
-export function SliderNext({
+export function CarouselNext({
   ref,
   className,
-  label = str.slider_next,
+  label = str.carousel_next,
   children,
   ...props
-}: SliderNextTypes) {
-  const { canScrollNext, scrollNext } = useSliderContext()
+}: CarouselNextTypes) {
+  const { canScrollNext, scrollNext } = useCarouselContext()
 
   return (
     <Button
@@ -217,20 +219,20 @@ export function SliderNext({
   )
 }
 
-export function SliderDots({
+export function CarouselDots({
   ref,
   className,
-  label = str.slider_goto,
+  label = str.carousel_goto,
   ...props
-}: SliderDotsTypes) {
-  const { selectedIndex, scrollSnaps, scrollTo } = useSliderContext()
+}: CarouselDotsTypes) {
+  const { selectedIndex, scrollSnaps, scrollTo } = useCarouselContext()
 
   return (
     <div
       ref={ref}
       className={clsx(styles.dots, className)}
       role="group"
-      aria-label={str.slider_navigation}
+      aria-label={str.carousel_navigation}
       {...props}
     >
       {scrollSnaps.map((_, index) => (

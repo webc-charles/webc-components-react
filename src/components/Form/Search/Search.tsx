@@ -262,7 +262,7 @@ export function InputSearch({
               className={styles.clearButton}
               aria-label={str.clear}
             >
-              <X size={16} aria-hidden="true" />
+              <X size={18} aria-hidden="true" />
             </Button>
           )}
         </div>

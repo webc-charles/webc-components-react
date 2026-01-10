@@ -36,9 +36,9 @@
 .actions {
   align-items: center;
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   position: absolute;
-  right: 0.8rem;
+  right: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -49,8 +49,10 @@
   color: var(--color-grey-3);
   cursor: pointer;
   display: flex;
-  padding: 0.4rem;
+  height: 3rem;
+  justify-content: center;
   transition: color var(--transition-default);
+  width: 3rem;
 
   &:hover,
   &:focus-visible {
@@ -67,6 +69,10 @@
   overflow-y: auto;
   position: fixed;
   z-index: var(--z-index-5);
+
+  &:empty {
+    display: none;
+  }
 }
 
 .resultList {
@@ -98,8 +104,7 @@
 
 .dropdownLoading {
   align-items: center;
-  border-top: 0.1rem solid var(--color-grey-5);
   display: flex;
   justify-content: center;
-  padding: 0.8rem;
+  padding: 1rem;
 }

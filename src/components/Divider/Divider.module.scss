@@ -6,7 +6,6 @@
   width: 100%;
 }
 
-// Variants
 .variant-solid {
   border-top-color: var(--color-grey-5);
   border-top-style: solid;
@@ -22,19 +21,22 @@
   border-top-style: dotted;
 }
 
-// Spacing
 .spacing-none {
   margin: 0;
 }
 
 .spacing-sm {
-  margin: 0.8rem 0;
+  margin: 1rem 0;
 }
 
 .spacing-md {
-  margin: 1.6rem 0;
+  margin: 2rem 0;
 }
 
 .spacing-lg {
-  margin: 3.2rem 0;
+  margin: 3rem 0;
+}
+
+.spacing-xl {
+  margin: 4rem 0;
 }

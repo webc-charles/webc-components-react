@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Slider } from './Slider'
+import type { SliderSingleTypes } from './Slider.types'
 
 const meta: Meta<typeof Slider> = {
   title: 'Form/Slider',
@@ -60,9 +61,7 @@ export default meta
 type Story = StoryObj<typeof Slider>
 
 // Controlled slider wrapper for playground
-const ControlledSlider = (
-  props: Omit<React.ComponentProps<typeof Slider>, 'value' | 'onChange'>
-) => {
+const ControlledSlider = (props: Omit<SliderSingleTypes, 'value' | 'onChange'>) => {
   const [value, setValue] = useState(30)
 
   return (
@@ -75,7 +74,11 @@ const ControlledSlider = (
 
 // Playground
 export const Playground: Story = {
-  render: (args) => <ControlledSlider {...args} />,
+  render: (args) => {
+    // Extract only single slider props (exclude range-specific props)
+    const { range, ...singleProps } = args as SliderSingleTypes & { range?: boolean }
+    return <ControlledSlider {...singleProps} />
+  },
 }
 
 // Basic

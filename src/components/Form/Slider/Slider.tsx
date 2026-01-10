@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
+import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import styles from './Slider.module.scss'
 import type { SliderMark, SliderTypes } from './Slider.types'
@@ -63,7 +63,10 @@ export function Slider(props: SliderTypes) {
 
   // Controlled vs uncontrolled
   const value = props.value !== undefined ? props.value : internalValue
-  const values = isRange ? (value as [number, number]) : [value as number]
+  const values = useMemo<number[]>(
+    () => (isRange ? (value as [number, number]) : [value as number]),
+    [isRange, value]
+  )
 
   // Generate marks array
   const marksArray = useMemo<SliderMark[]>(() => {

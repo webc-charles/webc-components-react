@@ -15,7 +15,7 @@ export type SliderValueLabelDisplay = 'auto' | 'on' | 'off'
 
 export type SliderBaseTypes = Omit<
   ComponentProps<'input'>,
-  'value' | 'defaultValue' | 'onChange' | 'size'
+  'value' | 'defaultValue' | 'onChange' | 'size' | 'step'
 > & {
   /** Minimum value */
   min?: number

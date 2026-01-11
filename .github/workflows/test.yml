@@ -19,24 +19,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Run tests
         run: |
-          timeout 180 yarn test:run 2>&1 | tee test-output.txt &
+          timeout 180 pnpm test:run 2>&1 | tee test-output.txt &
           PID=$!
           wait $PID
           EXIT_CODE=$?
           
           if [ $EXIT_CODE -eq 124 ]; then
-            # Timeout occurred - check if tests actually passed
             if grep -q " 0 failed" test-output.txt || (grep -q "✓" test-output.txt && ! grep -q "×" test-output.txt); then
               echo "✅ Tests passed but process hung - forcing successful exit"
               exit 0

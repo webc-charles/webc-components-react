@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   Carousel,
   CarouselContainer,
@@ -11,25 +11,29 @@ import {
   CarouselSlide,
 } from './Carousel'
 
-// Mock embla-carousel-react (requires DOM measurements)
+// Hoist the mock to ensure it's set up before imports
+const mockEmblaApi = vi.hoisted(() => ({
+  scrollPrev: vi.fn(),
+  scrollNext: vi.fn(),
+  scrollTo: vi.fn(),
+  canScrollPrev: () => true,
+  canScrollNext: () => true,
+  selectedScrollSnap: () => 0,
+  scrollSnapList: () => [0, 1, 2],
+  on: vi.fn(),
+  off: vi.fn(),
+}))
+
 vi.mock('embla-carousel-react', () => ({
-  default: () => [
-    () => {},
-    {
-      scrollPrev: () => {},
-      scrollNext: () => {},
-      scrollTo: () => {},
-      canScrollPrev: () => true,
-      canScrollNext: () => true,
-      selectedScrollSnap: () => 0,
-      scrollSnapList: () => [0, 1, 2],
-      on: () => {},
-      off: () => {},
-    },
-  ],
+  default: vi.fn(() => [vi.fn(), mockEmblaApi]),
 }))
 
 describe('Carousel', () => {
+  afterEach(() => {
+    cleanup()
+    vi.clearAllMocks()
+  })
+
   it('renders slides correctly', () => {
     render(
       <Carousel>

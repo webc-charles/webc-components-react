@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { Link } from '../Link'
-import { Button } from '../form/button'
+import { Button } from '../Form/Button'
 import {
   HeaderActions,
   HeaderLogo,

@@ -21,5 +21,7 @@ export default defineConfig({
     environment: 'jsdom',
     css: true,
     include: ['src/**/*.test.{ts,tsx}'],
+    teardownTimeout: 1000,
+    testTimeout: 10000,
   },
 })

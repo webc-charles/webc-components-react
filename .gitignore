@@ -28,3 +28,7 @@ storybook-static/
 *.local
 .env
 .env.*
+
+# Claude / Local config
+.claude/
+.mcp.json

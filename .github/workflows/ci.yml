@@ -1,8 +1,14 @@
-name: Deploy Storybook
+name: CI
 
 on:
   push:
     branches: ['main']
+  pull_request:
+    branches: ['main']
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -10,7 +16,34 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test:run
+        env:
+          CI: true
+
+  storybook:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -41,7 +74,8 @@ jobs:
           path: storybook-static
 
   deploy:
-    needs: build
+    needs: storybook
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

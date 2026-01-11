@@ -666,11 +666,11 @@ Background and text color classes are available:
 ## Development
 
 ```bash
-npm install
-npm run storybook    # Start Storybook
-npm run build        # Build library
-npm run test         # Run tests
-npm run stylelint    # Lint SCSS
+pnpm install
+pnpm storybook       # Start Storybook
+pnpm build           # Build library
+pnpm test            # Run tests
+pnpm stylelint       # Lint SCSS
 ```
 
 ### File Structure

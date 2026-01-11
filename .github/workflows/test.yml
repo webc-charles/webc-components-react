@@ -29,6 +29,6 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: yarn test:run --reporter=hanging-process --no-file-parallelism
+        run: yarn test:run
         env:
           CI: true

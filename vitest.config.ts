@@ -21,9 +21,6 @@ export default defineConfig({
     environment: 'jsdom',
     css: true,
     include: ['src/**/*.test.{ts,tsx}'],
-    teardownTimeout: 1000,
-    testTimeout: 10000,
-    isolate: false,
-    fileParallelism: false,
+    setupFiles: ['./vitest.setup.ts'],
   },
 })

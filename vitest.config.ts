@@ -23,5 +23,11 @@ export default defineConfig({
     include: ['src/**/*.test.{ts,tsx}'],
     teardownTimeout: 1000,
     testTimeout: 10000,
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
   },
 })

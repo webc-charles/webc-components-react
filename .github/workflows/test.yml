@@ -29,6 +29,6 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: timeout 120 yarn test:run --pool=forks
+        run: yarn test:run --reporter=hanging-process --no-file-parallelism
         env:
           CI: true

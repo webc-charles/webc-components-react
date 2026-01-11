@@ -6,9 +6,14 @@ on:
   pull_request:
     branches: ['main']
 
+concurrency:
+  group: test-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
 
     steps:
       - name: Checkout
@@ -24,6 +29,6 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: yarn test:run
+        run: yarn test:run --pool=forks
         env:
           CI: true

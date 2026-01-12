@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config) => {
+    config.base = process.env.CI ? '/webc-components-react/' : '/'
     config.resolve = {
       ...config.resolve,
       alias: {

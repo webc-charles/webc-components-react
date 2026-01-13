@@ -96,7 +96,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Fetch all tags
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -111,25 +111,30 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Configure Git
+      - name: Get next version from tags
+        id: version
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Get latest tag, default to v1.0.0 if none exists
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          echo "Latest tag: $LATEST_TAG"
+          
+          # Remove 'v' prefix and split version
+          VERSION="${LATEST_TAG#v}"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          
+          # Increment patch
+          PATCH=$((PATCH + 1))
+          NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+          
+          echo "New version: $NEW_VERSION"
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Bump version (patch)
+      - name: Update package.json version (local only)
         run: |
-          npm version patch --no-git-tag-version
-          NEW_VERSION=$(node -p "require('./package.json').version")
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          npm version ${{ steps.version.outputs.NEW_VERSION }} --no-git-tag-version
 
       - name: Build package
         run: pnpm build
-
-      - name: Commit version bump
-        run: |
-          git add package.json
-          git commit -m "chore: bump version to ${{ env.NEW_VERSION }} [skip ci]"
-          git push
 
       - name: Publish to GitHub Packages
         run: npm publish
@@ -139,15 +144,15 @@ jobs:
       - name: Create Git tag and GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ env.NEW_VERSION }}
-          name: v${{ env.NEW_VERSION }}
+          tag_name: v${{ steps.version.outputs.NEW_VERSION }}
+          name: v${{ steps.version.outputs.NEW_VERSION }}
           body: |
             ## Changes
             - Auto-release from CI pipeline
             
             ## Installation
             ```bash
-            pnpm add @webc-charles/components-react@${{ env.NEW_VERSION }}
+            pnpm add @webc-charles/components-react@${{ steps.version.outputs.NEW_VERSION }}
             ```
           generate_release_notes: true
         env:

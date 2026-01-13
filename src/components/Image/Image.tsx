@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useId, ElementType } from 'react'
 import clsx from 'clsx'
 import styles from './Image.module.scss'
 import { ImageTypes } from './Image.types'
@@ -31,7 +31,8 @@ const radiusClassMap = {
   full: styles.radiusFull,
 }
 
-export function Image({
+export function Image<T extends ElementType = 'img'>({
+  as,
   ref,
   className,
   alt,
@@ -42,7 +43,8 @@ export function Image({
   caption,
   style,
   ...props
-}: ImageTypes) {
+}: ImageTypes<T>) {
+  const Component = as || 'img'
   const captionId = useId()
 
   const imageClass = clsx(
@@ -56,7 +58,7 @@ export function Image({
   const imageStyle = aspectRatio ? { ...style, aspectRatio } : style
 
   const img = (
-    <img
+    <Component
       ref={ref}
       className={imageClass}
       alt={alt}

@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ReactNode } from 'react'
+import { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
 
 export type ImageFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
 
@@ -15,17 +15,12 @@ export type ImagePosition =
 
 export type ImageRadius = 'none' | 'small' | 'medium' | 'large' | 'full'
 
-export type ImageTypes = Omit<ComponentPropsWithRef<'img'>, 'alt'> & {
-  /** Alt text is required for accessibility. Use alt="" for decorative images. */
+export type ImageTypes<T extends ElementType = 'img'> = {
+  as?: T
   alt: string
-  /** Object-fit behavior for the image */
   fit?: ImageFit
-  /** Object-position for the image */
   position?: ImagePosition
-  /** Aspect ratio (e.g., "16/9", "4/3", "1/1") */
   aspectRatio?: string
-  /** Border radius preset */
   radius?: ImageRadius
-  /** Caption text displayed below the image (wraps in figure/figcaption) */
   caption?: ReactNode
-}
+} & Omit<ComponentPropsWithRef<T>, 'as' | 'alt'>

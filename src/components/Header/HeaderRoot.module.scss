@@ -18,7 +18,7 @@
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  transition: opacity var(--transition-menu);
+  transition: opacity var(--transition-default);
   z-index: var(--z-index-3);
 
   @include mqMD {

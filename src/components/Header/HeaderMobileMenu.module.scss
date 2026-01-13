@@ -10,7 +10,7 @@
   padding: 2rem;
   position: fixed;
   transform: translateX(100%);
-  transition: transform var(--transition-menu);
+  transition: transform var(--transition-default);
   z-index: var(--z-index-4);
 
   @include mqMD {

@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.562.0",
     "sass": "^1.93.2"

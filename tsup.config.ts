@@ -15,7 +15,12 @@ export default defineConfig({
   esbuildPlugins: [
     sassPlugin({
       loadPaths: [srcPath],
+      filter: /\.module\.scss$/,
       transform: postcssModules({}),
+    }),
+    sassPlugin({
+      loadPaths: [srcPath],
+      filter: /(?<!\.module)\.scss$/,
     }),
   ],
 })

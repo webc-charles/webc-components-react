@@ -1,4 +1,5 @@
+// Global styles - bundled into index.css
+import './styles/index.scss'
+
 // Components
 export * from './components'
-
-// Styles - user imports separately: import '@webc/components-react/index.css'

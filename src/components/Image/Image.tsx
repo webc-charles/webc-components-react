@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import styles from './Image.module.scss'
 import { ImageTypes } from './Image.types'
 
-const fitClassMap = {
+export const fitClassMap = {
   cover: styles.fitCover,
   contain: styles.fitContain,
   fill: styles.fitFill,
@@ -11,7 +11,7 @@ const fitClassMap = {
   'scale-down': styles.fitScaleDown,
 }
 
-const positionClassMap = {
+export const positionClassMap = {
   center: styles.positionCenter,
   top: styles.positionTop,
   bottom: styles.positionBottom,
@@ -23,7 +23,7 @@ const positionClassMap = {
   'bottom-right': styles.positionBottomRight,
 }
 
-const radiusClassMap = {
+export const radiusClassMap = {
   none: styles.radiusNone,
   small: styles.radiusSmall,
   medium: styles.radiusMedium,

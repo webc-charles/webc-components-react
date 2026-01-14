@@ -15,12 +15,12 @@ export type ImagePosition =
 
 export type ImageRadius = 'none' | 'small' | 'medium' | 'large' | 'full'
 
-export type ImageTypes<T extends ElementType = 'img'> = {
-  as?: T
+export type ImageTypes = Omit<ComponentPropsWithRef<'img'>, 'alt'> & {
+  as?: ElementType
   alt: string
   fit?: ImageFit
   position?: ImagePosition
   aspectRatio?: string
   radius?: ImageRadius
   caption?: ReactNode
-} & Omit<ComponentPropsWithRef<T>, 'as' | 'alt'>
+}

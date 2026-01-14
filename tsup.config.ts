@@ -13,14 +13,16 @@ export default defineConfig({
   external: ['react', 'react-dom'],
   sourcemap: true,
   esbuildPlugins: [
+    // CSS Modules for component styles (*.module.scss)
     sassPlugin({
       loadPaths: [srcPath],
       filter: /\.module\.scss$/,
       transform: postcssModules({}),
     }),
+    // Global styles (src/styles/*.scss) - no CSS modules
     sassPlugin({
       loadPaths: [srcPath],
-      filter: /(?<!\.module)\.scss$/,
+      filter: /styles\/.*\.scss$/,
     }),
   ],
 })

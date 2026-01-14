@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import styles from './Slider.module.scss'
@@ -44,8 +42,8 @@ export function Slider(props: SliderTypes) {
   } = props
 
   const isRange = props.range === true
-  const minDistance = isRange ? (props.minDistance ?? 0) : 0
-  const disableSwap = isRange ? (props.disableSwap ?? false) : false
+  const minDistance = isRange ? props.minDistance ?? 0 : 0
+  const disableSwap = isRange ? props.disableSwap ?? false : false
 
   // Internal state
   const [internalValue, setInternalValue] = useState<number | [number, number]>(
@@ -171,9 +169,9 @@ export function Slider(props: SliderTypes) {
           props as { onChangeCommitted?: (v: [number, number]) => void }
         ).onChangeCommitted?.(valueToCommit as [number, number])
       } else {
-        ;(props as { onChangeCommitted?: (v: number) => void }).onChangeCommitted?.(
-          valueToCommit as number
-        )
+        ;(
+          props as { onChangeCommitted?: (v: number) => void }
+        ).onChangeCommitted?.(valueToCommit as number)
       }
     },
     [isRange, values, props]
@@ -359,7 +357,9 @@ export function Slider(props: SliderTypes) {
       (valueLabelDisplay === 'auto' && (isActive || isHovered))
 
     const thumbStyle =
-      orientation === 'vertical' ? { bottom: `${percent}%` } : { left: `${percent}%` }
+      orientation === 'vertical'
+        ? { bottom: `${percent}%` }
+        : { left: `${percent}%` }
 
     return (
       <div
@@ -417,7 +417,9 @@ export function Slider(props: SliderTypes) {
               style={markStyle}
             >
               <span className={styles.markDot} />
-              {mark.label && <span className={styles.markLabel}>{mark.label}</span>}
+              {mark.label && (
+                <span className={styles.markLabel}>{mark.label}</span>
+              )}
             </div>
           )
         })}
@@ -447,7 +449,10 @@ export function Slider(props: SliderTypes) {
       >
         {track !== false && (
           <div
-            className={clsx(styles.track, track === 'inverted' && styles.inverted)}
+            className={clsx(
+              styles.track,
+              track === 'inverted' && styles.inverted
+            )}
             style={trackStyle}
           />
         )}

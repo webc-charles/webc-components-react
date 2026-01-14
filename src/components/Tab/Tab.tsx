@@ -1,6 +1,12 @@
-'use client'
-
-import { createContext, useCallback, useContext, useId, useMemo, useRef, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import styles from './Tab.module.scss'

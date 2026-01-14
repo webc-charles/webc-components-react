@@ -6,7 +6,6 @@ import { Button, Modal } from 'components'
 import styles from './Date.module.scss'
 import { InputDateTypes } from './Date.types'
 
-// Calendar utility functions
 const getDaysInMonth = (year: number, month: number): number => {
   return new Date(year, month + 1, 0).getDate()
 }
@@ -85,16 +84,13 @@ export function InputDate({
   const daysInMonth = getDaysInMonth(year, month)
   const firstDayOfMonth = getFirstDayOfMonth(year, month)
 
-  // Generate calendar days
   const calendarDays = useMemo(() => {
     const days: (Date | null)[] = []
 
-    // Add empty slots for days before the first day of the month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(null)
     }
 
-    // Add actual days
     for (let day = 1; day <= daysInMonth; day++) {
       days.push(new Date(year, month, day))
     }
@@ -143,7 +139,6 @@ export function InputDate({
     setViewDate((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1))
   }, [])
 
-  // Keyboard navigation for calendar grid
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, date: Date | null) => {
       if (!date) return
@@ -180,15 +175,12 @@ export function InputDate({
           return
       }
 
-      // Handle month boundary navigation
       if (newIndex < firstDayOfMonth) {
-        // Go to previous month
         const prevMonthDays = getDaysInMonth(year, month - 1)
         const daysBack = firstDayOfMonth - newIndex
         newDate = new Date(year, month - 1, prevMonthDays - daysBack + 1)
         setViewDate(new Date(year, month - 1, 1))
       } else if (newIndex >= calendarDays.length) {
-        // Go to next month
         const daysForward = newIndex - calendarDays.length + 1
         newDate = new Date(year, month + 1, daysForward)
         setViewDate(new Date(year, month + 1, 1))
@@ -196,7 +188,6 @@ export function InputDate({
         newDate = calendarDays[newIndex]
       }
 
-      // Focus the new date button after render
       if (newDate) {
         setTimeout(() => {
           const buttons = gridRef.current?.querySelectorAll('button[data-date]')
@@ -211,31 +202,26 @@ export function InputDate({
     [calendarDays, firstDayOfMonth, year, month, handleSelectDate]
   )
 
-  // Focus selected/today day when modal opens (only once)
-  const handleGridRef = useCallback(
-    (el: HTMLDivElement | null) => {
-      gridRef.current = el
-      if (el && !hasInitialFocusRef.current) {
-        hasInitialFocusRef.current = true
-        setTimeout(() => {
-          const selectedBtn = el.querySelector(
-            'button[data-selected="true"]'
-          ) as HTMLButtonElement
-          const todayBtn = el.querySelector(
-            'button[data-today="true"]'
-          ) as HTMLButtonElement
-          const firstBtn = el.querySelector(
-            'button[data-date]:not(:disabled)'
-          ) as HTMLButtonElement
+  const handleGridRef = useCallback((el: HTMLDivElement | null) => {
+    gridRef.current = el
+    if (el && !hasInitialFocusRef.current) {
+      hasInitialFocusRef.current = true
+      setTimeout(() => {
+        const selectedBtn = el.querySelector(
+          'button[data-selected="true"]'
+        ) as HTMLButtonElement
+        const todayBtn = el.querySelector(
+          'button[data-today="true"]'
+        ) as HTMLButtonElement
+        const firstBtn = el.querySelector(
+          'button[data-date]:not(:disabled)'
+        ) as HTMLButtonElement
 
-          ;(selectedBtn || todayBtn || firstBtn)?.focus()
-        }, 50)
-      }
-    },
-    []
-  )
+        ;(selectedBtn || todayBtn || firstBtn)?.focus()
+      }, 50)
+    }
+  }, [])
 
-  // The date to highlight as selected in the grid
   const displaySelected = pendingDate
 
   return (

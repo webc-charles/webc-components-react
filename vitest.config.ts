@@ -7,6 +7,7 @@ export default defineConfig({
       components: path.resolve(__dirname, 'src/components'),
       styles: path.resolve(__dirname, 'src/styles'),
       i18n: path.resolve(__dirname, 'src/i18n'),
+      utils: path.resolve(__dirname, 'src/utils'),
     },
   },
   css: {
@@ -22,5 +23,6 @@ export default defineConfig({
     css: true,
     include: ['src/**/*.test.{ts,tsx}'],
     setupFiles: ['./vitest.setup.ts'],
+    reporters: ['verbose'],
   },
 })

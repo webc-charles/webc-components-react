@@ -2,15 +2,29 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
-import { Slot } from '../../utils'
-import type { HeaderNavItemTypes, HeaderNavLinkTypes, HeaderNavDropdownLinkTypes } from './Header.types'
+import { Slot } from 'utils'
+import type {
+  HeaderNavDropdownLinkTypes,
+  HeaderNavItemTypes,
+  HeaderNavLinkTypes,
+} from './Header.types'
 import styles from './HeaderNavItem.module.scss'
 
-function HeaderNavItemLink({ asChild, children, className, active, ...props }: HeaderNavLinkTypes) {
+function HeaderNavItemLink({
+  asChild,
+  children,
+  className,
+  active,
+  ...props
+}: HeaderNavLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp
-      className={clsx(styles.navLink, active && styles.navLinkActive, className)}
+      className={clsx(
+        styles.navLink,
+        active && styles.navLinkActive,
+        className
+      )}
       {...props}
     >
       {children}
@@ -18,11 +32,21 @@ function HeaderNavItemLink({ asChild, children, className, active, ...props }: H
   )
 }
 
-function HeaderNavItemDropdownLink({ asChild, children, className, active, ...props }: HeaderNavDropdownLinkTypes) {
+function HeaderNavItemDropdownLink({
+  asChild,
+  children,
+  className,
+  active,
+  ...props
+}: HeaderNavDropdownLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp
-      className={clsx(styles.dropdownLink, active && styles.dropdownLinkActive, className)}
+      className={clsx(
+        styles.dropdownLink,
+        active && styles.dropdownLinkActive,
+        className
+      )}
       {...props}
     >
       {children}

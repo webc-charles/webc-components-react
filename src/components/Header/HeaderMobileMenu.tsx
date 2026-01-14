@@ -1,12 +1,20 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import clsx from 'clsx'
 import { str } from 'i18n'
-import { Slot } from '../../utils'
+import { Slot } from 'utils'
+import type {
+  HeaderMobileLinkTypes,
+  HeaderMobileMenuTypes,
+} from './Header.types'
 import { useHeader } from './HeaderContext'
 import styles from './HeaderMobileMenu.module.scss'
-import type { HeaderMobileMenuTypes, HeaderMobileLinkTypes } from './Header.types'
 
-function HeaderMobileMenuLink({ asChild, children, className, ...props }: HeaderMobileLinkTypes) {
+function HeaderMobileMenuLink({
+  asChild,
+  children,
+  className,
+  ...props
+}: HeaderMobileLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp className={clsx(styles.mobileLink, className)} {...props}>

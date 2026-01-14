@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { Slot } from '../../utils'
+import { Slot } from 'utils'
 import styles from './Link.module.scss'
 import { LinkTypes } from './Link.types'
 

@@ -55,7 +55,6 @@ export type HeaderMobileNavItemTypes = ComponentPropsWithRef<'div'> & {
   label: ReactNode
 }
 
-// Slot-based link types for asChild pattern
 export type HeaderTopBarLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode

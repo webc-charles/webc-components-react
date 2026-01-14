@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
+import { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type ImageFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
 
@@ -16,7 +16,6 @@ export type ImagePosition =
 export type ImageRadius = 'none' | 'small' | 'medium' | 'large' | 'full'
 
 export type ImageTypes = Omit<ComponentPropsWithRef<'img'>, 'alt'> & {
-  as?: ElementType
   alt: string
   fit?: ImageFit
   position?: ImagePosition

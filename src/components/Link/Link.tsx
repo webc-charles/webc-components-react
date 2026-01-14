@@ -1,9 +1,10 @@
+import { ElementType } from 'react'
 import clsx from 'clsx'
 import styles from './Link.module.scss'
 import { LinkTypes } from './Link.types'
 
 export function Link({
-  as: Component = 'a',
+  as,
   ref,
   href,
   title,
@@ -15,6 +16,7 @@ export function Link({
   variant,
   ...rest
 }: LinkTypes) {
+  const Component: ElementType = as || 'a'
   const value = children ?? title
   const isStyled = variant || appearance
 

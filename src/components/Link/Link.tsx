@@ -1,10 +1,8 @@
-import { ElementType } from 'react'
 import clsx from 'clsx'
 import styles from './Link.module.scss'
 import { LinkTypes } from './Link.types'
 
 export function Link({
-  as,
   ref,
   href,
   title,
@@ -16,7 +14,6 @@ export function Link({
   variant,
   ...rest
 }: LinkTypes) {
-  const Component: ElementType = as || 'a'
   const value = children ?? title
   const isStyled = variant || appearance
 
@@ -31,17 +28,17 @@ export function Link({
   )
 
   return (
-    <Component
+    <a
       ref={ref}
       href={disabled ? undefined : href}
       title={title}
       className={classList}
       aria-disabled={disabled || undefined}
       tabIndex={disabled ? -1 : undefined}
-      onClick={disabled ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+      onClick={disabled ? (e) => e.preventDefault() : undefined}
       {...rest}
     >
       {value}
-    </Component>
+    </a>
   )
 }

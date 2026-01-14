@@ -10,7 +10,7 @@ import type {
 } from './Header.types'
 import styles from './HeaderNavItem.module.scss'
 
-function HeaderNavItemLink({
+export function HeaderNavItemLink({
   asChild,
   children,
   className,
@@ -32,7 +32,7 @@ function HeaderNavItemLink({
   )
 }
 
-function HeaderNavItemDropdownLink({
+export function HeaderNavItemDropdownLink({
   asChild,
   children,
   className,

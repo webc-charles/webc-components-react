@@ -1,14 +1,14 @@
 export { HeaderRoot } from './HeaderRoot'
-export { HeaderTopBar } from './HeaderTopBar'
-export { HeaderTopBarItem } from './HeaderTopBarItem'
+export { HeaderTopBar, HeaderTopBarLink } from './HeaderTopBar'
+export { HeaderTopBarItem, HeaderTopBarItemLink } from './HeaderTopBarItem'
 export { HeaderMain } from './HeaderMain'
 export { HeaderLogo } from './HeaderLogo'
 export { HeaderNav } from './HeaderNav'
-export { HeaderNavItem } from './HeaderNavItem'
+export { HeaderNavItem, HeaderNavItemLink, HeaderNavItemDropdownLink } from './HeaderNavItem'
 export { HeaderActions } from './HeaderActions'
 export { HeaderMobileToggle } from './HeaderMobileToggle'
-export { HeaderMobileMenu } from './HeaderMobileMenu'
-export { HeaderMobileNavItem } from './HeaderMobileNavItem'
+export { HeaderMobileMenu, HeaderMobileMenuLink } from './HeaderMobileMenu'
+export { HeaderMobileNavItem, HeaderMobileNavItemLink } from './HeaderMobileNavItem'
 
 export type {
   HeaderTypes,

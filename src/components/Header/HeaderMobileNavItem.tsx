@@ -9,7 +9,7 @@ import type {
 } from './Header.types'
 import styles from './HeaderMobileNavItem.module.scss'
 
-function HeaderMobileNavItemLink({
+export function HeaderMobileNavItemLink({
   asChild,
   children,
   className,

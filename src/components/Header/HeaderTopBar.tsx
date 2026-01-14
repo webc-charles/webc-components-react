@@ -3,7 +3,7 @@ import { Slot } from 'utils'
 import type { HeaderTopBarLinkTypes, HeaderTopBarTypes } from './Header.types'
 import styles from './HeaderTopBar.module.scss'
 
-function HeaderTopBarLink({
+export function HeaderTopBarLink({
   asChild,
   children,
   className,

@@ -9,7 +9,7 @@ import type {
 } from './Header.types'
 import styles from './HeaderTopBarItem.module.scss'
 
-function HeaderTopBarItemLink({
+export function HeaderTopBarItemLink({
   asChild,
   children,
   className,

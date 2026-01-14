@@ -9,7 +9,7 @@ import type {
 import { useHeader } from './HeaderContext'
 import styles from './HeaderMobileMenu.module.scss'
 
-function HeaderMobileMenuLink({
+export function HeaderMobileMenuLink({
   asChild,
   children,
   className,

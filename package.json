@@ -16,9 +16,12 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./styles.css": "./dist/styles.css",
     "./index.css": "./dist/index.css",
+    "./bundle.css": "./dist/bundle.css",
     "./scss/*": "./src/styles/*"
   },
+  "type": "module",
   "files": [
     "dist",
     "src/styles"
@@ -27,7 +30,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node scripts/build-styles.js",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",

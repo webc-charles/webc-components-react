@@ -8,11 +8,13 @@ export function HeaderRoot({
   ref,
   children,
   sticky = false,
+  baseId,
   className,
   ...rest
 }: HeaderTypes) {
   const [isOpen, setIsOpen] = useState(false)
-  const id = useId()
+  const generatedId = useId()
+  const id = baseId || generatedId
   const mobileMenuId = `header-mobile-menu-${id}`
   const mobileToggleId = `header-mobile-toggle-${id}`
 

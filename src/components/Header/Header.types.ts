@@ -3,6 +3,7 @@ import { ComponentPropsWithRef, ReactNode } from 'react'
 export type HeaderTypes = ComponentPropsWithRef<'header'> & {
   children: ReactNode
   sticky?: boolean
+  baseId?: string
 }
 
 export type HeaderTopBarTypes = ComponentPropsWithRef<'div'> & {

@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup'
 const srcPath = path.resolve(__dirname, 'src')
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/styles/index.scss'],
+  entry: ['src/index.ts'],
   format: ['esm', 'cjs'],
   dts: true,
   tsconfig: 'tsconfig.build.json',
@@ -14,15 +14,8 @@ export default defineConfig({
   sourcemap: true,
   esbuildPlugins: [
     sassPlugin({
-      filter: /\.module\.scss$/,
       loadPaths: [srcPath],
       transform: postcssModules({}),
-      type: 'css-text',
-    }),
-    sassPlugin({
-      filter: /\.scss$/,
-      loadPaths: [srcPath],
-      type: 'css',
     }),
   ],
 })

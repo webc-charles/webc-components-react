@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
-import type { HeaderMobileNavItemTypes } from './Header.types'
+import type { HeaderMobileNavItemTypes } from '../Header.types'
 import styles from './HeaderMobileNavItem.module.scss'
 
 export function HeaderMobileNavItem({
@@ -60,4 +60,3 @@ export function HeaderMobileNavItem({
     </div>
   )
 }
-

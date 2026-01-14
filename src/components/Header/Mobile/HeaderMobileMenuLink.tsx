@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
-import type { HeaderMobileLinkTypes } from './Header.types'
+import type { HeaderMobileLinkTypes } from '../Header.types'
 import styles from './HeaderMobileMenuLink.module.scss'
 
 export function HeaderMobileMenuLink({

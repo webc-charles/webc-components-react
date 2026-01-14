@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { str } from 'i18n'
+import type { HeaderNavTypes } from '../Header.types'
 import styles from './HeaderNav.module.scss'
-import type { HeaderNavTypes } from './Header.types'
 
 export function HeaderNav({
   ref,

@@ -1,20 +1,20 @@
 {
   "name": "@webc-charles/components-react",
-  "version": "1.0.4",
+  "version": "1.0.23",
   "packageManager": "pnpm@10.27.0",
   "description": "A lightweight React component library with CSS variables for easy theming",
   "repository": {
     "type": "git",
     "url": "https://github.com/webc-charles/webc-components-react.git"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./index.css": "./dist/index.css",
     "./scss/*": "./src/styles/*"
@@ -34,7 +34,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "stylelint": "stylelint \"src/**/*.scss\" --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,json}\"",
+    "sync-version": "npm pkg set version=$(npm view @webc-charles/components-react version --registry=https://npm.pkg.github.com)"
   },
   "dependencies": {
     "clsx": "^2.1.1",

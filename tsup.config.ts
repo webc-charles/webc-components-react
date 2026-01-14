@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup'
 const srcPath = path.resolve(__dirname, 'src')
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/styles/index.scss'],
   format: ['esm', 'cjs'],
   dts: true,
   tsconfig: 'tsconfig.build.json',

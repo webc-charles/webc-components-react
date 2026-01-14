@@ -16,10 +16,12 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./index.css": "./dist/index.css"
+    "./index.css": "./dist/index.css",
+    "./scss/*": "./src/styles/*"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/styles"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -87,8 +89,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "sideEffects": [
-    "*.css"
-  ]
+  }
 }

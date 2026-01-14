@@ -2,7 +2,7 @@
   background: none;
   border: none;
   border-radius: var(--radius-sm);
-  color: var(--color-grey-1);
+  color: var(--color-grey-6);
   cursor: pointer;
   display: block;
   font-size: var(--font-size-2);
@@ -14,6 +14,6 @@
 
   &:hover,
   &:focus {
-    background-color: var(--color-grey-6);
+    background-color: var(--color-grey-1);
   }
 }

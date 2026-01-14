@@ -1,40 +1,38 @@
-import { useId } from 'react'
+import { useId, ElementType } from 'react'
 import clsx from 'clsx'
 import styles from './Image.module.scss'
 import { ImageTypes } from './Image.types'
 
-export const imageClassMap = {
-  base: styles.image,
-  figure: styles.figure,
-  caption: styles.caption,
-  fit: {
-    cover: styles.fitCover,
-    contain: styles.fitContain,
-    fill: styles.fitFill,
-    none: styles.fitNone,
-    'scale-down': styles.fitScaleDown,
-  },
-  position: {
-    center: styles.positionCenter,
-    top: styles.positionTop,
-    bottom: styles.positionBottom,
-    left: styles.positionLeft,
-    right: styles.positionRight,
-    'top-left': styles.positionTopLeft,
-    'top-right': styles.positionTopRight,
-    'bottom-left': styles.positionBottomLeft,
-    'bottom-right': styles.positionBottomRight,
-  },
-  radius: {
-    none: styles.radiusNone,
-    small: styles.radiusSmall,
-    medium: styles.radiusMedium,
-    large: styles.radiusLarge,
-    full: styles.radiusFull,
-  },
+const fitClassMap = {
+  cover: styles.fitCover,
+  contain: styles.fitContain,
+  fill: styles.fitFill,
+  none: styles.fitNone,
+  'scale-down': styles.fitScaleDown,
+}
+
+const positionClassMap = {
+  center: styles.positionCenter,
+  top: styles.positionTop,
+  bottom: styles.positionBottom,
+  left: styles.positionLeft,
+  right: styles.positionRight,
+  'top-left': styles.positionTopLeft,
+  'top-right': styles.positionTopRight,
+  'bottom-left': styles.positionBottomLeft,
+  'bottom-right': styles.positionBottomRight,
+}
+
+const radiusClassMap = {
+  none: styles.radiusNone,
+  small: styles.radiusSmall,
+  medium: styles.radiusMedium,
+  large: styles.radiusLarge,
+  full: styles.radiusFull,
 }
 
 export function Image({
+  as,
   ref,
   className,
   alt,
@@ -46,20 +44,21 @@ export function Image({
   style,
   ...props
 }: ImageTypes) {
+  const Component: ElementType = as || 'img'
   const captionId = useId()
 
   const imageClass = clsx(
-    imageClassMap.base,
-    fit && imageClassMap.fit[fit],
-    position && imageClassMap.position[position],
-    radius && imageClassMap.radius[radius],
+    styles.image,
+    fit && fitClassMap[fit],
+    position && positionClassMap[position],
+    radius && radiusClassMap[radius],
     !caption && className
   )
 
   const imageStyle = aspectRatio ? { ...style, aspectRatio } : style
 
   const img = (
-    <img
+    <Component
       ref={ref}
       className={imageClass}
       alt={alt}
@@ -73,10 +72,10 @@ export function Image({
       <figure
         role="group"
         aria-labelledby={captionId}
-        className={clsx(imageClassMap.figure, className)}
+        className={clsx(styles.figure, className)}
       >
         {img}
-        <figcaption id={captionId} className={imageClassMap.caption}>
+        <figcaption id={captionId} className={styles.caption}>
           {caption}
         </figcaption>
       </figure>

@@ -21,6 +21,7 @@ const config: StorybookConfig = {
         components: path.resolve(__dirname, '../src/components'),
         styles: path.resolve(__dirname, '../src/styles'),
         i18n: path.resolve(__dirname, '../src/i18n'),
+        utils: path.resolve(__dirname, '../src/utils'),
       },
     }
     return config

@@ -1,5 +1,4 @@
-export { Image, fitClassMap, positionClassMap, radiusClassMap } from './Image'
-export { default as imageStyles } from './Image.module.scss'
+export { Image, imageClassMap } from './Image'
 export type {
   ImageTypes,
   ImageFit,

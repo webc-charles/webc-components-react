@@ -3,32 +3,35 @@ import clsx from 'clsx'
 import styles from './Image.module.scss'
 import { ImageTypes } from './Image.types'
 
-export const fitClassMap = {
-  cover: styles.fitCover,
-  contain: styles.fitContain,
-  fill: styles.fitFill,
-  none: styles.fitNone,
-  'scale-down': styles.fitScaleDown,
-}
-
-export const positionClassMap = {
-  center: styles.positionCenter,
-  top: styles.positionTop,
-  bottom: styles.positionBottom,
-  left: styles.positionLeft,
-  right: styles.positionRight,
-  'top-left': styles.positionTopLeft,
-  'top-right': styles.positionTopRight,
-  'bottom-left': styles.positionBottomLeft,
-  'bottom-right': styles.positionBottomRight,
-}
-
-export const radiusClassMap = {
-  none: styles.radiusNone,
-  small: styles.radiusSmall,
-  medium: styles.radiusMedium,
-  large: styles.radiusLarge,
-  full: styles.radiusFull,
+export const imageClassMap = {
+  base: styles.image,
+  figure: styles.figure,
+  caption: styles.caption,
+  fit: {
+    cover: styles.fitCover,
+    contain: styles.fitContain,
+    fill: styles.fitFill,
+    none: styles.fitNone,
+    'scale-down': styles.fitScaleDown,
+  },
+  position: {
+    center: styles.positionCenter,
+    top: styles.positionTop,
+    bottom: styles.positionBottom,
+    left: styles.positionLeft,
+    right: styles.positionRight,
+    'top-left': styles.positionTopLeft,
+    'top-right': styles.positionTopRight,
+    'bottom-left': styles.positionBottomLeft,
+    'bottom-right': styles.positionBottomRight,
+  },
+  radius: {
+    none: styles.radiusNone,
+    small: styles.radiusSmall,
+    medium: styles.radiusMedium,
+    large: styles.radiusLarge,
+    full: styles.radiusFull,
+  },
 }
 
 export function Image({
@@ -46,10 +49,10 @@ export function Image({
   const captionId = useId()
 
   const imageClass = clsx(
-    styles.image,
-    fit && fitClassMap[fit],
-    position && positionClassMap[position],
-    radius && radiusClassMap[radius],
+    imageClassMap.base,
+    fit && imageClassMap.fit[fit],
+    position && imageClassMap.position[position],
+    radius && imageClassMap.radius[radius],
     !caption && className
   )
 
@@ -70,10 +73,10 @@ export function Image({
       <figure
         role="group"
         aria-labelledby={captionId}
-        className={clsx(styles.figure, className)}
+        className={clsx(imageClassMap.figure, className)}
       >
         {img}
-        <figcaption id={captionId} className={styles.caption}>
+        <figcaption id={captionId} className={imageClassMap.caption}>
           {caption}
         </figcaption>
       </figure>

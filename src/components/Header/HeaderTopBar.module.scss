@@ -24,14 +24,3 @@
     padding: 0;
   }
 }
-
-.topBarLink {
-  color: var(--color-grey-6);
-  font-size: var(--font-size-2);
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: var(--color-primary-contrast);
-  }
-}

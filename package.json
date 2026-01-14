@@ -34,8 +34,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "stylelint": "stylelint \"src/**/*.scss\" --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,json}\"",
-    "sync-version": "npm pkg set version=$(npm view @webc-charles/components-react version --registry=https://npm.pkg.github.com)"
+    "format": "prettier --write \"src/**/*.{ts,tsx,json}\""
   },
   "dependencies": {
     "clsx": "^2.1.1",

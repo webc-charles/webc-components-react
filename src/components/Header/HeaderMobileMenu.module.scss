@@ -21,17 +21,3 @@
 .menuOpen {
   transform: translateX(0);
 }
-
-.mobileLink {
-  border-radius: var(--radius-sm);
-  color: var(--color-grey-1);
-  display: block;
-  font-size: var(--font-size-4);
-  padding: 1.2rem 1.6rem;
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    background-color: var(--color-grey-6);
-  }
-}

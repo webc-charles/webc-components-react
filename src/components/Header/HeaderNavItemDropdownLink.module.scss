@@ -1,0 +1,26 @@
+.dropdownLink {
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-grey-1);
+  cursor: pointer;
+  display: block;
+  font-size: var(--font-size-3);
+  padding: 1rem 0;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    color var(--transition-default),
+    background-color var(--transition-default);
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary-2);
+    text-decoration: underline;
+  }
+}
+
+.dropdownLinkActive {
+  color: var(--color-primary-2);
+}

@@ -2,59 +2,10 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
-import { Slot } from 'utils'
-import type {
-  HeaderNavDropdownLinkTypes,
-  HeaderNavItemTypes,
-  HeaderNavLinkTypes,
-} from './Header.types'
+import type { HeaderNavItemTypes } from './Header.types'
 import styles from './HeaderNavItem.module.scss'
 
-export function HeaderNavItemLink({
-  asChild,
-  children,
-  className,
-  active,
-  ...props
-}: HeaderNavLinkTypes) {
-  const Comp = asChild ? Slot : 'a'
-  return (
-    <Comp
-      className={clsx(
-        styles.navLink,
-        active && styles.navLinkActive,
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </Comp>
-  )
-}
-
-export function HeaderNavItemDropdownLink({
-  asChild,
-  children,
-  className,
-  active,
-  ...props
-}: HeaderNavDropdownLinkTypes) {
-  const Comp = asChild ? Slot : 'a'
-  return (
-    <Comp
-      className={clsx(
-        styles.dropdownLink,
-        active && styles.dropdownLinkActive,
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </Comp>
-  )
-}
-
-function HeaderNavItemComponent({
+export function HeaderNavItem({
   ref,
   children,
   dropdown,
@@ -211,7 +162,3 @@ function HeaderNavItemComponent({
   )
 }
 
-export const HeaderNavItem = Object.assign(HeaderNavItemComponent, {
-  Link: HeaderNavItemLink,
-  DropdownLink: HeaderNavItemDropdownLink,
-})

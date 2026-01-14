@@ -1,23 +1,8 @@
 import clsx from 'clsx'
-import { Slot } from 'utils'
-import type { HeaderTopBarLinkTypes, HeaderTopBarTypes } from './Header.types'
+import type { HeaderTopBarTypes } from './Header.types'
 import styles from './HeaderTopBar.module.scss'
 
-export function HeaderTopBarLink({
-  asChild,
-  children,
-  className,
-  ...props
-}: HeaderTopBarLinkTypes) {
-  const Comp = asChild ? Slot : 'a'
-  return (
-    <Comp className={clsx(styles.topBarLink, className)} {...props}>
-      {children}
-    </Comp>
-  )
-}
-
-function HeaderTopBarComponent({
+export function HeaderTopBar({
   ref,
   children,
   className,
@@ -29,7 +14,3 @@ function HeaderTopBarComponent({
     </div>
   )
 }
-
-export const HeaderTopBar = Object.assign(HeaderTopBarComponent, {
-  Link: HeaderTopBarLink,
-})

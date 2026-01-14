@@ -1,0 +1,14 @@
+.subLink {
+  border-radius: var(--radius-sm);
+  color: var(--color-grey-1);
+  display: block;
+  font-size: var(--font-size-3);
+  padding: 1.2rem 1.6rem 1.2rem 3.2rem;
+  text-decoration: none;
+  transition: background-color var(--transition-default);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-grey-6);
+  }
+}

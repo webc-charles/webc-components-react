@@ -8,13 +8,19 @@ import {
   HeaderLogo,
   HeaderMain,
   HeaderMobileMenu,
+  HeaderMobileMenuLink,
   HeaderMobileNavItem,
+  HeaderMobileNavItemLink,
   HeaderMobileToggle,
   HeaderNav,
   HeaderNavItem,
+  HeaderNavItemDropdownLink,
+  HeaderNavItemLink,
   HeaderRoot,
   HeaderTopBar,
   HeaderTopBarItem,
+  HeaderTopBarItemLink,
+  HeaderTopBarLink,
 } from './index'
 
 describe('Header', () => {
@@ -33,9 +39,9 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderTopBar>
-          <HeaderTopBar.Link asChild>
+          <HeaderTopBarLink asChild>
             <Link href="#">Help</Link>
-          </HeaderTopBar.Link>
+          </HeaderTopBarLink>
         </HeaderTopBar>
         <HeaderMain>
           <HeaderLogo>Logo</HeaderLogo>
@@ -52,12 +58,12 @@ describe('Header', () => {
           <HeaderTopBarItem
             dropdown={
               <div>
-                <HeaderTopBarItem.Link asChild>
+                <HeaderTopBarItemLink asChild>
                   <Link href="#">Option 1</Link>
-                </HeaderTopBarItem.Link>
-                <HeaderTopBarItem.Link asChild>
+                </HeaderTopBarItemLink>
+                <HeaderTopBarItemLink asChild>
                   <Link href="#">Option 2</Link>
-                </HeaderTopBarItem.Link>
+                </HeaderTopBarItemLink>
               </div>
             }
           >
@@ -85,9 +91,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderNav aria-label="Main menu">
             <HeaderNavItem>
-              <HeaderNavItem.Link asChild>
+              <HeaderNavItemLink asChild>
                 <Link href="/">Home</Link>
-              </HeaderNavItem.Link>
+              </HeaderNavItemLink>
             </HeaderNavItem>
           </HeaderNav>
         </HeaderMain>
@@ -103,14 +109,14 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderNav>
             <HeaderNavItem>
-              <HeaderNavItem.Link asChild>
+              <HeaderNavItemLink asChild>
                 <Link href="/">Home</Link>
-              </HeaderNavItem.Link>
+              </HeaderNavItemLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <HeaderNavItem.Link asChild>
+              <HeaderNavItemLink asChild>
                 <Link href="/about">About</Link>
-              </HeaderNavItem.Link>
+              </HeaderNavItemLink>
             </HeaderNavItem>
           </HeaderNav>
         </HeaderMain>
@@ -140,9 +146,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <HeaderMobileMenu.Link asChild>
+            <HeaderMobileMenuLink asChild>
               <Link href="/">Home</Link>
-            </HeaderMobileMenu.Link>
+            </HeaderMobileMenuLink>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>
@@ -193,9 +199,9 @@ describe('Header', () => {
             <HeaderNavItem
               dropdown={
                 <div>
-                  <HeaderNavItem.DropdownLink asChild>
+                  <HeaderNavItemDropdownLink asChild>
                     <Link href="#">Option</Link>
-                  </HeaderNavItem.DropdownLink>
+                  </HeaderNavItemDropdownLink>
                 </div>
               }
             >
@@ -224,9 +230,9 @@ describe('Header', () => {
           <HeaderMobileMenu>
             <HeaderMobileNavItem label="Products">
               <div>
-                <HeaderMobileNavItem.Link asChild>
+                <HeaderMobileNavItemLink asChild>
                   <Link href="#">Software</Link>
-                </HeaderMobileNavItem.Link>
+                </HeaderMobileNavItemLink>
               </div>
             </HeaderMobileNavItem>
           </HeaderMobileMenu>
@@ -251,9 +257,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <HeaderMobileMenu.Link asChild>
+            <HeaderMobileMenuLink asChild>
               <Link href="/">Home</Link>
-            </HeaderMobileMenu.Link>
+            </HeaderMobileMenuLink>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useId } from 'react'
+import { useMemo, useEffect, useId, useState } from 'react'
 import clsx from 'clsx'
 import { HeaderContext } from './HeaderContext'
 import styles from './HeaderRoot.module.scss'

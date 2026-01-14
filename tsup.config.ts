@@ -11,7 +11,7 @@ export default defineConfig({
   tsconfig: 'tsconfig.build.json',
   clean: true,
   external: ['react', 'react-dom'],
-  sourcemap: true,
+  sourcemap: false,
   esbuildPlugins: [
     // CSS Modules for component styles (*.module.scss)
     sassPlugin({

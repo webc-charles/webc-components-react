@@ -54,3 +54,36 @@ export type HeaderMobileNavItemTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   label: ReactNode
 }
+
+// Slot-based link types for asChild pattern
+export type HeaderTopBarLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+}
+
+export type HeaderTopBarItemLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+}
+
+export type HeaderNavLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+  active?: boolean
+}
+
+export type HeaderNavDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+  active?: boolean
+}
+
+export type HeaderMobileLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+}
+
+export type HeaderMobileSubLinkTypes = ComponentPropsWithRef<'a'> & {
+  asChild?: boolean
+  children: ReactNode
+}

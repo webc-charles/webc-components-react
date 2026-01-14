@@ -2,14 +2,20 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
-import type { HeaderTopBarItemTypes } from './Header.types'
+import { Slot } from '../../utils'
+import type { HeaderTopBarItemTypes, HeaderTopBarItemLinkTypes } from './Header.types'
 import styles from './HeaderTopBarItem.module.scss'
 
-export const headerTopBarItemStyles = {
-  dropdownLink: styles.dropdownLink,
+function HeaderTopBarItemLink({ asChild, children, className, ...props }: HeaderTopBarItemLinkTypes) {
+  const Comp = asChild ? Slot : 'a'
+  return (
+    <Comp className={clsx(styles.dropdownLink, className)} {...props}>
+      {children}
+    </Comp>
+  )
 }
 
-export function HeaderTopBarItem({
+function HeaderTopBarItemComponent({
   ref,
   children,
   dropdown,
@@ -135,3 +141,7 @@ export function HeaderTopBarItem({
     </div>
   )
 }
+
+export const HeaderTopBarItem = Object.assign(HeaderTopBarItemComponent, {
+  Link: HeaderTopBarItemLink,
+})

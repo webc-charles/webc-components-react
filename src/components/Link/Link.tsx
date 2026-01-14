@@ -1,28 +1,7 @@
 import clsx from 'clsx'
+import { Slot } from '../../utils'
 import styles from './Link.module.scss'
 import { LinkTypes } from './Link.types'
-
-export const linkClassMap = {
-  base: styles.link,
-  styled: styles.styled,
-  contrast: styles.contrast,
-  disabled: styles.disabled,
-  variants: {
-    default: styles['variant-default'],
-    primary: styles['variant-primary'],
-    secondary: styles['variant-secondary'],
-    success: styles['variant-success'],
-    danger: styles['variant-danger'],
-    warning: styles['variant-warning'],
-    info: styles['variant-info'],
-  },
-  appearances: {
-    default: styles['appearance-default'],
-    underline: styles['appearance-underline'],
-    outline: styles['appearance-outline'],
-    button: styles['appearance-button'],
-  },
-}
 
 export function Link({
   ref,
@@ -34,20 +13,33 @@ export function Link({
   appearance,
   contrast,
   variant,
+  asChild,
   ...rest
 }: LinkTypes) {
   const value = children ?? title
   const isStyled = variant || appearance
 
   const classList = clsx(
-    linkClassMap.base,
-    isStyled && linkClassMap.styled,
-    variant && linkClassMap.variants[variant],
-    appearance && linkClassMap.appearances[appearance],
-    contrast && linkClassMap.contrast,
-    disabled && linkClassMap.disabled,
+    styles.link,
+    isStyled && styles.styled,
+    variant && styles[`variant-${variant}`],
+    appearance && styles[`appearance-${appearance}`],
+    contrast && styles.contrast,
+    disabled && styles.disabled,
     className
   )
+
+  if (asChild) {
+    return (
+      <Slot
+        className={classList}
+        aria-disabled={disabled || undefined}
+        tabIndex={disabled ? -1 : undefined}
+      >
+        {children}
+      </Slot>
+    )
+  }
 
   return (
     <a

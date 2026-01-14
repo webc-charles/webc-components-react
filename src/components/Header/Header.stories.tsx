@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import clsx from 'clsx'
 import { Button, Grid, GridItem, Link, Title } from 'components'
 import {
   HeaderActions,
@@ -13,11 +12,6 @@ import {
   HeaderRoot,
   HeaderTopBar,
   HeaderTopBarItem,
-  headerMobileMenuStyles,
-  headerMobileNavItemStyles,
-  headerNavItemStyles,
-  headerTopBarItemStyles,
-  headerTopBarStyles,
 } from './index'
 
 const logoStyles = {
@@ -51,43 +45,37 @@ const meta: Meta<typeof HeaderRoot> = {
 export default meta
 type Story = StoryObj<typeof HeaderRoot>
 
-const { topBarLink } = headerTopBarStyles
-const { dropdownLink: topBarDropdownLink } = headerTopBarItemStyles
-const { navLink, navLinkActive, dropdownLink } = headerNavItemStyles
-const { mobileLink } = headerMobileMenuStyles
-const { subLink } = headerMobileNavItemStyles
-
 const ProductsDropdown = () => (
   <div>
-    <Link href="/" className={dropdownLink}>
-      Logiciels
-    </Link>
-    <Link href="/" className={dropdownLink}>
-      Services
-    </Link>
-    <Link href="/" className={dropdownLink}>
-      Formations
-    </Link>
-    <Link href="/" className={dropdownLink}>
-      Support
-    </Link>
+    <HeaderNavItem.DropdownLink asChild>
+      <Link href="/">Logiciels</Link>
+    </HeaderNavItem.DropdownLink>
+    <HeaderNavItem.DropdownLink asChild>
+      <Link href="/">Services</Link>
+    </HeaderNavItem.DropdownLink>
+    <HeaderNavItem.DropdownLink asChild>
+      <Link href="/">Formations</Link>
+    </HeaderNavItem.DropdownLink>
+    <HeaderNavItem.DropdownLink asChild>
+      <Link href="/">Support</Link>
+    </HeaderNavItem.DropdownLink>
   </div>
 )
 
 const LanguageDropdown = () => (
   <div>
-    <Link href="/" className={topBarDropdownLink}>
-      Français
-    </Link>
-    <Link href="/" className={topBarDropdownLink}>
-      English
-    </Link>
-    <Link href="/" className={topBarDropdownLink}>
-      Español
-    </Link>
-    <Link href="/" className={topBarDropdownLink}>
-      Deutsch
-    </Link>
+    <HeaderTopBarItem.Link asChild>
+      <Link href="/">Français</Link>
+    </HeaderTopBarItem.Link>
+    <HeaderTopBarItem.Link asChild>
+      <Link href="/">English</Link>
+    </HeaderTopBarItem.Link>
+    <HeaderTopBarItem.Link asChild>
+      <Link href="/">Español</Link>
+    </HeaderTopBarItem.Link>
+    <HeaderTopBarItem.Link asChild>
+      <Link href="/">Deutsch</Link>
+    </HeaderTopBarItem.Link>
   </div>
 )
 
@@ -95,51 +83,51 @@ const MegaMenuContent = () => (
   <Grid col={4} gap="md">
     <GridItem>
       <Title level="h4">Produits</Title>
-      <Link href="/" className={dropdownLink}>
-        Logiciel A
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Logiciel B
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Application Mobile
-      </Link>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Logiciel A</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Logiciel B</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Application Mobile</Link>
+      </HeaderNavItem.DropdownLink>
     </GridItem>
     <GridItem>
       <Title level="h4">Services</Title>
-      <Link href="/" className={dropdownLink}>
-        Consulting
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Intégration
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Maintenance
-      </Link>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Consulting</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Intégration</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Maintenance</Link>
+      </HeaderNavItem.DropdownLink>
     </GridItem>
     <GridItem>
       <Title level="h4">Ressources</Title>
-      <Link href="/" className={dropdownLink}>
-        Documentation
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Tutoriels
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        API
-      </Link>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Documentation</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Tutoriels</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">API</Link>
+      </HeaderNavItem.DropdownLink>
     </GridItem>
     <GridItem>
       <Title level="h4">Get started</Title>
-      <Link href="/" className={dropdownLink}>
-        Free trial
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Book a demo
-      </Link>
-      <Link href="/" className={dropdownLink}>
-        Contact sales
-      </Link>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Free trial</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Book a demo</Link>
+      </HeaderNavItem.DropdownLink>
+      <HeaderNavItem.DropdownLink asChild>
+        <Link href="/">Contact sales</Link>
+      </HeaderNavItem.DropdownLink>
     </GridItem>
   </Grid>
 )
@@ -156,28 +144,26 @@ export const Default: Story = {
 
         <HeaderNav>
           <HeaderNavItem current>
-            <Link
-              href="/"
-              className={clsx(navLink, navLinkActive)}
-              aria-current="page"
-            >
-              Accueil
-            </Link>
+            <HeaderNavItem.Link asChild active>
+              <Link href="/" aria-current="page">
+                Accueil
+              </Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Produits
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Produits</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              À propos
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">À propos</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Contact
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Contact</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
         </HeaderNav>
 
@@ -193,18 +179,18 @@ export const Default: Story = {
         <HeaderMobileToggle />
 
         <HeaderMobileMenu>
-          <Link href="/" className={mobileLink}>
-            Accueil
-          </Link>
-          <Link href="/" className={mobileLink}>
-            Produits
-          </Link>
-          <Link href="/" className={mobileLink}>
-            À propos
-          </Link>
-          <Link href="/" className={mobileLink}>
-            Contact
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Accueil</Link>
+          </HeaderMobileMenu.Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Produits</Link>
+          </HeaderMobileMenu.Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">À propos</Link>
+          </HeaderMobileMenu.Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Contact</Link>
+          </HeaderMobileMenu.Link>
           <hr style={hrStyles} />
           <Button appearance="outline" style={{ width: '100%' }}>
             Connexion
@@ -226,12 +212,12 @@ export const WithTopBar: Story = {
   render: () => (
     <HeaderRoot>
       <HeaderTopBar>
-        <Link href="/" className={topBarLink}>
-          Aide
-        </Link>
-        <Link href="/" className={topBarLink}>
-          Contact
-        </Link>
+        <HeaderTopBar.Link asChild>
+          <Link href="/">Aide</Link>
+        </HeaderTopBar.Link>
+        <HeaderTopBar.Link asChild>
+          <Link href="/">Contact</Link>
+        </HeaderTopBar.Link>
         <HeaderTopBarItem dropdown={<LanguageDropdown />}>FR</HeaderTopBarItem>
       </HeaderTopBar>
       <HeaderMain>
@@ -243,23 +229,21 @@ export const WithTopBar: Story = {
 
         <HeaderNav>
           <HeaderNavItem current>
-            <Link
-              href="/"
-              className={clsx(navLink, navLinkActive)}
-              aria-current="page"
-            >
-              Accueil
-            </Link>
+            <HeaderNavItem.Link asChild active>
+              <Link href="/" aria-current="page">
+                Accueil
+              </Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Produits
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Produits</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              À propos
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">À propos</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
         </HeaderNav>
 
@@ -271,15 +255,15 @@ export const WithTopBar: Story = {
 
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <Link href="/" className={mobileLink}>
-            Accueil
-          </Link>
-          <Link href="/" className={mobileLink}>
-            Produits
-          </Link>
-          <Link href="/" className={mobileLink}>
-            À propos
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Accueil</Link>
+          </HeaderMobileMenu.Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Produits</Link>
+          </HeaderMobileMenu.Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">À propos</Link>
+          </HeaderMobileMenu.Link>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -298,9 +282,9 @@ export const WithDropdowns: Story = {
 
         <HeaderNav>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Accueil
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Accueil</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem dropdown={<ProductsDropdown />} current>
             Produits
@@ -309,9 +293,9 @@ export const WithDropdowns: Story = {
             Services
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Contact
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Contact</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
         </HeaderNav>
 
@@ -323,31 +307,31 @@ export const WithDropdowns: Story = {
 
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <Link href="/" className={mobileLink}>
-            Accueil
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Accueil</Link>
+          </HeaderMobileMenu.Link>
           <HeaderMobileNavItem label="Produits">
-            <Link href="/" className={subLink}>
-              Logiciels
-            </Link>
-            <Link href="/" className={subLink}>
-              Services
-            </Link>
-            <Link href="/" className={subLink}>
-              Formations
-            </Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Logiciels</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Services</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Formations</Link>
+            </HeaderMobileNavItem.Link>
           </HeaderMobileNavItem>
           <HeaderMobileNavItem label="Services">
-            <Link href="/" className={subLink}>
-              Consulting
-            </Link>
-            <Link href="/" className={subLink}>
-              Support
-            </Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Consulting</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Support</Link>
+            </HeaderMobileNavItem.Link>
           </HeaderMobileNavItem>
-          <Link href="/" className={mobileLink}>
-            Contact
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Contact</Link>
+          </HeaderMobileMenu.Link>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -365,9 +349,9 @@ export const MegaMenu: Story = {
         </HeaderLogo>
         <HeaderNav>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Accueil
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Accueil</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
           <HeaderNavItem dropdown={<MegaMenuContent />} mega current>
             Solutions
@@ -376,9 +360,9 @@ export const MegaMenu: Story = {
             Produits
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link href="/" className={navLink}>
-              Contact
-            </Link>
+            <HeaderNavItem.Link asChild>
+              <Link href="/">Contact</Link>
+            </HeaderNavItem.Link>
           </HeaderNavItem>
         </HeaderNav>
         <HeaderActions>
@@ -391,34 +375,34 @@ export const MegaMenu: Story = {
         </HeaderActions>
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <Link href="/" className={mobileLink}>
-            Accueil
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Accueil</Link>
+          </HeaderMobileMenu.Link>
           <HeaderMobileNavItem label="Solutions">
-            <Link href="/" className={subLink}>
-              Logiciel A
-            </Link>
-            <Link href="/" className={subLink}>
-              Logiciel B
-            </Link>
-            <Link href="/" className={subLink}>
-              Consulting
-            </Link>
-            <Link href="/" className={subLink}>
-              Documentation
-            </Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Logiciel A</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Logiciel B</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Consulting</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Documentation</Link>
+            </HeaderMobileNavItem.Link>
           </HeaderMobileNavItem>
           <HeaderMobileNavItem label="Produits">
-            <Link href="/" className={subLink}>
-              Logiciels
-            </Link>
-            <Link href="/" className={subLink}>
-              Services
-            </Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Logiciels</Link>
+            </HeaderMobileNavItem.Link>
+            <HeaderMobileNavItem.Link asChild>
+              <Link href="/">Services</Link>
+            </HeaderMobileNavItem.Link>
           </HeaderMobileNavItem>
-          <Link href="/" className={mobileLink}>
-            Contact
-          </Link>
+          <HeaderMobileMenu.Link asChild>
+            <Link href="/">Contact</Link>
+          </HeaderMobileMenu.Link>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -441,23 +425,21 @@ export const Sticky: Story = {
 
           <HeaderNav>
             <HeaderNavItem current>
-              <Link
-                href="/"
-                className={clsx(navLink, navLinkActive)}
-                aria-current="page"
-              >
-                Accueil
-              </Link>
+              <HeaderNavItem.Link asChild active>
+                <Link href="/" aria-current="page">
+                  Accueil
+                </Link>
+              </HeaderNavItem.Link>
             </HeaderNavItem>
             <HeaderNavItem>
-              <Link href="/" className={navLink}>
-                Produits
-              </Link>
+              <HeaderNavItem.Link asChild>
+                <Link href="/">Produits</Link>
+              </HeaderNavItem.Link>
             </HeaderNavItem>
             <HeaderNavItem>
-              <Link href="/" className={navLink}>
-                Contact
-              </Link>
+              <HeaderNavItem.Link asChild>
+                <Link href="/">Contact</Link>
+              </HeaderNavItem.Link>
             </HeaderNavItem>
           </HeaderNav>
 
@@ -469,15 +451,15 @@ export const Sticky: Story = {
 
           <HeaderMobileToggle />
           <HeaderMobileMenu>
-            <Link href="/" className={mobileLink}>
-              Accueil
-            </Link>
-            <Link href="/" className={mobileLink}>
-              Produits
-            </Link>
-            <Link href="/" className={mobileLink}>
-              Contact
-            </Link>
+            <HeaderMobileMenu.Link asChild>
+              <Link href="/">Accueil</Link>
+            </HeaderMobileMenu.Link>
+            <HeaderMobileMenu.Link asChild>
+              <Link href="/">Produits</Link>
+            </HeaderMobileMenu.Link>
+            <HeaderMobileMenu.Link asChild>
+              <Link href="/">Contact</Link>
+            </HeaderMobileMenu.Link>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>

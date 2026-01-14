@@ -1,4 +1,4 @@
-export { Image, imageClassMap } from './Image'
+export { Image } from './Image'
 export type {
   ImageTypes,
   ImageFit,

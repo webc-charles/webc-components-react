@@ -22,4 +22,5 @@ export type ImageTypes = Omit<ComponentPropsWithRef<'img'>, 'alt'> & {
   aspectRatio?: string
   radius?: ImageRadius
   caption?: ReactNode
+  asChild?: boolean
 }

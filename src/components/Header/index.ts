@@ -1,25 +1,31 @@
 export { HeaderRoot } from './HeaderRoot'
-export { HeaderTopBar, headerTopBarStyles } from './HeaderTopBar'
-export { HeaderTopBarItem, headerTopBarItemStyles } from './HeaderTopBarItem'
+export { HeaderTopBar } from './HeaderTopBar'
+export { HeaderTopBarItem } from './HeaderTopBarItem'
 export { HeaderMain } from './HeaderMain'
 export { HeaderLogo } from './HeaderLogo'
 export { HeaderNav } from './HeaderNav'
-export { HeaderNavItem, headerNavItemStyles } from './HeaderNavItem'
+export { HeaderNavItem } from './HeaderNavItem'
 export { HeaderActions } from './HeaderActions'
 export { HeaderMobileToggle } from './HeaderMobileToggle'
-export { HeaderMobileMenu, headerMobileMenuStyles } from './HeaderMobileMenu'
-export { HeaderMobileNavItem, headerMobileNavItemStyles } from './HeaderMobileNavItem'
+export { HeaderMobileMenu } from './HeaderMobileMenu'
+export { HeaderMobileNavItem } from './HeaderMobileNavItem'
 
 export type {
   HeaderTypes,
   HeaderTopBarTypes,
   HeaderTopBarItemTypes,
+  HeaderTopBarLinkTypes,
+  HeaderTopBarItemLinkTypes,
   HeaderMainTypes,
   HeaderLogoTypes,
   HeaderNavTypes,
   HeaderNavItemTypes,
+  HeaderNavLinkTypes,
+  HeaderNavDropdownLinkTypes,
   HeaderActionsTypes,
   HeaderMobileToggleTypes,
   HeaderMobileMenuTypes,
+  HeaderMobileLinkTypes,
   HeaderMobileNavItemTypes,
+  HeaderMobileSubLinkTypes,
 } from './Header.types'

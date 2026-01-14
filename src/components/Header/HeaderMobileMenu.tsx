@@ -1,15 +1,21 @@
 import { useEffect, useRef, useCallback } from 'react'
 import clsx from 'clsx'
 import { str } from 'i18n'
+import { Slot } from '../../utils'
 import { useHeader } from './HeaderContext'
 import styles from './HeaderMobileMenu.module.scss'
-import type { HeaderMobileMenuTypes } from './Header.types'
+import type { HeaderMobileMenuTypes, HeaderMobileLinkTypes } from './Header.types'
 
-export const headerMobileMenuStyles = {
-  mobileLink: styles.mobileLink,
+function HeaderMobileMenuLink({ asChild, children, className, ...props }: HeaderMobileLinkTypes) {
+  const Comp = asChild ? Slot : 'a'
+  return (
+    <Comp className={clsx(styles.mobileLink, className)} {...props}>
+      {children}
+    </Comp>
+  )
 }
 
-export function HeaderMobileMenu({
+function HeaderMobileMenuComponent({
   ref,
   children,
   className,
@@ -84,3 +90,7 @@ export function HeaderMobileMenu({
     </nav>
   )
 }
+
+export const HeaderMobileMenu = Object.assign(HeaderMobileMenuComponent, {
+  Link: HeaderMobileMenuLink,
+})

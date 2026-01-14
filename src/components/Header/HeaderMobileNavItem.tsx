@@ -2,14 +2,20 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
-import type { HeaderMobileNavItemTypes } from './Header.types'
+import { Slot } from '../../utils'
+import type { HeaderMobileNavItemTypes, HeaderMobileSubLinkTypes } from './Header.types'
 import styles from './HeaderMobileNavItem.module.scss'
 
-export const headerMobileNavItemStyles = {
-  subLink: styles.subLink,
+function HeaderMobileNavItemLink({ asChild, children, className, ...props }: HeaderMobileSubLinkTypes) {
+  const Comp = asChild ? Slot : 'a'
+  return (
+    <Comp className={clsx(styles.subLink, className)} {...props}>
+      {children}
+    </Comp>
+  )
 }
 
-export function HeaderMobileNavItem({
+function HeaderMobileNavItemComponent({
   ref,
   children,
   label,
@@ -64,3 +70,7 @@ export function HeaderMobileNavItem({
     </div>
   )
 }
+
+export const HeaderMobileNavItem = Object.assign(HeaderMobileNavItemComponent, {
+  Link: HeaderMobileNavItemLink,
+})

@@ -57,7 +57,7 @@ npm install react react-dom
 Import the base styles in your app entry point:
 
 ```tsx
-import '@webc-charles/components-react/styles.css'
+import '@webc-charles/components-react/index.css'
 ```
 
 ---
@@ -91,12 +91,12 @@ function App() {
 
 ### Overview
 
-| Category     | Components                                                                                                                    |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Category     | Components                                                                                                                                                |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select · Slider |
-| **Display**  | Avatar · Badge · Note · Table · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                          |
-| **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                       |
-| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                          |
+| **Display**  | Avatar · Badge · Note · Table · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                                                        |
+| **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                                                   |
+| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                                                      |
 
 ---
 
@@ -127,12 +127,12 @@ Text input with support for text, email, URL, and telephone types.
 <InputText label="Phone" type="tel" placeholder="+33 6 12 34 56 78" />
 ```
 
-| Prop             | Type                                | Default    |
-| ---------------- | ----------------------------------- | ---------- |
-| `label`          | `string`                            | -          |
-| `type`           | `'text' \| 'email' \| 'url' \| 'tel'` | `'text'`   |
-| `inputClassName` | `string`                            | -          |
-| `labelClassName` | `string`                            | -          |
+| Prop             | Type                                  | Default  |
+| ---------------- | ------------------------------------- | -------- |
+| `label`          | `string`                              | -        |
+| `type`           | `'text' \| 'email' \| 'url' \| 'tel'` | `'text'` |
+| `inputClassName` | `string`                              | -        |
+| `labelClassName` | `string`                              | -        |
 
 #### InputPassword / InputNumber / InputTextarea
 
@@ -231,24 +231,24 @@ Range slider with single or dual thumbs, marks, and value labels.
 <Slider orientation="vertical" defaultValue={50} />
 ```
 
-| Prop                | Type                                     | Default        |
-| ------------------- | ---------------------------------------- | -------------- |
-| `min`               | `number`                                 | `0`            |
-| `max`               | `number`                                 | `100`          |
-| `step`              | `number \| null`                         | `1`            |
-| `range`             | `boolean`                                | `false`        |
-| `value`             | `number \| [number, number]`             | -              |
-| `defaultValue`      | `number \| [number, number]`             | -              |
-| `orientation`       | `'horizontal' \| 'vertical'`             | `'horizontal'` |
-| `size`              | `'sm' \| 'md'`                           | `'md'`         |
-| `track`             | `'normal' \| 'inverted' \| false`        | `'normal'`     |
-| `marks`             | `boolean \| SliderMark[]`                | `false`        |
-| `valueLabelDisplay` | `'auto' \| 'on' \| 'off'`                | `'off'`        |
-| `valueLabelFormat`  | `(value: number) => string`              | -              |
-| `minDistance`       | `number` (range only)                    | `0`            |
-| `disableSwap`       | `boolean` (range only)                   | `false`        |
-| `onChange`          | `(value) => void`                        | -              |
-| `onChangeCommitted` | `(value) => void`                        | -              |
+| Prop                | Type                              | Default        |
+| ------------------- | --------------------------------- | -------------- |
+| `min`               | `number`                          | `0`            |
+| `max`               | `number`                          | `100`          |
+| `step`              | `number \| null`                  | `1`            |
+| `range`             | `boolean`                         | `false`        |
+| `value`             | `number \| [number, number]`      | -              |
+| `defaultValue`      | `number \| [number, number]`      | -              |
+| `orientation`       | `'horizontal' \| 'vertical'`      | `'horizontal'` |
+| `size`              | `'sm' \| 'md'`                    | `'md'`         |
+| `track`             | `'normal' \| 'inverted' \| false` | `'normal'`     |
+| `marks`             | `boolean \| SliderMark[]`         | `false`        |
+| `valueLabelDisplay` | `'auto' \| 'on' \| 'off'`         | `'off'`        |
+| `valueLabelFormat`  | `(value: number) => string`       | -              |
+| `minDistance`       | `number` (range only)             | `0`            |
+| `disableSwap`       | `boolean` (range only)            | `false`        |
+| `onChange`          | `(value) => void`                 | -              |
+| `onChangeCommitted` | `(value) => void`                 | -              |
 
 ---
 
@@ -383,10 +383,10 @@ Horizontal rule with line style and spacing options.
 <Divider variant="dotted" spacing="xl" />
 ```
 
-| Prop      | Type                                       | Default    |
-| --------- | ------------------------------------------ | ---------- |
-| `variant` | `'solid' \| 'dashed' \| 'dotted'`          | `'solid'`  |
-| `spacing` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl'`   | `'md'`     |
+| Prop      | Type                                     | Default   |
+| --------- | ---------------------------------------- | --------- |
+| `variant` | `'solid' \| 'dashed' \| 'dotted'`        | `'solid'` |
+| `spacing` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`    |
 
 #### RichText
 
@@ -483,9 +483,15 @@ addModal({
 
 ```tsx
 <Card>
-  <CardHeader><Title level="h3">Title</Title></CardHeader>
-  <CardBody><p>Content</p></CardBody>
-  <CardFooter><Button>Action</Button></CardFooter>
+  <CardHeader>
+    <Title level="h3">Title</Title>
+  </CardHeader>
+  <CardBody>
+    <p>Content</p>
+  </CardBody>
+  <CardFooter>
+    <Button>Action</Button>
+  </CardFooter>
 </Card>
 ```
 
@@ -497,7 +503,9 @@ addModal({
     <BannerTitle>Welcome</BannerTitle>
     <BannerSubtitle>Build something amazing</BannerSubtitle>
     <BannerActions>
-      <Button contrast appearance="button">Get Started</Button>
+      <Button contrast appearance="button">
+        Get Started
+      </Button>
     </BannerActions>
   </BannerContent>
 </Banner>
@@ -591,11 +599,7 @@ Responsive header with navigation, mobile menu, and top bar.
 #### Pagination
 
 ```tsx
-<Pagination
-  currentPage={page}
-  totalPages={10}
-  onPageChange={setPage}
-/>
+<Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
 ```
 
 ---
@@ -606,13 +610,13 @@ Responsive header with navigation, mobile menu, and top bar.
 
 ```tsx
 type ColorVariant =
-  | 'default'   // Grey
-  | 'primary'   // Blue
+  | 'default' // Grey
+  | 'primary' // Blue
   | 'secondary' // Purple
-  | 'success'   // Green
-  | 'danger'    // Red
-  | 'warning'   // Orange
-  | 'info'      // Cyan
+  | 'success' // Green
+  | 'danger' // Red
+  | 'warning' // Orange
+  | 'info' // Cyan
 ```
 
 ### Contrast Mode
@@ -634,7 +638,7 @@ Override in your CSS:
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
   --color-primary-contrast: #60a5fa;
-  
+
   --font-size-4: 1.6rem;
   --radius-md: 0.5rem;
 }
@@ -709,7 +713,10 @@ Compatible with Next.js, Remix, Gatsby. Uses `useId()` for stable hydration.
 Rename imports to avoid conflicts:
 
 ```tsx
-import { Image as BaseImage, Link as BaseLink } from '@webc-charles/components-react'
+import {
+  Image as BaseImage,
+  Link as BaseLink,
+} from '@webc-charles/components-react'
 import Image from 'next/image'
 import Link from 'next/link'
 ```

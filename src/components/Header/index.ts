@@ -2,10 +2,11 @@ export type {
   HeaderActionsTypes,
   HeaderLogoTypes,
   HeaderMainTypes,
+  HeaderMobileDropdownLinkTypes,
+  HeaderMobileDropdownTypes,
   HeaderMobileLinkTypes,
   HeaderMobileMenuTypes,
-  HeaderMobileNavItemTypes,
-  HeaderMobileSubLinkTypes,
+  HeaderMobileNavTypes,
   HeaderMobileToggleTypes,
   HeaderNavDropdownLinkTypes,
   HeaderNavItemTypes,
@@ -25,10 +26,11 @@ export { HeaderNav } from './Main/HeaderNav'
 export { HeaderNavItem } from './Main/HeaderNavItem'
 export { HeaderNavItemDropdownLink } from './Main/HeaderNavItemDropdownLink'
 export { HeaderNavItemLink } from './Main/HeaderNavItemLink'
+export { HeaderMobileDropdown } from './Mobile/HeaderMobileDropdown'
+export { HeaderMobileDropdownLink } from './Mobile/HeaderMobileDropdownLink'
+export { HeaderMobileLink } from './Mobile/HeaderMobileLink'
 export { HeaderMobileMenu } from './Mobile/HeaderMobileMenu'
-export { HeaderMobileMenuLink } from './Mobile/HeaderMobileMenuLink'
-export { HeaderMobileNavItem } from './Mobile/HeaderMobileNavItem'
-export { HeaderMobileNavItemLink } from './Mobile/HeaderMobileNavItemLink'
+export { HeaderMobileNav } from './Mobile/HeaderMobileNav'
 export { HeaderMobileToggle } from './Mobile/HeaderMobileToggle'
 export { HeaderTopBar } from './Top/HeaderTopBar'
 export { HeaderTopBarItem } from './Top/HeaderTopBarItem'

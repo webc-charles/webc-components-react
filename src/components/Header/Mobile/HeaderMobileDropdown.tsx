@@ -2,16 +2,16 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
-import type { HeaderMobileNavItemTypes } from '../Header.types'
-import styles from './HeaderMobileNavItem.module.scss'
+import type { HeaderMobileDropdownTypes } from '../Header.types'
+import styles from './HeaderMobileDropdown.module.scss'
 
-export function HeaderMobileNavItem({
+export function HeaderMobileDropdown({
   ref,
   children,
   label,
   className,
   ...rest
-}: HeaderMobileNavItemTypes) {
+}: HeaderMobileDropdownTypes) {
   const [isExpanded, setIsExpanded] = useState(false)
   const id = useId()
   const contentId = `mobile-nav-content-${id}`

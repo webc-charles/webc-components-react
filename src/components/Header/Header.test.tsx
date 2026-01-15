@@ -8,10 +8,10 @@ import {
   HeaderActions,
   HeaderLogo,
   HeaderMain,
+  HeaderMobileDropdown,
+  HeaderMobileDropdownLink,
+  HeaderMobileLink,
   HeaderMobileMenu,
-  HeaderMobileMenuLink,
-  HeaderMobileNavItem,
-  HeaderMobileNavItemLink,
   HeaderMobileToggle,
   HeaderNav,
   HeaderNavItem,
@@ -147,9 +147,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <HeaderMobileMenuLink asChild>
+            <HeaderMobileLink asChild>
               <Link href="/">Home</Link>
-            </HeaderMobileMenuLink>
+            </HeaderMobileLink>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>
@@ -229,13 +229,13 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <HeaderMobileNavItem label="Products">
+            <HeaderMobileDropdown label="Products">
               <div>
-                <HeaderMobileNavItemLink asChild>
+                <HeaderMobileDropdownLink asChild>
                   <Link href="#">Software</Link>
-                </HeaderMobileNavItemLink>
+                </HeaderMobileDropdownLink>
               </div>
-            </HeaderMobileNavItem>
+            </HeaderMobileDropdown>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>
@@ -258,9 +258,9 @@ describe('Header', () => {
         <HeaderMain>
           <HeaderMobileToggle data-testid="mobile-toggle" />
           <HeaderMobileMenu>
-            <HeaderMobileMenuLink asChild>
+            <HeaderMobileLink asChild>
               <Link href="/">Home</Link>
-            </HeaderMobileMenuLink>
+            </HeaderMobileLink>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>

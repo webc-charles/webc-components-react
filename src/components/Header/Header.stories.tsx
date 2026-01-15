@@ -4,10 +4,10 @@ import {
   HeaderActions,
   HeaderLogo,
   HeaderMain,
+  HeaderMobileDropdown,
+  HeaderMobileDropdownLink,
+  HeaderMobileLink,
   HeaderMobileMenu,
-  HeaderMobileMenuLink,
-  HeaderMobileNavItem,
-  HeaderMobileNavItemLink,
   HeaderMobileToggle,
   HeaderNav,
   HeaderNavItem,
@@ -185,18 +185,18 @@ export const Default: Story = {
         <HeaderMobileToggle />
 
         <HeaderMobileMenu>
-          <HeaderMobileMenuLink asChild>
+          <HeaderMobileLink asChild>
             <Link href="/">Accueil</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileMenuLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileLink asChild>
             <Link href="/">Produits</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileMenuLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileLink asChild>
             <Link href="/">À propos</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileMenuLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileLink asChild>
             <Link href="/">Contact</Link>
-          </HeaderMobileMenuLink>
+          </HeaderMobileLink>
           <hr style={hrStyles} />
           <Button appearance="outline" style={{ width: '100%' }}>
             Connexion
@@ -263,15 +263,15 @@ export const WithTopBar: Story = {
 
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <HeaderMobileMenuLink asChild>
+          <HeaderMobileLink asChild>
             <Link href="/">Accueil</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileMenuLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileLink asChild>
             <Link href="/">Produits</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileMenuLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileLink asChild>
             <Link href="/">À propos</Link>
-          </HeaderMobileMenuLink>
+          </HeaderMobileLink>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -315,31 +315,31 @@ export const WithDropdowns: Story = {
 
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <HeaderMobileMenuLink asChild>
+          <HeaderMobileLink asChild>
             <Link href="/">Accueil</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileNavItem label="Produits">
-            <HeaderMobileNavItemLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileDropdown label="Produits">
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Logiciels</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Services</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Formations</Link>
-            </HeaderMobileNavItemLink>
-          </HeaderMobileNavItem>
-          <HeaderMobileNavItem label="Services">
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+          </HeaderMobileDropdown>
+          <HeaderMobileDropdown label="Services">
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Consulting</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Support</Link>
-            </HeaderMobileNavItemLink>
-          </HeaderMobileNavItem>
-          <HeaderMobileMenuLink asChild>
+            </HeaderMobileDropdownLink>
+          </HeaderMobileDropdown>
+          <HeaderMobileLink asChild>
             <Link href="/">Contact</Link>
-          </HeaderMobileMenuLink>
+          </HeaderMobileLink>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -383,34 +383,34 @@ export const MegaMenu: Story = {
         </HeaderActions>
         <HeaderMobileToggle />
         <HeaderMobileMenu>
-          <HeaderMobileMenuLink asChild>
+          <HeaderMobileLink asChild>
             <Link href="/">Accueil</Link>
-          </HeaderMobileMenuLink>
-          <HeaderMobileNavItem label="Solutions">
-            <HeaderMobileNavItemLink asChild>
+          </HeaderMobileLink>
+          <HeaderMobileDropdown label="Solutions">
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Logiciel A</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Logiciel B</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Consulting</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Documentation</Link>
-            </HeaderMobileNavItemLink>
-          </HeaderMobileNavItem>
-          <HeaderMobileNavItem label="Produits">
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+          </HeaderMobileDropdown>
+          <HeaderMobileDropdown label="Produits">
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Logiciels</Link>
-            </HeaderMobileNavItemLink>
-            <HeaderMobileNavItemLink asChild>
+            </HeaderMobileDropdownLink>
+            <HeaderMobileDropdownLink asChild>
               <Link href="/">Services</Link>
-            </HeaderMobileNavItemLink>
-          </HeaderMobileNavItem>
-          <HeaderMobileMenuLink asChild>
+            </HeaderMobileDropdownLink>
+          </HeaderMobileDropdown>
+          <HeaderMobileLink asChild>
             <Link href="/">Contact</Link>
-          </HeaderMobileMenuLink>
+          </HeaderMobileLink>
         </HeaderMobileMenu>
       </HeaderMain>
     </HeaderRoot>
@@ -459,15 +459,15 @@ export const Sticky: Story = {
 
           <HeaderMobileToggle />
           <HeaderMobileMenu>
-            <HeaderMobileMenuLink asChild>
+            <HeaderMobileLink asChild>
               <Link href="/">Accueil</Link>
-            </HeaderMobileMenuLink>
-            <HeaderMobileMenuLink asChild>
+            </HeaderMobileLink>
+            <HeaderMobileLink asChild>
               <Link href="/">Produits</Link>
-            </HeaderMobileMenuLink>
-            <HeaderMobileMenuLink asChild>
+            </HeaderMobileLink>
+            <HeaderMobileLink asChild>
               <Link href="/">Contact</Link>
-            </HeaderMobileMenuLink>
+            </HeaderMobileLink>
           </HeaderMobileMenu>
         </HeaderMain>
       </HeaderRoot>

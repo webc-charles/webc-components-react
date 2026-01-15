@@ -69,14 +69,15 @@ export function HeaderMobileMenu({
   }, [isOpen])
 
   return (
-    <nav
+    <div
       ref={setMenuRef}
       id={mobileMenuId}
+      role="dialog"
       aria-label={ariaLabel || str.mobile_navigation}
       className={clsx(styles.menu, isOpen && styles.menuOpen, className)}
       {...rest}
     >
       {children}
-    </nav>
+    </div>
   )
 }

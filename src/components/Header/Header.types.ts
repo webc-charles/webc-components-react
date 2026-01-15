@@ -51,7 +51,12 @@ export type HeaderMobileMenuTypes = ComponentPropsWithRef<'div'> & {
   'aria-label'?: string
 }
 
-export type HeaderMobileNavItemTypes = ComponentPropsWithRef<'div'> & {
+export type HeaderMobileNavTypes = ComponentPropsWithRef<'nav'> & {
+  children: ReactNode
+  'aria-label'?: string
+}
+
+export type HeaderMobileDropdownTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   label: ReactNode
 }
@@ -83,7 +88,7 @@ export type HeaderMobileLinkTypes = ComponentPropsWithRef<'a'> & {
   children: ReactNode
 }
 
-export type HeaderMobileSubLinkTypes = ComponentPropsWithRef<'a'> & {
+export type HeaderMobileDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
 }

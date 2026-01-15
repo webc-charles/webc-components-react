@@ -16,7 +16,7 @@
   position: relative;
 
   &:hover,
-  &:focus,
+  &:focus-visible,
   .hasDropdown:hover & {
     color: var(--color-primary-contrast);
   }

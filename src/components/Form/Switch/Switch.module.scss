@@ -36,7 +36,7 @@ $thumb-margin: 0.3rem;
   position: absolute;
   width: 0;
 
-  &:focus + .track {
+  &:focus-visible + .track {
     box-shadow: 0 0 0 0.2rem var(--color-primary-2);
   }
 }

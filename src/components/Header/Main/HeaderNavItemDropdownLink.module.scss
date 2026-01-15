@@ -23,7 +23,7 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: var(--color-primary-2);
     text-decoration: underline;
   }

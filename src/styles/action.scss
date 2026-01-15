@@ -43,7 +43,7 @@
     }
 
     &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:focus-visible:not([disabled]) {
       &::before {
         transform: translateY(0.4rem);
       }
@@ -66,7 +66,7 @@
 
       &[aria-selected='true']:not([disabled]),
       &:hover:not([disabled]),
-      &:focus:not([disabled]) {
+      &:focus-visible:not([disabled]) {
         color: $hover;
       }
 
@@ -76,7 +76,7 @@
 
         &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
-        &:focus:not([disabled]) {
+        &:focus-visible:not([disabled]) {
           background: $hover;
           color: $text;
         }
@@ -87,7 +87,7 @@
 
         &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
-        &:focus:not([disabled]) {
+        &:focus-visible:not([disabled]) {
           background: $hover;
           border-color: $hover;
           color: $text;
@@ -100,7 +100,7 @@
 
       &.appearance-underline[aria-selected='true']:not([disabled])::before,
       &.appearance-underline:hover:not([disabled])::before,
-      &.appearance-underline:focus:not([disabled])::before {
+      &.appearance-underline:focus-visible:not([disabled])::before {
         background: $hover;
       }
 
@@ -110,7 +110,7 @@
 
         &[aria-selected='true']:not([disabled]),
         &:hover:not([disabled]),
-        &:focus:not([disabled]) {
+        &:focus-visible:not([disabled]) {
           color: $contrast-hover;
         }
 
@@ -120,7 +120,7 @@
 
           &[aria-selected='true']:not([disabled]),
           &:hover:not([disabled]),
-          &:focus:not([disabled]) {
+          &:focus-visible:not([disabled]) {
             background: $contrast-hover;
             color: $contrast-text;
           }
@@ -131,7 +131,7 @@
 
           &[aria-selected='true']:not([disabled]),
           &:hover:not([disabled]),
-          &:focus:not([disabled]) {
+          &:focus-visible:not([disabled]) {
             background: $contrast-hover;
             border-color: $contrast-hover;
             color: $contrast-text;
@@ -144,7 +144,7 @@
 
         &.appearance-underline[aria-selected='true']:not([disabled])::before,
         &.appearance-underline:hover:not([disabled])::before,
-        &.appearance-underline:focus:not([disabled])::before {
+        &.appearance-underline:focus-visible:not([disabled])::before {
           background: $contrast-hover;
         }
       }
@@ -184,7 +184,7 @@
   width: 2.5rem;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background-color: var(--color-primary-2);
     color: var(--color-white);
     opacity: 1;

@@ -60,7 +60,6 @@ export function HeaderMobileMenu({
       }
     }
 
-    firstElement?.focus()
     document.addEventListener('keydown', handleTabKey)
 
     return () => {

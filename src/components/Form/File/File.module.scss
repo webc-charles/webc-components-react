@@ -35,8 +35,8 @@
   height: 3.8rem;
   padding: 0 1.5rem;
 
-  &:focus,
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
     background-color: var(--color-primary-2);
     border-color: var(--color-primary-2);
     color: var(--color-white);

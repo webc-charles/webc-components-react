@@ -20,7 +20,7 @@ $heading-sizes: (
   text-decoration: underline;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-decoration: none;
   }
 }

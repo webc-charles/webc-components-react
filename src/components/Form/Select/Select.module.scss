@@ -145,7 +145,7 @@
   padding: 0.4rem;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: var(--color-danger-2);
   }
 }
@@ -188,7 +188,7 @@
   padding: 0 0.5rem;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background-color: var(--color-danger-3);
     color: var(--color-danger-2);
   }

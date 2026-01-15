@@ -38,7 +38,7 @@ export function HeaderMobileDropdown({
     <div ref={ref} className={clsx(styles.item, className)} {...rest}>
       <Button
         type="button"
-        className={styles.trigger}
+        className={clsx(styles.trigger, isExpanded && styles.isOpen)}
         onClick={() => setIsExpanded((prev) => !prev)}
         aria-expanded={isExpanded}
         aria-controls={contentId}

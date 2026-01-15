@@ -32,7 +32,7 @@
   }
 }
 
-.hiddenInput:focus + .checkbox:not(.checked) {
+.hiddenInput:focus-visible + .checkbox:not(.checked) {
   border-color: var(--color-primary-2);
 }
 

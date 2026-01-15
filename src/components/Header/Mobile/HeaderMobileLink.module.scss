@@ -8,7 +8,7 @@
   background-color: var(--color-grey-6);
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background-color: var(--color-primary-2);
     color: var(--color-white);
   }

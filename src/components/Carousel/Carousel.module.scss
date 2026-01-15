@@ -44,7 +44,7 @@
   }
 
   &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:focus-visible:not(:disabled) {
     background: var(--color-primary-2);
     color: var(--color-white);
   }
@@ -73,7 +73,7 @@
 
   &.active,
   &:hover:not(.active),
-  &:focus:not(.active) {
+  &:focus-visible:not(.active) {
     background: var(--color-primary-2);
   }
 }

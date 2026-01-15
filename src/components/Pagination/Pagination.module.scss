@@ -41,7 +41,7 @@
 }
 
 .page:hover:not(.current, .disabled),
-.page:focus:not(.current, .disabled) {
+.page:focus-visible:not(.current, .disabled) {
   background-color: var(--color-primary-2);
   border-color: var(--color-primary-2);
   color: var(--color-white);
@@ -69,7 +69,7 @@
 }
 
 .nav:hover:not(.disabled),
-.nav:focus:not(.disabled) {
+.nav:focus-visible:not(.disabled) {
   background-color: var(--color-primary-2);
   border-color: var(--color-primary-2);
   color: var(--color-white);

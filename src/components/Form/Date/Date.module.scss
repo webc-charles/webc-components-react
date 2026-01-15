@@ -40,7 +40,7 @@
     opacity: 0.5;
   }
 
-  &:is(:hover, :focus):not(:disabled) {
+  &:is(:hover, :focus-visible):not(:disabled) {
     color: var(--color-primary-2);
   }
 }
@@ -107,7 +107,7 @@
     opacity: 0.6;
   }
 
-  &:is(:hover, :focus):not(:disabled, .selected) {
+  &:is(:hover, :focus-visible):not(:disabled, .selected) {
     background-color: var(--color-primary-2);
     border-color: var(--color-primary-2);
     color: var(--color-white);
@@ -138,7 +138,7 @@
   justify-content: center;
   width: 4rem;
 
-  &:is(:hover, :focus) {
+  &:is(:hover, :focus-visible) {
     background-color: var(--color-primary-2);
     color: var(--color-white);
   }

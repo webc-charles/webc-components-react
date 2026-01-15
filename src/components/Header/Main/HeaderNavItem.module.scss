@@ -19,7 +19,7 @@
   padding: 0 2rem;
 
   &:hover,
-  &:focus,
+  &:focus-visible,
   .hasDropdown:hover & {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);

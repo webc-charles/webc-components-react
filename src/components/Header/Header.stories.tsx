@@ -1,23 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, Grid, GridItem, Link, Title } from 'components'
 import {
-  HeaderLogo,
   HeaderMain,
-  HeaderMobileDropdown,
-  HeaderMobileDropdownLink,
-  HeaderMobileLink,
-  HeaderMobileMenu,
-  HeaderMobileNav,
-  HeaderMobileToggle,
-  HeaderMainNav,
   HeaderMainDropdown,
   HeaderMainDropdownLink,
   HeaderMainLink,
+  HeaderMainLogo,
+  HeaderMainNav,
+  HeaderMobile,
+  HeaderMobileBar,
+  HeaderMobileDropdown,
+  HeaderMobileDropdownLink,
+  HeaderMobileLink,
+  HeaderMobileLogo,
+  HeaderMobileMenu,
+  HeaderMobileNav,
+  HeaderMobileToggle,
   HeaderRoot,
-  HeaderTopBar,
-  HeaderTopBarItem,
-  HeaderTopBarItemLink,
-  HeaderTopBarLink,
+  HeaderTop,
+  HeaderTopDropdown,
+  HeaderTopDropdownLink,
+  HeaderTopLink,
+  HeaderTopNav,
 } from './index'
 
 const logoStyles = {
@@ -62,21 +66,21 @@ const ProductsDropdown = () => (
   </div>
 )
 
-const LanguageDropdown = () => (
-  <div>
-    <HeaderTopBarItemLink asChild>
+const LanguageDropdownContent = () => (
+  <>
+    <HeaderTopDropdownLink asChild>
       <Link href="/">Français</Link>
-    </HeaderTopBarItemLink>
-    <HeaderTopBarItemLink asChild>
+    </HeaderTopDropdownLink>
+    <HeaderTopDropdownLink asChild>
       <Link href="/">English</Link>
-    </HeaderTopBarItemLink>
-    <HeaderTopBarItemLink asChild>
+    </HeaderTopDropdownLink>
+    <HeaderTopDropdownLink asChild>
       <Link href="/">Español</Link>
-    </HeaderTopBarItemLink>
-    <HeaderTopBarItemLink asChild>
+    </HeaderTopDropdownLink>
+    <HeaderTopDropdownLink asChild>
       <Link href="/">Deutsch</Link>
-    </HeaderTopBarItemLink>
-  </div>
+    </HeaderTopDropdownLink>
+  </>
 )
 
 const MegaMenuContent = () => (
@@ -196,11 +200,11 @@ export const Default: Story = {
   render: (args) => (
     <HeaderRoot {...args}>
       <HeaderMain>
-        <HeaderLogo>
+        <HeaderMainLogo>
           <Link href="/" style={logoStyles}>
             Logo
           </Link>
-        </HeaderLogo>
+        </HeaderMainLogo>
 
         <HeaderMainNav>
           <HeaderMainLink asChild active>
@@ -227,10 +231,19 @@ export const Default: Story = {
             Inscription
           </Button>
         </HeaderMainNav>
-
-        <HeaderMobileToggle />
-        <MobileMenuContent />
       </HeaderMain>
+
+      <HeaderMobile>
+        <HeaderMobileBar>
+          <HeaderMobileLogo>
+            <Link href="/" style={logoStyles}>
+              Logo
+            </Link>
+          </HeaderMobileLogo>
+          <HeaderMobileToggle />
+        </HeaderMobileBar>
+        <MobileMenuContent />
+      </HeaderMobile>
     </HeaderRoot>
   ),
 }
@@ -238,24 +251,26 @@ export const Default: Story = {
 export const WithTopBar: Story = {
   render: () => (
     <HeaderRoot>
-      <HeaderTopBar>
-        <HeaderTopBarLink asChild>
-          <Link href="/">Aide</Link>
-        </HeaderTopBarLink>
-        <HeaderTopBarLink asChild>
-          <Link href="/">Contact</Link>
-        </HeaderTopBarLink>
-        <HeaderTopBarItem dropdown={<LanguageDropdown />}>
-          FR
-        </HeaderTopBarItem>
-      </HeaderTopBar>
+      <HeaderTop>
+        <HeaderTopNav>
+          <HeaderTopLink asChild>
+            <Link href="/">Aide</Link>
+          </HeaderTopLink>
+          <HeaderTopLink asChild>
+            <Link href="/">Contact</Link>
+          </HeaderTopLink>
+          <HeaderTopDropdown label="FR">
+            <LanguageDropdownContent />
+          </HeaderTopDropdown>
+        </HeaderTopNav>
+      </HeaderTop>
 
       <HeaderMain>
-        <HeaderLogo>
+        <HeaderMainLogo>
           <Link href="/" style={logoStyles}>
             Logo
           </Link>
-        </HeaderLogo>
+        </HeaderMainLogo>
 
         <HeaderMainNav>
           <HeaderMainLink asChild active>
@@ -276,10 +291,19 @@ export const WithTopBar: Story = {
             Commencer
           </Button>
         </HeaderMainNav>
-
-        <HeaderMobileToggle />
-        <MobileMenuContent />
       </HeaderMain>
+
+      <HeaderMobile>
+        <HeaderMobileBar>
+          <HeaderMobileLogo>
+            <Link href="/" style={logoStyles}>
+              Logo
+            </Link>
+          </HeaderMobileLogo>
+          <HeaderMobileToggle />
+        </HeaderMobileBar>
+        <MobileMenuContent />
+      </HeaderMobile>
     </HeaderRoot>
   ),
 }
@@ -288,11 +312,11 @@ export const WithDropdowns: Story = {
   render: () => (
     <HeaderRoot>
       <HeaderMain>
-        <HeaderLogo>
+        <HeaderMainLogo>
           <Link href="/" style={logoStyles}>
             Logo
           </Link>
-        </HeaderLogo>
+        </HeaderMainLogo>
 
         <HeaderMainNav>
           <HeaderMainLink asChild>
@@ -314,11 +338,19 @@ export const WithDropdowns: Story = {
             Démo
           </Link>
         </HeaderMainNav>
-
-        <HeaderMobileToggle />
-
-        <MobileMenuContent />
       </HeaderMain>
+
+      <HeaderMobile>
+        <HeaderMobileBar>
+          <HeaderMobileLogo>
+            <Link href="/" style={logoStyles}>
+              Logo
+            </Link>
+          </HeaderMobileLogo>
+          <HeaderMobileToggle />
+        </HeaderMobileBar>
+        <MobileMenuContent />
+      </HeaderMobile>
     </HeaderRoot>
   ),
 }
@@ -327,11 +359,11 @@ export const MegaMenu: Story = {
   render: () => (
     <HeaderRoot>
       <HeaderMain>
-        <HeaderLogo>
+        <HeaderMainLogo>
           <Link href="/" style={logoStyles}>
             Enterprise
           </Link>
-        </HeaderLogo>
+        </HeaderMainLogo>
 
         <HeaderMainNav>
           <HeaderMainLink asChild>
@@ -356,10 +388,19 @@ export const MegaMenu: Story = {
             Essai gratuit
           </Link>
         </HeaderMainNav>
-
-        <HeaderMobileToggle />
-        <MobileMenuContent />
       </HeaderMain>
+
+      <HeaderMobile>
+        <HeaderMobileBar>
+          <HeaderMobileLogo>
+            <Link href="/" style={logoStyles}>
+              Logo
+            </Link>
+          </HeaderMobileLogo>
+          <HeaderMobileToggle />
+        </HeaderMobileBar>
+        <MobileMenuContent />
+      </HeaderMobile>
     </HeaderRoot>
   ),
 }
@@ -372,11 +413,11 @@ export const Sticky: Story = {
     <div>
       <HeaderRoot {...args}>
         <HeaderMain>
-          <HeaderLogo>
+          <HeaderMainLogo>
             <Link href="/" style={logoStyles}>
               Sticky
             </Link>
-          </HeaderLogo>
+          </HeaderMainLogo>
 
           <HeaderMainNav>
             <HeaderMainLink asChild active>
@@ -397,10 +438,10 @@ export const Sticky: Story = {
               CTA
             </Link>
           </HeaderMainNav>
-
-          <HeaderMobileToggle />
-          <MobileMenuContent />
         </HeaderMain>
+
+        <HeaderMobileToggle />
+        <MobileMenuContent />
       </HeaderRoot>
 
       <div style={{ padding: '2rem', height: '200vh' }}>

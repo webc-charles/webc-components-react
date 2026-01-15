@@ -5,8 +5,10 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { Button, Link } from '../'
 import {
-  HeaderLogo,
+  HeaderMainLogo,
   HeaderMain,
+  HeaderMobile,
+  HeaderMobileBar,
   HeaderMobileDropdown,
   HeaderMobileDropdownLink,
   HeaderMobileLink,
@@ -17,10 +19,11 @@ import {
   HeaderMainDropdownLink,
   HeaderMainLink,
   HeaderRoot,
-  HeaderTopBar,
-  HeaderTopBarItem,
-  HeaderTopBarItemLink,
-  HeaderTopBarLink,
+  HeaderTop,
+  HeaderTopDropdown,
+  HeaderTopDropdownLink,
+  HeaderTopLink,
+  HeaderTopNav,
 } from './index'
 
 describe('Header', () => {
@@ -28,7 +31,7 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderLogo>Logo</HeaderLogo>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -38,13 +41,15 @@ describe('Header', () => {
   it('renders top bar', () => {
     render(
       <HeaderRoot>
-        <HeaderTopBar>
-          <HeaderTopBarLink asChild>
-            <Link href="#">Help</Link>
-          </HeaderTopBarLink>
-        </HeaderTopBar>
+        <HeaderTop>
+          <HeaderTopNav>
+            <HeaderTopLink asChild>
+              <Link href="#">Help</Link>
+            </HeaderTopLink>
+          </HeaderTopNav>
+        </HeaderTop>
         <HeaderMain>
-          <HeaderLogo>Logo</HeaderLogo>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -54,24 +59,20 @@ describe('Header', () => {
   it('renders top bar item with dropdown', () => {
     render(
       <HeaderRoot>
-        <HeaderTopBar>
-          <HeaderTopBarItem
-            dropdown={
-              <div>
-                <HeaderTopBarItemLink asChild>
-                  <Link href="#">Option 1</Link>
-                </HeaderTopBarItemLink>
-                <HeaderTopBarItemLink asChild>
-                  <Link href="#">Option 2</Link>
-                </HeaderTopBarItemLink>
-              </div>
-            }
-          >
-            Language
-          </HeaderTopBarItem>
-        </HeaderTopBar>
+        <HeaderTop>
+          <HeaderTopNav>
+            <HeaderTopDropdown label="Language">
+              <HeaderTopDropdownLink asChild>
+                <Link href="#">Option 1</Link>
+              </HeaderTopDropdownLink>
+              <HeaderTopDropdownLink asChild>
+                <Link href="#">Option 2</Link>
+              </HeaderTopDropdownLink>
+            </HeaderTopDropdown>
+          </HeaderTopNav>
+        </HeaderTop>
         <HeaderMain>
-          <HeaderLogo>Logo</HeaderLogo>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -138,13 +139,18 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderMobileToggle data-testid="mobile-toggle" />
+          <HeaderMainLogo>Logo</HeaderMainLogo>
+        </HeaderMain>
+        <HeaderMobile>
+          <HeaderMobileBar>
+            <HeaderMobileToggle data-testid="mobile-toggle" />
+          </HeaderMobileBar>
           <HeaderMobileMenu>
             <HeaderMobileLink asChild>
               <Link href="/">Home</Link>
             </HeaderMobileLink>
           </HeaderMobileMenu>
-        </HeaderMain>
+        </HeaderMobile>
       </HeaderRoot>
     )
 
@@ -162,9 +168,14 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderMobileToggle data-testid="mobile-toggle" />
-          <HeaderMobileMenu>Menu</HeaderMobileMenu>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
+        <HeaderMobile>
+          <HeaderMobileBar>
+            <HeaderMobileToggle data-testid="mobile-toggle" />
+          </HeaderMobileBar>
+          <HeaderMobileMenu>Menu</HeaderMobileMenu>
+        </HeaderMobile>
       </HeaderRoot>
     )
 
@@ -178,7 +189,7 @@ describe('Header', () => {
     render(
       <HeaderRoot sticky data-testid="header">
         <HeaderMain>
-          <HeaderLogo>Logo</HeaderLogo>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -214,7 +225,12 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderMobileToggle data-testid="mobile-toggle" />
+          <HeaderMainLogo>Logo</HeaderMainLogo>
+        </HeaderMain>
+        <HeaderMobile>
+          <HeaderMobileBar>
+            <HeaderMobileToggle data-testid="mobile-toggle" />
+          </HeaderMobileBar>
           <HeaderMobileMenu>
             <HeaderMobileDropdown label="Products">
               <div>
@@ -224,7 +240,7 @@ describe('Header', () => {
               </div>
             </HeaderMobileDropdown>
           </HeaderMobileMenu>
-        </HeaderMain>
+        </HeaderMobile>
       </HeaderRoot>
     )
 
@@ -243,13 +259,18 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderMobileToggle data-testid="mobile-toggle" />
+          <HeaderMainLogo>Logo</HeaderMainLogo>
+        </HeaderMain>
+        <HeaderMobile>
+          <HeaderMobileBar>
+            <HeaderMobileToggle data-testid="mobile-toggle" />
+          </HeaderMobileBar>
           <HeaderMobileMenu>
             <HeaderMobileLink asChild>
               <Link href="/">Home</Link>
             </HeaderMobileLink>
           </HeaderMobileMenu>
-        </HeaderMain>
+        </HeaderMobile>
       </HeaderRoot>
     )
 
@@ -266,7 +287,7 @@ describe('Header', () => {
     render(
       <HeaderRoot ref={ref}>
         <HeaderMain>
-          <HeaderLogo>Logo</HeaderLogo>
+          <HeaderMainLogo>Logo</HeaderMainLogo>
         </HeaderMain>
       </HeaderRoot>
     )

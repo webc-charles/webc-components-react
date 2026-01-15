@@ -1,13 +1,13 @@
 import clsx from 'clsx'
-import type { HeaderLogoTypes } from '../Header.types'
-import styles from './HeaderLogo.module.scss'
+import type { HeaderMobileLogoTypes } from '../Header.types'
+import styles from './HeaderMobileLogo.module.scss'
 
-export function HeaderLogo({
+export function HeaderMobileLogo({
   ref,
   children,
   className,
   ...rest
-}: HeaderLogoTypes) {
+}: HeaderMobileLogoTypes) {
   return (
     <div ref={ref} className={clsx(styles.logo, className)} {...rest}>
       {children}

@@ -1,0 +1,11 @@
+@use '../../../styles/mq' as *;
+
+.mobile {
+  background-color: var(--color-white);
+  position: relative;
+  z-index: var(--z-index-4);
+
+  @include mqMD {
+    display: none;
+  }
+}

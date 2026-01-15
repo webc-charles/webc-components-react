@@ -6,20 +6,25 @@ export type HeaderTypes = ComponentPropsWithRef<'header'> & {
   baseId?: string
 }
 
-export type HeaderTopBarTypes = ComponentPropsWithRef<'div'> & {
+export type HeaderTopTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
 }
 
-export type HeaderTopBarItemTypes = ComponentPropsWithRef<'div'> & {
+export type HeaderTopNavTypes = ComponentPropsWithRef<'nav'> & {
   children: ReactNode
-  dropdown?: ReactNode
+  'aria-label'?: string
+}
+
+export type HeaderTopDropdownTypes = ComponentPropsWithRef<'div'> & {
+  children: ReactNode
+  label: ReactNode
 }
 
 export type HeaderMainTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
 }
 
-export type HeaderLogoTypes = ComponentPropsWithRef<'div'> & {
+export type HeaderMainLogoTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
 }
 
@@ -33,6 +38,18 @@ export type HeaderMainDropdownTypes = ComponentPropsWithRef<'div'> & {
   label: ReactNode
   mega?: boolean
   current?: boolean
+}
+
+export type HeaderMobileTypes = ComponentPropsWithRef<'div'> & {
+  children: ReactNode
+}
+
+export type HeaderMobileLogoTypes = ComponentPropsWithRef<'div'> & {
+  children: ReactNode
+}
+
+export type HeaderMobileBarTypes = ComponentPropsWithRef<'div'> & {
+  children: ReactNode
 }
 
 export type HeaderMobileToggleTypes = Omit<
@@ -57,12 +74,12 @@ export type HeaderMobileDropdownTypes = ComponentPropsWithRef<'div'> & {
   label: ReactNode
 }
 
-export type HeaderTopBarLinkTypes = ComponentPropsWithRef<'a'> & {
+export type HeaderTopLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
 }
 
-export type HeaderTopBarItemLinkTypes = ComponentPropsWithRef<'a'> & {
+export type HeaderTopDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
 }

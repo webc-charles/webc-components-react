@@ -2,9 +2,14 @@
 
 .main {
   background-color: var(--color-white);
+  display: none;
   min-height: var(--height-header);
   position: relative;
   z-index: var(--z-index-4);
+
+  @include mqMD {
+    display: block;
+  }
 }
 
 .container {

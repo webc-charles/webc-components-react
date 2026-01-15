@@ -16,8 +16,7 @@
   position: relative;
 
   &:hover,
-  &:focus-visible,
-  .hasDropdown:hover & {
+  &:focus-visible {
     color: var(--color-primary-contrast);
   }
 }
@@ -55,20 +54,8 @@
   padding: 2rem;
 }
 
-.dropdownOpen {
+.isOpen {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-}
-
-.hasDropdown:hover {
-  .chevron {
-    transform: rotate(180deg);
-  }
-
-  .dropdown {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-  }
 }

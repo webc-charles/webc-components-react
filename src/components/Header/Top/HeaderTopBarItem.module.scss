@@ -39,30 +39,27 @@
 }
 
 .dropdown {
-  background-color: var(--color-black);
-  border: 0.1rem solid var(--color-grey-2);
   border-radius: var(--radius-md);
   min-width: 16rem;
   opacity: 0;
-  padding: 0.8rem;
+  padding: 1rem 0 0;
   pointer-events: none;
   position: absolute;
   right: 0;
-  top: calc(100% + 0.8rem);
+  top: 100%;
   transition:
     opacity var(--transition-default),
     visibility var(--transition-default);
   visibility: hidden;
   z-index: var(--z-index-5);
+}
 
-  &::before {
-    content: '';
-    height: 0.8rem;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: -0.8rem;
-  }
+.dropdownInner {
+  background-color: var(--color-black);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .dropdownOpen {

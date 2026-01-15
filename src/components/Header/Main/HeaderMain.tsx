@@ -1,9 +1,14 @@
 import clsx from 'clsx'
-import { useHeader } from './HeaderContext'
+import type { HeaderMainTypes } from '../Header.types'
+import { useHeader } from '../HeaderContext'
 import styles from './HeaderMain.module.scss'
-import type { HeaderMainTypes } from './Header.types'
 
-export function HeaderMain({ ref, children, className, ...rest }: HeaderMainTypes) {
+export function HeaderMain({
+  ref,
+  children,
+  className,
+  ...rest
+}: HeaderMainTypes) {
   const { isOpen } = useHeader()
 
   return (

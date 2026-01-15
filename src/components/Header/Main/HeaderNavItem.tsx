@@ -147,16 +147,13 @@ export function HeaderNavItem({
         ref={setDropdownRef}
         role="menu"
         className={clsx(
-          styles.dropdown,
-          mega && styles.megaMenu,
-          isOpen && styles.dropdownOpen
+          mega ? styles.megaMenu : styles.dropdown,
+          isOpen && styles.isOpen
         )}
       >
-        {mega ? (
-          <div className={styles.megaMenuInner}>{dropdown}</div>
-        ) : (
-          dropdown
-        )}
+        <div className={mega ? styles.megaMenuInner : styles.dropdownInner}>
+          {dropdown}
+        </div>
       </div>
     </div>
   )

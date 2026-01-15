@@ -126,7 +126,7 @@ export function HeaderTopBarItem({
         role="menu"
         className={clsx(styles.dropdown, isOpen && styles.dropdownOpen)}
       >
-        {dropdown}
+        <div className={styles.dropdownInner}>{dropdown}</div>
       </div>
     </div>
   )

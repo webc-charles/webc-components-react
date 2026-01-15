@@ -1,6 +1,6 @@
 {
   "name": "@webc-charles/components-react",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "packageManager": "pnpm@10.27.0",
   "description": "A lightweight React component library with CSS variables for easy theming",
   "repository": {
@@ -60,6 +60,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitest/mocker": "^4.0.15",
     "@vitest/ui": "^4.0.15",
+    "@webc-charles/lint-config": "^1.0.0",
     "esbuild-sass-plugin": "^3.3.1",
     "jsdom": "^26.1.0",
     "postcss": "^8.5.6",

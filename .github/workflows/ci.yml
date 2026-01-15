@@ -118,10 +118,24 @@ jobs:
           echo "Version from package.json: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: Check if version exists
+        id: check_version
+        run: |
+          if npm view @webc-charles/components-react@${{ steps.version.outputs.VERSION }} version 2>/dev/null; then
+            echo "EXISTS=true" >> $GITHUB_OUTPUT
+            echo "Version ${{ steps.version.outputs.VERSION }} already published, skipping"
+          else
+            echo "EXISTS=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build package
+        if: steps.check_version.outputs.EXISTS == 'false'
         run: pnpm build
 
       - name: Publish to GitHub Packages
+        if: steps.check_version.outputs.EXISTS == 'false'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

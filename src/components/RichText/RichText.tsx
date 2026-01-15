@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './RichText.module.scss'
 import type { RichTextTypes } from './RichText.types'
 

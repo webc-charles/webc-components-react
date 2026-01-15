@@ -1,7 +1,5 @@
 import { useId, useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { InputRadio } from './Radio'
 import type { RadioOptionTypes } from './Radio.types'
 

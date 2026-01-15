@@ -1,7 +1,5 @@
 import { useId } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Radio.module.scss'
 import type { InputRadioTypes } from './Radio.types'
 

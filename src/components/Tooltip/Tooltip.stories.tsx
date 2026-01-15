@@ -1,9 +1,7 @@
 import type { CSSProperties } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
 import { Title } from 'components/Title'
 import { Info } from 'lucide-react'
-
 import { Tooltip } from './Tooltip'
 import type { TooltipPosition } from './Tooltip.types'
 

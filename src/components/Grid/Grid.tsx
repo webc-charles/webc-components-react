@@ -4,9 +4,7 @@ import {
   isValidElement,
   type ReactElement,
 } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Grid.module.scss'
 import type { GridTypes } from './Grid.types'
 

@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Badge.module.scss'
 import type { BadgeTypes } from './Badge.types'
 

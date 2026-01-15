@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Button } from '../Form/Button'
 import { Modals } from './Modals'
 import { useModals } from './ModalsContext'

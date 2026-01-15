@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Progress.module.scss'
 import type { ProgressTypes } from './Progress.types'
 

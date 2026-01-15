@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import { Spinner } from '../../Spinner'
 import styles from './Button.module.scss'
 import type { ButtonTypes } from './Button.types'

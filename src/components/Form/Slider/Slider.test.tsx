@@ -2,7 +2,6 @@ import '@testing-library/jest-dom/vitest'
 
 import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
-
 import { Slider } from './Slider'
 
 // Mock pointer capture (not available in JSDOM)

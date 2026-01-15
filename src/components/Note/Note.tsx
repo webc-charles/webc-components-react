@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Note.module.scss'
 import type { NoteTypes } from './Note.types'
 

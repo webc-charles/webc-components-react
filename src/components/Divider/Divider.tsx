@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Divider.module.scss'
 import type { DividerTypes } from './Divider.types'
 

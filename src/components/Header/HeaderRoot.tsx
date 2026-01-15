@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useState } from 'react'
-
 import clsx from 'clsx'
-
 import type { HeaderTypes } from './Header.types'
 import { HeaderContext } from './HeaderContext'
 import styles from './HeaderRoot.module.scss'

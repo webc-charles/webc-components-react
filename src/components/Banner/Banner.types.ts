@@ -1,5 +1,4 @@
 import type { ComponentPropsWithRef } from 'react'
-
 import type { TitleTypes } from '../Title/Title.types'
 
 export type HorizontalAlignTypes = 'left' | 'center' | 'right'

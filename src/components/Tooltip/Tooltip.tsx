@@ -1,7 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Tooltip.module.scss'
 import type { TooltipPosition, TooltipTypes } from './Tooltip.types'
 

@@ -1,7 +1,5 @@
 import { useId } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Video.module.scss'
 import type { VideoTypes } from './Video.types'
 

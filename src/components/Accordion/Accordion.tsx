@@ -6,11 +6,9 @@ import {
   useMemo,
   useState,
 } from 'react'
-
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
-
 import styles from './Accordion.module.scss'
 import type {
   AccordionContentTypes,

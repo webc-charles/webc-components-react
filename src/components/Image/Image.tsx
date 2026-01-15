@@ -1,8 +1,6 @@
 import { useId } from 'react'
-
 import clsx from 'clsx'
 import { Slot } from 'utils'
-
 import styles from './Image.module.scss'
 import type { ImageTypes } from './Image.types'
 

@@ -1,5 +1,4 @@
 import { type ReactNode, useCallback, useMemo, useState } from 'react'
-
 import { Modal } from './Modal'
 import styles from './Modal.module.scss'
 import type { ModalConfigTypes } from './Modal.types'

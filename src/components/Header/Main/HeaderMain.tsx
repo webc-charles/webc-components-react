@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import type { HeaderMainTypes } from '../Header.types'
 import { useHeader } from '../HeaderContext'
 import styles from './HeaderMain.module.scss'

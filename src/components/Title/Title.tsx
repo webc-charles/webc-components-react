@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Title.module.scss'
 import type { TitleTypes } from './Title.types'
 

@@ -4,7 +4,6 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Button } from 'components'
 import { describe, expect, it } from 'vitest'
-
 import { Tooltip } from './Tooltip'
 
 describe('Tooltip', () => {

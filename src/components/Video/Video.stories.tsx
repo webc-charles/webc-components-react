@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Video } from './Video'
 
 const meta: Meta<typeof Video> = {

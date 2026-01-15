@@ -1,6 +1,5 @@
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin'
 import { defineConfig } from 'tsup'
-
 import path from 'node:path'
 
 const srcPath = path.resolve(__dirname, 'src')

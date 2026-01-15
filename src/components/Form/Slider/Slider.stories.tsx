@@ -1,7 +1,5 @@
 import { useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Slider } from './Slider'
 import type { SliderSingleTypes } from './Slider.types'
 

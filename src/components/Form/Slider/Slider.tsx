@@ -1,7 +1,5 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Slider.module.scss'
 import type { SliderMark, SliderTypes } from './Slider.types'
 

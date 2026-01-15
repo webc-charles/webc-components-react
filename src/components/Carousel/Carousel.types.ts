@@ -1,5 +1,4 @@
 import type { ComponentPropsWithRef } from 'react'
-
 import type { EmblaOptionsType } from 'embla-carousel'
 
 export type CarouselContextValue = {

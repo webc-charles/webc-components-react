@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import type { ColorVariant } from '../../types'
 import { Link } from './Link'
 import type { LinkAppearance } from './Link.types'

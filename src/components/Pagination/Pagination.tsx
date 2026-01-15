@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-
 import clsx from 'clsx'
 import { Link } from 'components'
 import { str } from 'i18n'
@@ -9,7 +8,6 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react'
-
 import styles from './Pagination.module.scss'
 import type { PaginationTypes } from './Pagination.types'
 

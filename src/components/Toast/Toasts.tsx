@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from 'react'
-
 import { Toast } from './Toast'
 import styles from './Toast.module.scss'
 import type { ToastConfigTypes } from './Toast.types'

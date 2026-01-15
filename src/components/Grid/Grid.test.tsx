@@ -2,7 +2,6 @@ import '@testing-library/jest-dom/vitest'
 
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-
 import { Grid } from './Grid'
 import { GridItem } from './GridItem'
 

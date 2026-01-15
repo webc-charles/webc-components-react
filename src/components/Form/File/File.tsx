@@ -5,12 +5,10 @@ import {
   useRef,
   useState,
 } from 'react'
-
 import clsx from 'clsx'
 import { Button } from 'components'
 import { str } from 'i18n'
 import { Upload } from 'lucide-react'
-
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 

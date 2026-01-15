@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
-
 import type { HeaderTopBarLinkTypes } from '../Header.types'
 import styles from './HeaderTopBarLink.module.scss'
 

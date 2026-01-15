@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { Title } from 'components'
-
 import styles from './Banner.module.scss'
 import type {
   BannerActionsTypes,

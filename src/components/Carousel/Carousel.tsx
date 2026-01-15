@@ -6,13 +6,11 @@ import {
   useMemo,
   useState,
 } from 'react'
-
 import clsx from 'clsx'
 import { Button } from 'components'
 import useEmblaCarousel from 'embla-carousel-react'
 import { str } from 'i18n'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-
 import styles from './Carousel.module.scss'
 import type {
   CarouselContainerTypes,

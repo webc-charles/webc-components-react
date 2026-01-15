@@ -1,8 +1,6 @@
 import { useId, useState } from 'react'
-
 import clsx from 'clsx'
 import { Check } from 'lucide-react'
-
 import styles from './Checkbox.module.scss'
 import type { CheckboxTypes } from './Checkbox.types'
 

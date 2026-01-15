@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import type { ColorVariant } from '../../types'
 import { Progress } from './Progress'
 import type { ProgressSize } from './Progress.types'

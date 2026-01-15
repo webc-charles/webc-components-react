@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Grid.module.scss'
 import type { GridItemTypes } from './Grid.types'
 

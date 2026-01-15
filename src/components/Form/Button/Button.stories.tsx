@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import type { ColorVariant } from '../../../types'
 import { Button } from './Button'
 import type { ButtonAppearance } from './Button.types'

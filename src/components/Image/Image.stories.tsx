@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Image, Link } from 'components'
-
 import type { ImageFit, ImagePosition, ImageRadius } from './Image.types'
 
 const fitOptions: ImageFit[] = [

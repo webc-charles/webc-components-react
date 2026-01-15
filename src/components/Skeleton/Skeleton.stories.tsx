@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Skeleton } from './Skeleton'
 import type { SkeletonVariant } from './Skeleton.types'
 

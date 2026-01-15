@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
-
 import type { HeaderTopBarItemTypes } from '../Header.types'
 import styles from './HeaderTopBarItem.module.scss'
 

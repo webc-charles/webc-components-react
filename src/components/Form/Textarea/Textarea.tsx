@@ -1,7 +1,5 @@
 import { useId } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Textarea.module.scss'
 import type { InputTextareaTypes } from './Textarea.types'
 

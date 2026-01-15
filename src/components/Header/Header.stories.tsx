@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button, Grid, GridItem, Link, Title } from 'components'
-
 import {
   HeaderActions,
   HeaderLogo,

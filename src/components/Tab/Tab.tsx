@@ -7,10 +7,8 @@ import {
   useRef,
   useState,
 } from 'react'
-
 import clsx from 'clsx'
 import { Button } from 'components'
-
 import styles from './Tab.module.scss'
 import type {
   TabButtonTypes,

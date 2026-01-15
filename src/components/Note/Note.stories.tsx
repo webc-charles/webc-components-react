@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Note, Title } from 'components'
-
 import type { ColorVariant } from '../../types'
 
 const variants: ColorVariant[] = [

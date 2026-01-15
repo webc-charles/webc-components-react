@@ -1,7 +1,5 @@
 import { useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import {
   ChoiceClear,
   ChoiceList,

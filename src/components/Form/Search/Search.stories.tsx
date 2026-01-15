@@ -1,7 +1,5 @@
 import { useCallback, useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { InputSearch } from './Search'
 import type { SearchResultTypes } from './Search.types'
 

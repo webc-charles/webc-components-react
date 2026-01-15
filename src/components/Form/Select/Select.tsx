@@ -8,11 +8,9 @@ import {
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
-
 import clsx from 'clsx'
 import { str } from 'i18n'
 import { ChevronDown, X } from 'lucide-react'
-
 import { Spinner } from '../../Spinner'
 import { Button } from '../Button'
 import styles from './Select.module.scss'

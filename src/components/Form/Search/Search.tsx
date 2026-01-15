@@ -1,11 +1,9 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-
 import clsx from 'clsx'
 import { Button, Spinner } from 'components'
 import { str } from 'i18n'
 import { Search, X } from 'lucide-react'
-
 import styles from './Search.module.scss'
 import type { InputSearchTypes, SearchResultTypes } from './Search.types'
 

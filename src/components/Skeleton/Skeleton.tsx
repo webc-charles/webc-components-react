@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Skeleton.module.scss'
 import type { SkeletonTypes } from './Skeleton.types'
 

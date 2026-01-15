@@ -1,7 +1,5 @@
 import { useState } from 'react'
-
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { InputNumber } from './Number'
 
 const meta: Meta<typeof InputNumber> = {

@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-
 import styles from './Table.module.scss'
 import type {
   TableBodyTypes,

@@ -1,7 +1,5 @@
 import { useId } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Text.module.scss'
 import type { InputTextTypes } from './Text.types'
 

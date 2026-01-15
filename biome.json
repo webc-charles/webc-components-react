@@ -8,9 +8,7 @@
           "options": {
             "groups": [
               ["react", "react-*"],
-              ":BLANK_LINE:",
               ":PACKAGE:",
-              ":BLANK_LINE:",
               ["./**", "../**"]
             ]
           }

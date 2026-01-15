@@ -35,7 +35,8 @@
     "build-storybook": "storybook build",
     "lint": "biome check .",
     "lint:fix": "biome check --fix .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "release": "npm version patch && git push && git push --tags"
   },
   "dependencies": {
     "clsx": "^2.1.1",

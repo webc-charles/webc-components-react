@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import type { ColorVariant } from '../../types'
 import { Avatar } from './Avatar'
 import type { AvatarSize } from './Avatar.types'

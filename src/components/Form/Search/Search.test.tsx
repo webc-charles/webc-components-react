@@ -3,7 +3,6 @@ import '@testing-library/jest-dom/vitest'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
-
 import { InputSearch } from './Search'
 
 describe('InputSearch', () => {

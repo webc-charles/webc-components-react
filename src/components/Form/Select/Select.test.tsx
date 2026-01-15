@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/vitest'
 import { useState } from 'react'
-
 import {
   fireEvent,
   render,
@@ -10,7 +9,6 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeAll, describe, expect, it } from 'vitest'
-
 import {
   ChoiceClear,
   ChoiceList,

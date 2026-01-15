@@ -1,8 +1,6 @@
 import { useState } from 'react'
-
 import clsx from 'clsx'
 import { User } from 'lucide-react'
-
 import styles from './Avatar.module.scss'
 import type { AvatarTypes } from './Avatar.types'
 

@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { Iframe } from './Iframe'
 
 const meta: Meta<typeof Iframe> = {

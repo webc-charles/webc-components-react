@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Audio } from './Audio'
 
 const meta: Meta<typeof Audio> = {

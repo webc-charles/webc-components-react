@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
+
 import {
   Accordion,
   AccordionContent,
@@ -214,19 +216,31 @@ describe('Accordion', () => {
   it('applies custom className', () => {
     render(
       <Accordion className="custom-accordion" data-testid="accordion">
-        <AccordionItem value="item-1" className="custom-item" data-testid="item">
-          <AccordionTrigger className="custom-trigger">Trigger</AccordionTrigger>
-          <AccordionContent className="custom-content">Content</AccordionContent>
+        <AccordionItem
+          value="item-1"
+          className="custom-item"
+          data-testid="item"
+        >
+          <AccordionTrigger className="custom-trigger">
+            Trigger
+          </AccordionTrigger>
+          <AccordionContent className="custom-content">
+            Content
+          </AccordionContent>
         </AccordionItem>
       </Accordion>
     )
 
-    expect(screen.getByTestId('accordion').classList.contains('custom-accordion')).toBe(true)
-    expect(screen.getByTestId('item').classList.contains('custom-item')).toBe(true)
+    expect(
+      screen.getByTestId('accordion').classList.contains('custom-accordion')
+    ).toBe(true)
+    expect(screen.getByTestId('item').classList.contains('custom-item')).toBe(
+      true
+    )
   })
 
   it('disabled item cannot be toggled', async () => {
-    const user = userEvent.setup()
+    const _user = userEvent.setup()
     render(
       <Accordion>
         <AccordionItem value="item-1" disabled>

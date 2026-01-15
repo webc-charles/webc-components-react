@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+
 import { InputText } from './Text'
 
 describe('InputText', () => {
@@ -11,20 +13,31 @@ describe('InputText', () => {
   })
 
   it('displays current value', () => {
-    render(<InputText data-testid="text" label="Username" value="hello" onChange={() => {}} />)
+    render(
+      <InputText
+        data-testid="text"
+        label="Username"
+        value="hello"
+        onChange={() => {}}
+      />
+    )
     const input = screen.getByTestId('text') as HTMLInputElement
     expect(input.value).toBe('hello')
   })
 
   it('calls onChange when typing', () => {
     const handleChange = vi.fn()
-    render(<InputText data-testid="text" label="Username" onChange={handleChange} />)
+    render(
+      <InputText data-testid="text" label="Username" onChange={handleChange} />
+    )
     fireEvent.change(screen.getByTestId('text'), { target: { value: 'test' } })
     expect(handleChange).toHaveBeenCalled()
   })
 
   it('renders with placeholder', () => {
-    render(<InputText data-testid="text" label="Username" placeholder="Enter text" />)
+    render(
+      <InputText data-testid="text" label="Username" placeholder="Enter text" />
+    )
     const input = screen.getByTestId('text') as HTMLInputElement
     expect(input.placeholder).toBe('Enter text')
   })
@@ -35,7 +48,9 @@ describe('InputText', () => {
   })
 
   it('applies custom className', () => {
-    const { container } = render(<InputText data-testid="text" label="Username" className="custom-class" />)
+    const { container } = render(
+      <InputText data-testid="text" label="Username" className="custom-class" />
+    )
     expect(container.querySelector('.custom-class')).toBeInTheDocument()
   })
 })

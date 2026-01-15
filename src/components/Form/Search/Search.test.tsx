@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom/vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
+
 import { InputSearch } from './Search'
 
 describe('InputSearch', () => {
@@ -31,7 +33,9 @@ describe('InputSearch', () => {
   it('clears input when clear button is clicked', async () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
-    render(<InputSearch data-testid="search" value="test" onChange={handleChange} />)
+    render(
+      <InputSearch data-testid="search" value="test" onChange={handleChange} />
+    )
 
     const clearButton = screen.getByRole('button', { name: /effacer/i })
     await user.click(clearButton)
@@ -55,9 +59,12 @@ describe('InputSearch', () => {
     const input = screen.getByTestId('search')
     await user.type(input, 'tes')
 
-    await waitFor(() => {
-      expect(handleSearch).toHaveBeenCalledWith('tes')
-    }, { timeout: 200 })
+    await waitFor(
+      () => {
+        expect(handleSearch).toHaveBeenCalledWith('tes')
+      },
+      { timeout: 200 }
+    )
   })
 
   it('displays results in dropdown mode', async () => {
@@ -65,7 +72,7 @@ describe('InputSearch', () => {
       { id: 1, label: 'Apple' },
       { id: 2, label: 'Banana' },
     ]
-    
+
     render(
       <InputSearch
         data-testid="search"
@@ -136,10 +143,16 @@ describe('InputSearch', () => {
     })
 
     fireEvent.keyDown(input, { key: 'ArrowDown' })
-    expect(screen.getByText('Apple').closest('li')).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByText('Apple').closest('li')).toHaveAttribute(
+      'aria-selected',
+      'true'
+    )
 
     fireEvent.keyDown(input, { key: 'ArrowDown' })
-    expect(screen.getByText('Banana').closest('li')).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByText('Banana').closest('li')).toHaveAttribute(
+      'aria-selected',
+      'true'
+    )
   })
 
   it('closes dropdown on Escape', async () => {

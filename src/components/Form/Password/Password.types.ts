@@ -1,6 +1,9 @@
-import { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 
-export type InputPasswordTypes = Omit<ComponentPropsWithRef<'input'>, 'type'> & {
+export type InputPasswordTypes = Omit<
+  ComponentPropsWithRef<'input'>,
+  'type'
+> & {
   label?: string
   inputClassName?: string
   labelClassName?: string

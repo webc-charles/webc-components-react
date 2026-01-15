@@ -1,7 +1,8 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
+
 import styles from './Link.module.scss'
-import { LinkTypes } from './Link.types'
+import type { LinkTypes } from './Link.types'
 
 export function Link({
   ref,

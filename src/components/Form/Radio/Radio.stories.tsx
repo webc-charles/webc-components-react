@@ -1,7 +1,9 @@
 import { useId, useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { InputRadio } from './Radio'
-import { RadioOptionTypes } from './Radio.types'
+import type { RadioOptionTypes } from './Radio.types'
 
 const directions = ['vertical', 'horizontal'] as const
 

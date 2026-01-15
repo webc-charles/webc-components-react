@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../types'
+
+import type { ColorVariant } from '../../types'
 import { Progress } from './Progress'
-import { ProgressSize } from './Progress.types'
+import type { ProgressSize } from './Progress.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -82,7 +84,10 @@ export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       {variants.map((v) => (
-        <div key={v} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div
+          key={v}
+          style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
+        >
           <span style={{ width: '8rem', fontSize: '1.4rem' }}>{v}</span>
           <Progress variant={v} value={60} style={{ flex: 1 }} />
         </div>
@@ -95,7 +100,10 @@ export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       {sizes.map((s) => (
-        <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div
+          key={s}
+          style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
+        >
           <span style={{ width: '4rem', fontSize: '1.4rem' }}>{s}</span>
           <Progress size={s} value={60} style={{ flex: 1 }} />
         </div>
@@ -143,7 +151,13 @@ export const Animated: Story = {
 export const UploadProgress: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.4rem' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontSize: '1.4rem',
+        }}
+      >
         <span>Uploading document.pdf</span>
         <span>75%</span>
       </div>

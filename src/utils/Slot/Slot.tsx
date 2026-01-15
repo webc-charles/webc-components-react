@@ -1,4 +1,5 @@
-import { type ReactNode, cloneElement, isValidElement } from 'react'
+import { cloneElement, isValidElement, type ReactNode } from 'react'
+
 import clsx from 'clsx'
 
 export interface SlotProps {

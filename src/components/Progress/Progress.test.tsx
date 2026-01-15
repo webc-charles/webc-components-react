@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+
 import { Progress } from './Progress'
 
 describe('Progress', () => {
@@ -11,12 +13,18 @@ describe('Progress', () => {
 
   it('sets aria-valuenow to value', () => {
     render(<Progress value={50} />)
-    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '50')
+    expect(screen.getByRole('progressbar')).toHaveAttribute(
+      'aria-valuenow',
+      '50'
+    )
   })
 
   it('sets aria-valuemax to max', () => {
     render(<Progress value={50} max={200} />)
-    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuemax', '200')
+    expect(screen.getByRole('progressbar')).toHaveAttribute(
+      'aria-valuemax',
+      '200'
+    )
   })
 
   it('calculates percentage correctly', () => {
@@ -63,7 +71,10 @@ describe('Progress', () => {
 
   it('sets aria-label', () => {
     render(<Progress label="Loading content" />)
-    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-label', 'Loading content')
+    expect(screen.getByRole('progressbar')).toHaveAttribute(
+      'aria-label',
+      'Loading content'
+    )
   })
 
   it('forwards ref', () => {

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+
 import styles from './Table.module.scss'
 import type {
   TableBodyTypes,
@@ -39,7 +40,12 @@ export function Table({
   )
 }
 
-export function TableHead({ className, children, ref, ...props }: TableHeadTypes) {
+export function TableHead({
+  className,
+  children,
+  ref,
+  ...props
+}: TableHeadTypes) {
   return (
     <thead ref={ref} className={clsx(styles.head, className)} {...props}>
       {children}
@@ -47,7 +53,12 @@ export function TableHead({ className, children, ref, ...props }: TableHeadTypes
   )
 }
 
-export function TableBody({ className, children, ref, ...props }: TableBodyTypes) {
+export function TableBody({
+  className,
+  children,
+  ref,
+  ...props
+}: TableBodyTypes) {
   return (
     <tbody ref={ref} className={clsx(styles.body, className)} {...props}>
       {children}
@@ -55,7 +66,12 @@ export function TableBody({ className, children, ref, ...props }: TableBodyTypes
   )
 }
 
-export function TableFoot({ className, children, ref, ...props }: TableFootTypes) {
+export function TableFoot({
+  className,
+  children,
+  ref,
+  ...props
+}: TableFootTypes) {
   return (
     <tfoot ref={ref} className={clsx(styles.foot, className)} {...props}>
       {children}
@@ -63,7 +79,12 @@ export function TableFoot({ className, children, ref, ...props }: TableFootTypes
   )
 }
 
-export function TableRow({ className, children, ref, ...props }: TableRowTypes) {
+export function TableRow({
+  className,
+  children,
+  ref,
+  ...props
+}: TableRowTypes) {
   return (
     <tr ref={ref} className={clsx(styles.row, className)} {...props}>
       {children}
@@ -84,7 +105,12 @@ export function TableHeaderCell({
   )
 }
 
-export function TableCell({ className, children, ref, ...props }: TableCellTypes) {
+export function TableCell({
+  className,
+  children,
+  ref,
+  ...props
+}: TableCellTypes) {
   return (
     <td ref={ref} className={clsx(styles.cell, className)} {...props}>
       {children}

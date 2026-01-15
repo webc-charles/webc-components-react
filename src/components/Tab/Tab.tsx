@@ -7,15 +7,17 @@ import {
   useRef,
   useState,
 } from 'react'
+
 import clsx from 'clsx'
 import { Button } from 'components'
+
 import styles from './Tab.module.scss'
-import {
+import type {
   TabButtonTypes,
   TabContextValue,
   TabListTypes,
-  TabPanelTypes,
   TabPanelsTypes,
+  TabPanelTypes,
   TabTypes,
 } from './Tab.types'
 
@@ -74,8 +76,8 @@ export function TabList({ ref, className, children, ...props }: TabListTypes) {
     )
     if (!tabs || tabs.length === 0) return
 
-    const currentIndex = Array.from(tabs).findIndex(
-      (tab) => tab === document.activeElement
+    const currentIndex = Array.from(tabs).indexOf(
+      document.activeElement as HTMLButtonElement
     )
     if (currentIndex === -1) return
 
@@ -184,7 +186,6 @@ export function TabPanel({
       id={`${tabId}-panel-${value}`}
       aria-labelledby={`${tabId}-tab-${value}`}
       className={clsx(styles.tabPanel, className)}
-      tabIndex={0}
       {...props}
     >
       {children}

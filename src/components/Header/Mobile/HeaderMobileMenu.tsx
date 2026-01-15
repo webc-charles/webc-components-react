@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
+
 import clsx from 'clsx'
 import { str } from 'i18n'
+
 import type { HeaderMobileMenuTypes } from '../Header.types'
 import { useHeader } from '../HeaderContext'
 import styles from './HeaderMobileMenu.module.scss'

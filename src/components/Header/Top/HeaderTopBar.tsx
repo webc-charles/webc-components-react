@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+
 import type { HeaderTopBarTypes } from '../Header.types'
 import styles from './HeaderTopBar.module.scss'
 

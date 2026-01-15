@@ -1,7 +1,14 @@
-import { Children, isValidElement, cloneElement, ReactElement } from 'react'
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ReactElement,
+} from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Grid.module.scss'
-import { GridTypes } from './Grid.types'
+import type { GridTypes } from './Grid.types'
 
 export function Grid({
   ref,

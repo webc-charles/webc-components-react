@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Note, Title } from 'components'
-import { ColorVariant } from '../../types'
+
+import type { ColorVariant } from '../../types'
 
 const variants: ColorVariant[] = [
   'default',

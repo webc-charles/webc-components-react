@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 
 export type InputTextTypes = Omit<ComponentPropsWithRef<'input'>, 'type'> & {
   type?: 'text' | 'email' | 'url' | 'tel'

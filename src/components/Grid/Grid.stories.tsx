@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Card, CardBody } from '../Card'
 import { Grid } from './Grid'
+import type { GapSize } from './Grid.types'
 import { GridItem } from './GridItem'
-import { GapSize } from './Grid.types'
 
 const gapSizes: GapSize[] = ['none', 'xs', 'sm', 'md', 'lg', 'xl']
 
@@ -184,7 +185,8 @@ export const Masonry: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Masonry layout using CSS columns. Items flow vertically first, then horizontally.',
+        story:
+          'Masonry layout using CSS columns. Items flow vertically first, then horizontally.',
       },
     },
   },
@@ -208,7 +210,15 @@ export const MasonryFourColumns: Story = {
 
 export const MasonryResponsive: Story = {
   render: () => (
-    <Grid masonry col={1} colSM={2} colMD={3} colLG={4} gap="md" style={gridStyles}>
+    <Grid
+      masonry
+      col={1}
+      colSM={2}
+      colMD={3}
+      colLG={4}
+      gap="md"
+      style={gridStyles}
+    >
       {masonryItems.map((item) => (
         <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
           <CardBody>
@@ -223,7 +233,8 @@ export const MasonryResponsive: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Responsive masonry: 1 column on mobile, 2 on SM, 3 on MD, 4 on LG.',
+        story:
+          'Responsive masonry: 1 column on mobile, 2 on SM, 3 on MD, 4 on LG.',
       },
     },
   },
@@ -256,7 +267,8 @@ export const MasonryWithImages: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Masonry layout with images of varying heights - perfect for galleries.',
+        story:
+          'Masonry layout with images of varying heights - perfect for galleries.',
       },
     },
   },

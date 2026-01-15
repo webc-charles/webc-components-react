@@ -1,5 +1,7 @@
-import { useState, useCallback } from 'react'
+import { useCallback, useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { InputSearch } from './Search'
 import type { SearchResultTypes } from './Search.types'
 
@@ -223,7 +225,13 @@ function CustomRenderResultExample() {
       placeholder="Search products..."
       minChars={1}
       renderResult={(result) => (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
           <div>
             <div style={{ fontWeight: 500 }}>{result.label}</div>
             <div style={{ fontSize: '1.2rem', color: '#666' }}>

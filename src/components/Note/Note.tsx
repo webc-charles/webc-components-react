@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+
 import styles from './Note.module.scss'
-import { NoteTypes } from './Note.types'
+import type { NoteTypes } from './Note.types'
 
 export function Note({
   ref,

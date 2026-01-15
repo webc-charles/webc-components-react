@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+
 import clsx from 'clsx'
+import { Button, Spinner } from 'components'
 import { str } from 'i18n'
 import { Search, X } from 'lucide-react'
-import { Button, Spinner } from 'components'
+
 import styles from './Search.module.scss'
 import type { InputSearchTypes, SearchResultTypes } from './Search.types'
 
@@ -234,7 +236,7 @@ export function InputSearch({
             setIsOpen(true)
           }
         }}
-        aria-label={!label ? ariaLabel ?? str.search : undefined}
+        aria-label={!label ? (ariaLabel ?? str.search) : undefined}
         aria-expanded={mode === 'dropdown' ? isOpen : undefined}
         aria-haspopup={mode === 'dropdown' ? 'listbox' : undefined}
         aria-controls={
@@ -290,7 +292,6 @@ export function InputSearch({
                   <li
                     key={result.id}
                     id={`${id}-option-${index}`}
-                    role="option"
                     aria-selected={focusedIndex === index}
                     className={clsx(
                       styles.resultItem,

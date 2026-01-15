@@ -1,8 +1,10 @@
-import { useMemo, useEffect, useId, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
+
 import clsx from 'clsx'
+
+import type { HeaderTypes } from './Header.types'
 import { HeaderContext } from './HeaderContext'
 import styles from './HeaderRoot.module.scss'
-import type { HeaderTypes } from './Header.types'
 
 export function HeaderRoot({
   ref,
@@ -54,7 +56,7 @@ export function HeaderRoot({
 
   const value = useMemo(
     () => ({ isOpen, setIsOpen, toggle, mobileMenuId, mobileToggleId }),
-    [isOpen, mobileMenuId, mobileToggleId]
+    [isOpen, mobileMenuId, mobileToggleId, toggle]
   )
 
   return (

@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react'
-import { SelectContextTypes } from './Select.types'
+
+import type { SelectContextTypes } from './Select.types'
 
 const SelectContext = createContext<SelectContextTypes | undefined>(undefined)
 

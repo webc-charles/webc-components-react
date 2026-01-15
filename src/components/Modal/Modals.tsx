@@ -1,7 +1,8 @@
-import { ReactNode, useCallback, useMemo, useState } from 'react'
+import { type ReactNode, useCallback, useMemo, useState } from 'react'
+
 import { Modal } from './Modal'
 import styles from './Modal.module.scss'
-import { ModalConfigTypes } from './Modal.types'
+import type { ModalConfigTypes } from './Modal.types'
 import { ModalsContext } from './ModalsContext'
 
 export function Modals({ children }: { children: ReactNode }) {

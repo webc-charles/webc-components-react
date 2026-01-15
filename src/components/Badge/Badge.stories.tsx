@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../types'
+
+import type { ColorVariant } from '../../types'
 import { Badge } from './Badge'
 
 const variants: ColorVariant[] = [

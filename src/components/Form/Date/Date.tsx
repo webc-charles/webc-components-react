@@ -1,10 +1,12 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
+
 import clsx from 'clsx'
+import { Button, Modal } from 'components'
 import { str } from 'i18n'
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button, Modal } from 'components'
+
 import styles from './Date.module.scss'
-import { InputDateTypes } from './Date.types'
+import type { InputDateTypes } from './Date.types'
 
 const getDaysInMonth = (year: number, month: number): number => {
   return new Date(year, month + 1, 0).getDate()

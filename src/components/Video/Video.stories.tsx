@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Video } from './Video'
 
 const meta: Meta<typeof Video> = {
@@ -77,7 +78,10 @@ export const WithMultipleSources: Story = {
   args: {
     sources: [
       { src: 'https://www.w3schools.com/html/mov_bbb.mp4', type: 'video/mp4' },
-      { src: 'https://www.w3schools.com/html/mov_bbb.webm', type: 'video/webm' },
+      {
+        src: 'https://www.w3schools.com/html/mov_bbb.webm',
+        type: 'video/webm',
+      },
     ],
     poster: samplePoster,
     controls: true,

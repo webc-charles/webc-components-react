@@ -1,7 +1,9 @@
 import { useId, useState } from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Switch.module.scss'
-import { SwitchTypes } from './Switch.types'
+import type { SwitchTypes } from './Switch.types'
 
 export function Switch({
   label,

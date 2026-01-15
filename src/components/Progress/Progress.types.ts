@@ -1,5 +1,6 @@
-import { ComponentPropsWithRef } from 'react'
-import { ColorVariant } from '../../types'
+import type { ComponentPropsWithRef } from 'react'
+
+import type { ColorVariant } from '../../types'
 
 export type ProgressSize = 'sm' | 'md' | 'lg'
 

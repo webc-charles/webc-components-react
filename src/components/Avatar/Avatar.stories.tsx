@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../types'
+
+import type { ColorVariant } from '../../types'
 import { Avatar } from './Avatar'
-import { AvatarSize } from './Avatar.types'
+import type { AvatarSize } from './Avatar.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -122,14 +123,19 @@ export const ImageWithFallback: Story = {
 export const Group: Story = {
   render: () => (
     <div style={{ display: 'flex' }}>
-      {['Alice Brown', 'Bob Smith', 'Carol White', 'David Lee'].map((name, i) => (
-        <Avatar
-          key={name}
-          name={name}
-          variant={variants[i + 1]}
-          style={{ marginLeft: i > 0 ? '-0.8rem' : 0, border: '2px solid white' }}
-        />
-      ))}
+      {['Alice Brown', 'Bob Smith', 'Carol White', 'David Lee'].map(
+        (name, i) => (
+          <Avatar
+            key={name}
+            name={name}
+            variant={variants[i + 1]}
+            style={{
+              marginLeft: i > 0 ? '-0.8rem' : 0,
+              border: '2px solid white',
+            }}
+          />
+        )
+      )}
     </div>
   ),
 }

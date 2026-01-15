@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
+
 import type { HeaderNavDropdownLinkTypes } from '../Header.types'
 import styles from './HeaderNavItemDropdownLink.module.scss'
 

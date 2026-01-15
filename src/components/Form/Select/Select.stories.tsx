@@ -1,20 +1,22 @@
 import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
+
 import {
-  SelectRoot,
-  SelectTrigger,
-  SelectPlaceholder,
-  SelectSearch,
-  SelectModal,
-  SelectActions,
-  OptionList,
-  OptionListItem,
+  ChoiceClear,
   ChoiceList,
   ChoiceListItem,
-  ChoiceClear,
+  OptionList,
+  OptionListItem,
+  SelectActions,
+  SelectModal,
+  SelectPlaceholder,
+  SelectRoot,
+  SelectSearch,
+  SelectTrigger,
 } from './Select'
-import { useSelectContext } from './SelectContext'
 import type { OptionTypes } from './Select.types'
+import { useSelectContext } from './SelectContext'
 
 const options: OptionTypes[] = [
   { value: 'apple', label: 'Apple' },

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+
 import type { HeaderActionsTypes } from '../Header.types'
 import styles from './HeaderActions.module.scss'
 

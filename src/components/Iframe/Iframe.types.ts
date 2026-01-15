@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 
 export type IframeTypes = Omit<ComponentPropsWithRef<'iframe'>, 'title'> & {
   /** Source URL */

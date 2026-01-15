@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+
 import { InputTextarea } from './Textarea'
 
 describe('InputTextarea', () => {
@@ -11,7 +13,13 @@ describe('InputTextarea', () => {
   })
 
   it('displays current value', () => {
-    render(<InputTextarea data-testid="textarea" value="Hello world" onChange={() => {}} />)
+    render(
+      <InputTextarea
+        data-testid="textarea"
+        value="Hello world"
+        onChange={() => {}}
+      />
+    )
     const textarea = screen.getByTestId('textarea') as HTMLTextAreaElement
     expect(textarea.value).toBe('Hello world')
   })
@@ -19,12 +27,16 @@ describe('InputTextarea', () => {
   it('calls onChange when typing', () => {
     const handleChange = vi.fn()
     render(<InputTextarea data-testid="textarea" onChange={handleChange} />)
-    fireEvent.change(screen.getByTestId('textarea'), { target: { value: 'New content' } })
+    fireEvent.change(screen.getByTestId('textarea'), {
+      target: { value: 'New content' },
+    })
     expect(handleChange).toHaveBeenCalledWith('New content')
   })
 
   it('renders with placeholder', () => {
-    render(<InputTextarea data-testid="textarea" placeholder="Enter description" />)
+    render(
+      <InputTextarea data-testid="textarea" placeholder="Enter description" />
+    )
     const textarea = screen.getByTestId('textarea') as HTMLTextAreaElement
     expect(textarea.placeholder).toBe('Enter description')
   })
@@ -41,7 +53,14 @@ describe('InputTextarea', () => {
   })
 
   it('shows character count when showCount and maxLength are set', () => {
-    render(<InputTextarea data-testid="textarea" value="Hello" maxLength={100} showCount />)
+    render(
+      <InputTextarea
+        data-testid="textarea"
+        value="Hello"
+        maxLength={100}
+        showCount
+      />
+    )
     expect(screen.getByText('5/100')).toBeInTheDocument()
   })
 

@@ -1,7 +1,9 @@
 import { useContext, useEffect } from 'react'
 import '@testing-library/jest-dom/vitest'
+
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { Toasts } from './Toasts'
 import { ToastsContext } from './ToastsContext'
 
@@ -28,7 +30,11 @@ describe('Toasts', () => {
       return null
     }
 
-    render(<Toasts><TestComponent /></Toasts>)
+    render(
+      <Toasts>
+        <TestComponent />
+      </Toasts>
+    )
     await act(async () => vi.advanceTimersByTime(1000))
 
     const toast = document.querySelector('[role="status"]')
@@ -53,7 +59,11 @@ describe('Toasts', () => {
       return null
     }
 
-    render(<Toasts><TestComponent /></Toasts>)
+    render(
+      <Toasts>
+        <TestComponent />
+      </Toasts>
+    )
     await act(async () => vi.advanceTimersByTime(1000))
 
     const toast = document.querySelector('[role="status"]')

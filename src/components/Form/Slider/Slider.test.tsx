@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
+
 import { Slider } from './Slider'
 
 // Mock pointer capture (not available in JSDOM)
@@ -29,11 +31,21 @@ describe('Slider', () => {
 
     it('renders disabled state', () => {
       render(<Slider disabled aria-label="Test slider" />)
-      expect(screen.getByRole('slider')).toHaveAttribute('aria-disabled', 'true')
+      expect(screen.getByRole('slider')).toHaveAttribute(
+        'aria-disabled',
+        'true'
+      )
     })
 
     it('renders with custom min/max', () => {
-      render(<Slider min={10} max={200} defaultValue={100} aria-label="Test slider" />)
+      render(
+        <Slider
+          min={10}
+          max={200}
+          defaultValue={100}
+          aria-label="Test slider"
+        />
+      )
       const slider = screen.getByRole('slider')
       expect(slider).toHaveAttribute('aria-valuemin', '10')
       expect(slider).toHaveAttribute('aria-valuemax', '200')
@@ -97,9 +109,7 @@ describe('Slider', () => {
   describe('keyboard navigation', () => {
     it('increases value with ArrowRight', () => {
       const onChange = vi.fn()
-      render(
-        <Slider value={50} onChange={onChange} aria-label="Test slider" />
-      )
+      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowRight' })
@@ -109,9 +119,7 @@ describe('Slider', () => {
 
     it('decreases value with ArrowLeft', () => {
       const onChange = vi.fn()
-      render(
-        <Slider value={50} onChange={onChange} aria-label="Test slider" />
-      )
+      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowLeft' })
@@ -121,9 +129,7 @@ describe('Slider', () => {
 
     it('goes to min with Home', () => {
       const onChange = vi.fn()
-      render(
-        <Slider value={50} onChange={onChange} aria-label="Test slider" />
-      )
+      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'Home' })
@@ -133,9 +139,7 @@ describe('Slider', () => {
 
     it('goes to max with End', () => {
       const onChange = vi.fn()
-      render(
-        <Slider value={50} onChange={onChange} aria-label="Test slider" />
-      )
+      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'End' })
@@ -146,7 +150,12 @@ describe('Slider', () => {
     it('respects step value', () => {
       const onChange = vi.fn()
       render(
-        <Slider value={50} step={10} onChange={onChange} aria-label="Test slider" />
+        <Slider
+          value={50}
+          step={10}
+          onChange={onChange}
+          aria-label="Test slider"
+        />
       )
 
       const slider = screen.getByRole('slider')
@@ -158,14 +167,7 @@ describe('Slider', () => {
 
   describe('accessibility', () => {
     it('has correct ARIA attributes', () => {
-      render(
-        <Slider
-          min={0}
-          max={100}
-          defaultValue={50}
-          aria-label="Volume"
-        />
-      )
+      render(<Slider min={0} max={100} defaultValue={50} aria-label="Volume" />)
 
       const slider = screen.getByRole('slider')
       expect(slider).toHaveAttribute('aria-label', 'Volume')
@@ -175,9 +177,7 @@ describe('Slider', () => {
     })
 
     it('has correct aria-orientation for vertical', () => {
-      render(
-        <Slider orientation="vertical" aria-label="Vertical slider" />
-      )
+      render(<Slider orientation="vertical" aria-label="Vertical slider" />)
 
       expect(screen.getByRole('slider')).toHaveAttribute(
         'aria-orientation',
@@ -218,9 +218,7 @@ describe('Slider', () => {
   describe('callbacks', () => {
     it('calls onChange when value changes', () => {
       const onChange = vi.fn()
-      render(
-        <Slider value={50} onChange={onChange} aria-label="Test slider" />
-      )
+      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowRight' })

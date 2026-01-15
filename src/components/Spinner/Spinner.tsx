@@ -1,7 +1,8 @@
 import clsx from 'clsx'
 import { str } from 'i18n'
+
 import styles from './Spinner.module.scss'
-import { SpinnerTypes } from './Spinner.types'
+import type { SpinnerTypes } from './Spinner.types'
 
 export function Spinner({
   ref,

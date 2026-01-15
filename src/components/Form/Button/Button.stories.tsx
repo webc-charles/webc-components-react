@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ColorVariant } from '../../../types'
+
+import type { ColorVariant } from '../../../types'
 import { Button } from './Button'
-import { ButtonAppearance } from './Button.types'
+import type { ButtonAppearance } from './Button.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -174,8 +175,7 @@ export const Contrast: Story = {
   parameters: {
     docs: {
       description: {
-        story:
-          'Use the `contrast` prop to adapt buttons for dark backgrounds.',
+        story: 'Use the `contrast` prop to adapt buttons for dark backgrounds.',
       },
     },
   },

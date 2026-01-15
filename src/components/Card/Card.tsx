@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+
 import styles from './Card.module.scss'
-import {
+import type {
   CardBodyTypes,
   CardFooterTypes,
   CardHeaderTypes,

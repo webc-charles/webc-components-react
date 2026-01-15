@@ -1,8 +1,10 @@
 import { useId, useState } from 'react'
-import { Check } from 'lucide-react'
+
 import clsx from 'clsx'
+import { Check } from 'lucide-react'
+
 import styles from './Checkbox.module.scss'
-import { CheckboxTypes } from './Checkbox.types'
+import type { CheckboxTypes } from './Checkbox.types'
 
 export function Checkbox({
   label,

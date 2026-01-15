@@ -1,21 +1,20 @@
 export {
   Table,
-  TableHead,
   TableBody,
-  TableFoot,
-  TableRow,
-  TableHeaderCell,
-  TableCell,
   TableCaption,
+  TableCell,
+  TableFoot,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
 } from './Table'
-
 export type {
-  TableTypes,
-  TableHeadTypes,
   TableBodyTypes,
-  TableFootTypes,
-  TableRowTypes,
-  TableHeaderCellTypes,
-  TableCellTypes,
   TableCaptionTypes,
+  TableCellTypes,
+  TableFootTypes,
+  TableHeaderCellTypes,
+  TableHeadTypes,
+  TableRowTypes,
+  TableTypes,
 } from './Table.types'

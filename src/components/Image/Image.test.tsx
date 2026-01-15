@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+
 import { Image } from './Image'
 
 describe('Image', () => {
@@ -16,12 +18,16 @@ describe('Image', () => {
   })
 
   it('applies radius class', () => {
-    render(<Image src="test.jpg" alt="Test" radius="full" data-testid="image" />)
+    render(
+      <Image src="test.jpg" alt="Test" radius="full" data-testid="image" />
+    )
     expect(screen.getByTestId('image').className).toMatch(/radiusFull/)
   })
 
   it('applies aspect ratio style', () => {
-    render(<Image src="test.jpg" alt="Test" aspectRatio="16/9" data-testid="image" />)
+    render(
+      <Image src="test.jpg" alt="Test" aspectRatio="16/9" data-testid="image" />
+    )
     expect(screen.getByTestId('image')).toHaveStyle({ aspectRatio: '16/9' })
   })
 
@@ -34,11 +40,11 @@ describe('Image', () => {
         data-testid="image"
       />
     )
-    
+
     const figure = screen.getByRole('group')
     expect(figure).toBeInTheDocument()
     expect(figure).toHaveAttribute('aria-labelledby')
-    
+
     expect(screen.getByText('© 2024 Author')).toBeInTheDocument()
   })
 

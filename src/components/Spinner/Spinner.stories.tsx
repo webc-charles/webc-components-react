@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Spinner } from './Spinner'
-import { SpinnerSize } from './Spinner.types'
+import type { SpinnerSize } from './Spinner.types'
 
 const sizes: SpinnerSize[] = ['sm', 'md', 'lg']
 

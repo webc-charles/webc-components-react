@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, RefObject } from 'react'
+import type { ComponentProps, ReactNode, RefObject } from 'react'
 
 // OPTIONS
 

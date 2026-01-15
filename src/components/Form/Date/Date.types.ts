@@ -1,4 +1,4 @@
-import { ComponentProps, Ref } from 'react'
+import type { ComponentProps, Ref } from 'react'
 
 export type InputDateTypes = Omit<ComponentProps<'div'>, 'onChange' | 'ref'> & {
   selected: Date | null

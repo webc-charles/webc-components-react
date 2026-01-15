@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
+
 import { Pagination } from './Pagination'
 
 describe('Pagination', () => {
@@ -23,18 +25,26 @@ describe('Pagination', () => {
 
   it('disables prev link on first page', () => {
     render(<Pagination currentPage={1} totalPages={10} />)
-    expect(screen.getByLabelText(/précédente/i)).toHaveAttribute('aria-disabled', 'true')
+    expect(screen.getByLabelText(/précédente/i)).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    )
   })
 
   it('disables next link on last page', () => {
     render(<Pagination currentPage={10} totalPages={10} />)
-    expect(screen.getByLabelText(/suivante/i)).toHaveAttribute('aria-disabled', 'true')
+    expect(screen.getByLabelText(/suivante/i)).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    )
   })
 
   it('calls onPageChange when page is clicked', async () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
-    render(<Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />)
+    render(
+      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+    )
 
     await user.click(screen.getByText('6'))
     expect(handleChange).toHaveBeenCalledWith(6)
@@ -43,7 +53,9 @@ describe('Pagination', () => {
   it('calls onPageChange when prev is clicked', async () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
-    render(<Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />)
+    render(
+      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+    )
 
     await user.click(screen.getByLabelText(/précédente/i))
     expect(handleChange).toHaveBeenCalledWith(4)
@@ -52,7 +64,9 @@ describe('Pagination', () => {
   it('calls onPageChange when next is clicked', async () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
-    render(<Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />)
+    render(
+      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+    )
 
     await user.click(screen.getByLabelText(/suivante/i))
     expect(handleChange).toHaveBeenCalledWith(6)
@@ -88,7 +102,13 @@ describe('Pagination', () => {
   })
 
   it('renders links with custom getPageHref', () => {
-    render(<Pagination currentPage={5} totalPages={10} getPageHref={(p) => `/articles/${p}`} />)
+    render(
+      <Pagination
+        currentPage={5}
+        totalPages={10}
+        getPageHref={(p) => `/articles/${p}`}
+      />
+    )
     const link = screen.getByText('6').closest('a')
     expect(link).toHaveAttribute('href', '/articles/6')
   })

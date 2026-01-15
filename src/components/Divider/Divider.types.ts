@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef } from 'react'
 
 export type DividerVariant = 'solid' | 'dashed' | 'dotted'
 export type DividerSpacing = 'none' | 'sm' | 'md' | 'lg' | 'xl'

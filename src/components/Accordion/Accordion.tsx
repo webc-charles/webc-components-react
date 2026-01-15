@@ -6,11 +6,13 @@ import {
   useMemo,
   useState,
 } from 'react'
+
 import clsx from 'clsx'
-import { ChevronDown } from 'lucide-react'
 import { Button } from 'components'
+import { ChevronDown } from 'lucide-react'
+
 import styles from './Accordion.module.scss'
-import {
+import type {
   AccordionContentTypes,
   AccordionContextValue,
   AccordionItemContextValue,
@@ -183,9 +185,7 @@ export function AccordionTrigger({
 
     if (!triggers || triggers.length === 0) return
 
-    const currentIndex = Array.from(triggers).findIndex(
-      (trigger) => trigger === e.currentTarget
-    )
+    const currentIndex = Array.from(triggers).indexOf(e.currentTarget)
 
     let nextIndex: number | null = null
 

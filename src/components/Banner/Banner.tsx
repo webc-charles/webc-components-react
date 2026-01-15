@@ -1,7 +1,8 @@
 import clsx from 'clsx'
 import { Title } from 'components'
+
 import styles from './Banner.module.scss'
-import {
+import type {
   BannerActionsTypes,
   BannerContentTypes,
   BannerSubtitleTypes,
@@ -51,7 +52,6 @@ export function Banner({
           muted
           loop
           playsInline
-          aria-hidden="true"
         />
       )}
 

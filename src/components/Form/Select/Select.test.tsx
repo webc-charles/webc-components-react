@@ -1,8 +1,16 @@
 import '@testing-library/jest-dom/vitest'
 import { useState } from 'react'
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeAll, describe, expect, it } from 'vitest'
+
 import {
   ChoiceClear,
   ChoiceList,
@@ -361,7 +369,9 @@ describe('Select - Searchable', () => {
     await user.click(screen.getByTestId('select-root'))
     expect(screen.getAllByRole('option')).toHaveLength(3)
 
-    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'app' } })
+    fireEvent.change(screen.getByRole('searchbox'), {
+      target: { value: 'app' },
+    })
 
     await waitFor(() => {
       expect(screen.getAllByRole('option')).toHaveLength(1)
@@ -374,7 +384,9 @@ describe('Select - Searchable', () => {
     render(<SingleSelect searchable />)
 
     await user.click(screen.getByTestId('select-root'))
-    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'app' } })
+    fireEvent.change(screen.getByRole('searchbox'), {
+      target: { value: 'app' },
+    })
 
     await user.keyboard('{Escape}')
     await user.click(screen.getByTestId('select-root'))
@@ -388,11 +400,11 @@ describe('Select - Searchable', () => {
     render(<SingleSelect searchable />)
 
     await user.click(screen.getByTestId('select-root'))
-    
+
     // Wait for search input to be focused
     const searchInput = screen.getByRole('searchbox')
     await waitFor(() => expect(document.activeElement).toBe(searchInput))
-    
+
     await user.keyboard('{ArrowDown}')
 
     const secondOption = screen.getByRole('option', { name: /banana/i })

@@ -1,19 +1,18 @@
 export {
   Carousel,
   CarouselContainer,
-  CarouselSlide,
   CarouselControls,
-  CarouselPrev,
-  CarouselNext,
   CarouselDots,
+  CarouselNext,
+  CarouselPrev,
+  CarouselSlide,
 } from './Carousel'
-
 export type {
-  CarouselTypes,
   CarouselContainerTypes,
-  CarouselSlideTypes,
   CarouselControlsTypes,
-  CarouselPrevTypes,
-  CarouselNextTypes,
   CarouselDotsTypes,
+  CarouselNextTypes,
+  CarouselPrevTypes,
+  CarouselSlideTypes,
+  CarouselTypes,
 } from './Carousel.types'

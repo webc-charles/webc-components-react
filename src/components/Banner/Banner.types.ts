@@ -1,5 +1,6 @@
-import { ComponentPropsWithRef } from 'react'
-import { TitleTypes } from '../Title/Title.types'
+import type { ComponentPropsWithRef } from 'react'
+
+import type { TitleTypes } from '../Title/Title.types'
 
 export type HorizontalAlignTypes = 'left' | 'center' | 'right'
 export type VerticalAlignTypes = 'start' | 'center' | 'end'

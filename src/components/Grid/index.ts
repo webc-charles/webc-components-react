@@ -1,3 +1,3 @@
 export { Grid } from './Grid'
+export type { GridItemTypes, GridTypes } from './Grid.types'
 export { GridItem } from './GridItem'
-export type { GridTypes, GridItemTypes } from './Grid.types'

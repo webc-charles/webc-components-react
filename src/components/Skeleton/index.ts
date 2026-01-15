@@ -1,2 +1,2 @@
 export { Skeleton } from './Skeleton'
-export type { SkeletonVariant, SkeletonTypes } from './Skeleton.types'
+export type { SkeletonTypes, SkeletonVariant } from './Skeleton.types'

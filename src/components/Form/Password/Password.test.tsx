@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+
 import { InputPassword } from './Password'
 
 describe('InputPassword', () => {
@@ -18,8 +20,16 @@ describe('InputPassword', () => {
 
   it('calls onChange when typing', () => {
     const handleChange = vi.fn()
-    render(<InputPassword data-testid="password" label="Password" onChange={handleChange} />)
-    fireEvent.change(screen.getByTestId('password'), { target: { value: 'newpassword' } })
+    render(
+      <InputPassword
+        data-testid="password"
+        label="Password"
+        onChange={handleChange}
+      />
+    )
+    fireEvent.change(screen.getByTestId('password'), {
+      target: { value: 'newpassword' },
+    })
     expect(handleChange).toHaveBeenCalled()
   })
 
@@ -29,7 +39,9 @@ describe('InputPassword', () => {
   })
 
   it('toggles password visibility', () => {
-    const { container } = render(<InputPassword data-testid="password" label="Password" />)
+    const { container } = render(
+      <InputPassword data-testid="password" label="Password" />
+    )
     const input = screen.getByTestId('password') as HTMLInputElement
     const toggle = container.querySelector('button')!
     expect(input.type).toBe('password')

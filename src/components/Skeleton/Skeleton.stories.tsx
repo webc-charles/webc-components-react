@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Skeleton } from './Skeleton'
-import { SkeletonVariant } from './Skeleton.types'
+import type { SkeletonVariant } from './Skeleton.types'
 
 const variants: SkeletonVariant[] = ['text', 'circle', 'rect']
 

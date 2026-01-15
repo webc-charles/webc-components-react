@@ -1,6 +1,9 @@
-import { ComponentProps, Ref } from 'react'
+import type { ComponentProps, Ref } from 'react'
 
-export type CheckboxTypes = Omit<ComponentProps<'label'>, 'onChange' | 'ref'> & {
+export type CheckboxTypes = Omit<
+  ComponentProps<'label'>,
+  'onChange' | 'ref'
+> & {
   checked?: boolean
   defaultChecked?: boolean
   onChange?: (checked: boolean) => void

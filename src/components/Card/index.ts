@@ -1,2 +1,7 @@
-export { Card, CardHeader, CardBody, CardFooter } from './Card'
-export type { CardTypes, CardHeaderTypes, CardBodyTypes, CardFooterTypes } from './Card.types'
+export { Card, CardBody, CardFooter, CardHeader } from './Card'
+export type {
+  CardBodyTypes,
+  CardFooterTypes,
+  CardHeaderTypes,
+  CardTypes,
+} from './Card.types'

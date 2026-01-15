@@ -1,10 +1,12 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
+
 import clsx from 'clsx'
+import { Button } from 'components'
 import { str } from 'i18n'
 import { X } from 'lucide-react'
-import { Button } from 'components'
+
 import styles from './Modal.module.scss'
-import { ModalTypes } from './Modal.types'
+import type { ModalTypes } from './Modal.types'
 
 export function Modal({
   id,
@@ -59,8 +61,8 @@ export function Modal({
 
       const focusableArray = Array.from(focusableElements) as HTMLElement[]
       const lastIndex = focusableArray.length - 1
-      const currentIndex = focusableArray.findIndex(
-        (el) => el === document.activeElement
+      const currentIndex = focusableArray.indexOf(
+        document.activeElement as HTMLElement
       )
 
       e.preventDefault()
@@ -90,7 +92,7 @@ export function Modal({
 
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
-  }, [active, removing, handleRemove])
+  }, [active, removing])
 
   // Auto-close duration
   useEffect(() => {
@@ -98,7 +100,7 @@ export function Modal({
 
     const timer = setTimeout(handleRemove, duration)
     return () => clearTimeout(timer)
-  }, [duration, handleRemove])
+  }, [duration])
 
   // Body scroll lock
   useEffect(() => {

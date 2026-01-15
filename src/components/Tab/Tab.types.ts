@@ -1,5 +1,6 @@
-import { ComponentPropsWithRef } from 'react'
-import { ButtonTypes } from 'components'
+import type { ComponentPropsWithRef } from 'react'
+
+import type { ButtonTypes } from 'components'
 
 export type TabContextValue = {
   activeTab: string

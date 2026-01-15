@@ -1,10 +1,12 @@
 import { useEffect, useEffectEvent, useState } from 'react'
+
 import clsx from 'clsx'
+import { Button } from 'components'
 import { str } from 'i18n'
 import { X } from 'lucide-react'
-import { Button } from 'components'
+
 import styles from './Toast.module.scss'
-import { ToastTypes } from './Toast.types'
+import type { ToastTypes } from './Toast.types'
 
 export function Toast({
   id,
@@ -35,7 +37,7 @@ export function Toast({
 
     const timer = setTimeout(handleRemove, duration)
     return () => clearTimeout(timer)
-  }, [duration, handleRemove])
+  }, [duration])
 
   return (
     <div

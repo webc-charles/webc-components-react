@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+
 import styles from './Badge.module.scss'
-import { BadgeTypes } from './Badge.types'
+import type { BadgeTypes } from './Badge.types'
 
 export function Badge({
   ref,

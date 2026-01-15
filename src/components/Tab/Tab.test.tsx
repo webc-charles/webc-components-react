@@ -1,8 +1,10 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
-import { Tab, TabList, TabButton, TabPanels, TabPanel } from './Tab'
+
+import { Tab, TabButton, TabList, TabPanel, TabPanels } from './Tab'
 
 describe('Tab', () => {
   it('renders tabs correctly', () => {
@@ -80,12 +82,24 @@ describe('Tab', () => {
       </Tab>
     )
 
-    expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute('aria-selected', 'true')
-    expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'false')
+    expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    )
+    expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute(
+      'aria-selected',
+      'false'
+    )
 
     await user.click(screen.getByRole('tab', { name: 'Tab 2' }))
 
-    expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute('aria-selected', 'false')
-    expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute(
+      'aria-selected',
+      'false'
+    )
+    expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    )
   })
 })

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Tab, TabButton, TabList, TabPanel, TabPanels } from './Tab'
 
 const meta: Meta<typeof Tab> = {

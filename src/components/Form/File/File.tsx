@@ -1,8 +1,16 @@
-import { ChangeEvent, DragEvent, useId, useRef, useState } from 'react'
+import {
+  type ChangeEvent,
+  type DragEvent,
+  useId,
+  useRef,
+  useState,
+} from 'react'
+
 import clsx from 'clsx'
+import { Button } from 'components'
 import { str } from 'i18n'
 import { Upload } from 'lucide-react'
-import { Button } from 'components'
+
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 
@@ -25,7 +33,7 @@ const isFileAccepted = (file: File, accept?: string): boolean => {
     // Wildcard MIME: image/*, video/*
     if (type.endsWith('/*')) {
       const baseType = type.slice(0, -2)
-      return mimeType.startsWith(baseType + '/')
+      return mimeType.startsWith(`${baseType}/`)
     }
     // Exact MIME: image/jpeg, application/pdf
     return mimeType === type

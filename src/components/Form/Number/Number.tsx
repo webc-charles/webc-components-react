@@ -1,10 +1,12 @@
 import { useId } from 'react'
+
 import clsx from 'clsx'
+import { Button } from 'components'
 import { str } from 'i18n'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { Button } from 'components'
+
 import styles from './Number.module.scss'
-import { InputNumberTypes } from './Number.types'
+import type { InputNumberTypes } from './Number.types'
 
 export function InputNumber({
   value,

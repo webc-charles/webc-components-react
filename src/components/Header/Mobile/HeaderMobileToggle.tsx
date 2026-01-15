@@ -1,7 +1,8 @@
 import clsx from 'clsx'
+import { Button } from 'components'
 import { str } from 'i18n'
 import { Menu, X } from 'lucide-react'
-import { Button } from 'components'
+
 import type { HeaderMobileToggleTypes } from '../Header.types'
 import { useHeader } from '../HeaderContext'
 import styles from './HeaderMobileToggle.module.scss'

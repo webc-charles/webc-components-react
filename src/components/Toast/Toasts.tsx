@@ -1,14 +1,15 @@
 import {
-  ReactNode,
+  type ReactNode,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react'
+
 import { Toast } from './Toast'
 import styles from './Toast.module.scss'
-import { ToastConfigTypes } from './Toast.types'
+import type { ToastConfigTypes } from './Toast.types'
 import { ToastsContext } from './ToastsContext'
 
 export function Toasts({ children }: { children: ReactNode }) {

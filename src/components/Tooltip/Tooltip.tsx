@@ -1,11 +1,13 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Tooltip.module.scss'
 import type { TooltipPosition, TooltipTypes } from './Tooltip.types'
 
 const getAdjustedPosition = (
   tooltipEl: HTMLElement,
-  wrapperEl: HTMLElement,
+  _wrapperEl: HTMLElement,
   preferredPosition: TooltipPosition
 ): { position: TooltipPosition; offsetX: number } => {
   const tooltipRect = tooltipEl.getBoundingClientRect()

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Slash } from 'lucide-react'
+
 import { Breadcrumb } from './Breadcrumb'
 
 const meta: Meta<typeof Breadcrumb> = {

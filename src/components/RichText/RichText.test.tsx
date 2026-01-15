@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+
 import { RichText } from './RichText'
 
 describe('RichText', () => {
@@ -32,20 +34,37 @@ describe('RichText', () => {
   })
 
   it('renders headings correctly', () => {
-    render(<RichText html="<h1>Title</h1><h2>Subtitle</h2>" data-testid="richtext" />)
+    render(
+      <RichText html="<h1>Title</h1><h2>Subtitle</h2>" data-testid="richtext" />
+    )
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Title')
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Subtitle')
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Subtitle'
+    )
   })
 
   it('renders lists correctly', () => {
-    render(<RichText html="<ul><li>Item 1</li><li>Item 2</li></ul>" data-testid="richtext" />)
+    render(
+      <RichText
+        html="<ul><li>Item 1</li><li>Item 2</li></ul>"
+        data-testid="richtext"
+      />
+    )
     expect(screen.getByRole('list')).toBeInTheDocument()
     expect(screen.getAllByRole('listitem')).toHaveLength(2)
   })
 
   it('renders links correctly', () => {
-    render(<RichText html='<a href="https://example.com">Link</a>' data-testid="richtext" />)
-    expect(screen.getByRole('link')).toHaveAttribute('href', 'https://example.com')
+    render(
+      <RichText
+        html='<a href="https://example.com">Link</a>'
+        data-testid="richtext"
+      />
+    )
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      'https://example.com'
+    )
   })
 
   it('renders tables correctly', () => {

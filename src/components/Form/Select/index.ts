@@ -1,14 +1,14 @@
 export * from './Select'
-export { useSelectContext } from './SelectContext'
 export type {
-  OptionTypes,
-  OptionListTypes,
-  OptionListItemTypes,
-  ChoiceListTypes,
-  ChoiceListItemTypes,
   ChoiceClearTypes,
+  ChoiceListItemTypes,
+  ChoiceListTypes,
+  OptionListItemTypes,
+  OptionListTypes,
+  OptionTypes,
   SelectActionsTypes,
-  SelectPlaceholderTypes,
   SelectModalTypes,
+  SelectPlaceholderTypes,
   SelectRootTypes,
 } from './Select.types'
+export { useSelectContext } from './SelectContext'

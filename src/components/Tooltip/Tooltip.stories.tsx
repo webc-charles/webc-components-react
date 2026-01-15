@@ -1,9 +1,11 @@
-import { CSSProperties } from 'react'
+import type { CSSProperties } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
-import { Info } from 'lucide-react'
 import { Title } from 'components/Title'
+import { Info } from 'lucide-react'
+
 import { Tooltip } from './Tooltip'
-import { TooltipPosition } from './Tooltip.types'
+import type { TooltipPosition } from './Tooltip.types'
 
 const wrapperStyle: CSSProperties = {
   padding: '5rem',

@@ -1,12 +1,11 @@
 export {
   Banner,
+  BannerActions,
   BannerContent,
-  BannerTitle,
   BannerSubtitle,
   BannerText,
-  BannerActions,
+  BannerTitle,
 } from './Banner'
-
 export type {
   BannerActionsTypes,
   BannerBackgroundVideo,

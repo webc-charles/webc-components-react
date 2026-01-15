@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type SearchResultTypes = {
   id: string | number
@@ -6,19 +6,22 @@ export type SearchResultTypes = {
   [key: string]: unknown
 }
 
-export type InputSearchTypes = Omit<ComponentPropsWithRef<'input'>, 'type' | 'onChange' | 'results' | 'onSelect'> & {
+export type InputSearchTypes = Omit<
+  ComponentPropsWithRef<'input'>,
+  'type' | 'onChange' | 'results' | 'onSelect'
+> & {
   label?: string
   inputClassName?: string
   labelClassName?: string
-  
+
   // Mode
   mode?: 'redirect' | 'dropdown'
-  
+
   // Redirect mode
   action?: string
   method?: 'get' | 'post'
   paramName?: string
-  
+
   // Dropdown mode
   results?: SearchResultTypes[]
   onSearch?: (query: string) => void
@@ -31,7 +34,7 @@ export type InputSearchTypes = Omit<ComponentPropsWithRef<'input'>, 'type' | 'on
   renderResult?: (result: SearchResultTypes) => ReactNode
   noResultsText?: string
   flip?: boolean
-  
+
   // Common
   value?: string
   onChange?: (value: string) => void

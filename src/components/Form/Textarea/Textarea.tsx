@@ -1,5 +1,7 @@
 import { useId } from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Textarea.module.scss'
 import type { InputTextareaTypes } from './Textarea.types'
 
@@ -41,7 +43,9 @@ export function InputTextarea({
         <div className={styles.footer}>
           <span
             className={styles.count}
-            aria-live={value && value.length >= maxLength * 0.9 ? 'polite' : 'off'}
+            aria-live={
+              value && value.length >= maxLength * 0.9 ? 'polite' : 'off'
+            }
             aria-atomic="true"
           >
             {value?.length ?? 0}/{maxLength}

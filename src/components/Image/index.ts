@@ -1,7 +1,7 @@
 export { Image } from './Image'
 export type {
-  ImageTypes,
   ImageFit,
   ImagePosition,
   ImageRadius,
+  ImageTypes,
 } from './Image.types'

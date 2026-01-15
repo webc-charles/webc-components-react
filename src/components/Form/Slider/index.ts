@@ -1,12 +1,12 @@
 export { Slider } from './Slider'
 export type {
-  SliderTypes,
-  SliderSingleTypes,
-  SliderRangeTypes,
   SliderBaseTypes,
   SliderMark,
   SliderOrientation,
+  SliderRangeTypes,
+  SliderSingleTypes,
   SliderSize,
   SliderTrack,
+  SliderTypes,
   SliderValueLabelDisplay,
 } from './Slider.types'

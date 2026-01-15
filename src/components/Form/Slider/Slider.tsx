@@ -1,5 +1,7 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Slider.module.scss'
 import type { SliderMark, SliderTypes } from './Slider.types'
 
@@ -42,8 +44,8 @@ export function Slider(props: SliderTypes) {
   } = props
 
   const isRange = props.range === true
-  const minDistance = isRange ? props.minDistance ?? 0 : 0
-  const disableSwap = isRange ? props.disableSwap ?? false : false
+  const minDistance = isRange ? (props.minDistance ?? 0) : 0
+  const disableSwap = isRange ? (props.disableSwap ?? false) : false
 
   // Internal state
   const [internalValue, setInternalValue] = useState<number | [number, number]>(

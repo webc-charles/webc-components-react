@@ -1,7 +1,9 @@
 import { useContext, useEffect } from 'react'
 import '@testing-library/jest-dom/vitest'
+
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { Modals } from './Modals'
 import { ModalsContext } from './ModalsContext'
 
@@ -13,7 +15,11 @@ describe('Modals', () => {
   })
 
   it('renders children', () => {
-    render(<Modals><div data-testid="child">Child Content</div></Modals>)
+    render(
+      <Modals>
+        <div data-testid="child">Child Content</div>
+      </Modals>
+    )
     expect(screen.getByTestId('child')).toBeInTheDocument()
   })
 
@@ -21,12 +27,19 @@ describe('Modals', () => {
     const TestComponent = () => {
       const { addModal } = useContext(ModalsContext)!
       useEffect(() => {
-        addModal({ title: 'Test Modal', children: <span data-testid="modal-body">Modal Body</span> })
+        addModal({
+          title: 'Test Modal',
+          children: <span data-testid="modal-body">Modal Body</span>,
+        })
       }, [addModal])
       return null
     }
 
-    render(<Modals><TestComponent /></Modals>)
+    render(
+      <Modals>
+        <TestComponent />
+      </Modals>
+    )
     await act(async () => vi.advanceTimersByTime(150))
 
     const modal = document.querySelector('[role="dialog"]')
@@ -44,12 +57,16 @@ describe('Modals', () => {
       return null
     }
 
-    render(<Modals><TestComponent /></Modals>)
+    render(
+      <Modals>
+        <TestComponent />
+      </Modals>
+    )
     await act(async () => vi.advanceTimersByTime(150))
 
     const modal = document.querySelector('[role="dialog"]')
     expect(modal).toBeInTheDocument()
-    
+
     const closeButton = modal?.querySelector('button')
     fireEvent.click(closeButton!)
     await act(async () => vi.advanceTimersByTime(500))
@@ -66,7 +83,11 @@ describe('Modals', () => {
       return null
     }
 
-    render(<Modals><TestComponent /></Modals>)
+    render(
+      <Modals>
+        <TestComponent />
+      </Modals>
+    )
     await act(async () => vi.advanceTimersByTime(150))
 
     fireEvent.keyDown(document, { key: 'Escape' })

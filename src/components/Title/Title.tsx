@@ -1,6 +1,7 @@
 import clsx from 'clsx'
+
 import styles from './Title.module.scss'
-import { TitleTypes } from './Title.types'
+import type { TitleTypes } from './Title.types'
 
 export function Title({
   ref,

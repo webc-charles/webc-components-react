@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom/vitest'
+
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+
 import {
   Table,
   TableBody,
@@ -31,7 +33,9 @@ describe('Table', () => {
 
     expect(screen.getByTestId('table')).toBeInTheDocument()
     expect(screen.getByRole('table')).toBeInTheDocument()
-    expect(screen.getByRole('columnheader', { name: 'Name' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Name' })
+    ).toBeInTheDocument()
     expect(screen.getByRole('cell', { name: 'Alice' })).toBeInTheDocument()
   })
 

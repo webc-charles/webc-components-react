@@ -1,8 +1,10 @@
 import { useState } from 'react'
+
 import clsx from 'clsx'
 import { User } from 'lucide-react'
+
 import styles from './Avatar.module.scss'
-import { AvatarTypes } from './Avatar.types'
+import type { AvatarTypes } from './Avatar.types'
 
 const getInitials = (name: string): string => {
   const parts = name.trim().split(/\s+/)

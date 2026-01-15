@@ -1,5 +1,7 @@
 import { useState } from 'react'
+
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Slider } from './Slider'
 import type { SliderSingleTypes } from './Slider.types'
 
@@ -61,7 +63,9 @@ export default meta
 type Story = StoryObj<typeof Slider>
 
 // Controlled slider wrapper for playground
-const ControlledSlider = (props: Omit<SliderSingleTypes, 'value' | 'onChange'>) => {
+const ControlledSlider = (
+  props: Omit<SliderSingleTypes, 'value' | 'onChange'>
+) => {
   const [value, setValue] = useState(30)
 
   return (
@@ -76,7 +80,9 @@ const ControlledSlider = (props: Omit<SliderSingleTypes, 'value' | 'onChange'>) 
 export const Playground: Story = {
   render: (args) => {
     // Extract only single slider props (exclude range-specific props)
-    const { range, ...singleProps } = args as SliderSingleTypes & { range?: boolean }
+    const { range, ...singleProps } = args as SliderSingleTypes & {
+      range?: boolean
+    }
     return <ControlledSlider {...singleProps} />
   },
 }
@@ -186,7 +192,9 @@ export const DiscreteWithSteps: Story = {
 // Custom Marks
 export const CustomMarks: Story = {
   render: () => (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+    >
       <Slider
         defaultValue={20}
         step={10}
@@ -207,7 +215,9 @@ export const CustomMarks: Story = {
 // Restricted to Marks Only
 export const RestrictedToMarks: Story = {
   render: () => (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+    >
       <Slider
         defaultValue={20}
         step={null}
@@ -382,7 +392,9 @@ export const InvertedTrack: Story = {
 // No Track
 export const NoTrack: Story = {
   render: () => (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+    >
       <Slider
         defaultValue={30}
         track={false}

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { Button } from '../Form/Button'
 import { Link } from '../Link'
 import {
@@ -9,7 +10,7 @@ import {
   BannerText,
   BannerTitle,
 } from './Banner'
-import {
+import type {
   BannerOverlayTypes,
   HorizontalAlignTypes,
   VerticalAlignTypes,

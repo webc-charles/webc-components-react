@@ -1,6 +1,9 @@
 export type {
-  HeaderActionsTypes,
   HeaderLogoTypes,
+  HeaderMainDropdownLinkTypes,
+  HeaderMainDropdownTypes,
+  HeaderMainLinkTypes,
+  HeaderMainNavTypes,
   HeaderMainTypes,
   HeaderMobileDropdownLinkTypes,
   HeaderMobileDropdownTypes,
@@ -8,10 +11,6 @@ export type {
   HeaderMobileMenuTypes,
   HeaderMobileNavTypes,
   HeaderMobileToggleTypes,
-  HeaderNavDropdownLinkTypes,
-  HeaderNavItemTypes,
-  HeaderNavLinkTypes,
-  HeaderNavTypes,
   HeaderTopBarItemLinkTypes,
   HeaderTopBarItemTypes,
   HeaderTopBarLinkTypes,
@@ -19,13 +18,12 @@ export type {
   HeaderTypes,
 } from './Header.types'
 export { HeaderRoot } from './HeaderRoot'
-export { HeaderActions } from './Main/HeaderActions'
 export { HeaderLogo } from './Main/HeaderLogo'
 export { HeaderMain } from './Main/HeaderMain'
-export { HeaderNav } from './Main/HeaderNav'
-export { HeaderNavItem } from './Main/HeaderNavItem'
-export { HeaderNavItemDropdownLink } from './Main/HeaderNavItemDropdownLink'
-export { HeaderNavItemLink } from './Main/HeaderNavItemLink'
+export { HeaderMainDropdown } from './Main/HeaderMainDropdown'
+export { HeaderMainDropdownLink } from './Main/HeaderMainDropdownLink'
+export { HeaderMainLink } from './Main/HeaderMainLink'
+export { HeaderMainNav } from './Main/HeaderMainNav'
 export { HeaderMobileDropdown } from './Mobile/HeaderMobileDropdown'
 export { HeaderMobileDropdownLink } from './Mobile/HeaderMobileDropdownLink'
 export { HeaderMobileLink } from './Mobile/HeaderMobileLink'

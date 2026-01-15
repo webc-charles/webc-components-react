@@ -2,36 +2,35 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
-import type { HeaderNavItemTypes } from '../Header.types'
-import styles from './HeaderNavItem.module.scss'
+import type { HeaderMainDropdownTypes } from '../Header.types'
+import styles from './HeaderMainDropdown.module.scss'
 
-export function HeaderNavItem({
-  ref,
+export function HeaderMainDropdown({
   children,
-  dropdown,
+  label,
   mega = false,
   current = false,
   className,
   ...rest
-}: HeaderNavItemTypes) {
+}: HeaderMainDropdownTypes) {
   const [isOpen, setIsOpen] = useState(false)
   const itemRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
-  const dropdownRef = useRef<HTMLDivElement | null>(null)
+  const contentRef = useRef<HTMLDivElement | null>(null)
 
-  const setDropdownRef = useCallback((node: HTMLDivElement | null) => {
+  const setContentRef = useCallback((node: HTMLDivElement | null) => {
     if (node) {
       node.setAttribute('inert', '')
     }
-    dropdownRef.current = node
+    contentRef.current = node
   }, [])
 
   useEffect(() => {
-    if (dropdownRef.current) {
+    if (contentRef.current) {
       if (isOpen) {
-        dropdownRef.current.removeAttribute('inert')
+        contentRef.current.removeAttribute('inert')
       } else {
-        dropdownRef.current.setAttribute('inert', '')
+        contentRef.current.setAttribute('inert', '')
       }
     }
   }, [isOpen])
@@ -78,11 +77,9 @@ export function HeaderNavItem({
       if (!isOpen) {
         setIsOpen(true)
       } else {
-        const firstElement =
-          dropdownRef.current?.querySelector<HTMLElement>(
-            'a[href], button:not([disabled])'
-          )
-
+        const firstElement = contentRef.current?.querySelector<HTMLElement>(
+          'a[href], button:not([disabled])'
+        )
         firstElement?.focus()
       }
     }
@@ -90,36 +87,18 @@ export function HeaderNavItem({
     if (e.key === 'ArrowUp' && isOpen) {
       e.preventDefault()
 
-      const elements = dropdownRef.current?.querySelectorAll<HTMLElement>(
+      const elements = contentRef.current?.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled])'
       )
-
       elements?.[elements.length - 1]?.focus()
     }
-  }
-
-  if (!dropdown) {
-    return (
-      <div
-        ref={ref}
-        className={clsx(
-          styles.navItem,
-          current && styles.isCurrent,
-          className
-        )}
-        {...rest}
-      >
-        {children}
-      </div>
-    )
   }
 
   return (
     <div
       ref={itemRef}
       className={clsx(
-        styles.navItem,
-        styles.hasDropdown,
+        styles.item,
         mega && styles.hasMega,
         current && styles.isCurrent,
         className
@@ -139,8 +118,7 @@ export function HeaderNavItem({
         onClick={() => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
-        {children}
-
+        {label}
         <ChevronDown
           size={16}
           aria-hidden="true"
@@ -149,17 +127,15 @@ export function HeaderNavItem({
       </Button>
 
       <div
-        ref={setDropdownRef}
+        ref={setContentRef}
         role="menu"
         className={clsx(
           mega ? styles.megaMenu : styles.dropdown,
           isOpen && styles.isOpen
         )}
       >
-        <div
-          className={mega ? styles.megaMenuInner : styles.dropdownInner}
-        >
-          {dropdown}
+        <div className={mega ? styles.megaMenuInner : styles.dropdownInner}>
+          {children}
         </div>
       </div>
     </div>

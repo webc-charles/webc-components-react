@@ -1,8 +1,21 @@
-.navItem {
+.item {
   align-items: center;
   display: flex;
   height: var(--height-header);
   position: relative;
+
+  &:hover {
+    .chevron {
+      transform: rotate(180deg);
+    }
+
+    .dropdown,
+    .megaMenu {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
 }
 
 .trigger {
@@ -20,7 +33,7 @@
 
   &:hover,
   &:focus-visible,
-  .hasDropdown:hover & {
+  .item:hover & {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }
@@ -98,15 +111,3 @@
   padding: 4rem;
 }
 
-.hasDropdown:hover {
-  .chevron {
-    transform: rotate(180deg);
-  }
-
-  .dropdown,
-  .megaMenu {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
-  }
-}

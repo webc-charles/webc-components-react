@@ -5,7 +5,6 @@ import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { Button, Link } from '../'
 import {
-  HeaderActions,
   HeaderLogo,
   HeaderMain,
   HeaderMobileDropdown,
@@ -13,10 +12,10 @@ import {
   HeaderMobileLink,
   HeaderMobileMenu,
   HeaderMobileToggle,
-  HeaderNav,
-  HeaderNavItem,
-  HeaderNavItemDropdownLink,
-  HeaderNavItemLink,
+  HeaderMainNav,
+  HeaderMainDropdown,
+  HeaderMainDropdownLink,
+  HeaderMainLink,
   HeaderRoot,
   HeaderTopBar,
   HeaderTopBarItem,
@@ -90,13 +89,11 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderNav aria-label="Main menu">
-            <HeaderNavItem>
-              <HeaderNavItemLink asChild>
-                <Link href="/">Home</Link>
-              </HeaderNavItemLink>
-            </HeaderNavItem>
-          </HeaderNav>
+          <HeaderMainNav aria-label="Main menu">
+            <HeaderMainLink asChild>
+              <Link href="/">Home</Link>
+            </HeaderMainLink>
+          </HeaderMainNav>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -108,18 +105,14 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderNav>
-            <HeaderNavItem>
-              <HeaderNavItemLink asChild>
-                <Link href="/">Home</Link>
-              </HeaderNavItemLink>
-            </HeaderNavItem>
-            <HeaderNavItem>
-              <HeaderNavItemLink asChild>
-                <Link href="/about">About</Link>
-              </HeaderNavItemLink>
-            </HeaderNavItem>
-          </HeaderNav>
+          <HeaderMainNav>
+            <HeaderMainLink asChild>
+              <Link href="/">Home</Link>
+            </HeaderMainLink>
+            <HeaderMainLink asChild>
+              <Link href="/about">About</Link>
+            </HeaderMainLink>
+          </HeaderMainNav>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -131,9 +124,9 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderActions>
+          <HeaderMainNav>
             <Button>Login</Button>
-          </HeaderActions>
+          </HeaderMainNav>
         </HeaderMain>
       </HeaderRoot>
     )
@@ -196,19 +189,13 @@ describe('Header', () => {
     render(
       <HeaderRoot>
         <HeaderMain>
-          <HeaderNav>
-            <HeaderNavItem
-              dropdown={
-                <div>
-                  <HeaderNavItemDropdownLink asChild>
-                    <Link href="#">Option</Link>
-                  </HeaderNavItemDropdownLink>
-                </div>
-              }
-            >
-              Products
-            </HeaderNavItem>
-          </HeaderNav>
+          <HeaderMainNav>
+            <HeaderMainDropdown label="Products">
+              <HeaderMainDropdownLink asChild>
+                <Link href="#">Option</Link>
+              </HeaderMainDropdownLink>
+            </HeaderMainDropdown>
+          </HeaderMainNav>
         </HeaderMain>
       </HeaderRoot>
     )

@@ -1,15 +1,15 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
-import type { HeaderNavLinkTypes } from '../Header.types'
-import styles from './HeaderNavItemLink.module.scss'
+import type { HeaderMainLinkTypes } from '../Header.types'
+import styles from './HeaderMainLink.module.scss'
 
-export function HeaderNavItemLink({
+export function HeaderMainLink({
   asChild,
   children,
   className,
   active,
   ...props
-}: HeaderNavLinkTypes) {
+}: HeaderMainLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp

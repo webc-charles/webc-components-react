@@ -23,20 +23,16 @@ export type HeaderLogoTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
 }
 
-export type HeaderNavTypes = ComponentPropsWithRef<'nav'> & {
+export type HeaderMainNavTypes = ComponentPropsWithRef<'nav'> & {
   children: ReactNode
   'aria-label'?: string
 }
 
-export type HeaderNavItemTypes = ComponentPropsWithRef<'div'> & {
+export type HeaderMainDropdownTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
-  dropdown?: ReactNode
+  label: ReactNode
   mega?: boolean
   current?: boolean
-}
-
-export type HeaderActionsTypes = ComponentPropsWithRef<'div'> & {
-  children: ReactNode
 }
 
 export type HeaderMobileToggleTypes = Omit<
@@ -71,13 +67,13 @@ export type HeaderTopBarItemLinkTypes = ComponentPropsWithRef<'a'> & {
   children: ReactNode
 }
 
-export type HeaderNavLinkTypes = ComponentPropsWithRef<'a'> & {
+export type HeaderMainLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
   active?: boolean
 }
 
-export type HeaderNavDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
+export type HeaderMainDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
   active?: boolean

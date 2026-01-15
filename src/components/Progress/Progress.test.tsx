@@ -29,13 +29,17 @@ describe('Progress', () => {
 
   it('calculates percentage correctly', () => {
     render(<Progress value={25} max={50} data-testid="progress" />)
-    const bar = screen.getByTestId('progress').querySelector('[class*="bar"]')
+    const bar = screen
+      .getByTestId('progress')
+      .querySelector('[class*="bar"]')
     expect(bar).toHaveStyle({ width: '50%' })
   })
 
   it('clamps value between 0 and 100%', () => {
     render(<Progress value={150} data-testid="progress" />)
-    const bar = screen.getByTestId('progress').querySelector('[class*="bar"]')
+    const bar = screen
+      .getByTestId('progress')
+      .querySelector('[class*="bar"]')
     expect(bar).toHaveStyle({ width: '100%' })
   })
 
@@ -56,17 +60,23 @@ describe('Progress', () => {
 
   it('applies variant class', () => {
     render(<Progress variant="success" data-testid="progress" />)
-    expect(screen.getByTestId('progress').className).toMatch(/variant-success/)
+    expect(screen.getByTestId('progress').className).toMatch(
+      /variant-success/
+    )
   })
 
   it('applies indeterminate class', () => {
     render(<Progress indeterminate data-testid="progress" />)
-    expect(screen.getByTestId('progress').className).toMatch(/indeterminate/)
+    expect(screen.getByTestId('progress').className).toMatch(
+      /indeterminate/
+    )
   })
 
   it('does not set aria-valuenow when indeterminate', () => {
     render(<Progress indeterminate />)
-    expect(screen.getByRole('progressbar')).not.toHaveAttribute('aria-valuenow')
+    expect(screen.getByRole('progressbar')).not.toHaveAttribute(
+      'aria-valuenow'
+    )
   })
 
   it('sets aria-label', () => {

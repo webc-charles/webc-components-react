@@ -88,13 +88,8 @@ export const AllPositions: Story = {
       }}
     >
       {positions.map((pos) => (
-        <p style={paragraphStyle}>
-          <Tooltip
-            key={pos}
-            content={`Tooltip on ${pos}`}
-            position={pos}
-            delay={0}
-          >
+        <p key={pos} style={paragraphStyle}>
+          <Tooltip content={`Tooltip on ${pos}`} position={pos} delay={0}>
             <Info size={20} />
           </Tooltip>
           {pos}

@@ -14,7 +14,9 @@ describe('Tooltip', () => {
         <Button>Hover me</Button>
       </Tooltip>
     )
-    expect(screen.getByRole('button', { name: 'Hover me' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Hover me' })
+    ).toBeInTheDocument()
   })
 
   it('shows tooltip on hover', async () => {

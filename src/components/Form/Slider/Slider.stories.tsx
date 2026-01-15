@@ -101,7 +101,9 @@ export const Basic: Story = {
 const WithValueLabelStory = () => {
   const [value, setValue] = useState(50)
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         value={value}
         onChange={setValue}
@@ -120,7 +122,9 @@ export const WithValueLabel: Story = {
 // Value Label Always Visible
 export const ValueLabelAlwaysVisible: Story = {
   render: () => (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         defaultValue={80}
         valueLabelDisplay="on"
@@ -174,7 +178,9 @@ export const Disabled: Story = {
 // Discrete with Steps
 export const DiscreteWithSteps: Story = {
   render: () => (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         defaultValue={30}
         step={10}
@@ -193,7 +199,11 @@ export const DiscreteWithSteps: Story = {
 export const CustomMarks: Story = {
   render: () => (
     <div
-      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+      style={{
+        width: '100%',
+        maxWidth: '400px',
+        padding: '3rem 2rem 4rem',
+      }}
     >
       <Slider
         defaultValue={20}
@@ -216,7 +226,11 @@ export const CustomMarks: Story = {
 export const RestrictedToMarks: Story = {
   render: () => (
     <div
-      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+      style={{
+        width: '100%',
+        maxWidth: '400px',
+        padding: '3rem 2rem 4rem',
+      }}
     >
       <Slider
         defaultValue={20}
@@ -240,7 +254,9 @@ const RangeSliderStory = () => {
   const [value, setValue] = useState<[number, number]>([20, 37])
 
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         range
         value={value}
@@ -265,7 +281,9 @@ const RangeWithMinDistanceStory = () => {
   const [value, setValue] = useState<[number, number]>([20, 50])
 
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         range
         value={value}
@@ -393,7 +411,11 @@ export const InvertedTrack: Story = {
 export const NoTrack: Story = {
   render: () => (
     <div
-      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem 4rem' }}
+      style={{
+        width: '100%',
+        maxWidth: '400px',
+        padding: '3rem 2rem 4rem',
+      }}
     >
       <Slider
         defaultValue={30}
@@ -417,7 +439,9 @@ const CustomValueFormatStory = () => {
   const [value, setValue] = useState(50)
 
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         value={value}
         onChange={setValue}
@@ -439,7 +463,9 @@ const TemperatureSliderStory = () => {
   const [value, setValue] = useState(20)
 
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         value={value}
         onChange={setValue}
@@ -464,7 +490,9 @@ const SmallStepsStory = () => {
   const [value, setValue] = useState(0.5)
 
   return (
-    <div style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}>
+    <div
+      style={{ width: '100%', maxWidth: '400px', padding: '3rem 2rem' }}
+    >
       <Slider
         value={value}
         onChange={setValue}

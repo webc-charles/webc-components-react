@@ -225,7 +225,9 @@ export const WithTopBar: Story = {
         <HeaderTopBarLink asChild>
           <Link href="/">Contact</Link>
         </HeaderTopBarLink>
-        <HeaderTopBarItem dropdown={<LanguageDropdown />}>FR</HeaderTopBarItem>
+        <HeaderTopBarItem dropdown={<LanguageDropdown />}>
+          FR
+        </HeaderTopBarItem>
       </HeaderTopBar>
       <HeaderMain>
         <HeaderLogo>

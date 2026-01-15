@@ -28,15 +28,25 @@ describe('InputText', () => {
   it('calls onChange when typing', () => {
     const handleChange = vi.fn()
     render(
-      <InputText data-testid="text" label="Username" onChange={handleChange} />
+      <InputText
+        data-testid="text"
+        label="Username"
+        onChange={handleChange}
+      />
     )
-    fireEvent.change(screen.getByTestId('text'), { target: { value: 'test' } })
+    fireEvent.change(screen.getByTestId('text'), {
+      target: { value: 'test' },
+    })
     expect(handleChange).toHaveBeenCalled()
   })
 
   it('renders with placeholder', () => {
     render(
-      <InputText data-testid="text" label="Username" placeholder="Enter text" />
+      <InputText
+        data-testid="text"
+        label="Username"
+        placeholder="Enter text"
+      />
     )
     const input = screen.getByTestId('text') as HTMLInputElement
     expect(input.placeholder).toBe('Enter text')
@@ -49,7 +59,11 @@ describe('InputText', () => {
 
   it('applies custom className', () => {
     const { container } = render(
-      <InputText data-testid="text" label="Username" className="custom-class" />
+      <InputText
+        data-testid="text"
+        label="Username"
+        className="custom-class"
+      />
     )
     expect(container.querySelector('.custom-class')).toBeInTheDocument()
   })

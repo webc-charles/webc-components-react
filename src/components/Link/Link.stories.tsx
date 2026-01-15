@@ -136,26 +136,50 @@ export const Disabled: Story = {
 export const Contrast: Story = {
   render: () => (
     <div
-      style={{ background: '#1a1a1a', padding: '2rem', borderRadius: '0.5rem' }}
+      style={{
+        background: '#1a1a1a',
+        padding: '2rem',
+        borderRadius: '0.5rem',
+      }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
+      >
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           {variants.map((v) => (
-            <Link key={v} href="#" variant={v} appearance="button" contrast>
+            <Link
+              key={v}
+              href="#"
+              variant={v}
+              appearance="button"
+              contrast
+            >
               {v}
             </Link>
           ))}
         </div>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           {variants.map((v) => (
-            <Link key={v} href="#" variant={v} appearance="outline" contrast>
+            <Link
+              key={v}
+              href="#"
+              variant={v}
+              appearance="outline"
+              contrast
+            >
               {v}
             </Link>
           ))}
         </div>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           {variants.map((v) => (
-            <Link key={v} href="#" variant={v} appearance="underline" contrast>
+            <Link
+              key={v}
+              href="#"
+              variant={v}
+              appearance="underline"
+              contrast
+            >
               {v}
             </Link>
           ))}
@@ -166,7 +190,8 @@ export const Contrast: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Use the `contrast` prop to adapt links for dark backgrounds.',
+        story:
+          'Use the `contrast` prop to adapt links for dark backgrounds.',
       },
     },
   },

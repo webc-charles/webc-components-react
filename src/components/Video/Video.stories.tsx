@@ -77,7 +77,10 @@ export const WithCaption: Story = {
 export const WithMultipleSources: Story = {
   args: {
     sources: [
-      { src: 'https://www.w3schools.com/html/mov_bbb.mp4', type: 'video/mp4' },
+      {
+        src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+        type: 'video/mp4',
+      },
       {
         src: 'https://www.w3schools.com/html/mov_bbb.webm',
         type: 'video/webm',

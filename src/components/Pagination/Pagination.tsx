@@ -40,7 +40,8 @@ function generatePageRange(
   )
 
   const showLeftEllipsis = leftSiblingIndex > boundaryCount + 2
-  const showRightEllipsis = rightSiblingIndex < totalPages - boundaryCount - 1
+  const showRightEllipsis =
+    rightSiblingIndex < totalPages - boundaryCount - 1
 
   const leftBoundary = range(1, boundaryCount)
   const rightBoundary = range(totalPages - boundaryCount + 1, totalPages)
@@ -85,7 +86,12 @@ export function Pagination({
 }: PaginationTypes) {
   const pages = useMemo(
     () =>
-      generatePageRange(currentPage, totalPages, siblingCount, boundaryCount),
+      generatePageRange(
+        currentPage,
+        totalPages,
+        siblingCount,
+        boundaryCount
+      ),
     [currentPage, totalPages, siblingCount, boundaryCount]
   )
 
@@ -122,7 +128,9 @@ export function Pagination({
     }
 
     if (renderLink) {
-      return <span className={styles.page}>{renderLink(page, children)}</span>
+      return (
+        <span className={styles.page}>{renderLink(page, children)}</span>
+      )
     }
 
     return (
@@ -158,7 +166,9 @@ export function Pagination({
     }
 
     if (renderLink) {
-      return <span className={styles.nav}>{renderLink(page, children)}</span>
+      return (
+        <span className={styles.nav}>{renderLink(page, children)}</span>
+      )
     }
 
     return (

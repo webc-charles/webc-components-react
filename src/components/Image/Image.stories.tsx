@@ -198,8 +198,15 @@ export const AllFitOptions: Story = {
     >
       {fitOptions.map((fit) => (
         <div key={fit}>
-          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{fit}</p>
-          <div style={{ ...containerStyle, background: 'var(--color-grey-6)' }}>
+          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
+            {fit}
+          </p>
+          <div
+            style={{
+              ...containerStyle,
+              background: 'var(--color-grey-6)',
+            }}
+          >
             <Image
               src="https://picsum.photos/800/400"
               alt={`${fit} example`}
@@ -261,7 +268,9 @@ export const AspectRatios: Story = {
     >
       {['1/1', '4/3', '16/9', '21/9'].map((ratio) => (
         <div key={ratio}>
-          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{ratio}</p>
+          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
+            {ratio}
+          </p>
           <Image
             src="https://picsum.photos/800/600"
             alt={`${ratio} aspect ratio`}
@@ -287,7 +296,9 @@ export const BorderRadius: Story = {
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       {radiusOptions.map((radius) => (
         <div key={radius}>
-          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>{radius}</p>
+          <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
+            {radius}
+          </p>
           <Image
             src="https://picsum.photos/200/200"
             alt={`${radius} radius`}
@@ -337,7 +348,8 @@ export const Avatar: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Circular avatars using radius="full" with object-fit cover.',
+        story:
+          'Circular avatars using radius="full" with object-fit cover.',
       },
     },
   },
@@ -361,7 +373,9 @@ export const CardThumbnail: Story = {
         style={{ width: '100%' }}
       />
       <div style={{ padding: '1rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.6rem' }}>Card Title</h3>
+        <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.6rem' }}>
+          Card Title
+        </h3>
         <p
           style={{
             margin: 0,
@@ -377,7 +391,8 @@ export const CardThumbnail: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Common pattern for card thumbnails with fixed aspect ratio.',
+        story:
+          'Common pattern for card thumbnails with fixed aspect ratio.',
       },
     },
   },

@@ -80,9 +80,10 @@ export function HeaderNavItem({
       if (!isOpen) {
         setIsOpen(true)
       } else {
-        const firstElement = dropdownRef.current?.querySelector<HTMLElement>(
-          'a[href], button:not([disabled])'
-        )
+        const firstElement =
+          dropdownRef.current?.querySelector<HTMLElement>(
+            'a[href], button:not([disabled])'
+          )
 
         firstElement?.focus()
       }
@@ -103,7 +104,11 @@ export function HeaderNavItem({
     return (
       <div
         ref={ref}
-        className={clsx(styles.navItem, current && styles.isCurrent, className)}
+        className={clsx(
+          styles.navItem,
+          current && styles.isCurrent,
+          className
+        )}
         {...rest}
       >
         {children}
@@ -153,7 +158,9 @@ export function HeaderNavItem({
           isOpen && styles.isOpen
         )}
       >
-        <div className={mega ? styles.megaMenuInner : styles.dropdownInner}>
+        <div
+          className={mega ? styles.megaMenuInner : styles.dropdownInner}
+        >
           {dropdown}
         </div>
       </div>

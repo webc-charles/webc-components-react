@@ -102,7 +102,11 @@ export function Carousel({
 
   return (
     <CarouselContext.Provider value={contextValue}>
-      <div ref={ref} className={clsx(styles.Carousel, className)} {...props}>
+      <div
+        ref={ref}
+        className={clsx(styles.Carousel, className)}
+        {...props}
+      >
         <div className={styles.viewport} ref={emblaRef}>
           {children}
         </div>
@@ -139,7 +143,11 @@ export function CarouselContainer({
   ...props
 }: CarouselContainerTypes) {
   return (
-    <div ref={ref} className={clsx(styles.container, className)} {...props}>
+    <div
+      ref={ref}
+      className={clsx(styles.container, className)}
+      {...props}
+    >
       {children}
     </div>
   )
@@ -239,7 +247,10 @@ export function CarouselDots({
         <Button
           key={index}
           type="button"
-          className={clsx(styles.dot, selectedIndex === index && styles.active)}
+          className={clsx(
+            styles.dot,
+            selectedIndex === index && styles.active
+          )}
           onClick={() => scrollTo(index)}
           aria-current={selectedIndex === index || undefined}
           aria-label={`${label} ${index + 1}`}

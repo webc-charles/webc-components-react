@@ -24,7 +24,9 @@ describe('Card components', () => {
   it('renders CardHeader with children', () => {
     render(<CardHeader data-testid="header">Header Content</CardHeader>)
     expect(screen.getByTestId('header')).toBeInTheDocument()
-    expect(screen.getByTestId('header')).toHaveTextContent('Header Content')
+    expect(screen.getByTestId('header')).toHaveTextContent(
+      'Header Content'
+    )
   })
 
   it('renders CardHeader with custom className', () => {
@@ -54,7 +56,9 @@ describe('Card components', () => {
   it('renders CardFooter with children', () => {
     render(<CardFooter data-testid="footer">Footer Content</CardFooter>)
     expect(screen.getByTestId('footer')).toBeInTheDocument()
-    expect(screen.getByTestId('footer')).toHaveTextContent('Footer Content')
+    expect(screen.getByTestId('footer')).toHaveTextContent(
+      'Footer Content'
+    )
   })
 
   it('renders CardFooter with custom className', () => {

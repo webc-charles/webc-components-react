@@ -22,7 +22,10 @@ describe('Breadcrumb', () => {
 
   it('renders links for non-last items', () => {
     render(<Breadcrumb items={items} />)
-    expect(screen.getByText('Home').closest('a')).toHaveAttribute('href', '/')
+    expect(screen.getByText('Home').closest('a')).toHaveAttribute(
+      'href',
+      '/'
+    )
     expect(screen.getByText('Products').closest('a')).toHaveAttribute(
       'href',
       '/products'

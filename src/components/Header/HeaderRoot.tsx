@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useState } from 'react'
+import { useCallback, useEffect, useId, useMemo, useState } from 'react'
 
 import clsx from 'clsx'
 
@@ -20,7 +20,7 @@ export function HeaderRoot({
   const mobileMenuId = `header-mobile-menu-${id}`
   const mobileToggleId = `header-mobile-toggle-${id}`
 
-  const toggle = () => setIsOpen((prev) => !prev)
+  const toggle = useCallback(() => setIsOpen((prev) => !prev), [])
 
   useEffect(() => {
     const handleResize = () => {

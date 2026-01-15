@@ -4,7 +4,10 @@ import type { ColorVariant } from '../../types'
 
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl'
 
-export type AvatarTypes = Omit<ComponentPropsWithRef<'div'>, 'children'> & {
+export type AvatarTypes = Omit<
+  ComponentPropsWithRef<'div'>,
+  'children'
+> & {
   /** Image URL */
   src?: string
   /** Alt text for image */

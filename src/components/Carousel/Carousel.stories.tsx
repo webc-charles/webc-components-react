@@ -87,7 +87,9 @@ export const MultipleSlides: Story = {
       <CarouselContainer>
         {[1, 2, 3, 4, 5, 6].map((n) => (
           <CarouselSlide key={n} style={{ flex: '0 0 33.333%' }}>
-            <div style={{ ...slideStyle, margin: '0 0.5rem' }}>Slide {n}</div>
+            <div style={{ ...slideStyle, margin: '0 0.5rem' }}>
+              Slide {n}
+            </div>
           </CarouselSlide>
         ))}
       </CarouselContainer>

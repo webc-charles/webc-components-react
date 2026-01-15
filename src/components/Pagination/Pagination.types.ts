@@ -1,6 +1,9 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
-export type PaginationTypes = Omit<ComponentPropsWithRef<'nav'>, 'onChange'> & {
+export type PaginationTypes = Omit<
+  ComponentPropsWithRef<'nav'>,
+  'onChange'
+> & {
   currentPage: number
   totalPages: number
   onPageChange?: (page: number) => void

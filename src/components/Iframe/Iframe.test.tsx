@@ -8,7 +8,11 @@ import { Iframe } from './Iframe'
 describe('Iframe', () => {
   it('renders iframe element', () => {
     render(
-      <Iframe src="https://example.com" title="Example" data-testid="iframe" />
+      <Iframe
+        src="https://example.com"
+        title="Example"
+        data-testid="iframe"
+      />
     )
     expect(screen.getByTestId('iframe')).toBeInTheDocument()
   })
@@ -29,7 +33,11 @@ describe('Iframe', () => {
 
   it('has src attribute', () => {
     render(
-      <Iframe src="https://example.com" title="Example" data-testid="iframe" />
+      <Iframe
+        src="https://example.com"
+        title="Example"
+        data-testid="iframe"
+      />
     )
     expect(screen.getByTestId('iframe')).toHaveAttribute(
       'src',
@@ -39,14 +47,22 @@ describe('Iframe', () => {
 
   it('has lazy loading by default', () => {
     render(
-      <Iframe src="https://example.com" title="Example" data-testid="iframe" />
+      <Iframe
+        src="https://example.com"
+        title="Example"
+        data-testid="iframe"
+      />
     )
     expect(screen.getByTestId('iframe')).toHaveAttribute('loading', 'lazy')
   })
 
   it('allows fullscreen by default', () => {
     render(
-      <Iframe src="https://example.com" title="Example" data-testid="iframe" />
+      <Iframe
+        src="https://example.com"
+        title="Example"
+        data-testid="iframe"
+      />
     )
     expect(screen.getByTestId('iframe')).toHaveAttribute('allowfullscreen')
   })
@@ -60,7 +76,9 @@ describe('Iframe', () => {
         data-testid="iframe"
       />
     )
-    expect(screen.getByTestId('iframe')).not.toHaveAttribute('allowfullscreen')
+    expect(screen.getByTestId('iframe')).not.toHaveAttribute(
+      'allowfullscreen'
+    )
   })
 
   it('applies aspect ratio style', () => {
@@ -72,7 +90,9 @@ describe('Iframe', () => {
         data-testid="iframe"
       />
     )
-    expect(screen.getByTestId('iframe')).toHaveStyle({ aspectRatio: '16/9' })
+    expect(screen.getByTestId('iframe')).toHaveStyle({
+      aspectRatio: '16/9',
+    })
   })
 
   it('applies custom className', () => {

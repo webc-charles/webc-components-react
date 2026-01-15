@@ -62,7 +62,8 @@ export function InputSearch({
     if (!wrapperRef.current || !isOpen) return
 
     const rect = wrapperRef.current.getBoundingClientRect()
-    const menuHeight = menuRef.current?.getBoundingClientRect().height || 300
+    const menuHeight =
+      menuRef.current?.getBoundingClientRect().height || 300
 
     let shouldFlip = false
     if (flip) {
@@ -104,7 +105,8 @@ export function InputSearch({
     }
 
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    return () =>
+      document.removeEventListener('mousedown', handleClickOutside)
   }, [isOpen])
 
   useEffect(() => {
@@ -178,11 +180,15 @@ export function InputSearch({
       switch (e.key) {
         case 'ArrowDown':
           e.preventDefault()
-          setFocusedIndex((prev) => (prev < results.length - 1 ? prev + 1 : 0))
+          setFocusedIndex((prev) =>
+            prev < results.length - 1 ? prev + 1 : 0
+          )
           break
         case 'ArrowUp':
           e.preventDefault()
-          setFocusedIndex((prev) => (prev > 0 ? prev - 1 : results.length - 1))
+          setFocusedIndex((prev) =>
+            prev > 0 ? prev - 1 : results.length - 1
+          )
           break
         case 'Enter':
           if (focusedIndex >= 0 && results[focusedIndex]) {
@@ -324,7 +330,10 @@ export function InputSearch({
     return (
       <form action={action} method={method} className={styles.wrapper}>
         {label && (
-          <label htmlFor={id} className={clsx(styles.label, labelClassName)}>
+          <label
+            htmlFor={id}
+            className={clsx(styles.label, labelClassName)}
+          >
             {label}
           </label>
         )}

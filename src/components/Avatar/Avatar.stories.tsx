@@ -114,7 +114,8 @@ export const ImageWithFallback: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'When the image fails to load, initials are shown as fallback.',
+        story:
+          'When the image fails to load, initials are shown as fallback.',
       },
     },
   },

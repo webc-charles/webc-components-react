@@ -99,7 +99,11 @@ export function TableHeaderCell({
   ...props
 }: TableHeaderCellTypes) {
   return (
-    <th ref={ref} className={clsx(styles.headerCell, className)} {...props}>
+    <th
+      ref={ref}
+      className={clsx(styles.headerCell, className)}
+      {...props}
+    >
       {children}
     </th>
   )

@@ -106,8 +106,14 @@ export const WithCustomTranscriptLabel: Story = {
 export const WithMultipleSources: Story = {
   args: {
     sources: [
-      { src: 'https://www.w3schools.com/html/horse.mp3', type: 'audio/mp3' },
-      { src: 'https://www.w3schools.com/html/horse.ogg', type: 'audio/ogg' },
+      {
+        src: 'https://www.w3schools.com/html/horse.mp3',
+        type: 'audio/mp3',
+      },
+      {
+        src: 'https://www.w3schools.com/html/horse.ogg',
+        type: 'audio/ogg',
+      },
     ],
     title: 'Horse Sound Effect',
     controls: true,

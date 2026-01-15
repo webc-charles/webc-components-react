@@ -42,7 +42,9 @@ describe('InputFile', () => {
 
   it('shows no file selected by default', () => {
     render(<InputFile />)
-    expect(screen.getByText('Aucun fichier sélectionné')).toBeInTheDocument()
+    expect(
+      screen.getByText('Aucun fichier sélectionné')
+    ).toBeInTheDocument()
   })
 
   it('calls onChange when file is selected', async () => {
@@ -149,7 +151,9 @@ describe('InputFile', () => {
   describe('accept validation', () => {
     it('accepts files matching extension', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone accept=".jpg,.png" onChange={handleChange} />)
+      render(
+        <InputFile dropzone accept=".jpg,.png" onChange={handleChange} />
+      )
 
       const dropzone = screen.getByRole('button')
       const file = createFile('photo.jpg', 'image/jpeg')
@@ -168,7 +172,9 @@ describe('InputFile', () => {
 
     it('rejects files not matching extension', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone accept=".jpg,.png" onChange={handleChange} />)
+      render(
+        <InputFile dropzone accept=".jpg,.png" onChange={handleChange} />
+      )
 
       const dropzone = screen.getByRole('button')
       const file = createFile('document.pdf', 'application/pdf')
@@ -186,7 +192,9 @@ describe('InputFile', () => {
 
     it('accepts files matching MIME wildcard', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone accept="image/*" onChange={handleChange} />)
+      render(
+        <InputFile dropzone accept="image/*" onChange={handleChange} />
+      )
 
       const dropzone = screen.getByRole('button')
       const file = createFile('photo.png', 'image/png')
@@ -204,7 +212,9 @@ describe('InputFile', () => {
 
     it('rejects files not matching MIME wildcard', () => {
       const handleChange = vi.fn()
-      render(<InputFile dropzone accept="image/*" onChange={handleChange} />)
+      render(
+        <InputFile dropzone accept="image/*" onChange={handleChange} />
+      )
 
       const dropzone = screen.getByRole('button')
       const file = createFile('document.pdf', 'application/pdf')
@@ -223,7 +233,11 @@ describe('InputFile', () => {
     it('accepts files matching exact MIME type', () => {
       const handleChange = vi.fn()
       render(
-        <InputFile dropzone accept="application/pdf" onChange={handleChange} />
+        <InputFile
+          dropzone
+          accept="application/pdf"
+          onChange={handleChange}
+        />
       )
 
       const dropzone = screen.getByRole('button')

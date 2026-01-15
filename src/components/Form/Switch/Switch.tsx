@@ -32,7 +32,11 @@ export function Switch({
   return (
     <label
       htmlFor={id}
-      className={clsx(styles.wrapper, disabled && styles.disabled, className)}
+      className={clsx(
+        styles.wrapper,
+        disabled && styles.disabled,
+        className
+      )}
       {...rest}
     >
       <input

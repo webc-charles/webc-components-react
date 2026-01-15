@@ -134,11 +134,15 @@ export function InputDate({
   )
 
   const handlePrevMonth = useCallback(() => {
-    setViewDate((prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1))
+    setViewDate(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1)
+    )
   }, [])
 
   const handleNextMonth = useCallback(() => {
-    setViewDate((prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1))
+    setViewDate(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1)
+    )
   }, [])
 
   const handleKeyDown = useCallback(
@@ -192,7 +196,9 @@ export function InputDate({
 
       if (newDate) {
         setTimeout(() => {
-          const buttons = gridRef.current?.querySelectorAll('button[data-date]')
+          const buttons = gridRef.current?.querySelectorAll(
+            'button[data-date]'
+          )
           buttons?.forEach((btn) => {
             if (btn.getAttribute('data-date') === newDate!.toISOString()) {
               ;(btn as HTMLButtonElement).focus()
@@ -295,7 +301,11 @@ export function InputDate({
 
             <div className={styles.weekdays} role="row">
               {str.days_short.map((day) => (
-                <span key={day} className={styles.weekday} role="columnheader">
+                <span
+                  key={day}
+                  className={styles.weekday}
+                  role="columnheader"
+                >
                   {day}
                 </span>
               ))}

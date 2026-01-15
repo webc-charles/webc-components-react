@@ -23,13 +23,22 @@ export function CardHeader({
   ...rest
 }: CardHeaderTypes) {
   return (
-    <div ref={ref} className={clsx(styles.cardHeader, className)} {...rest}>
+    <div
+      ref={ref}
+      className={clsx(styles.cardHeader, className)}
+      {...rest}
+    >
       {children}
     </div>
   )
 }
 
-export function CardBody({ ref, className, children, ...rest }: CardBodyTypes) {
+export function CardBody({
+  ref,
+  className,
+  children,
+  ...rest
+}: CardBodyTypes) {
   return (
     <div ref={ref} className={clsx(styles.cardBody, className)} {...rest}>
       {children}
@@ -44,7 +53,11 @@ export function CardFooter({
   ...rest
 }: CardFooterTypes) {
   return (
-    <div ref={ref} className={clsx(styles.cardFooter, className)} {...rest}>
+    <div
+      ref={ref}
+      className={clsx(styles.cardFooter, className)}
+      {...rest}
+    >
       {children}
     </div>
   )

@@ -45,7 +45,12 @@ export default meta
 type Story = StoryObj<typeof Table>
 
 const sampleData = [
-  { id: 1, name: 'Alice Martin', email: 'alice@example.com', role: 'Admin' },
+  {
+    id: 1,
+    name: 'Alice Martin',
+    email: 'alice@example.com',
+    role: 'Admin',
+  },
   { id: 2, name: 'Bob Dupont', email: 'bob@example.com', role: 'User' },
   {
     id: 3,
@@ -132,7 +137,9 @@ export const WithCaption: Story = {
 export const CaptionBottom: Story = {
   render: () => (
     <Table>
-      <TableCaption position="bottom">Source: Company directory</TableCaption>
+      <TableCaption position="bottom">
+        Source: Company directory
+      </TableCaption>
       <TableHead>
         <TableRow>
           <TableHeaderCell>Name</TableHeaderCell>

@@ -95,8 +95,16 @@ export const CardSkeleton: Story = {
         height={150}
         style={{ marginBottom: '1.6rem' }}
       />
-      <Skeleton variant="text" width="80%" style={{ marginBottom: '0.8rem' }} />
-      <Skeleton variant="text" width="60%" style={{ marginBottom: '1.2rem' }} />
+      <Skeleton
+        variant="text"
+        width="80%"
+        style={{ marginBottom: '0.8rem' }}
+      />
+      <Skeleton
+        variant="text"
+        width="60%"
+        style={{ marginBottom: '1.2rem' }}
+      />
       <div style={{ display: 'flex', gap: '1rem' }}>
         <Skeleton variant="circle" width={40} height={40} />
         <div style={{ flex: 1 }}>
@@ -114,7 +122,9 @@ export const CardSkeleton: Story = {
 
 export const ListSkeleton: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem' }}>
+    <div
+      style={{ display: 'flex', flexDirection: 'column', gap: '1.6rem' }}
+    >
       {[1, 2, 3].map((i) => (
         <div
           key={i}

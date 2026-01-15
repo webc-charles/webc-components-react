@@ -43,7 +43,11 @@ describe('Pagination', () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
     render(
-      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+      <Pagination
+        currentPage={5}
+        totalPages={10}
+        onPageChange={handleChange}
+      />
     )
 
     await user.click(screen.getByText('6'))
@@ -54,7 +58,11 @@ describe('Pagination', () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
     render(
-      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+      <Pagination
+        currentPage={5}
+        totalPages={10}
+        onPageChange={handleChange}
+      />
     )
 
     await user.click(screen.getByLabelText(/précédente/i))
@@ -65,7 +73,11 @@ describe('Pagination', () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
     render(
-      <Pagination currentPage={5} totalPages={10} onPageChange={handleChange} />
+      <Pagination
+        currentPage={5}
+        totalPages={10}
+        onPageChange={handleChange}
+      />
     )
 
     await user.click(screen.getByLabelText(/suivante/i))
@@ -79,7 +91,9 @@ describe('Pagination', () => {
   })
 
   it('hides prev and next links when showPrevNext is false', () => {
-    render(<Pagination currentPage={5} totalPages={10} showPrevNext={false} />)
+    render(
+      <Pagination currentPage={5} totalPages={10} showPrevNext={false} />
+    )
     expect(screen.queryByLabelText(/précédente/i)).not.toBeInTheDocument()
     expect(screen.queryByLabelText(/suivante/i)).not.toBeInTheDocument()
   })
@@ -91,7 +105,9 @@ describe('Pagination', () => {
   })
 
   it('does not render when totalPages is 1', () => {
-    const { container } = render(<Pagination currentPage={1} totalPages={1} />)
+    const { container } = render(
+      <Pagination currentPage={1} totalPages={1} />
+    )
     expect(container).toBeEmptyDOMElement()
   })
 

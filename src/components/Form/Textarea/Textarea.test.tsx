@@ -26,7 +26,9 @@ describe('InputTextarea', () => {
 
   it('calls onChange when typing', () => {
     const handleChange = vi.fn()
-    render(<InputTextarea data-testid="textarea" onChange={handleChange} />)
+    render(
+      <InputTextarea data-testid="textarea" onChange={handleChange} />
+    )
     fireEvent.change(screen.getByTestId('textarea'), {
       target: { value: 'New content' },
     })
@@ -35,7 +37,10 @@ describe('InputTextarea', () => {
 
   it('renders with placeholder', () => {
     render(
-      <InputTextarea data-testid="textarea" placeholder="Enter description" />
+      <InputTextarea
+        data-testid="textarea"
+        placeholder="Enter description"
+      />
     )
     const textarea = screen.getByTestId('textarea') as HTMLTextAreaElement
     expect(textarea.placeholder).toBe('Enter description')

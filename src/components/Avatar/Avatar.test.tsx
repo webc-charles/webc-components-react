@@ -10,7 +10,10 @@ describe('Avatar', () => {
     render(<Avatar src="/photo.jpg" alt="John Doe" data-testid="avatar" />)
     const avatar = screen.getByTestId('avatar')
     expect(avatar).toHaveAttribute('aria-label', 'John Doe')
-    expect(avatar.querySelector('img')).toHaveAttribute('src', '/photo.jpg')
+    expect(avatar.querySelector('img')).toHaveAttribute(
+      'src',
+      '/photo.jpg'
+    )
   })
 
   it('shows initials when no src', () => {
@@ -43,12 +46,17 @@ describe('Avatar', () => {
 
   it('applies variant class', () => {
     render(<Avatar name="Test" variant="primary" data-testid="avatar" />)
-    expect(screen.getByTestId('avatar').className).toMatch(/variant-primary/)
+    expect(screen.getByTestId('avatar').className).toMatch(
+      /variant-primary/
+    )
   })
 
   it('uses name for aria-label when no alt', () => {
     render(<Avatar name="John Doe" />)
-    expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'John Doe')
+    expect(screen.getByRole('img')).toHaveAttribute(
+      'aria-label',
+      'John Doe'
+    )
   })
 
   it('forwards ref', () => {

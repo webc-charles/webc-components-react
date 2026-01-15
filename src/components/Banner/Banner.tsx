@@ -102,7 +102,11 @@ export function BannerTitle({
   ...props
 }: BannerTitleTypes) {
   return (
-    <Title level={level} className={clsx(styles.title, className)} {...props}>
+    <Title
+      level={level}
+      className={clsx(styles.title, className)}
+      {...props}
+    >
       {children}
     </Title>
   )

@@ -38,7 +38,12 @@ export function GridItem({
     rowXL && styles[`gridItem--row-xl-${rowXL}`]
   )
 
-  const itemClasses = clsx(styles.gridItem, colClasses, rowClasses, className)
+  const itemClasses = clsx(
+    styles.gridItem,
+    colClasses,
+    rowClasses,
+    className
+  )
 
   return (
     <div className={itemClasses} {...rest}>

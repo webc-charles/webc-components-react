@@ -49,7 +49,10 @@ export function HeaderMobileNavItem({
         <ChevronDown
           size={20}
           aria-hidden="true"
-          className={clsx(styles.chevron, isExpanded && styles.chevronOpen)}
+          className={clsx(
+            styles.chevron,
+            isExpanded && styles.chevronOpen
+          )}
         />
       </Button>
       <div

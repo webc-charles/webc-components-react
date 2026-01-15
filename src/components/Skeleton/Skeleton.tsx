@@ -3,7 +3,9 @@ import clsx from 'clsx'
 import styles from './Skeleton.module.scss'
 import type { SkeletonTypes } from './Skeleton.types'
 
-const formatSize = (value: string | number | undefined): string | undefined => {
+const formatSize = (
+  value: string | number | undefined
+): string | undefined => {
   if (value === undefined) return undefined
   return typeof value === 'number' ? `${value}px` : value
 }

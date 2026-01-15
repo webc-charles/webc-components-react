@@ -58,7 +58,9 @@ export const Playground: Story = {
 export const Basic: Story = {
   render: () => (
     <Card style={cardStyles}>
-      <CardBody style={cardBodyStyles}>Basic card with body content.</CardBody>
+      <CardBody style={cardBodyStyles}>
+        Basic card with body content.
+      </CardBody>
     </Card>
   ),
 }
@@ -69,7 +71,9 @@ export const WithHeader: Story = {
       <CardHeader style={cardHeaderStyles}>
         <Title level="h3">Card Title</Title>
       </CardHeader>
-      <CardBody style={cardBodyStyles}>Card with header and body.</CardBody>
+      <CardBody style={cardBodyStyles}>
+        Card with header and body.
+      </CardBody>
     </Card>
   ),
 }

@@ -14,7 +14,9 @@ describe('Divider', () => {
 
   it('applies variant class', () => {
     render(<Divider variant="dashed" data-testid="divider" />)
-    expect(screen.getByTestId('divider').className).toContain('variant-dashed')
+    expect(screen.getByTestId('divider').className).toContain(
+      'variant-dashed'
+    )
   })
 
   it('applies spacing class', () => {

@@ -22,9 +22,8 @@ import type {
 } from './Accordion.types'
 
 const AccordionContext = createContext<AccordionContextValue | null>(null)
-const AccordionItemContext = createContext<AccordionItemContextValue | null>(
-  null
-)
+const AccordionItemContext =
+  createContext<AccordionItemContextValue | null>(null)
 
 function useAccordionContext() {
   const context = useContext(AccordionContext)
@@ -114,7 +113,11 @@ export function Accordion({
 
   return (
     <AccordionContext.Provider value={contextValue}>
-      <div ref={ref} className={clsx(styles.accordion, className)} {...props}>
+      <div
+        ref={ref}
+        className={clsx(styles.accordion, className)}
+        {...props}
+      >
         {children}
       </div>
     </AccordionContext.Provider>
@@ -192,11 +195,13 @@ export function AccordionTrigger({
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault()
-        nextIndex = currentIndex < triggers.length - 1 ? currentIndex + 1 : 0
+        nextIndex =
+          currentIndex < triggers.length - 1 ? currentIndex + 1 : 0
         break
       case 'ArrowUp':
         e.preventDefault()
-        nextIndex = currentIndex > 0 ? currentIndex - 1 : triggers.length - 1
+        nextIndex =
+          currentIndex > 0 ? currentIndex - 1 : triggers.length - 1
         break
       case 'Home':
         e.preventDefault()

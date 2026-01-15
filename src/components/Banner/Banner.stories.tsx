@@ -21,7 +21,11 @@ const horizontalAlignOptions: HorizontalAlignTypes[] = [
   'center',
   'right',
 ]
-const verticalAlignOptions: VerticalAlignTypes[] = ['start', 'center', 'end']
+const verticalAlignOptions: VerticalAlignTypes[] = [
+  'start',
+  'center',
+  'end',
+]
 const overlayOptions: BannerOverlayTypes[] = ['none', 'light', 'dark']
 
 const sampleImage =
@@ -90,8 +94,8 @@ export const Default: Story = {
         <BannerTitle>Welcome to Our Platform</BannerTitle>
         <BannerSubtitle>Build something amazing today</BannerSubtitle>
         <BannerText>
-          Discover the tools and resources you need to bring your ideas to life.
-          Start your journey with us and transform the way you work.
+          Discover the tools and resources you need to bring your ideas to
+          life. Start your journey with us and transform the way you work.
         </BannerText>
         <BannerActions>
           <Button variant="default" contrast appearance="button">
@@ -116,10 +120,12 @@ export const WithBackgroundImage: Story = {
     >
       <BannerContent textColor="light">
         <BannerTitle>Explore the Mountains</BannerTitle>
-        <BannerSubtitle>Adventure awaits beyond the horizon</BannerSubtitle>
+        <BannerSubtitle>
+          Adventure awaits beyond the horizon
+        </BannerSubtitle>
         <BannerText>
-          Experience breathtaking views and unforgettable moments in nature's
-          most spectacular landscapes.
+          Experience breathtaking views and unforgettable moments in
+          nature's most spectacular landscapes.
         </BannerText>
         <BannerActions>
           <Button variant="primary" contrast appearance="button">
@@ -140,7 +146,8 @@ export const WithBackgroundVideo: Story = {
       {...args}
       backgroundVideo={{
         src: 'https://www.w3schools.com/html/mov_bbb.mp4',
-        poster: 'https://peach.blender.org/wp-content/uploads/bbb-splash.png',
+        poster:
+          'https://peach.blender.org/wp-content/uploads/bbb-splash.png',
       }}
       overlay="dark"
       horizontalAlign="center"
@@ -149,8 +156,8 @@ export const WithBackgroundVideo: Story = {
         <BannerTitle>Cinematic Experience</BannerTitle>
         <BannerSubtitle>Immerse yourself in motion</BannerSubtitle>
         <BannerText>
-          Video backgrounds create engaging, dynamic hero sections that capture
-          attention instantly.
+          Video backgrounds create engaging, dynamic hero sections that
+          capture attention instantly.
         </BannerText>
         <BannerActions>
           <Button variant="primary" contrast appearance="button">
@@ -201,7 +208,9 @@ export const RightAligned: Story = {
       <BannerContent textColor="light" maxWidth="50rem">
         <BannerTitle level="h2">Premium Collection</BannerTitle>
         <BannerSubtitle>Exclusive designs for you</BannerSubtitle>
-        <BannerText>Handcrafted with attention to every detail.</BannerText>
+        <BannerText>
+          Handcrafted with attention to every detail.
+        </BannerText>
         <BannerActions>
           <Button variant="secondary" contrast appearance="button">
             Shop Now

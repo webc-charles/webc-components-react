@@ -64,7 +64,9 @@ describe('Switch', () => {
     expect(switchEl).not.toBeChecked()
 
     // Parent updates the prop
-    rerender(<Switch label="Test" checked={true} onChange={handleChange} />)
+    rerender(
+      <Switch label="Test" checked={true} onChange={handleChange} />
+    )
     expect(switchEl).toBeChecked()
   })
 

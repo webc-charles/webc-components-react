@@ -232,11 +232,13 @@ describe('Accordion', () => {
     )
 
     expect(
-      screen.getByTestId('accordion').classList.contains('custom-accordion')
+      screen
+        .getByTestId('accordion')
+        .classList.contains('custom-accordion')
     ).toBe(true)
-    expect(screen.getByTestId('item').classList.contains('custom-item')).toBe(
-      true
-    )
+    expect(
+      screen.getByTestId('item').classList.contains('custom-item')
+    ).toBe(true)
   })
 
   it('disabled item cannot be toggled', async () => {
@@ -250,7 +252,9 @@ describe('Accordion', () => {
       </Accordion>
     )
 
-    const item = screen.getByText('Disabled Section').closest('[data-disabled]')
+    const item = screen
+      .getByText('Disabled Section')
+      .closest('[data-disabled]')
     expect(item?.getAttribute('data-disabled')).toBe('true')
   })
 })

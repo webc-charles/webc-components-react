@@ -59,7 +59,9 @@ describe('Link', () => {
       </Link>
     )
     expect(screen.getByTestId('link').className).toMatch(/styled/)
-    expect(screen.getByTestId('link').className).toMatch(/appearance-button/)
+    expect(screen.getByTestId('link').className).toMatch(
+      /appearance-button/
+    )
   })
 
   it('applies custom className', () => {
@@ -78,6 +80,9 @@ describe('Link', () => {
       </Link>
     )
     expect(screen.getByTestId('link')).toHaveAttribute('tabindex', '-1')
-    expect(screen.getByTestId('link')).toHaveAttribute('aria-disabled', 'true')
+    expect(screen.getByTestId('link')).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    )
   })
 })

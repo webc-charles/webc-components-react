@@ -262,7 +262,10 @@ const ChoiceListItem = memo(
       requestAnimationFrame(() => {
         if (remainingValues.length > 0) {
           // Try to focus next item, or previous if at end
-          const nextIndex = Math.min(currentIndex, remainingValues.length - 1)
+          const nextIndex = Math.min(
+            currentIndex,
+            remainingValues.length - 1
+          )
           const nextValue = remainingValues[nextIndex]
           const nextButton = choiceButtonRefs.current.get(nextValue.value)
           if (nextButton) {
@@ -458,7 +461,9 @@ const SelectSearch = memo(() => {
       aria-controls={`${controlId}-listbox`}
       aria-autocomplete="list"
       aria-activedescendant={
-        focusedIndex >= 0 ? `${controlId}-option-${focusedIndex}` : undefined
+        focusedIndex >= 0
+          ? `${controlId}-option-${focusedIndex}`
+          : undefined
       }
     />
   )
@@ -487,7 +492,10 @@ const SelectPlaceholder = memo(
     if (multiple && value.length) return null
 
     return (
-      <span className={clsx(styles.selectPlaceholder, className)} {...rest}>
+      <span
+        className={clsx(styles.selectPlaceholder, className)}
+        {...rest}
+      >
         {placeholder}
       </span>
     )
@@ -530,7 +538,9 @@ const SelectRoot = (props: SelectRootTypes) => {
   const rootRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
-  const choiceButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
+  const choiceButtonRefs = useRef<Map<string, HTMLButtonElement>>(
+    new Map()
+  )
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const controlId = useId()
 
@@ -592,7 +602,8 @@ const SelectRoot = (props: SelectRootTypes) => {
     if (!rootRef.current || !isOpen) return
 
     const rect = rootRef.current.getBoundingClientRect()
-    const menuHeight = menuRef.current?.getBoundingClientRect().height || 250
+    const menuHeight =
+      menuRef.current?.getBoundingClientRect().height || 250
 
     let shouldFlip = false
     if (flip) {
@@ -636,7 +647,8 @@ const SelectRoot = (props: SelectRootTypes) => {
     }
 
     document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    return () =>
+      document.removeEventListener('mousedown', handleClickOutside)
   }, [isOpen, setIsOpen])
 
   const toggleOption = useCallback(
@@ -655,7 +667,15 @@ const SelectRoot = (props: SelectRootTypes) => {
         setIsOpen(false)
       }
     },
-    [disabled, isOpen, multiple, onChange, setIsOpen, value, updateMenuPosition]
+    [
+      disabled,
+      isOpen,
+      multiple,
+      onChange,
+      setIsOpen,
+      value,
+      updateMenuPosition,
+    ]
   )
 
   const clearAll = useCallback(() => {
@@ -818,7 +838,9 @@ const SelectRoot = (props: SelectRootTypes) => {
   }
 
   return (
-    <SelectContextRoot value={contextValue}>{selectElement}</SelectContextRoot>
+    <SelectContextRoot value={contextValue}>
+      {selectElement}
+    </SelectContextRoot>
   )
 }
 

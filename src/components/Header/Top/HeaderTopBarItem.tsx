@@ -75,9 +75,10 @@ export function HeaderTopBarItem({
       if (!isOpen) {
         setIsOpen(true)
       } else {
-        const firstElement = dropdownRef.current?.querySelector<HTMLElement>(
-          'a[href], button:not([disabled])'
-        )
+        const firstElement =
+          dropdownRef.current?.querySelector<HTMLElement>(
+            'a[href], button:not([disabled])'
+          )
         firstElement?.focus()
       }
     }

@@ -20,7 +20,9 @@ describe('InputNumber', () => {
   })
 
   it('displays current value', () => {
-    render(<InputNumber data-testid="number" value={10} onChange={() => {}} />)
+    render(
+      <InputNumber data-testid="number" value={10} onChange={() => {}} />
+    )
     const input = screen.getByTestId('number') as HTMLInputElement
     expect(input.value).toBe('10')
   })
@@ -28,9 +30,15 @@ describe('InputNumber', () => {
   it('calls onChange when typing in input', () => {
     const handleChange = vi.fn()
     render(
-      <InputNumber data-testid="number" value={0} onChange={handleChange} />
+      <InputNumber
+        data-testid="number"
+        value={0}
+        onChange={handleChange}
+      />
     )
-    fireEvent.change(screen.getByTestId('number'), { target: { value: '15' } })
+    fireEvent.change(screen.getByTestId('number'), {
+      target: { value: '15' },
+    })
     expect(handleChange).toHaveBeenCalledWith(15)
   })
 

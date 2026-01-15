@@ -21,7 +21,9 @@ import type { InputFileTypes } from './File.types'
 const isFileAccepted = (file: File, accept?: string): boolean => {
   if (!accept) return true
 
-  const acceptedTypes = accept.split(',').map((t) => t.trim().toLowerCase())
+  const acceptedTypes = accept
+    .split(',')
+    .map((t) => t.trim().toLowerCase())
   const fileName = file.name.toLowerCase()
   const mimeType = file.type.toLowerCase()
 
@@ -45,7 +47,9 @@ const filterAcceptedFiles = (
   accept?: string,
   multiple?: boolean
 ): FileList | null => {
-  const validFiles = Array.from(files).filter((f) => isFileAccepted(f, accept))
+  const validFiles = Array.from(files).filter((f) =>
+    isFileAccepted(f, accept)
+  )
 
   if (validFiles.length === 0) return null
 
@@ -107,7 +111,11 @@ export function InputFile({
 
     const droppedFiles = e.dataTransfer.files
     if (droppedFiles.length > 0) {
-      const validFiles = filterAcceptedFiles(droppedFiles, accept, multiple)
+      const validFiles = filterAcceptedFiles(
+        droppedFiles,
+        accept,
+        multiple
+      )
       if (validFiles) {
         setFiles(validFiles)
         onChange?.(validFiles)

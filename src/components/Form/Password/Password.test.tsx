@@ -34,7 +34,9 @@ describe('InputPassword', () => {
   })
 
   it('applies disabled state', () => {
-    render(<InputPassword data-testid="password" label="Password" disabled />)
+    render(
+      <InputPassword data-testid="password" label="Password" disabled />
+    )
     expect(screen.getByTestId('password')).toBeDisabled()
   })
 

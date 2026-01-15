@@ -49,7 +49,9 @@ describe('Button', () => {
       </Button>
     )
     expect(screen.getByTestId('button').className).toMatch(/styled/)
-    expect(screen.getByTestId('button').className).toMatch(/variant-primary/)
+    expect(screen.getByTestId('button').className).toMatch(
+      /variant-primary/
+    )
   })
 
   it('has styled class with appearance', () => {
@@ -59,7 +61,9 @@ describe('Button', () => {
       </Button>
     )
     expect(screen.getByTestId('button').className).toMatch(/styled/)
-    expect(screen.getByTestId('button').className).toMatch(/appearance-button/)
+    expect(screen.getByTestId('button').className).toMatch(
+      /appearance-button/
+    )
   })
 
   it('has correct type attribute', () => {

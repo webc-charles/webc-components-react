@@ -20,7 +20,11 @@ function valueToPercent(value: number, min: number, max: number): number {
   return ((value - min) / (max - min)) * 100
 }
 
-function percentToValue(percent: number, min: number, max: number): number {
+function percentToValue(
+  percent: number,
+  min: number,
+  max: number
+): number {
   return (percent / 100) * (max - min) + min
 }
 
@@ -48,12 +52,12 @@ export function Slider(props: SliderTypes) {
   const disableSwap = isRange ? (props.disableSwap ?? false) : false
 
   // Internal state
-  const [internalValue, setInternalValue] = useState<number | [number, number]>(
-    () => {
-      if (props.defaultValue !== undefined) return props.defaultValue
-      return isRange ? [min, max] : min
-    }
-  )
+  const [internalValue, setInternalValue] = useState<
+    number | [number, number]
+  >(() => {
+    if (props.defaultValue !== undefined) return props.defaultValue
+    return isRange ? [min, max] : min
+  })
 
   const [activeThumb, setActiveThumb] = useState<number | null>(null)
   const [hoveredThumb, setHoveredThumb] = useState<number | null>(null)
@@ -148,15 +152,17 @@ export function Slider(props: SliderTypes) {
         if (props.value === undefined) {
           setInternalValue(newValues)
         }
-        ;(props as { onChange?: (v: [number, number]) => void }).onChange?.(
-          newValues
-        )
+        ;(
+          props as { onChange?: (v: [number, number]) => void }
+        ).onChange?.(newValues)
       } else {
         const clampedValue = clamp(newValue, min, max)
         if (props.value === undefined) {
           setInternalValue(clampedValue)
         }
-        ;(props as { onChange?: (v: number) => void }).onChange?.(clampedValue)
+        ;(props as { onChange?: (v: number) => void }).onChange?.(
+          clampedValue
+        )
       }
     },
     [disabled, isRange, values, min, max, minDistance, disableSwap, props]
@@ -286,7 +292,9 @@ export function Slider(props: SliderTypes) {
 
       // Compute the value to commit (for range sliders, build the full tuple)
       if (isRange) {
-        const newValues: [number, number] = [...(values as [number, number])]
+        const newValues: [number, number] = [
+          ...(values as [number, number]),
+        ]
         newValues[thumbIndex] = newValue
         commitValue(newValues)
       } else {
@@ -385,7 +393,9 @@ export function Slider(props: SliderTypes) {
         data-testid={`slider-thumb-${thumbIndex}`}
       >
         {showLabel && (
-          <div className={styles.valueLabel}>{formatValue(thumbValue)}</div>
+          <div className={styles.valueLabel}>
+            {formatValue(thumbValue)}
+          </div>
         )}
       </div>
     )

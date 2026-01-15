@@ -82,7 +82,9 @@ export const WithLabel: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div
+      style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+    >
       {variants.map((v) => (
         <div
           key={v}
@@ -150,7 +152,9 @@ export const Animated: Story = {
 
 export const UploadProgress: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+    <div
+      style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+    >
       <div
         style={{
           display: 'flex',

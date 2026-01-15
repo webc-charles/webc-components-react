@@ -2,7 +2,10 @@ import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right'
 
-export type TooltipTypes = Omit<ComponentPropsWithRef<'div'>, 'content'> & {
+export type TooltipTypes = Omit<
+  ComponentPropsWithRef<'div'>,
+  'content'
+> & {
   /** Tooltip content */
   content: ReactNode
   /** Position relative to trigger */

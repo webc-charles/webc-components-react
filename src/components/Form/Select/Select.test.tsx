@@ -112,7 +112,9 @@ const MultiSelect = ({
           <ChoiceListItem
             key={opt.value}
             option={opt}
-            onRemove={(o) => setValue(value.filter((v) => v.value !== o.value))}
+            onRemove={(o) =>
+              setValue(value.filter((v) => v.value !== o.value))
+            }
           />
         ))}
       </ChoiceList>
@@ -232,7 +234,9 @@ describe('Select - Multiple', () => {
 
     await user.click(screen.getByTestId('select-root'))
     const modal = screen.getByTestId('modal')
-    expect(modal.querySelectorAll('input[type="checkbox"]')).toHaveLength(3)
+    expect(modal.querySelectorAll('input[type="checkbox"]')).toHaveLength(
+      3
+    )
   })
 
   it('keeps modal open after selection', async () => {
@@ -375,7 +379,9 @@ describe('Select - Searchable', () => {
 
     await waitFor(() => {
       expect(screen.getAllByRole('option')).toHaveLength(1)
-      expect(screen.getByRole('option', { name: /apple/i })).toBeInTheDocument()
+      expect(
+        screen.getByRole('option', { name: /apple/i })
+      ).toBeInTheDocument()
     })
   })
 

@@ -87,7 +87,9 @@ describe('Checkbox', () => {
         label="Disabled"
       />
     )
-    expect(screen.getByTestId('checkbox').querySelector('input')).toBeDisabled()
+    expect(
+      screen.getByTestId('checkbox').querySelector('input')
+    ).toBeDisabled()
   })
 
   it('applies custom className', () => {

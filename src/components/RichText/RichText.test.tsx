@@ -35,9 +35,14 @@ describe('RichText', () => {
 
   it('renders headings correctly', () => {
     render(
-      <RichText html="<h1>Title</h1><h2>Subtitle</h2>" data-testid="richtext" />
+      <RichText
+        html="<h1>Title</h1><h2>Subtitle</h2>"
+        data-testid="richtext"
+      />
     )
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Title')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      'Title'
+    )
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
       'Subtitle'
     )

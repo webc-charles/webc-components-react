@@ -17,8 +17,7 @@ const meta: Meta<typeof Accordion> = {
     type: {
       control: 'radio',
       options: ['single', 'multiple'],
-      description:
-        'Whether one or multiple items can be expanded at once',
+      description: 'Whether one or multiple items can be expanded at once',
       table: {
         defaultValue: { summary: 'single' },
       },
@@ -114,11 +113,7 @@ export const Multiple: Story = {
 
 export const NonCollapsible: Story = {
   render: () => (
-    <Accordion
-      type="single"
-      collapsible={false}
-      defaultValue="item-1"
-    >
+    <Accordion type="single" collapsible={false} defaultValue="item-1">
       {faqItems.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionTrigger>{item.title}</AccordionTrigger>
@@ -135,9 +130,7 @@ export const WithDisabledItem: Story = {
     <Accordion type="single">
       <AccordionItem value="item-1">
         <AccordionTrigger>Available Section</AccordionTrigger>
-        <AccordionContent>
-          This section is available.
-        </AccordionContent>
+        <AccordionContent>This section is available.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2" disabled>
         <AccordionTrigger>Disabled Section</AccordionTrigger>
@@ -188,8 +181,7 @@ export const ControlledMultiple: Story = {
     return (
       <div>
         <div style={{ marginBottom: '1rem' }}>
-          <strong>Expanded items:</strong>{' '}
-          {values.join(', ') || 'none'}
+          <strong>Expanded items:</strong> {values.join(', ') || 'none'}
         </div>
         <Accordion
           type="multiple"

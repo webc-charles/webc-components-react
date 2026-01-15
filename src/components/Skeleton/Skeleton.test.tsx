@@ -42,8 +42,12 @@ describe('Skeleton', () => {
   })
 
   it('applies custom borderRadius', () => {
-    render(<Skeleton variant="rect" borderRadius={8} data-testid="skeleton" />)
-    expect(screen.getByTestId('skeleton')).toHaveStyle({ borderRadius: '8px' })
+    render(
+      <Skeleton variant="rect" borderRadius={8} data-testid="skeleton" />
+    )
+    expect(screen.getByTestId('skeleton')).toHaveStyle({
+      borderRadius: '8px',
+    })
   })
 
   it('has animation by default', () => {
@@ -53,7 +57,9 @@ describe('Skeleton', () => {
 
   it('can disable animation', () => {
     render(<Skeleton animation={false} data-testid="skeleton" />)
-    expect(screen.getByTestId('skeleton').className).not.toMatch(/animated/)
+    expect(screen.getByTestId('skeleton').className).not.toMatch(
+      /animated/
+    )
   })
 
   it('forwards ref', () => {

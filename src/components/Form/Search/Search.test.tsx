@@ -34,7 +34,11 @@ describe('InputSearch', () => {
     const user = userEvent.setup()
     const handleChange = vi.fn()
     render(
-      <InputSearch data-testid="search" value="test" onChange={handleChange} />
+      <InputSearch
+        data-testid="search"
+        value="test"
+        onChange={handleChange}
+      />
     )
 
     const clearButton = screen.getByRole('button', { name: /effacer/i })

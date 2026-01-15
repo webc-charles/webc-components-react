@@ -335,7 +335,9 @@ const InfiniteScrollStory = () => {
           <ChoiceListItem
             key={opt.value}
             option={opt}
-            onRemove={(o) => setValue(value.filter((v) => v.value !== o.value))}
+            onRemove={(o) =>
+              setValue(value.filter((v) => v.value !== o.value))
+            }
           />
         ))}
       </ChoiceList>

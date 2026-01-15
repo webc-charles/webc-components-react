@@ -16,7 +16,11 @@ export function Note({
     <div
       ref={ref}
       role="note"
-      className={clsx(styles.note, styles[`variant-${variant}`], className)}
+      className={clsx(
+        styles.note,
+        styles[`variant-${variant}`],
+        className
+      )}
       {...rest}
     >
       {children}

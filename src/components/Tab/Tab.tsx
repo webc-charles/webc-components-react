@@ -67,7 +67,12 @@ export function Tab({
   )
 }
 
-export function TabList({ ref, className, children, ...props }: TabListTypes) {
+export function TabList({
+  ref,
+  className,
+  children,
+  ...props
+}: TabListTypes) {
   const listRef = useRef<HTMLDivElement>(null)
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -160,7 +165,11 @@ export function TabPanels({
   ...props
 }: TabPanelsTypes) {
   return (
-    <div ref={ref} className={clsx(styles.tabPanels, className)} {...props}>
+    <div
+      ref={ref}
+      className={clsx(styles.tabPanels, className)}
+      {...props}
+    >
       {children}
     </div>
   )

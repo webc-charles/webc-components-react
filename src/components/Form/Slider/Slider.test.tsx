@@ -21,12 +21,18 @@ describe('Slider', () => {
 
     it('renders with default value', () => {
       render(<Slider defaultValue={50} aria-label="Test slider" />)
-      expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '50')
+      expect(screen.getByRole('slider')).toHaveAttribute(
+        'aria-valuenow',
+        '50'
+      )
     })
 
     it('renders with controlled value', () => {
       render(<Slider value={75} aria-label="Test slider" />)
-      expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '75')
+      expect(screen.getByRole('slider')).toHaveAttribute(
+        'aria-valuenow',
+        '75'
+      )
     })
 
     it('renders disabled state', () => {
@@ -55,7 +61,9 @@ describe('Slider', () => {
 
   describe('range slider', () => {
     it('renders two thumbs for range slider', () => {
-      render(<Slider range defaultValue={[20, 80]} aria-label="Range slider" />)
+      render(
+        <Slider range defaultValue={[20, 80]} aria-label="Range slider" />
+      )
       expect(screen.getAllByRole('slider')).toHaveLength(2)
     })
 
@@ -109,7 +117,9 @@ describe('Slider', () => {
   describe('keyboard navigation', () => {
     it('increases value with ArrowRight', () => {
       const onChange = vi.fn()
-      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
+      render(
+        <Slider value={50} onChange={onChange} aria-label="Test slider" />
+      )
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowRight' })
@@ -119,7 +129,9 @@ describe('Slider', () => {
 
     it('decreases value with ArrowLeft', () => {
       const onChange = vi.fn()
-      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
+      render(
+        <Slider value={50} onChange={onChange} aria-label="Test slider" />
+      )
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowLeft' })
@@ -129,7 +141,9 @@ describe('Slider', () => {
 
     it('goes to min with Home', () => {
       const onChange = vi.fn()
-      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
+      render(
+        <Slider value={50} onChange={onChange} aria-label="Test slider" />
+      )
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'Home' })
@@ -139,7 +153,9 @@ describe('Slider', () => {
 
     it('goes to max with End', () => {
       const onChange = vi.fn()
-      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
+      render(
+        <Slider value={50} onChange={onChange} aria-label="Test slider" />
+      )
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'End' })
@@ -167,7 +183,9 @@ describe('Slider', () => {
 
   describe('accessibility', () => {
     it('has correct ARIA attributes', () => {
-      render(<Slider min={0} max={100} defaultValue={50} aria-label="Volume" />)
+      render(
+        <Slider min={0} max={100} defaultValue={50} aria-label="Volume" />
+      )
 
       const slider = screen.getByRole('slider')
       expect(slider).toHaveAttribute('aria-label', 'Volume')
@@ -177,7 +195,9 @@ describe('Slider', () => {
     })
 
     it('has correct aria-orientation for vertical', () => {
-      render(<Slider orientation="vertical" aria-label="Vertical slider" />)
+      render(
+        <Slider orientation="vertical" aria-label="Vertical slider" />
+      )
 
       expect(screen.getByRole('slider')).toHaveAttribute(
         'aria-orientation',
@@ -218,7 +238,9 @@ describe('Slider', () => {
   describe('callbacks', () => {
     it('calls onChange when value changes', () => {
       const onChange = vi.fn()
-      render(<Slider value={50} onChange={onChange} aria-label="Test slider" />)
+      render(
+        <Slider value={50} onChange={onChange} aria-label="Test slider" />
+      )
 
       const slider = screen.getByRole('slider')
       fireEvent.keyDown(slider, { key: 'ArrowRight' })

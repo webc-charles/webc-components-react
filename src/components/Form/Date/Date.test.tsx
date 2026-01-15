@@ -16,7 +16,9 @@ describe('InputDate', () => {
       />
     )
 
-    expect(screen.getByPlaceholderText('Select a date')).toBeInTheDocument()
+    expect(
+      screen.getByPlaceholderText('Select a date')
+    ).toBeInTheDocument()
   })
 
   it('renders with label', () => {
@@ -28,7 +30,11 @@ describe('InputDate', () => {
   it('displays selected date in input', () => {
     const date = new Date(2025, 0, 15) // January 15, 2025
     render(
-      <InputDate selected={date} onChange={() => {}} dateFormat="yyyy-MM-dd" />
+      <InputDate
+        selected={date}
+        onChange={() => {}}
+        dateFormat="yyyy-MM-dd"
+      />
     )
 
     expect(screen.getByDisplayValue('2025-01-15')).toBeInTheDocument()
@@ -47,7 +53,11 @@ describe('InputDate', () => {
   it('opens calendar modal on input click', async () => {
     const user = userEvent.setup()
     render(
-      <InputDate selected={null} onChange={() => {}} placeholder="Select" />
+      <InputDate
+        selected={null}
+        onChange={() => {}}
+        placeholder="Select"
+      />
     )
 
     await user.click(screen.getByPlaceholderText('Select'))

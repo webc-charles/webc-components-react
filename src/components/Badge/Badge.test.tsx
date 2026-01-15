@@ -18,7 +18,9 @@ describe('Badge', () => {
         Primary Badge
       </Badge>
     )
-    expect(screen.getByTestId('badge').className).toMatch(/variant-primary/)
+    expect(screen.getByTestId('badge').className).toMatch(
+      /variant-primary/
+    )
   })
 
   it('applies custom className', () => {

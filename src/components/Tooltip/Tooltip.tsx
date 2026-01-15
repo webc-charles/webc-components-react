@@ -65,7 +65,8 @@ export function Tooltip({
   const tooltipRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [adjustedPosition, setAdjustedPosition] = useState(preferredPosition)
+  const [adjustedPosition, setAdjustedPosition] =
+    useState(preferredPosition)
   const [offsetX, setOffsetX] = useState(0)
 
   const showTooltip = () => {

@@ -12,8 +12,13 @@ describe('Video', () => {
   })
 
   it('renders with poster', () => {
-    render(<Video src="test.mp4" poster="poster.jpg" data-testid="video" />)
-    expect(screen.getByTestId('video')).toHaveAttribute('poster', 'poster.jpg')
+    render(
+      <Video src="test.mp4" poster="poster.jpg" data-testid="video" />
+    )
+    expect(screen.getByTestId('video')).toHaveAttribute(
+      'poster',
+      'poster.jpg'
+    )
   })
 
   it('renders with controls by default', () => {
@@ -39,7 +44,9 @@ describe('Video', () => {
 
   it('applies aspect ratio style', () => {
     render(<Video src="test.mp4" aspectRatio="16/9" data-testid="video" />)
-    expect(screen.getByTestId('video')).toHaveStyle({ aspectRatio: '16/9' })
+    expect(screen.getByTestId('video')).toHaveStyle({
+      aspectRatio: '16/9',
+    })
   })
 
   it('renders multiple sources', () => {

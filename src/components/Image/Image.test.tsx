@@ -13,7 +13,9 @@ describe('Image', () => {
   })
 
   it('applies fit class', () => {
-    render(<Image src="test.jpg" alt="Test" fit="cover" data-testid="image" />)
+    render(
+      <Image src="test.jpg" alt="Test" fit="cover" data-testid="image" />
+    )
     expect(screen.getByTestId('image').className).toMatch(/fitCover/)
   })
 
@@ -26,9 +28,16 @@ describe('Image', () => {
 
   it('applies aspect ratio style', () => {
     render(
-      <Image src="test.jpg" alt="Test" aspectRatio="16/9" data-testid="image" />
+      <Image
+        src="test.jpg"
+        alt="Test"
+        aspectRatio="16/9"
+        data-testid="image"
+      />
     )
-    expect(screen.getByTestId('image')).toHaveStyle({ aspectRatio: '16/9' })
+    expect(screen.getByTestId('image')).toHaveStyle({
+      aspectRatio: '16/9',
+    })
   })
 
   it('renders figure with caption', () => {

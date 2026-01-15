@@ -30,7 +30,10 @@ export function InputRadio({
       aria-labelledby={label ? labelId : undefined}
     >
       {label && (
-        <span id={labelId} className={clsx(styles.groupLabel, labelClassName)}>
+        <span
+          id={labelId}
+          className={clsx(styles.groupLabel, labelClassName)}
+        >
           {label}
         </span>
       )}

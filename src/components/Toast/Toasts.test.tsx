@@ -71,6 +71,8 @@ describe('Toasts', () => {
     fireEvent.click(closeButton!)
     await act(async () => vi.advanceTimersByTime(1500))
 
-    expect(document.querySelector('[role="status"]')).not.toBeInTheDocument()
+    expect(
+      document.querySelector('[role="status"]')
+    ).not.toBeInTheDocument()
   })
 })

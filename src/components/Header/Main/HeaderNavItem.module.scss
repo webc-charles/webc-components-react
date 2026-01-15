@@ -19,7 +19,8 @@
   padding: 0 2rem;
 
   &:hover,
-  &:focus {
+  &:focus,
+  .hasDropdown:hover & {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }
@@ -68,7 +69,7 @@
 
 .dropdownInner {
   background: var(--color-white);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   color: var(--color-grey-1);
   padding: 2rem;
 }
@@ -90,7 +91,7 @@
 
 .megaMenuInner {
   background: var(--color-white);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-sm);
   color: var(--color-grey-1);
   margin: 0 auto;
   max-width: var(--container-max-width);

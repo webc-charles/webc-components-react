@@ -121,9 +121,10 @@ export function HeaderTopBarItem({
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
       </Button>
+
       <div
-        ref={setDropdownRef}
         role="menu"
+        ref={setDropdownRef}
         className={clsx(styles.dropdown, isOpen && styles.dropdownOpen)}
       >
         <div className={styles.dropdownInner}>{dropdown}</div>

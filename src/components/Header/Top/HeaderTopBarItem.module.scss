@@ -15,17 +15,9 @@
   padding: 0;
   position: relative;
 
-  &::after {
-    content: '';
-    height: 1rem;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-  }
-
   &:hover,
-  &:focus {
+  &:focus,
+  .hasDropdown:hover & {
     color: var(--color-primary-contrast);
   }
 }
@@ -39,8 +31,7 @@
 }
 
 .dropdown {
-  border-radius: var(--radius-md);
-  min-width: 16rem;
+  min-width: 14rem;
   opacity: 0;
   padding: 1rem 0 0;
   pointer-events: none;
@@ -56,10 +47,12 @@
 
 .dropdownInner {
   background-color: var(--color-black);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .dropdownOpen {

@@ -11,16 +11,17 @@
   cursor: pointer;
   display: flex;
   font-size: var(--font-size-4);
-  gap: 0.8rem;
+  gap: 1rem;
   justify-content: space-between;
-  padding: 1.2rem 1.6rem;
+  padding: 1rem 1.5rem;
   text-align: left;
-  transition: background-color var(--transition-default);
+  background-color: var(--color-grey-6);
   width: 100%;
 
   &:hover,
   &:focus {
-    background-color: var(--color-grey-6);
+    background-color: var(--color-primary-2);
+    color: var(--color-white);
   }
 }
 
@@ -32,16 +33,20 @@
   transform: rotate(180deg);
 }
 
-.content {
+.dropdown {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--transition-default);
 }
 
-.contentInner {
+.dropdownInner {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
-.contentOpen {
+.isOpen {
+  padding: 0.5rem 0 0;
   grid-template-rows: 1fr;
 }

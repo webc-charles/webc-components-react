@@ -8,6 +8,7 @@ import {
   HeaderMobileDropdownLink,
   HeaderMobileLink,
   HeaderMobileMenu,
+  HeaderMobileNav,
   HeaderMobileToggle,
   HeaderNav,
   HeaderNavItem,
@@ -25,12 +26,6 @@ const logoStyles = {
   fontWeight: 700,
   textDecoration: 'none',
   color: 'inherit',
-}
-
-const hrStyles = {
-  margin: '1.6rem 0',
-  border: 'none',
-  borderTop: '0.1rem solid var(--color-grey-6)',
 }
 
 const meta: Meta<typeof HeaderRoot> = {
@@ -138,6 +133,66 @@ const MegaMenuContent = () => (
   </Grid>
 )
 
+const MobileMenuContent = () => (
+  <HeaderMobileMenu>
+    <HeaderMobileNav>
+      <HeaderMobileLink asChild>
+        <Link href="/">Accueil</Link>
+      </HeaderMobileLink>
+
+      <HeaderMobileLink asChild>
+        <Link href="/">Produits</Link>
+      </HeaderMobileLink>
+
+      <HeaderMobileLink asChild>
+        <Link href="/">À propos</Link>
+      </HeaderMobileLink>
+
+      <HeaderMobileDropdown label="Produits">
+        <HeaderMobileDropdownLink asChild>
+          <Link href="/">Logiciels</Link>
+        </HeaderMobileDropdownLink>
+        <HeaderMobileDropdownLink asChild>
+          <Link href="/">Services</Link>
+        </HeaderMobileDropdownLink>
+        <HeaderMobileDropdownLink asChild>
+          <Link href="/">Formations</Link>
+        </HeaderMobileDropdownLink>
+      </HeaderMobileDropdown>
+
+      <HeaderMobileDropdown label="Services">
+        <HeaderMobileDropdownLink asChild>
+          <Link href="/">Consulting</Link>
+        </HeaderMobileDropdownLink>
+        <HeaderMobileDropdownLink asChild>
+          <Link href="/">Support</Link>
+        </HeaderMobileDropdownLink>
+      </HeaderMobileDropdown>
+    </HeaderMobileNav>
+
+    <HeaderMobileNav>
+      <HeaderMobileLink asChild>
+        <Link href="/">Contact</Link>
+      </HeaderMobileLink>
+      <HeaderMobileLink asChild>
+        <Link href="/">Logiciel A</Link>
+      </HeaderMobileLink>
+      <HeaderMobileLink asChild>
+        <Link href="/">Logiciel B</Link>
+      </HeaderMobileLink>
+    </HeaderMobileNav>
+
+    <HeaderMobileNav>
+      <Link appearance="outline" variant="primary">
+        Connexion
+      </Link>
+      <Link appearance="button" variant="primary">
+        Inscription
+      </Link>
+    </HeaderMobileNav>
+  </HeaderMobileMenu>
+)
+
 export const Default: Story = {
   render: (args) => (
     <HeaderRoot {...args}>
@@ -183,32 +238,7 @@ export const Default: Story = {
         </HeaderActions>
 
         <HeaderMobileToggle />
-
-        <HeaderMobileMenu>
-          <HeaderMobileLink asChild>
-            <Link href="/">Accueil</Link>
-          </HeaderMobileLink>
-          <HeaderMobileLink asChild>
-            <Link href="/">Produits</Link>
-          </HeaderMobileLink>
-          <HeaderMobileLink asChild>
-            <Link href="/">À propos</Link>
-          </HeaderMobileLink>
-          <HeaderMobileLink asChild>
-            <Link href="/">Contact</Link>
-          </HeaderMobileLink>
-          <hr style={hrStyles} />
-          <Button appearance="outline" style={{ width: '100%' }}>
-            Connexion
-          </Button>
-          <Button
-            appearance="button"
-            variant="primary"
-            style={{ width: '100%', marginTop: '0.8rem' }}
-          >
-            Inscription
-          </Button>
-        </HeaderMobileMenu>
+        <MobileMenuContent />
       </HeaderMain>
     </HeaderRoot>
   ),
@@ -228,6 +258,7 @@ export const WithTopBar: Story = {
           FR
         </HeaderTopBarItem>
       </HeaderTopBar>
+
       <HeaderMain>
         <HeaderLogo>
           <Link href="/" style={logoStyles}>
@@ -262,17 +293,7 @@ export const WithTopBar: Story = {
         </HeaderActions>
 
         <HeaderMobileToggle />
-        <HeaderMobileMenu>
-          <HeaderMobileLink asChild>
-            <Link href="/">Accueil</Link>
-          </HeaderMobileLink>
-          <HeaderMobileLink asChild>
-            <Link href="/">Produits</Link>
-          </HeaderMobileLink>
-          <HeaderMobileLink asChild>
-            <Link href="/">À propos</Link>
-          </HeaderMobileLink>
-        </HeaderMobileMenu>
+        <MobileMenuContent />
       </HeaderMain>
     </HeaderRoot>
   ),
@@ -308,39 +329,14 @@ export const WithDropdowns: Story = {
         </HeaderNav>
 
         <HeaderActions>
-          <Button appearance="button" variant="primary">
+          <Link href="/" appearance="button" variant="primary">
             Démo
-          </Button>
+          </Link>
         </HeaderActions>
 
         <HeaderMobileToggle />
-        <HeaderMobileMenu>
-          <HeaderMobileLink asChild>
-            <Link href="/">Accueil</Link>
-          </HeaderMobileLink>
-          <HeaderMobileDropdown label="Produits">
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Logiciels</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Services</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Formations</Link>
-            </HeaderMobileDropdownLink>
-          </HeaderMobileDropdown>
-          <HeaderMobileDropdown label="Services">
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Consulting</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Support</Link>
-            </HeaderMobileDropdownLink>
-          </HeaderMobileDropdown>
-          <HeaderMobileLink asChild>
-            <Link href="/">Contact</Link>
-          </HeaderMobileLink>
-        </HeaderMobileMenu>
+
+        <MobileMenuContent />
       </HeaderMain>
     </HeaderRoot>
   ),
@@ -355,6 +351,7 @@ export const MegaMenu: Story = {
             Enterprise
           </Link>
         </HeaderLogo>
+
         <HeaderNav>
           <HeaderNavItem>
             <HeaderNavItemLink asChild>
@@ -373,45 +370,18 @@ export const MegaMenu: Story = {
             </HeaderNavItemLink>
           </HeaderNavItem>
         </HeaderNav>
+
         <HeaderActions>
-          <Button appearance="outline" variant="primary">
+          <Link href="/" appearance="outline" variant="primary">
             Se connecter
-          </Button>
-          <Button appearance="button" variant="primary">
+          </Link>
+          <Link href="/" appearance="button" variant="primary">
             Essai gratuit
-          </Button>
+          </Link>
         </HeaderActions>
+
         <HeaderMobileToggle />
-        <HeaderMobileMenu>
-          <HeaderMobileLink asChild>
-            <Link href="/">Accueil</Link>
-          </HeaderMobileLink>
-          <HeaderMobileDropdown label="Solutions">
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Logiciel A</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Logiciel B</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Consulting</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Documentation</Link>
-            </HeaderMobileDropdownLink>
-          </HeaderMobileDropdown>
-          <HeaderMobileDropdown label="Produits">
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Logiciels</Link>
-            </HeaderMobileDropdownLink>
-            <HeaderMobileDropdownLink asChild>
-              <Link href="/">Services</Link>
-            </HeaderMobileDropdownLink>
-          </HeaderMobileDropdown>
-          <HeaderMobileLink asChild>
-            <Link href="/">Contact</Link>
-          </HeaderMobileLink>
-        </HeaderMobileMenu>
+        <MobileMenuContent />
       </HeaderMain>
     </HeaderRoot>
   ),
@@ -452,23 +422,13 @@ export const Sticky: Story = {
           </HeaderNav>
 
           <HeaderActions>
-            <Button appearance="button" variant="primary">
+            <Link href="/" appearance="button" variant="primary">
               CTA
-            </Button>
+            </Link>
           </HeaderActions>
 
           <HeaderMobileToggle />
-          <HeaderMobileMenu>
-            <HeaderMobileLink asChild>
-              <Link href="/">Accueil</Link>
-            </HeaderMobileLink>
-            <HeaderMobileLink asChild>
-              <Link href="/">Produits</Link>
-            </HeaderMobileLink>
-            <HeaderMobileLink asChild>
-              <Link href="/">Contact</Link>
-            </HeaderMobileLink>
-          </HeaderMobileMenu>
+          <MobileMenuContent />
         </HeaderMain>
       </HeaderRoot>
 

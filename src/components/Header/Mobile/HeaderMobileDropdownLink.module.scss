@@ -3,12 +3,13 @@
   color: var(--color-grey-1);
   display: block;
   font-size: var(--font-size-3);
-  padding: 1.2rem 1.6rem 1.2rem 3.2rem;
+  padding: 1rem 1.5rem;
   text-decoration: none;
-  transition: background-color var(--transition-default);
+  background-color: var(--color-grey-5);
 
   &:hover,
   &:focus {
-    background-color: var(--color-grey-6);
+    background-color: var(--color-primary-2);
+    color: var(--color-white);
   }
 }

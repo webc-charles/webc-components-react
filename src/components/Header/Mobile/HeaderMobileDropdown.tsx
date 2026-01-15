@@ -53,12 +53,13 @@ export function HeaderMobileDropdown({
           )}
         />
       </Button>
+
       <div
         ref={setContentRef}
         id={contentId}
-        className={clsx(styles.content, isExpanded && styles.contentOpen)}
+        className={clsx(styles.dropdown, isExpanded && styles.isOpen)}
       >
-        <div className={styles.contentInner}>{children}</div>
+        <div className={styles.dropdownInner}>{children}</div>
       </div>
     </div>
   )

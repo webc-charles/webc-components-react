@@ -5,9 +5,11 @@
   font-size: var(--font-size-4);
   padding: 1.2rem 1.6rem;
   text-decoration: none;
+  background-color: var(--color-grey-6);
 
   &:hover,
   &:focus {
-    background-color: var(--color-grey-6);
+    background-color: var(--color-primary-2);
+    color: var(--color-white);
   }
 }

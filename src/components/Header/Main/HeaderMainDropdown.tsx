@@ -104,6 +104,7 @@ export function HeaderMainDropdown({
       )}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      onFocusCapture={handleFocus}
       onBlur={handleBlur}
       {...rest}
     >
@@ -116,7 +117,6 @@ export function HeaderMainDropdown({
         aria-haspopup="true"
         aria-current={current ? 'page' : undefined}
         onClick={isLink ? undefined : () => setIsOpen((prev) => !prev)}
-        onFocus={handleFocus}
         onKeyDown={handleKeyDown}
       >
         {label}

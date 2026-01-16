@@ -4,7 +4,8 @@
   height: var(--height-header);
   position: relative;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     .chevron {
       transform: rotate(180deg);
     }
@@ -33,7 +34,8 @@
 
   &:hover,
   &:focus-visible,
-  .item:hover & {
+  .item:hover &,
+  .item:focus-within & {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }

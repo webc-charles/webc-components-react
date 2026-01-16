@@ -9,7 +9,7 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 import clsx from 'clsx'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { ChevronDown, X } from 'lucide-react'
 import { Spinner } from '../../Spinner'
 import { Button } from '../Button'
@@ -168,6 +168,7 @@ const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
     searchInputRef,
     rootRef,
   } = useSelectContext()
+  const t = useI18n()
 
   if (!value.length) return null
 
@@ -194,7 +195,7 @@ const ChoiceClear = memo(({ className, ...rest }: ChoiceClearTypes) => {
           e.stopPropagation()
         }
       }}
-      aria-label={str.clear_all}
+      aria-label={t.clear_all}
       className={clsx(styles.choiceClear, className)}
       {...rest}
     >
@@ -207,12 +208,13 @@ ChoiceClear.displayName = 'ChoiceClear'
 // CHOICE LIST
 const ChoiceList = memo((props: ChoiceListTypes) => {
   const { className, selectedOptions, children, ...rest } = props
+  const t = useI18n()
 
   if (!selectedOptions.length) return null
 
   return (
     <ul
-      aria-label={str.selected_options}
+      aria-label={t.selected_options}
       className={clsx(styles.choiceList, className)}
       {...rest}
     >
@@ -233,6 +235,7 @@ const ChoiceListItem = memo(
       value,
       choiceButtonRefs,
     } = useSelectContext()
+    const t = useI18n()
     const buttonRef = useRef<HTMLButtonElement>(null)
 
     // Register/unregister ref
@@ -295,7 +298,7 @@ const ChoiceListItem = memo(
               handleRemove(e)
             }
           }}
-          aria-label={`${str.remove} ${option.label}`}
+          aria-label={`${t.remove} ${option.label}`}
           className={styles.choiceListItemRemove}
         >
           <X size={16} aria-hidden />
@@ -426,6 +429,7 @@ const SelectSearch = memo(() => {
     placeholder,
     value,
   } = useSelectContext()
+  const t = useI18n()
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     handleKeyboardNavigation(e, {
@@ -455,7 +459,7 @@ const SelectSearch = memo(() => {
       onClick={(e) => e.stopPropagation()}
       placeholder={showPlaceholder ? placeholder : ''}
       className={styles.selectSearchInline}
-      aria-label={str.search}
+      aria-label={t.search}
       aria-controls={`${controlId}-listbox`}
       aria-autocomplete="list"
       aria-activedescendant={
@@ -503,6 +507,7 @@ SelectPlaceholder.displayName = 'SelectPlaceholder'
 
 // SELECT ROOT
 const SelectRoot = (props: SelectRootTypes) => {
+  const t = useI18n()
   const {
     options,
     value,
@@ -512,7 +517,7 @@ const SelectRoot = (props: SelectRootTypes) => {
     children,
     label,
     labelClassName,
-    placeholder = str.select_option,
+    placeholder = t.select_option,
     flip = true,
     multiple = false,
     searchable = false,

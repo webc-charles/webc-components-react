@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { cleanup, render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from 'utils/Test'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
   Carousel,
@@ -66,10 +66,10 @@ describe('Carousel', () => {
     )
 
     expect(
-      screen.getByRole('button', { name: /précédente/i })
+      screen.getByRole('button', { name: /previous/i })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /suivante/i })
+      screen.getByRole('button', { name: /next/i })
     ).toBeInTheDocument()
   })
 

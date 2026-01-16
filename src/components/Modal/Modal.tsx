@@ -1,7 +1,7 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { X } from 'lucide-react'
 import styles from './Modal.module.scss'
 import type { ModalTypes } from './Modal.types'
@@ -14,9 +14,11 @@ export function Modal({
   onRemove,
   duration = Infinity,
   closeOnBackdrop = false,
-  closeLabel = str.close_modal,
+  closeLabel,
   hideCloseButton = false,
 }: ModalTypes) {
+  const t = useI18n()
+  const closeLabelText = closeLabel ?? t.close_modal
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)
   const modalRef = useRef<HTMLDivElement>(null)
@@ -152,9 +154,9 @@ export function Modal({
         {!hideCloseButton && (
           <Button
             type="button"
-            title={closeLabel}
+            title={closeLabelText}
             onClick={handleRemove}
-            aria-label={closeLabel}
+            aria-label={closeLabelText}
             className={styles.close}
           >
             <X size={16} aria-hidden />

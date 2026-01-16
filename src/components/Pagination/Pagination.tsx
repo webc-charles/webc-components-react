@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import clsx from 'clsx'
 import { Link } from 'components'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import {
   ChevronLeft,
   ChevronRight,
@@ -82,6 +82,8 @@ export function Pagination({
   'aria-label': ariaLabel,
   ...rest
 }: PaginationTypes) {
+  const t = useI18n()
+
   const pages = useMemo(
     () =>
       generatePageRange(
@@ -186,7 +188,7 @@ export function Pagination({
   return (
     <nav
       ref={ref}
-      aria-label={ariaLabel ?? str.pagination}
+      aria-label={ariaLabel ?? t.pagination}
       className={clsx(
         styles.pagination,
         disabled && styles.disabled,
@@ -200,7 +202,7 @@ export function Pagination({
             {renderNavLink(
               1,
               <ChevronsLeft size={18} aria-hidden="true" />,
-              str.first_page,
+              t.first_page,
               currentPage === 1
             )}
           </li>
@@ -211,7 +213,7 @@ export function Pagination({
             {renderNavLink(
               currentPage - 1,
               <ChevronLeft size={18} aria-hidden="true" />,
-              str.previous_page,
+              t.previous_page,
               currentPage === 1
             )}
           </li>
@@ -227,7 +229,7 @@ export function Pagination({
               renderPageLink(
                 page,
                 page,
-                str.page_n.replace('{n}', String(page)),
+                t.page_n.replace('{n}', String(page)),
                 page === currentPage
               )
             )}
@@ -239,7 +241,7 @@ export function Pagination({
             {renderNavLink(
               currentPage + 1,
               <ChevronRight size={18} aria-hidden="true" />,
-              str.next_page,
+              t.next_page,
               currentPage === totalPages
             )}
           </li>
@@ -250,7 +252,7 @@ export function Pagination({
             {renderNavLink(
               totalPages,
               <ChevronsRight size={18} aria-hidden="true" />,
-              str.last_page,
+              t.last_page,
               currentPage === totalPages
             )}
           </li>

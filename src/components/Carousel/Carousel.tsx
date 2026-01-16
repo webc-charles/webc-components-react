@@ -9,7 +9,7 @@ import {
 import clsx from 'clsx'
 import { Button } from 'components'
 import useEmblaCarousel from 'embla-carousel-react'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Carousel.module.scss'
 import type {
@@ -42,6 +42,7 @@ export function Carousel({
   children,
   ...props
 }: CarouselTypes) {
+  const t = useI18n()
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
@@ -125,7 +126,7 @@ export function Carousel({
             border: 0,
           }}
         >
-          {str.carousel_status
+          {t.carousel_status
             .replace('{current}', String(selectedIndex + 1))
             .replace('{total}', String(scrollSnaps.length))}
         </div>
@@ -180,11 +181,13 @@ export function CarouselControls({
 export function CarouselPrev({
   ref,
   className,
-  label = str.carousel_prev,
+  label,
   children,
   ...props
 }: CarouselPrevTypes) {
+  const t = useI18n()
   const { canScrollPrev, scrollPrev } = useCarouselContext()
+  const labelText = label ?? t.carousel_prev
 
   return (
     <Button
@@ -193,7 +196,7 @@ export function CarouselPrev({
       className={clsx(styles.button, styles.prev, className)}
       onClick={scrollPrev}
       disabled={!canScrollPrev}
-      aria-label={label}
+      aria-label={labelText}
       {...props}
     >
       {children ?? <ChevronLeft size={20} aria-hidden />}
@@ -204,11 +207,13 @@ export function CarouselPrev({
 export function CarouselNext({
   ref,
   className,
-  label = str.carousel_next,
+  label,
   children,
   ...props
 }: CarouselNextTypes) {
+  const t = useI18n()
   const { canScrollNext, scrollNext } = useCarouselContext()
+  const labelText = label ?? t.carousel_next
 
   return (
     <Button
@@ -217,7 +222,7 @@ export function CarouselNext({
       className={clsx(styles.button, styles.next, className)}
       onClick={scrollNext}
       disabled={!canScrollNext}
-      aria-label={label}
+      aria-label={labelText}
       {...props}
     >
       {children ?? <ChevronRight size={20} aria-hidden />}
@@ -228,17 +233,19 @@ export function CarouselNext({
 export function CarouselDots({
   ref,
   className,
-  label = str.carousel_goto,
+  label,
   ...props
 }: CarouselDotsTypes) {
+  const t = useI18n()
   const { selectedIndex, scrollSnaps, scrollTo } = useCarouselContext()
+  const labelText = label ?? t.carousel_goto
 
   return (
     <div
       ref={ref}
       className={clsx(styles.dots, className)}
       role="group"
-      aria-label={str.carousel_navigation}
+      aria-label={t.carousel_navigation}
       {...props}
     >
       {scrollSnaps.map((_, index) => (
@@ -251,7 +258,7 @@ export function CarouselDots({
           )}
           onClick={() => scrollTo(index)}
           aria-current={selectedIndex === index || undefined}
-          aria-label={`${label} ${index + 1}`}
+          aria-label={`${labelText} ${index + 1}`}
         />
       ))}
     </div>

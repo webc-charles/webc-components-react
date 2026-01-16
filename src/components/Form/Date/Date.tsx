@@ -1,7 +1,7 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button, Modal } from 'components'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Date.module.scss'
 import type { InputDateTypes } from './Date.types'
@@ -58,7 +58,7 @@ export function InputDate({
   onChange,
   onBlur,
   ref,
-  placeholder = str.select_date,
+  placeholder,
   dateFormat = 'yyyy-MM-dd',
   minDate,
   maxDate,
@@ -68,6 +68,8 @@ export function InputDate({
   ...rest
 }: InputDateTypes) {
   const id = useId()
+  const t = useI18n()
+  const placeholderText = placeholder ?? t.select_date
   const [isOpen, setIsOpen] = useState(false)
   const [viewDate, setViewDate] = useState(() => selected || new Date())
   const [pendingDate, setPendingDate] = useState<Date | null>(null)
@@ -245,7 +247,7 @@ export function InputDate({
           type="text"
           readOnly
           disabled={disabled}
-          placeholder={placeholder}
+          placeholder={placeholderText}
           value={formatDate(selected, dateFormat)}
           onClick={handleOpen}
           onBlur={onBlur}
@@ -258,7 +260,7 @@ export function InputDate({
           disabled={disabled}
           onClick={handleOpen}
           className={styles.trigger}
-          aria-label={str.select_date}
+          aria-label={t.select_date}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
         >
@@ -274,7 +276,7 @@ export function InputDate({
                 type="button"
                 onClick={handlePrevMonth}
                 className={styles.navButton}
-                aria-label={str.previous_month}
+                aria-label={t.previous_month}
               >
                 <ChevronLeft size={18} aria-hidden />
               </Button>
@@ -284,21 +286,21 @@ export function InputDate({
                 aria-live="polite"
                 aria-atomic="true"
               >
-                {str.months[month]} {year}
+                {t.months[month]} {year}
               </span>
 
               <Button
                 type="button"
                 onClick={handleNextMonth}
                 className={styles.navButton}
-                aria-label={str.next_month}
+                aria-label={t.next_month}
               >
                 <ChevronRight size={18} aria-hidden />
               </Button>
             </div>
 
             <div className={styles.weekdays} role="row">
-              {str.days_short.map((day) => (
+              {t.days_short.map((day) => (
                 <span
                   key={day}
                   className={styles.weekday}
@@ -313,7 +315,7 @@ export function InputDate({
               ref={handleGridRef}
               className={styles.grid}
               role="grid"
-              aria-label={`${str.months[month]} ${year}`}
+              aria-label={`${t.months[month]} ${year}`}
             >
               {calendarDays.map((date, index) => {
                 if (!date) {
@@ -367,7 +369,7 @@ export function InputDate({
                 onClick={handleCancel}
                 className={styles.footerButton}
               >
-                {str.cancel}
+                {t.cancel}
               </Button>
 
               <Button
@@ -379,7 +381,7 @@ export function InputDate({
                 variant="primary"
                 className={styles.footerButton}
               >
-                {str.apply}
+                {t.apply}
               </Button>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen } from '@testing-library/react'
+import { render, screen } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import {
@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from './Accordion'
 
-const BasicAccordion = ({ type = 'single' as const, ...props }) => (
+const BasicAccordion = ({ type = 'single', ...props }: { type?: 'single' | 'multiple', [key: string]: unknown }) => (
   <Accordion type={type} {...props}>
     <AccordionItem value="item-1">
       <AccordionTrigger>Section 1</AccordionTrigger>

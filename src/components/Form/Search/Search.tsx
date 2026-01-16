@@ -2,7 +2,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import clsx from 'clsx'
 import { Button, Spinner } from 'components'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { Search, X } from 'lucide-react'
 import styles from './Search.module.scss'
 import type { InputSearchTypes, SearchResultTypes } from './Search.types'
@@ -36,6 +36,7 @@ export function InputSearch({
   ...rest
 }: InputSearchTypes) {
   const id = useId()
+  const t = useI18n()
   const [internalValue, setInternalValue] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState(-1)
@@ -232,7 +233,7 @@ export function InputSearch({
         role="combobox"
         value={value}
         disabled={disabled}
-        placeholder={placeholder ?? str.search}
+        placeholder={placeholder ?? t.search}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={() => {
@@ -240,7 +241,7 @@ export function InputSearch({
             setIsOpen(true)
           }
         }}
-        aria-label={!label ? (ariaLabel ?? str.search) : undefined}
+        aria-label={!label ? (ariaLabel ?? t.search) : undefined}
         aria-expanded={mode === 'dropdown' ? isOpen : undefined}
         aria-haspopup={mode === 'dropdown' ? 'listbox' : undefined}
         aria-controls={
@@ -264,7 +265,7 @@ export function InputSearch({
               type="button"
               onClick={handleClear}
               className={styles.clearButton}
-              aria-label={str.clear}
+              aria-label={t.clear}
             >
               <X size={18} aria-hidden="true" />
             </Button>
@@ -310,7 +311,7 @@ export function InputSearch({
               </ul>
             ) : !loading ? (
               <div className={styles.noResults}>
-                {noResultsText ?? str.no_results}
+                {noResultsText ?? t.no_results}
               </div>
             ) : null}
 

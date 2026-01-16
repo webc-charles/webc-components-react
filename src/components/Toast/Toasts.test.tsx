@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import '@testing-library/jest-dom/vitest'
 
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from 'utils/Test'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Toasts } from './Toasts'
 import { ToastsContext } from './ToastsContext'

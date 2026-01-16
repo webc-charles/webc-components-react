@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen } from '@testing-library/react'
+import { render, screen } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import { Pagination } from './Pagination'
@@ -18,13 +18,13 @@ describe('Pagination', () => {
 
   it('renders prev and next links by default', () => {
     render(<Pagination currentPage={5} totalPages={10} />)
-    expect(screen.getByLabelText(/précédente/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/suivante/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/previous/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/next/i)).toBeInTheDocument()
   })
 
   it('disables prev link on first page', () => {
     render(<Pagination currentPage={1} totalPages={10} />)
-    expect(screen.getByLabelText(/précédente/i)).toHaveAttribute(
+    expect(screen.getByLabelText(/previous/i)).toHaveAttribute(
       'aria-disabled',
       'true'
     )
@@ -32,7 +32,7 @@ describe('Pagination', () => {
 
   it('disables next link on last page', () => {
     render(<Pagination currentPage={10} totalPages={10} />)
-    expect(screen.getByLabelText(/suivante/i)).toHaveAttribute(
+    expect(screen.getByLabelText(/next/i)).toHaveAttribute(
       'aria-disabled',
       'true'
     )
@@ -64,7 +64,7 @@ describe('Pagination', () => {
       />
     )
 
-    await user.click(screen.getByLabelText(/précédente/i))
+    await user.click(screen.getByLabelText(/previous/i))
     expect(handleChange).toHaveBeenCalledWith(4)
   })
 
@@ -79,22 +79,22 @@ describe('Pagination', () => {
       />
     )
 
-    await user.click(screen.getByLabelText(/suivante/i))
+    await user.click(screen.getByLabelText(/next/i))
     expect(handleChange).toHaveBeenCalledWith(6)
   })
 
   it('renders first and last links when showFirstLast is true', () => {
     render(<Pagination currentPage={5} totalPages={10} showFirstLast />)
-    expect(screen.getByLabelText(/première/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/dernière/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/first/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/last/i)).toBeInTheDocument()
   })
 
   it('hides prev and next links when showPrevNext is false', () => {
     render(
       <Pagination currentPage={5} totalPages={10} showPrevNext={false} />
     )
-    expect(screen.queryByLabelText(/précédente/i)).not.toBeInTheDocument()
-    expect(screen.queryByLabelText(/suivante/i)).not.toBeInTheDocument()
+    expect(screen.queryByLabelText(/previous/i)).not.toBeInTheDocument()
+    expect(screen.queryByLabelText(/next/i)).not.toBeInTheDocument()
   })
 
   it('renders ellipsis for many pages', () => {

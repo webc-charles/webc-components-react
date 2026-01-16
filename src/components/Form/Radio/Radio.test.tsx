@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render } from 'utils/Test'
 import { describe, expect, it, vi } from 'vitest'
 import { InputRadio } from './Radio'
 

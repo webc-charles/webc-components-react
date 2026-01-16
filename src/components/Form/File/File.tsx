@@ -7,15 +7,11 @@ import {
 } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { str } from 'i18n'
+import { useI18n } from 'i18n'
 import { Upload } from 'lucide-react'
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 
-/**
- * Check if a file matches the accept pattern
- * Supports: .ext, mime/type, mime/*
- */
 const isFileAccepted = (file: File, accept?: string): boolean => {
   if (!accept) return true
 
@@ -121,23 +117,25 @@ export function InputFile({
     }
   }
 
+  const t = useI18n()
+
   const getButtonText = () => {
     if (buttonText) return buttonText
-    return multiple ? str.select_files : str.select_file
+    return multiple ? t.select_files : t.select_file
   }
 
   const getFileDisplay = () => {
     if (!files || files.length === 0) {
-      return str.no_file_selected
+      return t.no_file_selected
     }
     if (files.length === 1) {
       return files[0].name
     }
-    return str.files_selected.replace('{count}', String(files.length))
+    return t.files_selected.replace('{count}', String(files.length))
   }
 
   const getDropText = () => {
-    return multiple ? str.drop_files_here : str.drop_file_here
+    return multiple ? t.drop_files_here : t.drop_file_here
   }
 
   return (

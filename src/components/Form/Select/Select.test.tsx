@@ -6,7 +6,7 @@ import {
   screen,
   waitFor,
   within,
-} from '@testing-library/react'
+} from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { beforeAll, describe, expect, it } from 'vitest'
 import {
@@ -134,7 +134,7 @@ describe('Select - Single', () => {
   it('renders placeholder when nothing selected', () => {
     render(<SingleSelect />)
     expect(screen.getByTestId('placeholder')).toHaveTextContent(
-      /sélectionner une option/i
+      /select an option/i
     )
   })
 
@@ -222,7 +222,7 @@ describe('Select - Multiple', () => {
   it('renders placeholder when nothing selected', () => {
     render(<MultiSelect />)
     expect(screen.getByTestId('placeholder')).toHaveTextContent(
-      /sélectionner une option/i
+      /select an option/i
     )
   })
 
@@ -265,7 +265,7 @@ describe('Select - Multiple', () => {
     render(<MultiSelect initialValue={[options[0]]} />)
 
     expect(screen.getByText('Apple')).toBeInTheDocument()
-    await user.click(screen.getByLabelText(/enlève apple/i))
+    await user.click(screen.getByLabelText(/remove apple/i))
     expect(screen.queryByText('Apple')).not.toBeInTheDocument()
   })
 

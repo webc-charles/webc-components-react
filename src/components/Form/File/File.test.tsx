@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { InputFile } from './File'
@@ -41,9 +41,7 @@ describe('InputFile', () => {
 
   it('shows no file selected by default', () => {
     render(<InputFile />)
-    expect(
-      screen.getByText('Aucun fichier sélectionné')
-    ).toBeInTheDocument()
+    expect(screen.getByText('No file selected')).toBeInTheDocument()
   })
 
   it('calls onChange when file is selected', async () => {
@@ -91,15 +89,15 @@ describe('InputFile', () => {
 
     await user.upload(input, files)
 
-    expect(screen.getByText('3 fichiers sélectionnés')).toBeInTheDocument()
+    expect(screen.getByText('3 files selected')).toBeInTheDocument()
   })
 
   it('renders dropzone mode', () => {
     render(<InputFile dropzone />)
     expect(
-      screen.queryByRole('button', { name: /choisir/i })
+      screen.queryByRole('button', { name: /choose/i })
     ).toBeInTheDocument()
-    expect(screen.getByText('Choisir un fichier')).toBeInTheDocument()
+    expect(screen.getByText('Choose a file')).toBeInTheDocument()
   })
 
   it('shows custom button text', () => {
@@ -109,9 +107,7 @@ describe('InputFile', () => {
 
   it('hides file names when showFileNames is false', () => {
     render(<InputFile showFileNames={false} />)
-    expect(
-      screen.queryByText('Aucun fichier sélectionné')
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText('No file selected')).not.toBeInTheDocument()
   })
 
   it('is disabled when disabled prop is true', () => {

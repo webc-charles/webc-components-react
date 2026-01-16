@@ -56,5 +56,12 @@
   "previous_page": "Page précédente",
   "next_page": "Page suivante",
   "page": "Page",
-  "page_n": "Page {n}"
+  "page_n": "Page {n}",
+  "audio_not_supported": "Votre navigateur ne supporte pas l'audio HTML.",
+  "audio_fallback_link": "Voici un {link} à la place.",
+  "audio_link": "lien vers l'audio",
+  "video_not_supported": "Votre navigateur ne supporte pas la vidéo HTML.",
+  "video_fallback_link": "Voici un {link} à la place.",
+  "video_link": "lien vers la vidéo",
+  "view_transcript": "Voir la transcription"
 }

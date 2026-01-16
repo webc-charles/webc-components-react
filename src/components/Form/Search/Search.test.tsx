@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest'
 
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it, vi } from 'vitest'
 import { InputSearch } from './Search'
@@ -40,7 +40,7 @@ describe('InputSearch', () => {
       />
     )
 
-    const clearButton = screen.getByRole('button', { name: /effacer/i })
+    const clearButton = screen.getByRole('button', { name: /clear/i })
     await user.click(clearButton)
 
     expect(handleChange).toHaveBeenCalledWith('')

@@ -559,32 +559,104 @@ addModal({
 
 #### Header
 
-Responsive header with navigation, mobile menu, and top bar.
+Responsive header with three sections: top bar, main navigation, and mobile menu.
 
 ```tsx
-<HeaderRoot>
-  <HeaderTopBar>
-    <HeaderTopBarItem>Contact: 01 23 456 789</HeaderTopBarItem>
-  </HeaderTopBar>
+<HeaderRoot sticky>
+  {/* Optional top bar */}
+  <HeaderTop>
+    <HeaderTopNav>
+      <HeaderTopLink asChild>
+        <Link href="/help">Help</Link>
+      </HeaderTopLink>
+      <HeaderTopDropdown label="EN">
+        <HeaderTopDropdownLink asChild>
+          <Link href="/en">English</Link>
+        </HeaderTopDropdownLink>
+        <HeaderTopDropdownLink asChild>
+          <Link href="/fr">Français</Link>
+        </HeaderTopDropdownLink>
+      </HeaderTopDropdown>
+    </HeaderTopNav>
+  </HeaderTop>
+
+  {/* Main navigation (desktop) */}
   <HeaderMain>
-    <HeaderLogo>
-      <img src="/logo.svg" alt="Logo" />
-    </HeaderLogo>
-    <HeaderNav>
-      <HeaderNavItem href="/">Home</HeaderNavItem>
-      <HeaderNavItem href="/about">About</HeaderNavItem>
-    </HeaderNav>
-    <HeaderActions>
-      <Button appearance="button">Sign in</Button>
-    </HeaderActions>
-    <HeaderMobileToggle />
+    <HeaderMainLogo>
+      <Link href="/">Logo</Link>
+    </HeaderMainLogo>
+
+    <HeaderMainNav>
+      <HeaderMainLink asChild current>
+        <Link href="/" aria-current="page">Home</Link>
+      </HeaderMainLink>
+      <HeaderMainLink asChild>
+        <Link href="/about">About</Link>
+      </HeaderMainLink>
+      <HeaderMainDropdown label="Products" href="/products" as={Link} current>
+        <HeaderMainDropdownLink asChild>
+          <Link href="/products/software">Software</Link>
+        </HeaderMainDropdownLink>
+        <HeaderMainDropdownLink asChild>
+          <Link href="/products/services">Services</Link>
+        </HeaderMainDropdownLink>
+      </HeaderMainDropdown>
+      <HeaderMainDropdown label="Solutions" mega>
+        {/* Mega menu content */}
+      </HeaderMainDropdown>
+    </HeaderMainNav>
+
+    <HeaderMainNav>
+      <Button appearance="button" variant="primary">Sign in</Button>
+    </HeaderMainNav>
   </HeaderMain>
-  <HeaderMobileMenu>
-    <HeaderMobileNavItem href="/">Home</HeaderMobileNavItem>
-    <HeaderMobileNavItem href="/about">About</HeaderMobileNavItem>
-  </HeaderMobileMenu>
+
+  {/* Mobile navigation */}
+  <HeaderMobile>
+    <HeaderMobileBar>
+      <HeaderMobileLogo>
+        <Link href="/">Logo</Link>
+      </HeaderMobileLogo>
+      <HeaderMobileToggle />
+    </HeaderMobileBar>
+    <HeaderMobileMenu>
+      <HeaderMobileNav>
+        <HeaderMobileLink asChild current>
+          <Link href="/">Home</Link>
+        </HeaderMobileLink>
+        <HeaderMobileDropdown label="Products">
+          <HeaderMobileDropdownLink asChild>
+            <Link href="/products/software">Software</Link>
+          </HeaderMobileDropdownLink>
+        </HeaderMobileDropdown>
+      </HeaderMobileNav>
+    </HeaderMobileMenu>
+  </HeaderMobile>
 </HeaderRoot>
 ```
+
+| Prop (HeaderRoot) | Type      | Default |
+| ----------------- | --------- | ------- |
+| `sticky`          | `boolean` | `false` |
+
+| Prop (HeaderMainDropdown) | Type          | Description                                |
+| ------------------------- | ------------- | ------------------------------------------ |
+| `label`                   | `ReactNode`   | Dropdown trigger text                      |
+| `href`                    | `string`      | Makes trigger a link (navigates on click)  |
+| `as`                      | `ElementType` | Custom link component (e.g., Next.js Link) |
+| `mega`                    | `boolean`     | Wide mega menu style                       |
+| `current`                 | `boolean`     | Highlights as current page                 |
+
+| Prop (Link components) | Type      | Description                          |
+| ---------------------- | --------- | ------------------------------------ |
+| `current`              | `boolean` | Highlights link, adds aria-current   |
+| `asChild`              | `boolean` | Renders child element instead of `a` |
+
+**Sub-components:**
+
+- **Top:** `HeaderTop`, `HeaderTopNav`, `HeaderTopLink`, `HeaderTopDropdown`, `HeaderTopDropdownLink`
+- **Main:** `HeaderMain`, `HeaderMainLogo`, `HeaderMainNav`, `HeaderMainLink`, `HeaderMainDropdown`, `HeaderMainDropdownLink`
+- **Mobile:** `HeaderMobile`, `HeaderMobileBar`, `HeaderMobileLogo`, `HeaderMobileToggle`, `HeaderMobileMenu`, `HeaderMobileNav`, `HeaderMobileLink`, `HeaderMobileDropdown`, `HeaderMobileDropdownLink`
 
 #### Breadcrumb
 

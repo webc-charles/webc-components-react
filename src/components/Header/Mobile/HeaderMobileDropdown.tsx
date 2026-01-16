@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
@@ -14,23 +14,12 @@ export function HeaderMobileDropdown({
 }: HeaderMobileDropdownTypes) {
   const [isExpanded, setIsExpanded] = useState(false)
   const id = useId()
-  const contentId = `mobile-nav-content-${id}`
-  const contentRef = useRef<HTMLDivElement | null>(null)
-
-  const setContentRef = useCallback((node: HTMLDivElement | null) => {
-    if (node) {
-      node.setAttribute('inert', '')
-    }
-    contentRef.current = node
-  }, [])
+  const dropdownId = `mobile-nav-content-${id}`
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (contentRef.current) {
-      if (isExpanded) {
-        contentRef.current.removeAttribute('inert')
-      } else {
-        contentRef.current.setAttribute('inert', '')
-      }
+    if (dropdownRef.current) {
+      dropdownRef.current.inert = !isExpanded
     }
   }, [isExpanded])
 
@@ -38,10 +27,10 @@ export function HeaderMobileDropdown({
     <div ref={ref} className={clsx(styles.item, className)} {...rest}>
       <Button
         type="button"
+        aria-expanded={isExpanded}
+        aria-controls={dropdownId}
         className={clsx(styles.trigger, isExpanded && styles.isOpen)}
         onClick={() => setIsExpanded((prev) => !prev)}
-        aria-expanded={isExpanded}
-        aria-controls={contentId}
       >
         {label}
         <ChevronDown
@@ -55,8 +44,9 @@ export function HeaderMobileDropdown({
       </Button>
 
       <div
-        ref={setContentRef}
-        id={contentId}
+        inert
+        id={dropdownId}
+        ref={dropdownRef}
         className={clsx(styles.dropdown, isExpanded && styles.isOpen)}
       >
         <div className={styles.dropdownInner}>{children}</div>

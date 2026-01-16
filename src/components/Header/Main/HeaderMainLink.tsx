@@ -13,11 +13,7 @@ export function HeaderMainLink({
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp
-      className={clsx(
-        styles.navLink,
-        active && styles.navLinkActive,
-        className
-      )}
+      className={clsx(styles.mainLink, active && styles.active, className)}
       {...props}
     >
       {children}

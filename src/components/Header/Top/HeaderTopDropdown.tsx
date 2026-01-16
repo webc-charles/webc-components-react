@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useEffectEvent, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
@@ -14,46 +14,20 @@ export function HeaderTopDropdown({
   const [isOpen, setIsOpen] = useState(false)
   const itemRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
-  const contentRef = useRef<HTMLDivElement | null>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const setContentRef = useCallback((node: HTMLDivElement | null) => {
-    if (node) {
-      node.setAttribute('inert', '')
+  const handleClickOutside = useEffectEvent((e: MouseEvent) => {
+    if (itemRef.current && !itemRef.current.contains(e.target as Node)) {
+      setIsOpen(false)
     }
-    contentRef.current = node
-  }, [])
+  })
 
-  useEffect(() => {
-    if (contentRef.current) {
-      if (isOpen) {
-        contentRef.current.removeAttribute('inert')
-      } else {
-        contentRef.current.setAttribute('inert', '')
-      }
+  const handleEscape = useEffectEvent((e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen) {
+      setIsOpen(false)
+      triggerRef.current?.focus()
     }
-  }, [isOpen])
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (itemRef.current && !itemRef.current.contains(e.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        setIsOpen(false)
-        triggerRef.current?.focus()
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', handleEscape)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', handleEscape)
-    }
-  }, [isOpen])
+  })
 
   const handleBlur = (e: React.FocusEvent) => {
     const relatedTarget = e.relatedTarget as Node | null
@@ -67,25 +41,42 @@ export function HeaderTopDropdown({
       e.preventDefault()
       setIsOpen((prev) => !prev)
     }
+
     if (e.key === 'ArrowDown') {
       e.preventDefault()
       if (!isOpen) {
         setIsOpen(true)
       } else {
-        const firstElement = contentRef.current?.querySelector<HTMLElement>(
-          'a[href], button:not([disabled])'
-        )
+        const firstElement =
+          dropdownRef.current?.querySelector<HTMLElement>(
+            'a[href], button:not([disabled])'
+          )
         firstElement?.focus()
       }
     }
     if (e.key === 'ArrowUp' && isOpen) {
       e.preventDefault()
-      const elements = contentRef.current?.querySelectorAll<HTMLElement>(
+      const elements = dropdownRef.current?.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled])'
       )
       elements?.[elements.length - 1]?.focus()
     }
   }
+
+  useEffect(() => {
+    if (dropdownRef.current) {
+      dropdownRef.current.inert = !isOpen
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [])
 
   return (
     <div
@@ -97,11 +88,11 @@ export function HeaderTopDropdown({
       {...rest}
     >
       <Button
-        ref={triggerRef}
         type="button"
-        className={styles.trigger}
-        aria-expanded={isOpen}
+        ref={triggerRef}
         aria-haspopup="menu"
+        aria-expanded={isOpen}
+        className={styles.trigger}
         onClick={() => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
@@ -114,8 +105,9 @@ export function HeaderTopDropdown({
       </Button>
 
       <div
-        ref={setContentRef}
+        inert
         role="menu"
+        ref={dropdownRef}
         className={clsx(styles.dropdown, isOpen && styles.isOpen)}
       >
         <div className={styles.dropdownInner}>{children}</div>

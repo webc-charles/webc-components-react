@@ -77,11 +77,13 @@ export type HeaderMobileDropdownTypes = ComponentPropsWithRef<'div'> & {
 export type HeaderTopLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
+  active?: boolean
 }
 
 export type HeaderTopDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
+  active?: boolean
 }
 
 export type HeaderMainLinkTypes = ComponentPropsWithRef<'a'> & {
@@ -99,9 +101,11 @@ export type HeaderMainDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
 export type HeaderMobileLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
+  active?: boolean
 }
 
 export type HeaderMobileDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
+  active?: boolean
 }

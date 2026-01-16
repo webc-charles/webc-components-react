@@ -14,10 +14,6 @@
     background-color var(--transition-default);
   width: 100%;
 
-  &:any-link {
-    color: var(--color-grey-1);
-  }
-
   &:first-child {
     padding: 0;
   }
@@ -27,8 +23,10 @@
     color: var(--color-primary-2);
     text-decoration: underline;
   }
-}
 
-.dropdownLinkActive {
-  color: var(--color-primary-2);
+  &.active {
+    color: var(--color-primary-2);
+    text-decoration: none;
+    cursor: default;
+  }
 }

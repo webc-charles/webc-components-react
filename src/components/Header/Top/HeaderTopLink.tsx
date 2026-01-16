@@ -7,11 +7,15 @@ export function HeaderTopLink({
   asChild,
   children,
   className,
+  active,
   ...props
 }: HeaderTopLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
-    <Comp className={clsx(styles.link, className)} {...props}>
+    <Comp
+      className={clsx(styles.link, active && styles.active, className)}
+      {...props}
+    >
       {children}
     </Comp>
   )

@@ -7,11 +7,19 @@ export function HeaderMobileLink({
   asChild,
   children,
   className,
+  active,
   ...props
 }: HeaderMobileLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
-    <Comp className={clsx(styles.mobileLink, className)} {...props}>
+    <Comp
+      className={clsx(
+        styles.mobileLink,
+        active && styles.active,
+        className
+      )}
+      {...props}
+    >
       {children}
     </Comp>
   )

@@ -15,7 +15,7 @@ export function HeaderMainDropdownLink({
     <Comp
       className={clsx(
         styles.dropdownLink,
-        active && styles.dropdownLinkActive,
+        active && styles.active,
         className
       )}
       {...props}

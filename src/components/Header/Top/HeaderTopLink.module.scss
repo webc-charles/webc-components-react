@@ -8,4 +8,10 @@
     color: var(--color-primary-contrast);
     text-decoration: underline;
   }
+
+  &.active {
+    color: var(--color-primary-contrast);
+    text-decoration: none;
+    cursor: default;
+  }
 }

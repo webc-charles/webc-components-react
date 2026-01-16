@@ -1,4 +1,4 @@
-.navLink {
+.mainLink {
   align-items: center;
   background: none;
   border: none;
@@ -16,8 +16,10 @@
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
   }
-}
 
-.navLinkActive {
-  color: var(--color-primary-2);
+  &.active {
+    color: var(--color-primary-2);
+    background: none;
+    cursor: default;
+  }
 }

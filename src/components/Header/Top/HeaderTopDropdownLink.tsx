@@ -7,11 +7,19 @@ export function HeaderTopDropdownLink({
   asChild,
   children,
   className,
+  active,
   ...props
 }: HeaderTopDropdownLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
-    <Comp className={clsx(styles.dropdownLink, className)} {...props}>
+    <Comp
+      className={clsx(
+        styles.dropdownLink,
+        active && styles.active,
+        className
+      )}
+      {...props}
+    >
       {children}
     </Comp>
   )

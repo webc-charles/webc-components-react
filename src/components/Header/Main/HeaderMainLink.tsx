@@ -7,13 +7,14 @@ export function HeaderMainLink({
   asChild,
   children,
   className,
-  active,
+  current,
   ...props
 }: HeaderMainLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp
-      className={clsx(styles.mainLink, active && styles.active, className)}
+      className={clsx(styles.mainLink, current && styles.current, className)}
+      aria-current={current ? 'page' : undefined}
       {...props}
     >
       {children}

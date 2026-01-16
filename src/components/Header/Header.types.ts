@@ -79,35 +79,35 @@ export type HeaderMobileDropdownTypes = ComponentPropsWithRef<'div'> & {
 export type HeaderTopLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderTopDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderMainLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderMainDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderMobileLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }
 
 export type HeaderMobileDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   asChild?: boolean
   children: ReactNode
-  active?: boolean
+  current?: boolean
 }

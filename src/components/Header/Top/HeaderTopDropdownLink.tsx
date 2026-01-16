@@ -7,7 +7,7 @@ export function HeaderTopDropdownLink({
   asChild,
   children,
   className,
-  active,
+  current,
   ...props
 }: HeaderTopDropdownLinkTypes) {
   const Comp = asChild ? Slot : 'a'
@@ -15,9 +15,10 @@ export function HeaderTopDropdownLink({
     <Comp
       className={clsx(
         styles.dropdownLink,
-        active && styles.active,
+        current && styles.current,
         className
       )}
+      aria-current={current ? 'page' : undefined}
       {...props}
     >
       {children}

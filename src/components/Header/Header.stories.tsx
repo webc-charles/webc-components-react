@@ -207,7 +207,7 @@ export const Default: Story = {
         </HeaderMainLogo>
 
         <HeaderMainNav>
-          <HeaderMainLink asChild active>
+          <HeaderMainLink asChild current>
             <Link href="/" aria-current="page">
               Accueil
             </Link>
@@ -273,7 +273,7 @@ export const WithTopBar: Story = {
         </HeaderMainLogo>
 
         <HeaderMainNav>
-          <HeaderMainLink asChild active>
+          <HeaderMainLink asChild current>
             <Link href="/" aria-current="page">
               Accueil
             </Link>
@@ -420,7 +420,7 @@ export const Sticky: Story = {
           </HeaderMainLogo>
 
           <HeaderMainNav>
-            <HeaderMainLink asChild active>
+            <HeaderMainLink asChild current>
               <Link href="/" aria-current="page">
                 Accueil
               </Link>

@@ -7,13 +7,14 @@ export function HeaderTopLink({
   asChild,
   children,
   className,
-  active,
+  current,
   ...props
 }: HeaderTopLinkTypes) {
   const Comp = asChild ? Slot : 'a'
   return (
     <Comp
-      className={clsx(styles.link, active && styles.active, className)}
+      className={clsx(styles.link, current && styles.current, className)}
+      aria-current={current ? 'page' : undefined}
       {...props}
     >
       {children}

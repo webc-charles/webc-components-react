@@ -7,7 +7,7 @@ export function HeaderMobileDropdownLink({
   asChild,
   children,
   className,
-  active,
+  current,
   ...props
 }: HeaderMobileDropdownLinkTypes) {
   const Comp = asChild ? Slot : 'a'
@@ -15,9 +15,10 @@ export function HeaderMobileDropdownLink({
     <Comp
       className={clsx(
         styles.dropdownLink,
-        active && styles.active,
+        current && styles.current,
         className
       )}
+      aria-current={current ? 'page' : undefined}
       {...props}
     >
       {children}

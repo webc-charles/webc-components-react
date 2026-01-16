@@ -9,7 +9,7 @@
     text-decoration: underline;
   }
 
-  &.active {
+  &.current {
     color: var(--color-primary-contrast);
     cursor: default;
     text-decoration: none;

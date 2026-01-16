@@ -7,7 +7,7 @@ export function HeaderMobileLink({
   asChild,
   children,
   className,
-  active,
+  current,
   ...props
 }: HeaderMobileLinkTypes) {
   const Comp = asChild ? Slot : 'a'
@@ -15,9 +15,10 @@ export function HeaderMobileLink({
     <Comp
       className={clsx(
         styles.mobileLink,
-        active && styles.active,
+        current && styles.current,
         className
       )}
+      aria-current={current ? 'page' : undefined}
       {...props}
     >
       {children}

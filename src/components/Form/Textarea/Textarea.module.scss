@@ -1,15 +1,15 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 .textarea {
-  @include formInput;
+  @include form-input;
 
   height: auto;
   min-height: 8rem;

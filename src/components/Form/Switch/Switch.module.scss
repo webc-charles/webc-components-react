@@ -12,7 +12,7 @@ $thumb-margin: 0.3rem;
   gap: 1rem;
 
   &.disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 }
 

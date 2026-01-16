@@ -1,11 +1,11 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 .inputWrapper {
@@ -22,7 +22,7 @@
 }
 
 .input {
-  @include formInput;
+  @include form-input;
 
   padding-left: 4rem;
   padding-right: 4rem;

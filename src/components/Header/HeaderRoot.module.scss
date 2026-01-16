@@ -21,7 +21,7 @@
   transition: opacity var(--transition-default);
   z-index: var(--z-index-3);
 
-  @include mqMD {
+  @include mq-md {
     display: none;
   }
 }

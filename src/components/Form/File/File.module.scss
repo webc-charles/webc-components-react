@@ -1,11 +1,11 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 .hiddenInput {
@@ -43,7 +43,7 @@
   }
 
   &:disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 }
 
@@ -85,7 +85,7 @@
   }
 
   &.disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 
   svg {

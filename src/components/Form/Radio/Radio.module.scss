@@ -7,7 +7,7 @@
 }
 
 .groupLabel {
-  @include formLabel;
+  @include form-label;
 }
 
 .options {
@@ -15,7 +15,7 @@
   gap: 1rem;
 
   &.disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 
   &.vertical {

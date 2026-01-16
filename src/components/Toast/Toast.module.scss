@@ -15,7 +15,7 @@
   width: 100%;
   z-index: var(--z-index-5);
 
-  @include mqLG {
+  @include mq-lg {
     padding: 0 0 2rem;
   }
 }

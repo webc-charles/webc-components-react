@@ -1,13 +1,13 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 .input {
-  @include formInput;
+  @include form-input;
 }

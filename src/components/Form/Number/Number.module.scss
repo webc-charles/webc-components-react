@@ -1,17 +1,17 @@
 @use 'styles/form' as *;
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 
   overflow: hidden;
 
   &.disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 .inputWrapper {
@@ -21,7 +21,7 @@
 }
 
 .input {
-  @include formInput;
+  @include form-input;
 
   flex: 1;
   padding-right: 2.5rem;

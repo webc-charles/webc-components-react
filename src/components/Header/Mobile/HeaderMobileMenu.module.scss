@@ -13,7 +13,7 @@
   transition: transform var(--transition-default);
   z-index: var(--z-index-4);
 
-  @include mqMD {
+  @include mq-md {
     display: none;
   }
 }

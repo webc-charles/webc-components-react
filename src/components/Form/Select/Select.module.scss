@@ -3,17 +3,17 @@
 // WRAPPER & LABEL
 
 .wrapper {
-  @include formWrapper;
+  @include form-wrapper;
 }
 
 .label {
-  @include formLabel;
+  @include form-label;
 }
 
 // SELECT
 
 .selectRoot {
-  @include formInput;
+  @include form-input;
 
   align-items: center;
   cursor: pointer;
@@ -25,7 +25,7 @@
   padding: 0 1rem;
 
   &.disabled {
-    @include formDisabled;
+    @include form-disabled;
   }
 }
 

@@ -18,8 +18,8 @@
   }
 
   &.active {
-    color: var(--color-primary-2);
     background: none;
+    color: var(--color-primary-2);
     cursor: default;
   }
 }

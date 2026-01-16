@@ -54,7 +54,7 @@ $gaps: (
 }
 
 // Responsive - XS
-@include mqXS {
+@include mq-xs {
   @for $i from 1 through 12 {
     .grid--xs-#{$i} {
       grid-template-columns: repeat(#{$i}, 1fr);
@@ -82,7 +82,7 @@ $gaps: (
 }
 
 // Responsive - SM
-@include mqSM {
+@include mq-sm {
   @for $i from 1 through 12 {
     .grid--sm-#{$i} {
       grid-template-columns: repeat(#{$i}, 1fr);
@@ -110,7 +110,7 @@ $gaps: (
 }
 
 // Responsive - MD
-@include mqMD {
+@include mq-md {
   @for $i from 1 through 12 {
     .grid--md-#{$i} {
       grid-template-columns: repeat(#{$i}, 1fr);
@@ -138,7 +138,7 @@ $gaps: (
 }
 
 // Responsive - LG
-@include mqLG {
+@include mq-lg {
   @for $i from 1 through 12 {
     .grid--lg-#{$i} {
       grid-template-columns: repeat(#{$i}, 1fr);
@@ -235,7 +235,7 @@ $gaps: (
 }
 
 // Masonry responsive - XS
-@include mqXS {
+@include mq-xs {
   @for $i from 1 through 12 {
     .masonry.grid--xs-#{$i} {
       column-count: #{$i};
@@ -254,7 +254,7 @@ $gaps: (
 }
 
 // Masonry responsive - SM
-@include mqSM {
+@include mq-sm {
   @for $i from 1 through 12 {
     .masonry.grid--sm-#{$i} {
       column-count: #{$i};
@@ -273,7 +273,7 @@ $gaps: (
 }
 
 // Masonry responsive - MD
-@include mqMD {
+@include mq-md {
   @for $i from 1 through 12 {
     .masonry.grid--md-#{$i} {
       column-count: #{$i};
@@ -292,7 +292,7 @@ $gaps: (
 }
 
 // Masonry responsive - LG
-@include mqLG {
+@include mq-lg {
   @for $i from 1 through 12 {
     .masonry.grid--lg-#{$i} {
       column-count: #{$i};

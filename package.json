@@ -1,6 +1,6 @@
 {
   "name": "@webc-charles/components-react",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "packageManager": "pnpm@10.27.0",
   "description": "A lightweight React component library with CSS variables for easy theming",
   "repository": {
@@ -71,6 +71,9 @@
     "react-dom": "^19.2.1",
     "react-test-renderer": "^19.2.0",
     "storybook": "^10.0.4",
+    "stylelint": "^17.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-order": "^7.0.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.15"

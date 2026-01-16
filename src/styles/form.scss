@@ -1,17 +1,17 @@
 @use 'styles/mq' as *;
 
-@mixin formWrapper {
+@mixin form-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-@mixin formLabel {
+@mixin form-label {
   color: var(--color-black);
   font-size: var(--font-size-3);
 }
 
-@mixin formInput {
+@mixin form-input {
   background-color: var(--color-white);
   border: 0.1rem solid var(--color-grey-4);
   border-radius: var(--radius-md);
@@ -41,12 +41,12 @@
   }
 }
 
-@mixin formDisabled {
+@mixin form-disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-@mixin formSpinner {
+@mixin form-spinner {
   animation: spin 1s linear infinite;
 }
 

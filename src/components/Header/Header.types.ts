@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react'
+import type { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
 
 export type HeaderTypes = ComponentPropsWithRef<'header'> & {
   children: ReactNode
@@ -36,6 +36,8 @@ export type HeaderMainNavTypes = ComponentPropsWithRef<'nav'> & {
 export type HeaderMainDropdownTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   label: ReactNode
+  href?: string
+  as?: ElementType
   mega?: boolean
   current?: boolean
 }

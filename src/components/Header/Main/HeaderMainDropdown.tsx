@@ -8,6 +8,8 @@ import styles from './HeaderMainDropdown.module.scss'
 export function HeaderMainDropdown({
   children,
   label,
+  href,
+  as,
   mega = false,
   current = false,
   className,
@@ -15,8 +17,11 @@ export function HeaderMainDropdown({
 }: HeaderMainDropdownTypes) {
   const [isOpen, setIsOpen] = useState(false)
   const itemRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const isLink = Boolean(href)
+  const TriggerComp = href ? (as || 'a') : Button
 
   const handleClickOutside = useEffectEvent((e: MouseEvent) => {
     if (itemRef.current && !itemRef.current.contains(e.target as Node)) {
@@ -38,15 +43,20 @@ export function HeaderMainDropdown({
     }
   }
 
+  const handleFocus = () => {
+    setIsOpen(true)
+  }
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    // For buttons: Enter/Space toggle dropdown
+    if (!isLink && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
       setIsOpen((prev) => !prev)
     }
 
+    // ArrowDown: open dropdown and focus first item
     if (e.key === 'ArrowDown') {
       e.preventDefault()
-
       if (!isOpen) {
         setIsOpen(true)
       } else {
@@ -58,9 +68,9 @@ export function HeaderMainDropdown({
       }
     }
 
+    // ArrowUp: focus last item
     if (e.key === 'ArrowUp' && isOpen) {
       e.preventDefault()
-
       const elements = dropdownRef.current?.querySelectorAll<HTMLElement>(
         'a[href], button:not([disabled])'
       )
@@ -97,14 +107,16 @@ export function HeaderMainDropdown({
       onBlur={handleBlur}
       {...rest}
     >
-      <Button
+      <TriggerComp
         ref={triggerRef}
-        type="button"
+        href={href}
+        type={isLink ? undefined : 'button'}
         className={clsx(styles.trigger, current && styles.triggerActive)}
         aria-expanded={isOpen}
-        aria-haspopup="menu"
+        aria-haspopup="true"
         aria-current={current ? 'page' : undefined}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={isLink ? undefined : () => setIsOpen((prev) => !prev)}
+        onFocus={handleFocus}
         onKeyDown={handleKeyDown}
       >
         {label}
@@ -113,7 +125,7 @@ export function HeaderMainDropdown({
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
-      </Button>
+      </TriggerComp>
 
       <div
         ref={dropdownRef}

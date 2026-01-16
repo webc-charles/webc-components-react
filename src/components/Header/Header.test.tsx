@@ -212,7 +212,7 @@ describe('Header', () => {
     )
 
     const trigger = screen.getByText('Products').closest('button')!
-    expect(trigger).toHaveAttribute('aria-haspopup', 'menu')
+    expect(trigger).toHaveAttribute('aria-haspopup', 'true')
     expect(trigger).toHaveAttribute('aria-expanded', 'false')
 
     // Use fireEvent to avoid mouseenter triggering first

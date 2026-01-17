@@ -6,11 +6,12 @@ export function HeaderTop({
   ref,
   children,
   className,
+  containerClassName,
   ...rest
 }: HeaderTopTypes) {
   return (
     <div ref={ref} className={clsx(styles.topBar, className)} {...rest}>
-      <div className={styles.container}>{children}</div>
+      <div className={clsx(styles.container, containerClassName)}>{children}</div>
     </div>
   )
 }

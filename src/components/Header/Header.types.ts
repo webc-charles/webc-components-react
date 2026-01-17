@@ -8,6 +8,7 @@ export type HeaderTypes = ComponentPropsWithRef<'header'> & {
 
 export type HeaderTopTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
+  containerClassName?: string
 }
 
 export type HeaderTopNavTypes = ComponentPropsWithRef<'nav'> & {
@@ -25,6 +26,7 @@ export type HeaderTopDropdownTypes = ComponentPropsWithRef<'div'> & {
 
 export type HeaderMainTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
+  containerClassName?: string
 }
 
 export type HeaderMainLogoTypes = ComponentPropsWithRef<'div'> & {

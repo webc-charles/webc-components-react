@@ -22,7 +22,7 @@
   }
 }
 
-@mixin mqXL {
+@mixin mq-xl {
   @media (width >= 1400px) {
     @content;
   }

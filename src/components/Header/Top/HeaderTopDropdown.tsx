@@ -8,13 +8,19 @@ import styles from './HeaderTopDropdown.module.scss'
 export function HeaderTopDropdown({
   children,
   label,
+  href,
+  as,
+  current = false,
   className,
   ...rest
 }: HeaderTopDropdownTypes) {
   const [isOpen, setIsOpen] = useState(false)
   const itemRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<HTMLButtonElement & HTMLAnchorElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const isLink = Boolean(href)
+  const TriggerComp = href ? (as || 'a') : Button
 
   const handleClickOutside = useEffectEvent((e: MouseEvent) => {
     if (itemRef.current && !itemRef.current.contains(e.target as Node)) {
@@ -36,12 +42,18 @@ export function HeaderTopDropdown({
     }
   }
 
+  const handleFocus = () => {
+    setIsOpen(true)
+  }
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    // For buttons: Enter/Space toggle dropdown
+    if (!isLink && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault()
       setIsOpen((prev) => !prev)
     }
 
+    // ArrowDown: open dropdown and focus first item
     if (e.key === 'ArrowDown') {
       e.preventDefault()
       if (!isOpen) {
@@ -84,16 +96,20 @@ export function HeaderTopDropdown({
       className={clsx(styles.item, className)}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      onFocusCapture={handleFocus}
       onBlur={handleBlur}
       {...rest}
     >
-      <Button
-        type="button"
+      <TriggerComp
         ref={triggerRef}
+        href={href}
+        type={isLink ? undefined : 'button'}
+        tabIndex={isLink && current ? -1 : undefined}
         aria-haspopup="menu"
         aria-expanded={isOpen}
+        aria-current={current ? 'page' : undefined}
         className={styles.trigger}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={isLink ? undefined : () => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
         {label}
@@ -102,7 +118,7 @@ export function HeaderTopDropdown({
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
-      </Button>
+      </TriggerComp>
 
       <div
         inert

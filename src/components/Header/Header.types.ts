@@ -18,6 +18,9 @@ export type HeaderTopNavTypes = ComponentPropsWithRef<'nav'> & {
 export type HeaderTopDropdownTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   label: ReactNode
+  href?: string
+  as?: ElementType
+  current?: boolean
 }
 
 export type HeaderMainTypes = ComponentPropsWithRef<'div'> & {

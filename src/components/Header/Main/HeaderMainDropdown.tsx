@@ -112,6 +112,7 @@ export function HeaderMainDropdown({
         ref={triggerRef}
         href={href}
         type={isLink ? undefined : 'button'}
+        tabIndex={isLink && current ? -1 : undefined}
         className={clsx(styles.trigger, current && styles.triggerActive)}
         aria-expanded={isOpen}
         aria-haspopup="true"

@@ -1,7 +1,7 @@
 import { useEffect, useEffectEvent, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import { X } from 'lucide-react'
 import styles from './Toast.module.scss'
 import type { ToastTypes } from './Toast.types'

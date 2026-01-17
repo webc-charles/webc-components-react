@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import clsx from 'clsx'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import styles from './Audio.module.scss'
 import type { AudioTypes } from './Audio.types'
 

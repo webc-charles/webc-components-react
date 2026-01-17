@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import type { HeaderMainNavTypes } from '../Header.types'
 import styles from './HeaderMainNav.module.scss'
 

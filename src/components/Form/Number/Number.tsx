@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import styles from './Number.module.scss'
 import type { InputNumberTypes } from './Number.types'

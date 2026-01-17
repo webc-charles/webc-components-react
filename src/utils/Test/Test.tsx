@@ -4,7 +4,7 @@ import {
   type RenderResult,
 } from '@testing-library/react'
 import type { ReactElement, ReactNode } from 'react'
-import { I18nProvider, type Locale } from 'i18n'
+import { I18nProvider, type Locale } from 'utils/i18n'
 
 interface WrapperProps {
   children: ReactNode

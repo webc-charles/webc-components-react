@@ -7,5 +7,5 @@ import './styles/index.scss'
 export * from './components'
 
 // i18n
-export { I18nProvider, useI18n, useLocale } from './i18n'
-export type { I18nContextValue, Locale, Translations } from './i18n'
+export { I18nProvider, useI18n, useLocale } from './utils/i18n'
+export type { I18nContextValue, Locale, Translations } from './utils/i18n'

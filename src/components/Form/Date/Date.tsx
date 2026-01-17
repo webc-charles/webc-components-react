@@ -1,7 +1,7 @@
 import { useCallback, useId, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button, Modal } from 'components'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Date.module.scss'
 import type { InputDateTypes } from './Date.types'

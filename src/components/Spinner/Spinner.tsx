@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useI18n } from 'i18n'
+import { useI18n } from 'utils/i18n'
 import styles from './Spinner.module.scss'
 import type { SpinnerTypes } from './Spinner.types'
 

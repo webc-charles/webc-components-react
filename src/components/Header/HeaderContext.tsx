@@ -1,13 +1,7 @@
 import { createContext, useContext } from 'react'
+import type { HeaderContextTypes } from './Header.types'
 
-export type HeaderContextType = {
-  isOpen: boolean
-  toggle: () => void
-  mobileMenuId: string
-  mobileToggleId: string
-}
-
-export const HeaderContext = createContext<HeaderContextType | null>(null)
+export const HeaderContext = createContext<HeaderContextTypes | null>(null)
 
 export const useHeader = () => {
   const context = useContext(HeaderContext)

@@ -1,7 +1,14 @@
-import { useCallback, useEffect, useId, useMemo, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import clsx from 'clsx'
-import type { HeaderTypes } from './Header.types'
 import { HeaderContext } from './HeaderContext'
+import type { HeaderNavTypes, HeaderTypes } from './Header.types'
 import styles from './HeaderRoot.module.scss'
 
 export function HeaderRoot({
@@ -12,12 +19,30 @@ export function HeaderRoot({
   ...rest
 }: HeaderTypes) {
   const [isOpen, setIsOpen] = useState(false)
+  const [navCounts, setNavCounts] = useState({
+    main: 0,
+    top: 0,
+    mobile: 0,
+  })
+  const navIndexes = useRef({ main: 0, top: 0, mobile: 0 })
   const generatedId = useId()
   const id = baseId || generatedId
   const mobileMenuId = `header-mobile-menu-${id}`
   const mobileToggleId = `header-mobile-toggle-${id}`
 
   const toggle = useCallback(() => setIsOpen((prev) => !prev), [])
+
+  const registerNav = useCallback((type: HeaderNavTypes) => {
+    navIndexes.current[type] += 1
+    const index = navIndexes.current[type]
+    setNavCounts((prev) => ({ ...prev, [type]: prev[type] + 1 }))
+    return index
+  }, [])
+
+  const getNavCount = useCallback(
+    (type: HeaderNavTypes) => navCounts[type],
+    [navCounts]
+  )
 
   useEffect(() => {
     const handleResize = () => {
@@ -52,8 +77,22 @@ export function HeaderRoot({
   }, [isOpen, mobileToggleId])
 
   const value = useMemo(
-    () => ({ isOpen, toggle, mobileMenuId, mobileToggleId }),
-    [isOpen, mobileMenuId, mobileToggleId, toggle]
+    () => ({
+      isOpen,
+      toggle,
+      mobileMenuId,
+      mobileToggleId,
+      registerNav,
+      getNavCount,
+    }),
+    [
+      isOpen,
+      mobileMenuId,
+      mobileToggleId,
+      toggle,
+      registerNav,
+      getNavCount,
+    ]
   )
 
   return (

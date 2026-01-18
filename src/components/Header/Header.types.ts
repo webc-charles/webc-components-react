@@ -120,3 +120,14 @@ export type HeaderMobileDropdownLinkTypes = ComponentPropsWithRef<'a'> & {
   children: ReactNode
   current?: boolean
 }
+
+export type HeaderNavTypes = 'main' | 'top' | 'mobile'
+
+export type HeaderContextTypes = {
+  isOpen: boolean
+  toggle: () => void
+  mobileMenuId: string
+  mobileToggleId: string
+  registerNav: (type: HeaderNavTypes) => number
+  getNavCount: (type: HeaderNavTypes) => number
+}

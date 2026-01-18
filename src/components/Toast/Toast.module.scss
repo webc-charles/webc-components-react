@@ -13,7 +13,7 @@
   position: fixed;
   right: 0;
   width: 100%;
-  z-index: var(--z-index-5);
+  z-index: var(--z-index-4);
 
   @include mq-lg {
     padding: 0 0 2rem;

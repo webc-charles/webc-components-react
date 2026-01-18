@@ -7,7 +7,6 @@ import styles from './HeaderRoot.module.scss'
 export function HeaderRoot({
   ref,
   children,
-  sticky = false,
   baseId,
   className,
   ...rest
@@ -53,7 +52,7 @@ export function HeaderRoot({
   }, [isOpen, mobileToggleId])
 
   const value = useMemo(
-    () => ({ isOpen, setIsOpen, toggle, mobileMenuId, mobileToggleId }),
+    () => ({ isOpen, toggle, mobileMenuId, mobileToggleId }),
     [isOpen, mobileMenuId, mobileToggleId, toggle]
   )
 

@@ -39,12 +39,6 @@ const meta: Meta<typeof HeaderRoot> = {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    sticky: {
-      control: 'boolean',
-      description: 'Sticky header',
-    },
-  },
 }
 
 export default meta
@@ -408,54 +402,5 @@ export const MegaMenu: Story = {
         <MobileMenuContent />
       </HeaderMobile>
     </HeaderRoot>
-  ),
-}
-
-export const Sticky: Story = {
-  args: {
-    sticky: true,
-  },
-  render: (args) => (
-    <div>
-      <HeaderRoot {...args}>
-        <HeaderMain>
-          <HeaderMainLogo>
-            <Link href="/" style={logoStyles}>
-              Sticky
-            </Link>
-          </HeaderMainLogo>
-
-          <HeaderMainNav>
-            <HeaderMainLink asChild current>
-              <Link href="/" aria-current="page">
-                Accueil
-              </Link>
-            </HeaderMainLink>
-            <HeaderMainLink asChild>
-              <Link href="/">Produits</Link>
-            </HeaderMainLink>
-            <HeaderMainLink asChild>
-              <Link href="/">Contact</Link>
-            </HeaderMainLink>
-          </HeaderMainNav>
-
-          <HeaderMainNav>
-            <Link href="/" appearance="button" variant="primary">
-              CTA
-            </Link>
-          </HeaderMainNav>
-        </HeaderMain>
-
-        <HeaderMobileToggle />
-        <MobileMenuContent />
-      </HeaderRoot>
-
-      <div style={{ padding: '2rem', height: '200vh' }}>
-        <Title>Scroll down to see sticky header</Title>
-        <p style={{ marginTop: '2rem' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </div>
-    </div>
   ),
 }

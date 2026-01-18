@@ -2,7 +2,6 @@ import type { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
 
 export type HeaderTypes = ComponentPropsWithRef<'header'> & {
   children: ReactNode
-  sticky?: boolean
   baseId?: string
 }
 

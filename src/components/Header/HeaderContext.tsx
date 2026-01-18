@@ -2,7 +2,6 @@ import { createContext, useContext } from 'react'
 
 export type HeaderContextType = {
   isOpen: boolean
-  setIsOpen: (open: boolean) => void
   toggle: () => void
   mobileMenuId: string
   mobileToggleId: string

@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+  "days_short": [
+    "Søn",
+    "Man",
+    "Tir",
+    "Ons",
+    "Tor",
+    "Fre",
+    "Lør"
+  ],
   "select_option": "Vælg mulighed",
   "clear_all": "Ryd alt",
   "remove": "Fjern",
@@ -48,6 +56,7 @@
   "no_results": "Ingen resultater",
   "selected_options": "Valgte muligheder",
   "main_navigation": "Hovednavigation",
+  "top_navigation": "Sekundær navigation",
   "mobile_navigation": "Mobilnavigation",
   "breadcrumb": "Brødkrumme",
   "pagination": "Sideinddeling",

@@ -40,7 +40,15 @@
     "Novembre",
     "Dicembre"
   ],
-  "days_short": ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+  "days_short": [
+    "Dom",
+    "Lun",
+    "Mar",
+    "Mer",
+    "Gio",
+    "Ven",
+    "Sab"
+  ],
   "select_option": "Seleziona opzione",
   "clear_all": "Cancella tutto",
   "remove": "Rimuovi",
@@ -48,6 +56,7 @@
   "no_results": "Nessun risultato",
   "selected_options": "Opzioni selezionate",
   "main_navigation": "Navigazione principale",
+  "top_navigation": "Navigazione secondaria",
   "mobile_navigation": "Navigazione mobile",
   "breadcrumb": "Breadcrumb",
   "pagination": "Paginazione",

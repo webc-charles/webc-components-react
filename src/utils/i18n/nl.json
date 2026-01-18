@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"],
+  "days_short": [
+    "Zo",
+    "Ma",
+    "Di",
+    "Wo",
+    "Do",
+    "Vr",
+    "Za"
+  ],
   "select_option": "Optie selecteren",
   "clear_all": "Alles wissen",
   "remove": "Verwijderen",
@@ -48,6 +56,7 @@
   "no_results": "Geen resultaten",
   "selected_options": "Geselecteerde opties",
   "main_navigation": "Hoofdnavigatie",
+  "top_navigation": "Secundaire navigatie",
   "mobile_navigation": "Mobiele navigatie",
   "breadcrumb": "Kruimelpad",
   "pagination": "Paginering",

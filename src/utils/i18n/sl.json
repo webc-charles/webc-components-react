@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
+  "days_short": [
+    "Ned",
+    "Pon",
+    "Tor",
+    "Sre",
+    "Čet",
+    "Pet",
+    "Sob"
+  ],
   "select_option": "Izberite možnost",
   "clear_all": "Počisti vse",
   "remove": "Odstrani",
@@ -48,6 +56,7 @@
   "no_results": "Ni rezultatov",
   "selected_options": "Izbrane možnosti",
   "main_navigation": "Glavna navigacija",
+  "top_navigation": "Sekundarna navigacija",
   "mobile_navigation": "Mobilna navigacija",
   "breadcrumb": "Pot",
   "pagination": "Strani",

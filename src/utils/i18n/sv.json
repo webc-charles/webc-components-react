@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
+  "days_short": [
+    "Sön",
+    "Mån",
+    "Tis",
+    "Ons",
+    "Tor",
+    "Fre",
+    "Lör"
+  ],
   "select_option": "Välj alternativ",
   "clear_all": "Rensa allt",
   "remove": "Ta bort",
@@ -48,6 +56,7 @@
   "no_results": "Inga resultat",
   "selected_options": "Valda alternativ",
   "main_navigation": "Huvudnavigering",
+  "top_navigation": "Sekundär navigering",
   "mobile_navigation": "Mobilnavigering",
   "breadcrumb": "Brödsmulor",
   "pagination": "Sidnumrering",

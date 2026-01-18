@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["Ne", "Po", "Ut", "St", "Št", "Pi", "So"],
+  "days_short": [
+    "Ne",
+    "Po",
+    "Ut",
+    "St",
+    "Št",
+    "Pi",
+    "So"
+  ],
   "select_option": "Vybrať možnosť",
   "clear_all": "Vymazať všetko",
   "remove": "Odstrániť",
@@ -48,6 +56,7 @@
   "no_results": "Žiadne výsledky",
   "selected_options": "Vybrané možnosti",
   "main_navigation": "Hlavná navigácia",
+  "top_navigation": "Sekundárna navigácia",
   "mobile_navigation": "Mobilná navigácia",
   "breadcrumb": "Navigačná cesta",
   "pagination": "Stránkovanie",

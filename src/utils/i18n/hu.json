@@ -40,7 +40,15 @@
     "November",
     "December"
   ],
-  "days_short": ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+  "days_short": [
+    "V",
+    "H",
+    "K",
+    "Sze",
+    "Cs",
+    "P",
+    "Szo"
+  ],
   "select_option": "Válasszon",
   "clear_all": "Összes törlése",
   "remove": "Eltávolítás",
@@ -48,6 +56,7 @@
   "no_results": "Nincs találat",
   "selected_options": "Kiválasztott lehetőségek",
   "main_navigation": "Fő navigáció",
+  "top_navigation": "Másodlagos navigáció",
   "mobile_navigation": "Mobil navigáció",
   "breadcrumb": "Útvonal",
   "pagination": "Lapozás",

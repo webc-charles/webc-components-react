@@ -40,7 +40,15 @@
     "Lapkritis",
     "Gruodis"
   ],
-  "days_short": ["Sk", "Pr", "An", "Tr", "Kt", "Pn", "Št"],
+  "days_short": [
+    "Sk",
+    "Pr",
+    "An",
+    "Tr",
+    "Kt",
+    "Pn",
+    "Št"
+  ],
   "select_option": "Pasirinkite parinktį",
   "clear_all": "Išvalyti viską",
   "remove": "Pašalinti",
@@ -48,6 +56,7 @@
   "no_results": "Nėra rezultatų",
   "selected_options": "Pasirinktos parinktys",
   "main_navigation": "Pagrindinė navigacija",
+  "top_navigation": "Antrinė navigacija",
   "mobile_navigation": "Mobili navigacija",
   "breadcrumb": "Kelias",
   "pagination": "Puslapiavimas",

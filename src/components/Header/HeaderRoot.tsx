@@ -61,11 +61,11 @@ export function HeaderRoot({
     <HeaderContext.Provider value={value}>
       <header
         ref={ref}
-        className={clsx(styles.header, sticky && styles.sticky, className)}
+        className={clsx(styles.header, className)}
         {...rest}
       >
         <div
-          className={clsx(styles.overlay, isOpen && styles.overlayOpen)}
+          className={clsx(styles.overlay, isOpen && styles.isOpen)}
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />

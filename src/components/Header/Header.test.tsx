@@ -185,17 +185,6 @@ describe('Header', () => {
     expect(document.getElementById(menuId!)).toBeInTheDocument()
   })
 
-  it('applies sticky class', () => {
-    render(
-      <HeaderRoot sticky data-testid="header">
-        <HeaderMain>
-          <HeaderMainLogo>Logo</HeaderMainLogo>
-        </HeaderMain>
-      </HeaderRoot>
-    )
-    expect(screen.getByTestId('header').className).toMatch(/sticky/)
-  })
-
   it('dropdown has aria-haspopup and aria-expanded', () => {
     render(
       <HeaderRoot>

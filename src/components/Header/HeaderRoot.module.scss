@@ -1,15 +1,10 @@
 @use '../../styles/mq' as *;
 
 .header {
-  background-color: var(--color-white);
-  border-bottom: 0.1rem solid var(--color-grey-5);
-  width: 100%;
-}
-
-.sticky {
-  position: sticky;
+  left: 0;
+  position: fixed;
   top: 0;
-  z-index: var(--z-index-4);
+  width: 100%;
 }
 
 .overlay {
@@ -24,9 +19,11 @@
   @include mq-md {
     display: none;
   }
+
+  &.isOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-.overlayOpen {
-  opacity: 1;
-  pointer-events: auto;
-}
+

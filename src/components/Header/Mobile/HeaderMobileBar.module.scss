@@ -1,7 +1,7 @@
 .bar {
   align-items: center;
   display: flex;
+  height: var(--height-mobile-menu);
   justify-content: space-between;
-  min-height: var(--height-header);
   padding: 0 2rem;
 }

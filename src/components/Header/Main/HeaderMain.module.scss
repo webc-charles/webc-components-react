@@ -3,7 +3,7 @@
 .main {
   background-color: var(--color-white);
   display: none;
-  min-height: var(--height-header);
+  min-height: var(--height-main-menu);
   position: relative;
   z-index: var(--z-index-4);
 
@@ -16,10 +16,10 @@
   align-items: center;
   display: flex;
   gap: 2rem;
+  height: var(--height-main-menu);
   justify-content: space-between;
   margin: 0 auto;
   max-width: var(--container-max-width);
-  min-height: var(--height-header);
   padding: 0 2rem;
 
   @include mq-md {

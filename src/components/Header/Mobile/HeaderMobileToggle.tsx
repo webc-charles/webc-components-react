@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { Button } from 'components'
-import { useI18n } from 'utils/i18n'
 import { Menu, X } from 'lucide-react'
-import type { HeaderMobileToggleTypes } from '../Header.types'
+import { useI18n } from 'utils/i18n'
 import { useHeader } from '../HeaderContext'
+import type { HeaderMobileToggleTypes } from '../Header.types'
 import styles from './HeaderMobileToggle.module.scss'
 
 export function HeaderMobileToggle({

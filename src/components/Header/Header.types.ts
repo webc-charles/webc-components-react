@@ -71,6 +71,11 @@ export type HeaderMobileMenuTypes = ComponentPropsWithRef<'div'> & {
   'aria-label'?: string
 }
 
+export type HeaderMobileTopTypes = ComponentPropsWithRef<'div'> & {
+  children: ReactNode
+  'aria-label'?: string
+}
+
 export type HeaderMobileNavTypes = ComponentPropsWithRef<'nav'> & {
   children: ReactNode
   'aria-label'?: string

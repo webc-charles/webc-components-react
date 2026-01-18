@@ -16,6 +16,7 @@ import {
   HeaderMobileMenu,
   HeaderMobileNav,
   HeaderMobileToggle,
+  HeaderMobileTop,
   HeaderRoot,
   HeaderTop,
   HeaderTopDropdown,
@@ -138,6 +139,11 @@ const MegaMenuContent = () => (
 
 const MobileMenuContent = () => (
   <HeaderMobileMenu>
+    <HeaderMobileTop>
+      <Title level="h3">Menu</Title>
+      <HeaderMobileToggle />
+    </HeaderMobileTop>
+
     <HeaderMobileNav>
       <HeaderMobileLink asChild>
         <Link href="/">Accueil</Link>

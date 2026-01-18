@@ -1,32 +1,9 @@
-export type {
-  HeaderMainLogoTypes,
-  HeaderMainDropdownLinkTypes,
-  HeaderMainDropdownTypes,
-  HeaderMainLinkTypes,
-  HeaderMainNavTypes,
-  HeaderMainTypes,
-  HeaderMobileDropdownLinkTypes,
-  HeaderMobileDropdownTypes,
-  HeaderMobileLinkTypes,
-  HeaderMobileLogoTypes,
-  HeaderMobileBarTypes,
-  HeaderMobileMenuTypes,
-  HeaderMobileNavTypes,
-  HeaderMobileToggleTypes,
-  HeaderMobileTypes,
-  HeaderTopDropdownLinkTypes,
-  HeaderTopDropdownTypes,
-  HeaderTopLinkTypes,
-  HeaderTopNavTypes,
-  HeaderTopTypes,
-  HeaderTypes,
-} from './Header.types'
 export { HeaderRoot } from './HeaderRoot'
-export { HeaderMainLogo } from './Main/HeaderMainLogo'
 export { HeaderMain } from './Main/HeaderMain'
 export { HeaderMainDropdown } from './Main/HeaderMainDropdown'
 export { HeaderMainDropdownLink } from './Main/HeaderMainDropdownLink'
 export { HeaderMainLink } from './Main/HeaderMainLink'
+export { HeaderMainLogo } from './Main/HeaderMainLogo'
 export { HeaderMainNav } from './Main/HeaderMainNav'
 export { HeaderMobile } from './Mobile/HeaderMobile'
 export { HeaderMobileBar } from './Mobile/HeaderMobileBar'
@@ -37,8 +14,10 @@ export { HeaderMobileLogo } from './Mobile/HeaderMobileLogo'
 export { HeaderMobileMenu } from './Mobile/HeaderMobileMenu'
 export { HeaderMobileNav } from './Mobile/HeaderMobileNav'
 export { HeaderMobileToggle } from './Mobile/HeaderMobileToggle'
+export { HeaderMobileTop } from './Mobile/HeaderMobileTop'
 export { HeaderTop } from './Top/HeaderTop'
 export { HeaderTopDropdown } from './Top/HeaderTopDropdown'
 export { HeaderTopDropdownLink } from './Top/HeaderTopDropdownLink'
 export { HeaderTopLink } from './Top/HeaderTopLink'
 export { HeaderTopNav } from './Top/HeaderTopNav'
+export type * from './Header.types'

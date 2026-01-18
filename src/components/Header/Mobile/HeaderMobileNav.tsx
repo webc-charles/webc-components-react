@@ -13,7 +13,7 @@ export function HeaderMobileNav({
     <nav
       ref={ref}
       aria-label={ariaLabel}
-      className={clsx(styles.nav, className)}
+      className={clsx(styles.headerMobileNav, className)}
       {...rest}
     >
       {children}

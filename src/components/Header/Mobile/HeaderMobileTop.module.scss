@@ -1,0 +1,22 @@
+.headerMobileTop {
+  align-items: center;
+  display: flex;
+  height: var(--height-mobile-menu);
+  justify-content: space-between;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    background: var(--color-grey-5);
+    content: '';
+    display: block;
+    height: .1rem;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%);
+    width: calc(100% - 4rem);
+  }
+}

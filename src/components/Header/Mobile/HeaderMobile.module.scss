@@ -2,7 +2,6 @@
 
 .mobile {
   position: relative;
-  z-index: var(--z-index-4);
 
   @include mq-md {
     display: none;

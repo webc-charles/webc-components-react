@@ -5,7 +5,7 @@ import type { DividerTypes } from './Divider.types'
 export function Divider({
   ref,
   variant = 'solid',
-  spacing = 'md',
+  spacing = 'none',
   className,
   ...rest
 }: DividerTypes) {

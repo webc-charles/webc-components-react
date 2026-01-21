@@ -1,0 +1,6 @@
+.nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--footer-bottom-nav-gap, 1rem 2rem);
+}

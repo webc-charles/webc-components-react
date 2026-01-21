@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Card, CardBody } from '../Card'
 import { Grid } from './Grid'
-import type { GapSize } from './Grid.types'
 import { GridItem } from './GridItem'
+import type { GapSize } from './Grid.types'
 
 const gapSizes: GapSize[] = ['none', 'xs', 'sm', 'md', 'lg', 'xl']
 

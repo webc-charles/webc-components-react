@@ -1,0 +1,14 @@
+.link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+
+  &.current {
+    cursor: default;
+    text-decoration: none;
+  }
+}

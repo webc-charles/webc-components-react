@@ -1,18 +1,14 @@
 @use 'styles/action' as *;
 
-// Base reset - no visual styles
 .button {
   border: none;
-  color: inherit;
   cursor: pointer;
-  font: inherit;
 
   &:disabled {
     cursor: not-allowed;
   }
 }
 
-// Styled button (when variant or appearance is set)
 .styled {
   @include action-base;
   @include action-appearances;

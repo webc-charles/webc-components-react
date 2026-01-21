@@ -1,0 +1,10 @@
+.footer {
+  display: block;
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  padding: 0 2rem;
+}

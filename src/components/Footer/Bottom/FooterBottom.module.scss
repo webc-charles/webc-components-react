@@ -1,0 +1,10 @@
+.bottom {
+  align-items: center;
+  border-top: .1rem solid var(--color-grey-2);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size-3);
+  gap: 1rem 2rem;
+  justify-content: space-between;
+  padding: 3rem 0;
+}

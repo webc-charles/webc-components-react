@@ -1,0 +1,8 @@
+export { FooterRoot } from './FooterRoot'
+export { FooterMain } from './Main/FooterMain'
+export { FooterMainLink } from './Main/FooterMainLink'
+export { FooterMainNav } from './Main/FooterMainNav'
+export { FooterBottom } from './Bottom/FooterBottom'
+export { FooterBottomLink } from './Bottom/FooterBottomLink'
+export { FooterBottomNav } from './Bottom/FooterBottomNav'
+export type * from './Footer.types'

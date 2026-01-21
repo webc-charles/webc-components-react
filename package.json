@@ -1,6 +1,6 @@
 {
   "name": "@webc-charles/components-react",
-  "version": "1.0.75",
+  "version": "1.0.76",
   "packageManager": "pnpm@10.27.0",
   "description": "A lightweight React component library with CSS variables for easy theming",
   "repository": {
@@ -59,8 +59,8 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.15.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3",
     "@vitest/mocker": "^4.0.15",
     "@vitest/ui": "^4.0.15",
     "esbuild-sass-plugin": "^3.3.1",

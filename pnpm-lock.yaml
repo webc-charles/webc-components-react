@@ -52,10 +52,10 @@ importers:
         specifier: ^22.15.0
         version: 22.19.5
       '@types/react':
-        specifier: ^19.2.0
+        specifier: 19.2.8
         version: 19.2.8
       '@types/react-dom':
-        specifier: ^19.2.0
+        specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.8)
       '@vitest/mocker':
         specifier: ^4.0.15

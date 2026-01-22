@@ -96,7 +96,7 @@ function App() {
 | **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select · Slider |
 | **Display**  | Avatar · Badge · Note · Table · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                                                        |
 | **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                                                   |
-| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Breadcrumb · Pagination                                                                      |
+| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Footer · Breadcrumb · Pagination                                                             |
 
 ---
 
@@ -657,6 +657,72 @@ Responsive header with three sections: top bar, main navigation, and mobile menu
 - **Top:** `HeaderTop`, `HeaderTopNav`, `HeaderTopLink`, `HeaderTopDropdown`, `HeaderTopDropdownLink`
 - **Main:** `HeaderMain`, `HeaderMainLogo`, `HeaderMainNav`, `HeaderMainLink`, `HeaderMainDropdown`, `HeaderMainDropdownLink`
 - **Mobile:** `HeaderMobile`, `HeaderMobileBar`, `HeaderMobileLogo`, `HeaderMobileToggle`, `HeaderMobileMenu`, `HeaderMobileNav`, `HeaderMobileLink`, `HeaderMobileDropdown`, `HeaderMobileDropdownLink`
+
+#### Footer
+
+Structural footer component - projects control visual styling via CSS.
+
+```tsx
+<FooterRoot style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+  <FooterMain>
+    <Grid col={1} colSM={2} colMD={4} gap="lg">
+      <GridItem>
+        <Title level="h3">Company</Title>
+        <FooterMainNav>
+          <FooterMainLink asChild>
+            <Link href="/about">About</Link>
+          </FooterMainLink>
+          <FooterMainLink asChild>
+            <Link href="/careers">Careers</Link>
+          </FooterMainLink>
+        </FooterMainNav>
+      </GridItem>
+      <GridItem>
+        <Title level="h3">Resources</Title>
+        <FooterMainNav>
+          <FooterMainLink asChild>
+            <Link href="/docs">Documentation</Link>
+          </FooterMainLink>
+          <FooterMainLink asChild>
+            <Link href="/blog">Blog</Link>
+          </FooterMainLink>
+        </FooterMainNav>
+      </GridItem>
+    </Grid>
+  </FooterMain>
+  <FooterBottom>
+    <span>&copy; 2026 Company. All rights reserved.</span>
+    <FooterBottomNav>
+      <FooterBottomLink asChild>
+        <Link href="/privacy">Privacy Policy</Link>
+      </FooterBottomLink>
+      <FooterBottomLink asChild>
+        <Link href="/terms">Terms of Service</Link>
+      </FooterBottomLink>
+    </FooterBottomNav>
+  </FooterBottom>
+</FooterRoot>
+```
+
+| Prop (Link components) | Type      | Description                          |
+| ---------------------- | --------- | ------------------------------------ |
+| `current`              | `boolean` | Highlights link, adds aria-current   |
+| `asChild`              | `boolean` | Renders child element instead of `a` |
+
+**Sub-components:**
+
+- **Main:** `FooterMain`, `FooterMainNav`, `FooterMainLink`
+- **Bottom:** `FooterBottom`, `FooterBottomNav`, `FooterBottomLink`
+
+**CSS Variables:**
+
+```css
+--footer-main-padding: 3rem 0;
+--footer-nav-gap: 0.75rem;
+--footer-bottom-padding: 2rem 0;
+--footer-bottom-gap: 1rem 2rem;
+--footer-bottom-nav-gap: 1rem 2rem;
+```
 
 #### Breadcrumb
 

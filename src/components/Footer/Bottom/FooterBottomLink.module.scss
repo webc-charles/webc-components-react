@@ -4,10 +4,12 @@
 
   &:hover,
   &:focus-visible {
+    color: var(--color-primary-2);
     text-decoration: underline;
   }
 
   &.current {
+    color: var(--color-primary-2);
     cursor: default;
     text-decoration: none;
   }

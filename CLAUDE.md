@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A React component library with 32+ components, built with TypeScript, SCSS Modules, and full i18n support (22 languages).
+A React component library with 33+ components, built with TypeScript, SCSS Modules, and full i18n support (22 languages).
 
 ## Project Structure
 
@@ -56,8 +56,8 @@ Avatar, Badge, Note, Table, Title, Image, Link, Audio, Video, Iframe, Divider, R
 ### Feedback (6)
 Spinner, Progress, Skeleton, Tooltip, Toast, Modal
 
-### Layout (9)
-Grid, Card, Banner, Accordion, Tab, Carousel, Header, Breadcrumb, Pagination
+### Layout (10)
+Grid, Card, Banner, Accordion, Tab, Carousel, Header, Footer, Breadcrumb, Pagination
 
 ---
 
@@ -115,6 +115,53 @@ Auto-generates accessible nav labels:
 - Returns custom label if provided
 - Falls back to translated default (main_navigation, top_navigation, mobile_navigation)
 - Appends index number if multiple navs of same type exist
+
+---
+
+## Footer Component Architecture
+
+Structural compound component (no context needed):
+
+```
+Footer/
+├── FooterRoot.tsx              # Semantic <footer> wrapper
+├── Footer.types.ts             # TypeScript types
+├── Main/                       # Main content section
+│   ├── FooterMain.tsx          # Padding wrapper
+│   ├── FooterMainNav.tsx       # Flex column for links
+│   └── FooterMainLink.tsx      # Link with asChild pattern
+└── Bottom/                     # Bottom bar section
+    ├── FooterBottom.tsx        # Flex row for copyright/legal
+    ├── FooterBottomNav.tsx     # Flex row for legal links
+    └── FooterBottomLink.tsx    # Link with asChild pattern
+```
+
+### Design Philosophy
+- **Structural only**: No opinionated colors/fonts - projects control visual styling
+- **Composable**: Uses existing Grid, GridItem, Title components for layout
+- **CSS Variables**: Customizable via `--footer-main-padding`, `--footer-nav-gap`, etc.
+
+### Usage Pattern
+```tsx
+<FooterRoot style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+  <FooterMain>
+    <Grid col={4} gap="lg">
+      <GridItem>
+        <Title level="h3">Company</Title>
+        <FooterMainNav>
+          <FooterMainLink asChild><Link href="#">About</Link></FooterMainLink>
+        </FooterMainNav>
+      </GridItem>
+    </Grid>
+  </FooterMain>
+  <FooterBottom>
+    <span>© 2026</span>
+    <FooterBottomNav>
+      <FooterBottomLink asChild><Link href="#">Privacy</Link></FooterBottomLink>
+    </FooterBottomNav>
+  </FooterBottom>
+</FooterRoot>
+```
 
 ---
 

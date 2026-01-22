@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  border-radius: var(--radius-md);
+}
+
+.cardHeader {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+.title {
+  font-size: var(--font-size-6);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form > button[type='submit'] {
+  background-color: var(--color-primary-2);
+  border: none;
+  color: var(--color-white);
+  justify-content: center;
+  margin: 1rem 0 0;
+  width: 20rem;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-primary-1);
+  }
+}
+
+.form > [role='note'] {
+  margin-top: 0;
+}

@@ -1,0 +1,62 @@
+.card {
+  width: 100%;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 3.2rem 2.4rem;
+}
+
+.icon {
+  font-size: 4.8rem;
+  line-height: 1;
+
+  &[data-status='loading'] {
+    color: var(--color-grey-3);
+  }
+
+  &[data-status='success'] {
+    color: var(--color-success);
+  }
+
+  &[data-status='error'] {
+    color: var(--color-error);
+  }
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.message {
+  color: var(--color-grey-2);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  max-width: 30rem;
+}
+
+.divider {
+  margin: 0;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.6rem 2.4rem;
+  font-size: 1.4rem;
+}
+
+.link {
+  color: var(--color-primary-1);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

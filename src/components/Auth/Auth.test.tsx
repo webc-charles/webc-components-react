@@ -2,7 +2,16 @@ import '@testing-library/jest-dom/vitest'
 
 import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
-import { AuthSection, AuthCard, AuthCardLink, AuthForm } from './index'
+import {
+  AuthSection,
+  AuthCard,
+  AuthCardLink,
+  AuthForm,
+  AuthEmailSent,
+  AuthEmailSentLink,
+  AuthVerifyEmail,
+  AuthVerifyEmailLink,
+} from './index'
 
 describe('AuthSection', () => {
   it('renders with children', () => {
@@ -157,5 +166,176 @@ describe('Auth integration', () => {
     expect(screen.getByText('Welcome back')).toBeInTheDocument()
     expect(screen.getByTestId('form')).toBeInTheDocument()
     expect(screen.getByText('Create account')).toBeInTheDocument()
+  })
+})
+
+describe('AuthEmailSent', () => {
+  it('renders with title and message', () => {
+    render(
+      <AuthEmailSent title="Check your email" message="We sent you a link">
+        📧
+      </AuthEmailSent>
+    )
+    expect(screen.getByText('Check your email')).toBeInTheDocument()
+    expect(screen.getByText('We sent you a link')).toBeInTheDocument()
+  })
+
+  it('renders icon as children', () => {
+    render(
+      <AuthEmailSent title="Title" message="Message" data-testid="card">
+        ✉️
+      </AuthEmailSent>
+    )
+    expect(screen.getByText('✉️')).toBeInTheDocument()
+  })
+
+  it('renders footer when provided', () => {
+    render(
+      <AuthEmailSent
+        title="Title"
+        message="Message"
+        footer={<span>Footer Content</span>}
+      >
+        📧
+      </AuthEmailSent>
+    )
+    expect(screen.getByText('Footer Content')).toBeInTheDocument()
+  })
+
+  it('does not render footer when not provided', () => {
+    render(
+      <AuthEmailSent title="Title" message="Message">
+        📧
+      </AuthEmailSent>
+    )
+    expect(screen.queryByText('Footer Content')).not.toBeInTheDocument()
+  })
+
+  it('renders with custom className', () => {
+    render(
+      <AuthEmailSent
+        title="Title"
+        message="Message"
+        data-testid="card"
+        className="custom-class"
+      >
+        📧
+      </AuthEmailSent>
+    )
+    expect(screen.getByTestId('card')).toHaveClass('custom-class')
+  })
+})
+
+describe('AuthEmailSentLink', () => {
+  it('renders as anchor by default', () => {
+    render(<AuthEmailSentLink href="/resend">Resend</AuthEmailSentLink>)
+    const link = screen.getByText('Resend')
+    expect(link.tagName).toBe('A')
+    expect(link).toHaveAttribute('href', '/resend')
+  })
+
+  it('renders with asChild', () => {
+    render(
+      <AuthEmailSentLink asChild>
+        <button type="button">Resend Button</button>
+      </AuthEmailSentLink>
+    )
+    const button = screen.getByText('Resend Button')
+    expect(button.tagName).toBe('BUTTON')
+  })
+})
+
+describe('AuthVerifyEmail', () => {
+  it('renders with title and message', () => {
+    render(
+      <AuthVerifyEmail title="Verifying..." message="Please wait">
+        ⏳
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByText('Verifying...')).toBeInTheDocument()
+    expect(screen.getByText('Please wait')).toBeInTheDocument()
+  })
+
+  it('renders with loading status by default', () => {
+    render(
+      <AuthVerifyEmail title="Title" message="Message" data-testid="card">
+        ⏳
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByTestId('card')).toHaveAttribute('data-status', 'loading')
+  })
+
+  it('renders with success status', () => {
+    render(
+      <AuthVerifyEmail
+        title="Title"
+        message="Message"
+        status="success"
+        data-testid="card"
+      >
+        ✓
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByTestId('card')).toHaveAttribute('data-status', 'success')
+  })
+
+  it('renders with error status', () => {
+    render(
+      <AuthVerifyEmail
+        title="Title"
+        message="Message"
+        status="error"
+        data-testid="card"
+      >
+        ✗
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByTestId('card')).toHaveAttribute('data-status', 'error')
+  })
+
+  it('renders footer when provided', () => {
+    render(
+      <AuthVerifyEmail
+        title="Title"
+        message="Message"
+        footer={<span>Continue</span>}
+      >
+        ✓
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByText('Continue')).toBeInTheDocument()
+  })
+
+  it('renders with custom className', () => {
+    render(
+      <AuthVerifyEmail
+        title="Title"
+        message="Message"
+        data-testid="card"
+        className="custom-class"
+      >
+        ⏳
+      </AuthVerifyEmail>
+    )
+    expect(screen.getByTestId('card')).toHaveClass('custom-class')
+  })
+})
+
+describe('AuthVerifyEmailLink', () => {
+  it('renders as anchor by default', () => {
+    render(<AuthVerifyEmailLink href="/login">Sign in</AuthVerifyEmailLink>)
+    const link = screen.getByText('Sign in')
+    expect(link.tagName).toBe('A')
+    expect(link).toHaveAttribute('href', '/login')
+  })
+
+  it('renders with asChild', () => {
+    render(
+      <AuthVerifyEmailLink asChild>
+        <button type="button">Continue</button>
+      </AuthVerifyEmailLink>
+    )
+    const button = screen.getByText('Continue')
+    expect(button.tagName).toBe('BUTTON')
   })
 })

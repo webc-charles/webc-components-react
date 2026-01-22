@@ -14,3 +14,18 @@ export type AuthCardTypes = ComponentPropsWithRef<'div'> & {
 export type AuthFormTypes = ComponentPropsWithRef<'form'> & {
   children: ReactNode
 }
+
+export type AuthEmailSentTypes = ComponentPropsWithRef<'div'> & {
+  children?: ReactNode
+  title: string
+  message: string
+  footer?: ReactNode
+}
+
+export type AuthVerifyEmailTypes = ComponentPropsWithRef<'div'> & {
+  children?: ReactNode
+  title: string
+  message: string
+  status?: 'loading' | 'success' | 'error'
+  footer?: ReactNode
+}

@@ -2,7 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from '../Form/Button'
 import { InputText } from '../Form/Text'
 import { InputPassword } from '../Form/Password'
-import { AuthSection, AuthCard, AuthCardLink, AuthForm } from './index'
+import {
+  AuthSection,
+  AuthCard,
+  AuthCardLink,
+  AuthForm,
+  AuthEmailSent,
+  AuthEmailSentLink,
+  AuthVerifyEmail,
+  AuthVerifyEmailLink,
+} from './index'
 
 const meta: Meta<typeof AuthCard> = {
   title: 'Components/Auth',
@@ -204,5 +213,101 @@ export const CardOnly: Story = {
     >
       <p>Card body content goes here.</p>
     </AuthCard>
+  ),
+}
+
+export const EmailSent: Story = {
+  render: () => (
+    <AuthSection>
+      <AuthEmailSent
+        title="Check your email"
+        message="We've sent a password reset link to your email address. Please check your inbox and follow the instructions."
+        footer={
+          <>
+            <span>Didn't receive the email?</span>
+            <AuthEmailSentLink href="/forgot-password">
+              Resend
+            </AuthEmailSentLink>
+          </>
+        }
+      >
+        ✉️
+      </AuthEmailSent>
+    </AuthSection>
+  ),
+}
+
+export const EmailSentSignup: Story = {
+  render: () => (
+    <AuthSection>
+      <AuthEmailSent
+        title="Verify your email"
+        message="We've sent a verification link to your email address. Please check your inbox to complete your registration."
+        footer={
+          <>
+            <span>Back to</span>
+            <AuthEmailSentLink href="/login">Sign in</AuthEmailSentLink>
+          </>
+        }
+      >
+        📧
+      </AuthEmailSent>
+    </AuthSection>
+  ),
+}
+
+export const VerifyEmailLoading: Story = {
+  render: () => (
+    <AuthSection>
+      <AuthVerifyEmail
+        status="loading"
+        title="Verifying your email..."
+        message="Please wait while we verify your email address."
+      >
+        ⏳
+      </AuthVerifyEmail>
+    </AuthSection>
+  ),
+}
+
+export const VerifyEmailSuccess: Story = {
+  render: () => (
+    <AuthSection>
+      <AuthVerifyEmail
+        status="success"
+        title="Email verified!"
+        message="Your email has been successfully verified. You can now sign in to your account."
+        footer={
+          <AuthVerifyEmailLink href="/login">
+            Continue to sign in
+          </AuthVerifyEmailLink>
+        }
+      >
+        ✓
+      </AuthVerifyEmail>
+    </AuthSection>
+  ),
+}
+
+export const VerifyEmailError: Story = {
+  render: () => (
+    <AuthSection>
+      <AuthVerifyEmail
+        status="error"
+        title="Verification failed"
+        message="The verification link is invalid or has expired. Please request a new verification email."
+        footer={
+          <>
+            <AuthVerifyEmailLink href="/signup">
+              Request new link
+            </AuthVerifyEmailLink>
+            <span>or</span>
+            <AuthVerifyEmailLink href="/login">Sign in</AuthVerifyEmailLink>
+          </>
+        }
+      >
+        ✗
+      </AuthVerifyEmail>
+    </AuthSection>
   ),
 }

@@ -1,4 +1,31 @@
+@use 'styles/mq' as *;
+
 .main {
+  display: flex;
+  gap: 2rem;
   padding: 4rem 0;
   width: 100%;
+}
+
+.brand {
+  display: none;
+
+  @include mq-md {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 1rem;
+    width: calc(100% / 5);
+  }
+}
+
+.content {
+  flex: 1;
+
+  @include mq-md {
+    background: var(--color-white-50);
+    border-radius: var(--radius-sm);
+    padding: 4rem;
+  }
 }

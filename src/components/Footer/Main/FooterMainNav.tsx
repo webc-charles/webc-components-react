@@ -6,16 +6,18 @@ export function FooterMainNav({
   ref,
   children,
   className,
-  'aria-label': ariaLabel = 'Footer navigation',
+  title,
+  'aria-label': ariaLabel,
   ...rest
 }: FooterMainNavTypes) {
   return (
     <nav
       ref={ref}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || title || 'Footer navigation'}
       className={clsx(styles.nav, className)}
       {...rest}
     >
+      {title && <h3 className={styles.title}>{title}</h3>}
       {children}
     </nav>
   )

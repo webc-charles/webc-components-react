@@ -1,10 +1,22 @@
+@use 'styles/mq' as *;
+
 .bottom {
-  align-items: center;
   border-top: .1rem solid var(--color-grey-2);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column-reverse;
   font-size: var(--font-size-3);
-  gap: 1rem 2rem;
-  justify-content: space-between;
+  gap: 2rem;
   padding: 3rem 0;
+
+  @include mq-md {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  color: var(--color-grey-2);
 }

@@ -1,6 +1,6 @@
 {
   "name": "@webc-charles/components-react",
-  "version": "1.0.86",
+  "version": "1.0.87",
   "packageManager": "pnpm@10.27.0",
   "description": "A lightweight React component library with CSS variables for easy theming",
   "repository": {

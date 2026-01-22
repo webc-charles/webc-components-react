@@ -1,3 +1,5 @@
+@use 'mq' as *;
+
 * {
   border: 0 solid;
   box-sizing: border-box;
@@ -39,13 +41,40 @@ html {
 }
 
 body {
+  background: var(--color-grey-6);
   color: var(--color-black);
+  display: flex;
+  flex-direction: column;
   font-family: var(--site-font);
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-md);
   line-height: 1.2;
   margin: 0;
+  min-height: 100vh;
+  padding-top: var(--height-mobile-menu);
   width: 100%;
+
+  @include mq-md {
+    padding-top: 0;
+  }
+
+  &.with-top-nav {
+    @include mq-md {
+      padding-top: var(--height-top-menu);
+    }
+  }
+
+  &.with-main-nav {
+    @include mq-md {
+      padding-top: var(--height-main-menu);
+    }
+  }
+
+  &.with-main-nav.with-top-nav {
+    @include mq-md {
+      padding-top: calc(var(--height-top-menu) + var(--height-main-menu));
+    }
+  }
 
   &.freeze {
     overflow: hidden;
@@ -93,5 +122,11 @@ button {
   cursor: pointer;
   font-family: var(--site-font);
   font-weight: var(--font-weight-md);
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 

@@ -1,11 +1,21 @@
 import type { ComponentPropsWithRef } from 'react'
+import type { HorizontalAlign, VerticalAlign } from '../../types'
 import type { TitleTypes } from '../Title/Title.types'
 
-export type HorizontalAlignTypes = 'left' | 'center' | 'right'
-export type VerticalAlignTypes = 'start' | 'center' | 'end'
-export type BannerOverlayTypes = 'none' | 'light' | 'dark'
-export type BannerTextColorTypes = 'light' | 'dark'
-export type BannerTextAlignTypes = 'left' | 'center' | 'right'
+/** @deprecated Use HorizontalAlign instead */
+export type HorizontalAlignTypes = HorizontalAlign
+/** @deprecated Use VerticalAlign instead */
+export type VerticalAlignTypes = VerticalAlign
+/** @deprecated Use HorizontalAlign instead */
+export type BannerTextAlignTypes = HorizontalAlign
+
+export type BannerOverlay = 'none' | 'light' | 'dark'
+export type BannerTextColor = 'light' | 'dark'
+
+/** @deprecated Use BannerOverlay instead */
+export type BannerOverlayTypes = BannerOverlay
+/** @deprecated Use BannerTextColor instead */
+export type BannerTextColorTypes = BannerTextColor
 
 export type BannerBackgroundVideo = {
   src: string
@@ -16,16 +26,16 @@ export type BannerTypes = ComponentPropsWithRef<'div'> & {
   backgroundImage?: string
   backgroundVideo?: BannerBackgroundVideo
   backgroundColor?: string
-  horizontalAlign?: HorizontalAlignTypes
-  verticalAlign?: VerticalAlignTypes
+  horizontalAlign?: HorizontalAlign
+  verticalAlign?: VerticalAlign
   minHeight?: string
-  overlay?: BannerOverlayTypes
+  overlay?: BannerOverlay
 }
 
 export type BannerContentTypes = ComponentPropsWithRef<'div'> & {
   maxWidth?: string
-  textAlign?: BannerTextAlignTypes
-  textColor?: BannerTextColorTypes
+  textAlign?: HorizontalAlign
+  textColor?: BannerTextColor
 }
 
 export type BannerTitleTypes = TitleTypes

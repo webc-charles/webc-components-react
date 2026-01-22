@@ -1,15 +1,12 @@
 import type { ComponentPropsWithRef } from 'react'
-import type { ColorVariant } from '../../../types'
+import type { ActionAppearance, ColorVariant } from '../../../types'
 
-export type ButtonAppearance =
-  | 'default'
-  | 'underline'
-  | 'outline'
-  | 'button'
+/** @deprecated Use ActionAppearance instead */
+export type ButtonAppearance = ActionAppearance
 
 export type ButtonTypes = ComponentPropsWithRef<'button'> & {
   variant?: ColorVariant
-  appearance?: ButtonAppearance
+  appearance?: ActionAppearance
   contrast?: boolean
   loading?: boolean
 }

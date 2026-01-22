@@ -24,7 +24,7 @@ type Story = StoryObj<typeof FooterRoot>
 
 export const Default: Story = {
   render: (args) => (
-    <FooterRoot {...args} style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+    <FooterRoot {...args}>
       <FooterMain>
         <Grid col={1} colSM={2} colMD={4} gap="lg">
           <GridItem>
@@ -105,7 +105,7 @@ export const Default: Story = {
 
 export const ThreeColumns: Story = {
   render: () => (
-    <FooterRoot style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+    <FooterRoot>
       <FooterMain>
         <Grid col={1} colSM={3} gap="lg">
           <GridItem>
@@ -165,7 +165,7 @@ export const ThreeColumns: Story = {
 
 export const Simple: Story = {
   render: () => (
-    <FooterRoot style={{ backgroundColor: '#f5f5f5' }}>
+    <FooterRoot>
       <FooterBottom>
         <span>&copy; 2026 Company. All rights reserved.</span>
         <FooterBottomNav>
@@ -186,7 +186,7 @@ export const Simple: Story = {
 
 export const WithCurrentLink: Story = {
   render: () => (
-    <FooterRoot style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
+    <FooterRoot>
       <FooterMain>
         <Grid col={1} colSM={2} gap="lg">
           <GridItem>

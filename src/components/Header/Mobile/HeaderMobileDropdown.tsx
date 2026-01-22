@@ -9,11 +9,13 @@ export function HeaderMobileDropdown({
   ref,
   children,
   label,
+  baseId,
   className,
   ...rest
 }: HeaderMobileDropdownTypes) {
   const [isExpanded, setIsExpanded] = useState(false)
-  const id = useId()
+  const generatedId = useId()
+  const id = baseId || generatedId
   const dropdownId = `mobile-nav-content-${id}`
   const dropdownRef = useRef<HTMLDivElement>(null)
 

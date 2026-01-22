@@ -83,6 +83,7 @@ export type HeaderMobileNavTypes = ComponentPropsWithRef<'nav'> & {
 export type HeaderMobileDropdownTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   label: ReactNode
+  baseId?: string
 }
 
 export type HeaderTopLinkTypes = ComponentPropsWithRef<'a'> & {

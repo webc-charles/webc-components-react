@@ -1,4 +1,5 @@
 export * from './Accordion'
+export * from './Auth'
 export * from './Audio'
 export * from './Avatar'
 export * from './Badge'

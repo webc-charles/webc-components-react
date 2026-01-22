@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
-export type PageTypes = ComponentPropsWithRef<'div'> & {
+export type PageRootTypes = ComponentPropsWithRef<'div'> & {
   children?: ReactNode
 }

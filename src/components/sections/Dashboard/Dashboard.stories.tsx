@@ -10,6 +10,7 @@ import {
   DashboardNav,
   DashboardNavLink,
   DashboardSidebar,
+  DashboardTitle,
 } from './index'
 
 const meta: Meta = {
@@ -57,10 +58,10 @@ export const DashboardPage: Story = {
       </DashboardSidebar>
 
       <DashboardMain>
-        <DashboardHeader
-          title="Welcome johndoe"
-          avatar={<Avatar name="johndoe" size="xl" />}
-        />
+        <DashboardHeader>
+          <DashboardTitle>Welcome johndoe</DashboardTitle>
+          <Avatar name="johndoe" size="xl" />
+        </DashboardHeader>
       </DashboardMain>
     </DashboardLayout>
   ),

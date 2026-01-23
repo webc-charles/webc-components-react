@@ -17,9 +17,11 @@ export type DashboardMainTypes = ComponentPropsWithRef<'main'> & {
 }
 
 export type DashboardHeaderTypes = ComponentPropsWithRef<'div'> & {
-  children?: ReactNode
-  title: string
-  avatar?: ReactNode
+  children: ReactNode
+}
+
+export type DashboardTitleTypes = ComponentPropsWithRef<'h1'> & {
+  children: ReactNode
 }
 
 export type DashboardNavTypes = ComponentPropsWithRef<'nav'> & {

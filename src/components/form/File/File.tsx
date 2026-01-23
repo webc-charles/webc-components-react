@@ -74,7 +74,6 @@ export function InputFile({
   const [files, setFiles] = useState<FileList | null>(null)
   const [isDragging, setIsDragging] = useState(false)
 
-  // Use forwarded ref or internal ref
   const actualRef = (ref as React.RefObject<HTMLInputElement>) || inputRef
 
   const handleClick = () => {
@@ -192,9 +191,9 @@ export function InputFile({
         <div className={styles.inline}>
           <Button
             type="button"
-            onClick={handleClick}
             disabled={disabled}
-            className={clsx(styles.button, buttonClassName)}
+            onClick={handleClick}
+            className={clsx('file', styles.button, buttonClassName)}
           >
             <Upload size={16} aria-hidden />
 

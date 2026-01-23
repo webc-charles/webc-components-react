@@ -10,15 +10,16 @@ import {
   DashboardNav,
   DashboardNavLink,
   DashboardSidebar,
+  DashboardTitle,
 } from './index'
 
 describe('DashboardHeader', () => {
   it('renders with title and avatar', () => {
     render(
-      <DashboardHeader
-        title="Welcome"
-        avatar={<span data-testid="avatar">Avatar</span>}
-      />
+      <DashboardHeader>
+        <DashboardTitle>Welcome</DashboardTitle>
+        <span data-testid="avatar">Avatar</span>
+      </DashboardHeader>
     )
     expect(screen.getByText('Welcome')).toBeInTheDocument()
     expect(screen.getByTestId('avatar')).toBeInTheDocument()
@@ -71,7 +72,9 @@ describe('Dashboard integration', () => {
           </DashboardNav>
         </DashboardSidebar>
         <DashboardMain>
-          <DashboardHeader title="Welcome" />
+          <DashboardHeader>
+            <DashboardTitle>Welcome</DashboardTitle>
+          </DashboardHeader>
         </DashboardMain>
       </DashboardLayout>
     )

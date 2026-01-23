@@ -34,18 +34,20 @@
 }
 
 .header {
-  align-items: center;
-  border-radius: var(--radius-md);
-  display: flex;
-  justify-content: space-between;
-  min-height: 8rem;
-}
-
-.headerText {
   align-items: flex-start;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 8rem;
+  position: relative;
+
+  > :last-child:not(.headerTitle):not(p) {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .headerTitle {

@@ -1,20 +1,30 @@
-.container {
+.section {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 2rem;
+  padding: 2rem;
 }
 
 .card {
   border-radius: var(--radius-md);
+  flex: 1;
+  padding: 2rem;
 }
 
 .cardHeader {
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .cardBody {
-  padding: 1rem;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.cardFooter {
+  flex-direction: column;
+  padding: 1rem 0;
 }
 
 .title {
@@ -27,7 +37,7 @@
   gap: 1rem;
 }
 
-.form > button[type='submit'] {
+button[type='submit'] {
   background-color: var(--color-primary-2);
   border: none;
   color: var(--color-white);
@@ -41,6 +51,6 @@
   }
 }
 
-.form > [role='note'] {
-  margin-top: 0;
+[class*="file"] {
+  width: 20rem
 }

@@ -1,4 +1,5 @@
 export * from './AccountCard'
-export * from './AccountContainer'
 export * from './AccountForm'
+export * from './AccountSection'
+export * from './AccountTitle'
 export type * from './Account.types'

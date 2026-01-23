@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from 'base/Avatar'
-import { Title } from 'base/Title'
+import { Logo } from 'components/base'
 import { LayoutDashboard, LogOut, UserCog } from 'lucide-react'
 import {
   DashboardBrand,
@@ -33,10 +33,10 @@ export const DashboardPage: Story = {
     <DashboardLayout>
       <DashboardSidebar>
         <DashboardBrand>
-          <Title level="h2">Logo</Title>
+          <Logo>Logo</Logo>
         </DashboardBrand>
 
-        <DashboardNav title="Menu">
+        <DashboardNav title="General">
           <DashboardNavLink href="/dashboard" current>
             <LayoutDashboard size={21} />
             Dashboard
@@ -47,7 +47,7 @@ export const DashboardPage: Story = {
           </DashboardNavLink>
         </DashboardNav>
 
-        <DashboardNav title="General">
+        <DashboardNav title="Account">
           <DashboardNavLink asChild>
             <button type="button">
               <LogOut size={21} />

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Divider } from 'base/Divider'
 import { Spinner } from 'base/Spinner'
+import { Note } from 'components/base'
 import { Button } from 'form/Button'
 import { InputPassword } from 'form/Password'
 import { InputText } from 'form/Text'
@@ -110,6 +111,7 @@ export const Signup: Story = {
               label="Password"
               placeholder="Enter your password"
             />
+            <Note variant="danger">An error message</Note>
             <InputPassword
               name="confirmPassword"
               label="Confirm Password"
@@ -118,6 +120,7 @@ export const Signup: Story = {
             <Button type="submit" variant="primary" appearance="button">
               Create Account
             </Button>
+            <Note variant="success">A success message</Note>
           </AuthForm>
 
           <Divider spacing="md">or</Divider>
@@ -280,7 +283,7 @@ export const VerifyEmailError: Story = {
   render: () => (
     <AuthSection>
       <AuthCard>
-        <AuthCardHeader title="Verification failed">
+        <AuthCardHeader>
           <AuthTitle className="text-danger-2">
             Verification failed
           </AuthTitle>

@@ -37,7 +37,7 @@
   gap: 1rem;
 }
 
-button[type='submit'] {
+.form button[type='submit'] {
   background-color: var(--color-primary-2);
   border: none;
   color: var(--color-white);
@@ -51,6 +51,6 @@ button[type='submit'] {
   }
 }
 
-[class*="file"] {
+.form [class*="file"] {
   width: 20rem
 }

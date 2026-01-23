@@ -19,7 +19,12 @@ const config: StorybookConfig = {
       alias: {
         ...config.resolve?.alias,
         components: path.resolve(__dirname, '../src/components'),
+        sections: path.resolve(__dirname, '../src/components/sections'),
+        modules: path.resolve(__dirname, '../src/components/modules'),
+        form: path.resolve(__dirname, '../src/components/form'),
+        base: path.resolve(__dirname, '../src/components/base'),
         styles: path.resolve(__dirname, '../src/styles'),
+        types: path.resolve(__dirname, '../src/types'),
         i18n: path.resolve(__dirname, '../src/i18n'),
         utils: path.resolve(__dirname, '../src/utils'),
       },

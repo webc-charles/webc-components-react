@@ -26,6 +26,7 @@
   &.appearance-default {
     align-self: center;
     height: auto;
+    text-decoration: none;
   }
 
   &.appearance-underline {
@@ -42,8 +43,8 @@
       width: 100%;
     }
 
-    &:hover:not([disabled]),
-    &:focus-visible:not([disabled]) {
+    &:hover:not([disabled], [aria-disabled='true']),
+    &:focus-visible:not([disabled], [aria-disabled='true']) {
       &::before {
         transform: translateY(0.4rem);
       }
@@ -64,9 +65,9 @@
       background: transparent;
       color: $base;
 
-      &[aria-selected='true']:not([disabled]),
-      &:hover:not([disabled]),
-      &:focus-visible:not([disabled]) {
+      &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+      &:hover:not([disabled], [aria-disabled='true']),
+      &:focus-visible:not([disabled], [aria-disabled='true']) {
         color: $hover;
       }
 
@@ -74,9 +75,9 @@
         background: $base;
         color: $text;
 
-        &[aria-selected='true']:not([disabled]),
-        &:hover:not([disabled]),
-        &:focus-visible:not([disabled]) {
+        &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+        &:hover:not([disabled], [aria-disabled='true']),
+        &:focus-visible:not([disabled], [aria-disabled='true']) {
           background: $hover;
           color: $text;
         }
@@ -85,9 +86,9 @@
       &.appearance-outline {
         border: 0.1rem solid $base;
 
-        &[aria-selected='true']:not([disabled]),
-        &:hover:not([disabled]),
-        &:focus-visible:not([disabled]) {
+        &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+        &:hover:not([disabled], [aria-disabled='true']),
+        &:focus-visible:not([disabled], [aria-disabled='true']) {
           background: $hover;
           border-color: $hover;
           color: $text;
@@ -98,9 +99,9 @@
         background: $base;
       }
 
-      &.appearance-underline[aria-selected='true']:not([disabled])::before,
-      &.appearance-underline:hover:not([disabled])::before,
-      &.appearance-underline:focus-visible:not([disabled])::before {
+      &.appearance-underline[aria-selected='true']:not([disabled], [aria-disabled='true'])::before,
+      &.appearance-underline:hover:not([disabled], [aria-disabled='true'])::before,
+      &.appearance-underline:focus-visible:not([disabled], [aria-disabled='true'])::before {
         background: $hover;
       }
 
@@ -108,9 +109,9 @@
       &.contrast {
         color: $contrast-base;
 
-        &[aria-selected='true']:not([disabled]),
-        &:hover:not([disabled]),
-        &:focus-visible:not([disabled]) {
+        &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+        &:hover:not([disabled], [aria-disabled='true']),
+        &:focus-visible:not([disabled], [aria-disabled='true']) {
           color: $contrast-hover;
         }
 
@@ -118,9 +119,9 @@
           background: $contrast-base;
           color: $contrast-text;
 
-          &[aria-selected='true']:not([disabled]),
-          &:hover:not([disabled]),
-          &:focus-visible:not([disabled]) {
+          &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+          &:hover:not([disabled], [aria-disabled='true']),
+          &:focus-visible:not([disabled], [aria-disabled='true']) {
             background: $contrast-hover;
             color: $contrast-text;
           }
@@ -129,9 +130,9 @@
         &.appearance-outline {
           border-color: $contrast-base;
 
-          &[aria-selected='true']:not([disabled]),
-          &:hover:not([disabled]),
-          &:focus-visible:not([disabled]) {
+          &[aria-selected='true']:not([disabled], [aria-disabled='true']),
+          &:hover:not([disabled], [aria-disabled='true']),
+          &:focus-visible:not([disabled], [aria-disabled='true']) {
             background: $contrast-hover;
             border-color: $contrast-hover;
             color: $contrast-text;
@@ -142,9 +143,9 @@
           background: $contrast-base;
         }
 
-        &.appearance-underline[aria-selected='true']:not([disabled])::before,
-        &.appearance-underline:hover:not([disabled])::before,
-        &.appearance-underline:focus-visible:not([disabled])::before {
+        &.appearance-underline[aria-selected='true']:not([disabled], [aria-disabled='true'])::before,
+        &.appearance-underline:hover:not([disabled], [aria-disabled='true'])::before,
+        &.appearance-underline:focus-visible:not([disabled], [aria-disabled='true'])::before {
           background: $contrast-hover;
         }
       }
@@ -153,7 +154,8 @@
 }
 
 @mixin action-disabled {
-  &[disabled] {
+  &[disabled],
+  &[aria-disabled='true'] {
     opacity: 0.5;
     pointer-events: none;
 

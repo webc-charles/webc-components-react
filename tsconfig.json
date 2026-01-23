@@ -4,7 +4,16 @@
     "baseUrl": "src",
     "paths": {
       "components/*": ["components/*"],
+      "sections": ["components/sections"],
+      "sections/*": ["components/sections/*"],
+      "modules": ["components/modules"],
+      "modules/*": ["components/modules/*"],
+      "form": ["components/form"],
+      "form/*": ["components/form/*"],
+      "base": ["components/base"],
+      "base/*": ["components/base/*"],
       "styles/*": ["styles/*"],
+      "types": ["types"],
       "utils/*": ["utils/*"]
     },
     "target": "ES2020",

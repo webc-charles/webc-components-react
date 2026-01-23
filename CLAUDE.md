@@ -358,6 +358,64 @@ export * from './MyComponent'
 
 ---
 
+## Testing Guidelines
+
+Tests should focus on **meaningful behavior**, not implementation details.
+
+### What to Test
+- **Accessibility**: aria-label, aria-current, roles, keyboard navigation
+- **Component props**: Props that affect rendered output (title, subtitle, footer, status)
+- **Conditional rendering**: Components that return null or different outputs based on props
+- **Polymorphic patterns**: asChild behavior
+- **Integration tests**: Complete component composition
+
+### What NOT to Test
+- CSS class names (e.g., `.variant-primary`, `.size-lg`)
+- tagName checks (e.g., `expect(element.tagName).toBe('DIV')`)
+- className prop forwarding (it's a React standard)
+- Obvious renders ("renders children" for simple wrappers)
+- ref forwarding (unless it's a key feature)
+
+### Example: Good vs Bad
+
+```typescript
+// ❌ BAD - Testing CSS implementation
+it('applies variant class', () => {
+  render(<Badge variant="primary" data-testid="badge">Text</Badge>)
+  expect(screen.getByTestId('badge').className).toMatch(/variant-primary/)
+})
+
+// ❌ BAD - Testing obvious behavior
+it('renders as div element', () => {
+  render(<Card data-testid="card">Content</Card>)
+  expect(screen.getByTestId('card').tagName).toBe('DIV')
+})
+
+// ✅ GOOD - Testing meaningful behavior
+it('renders with current state', () => {
+  render(<NavLink href="/test" current>Link</NavLink>)
+  expect(screen.getByText('Link')).toHaveAttribute('aria-current', 'page')
+})
+
+// ✅ GOOD - Testing conditional rendering
+it('returns null when no children', () => {
+  const { container } = render(<Note />)
+  expect(container).toBeEmptyDOMElement()
+})
+
+// ✅ GOOD - Testing polymorphic pattern
+it('supports asChild pattern', () => {
+  render(
+    <Logo asChild>
+      <button type="button">Button Logo</button>
+    </Logo>
+  )
+  expect(screen.getByRole('button', { name: 'Button Logo' })).toBeInTheDocument()
+})
+```
+
+---
+
 ## Commands
 
 ```bash

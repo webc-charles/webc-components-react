@@ -1,0 +1,56 @@
+@use 'styles/typo' as *;
+
+.divider {
+  @include base-hr;
+
+  border-top-color: var(--color-grey-4);
+  width: 100%;
+}
+
+.dividerWithText {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+
+  .divider {
+    flex: 1;
+  }
+}
+
+.dividerText {
+  color: var(--color-grey-3);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.variant-solid {
+  border-top-style: solid;
+}
+
+.variant-dashed {
+  border-top-style: dashed;
+}
+
+.variant-dotted {
+  border-top-style: dotted;
+}
+
+.spacing-none {
+  margin: 0;
+}
+
+.spacing-sm {
+  margin: 1rem 0;
+}
+
+.spacing-md {
+  margin: 2rem 0;
+}
+
+.spacing-lg {
+  margin: 3rem 0;
+}
+
+.spacing-xl {
+  margin: 4rem 0;
+}

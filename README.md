@@ -26,10 +26,6 @@ A lightweight, accessible React component library built with TypeScript, SCSS Mo
 - **Customizable**: CSS variables for theming, className props for overrides
 - **Primitive**: Components are intentionally simple - compose them as needed
 
-### Bundle Size
-
-Estimated ~30-50kb gzipped (no heavy framework dependencies)
-
 ### Dependencies
 
 | Package                | Purpose                       |
@@ -91,12 +87,12 @@ function App() {
 
 ### Overview
 
-| Category     | Components                                                                                                                                                |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Form**     | Button · InputText · InputPassword · InputNumber · InputTextarea · InputFile · InputSearch · Checkbox · Switch · InputRadio · InputDate · Select · Slider |
-| **Display**  | Avatar · Badge · Note · Table · Title · Image · Link · Audio · Video · Iframe · Divider · RichText                                                        |
-| **Feedback** | Spinner · Progress · Skeleton · Tooltip · Toast · Modal                                                                                                   |
-| **Layout**   | Grid · Card · Banner · Accordion · Tab · Carousel · Header · Footer · Breadcrumb · Pagination                                                             |
+| Category       | Components                                                                                                        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **base/**      | Audio, Avatar, Badge, Breadcrumb, Divider, Iframe, Image, Link, Logo, Note, Pagination, Progress, RichText, Skeleton, Spinner, Title, Toast, Tooltip, Video |
+| **form/**      | Button, Checkbox, Date, File, Number, Password, Radio, Search, Select, Slider, Switch, Text, Textarea             |
+| **modules/**   | Accordion, Banner, Card, Carousel, Grid, Modal, Tab, Table                                                        |
+| **sections/**  | Account, Auth, Dashboard, Footer, Header, Page                                                                    |
 
 ---
 
@@ -123,16 +119,12 @@ Text input with support for text, email, URL, and telephone types.
 ```tsx
 <InputText label="Name" placeholder="Enter name" />
 <InputText label="Email" type="email" placeholder="you@example.com" />
-<InputText label="Website" type="url" placeholder="https://..." />
-<InputText label="Phone" type="tel" placeholder="+33 6 12 34 56 78" />
 ```
 
 | Prop             | Type                                  | Default  |
 | ---------------- | ------------------------------------- | -------- |
 | `label`          | `string`                              | -        |
 | `type`           | `'text' \| 'email' \| 'url' \| 'tel'` | `'text'` |
-| `inputClassName` | `string`                              | -        |
-| `labelClassName` | `string`                              | -        |
 
 #### InputPassword / InputNumber / InputTextarea
 
@@ -147,12 +139,6 @@ Text input with support for text, email, URL, and telephone types.
 ```tsx
 <InputFile label="Upload" />
 <InputFile label="Drop files here" dropzone multiple />
-```
-
-#### InputSearch
-
-```tsx
-<InputSearch label="Search" placeholder="Search..." onSearch={handleSearch} />
 ```
 
 #### Checkbox / Switch
@@ -184,7 +170,7 @@ Text input with support for text, email, URL, and telephone types.
 
 #### Select
 
-Compound component for single/multiple selection with search and async loading.
+Compound component for single/multiple selection with search.
 
 ```tsx
 <SelectRoot label="Fruit" options={options} value={value} onChange={setValue}>
@@ -207,27 +193,8 @@ Compound component for single/multiple selection with search and async loading.
 Range slider with single or dual thumbs, marks, and value labels.
 
 ```tsx
-// Basic slider
 <Slider defaultValue={30} aria-label="Volume" />
-
-// With value label
-<Slider value={value} onChange={setValue} valueLabelDisplay="auto" />
-
-// Range slider
 <Slider range value={[20, 80]} onChange={setRange} valueLabelDisplay="on" />
-
-// With custom marks
-<Slider
-  defaultValue={20}
-  marks={[
-    { value: 0, label: '0°C' },
-    { value: 50, label: '50°C' },
-    { value: 100, label: '100°C' },
-  ]}
-  valueLabelDisplay="auto"
-/>
-
-// Vertical orientation
 <Slider orientation="vertical" defaultValue={50} />
 ```
 
@@ -235,24 +202,13 @@ Range slider with single or dual thumbs, marks, and value labels.
 | ------------------- | --------------------------------- | -------------- |
 | `min`               | `number`                          | `0`            |
 | `max`               | `number`                          | `100`          |
-| `step`              | `number \| null`                  | `1`            |
 | `range`             | `boolean`                         | `false`        |
-| `value`             | `number \| [number, number]`      | -              |
-| `defaultValue`      | `number \| [number, number]`      | -              |
 | `orientation`       | `'horizontal' \| 'vertical'`      | `'horizontal'` |
-| `size`              | `'sm' \| 'md'`                    | `'md'`         |
-| `track`             | `'normal' \| 'inverted' \| false` | `'normal'`     |
-| `marks`             | `boolean \| SliderMark[]`         | `false`        |
 | `valueLabelDisplay` | `'auto' \| 'on' \| 'off'`         | `'off'`        |
-| `valueLabelFormat`  | `(value: number) => string`       | -              |
-| `minDistance`       | `number` (range only)             | `0`            |
-| `disableSwap`       | `boolean` (range only)            | `false`        |
-| `onChange`          | `(value) => void`                 | -              |
-| `onChangeCommitted` | `(value) => void`                 | -              |
 
 ---
 
-### Display Components
+### Display Components (base/)
 
 #### Avatar
 
@@ -277,49 +233,6 @@ Range slider with single or dual thumbs, marks, and value labels.
 </Note>
 ```
 
-#### Table
-
-Compound component for data tables with striped rows, hover effects, and footer support.
-
-```tsx
-<Table hoverable>
-  <TableCaption>Team members</TableCaption>
-  <TableHead>
-    <TableRow>
-      <TableHeaderCell>Name</TableHeaderCell>
-      <TableHeaderCell>Email</TableHeaderCell>
-      <TableHeaderCell>Role</TableHeaderCell>
-    </TableRow>
-  </TableHead>
-  <TableBody>
-    <TableRow>
-      <TableCell>Alice Martin</TableCell>
-      <TableCell>alice@example.com</TableCell>
-      <TableCell>Admin</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>Bob Dupont</TableCell>
-      <TableCell>bob@example.com</TableCell>
-      <TableCell>User</TableCell>
-    </TableRow>
-  </TableBody>
-  <TableFoot>
-    <TableRow>
-      <TableCell colSpan={3}>2 members total</TableCell>
-    </TableRow>
-  </TableFoot>
-</Table>
-```
-
-| Prop        | Type      | Default |
-| ----------- | --------- | ------- |
-| `striped`   | `boolean` | `true`  |
-| `hoverable` | `boolean` | `false` |
-| `compact`   | `boolean` | `false` |
-| `bordered`  | `boolean` | `true`  |
-
-**Sub-components:** `TableHead`, `TableBody`, `TableFoot`, `TableRow`, `TableHeaderCell`, `TableCell`, `TableCaption`
-
 #### Title
 
 ```tsx
@@ -341,52 +254,20 @@ Compound component for data tables with striped rows, hover effects, and footer 
 <Link href="/signup" appearance="button" variant="primary">Sign up</Link>
 ```
 
-#### Audio
+#### Audio / Video / Iframe
 
 ```tsx
-<Audio
-  src="/audio.mp3"
-  title="Podcast Episode"
-  caption="Duration: 45 min"
-  transcriptHref="/transcript.txt"
-/>
-```
-
-#### Video
-
-```tsx
-<Video
-  src="/video.mp4"
-  poster="/poster.jpg"
-  caption="Video description"
-  radius="md"
-/>
-```
-
-#### Iframe
-
-```tsx
-<Iframe
-  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-  title="YouTube video"
-  aspectRatio="16/9"
-/>
+<Audio src="/audio.mp3" title="Podcast" />
+<Video src="/video.mp4" poster="/poster.jpg" />
+<Iframe src="https://youtube.com/embed/..." title="Video" aspectRatio="16/9" />
 ```
 
 #### Divider
 
-Horizontal rule with line style and spacing options.
-
 ```tsx
 <Divider />
 <Divider variant="dashed" spacing="lg" />
-<Divider variant="dotted" spacing="xl" />
 ```
-
-| Prop      | Type                                     | Default   |
-| --------- | ---------------------------------------- | --------- |
-| `variant` | `'solid' \| 'dashed' \| 'dotted'`        | `'solid'` |
-| `spacing` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'`    |
 
 #### RichText
 
@@ -394,38 +275,18 @@ For CMS content (WordPress, Strapi, etc.). Styles all HTML elements.
 
 ```tsx
 <RichText html={cmsContent} />
-<RichText>
-  <h2>Title</h2>
-  <p>Paragraph with <a href="#">link</a>.</p>
-</RichText>
 ```
 
 ---
 
-### Feedback Components
+### Feedback Components (base/)
 
-#### Spinner
+#### Spinner / Progress / Skeleton
 
 ```tsx
-<Spinner />
 <Spinner variant="primary" size="lg" />
-<Spinner contrast /> {/* For dark backgrounds */}
-```
-
-#### Progress
-
-```tsx
-<Progress value={60} />
 <Progress value={75} showLabel variant="success" />
-<Progress indeterminate />
-```
-
-#### Skeleton
-
-```tsx
 <Skeleton variant="text" />
-<Skeleton variant="circle" width={48} height={48} />
-<Skeleton variant="rect" height={200} />
 ```
 
 #### Tooltip
@@ -436,45 +297,25 @@ For CMS content (WordPress, Strapi, etc.). Styles all HTML elements.
 </Tooltip>
 ```
 
-#### Toast
+#### Toast / Modal
 
 ```tsx
-// Wrap app with <Toasts>
+// Wrap app with <Toasts> / <Modals>
 const { addToast } = useToasts()
-
-addToast({
-  children: (
-    <>
-      <Title level="h3">Saved!</Title>
-      <p>Changes saved successfully.</p>
-    </>
-  ),
-})
-```
-
-#### Modal
-
-```tsx
-// Wrap app with <Modals>
 const { addModal } = useModals()
 
-addModal({
-  title: 'Confirm',
-  size: 'sm',
-  children: <p>Are you sure?</p>,
-})
+addToast({ children: <p>Saved!</p> })
+addModal({ title: 'Confirm', children: <p>Are you sure?</p> })
 ```
 
 ---
 
-### Layout Components
+### Layout Components (modules/)
 
 #### Grid
 
 ```tsx
 <Grid col={1} colMD={2} colLG={3} gap={4}>
-  <Card>...</Card>
-  <Card>...</Card>
   <Card>...</Card>
 </Grid>
 ```
@@ -483,16 +324,53 @@ addModal({
 
 ```tsx
 <Card>
-  <CardHeader>
-    <Title level="h3">Title</Title>
-  </CardHeader>
-  <CardBody>
-    <p>Content</p>
-  </CardBody>
-  <CardFooter>
-    <Button>Action</Button>
-  </CardFooter>
+  <CardHeader><Title level="h3">Title</Title></CardHeader>
+  <CardBody><p>Content</p></CardBody>
+  <CardFooter><Button>Action</Button></CardFooter>
 </Card>
+```
+
+#### Table
+
+```tsx
+<Table hoverable>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell>Name</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>Alice</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+#### Accordion / Tab / Carousel
+
+```tsx
+<Accordion type="single" defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section 1</AccordionTrigger>
+    <AccordionContent>Content 1</AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+<Tab defaultValue="tab1">
+  <TabList>
+    <TabButton value="tab1">Tab 1</TabButton>
+  </TabList>
+  <TabPanels>
+    <TabPanel value="tab1">Content</TabPanel>
+  </TabPanels>
+</Tab>
+
+<Carousel options={{ loop: true }}>
+  <CarouselContainer>
+    <CarouselSlide>Slide 1</CarouselSlide>
+  </CarouselContainer>
+</Carousel>
 ```
 
 #### Banner
@@ -502,243 +380,80 @@ addModal({
   <BannerContent textColor="light" textAlign="center">
     <BannerTitle>Welcome</BannerTitle>
     <BannerSubtitle>Build something amazing</BannerSubtitle>
-    <BannerActions>
-      <Button contrast appearance="button">
-        Get Started
-      </Button>
-    </BannerActions>
   </BannerContent>
 </Banner>
 ```
 
-#### Accordion
+---
 
-```tsx
-<Accordion type="single" defaultValue="item-1">
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Section 1</AccordionTrigger>
-    <AccordionContent>Content 1</AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>Section 2</AccordionTrigger>
-    <AccordionContent>Content 2</AccordionContent>
-  </AccordionItem>
-</Accordion>
-```
-
-#### Tab
-
-```tsx
-<Tab defaultValue="tab1">
-  <TabList>
-    <TabButton value="tab1">Overview</TabButton>
-    <TabButton value="tab2">Features</TabButton>
-  </TabList>
-  <TabPanels>
-    <TabPanel value="tab1">Overview content</TabPanel>
-    <TabPanel value="tab2">Features content</TabPanel>
-  </TabPanels>
-</Tab>
-```
-
-#### Carousel
-
-```tsx
-<Carousel options={{ loop: true }}>
-  <CarouselContainer>
-    <CarouselSlide>Slide 1</CarouselSlide>
-    <CarouselSlide>Slide 2</CarouselSlide>
-  </CarouselContainer>
-  <CarouselControls>
-    <CarouselPrev />
-    <CarouselDots />
-    <CarouselNext />
-  </CarouselControls>
-</Carousel>
-```
+### Page Layout Components (sections/)
 
 #### Header
 
-Responsive header with three sections: top bar, main navigation, and mobile menu.
+Responsive header with top bar, main navigation, and mobile menu.
 
 ```tsx
 <HeaderRoot sticky>
-  {/* Optional top bar */}
   <HeaderTop>
     <HeaderTopNav>
-      <HeaderTopLink asChild>
-        <Link href="/help">Help</Link>
-      </HeaderTopLink>
-      <HeaderTopDropdown label="EN">
-        <HeaderTopDropdownLink asChild>
-          <Link href="/en">English</Link>
-        </HeaderTopDropdownLink>
-        <HeaderTopDropdownLink asChild>
-          <Link href="/fr">Français</Link>
-        </HeaderTopDropdownLink>
-      </HeaderTopDropdown>
+      <HeaderTopLink asChild><Link href="/help">Help</Link></HeaderTopLink>
     </HeaderTopNav>
   </HeaderTop>
 
-  {/* Main navigation (desktop) */}
   <HeaderMain>
-    <HeaderMainLogo>
-      <Link href="/">Logo</Link>
-    </HeaderMainLogo>
-
+    <HeaderMainLogo><Link href="/">Logo</Link></HeaderMainLogo>
     <HeaderMainNav>
-      <HeaderMainLink asChild current>
-        <Link href="/" aria-current="page">Home</Link>
-      </HeaderMainLink>
-      <HeaderMainLink asChild>
-        <Link href="/about">About</Link>
-      </HeaderMainLink>
-      <HeaderMainDropdown label="Products" href="/products" as={Link} current>
+      <HeaderMainLink asChild current><Link href="/">Home</Link></HeaderMainLink>
+      <HeaderMainDropdown label="Products" href="/products">
         <HeaderMainDropdownLink asChild>
           <Link href="/products/software">Software</Link>
         </HeaderMainDropdownLink>
-        <HeaderMainDropdownLink asChild>
-          <Link href="/products/services">Services</Link>
-        </HeaderMainDropdownLink>
       </HeaderMainDropdown>
-      <HeaderMainDropdown label="Solutions" mega>
-        {/* Mega menu content */}
-      </HeaderMainDropdown>
-    </HeaderMainNav>
-
-    <HeaderMainNav>
-      <Button appearance="button" variant="primary">Sign in</Button>
     </HeaderMainNav>
   </HeaderMain>
 
-  {/* Mobile navigation */}
   <HeaderMobile>
     <HeaderMobileBar>
-      <HeaderMobileLogo>
-        <Link href="/">Logo</Link>
-      </HeaderMobileLogo>
+      <HeaderMobileLogo><Link href="/">Logo</Link></HeaderMobileLogo>
       <HeaderMobileToggle />
     </HeaderMobileBar>
     <HeaderMobileMenu>
       <HeaderMobileNav>
-        <HeaderMobileLink asChild current>
-          <Link href="/">Home</Link>
-        </HeaderMobileLink>
-        <HeaderMobileDropdown label="Products">
-          <HeaderMobileDropdownLink asChild>
-            <Link href="/products/software">Software</Link>
-          </HeaderMobileDropdownLink>
-        </HeaderMobileDropdown>
+        <HeaderMobileLink asChild><Link href="/">Home</Link></HeaderMobileLink>
       </HeaderMobileNav>
     </HeaderMobileMenu>
   </HeaderMobile>
 </HeaderRoot>
 ```
 
-| Prop (HeaderRoot) | Type      | Default |
-| ----------------- | --------- | ------- |
-| `sticky`          | `boolean` | `false` |
-
-| Prop (HeaderMainDropdown) | Type          | Description                                |
-| ------------------------- | ------------- | ------------------------------------------ |
-| `label`                   | `ReactNode`   | Dropdown trigger text                      |
-| `href`                    | `string`      | Makes trigger a link (navigates on click)  |
-| `as`                      | `ElementType` | Custom link component (e.g., Next.js Link) |
-| `mega`                    | `boolean`     | Wide mega menu style                       |
-| `current`                 | `boolean`     | Highlights as current page                 |
-
-| Prop (Link components) | Type      | Description                          |
-| ---------------------- | --------- | ------------------------------------ |
-| `current`              | `boolean` | Highlights link, adds aria-current   |
-| `asChild`              | `boolean` | Renders child element instead of `a` |
-
-**Sub-components:**
-
-- **Top:** `HeaderTop`, `HeaderTopNav`, `HeaderTopLink`, `HeaderTopDropdown`, `HeaderTopDropdownLink`
-- **Main:** `HeaderMain`, `HeaderMainLogo`, `HeaderMainNav`, `HeaderMainLink`, `HeaderMainDropdown`, `HeaderMainDropdownLink`
-- **Mobile:** `HeaderMobile`, `HeaderMobileBar`, `HeaderMobileLogo`, `HeaderMobileToggle`, `HeaderMobileMenu`, `HeaderMobileNav`, `HeaderMobileLink`, `HeaderMobileDropdown`, `HeaderMobileDropdownLink`
-
 #### Footer
 
-Structural footer component - projects control visual styling via CSS.
+Structural footer - projects control visual styling via CSS.
 
 ```tsx
 <FooterRoot style={{ backgroundColor: '#1a1a1a', color: '#fff' }}>
   <FooterMain>
-    <Grid col={1} colSM={2} colMD={4} gap="lg">
+    <Grid col={1} colMD={4} gap="lg">
       <GridItem>
         <Title level="h3">Company</Title>
         <FooterMainNav>
-          <FooterMainLink asChild>
-            <Link href="/about">About</Link>
-          </FooterMainLink>
-          <FooterMainLink asChild>
-            <Link href="/careers">Careers</Link>
-          </FooterMainLink>
-        </FooterMainNav>
-      </GridItem>
-      <GridItem>
-        <Title level="h3">Resources</Title>
-        <FooterMainNav>
-          <FooterMainLink asChild>
-            <Link href="/docs">Documentation</Link>
-          </FooterMainLink>
-          <FooterMainLink asChild>
-            <Link href="/blog">Blog</Link>
-          </FooterMainLink>
+          <FooterMainLink asChild><Link href="/about">About</Link></FooterMainLink>
         </FooterMainNav>
       </GridItem>
     </Grid>
   </FooterMain>
   <FooterBottom>
-    <span>&copy; 2026 Company. All rights reserved.</span>
+    <span>&copy; 2026 Company</span>
     <FooterBottomNav>
-      <FooterBottomLink asChild>
-        <Link href="/privacy">Privacy Policy</Link>
-      </FooterBottomLink>
-      <FooterBottomLink asChild>
-        <Link href="/terms">Terms of Service</Link>
-      </FooterBottomLink>
+      <FooterBottomLink asChild><Link href="/privacy">Privacy</Link></FooterBottomLink>
     </FooterBottomNav>
   </FooterBottom>
 </FooterRoot>
 ```
 
-| Prop (Link components) | Type      | Description                          |
-| ---------------------- | --------- | ------------------------------------ |
-| `current`              | `boolean` | Highlights link, adds aria-current   |
-| `asChild`              | `boolean` | Renders child element instead of `a` |
+#### Auth / Account / Dashboard / Page
 
-**Sub-components:**
-
-- **Main:** `FooterMain`, `FooterMainNav`, `FooterMainLink`
-- **Bottom:** `FooterBottom`, `FooterBottomNav`, `FooterBottomLink`
-
-**CSS Variables:**
-
-```css
---footer-main-padding: 3rem 0;
---footer-nav-gap: 0.75rem;
---footer-bottom-padding: 2rem 0;
---footer-bottom-gap: 1rem 2rem;
---footer-bottom-nav-gap: 1rem 2rem;
-```
-
-#### Breadcrumb
-
-```tsx
-<Breadcrumb>
-  <BreadcrumbItem href="/">Home</BreadcrumbItem>
-  <BreadcrumbItem href="/products">Products</BreadcrumbItem>
-  <BreadcrumbItem current>Details</BreadcrumbItem>
-</Breadcrumb>
-```
-
-#### Pagination
-
-```tsx
-<Pagination currentPage={page} totalPages={10} onPageChange={setPage} />
-```
+Section components for common page layouts. See Storybook for examples.
 
 ---
 
@@ -747,14 +462,7 @@ Structural footer component - projects control visual styling via CSS.
 ### Color Variants
 
 ```tsx
-type ColorVariant =
-  | 'default' // Grey
-  | 'primary' // Blue
-  | 'secondary' // Purple
-  | 'success' // Green
-  | 'danger' // Red
-  | 'warning' // Orange
-  | 'info' // Cyan
+type ColorVariant = 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'
 ```
 
 ### Contrast Mode
@@ -782,16 +490,6 @@ Override in your CSS:
 }
 ```
 
-### Utility Classes
-
-Background and text color classes are available:
-
-```html
-<div class="bg-primary-3 text-primary-1">Primary light</div>
-<div class="bg-danger-2 text-white">Danger</div>
-<div class="bg-grey-6 text-grey-1">Grey</div>
-```
-
 ---
 
 ## Accessibility
@@ -801,7 +499,6 @@ Background and text color classes are available:
 - Focus trap in Modal/Select
 - ARIA attributes on all components
 - Live regions for Toast
-- Required alt text on Image
 
 ---
 
@@ -809,10 +506,11 @@ Background and text color classes are available:
 
 ```bash
 pnpm install
-pnpm storybook       # Start Storybook
+pnpm dev             # Start Storybook
 pnpm build           # Build library
 pnpm test            # Run tests
-pnpm stylelint       # Lint SCSS
+pnpm lint            # Lint JS/TS (Biome)
+pnpm lint:css        # Lint SCSS (Stylelint)
 ```
 
 ### File Structure
@@ -820,24 +518,14 @@ pnpm stylelint       # Lint SCSS
 ```
 src/
 ├── components/
-│   ├── ComponentName/
-│   │   ├── ComponentName.tsx
-│   │   ├── ComponentName.types.ts
-│   │   ├── ComponentName.module.scss
-│   │   ├── ComponentName.test.tsx
-│   │   ├── ComponentName.stories.tsx
-│   │   └── index.ts
-├── styles/
-│   ├── root.scss      # CSS variables
-│   ├── main.scss      # Global reset
-│   ├── typo.scss      # Typography mixins
-│   ├── color.scss     # Color mixins & utilities
-│   ├── form.scss      # Form mixins
-│   └── index.scss     # Entry point
-├── i18n/
-│   └── fr.json        # French translations
-└── types/
-    └── variants.ts    # Shared types
+│   ├── base/        # Atomic UI elements
+│   ├── form/        # Form inputs
+│   ├── modules/     # Content wrappers
+│   └── sections/    # Page layouts
+├── styles/          # Global SCSS & CSS variables
+├── i18n/            # Translations (22 languages)
+├── types/           # Shared TypeScript types
+└── utils/           # Utilities & hooks
 ```
 
 ---
@@ -851,10 +539,7 @@ Compatible with Next.js, Remix, Gatsby. Uses `useId()` for stable hydration.
 Rename imports to avoid conflicts:
 
 ```tsx
-import {
-  Image as BaseImage,
-  Link as BaseLink,
-} from '@webc-charles/components-react'
+import { Image as BaseImage, Link as BaseLink } from '@webc-charles/components-react'
 import Image from 'next/image'
 import Link from 'next/link'
 ```

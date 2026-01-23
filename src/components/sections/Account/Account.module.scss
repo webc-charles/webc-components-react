@@ -14,17 +14,16 @@
 
 .cardHeader {
   flex-direction: column;
-  padding: 1rem 0;
 }
 
 .cardBody {
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 2rem 0 0;
 }
 
 .cardFooter {
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 2rem 0 0;
 }
 
 .title {
@@ -42,7 +41,6 @@
   border: none;
   color: var(--color-white);
   justify-content: center;
-  margin: 1rem 0 0;
   width: 20rem;
 
   &:hover,

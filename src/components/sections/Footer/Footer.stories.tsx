@@ -16,6 +16,10 @@ const meta: Meta<typeof FooterRoot> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    backgrounds: {
+      default: 'grey',
+      values: [{ name: 'grey', value: 'var(--color-grey-6)' }],
+    },
   },
 }
 

@@ -40,15 +40,7 @@
     "Listopad",
     "Grudzień"
   ],
-  "days_short": [
-    "Nd",
-    "Pn",
-    "Wt",
-    "Śr",
-    "Cz",
-    "Pt",
-    "So"
-  ],
+  "days_short": ["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
   "select_option": "Wybierz opcję",
   "clear_all": "Wyczyść wszystko",
   "remove": "Usuń",

@@ -1,8 +1,8 @@
 import { useId, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { useI18n } from 'utils/i18n'
 import { Eye, EyeOff } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import styles from './Password.module.scss'
 import type { InputPasswordTypes } from './Password.types'
 

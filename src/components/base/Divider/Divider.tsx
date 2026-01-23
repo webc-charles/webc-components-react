@@ -19,12 +19,15 @@ export function Divider({
           styles[`spacing-${spacing}`],
           className
         )}
-        role="separator"
         {...rest}
       >
-        <hr className={clsx(styles.divider, styles[`variant-${variant}`])} />
+        <hr
+          className={clsx(styles.divider, styles[`variant-${variant}`])}
+        />
         <span className={styles.dividerText}>{children}</span>
-        <hr className={clsx(styles.divider, styles[`variant-${variant}`])} />
+        <hr
+          className={clsx(styles.divider, styles[`variant-${variant}`])}
+        />
       </div>
     )
   }

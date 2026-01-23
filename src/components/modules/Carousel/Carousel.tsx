@@ -9,8 +9,8 @@ import {
 import clsx from 'clsx'
 import { Button } from 'components'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useI18n } from 'utils/i18n'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import styles from './Carousel.module.scss'
 import type {
   CarouselContainerTypes,

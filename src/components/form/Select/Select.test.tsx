@@ -1,13 +1,7 @@
 import '@testing-library/jest-dom/vitest'
 import { useState } from 'react'
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-  within,
-} from 'utils/Test'
 import userEvent from '@testing-library/user-event'
+import { fireEvent, render, screen, waitFor, within } from 'utils/Test'
 import { beforeAll, describe, expect, it } from 'vitest'
 import {
   ChoiceClear,
@@ -22,8 +16,8 @@ import {
   SelectSearch,
   SelectTrigger,
 } from './Select'
-import type { OptionTypes } from './Select.types'
 import { useSelectContext } from './SelectContext'
+import type { OptionTypes } from './Select.types'
 
 // Mock scrollIntoView (not implemented in JSDOM)
 beforeAll(() => {

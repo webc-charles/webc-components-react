@@ -1,58 +1,80 @@
-import clsx from 'clsx'
-import { Slot } from 'utils'
-import { Card, CardBody, CardFooter, CardHeader } from 'modules/Card'
 import { Divider } from 'base/Divider'
-import { Title } from 'base/Title'
-import type { AuthCardTypes } from './Auth.types'
-import styles from './AuthCard.module.scss'
-
-export type AuthCardLinkProps = {
-  asChild?: boolean
-  children: React.ReactNode
-  className?: string
-  href?: string
-}
-
-export function AuthCardLink({
-  asChild,
-  children,
-  className,
-  ...rest
-}: AuthCardLinkProps) {
-  const Comp = asChild ? Slot : 'a'
-  return (
-    <Comp className={clsx(styles.link, className)} {...rest}>
-      {children}
-    </Comp>
-  )
-}
+import clsx from 'clsx'
+import { Card, CardBody, CardFooter, CardHeader } from 'modules/Card'
+import styles from './Auth.module.scss'
+import type {
+  AuthCardBodyTypes,
+  AuthCardFooterTypes,
+  AuthCardHeaderTypes,
+  AuthCardTypes,
+} from './Auth.types'
 
 export function AuthCard({
   ref,
   children,
   className,
-  title,
-  subtitle,
-  footer,
   ...rest
 }: AuthCardTypes) {
   return (
     <Card ref={ref} className={clsx(styles.card, className)} {...rest}>
-      <CardHeader className={styles.cardHeader}>
-        <Title className={styles.title}>{title}</Title>
-        {subtitle && <p>{subtitle}</p>}
-      </CardHeader>
-
-      <Divider className={styles.divider} />
-
-      <CardBody className={styles.cardBody}>{children}</CardBody>
-
-      {footer && (
-        <>
-          <Divider className={styles.divider} />
-          <CardFooter className={styles.cardFooter}>{footer}</CardFooter>
-        </>
-      )}
+      {children}
     </Card>
+  )
+}
+
+export function AuthCardHeader({
+  ref,
+  children,
+  className,
+  ...rest
+}: AuthCardHeaderTypes) {
+  return (
+    <>
+      <CardHeader
+        ref={ref}
+        className={clsx(styles.cardHeader, className)}
+        {...rest}
+      >
+        {children}
+      </CardHeader>
+      <Divider className={styles.divider} />
+    </>
+  )
+}
+
+export function AuthCardBody({
+  ref,
+  children,
+  className,
+  ...rest
+}: AuthCardBodyTypes) {
+  return (
+    <CardBody
+      ref={ref}
+      className={clsx(styles.cardBody, className)}
+      {...rest}
+    >
+      {children}
+    </CardBody>
+  )
+}
+
+export function AuthCardFooter({
+  ref,
+  children,
+  className,
+  ...rest
+}: AuthCardFooterTypes) {
+  return (
+    <>
+      <Divider className={styles.divider} />
+      <CardFooter
+        ref={ref}
+        className={clsx(styles.cardFooter, className)}
+        {...rest}
+      >
+        {children}
+      </CardFooter>
+    </>
   )
 }

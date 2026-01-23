@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { LayoutDashboard, UserCog, LogOut } from 'lucide-react'
 import { Avatar } from 'base/Avatar'
 import { Title } from 'base/Title'
+import { LayoutDashboard, LogOut, UserCog } from 'lucide-react'
 import {
-  DashboardLayout,
-  DashboardSidebar,
   DashboardBrand,
-  DashboardMain,
   DashboardHeader,
+  DashboardLayout,
+  DashboardMain,
   DashboardNav,
   DashboardNavLink,
+  DashboardSidebar,
 } from './index'
 
 const meta: Meta = {
@@ -17,6 +17,10 @@ const meta: Meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    backgrounds: {
+      default: 'grey',
+      values: [{ name: 'grey', value: 'var(--color-grey-6)' }],
+    },
   },
 }
 

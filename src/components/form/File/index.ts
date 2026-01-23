@@ -1,2 +1,2 @@
-export { InputFile } from './File'
-export type { InputFileTypes } from './File.types'
+export * from './File'
+export type * from './File.types'

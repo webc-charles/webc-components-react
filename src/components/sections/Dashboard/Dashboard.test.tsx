@@ -3,13 +3,13 @@ import '@testing-library/jest-dom/vitest'
 import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
 import {
-  DashboardLayout,
-  DashboardSidebar,
   DashboardBrand,
-  DashboardMain,
   DashboardHeader,
+  DashboardLayout,
+  DashboardMain,
   DashboardNav,
   DashboardNavLink,
+  DashboardSidebar,
 } from './index'
 
 describe('DashboardHeader', () => {
@@ -39,7 +39,10 @@ describe('DashboardNavLink', () => {
         Current Link
       </DashboardNavLink>
     )
-    expect(screen.getByText('Current Link')).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByText('Current Link')).toHaveAttribute(
+      'aria-current',
+      'page'
+    )
   })
 
   it('supports asChild pattern', () => {
@@ -48,7 +51,9 @@ describe('DashboardNavLink', () => {
         <button type="button">Button Link</button>
       </DashboardNavLink>
     )
-    expect(screen.getByRole('button', { name: 'Button Link' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Button Link' })
+    ).toBeInTheDocument()
   })
 })
 
@@ -59,7 +64,9 @@ describe('Dashboard integration', () => {
         <DashboardSidebar>
           <DashboardBrand>Logo</DashboardBrand>
           <DashboardNav title="Menu">
-            <DashboardNavLink href="#" current>Dashboard</DashboardNavLink>
+            <DashboardNavLink href="#" current>
+              Dashboard
+            </DashboardNavLink>
             <DashboardNavLink href="#">Settings</DashboardNavLink>
           </DashboardNav>
         </DashboardSidebar>

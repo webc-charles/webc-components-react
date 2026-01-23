@@ -40,15 +40,7 @@
     "November",
     "December"
   ],
-  "days_short": [
-    "Ne",
-    "Po",
-    "Ut",
-    "St",
-    "Št",
-    "Pi",
-    "So"
-  ],
+  "days_short": ["Ne", "Po", "Ut", "St", "Št", "Pi", "So"],
   "select_option": "Vybrať možnosť",
   "clear_all": "Vymazať všetko",
   "remove": "Odstrániť",

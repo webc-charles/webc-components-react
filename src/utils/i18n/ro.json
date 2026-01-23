@@ -40,15 +40,7 @@
     "Noiembrie",
     "Decembrie"
   ],
-  "days_short": [
-    "Dum",
-    "Lun",
-    "Mar",
-    "Mie",
-    "Joi",
-    "Vin",
-    "Sâm"
-  ],
+  "days_short": ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sâm"],
   "select_option": "Selectează opțiune",
   "clear_all": "Șterge tot",
   "remove": "Elimină",

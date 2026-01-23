@@ -1,16 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from 'base/Avatar'
 import { Button } from 'form/Button'
-import { InputText } from 'form/Text'
 import { InputPassword } from 'form/Password'
+import { InputText } from 'form/Text'
 import { DashboardHeader } from 'sections/Dashboard'
-import { AccountContainer, AccountCard, AccountForm } from './index'
+import { AccountCard, AccountContainer, AccountForm } from './index'
 
 const meta: Meta = {
   title: 'Sections/Account',
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    backgrounds: {
+      default: 'grey',
+      values: [{ name: 'grey', value: 'var(--color-grey-6)' }],
+    },
   },
 }
 
@@ -50,19 +54,13 @@ export const AccountPage: Story = {
         </AccountForm>
       </AccountCard>
 
-      <AccountCard
-        title="Avatar"
-        subtitle="Upload a profile picture"
-      >
+      <AccountCard title="Avatar" subtitle="Upload a profile picture">
         <Button variant="default" appearance="outline">
           Change Avatar
         </Button>
       </AccountCard>
 
-      <AccountCard
-        title="Security"
-        subtitle="Change your password"
-      >
+      <AccountCard title="Security" subtitle="Change your password">
         <AccountForm>
           <InputPassword
             name="currentPassword"

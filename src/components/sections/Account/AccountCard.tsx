@@ -1,8 +1,8 @@
+import { Title } from 'base/Title'
 import clsx from 'clsx'
 import { Card, CardBody, CardHeader } from 'modules/Card'
-import { Title } from 'base/Title'
-import type { AccountCardTypes } from './Account.types'
 import styles from './Account.module.scss'
+import type { AccountCardTypes } from './Account.types'
 
 export function AccountCard({
   ref,

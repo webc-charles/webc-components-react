@@ -7,7 +7,11 @@ export type ColorVariant =
   | 'warning'
   | 'info'
 
-export type ActionAppearance = 'default' | 'underline' | 'outline' | 'button'
+export type ActionAppearance =
+  | 'default'
+  | 'underline'
+  | 'outline'
+  | 'button'
 
 export type HorizontalAlign = 'left' | 'center' | 'right'
 

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
+import { render, screen } from 'utils/Test'
 import { describe, expect, it, vi } from 'vitest'
 import { InputDate } from './Date'
 

@@ -40,15 +40,7 @@
     "Listopad",
     "Prosinec"
   ],
-  "days_short": [
-    "Ne",
-    "Po",
-    "Út",
-    "St",
-    "Čt",
-    "Pá",
-    "So"
-  ],
+  "days_short": ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"],
   "select_option": "Vybrat možnost",
   "clear_all": "Vymazat vše",
   "remove": "Odebrat",

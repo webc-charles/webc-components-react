@@ -1,2 +1,2 @@
-export { Iframe } from './Iframe'
-export type { IframeTypes } from './Iframe.types'
+export * from './Iframe'
+export type * from './Iframe.types'

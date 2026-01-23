@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest'
 
 import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
-import { AccountContainer, AccountCard, AccountForm } from './index'
+import { AccountCard, AccountContainer, AccountForm } from './index'
 
 describe('AccountCard', () => {
   it('renders with title and subtitle', () => {
@@ -31,6 +31,8 @@ describe('Account integration', () => {
 
     expect(screen.getByText('Profile')).toBeInTheDocument()
     expect(screen.getByText('Edit your profile')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Save' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Save' })
+    ).toBeInTheDocument()
   })
 })

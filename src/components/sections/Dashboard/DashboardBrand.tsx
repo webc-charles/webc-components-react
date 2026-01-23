@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { DashboardBrandTypes } from './Dashboard.types'
 import styles from './Dashboard.module.scss'
+import type { DashboardBrandTypes } from './Dashboard.types'
 
 export function DashboardBrand({
   ref,

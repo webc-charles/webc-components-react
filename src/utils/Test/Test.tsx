@@ -1,9 +1,9 @@
+import type { ReactElement, ReactNode } from 'react'
 import {
-  render,
   type RenderOptions,
   type RenderResult,
+  render,
 } from '@testing-library/react'
-import type { ReactElement, ReactNode } from 'react'
 import { I18nProvider, type Locale } from 'utils/i18n'
 
 interface WrapperProps {

@@ -7,8 +7,8 @@ import {
 } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
-import { useI18n } from 'utils/i18n'
 import { Upload } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 

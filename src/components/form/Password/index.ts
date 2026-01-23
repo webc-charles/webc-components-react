@@ -1,2 +1,2 @@
-export { InputPassword } from './Password'
-export type { InputPasswordTypes } from './Password.types'
+export * from './Password'
+export type * from './Password.types'

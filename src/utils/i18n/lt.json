@@ -40,15 +40,7 @@
     "Lapkritis",
     "Gruodis"
   ],
-  "days_short": [
-    "Sk",
-    "Pr",
-    "An",
-    "Tr",
-    "Kt",
-    "Pn",
-    "Št"
-  ],
+  "days_short": ["Sk", "Pr", "An", "Tr", "Kt", "Pn", "Št"],
   "select_option": "Pasirinkite parinktį",
   "clear_all": "Išvalyti viską",
   "remove": "Pašalinti",

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest'
 
-import { fireEvent, render, screen } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
+import { fireEvent, render, screen } from 'utils/Test'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { InputFile } from './File'
 

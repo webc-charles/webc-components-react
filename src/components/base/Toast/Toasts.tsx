@@ -7,9 +7,9 @@ import {
   useState,
 } from 'react'
 import { Toast } from './Toast'
+import { ToastsContext } from './ToastsContext'
 import styles from './Toast.module.scss'
 import type { ToastConfigTypes } from './Toast.types'
-import { ToastsContext } from './ToastsContext'
 
 export function Toasts({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<ToastConfigTypes[]>([])

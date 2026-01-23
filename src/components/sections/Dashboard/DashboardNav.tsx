@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import { Title } from 'base/Title'
-import type { DashboardNavTypes } from './Dashboard.types'
+import clsx from 'clsx'
 import styles from './Dashboard.module.scss'
+import type { DashboardNavTypes } from './Dashboard.types'
 
 export function DashboardNav({
   ref,

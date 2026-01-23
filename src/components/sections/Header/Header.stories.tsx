@@ -38,6 +38,10 @@ const meta: Meta<typeof HeaderRoot> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    backgrounds: {
+      default: 'grey',
+      values: [{ name: 'grey', value: 'var(--color-grey-6)' }],
+    },
   },
 }
 

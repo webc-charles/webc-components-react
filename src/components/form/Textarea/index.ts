@@ -1,2 +1,2 @@
-export { InputTextarea } from './Textarea'
-export type { InputTextareaTypes } from './Textarea.types'
+export * from './Textarea'
+export type * from './Textarea.types'

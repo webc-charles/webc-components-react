@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { AccountFormTypes } from './Account.types'
 import styles from './Account.module.scss'
+import type { AccountFormTypes } from './Account.types'
 
 export function AccountForm({
   ref,

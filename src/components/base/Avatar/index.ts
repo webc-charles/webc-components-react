@@ -1,2 +1,2 @@
-export { Avatar } from './Avatar'
-export type { AvatarSize, AvatarTypes } from './Avatar.types'
+export * from './Avatar'
+export type * from './Avatar.types'

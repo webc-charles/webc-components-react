@@ -8,11 +8,12 @@ import {
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
-import clsx from 'clsx'
-import { useI18n } from 'utils/i18n'
-import { ChevronDown, X } from 'lucide-react'
 import { Spinner } from 'base/Spinner'
+import clsx from 'clsx'
+import { ChevronDown, X } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import { Button } from '../Button'
+import { SelectContextRoot, useSelectContext } from './SelectContext'
 import styles from './Select.module.scss'
 import type {
   ChoiceClearTypes,
@@ -27,7 +28,6 @@ import type {
   SelectPlaceholderTypes,
   SelectRootTypes,
 } from './Select.types'
-import { SelectContextRoot, useSelectContext } from './SelectContext'
 
 // Shared keyboard navigation handler
 const handleKeyboardNavigation = (

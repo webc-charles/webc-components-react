@@ -11,7 +11,11 @@ describe('Title', () => {
   })
 
   it('renders correct heading level', () => {
-    render(<Title level="h3" data-testid="title">Heading</Title>)
+    render(
+      <Title level="h3" data-testid="title">
+        Heading
+      </Title>
+    )
     expect(screen.getByTestId('title').tagName).toBe('H3')
   })
 })

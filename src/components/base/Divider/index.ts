@@ -1,6 +1,2 @@
-export { Divider } from './Divider'
-export type {
-  DividerSpacing,
-  DividerTypes,
-  DividerVariant,
-} from './Divider.types'
+export * from './Divider'
+export type * from './Divider.types'

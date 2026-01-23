@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from './Auth.module.scss'
 import type { AuthFormTypes } from './Auth.types'
-import styles from './AuthForm.module.scss'
 
 export function AuthForm({
   ref,

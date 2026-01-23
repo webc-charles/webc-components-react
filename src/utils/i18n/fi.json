@@ -40,15 +40,7 @@
     "Marraskuu",
     "Joulukuu"
   ],
-  "days_short": [
-    "Su",
-    "Ma",
-    "Ti",
-    "Ke",
-    "To",
-    "Pe",
-    "La"
-  ],
+  "days_short": ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
   "select_option": "Valitse vaihtoehto",
   "clear_all": "Tyhjennä kaikki",
   "remove": "Poista",

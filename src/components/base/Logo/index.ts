@@ -1,2 +1,2 @@
-export { Logo, LogoImage, LogoFallback } from './Logo'
+export * from './Logo'
 export type * from './Logo.types'

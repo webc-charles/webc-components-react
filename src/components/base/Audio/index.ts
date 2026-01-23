@@ -1,2 +1,2 @@
-export { Audio } from './Audio'
-export type { AudioSource, AudioTypes } from './Audio.types'
+export * from './Audio'
+export type * from './Audio.types'

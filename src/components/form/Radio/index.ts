@@ -1,2 +1,2 @@
-export { InputRadio } from './Radio'
-export type { InputRadioTypes } from './Radio.types'
+export * from './Radio'
+export type * from './Radio.types'

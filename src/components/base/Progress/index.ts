@@ -1,2 +1,2 @@
-export { Progress } from './Progress'
-export type { ProgressSize, ProgressTypes } from './Progress.types'
+export * from './Progress'
+export type * from './Progress.types'

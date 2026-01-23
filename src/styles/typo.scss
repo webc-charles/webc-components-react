@@ -12,7 +12,7 @@ $heading-sizes: (
 
 @mixin base-heading {
   font-weight: var(--font-weight-xl);
-  line-height: 1.3;
+  line-height: var(--line-height-heading);
 }
 
 @mixin base-link {
@@ -26,7 +26,7 @@ $heading-sizes: (
 }
 
 @mixin base-paragraph {
-  line-height: 1.6;
+  line-height: var(--line-height-default);
 }
 
 @mixin base-code-block {

@@ -10,6 +10,14 @@
               ["react", "react-*"],
               ":PACKAGE:",
               [
+                "base/**",
+                "form/**",
+                "modules/**",
+                "sections/**",
+                "components/**",
+                "utils/**"
+              ],
+              [
                 "./**",
                 "../**",
                 "!./**/*.types",

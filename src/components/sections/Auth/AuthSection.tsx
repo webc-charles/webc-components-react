@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from './Auth.module.scss'
 import type { AuthSectionTypes } from './Auth.types'
-import styles from './AuthSection.module.scss'
 
 export function AuthSection({
   ref,
@@ -9,7 +9,11 @@ export function AuthSection({
   ...rest
 }: AuthSectionTypes) {
   return (
-    <section ref={ref} className={clsx(styles.section, className)} {...rest}>
+    <section
+      ref={ref}
+      className={clsx(styles.section, className)}
+      {...rest}
+    >
       {children}
     </section>
   )

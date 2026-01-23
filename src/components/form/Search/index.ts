@@ -1,2 +1,2 @@
-export { InputSearch } from './Search'
-export type { InputSearchTypes, SearchResultTypes } from './Search.types'
+export * from './Search'
+export type * from './Search.types'

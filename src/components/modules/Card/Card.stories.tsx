@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from 'form/Button'
 import { Title } from 'base/Title'
+import { Button } from 'form/Button'
 import { Card, CardBody, CardFooter, CardHeader } from './Card'
 
 const cardStyles = {

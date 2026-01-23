@@ -48,7 +48,7 @@ body {
   font-family: var(--site-font);
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-md);
-  line-height: 1.2;
+  line-height: var(--line-height-default);
   margin: 0;
   min-height: 100vh;
   padding-top: var(--height-mobile-menu);

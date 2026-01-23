@@ -40,15 +40,7 @@
     "November",
     "Dezember"
   ],
-  "days_short": [
-    "So",
-    "Mo",
-    "Di",
-    "Mi",
-    "Do",
-    "Fr",
-    "Sa"
-  ],
+  "days_short": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
   "select_option": "Option auswählen",
   "clear_all": "Alles löschen",
   "remove": "Entfernen",

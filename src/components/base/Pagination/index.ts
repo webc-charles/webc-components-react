@@ -1,2 +1,2 @@
-export { Pagination } from './Pagination'
-export type { PaginationTypes } from './Pagination.types'
+export * from './Pagination'
+export type * from './Pagination.types'

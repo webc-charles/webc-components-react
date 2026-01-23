@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen, waitFor } from 'utils/Test'
 import userEvent from '@testing-library/user-event'
 import { Button } from 'components'
+import { render, screen, waitFor } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
 import { Tooltip } from './Tooltip'
 

@@ -1,2 +1,2 @@
-export { Title } from './Title'
-export type { TitleTypes } from './Title.types'
+export * from './Title'
+export type * from './Title.types'

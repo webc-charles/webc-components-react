@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { AccountContainerTypes } from './Account.types'
 import styles from './Account.module.scss'
+import type { AccountContainerTypes } from './Account.types'
 
 export function AccountContainer({
   ref,

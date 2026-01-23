@@ -14,11 +14,11 @@ export default defineConfig({
   sourcemap: false,
   esbuildOptions(options) {
     options.alias = {
-      'base': path.resolve(srcPath, 'components/base'),
-      'form': path.resolve(srcPath, 'components/form'),
-      'modules': path.resolve(srcPath, 'components/modules'),
-      'sections': path.resolve(srcPath, 'components/sections'),
-      'types': path.resolve(srcPath, 'types'),
+      base: path.resolve(srcPath, 'components/base'),
+      form: path.resolve(srcPath, 'components/form'),
+      modules: path.resolve(srcPath, 'components/modules'),
+      sections: path.resolve(srcPath, 'components/sections'),
+      types: path.resolve(srcPath, 'types'),
     }
   },
   esbuildPlugins: [

@@ -1,5 +1,2 @@
-export { Breadcrumb } from './Breadcrumb'
-export type {
-  BreadcrumbItemData,
-  BreadcrumbTypes,
-} from './Breadcrumb.types'
+export * from './Breadcrumb'
+export type * from './Breadcrumb.types'

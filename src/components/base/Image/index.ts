@@ -1,7 +1,2 @@
-export { Image } from './Image'
-export type {
-  ImageFit,
-  ImagePosition,
-  ImageRadius,
-  ImageTypes,
-} from './Image.types'
+export * from './Image'
+export type * from './Image.types'

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest'
 
 import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
-import { Logo, LogoImage, LogoFallback } from './Logo'
+import { Logo, LogoFallback, LogoImage } from './Logo'
 
 describe('Logo', () => {
   it('renders as link with href', () => {
@@ -21,7 +21,9 @@ describe('Logo', () => {
         <button type="button">Button Logo</button>
       </Logo>
     )
-    expect(screen.getByRole('button', { name: 'Button Logo' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Button Logo' })
+    ).toBeInTheDocument()
   })
 })
 

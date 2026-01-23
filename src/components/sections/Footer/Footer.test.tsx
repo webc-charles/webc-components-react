@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen } from 'utils/Test'
-import { describe, expect, it } from 'vitest'
-import { GridItem } from 'modules/Grid'
 import { Link } from 'base/Link'
 import { Title } from 'base/Title'
+import { GridItem } from 'modules/Grid'
+import { render, screen } from 'utils/Test'
+import { describe, expect, it } from 'vitest'
 import {
   FooterBottom,
   FooterBottomLink,
@@ -28,7 +28,9 @@ describe('Footer', () => {
         </FooterMain>
       </FooterRoot>
     )
-    expect(screen.getByRole('navigation', { name: 'Company links' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('navigation', { name: 'Company links' })
+    ).toBeInTheDocument()
   })
 
   it('renders link with current state', () => {
@@ -43,7 +45,10 @@ describe('Footer', () => {
         </FooterMain>
       </FooterRoot>
     )
-    expect(screen.getByText('Current Link')).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByText('Current Link')).toHaveAttribute(
+      'aria-current',
+      'page'
+    )
   })
 
   it('renders complete footer structure', () => {

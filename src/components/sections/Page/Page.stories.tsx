@@ -8,6 +8,10 @@ const meta: Meta<typeof PageRoot> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    backgrounds: {
+      default: 'grey',
+      values: [{ name: 'grey', value: 'var(--color-grey-6)' }],
+    },
   },
   argTypes: {
     children: {
@@ -22,8 +26,12 @@ type Story = StoryObj<typeof PageRoot>
 
 export const Playground: Story = {
   render: () => (
-    <PageRoot style={{ minHeight: '100vh', background: 'var(--color-grey-6)' }}>
-      <header style={{ padding: '2rem', background: 'var(--color-white)' }}>
+    <PageRoot
+      style={{ minHeight: '100vh', background: 'var(--color-grey-6)' }}
+    >
+      <header
+        style={{ padding: '2rem', background: 'var(--color-white)' }}
+      >
         <Title>Header</Title>
       </header>
 
@@ -34,7 +42,9 @@ export const Playground: Story = {
         </p>
       </main>
 
-      <footer style={{ padding: '2rem', background: 'var(--color-grey-5)' }}>
+      <footer
+        style={{ padding: '2rem', background: 'var(--color-grey-5)' }}
+      >
         <p>Footer</p>
       </footer>
     </PageRoot>
@@ -53,7 +63,13 @@ export const Simple: Story = {
 export const WithStickyFooter: Story = {
   render: () => (
     <PageRoot style={{ minHeight: '100vh' }}>
-      <header style={{ padding: '2rem', background: 'var(--color-primary-2)', color: 'white' }}>
+      <header
+        style={{
+          padding: '2rem',
+          background: 'var(--color-primary-2)',
+          color: 'white',
+        }}
+      >
         <Title>Site Header</Title>
       </header>
 
@@ -64,7 +80,13 @@ export const WithStickyFooter: Story = {
         </p>
       </main>
 
-      <footer style={{ padding: '2rem', background: 'var(--color-grey-5)', textAlign: 'center' }}>
+      <footer
+        style={{
+          padding: '2rem',
+          background: 'var(--color-grey-5)',
+          textAlign: 'center',
+        }}
+      >
         <p>© 2024 Company Name. All rights reserved.</p>
       </footer>
     </PageRoot>
@@ -75,7 +97,13 @@ export const NestedLayout: Story = {
   render: () => (
     <PageRoot style={{ minHeight: '100vh' }}>
       <div style={{ display: 'flex', flex: 1 }}>
-        <aside style={{ width: '25rem', padding: '2rem', background: 'var(--color-grey-6)' }}>
+        <aside
+          style={{
+            width: '25rem',
+            padding: '2rem',
+            background: 'var(--color-grey-6)',
+          }}
+        >
           <Title level="h3">Sidebar</Title>
           <nav style={{ marginTop: '1rem' }}>
             <ul style={{ listStyle: 'none', padding: 0 }}>

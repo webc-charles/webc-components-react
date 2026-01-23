@@ -3,7 +3,7 @@
 .divider {
   @include base-hr;
 
-  border-top-color: var(--color-grey-4);
+  border-top-color: var(--color-grey-5);
   width: 100%;
 }
 
@@ -19,7 +19,7 @@
 
 .dividerText {
   color: var(--color-grey-3);
-  font-size: 1rem;
+  font-size: var(--font-size-3);
   text-transform: uppercase;
 }
 

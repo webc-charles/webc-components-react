@@ -40,15 +40,7 @@
     "Studeni",
     "Prosinac"
   ],
-  "days_short": [
-    "Ned",
-    "Pon",
-    "Uto",
-    "Sri",
-    "Čet",
-    "Pet",
-    "Sub"
-  ],
+  "days_short": ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
   "select_option": "Odaberite opciju",
   "clear_all": "Obriši sve",
   "remove": "Ukloni",

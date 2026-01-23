@@ -40,15 +40,7 @@
     "Novembre",
     "Décembre"
   ],
-  "days_short": [
-    "Dim",
-    "Lun",
-    "Mar",
-    "Mer",
-    "Jeu",
-    "Ven",
-    "Sam"
-  ],
+  "days_short": ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
   "select_option": "Sélectionner une option",
   "clear_all": "Tout effacer",
   "remove": "Enlève",

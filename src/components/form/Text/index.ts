@@ -1,2 +1,2 @@
-export { InputText } from './Text'
-export type { InputTextTypes } from './Text.types'
+export * from './Text'
+export type * from './Text.types'

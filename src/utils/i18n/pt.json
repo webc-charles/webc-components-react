@@ -40,15 +40,7 @@
     "Novembro",
     "Dezembro"
   ],
-  "days_short": [
-    "Dom",
-    "Seg",
-    "Ter",
-    "Qua",
-    "Qui",
-    "Sex",
-    "Sáb"
-  ],
+  "days_short": ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
   "select_option": "Selecionar opção",
   "clear_all": "Limpar tudo",
   "remove": "Remover",

@@ -31,7 +31,9 @@ describe('Table', () => {
     )
 
     expect(screen.getByRole('table')).toBeInTheDocument()
-    expect(screen.getByRole('columnheader', { name: 'Name' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('columnheader', { name: 'Name' })
+    ).toBeInTheDocument()
     expect(screen.getByRole('cell', { name: 'Alice' })).toBeInTheDocument()
   })
 

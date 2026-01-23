@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Link } from 'components'
-import { useI18n } from 'utils/i18n'
 import { ChevronRight } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import styles from './Breadcrumb.module.scss'
 import type { BreadcrumbTypes } from './Breadcrumb.types'
 

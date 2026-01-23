@@ -1,2 +1,2 @@
-export { Badge } from './Badge'
-export type { BadgeTypes } from './Badge.types'
+export * from './Badge'
+export type * from './Badge.types'

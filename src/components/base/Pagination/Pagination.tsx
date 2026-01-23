@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import clsx from 'clsx'
 import { Link } from 'components'
-import { useI18n } from 'utils/i18n'
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react'
+import { useI18n } from 'utils/i18n'
 import styles from './Pagination.module.scss'
 import type { PaginationTypes } from './Pagination.types'
 

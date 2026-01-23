@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { DashboardMainTypes } from './Dashboard.types'
 import styles from './Dashboard.module.scss'
+import type { DashboardMainTypes } from './Dashboard.types'
 
 export function DashboardMain({
   ref,

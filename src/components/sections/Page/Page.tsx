@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { PageRootTypes } from './Page.types'
 import styles from './Page.module.scss'
+import type { PageRootTypes } from './Page.types'
 
 export function PageRoot({
   ref,

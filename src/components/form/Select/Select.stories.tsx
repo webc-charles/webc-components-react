@@ -13,8 +13,8 @@ import {
   SelectSearch,
   SelectTrigger,
 } from './Select'
-import type { OptionTypes } from './Select.types'
 import { useSelectContext } from './SelectContext'
+import type { OptionTypes } from './Select.types'
 
 const options: OptionTypes[] = [
   { value: 'apple', label: 'Apple' },

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import type { DashboardSidebarTypes } from './Dashboard.types'
 import styles from './Dashboard.module.scss'
+import type { DashboardSidebarTypes } from './Dashboard.types'
 
 export function DashboardSidebar({
   ref,

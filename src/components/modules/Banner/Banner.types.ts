@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
-import type { HorizontalAlign, VerticalAlign } from 'types'
 import type { TitleTypes } from 'base/Title/Title.types'
+import type { HorizontalAlign, VerticalAlign } from 'types'
 
 /** @deprecated Use HorizontalAlign instead */
 export type HorizontalAlignTypes = HorizontalAlign

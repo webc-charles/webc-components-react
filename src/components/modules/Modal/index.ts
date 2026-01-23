@@ -1,8 +1,4 @@
-export { Modal } from './Modal'
-export type {
-  ModalConfigTypes,
-  ModalSizeTypes,
-  ModalTypes,
-} from './Modal.types'
-export { Modals } from './Modals'
-export { useModals } from './ModalsContext'
+export * from './Modal'
+export * from './Modals'
+export * from './ModalsContext'
+export type * from './Modal.types'

@@ -40,15 +40,7 @@
     "November",
     "Detsember"
   ],
-  "days_short": [
-    "P",
-    "E",
-    "T",
-    "K",
-    "N",
-    "R",
-    "L"
-  ],
+  "days_short": ["P", "E", "T", "K", "N", "R", "L"],
   "select_option": "Vali valik",
   "clear_all": "Tühjenda kõik",
   "remove": "Eemalda",

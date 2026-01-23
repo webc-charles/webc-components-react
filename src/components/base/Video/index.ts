@@ -1,7 +1,2 @@
-export { Video } from './Video'
-export type {
-  VideoRadius,
-  VideoSource,
-  VideoTrack,
-  VideoTypes,
-} from './Video.types'
+export * from './Video'
+export type * from './Video.types'

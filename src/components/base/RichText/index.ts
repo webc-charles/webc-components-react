@@ -1,2 +1,2 @@
-export { RichText } from './RichText'
-export type { RichTextTypes } from './RichText.types'
+export * from './RichText'
+export type * from './RichText.types'

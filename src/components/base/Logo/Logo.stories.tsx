@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Logo, LogoImage, LogoFallback } from './Logo'
+import { Logo, LogoFallback, LogoImage } from './Logo'
 import logoExample from './logo-example.svg'
 
 const meta: Meta<typeof Logo> = {
@@ -28,7 +28,12 @@ export const Playground: Story = {
 export const WithImage: Story = {
   render: () => (
     <Logo href="/">
-      <LogoImage src={logoExample} alt="Acme Logo" width={120} height={40} />
+      <LogoImage
+        src={logoExample}
+        alt="Acme Logo"
+        width={120}
+        height={40}
+      />
     </Logo>
   ),
 }
@@ -45,14 +50,23 @@ export const ImageFallbackComparison: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '3rem', alignItems: 'center' }}>
       <div>
-        <p style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>With Image:</p>
+        <p style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>
+          With Image:
+        </p>
         <Logo href="/">
-          <LogoImage src={logoExample} alt="Acme Logo" width={120} height={40} />
+          <LogoImage
+            src={logoExample}
+            alt="Acme Logo"
+            width={120}
+            height={40}
+          />
         </Logo>
       </div>
 
       <div>
-        <p style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>With Fallback:</p>
+        <p style={{ marginBottom: '1rem', fontSize: '1.2rem' }}>
+          With Fallback:
+        </p>
         <Logo href="/">
           <LogoFallback>ACME</LogoFallback>
         </Logo>

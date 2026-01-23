@@ -1,2 +1,2 @@
-export { Note } from './Note'
-export type { NoteTypes } from './Note.types'
+export * from './Note'
+export type * from './Note.types'

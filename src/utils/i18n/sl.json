@@ -40,15 +40,7 @@
     "November",
     "December"
   ],
-  "days_short": [
-    "Ned",
-    "Pon",
-    "Tor",
-    "Sre",
-    "Čet",
-    "Pet",
-    "Sob"
-  ],
+  "days_short": ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
   "select_option": "Izberite možnost",
   "clear_all": "Počisti vse",
   "remove": "Odstrani",

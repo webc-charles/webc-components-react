@@ -40,15 +40,7 @@
     "November",
     "December"
   ],
-  "days_short": [
-    "Zo",
-    "Ma",
-    "Di",
-    "Wo",
-    "Do",
-    "Vr",
-    "Za"
-  ],
+  "days_short": ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"],
   "select_option": "Optie selecteren",
   "clear_all": "Alles wissen",
   "remove": "Verwijderen",

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest'
 
-import { render, screen } from 'utils/Test'
 import { Button } from 'components'
+import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
 import {
   Banner,

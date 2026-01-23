@@ -1,28 +1,28 @@
 'use client'
 
-import { createContext, useContext, useMemo, type ReactNode } from 'react'
-import en from './en.json'
-import fr from './fr.json'
+import { createContext, type ReactNode, useContext, useMemo } from 'react'
+import bg from './bg.json'
+import cs from './cs.json'
+import da from './da.json'
 import de from './de.json'
+import el from './el.json'
+import en from './en.json'
 import es from './es.json'
+import et from './et.json'
+import fi from './fi.json'
+import fr from './fr.json'
+import hr from './hr.json'
+import hu from './hu.json'
 import it from './it.json'
-import pt from './pt.json'
+import lt from './lt.json'
+import lv from './lv.json'
 import nl from './nl.json'
 import pl from './pl.json'
-import sv from './sv.json'
-import da from './da.json'
-import fi from './fi.json'
-import el from './el.json'
-import cs from './cs.json'
-import hu from './hu.json'
+import pt from './pt.json'
 import ro from './ro.json'
-import bg from './bg.json'
-import hr from './hr.json'
 import sk from './sk.json'
 import sl from './sl.json'
-import et from './et.json'
-import lv from './lv.json'
-import lt from './lt.json'
+import sv from './sv.json'
 import type { I18nContextValue, Locale, Translations } from './types'
 
 const translations: Record<Locale, Translations> = {
@@ -57,7 +57,10 @@ interface I18nProviderProps {
   locale?: Locale
 }
 
-export function I18nProvider({ children, locale = 'en' }: I18nProviderProps) {
+export function I18nProvider({
+  children,
+  locale = 'en',
+}: I18nProviderProps) {
   const value = useMemo(
     () => ({
       locale,
@@ -66,7 +69,9 @@ export function I18nProvider({ children, locale = 'en' }: I18nProviderProps) {
     [locale]
   )
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
+  return (
+    <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
+  )
 }
 
 export function useI18n(): Translations {

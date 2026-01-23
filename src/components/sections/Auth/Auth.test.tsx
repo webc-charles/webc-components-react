@@ -4,18 +4,24 @@ import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
 import {
   AuthCard,
-  AuthCardLink,
-  AuthEmailSent,
+  AuthCardBody,
+  AuthCardFooter,
+  AuthCardHeader,
   AuthForm,
+  AuthLink,
   AuthSection,
-  AuthVerifyEmail,
+  AuthTitle,
 } from './index'
 
 describe('AuthCard', () => {
-  it('renders with title and subtitle', () => {
+  it('renders with header and body', () => {
     render(
-      <AuthCard title="Sign In" subtitle="Welcome back">
-        Content
+      <AuthCard>
+        <AuthCardHeader>
+          <AuthTitle>Sign In</AuthTitle>
+          <p>Welcome back</p>
+        </AuthCardHeader>
+        <AuthCardBody>Content</AuthCardBody>
       </AuthCard>
     )
     expect(screen.getByText('Sign In')).toBeInTheDocument()
@@ -24,50 +30,37 @@ describe('AuthCard', () => {
 
   it('renders footer when provided', () => {
     render(
-      <AuthCard title="Title" footer={<span>Footer</span>}>
-        Body
+      <AuthCard>
+        <AuthCardHeader>
+          <AuthTitle>Title</AuthTitle>
+        </AuthCardHeader>
+        <AuthCardBody>Body</AuthCardBody>
+        <AuthCardFooter>
+          <span>Footer</span>
+        </AuthCardFooter>
       </AuthCard>
     )
     expect(screen.getByText('Footer')).toBeInTheDocument()
   })
 })
 
-describe('AuthCardLink', () => {
+describe('AuthTitle', () => {
+  it('renders with custom className', () => {
+    render(<AuthTitle className="text-success-2">Success Title</AuthTitle>)
+    expect(screen.getByText('Success Title')).toBeInTheDocument()
+  })
+})
+
+describe('AuthLink', () => {
   it('supports asChild pattern', () => {
     render(
-      <AuthCardLink asChild>
+      <AuthLink asChild>
         <button type="button">Button Link</button>
-      </AuthCardLink>
+      </AuthLink>
     )
-    expect(screen.getByRole('button', { name: 'Button Link' })).toBeInTheDocument()
-  })
-})
-
-describe('AuthEmailSent', () => {
-  it('renders with title and message', () => {
-    render(
-      <AuthEmailSent title="Check your email" message="We sent you a link">
-        📧
-      </AuthEmailSent>
-    )
-    expect(screen.getByText('Check your email')).toBeInTheDocument()
-    expect(screen.getByText('We sent you a link')).toBeInTheDocument()
-  })
-})
-
-describe('AuthVerifyEmail', () => {
-  it('renders with status attribute', () => {
-    render(
-      <AuthVerifyEmail
-        title="Verified"
-        message="Success"
-        status="success"
-        data-testid="card"
-      >
-        ✓
-      </AuthVerifyEmail>
-    )
-    expect(screen.getByTestId('card')).toHaveAttribute('data-status', 'success')
+    expect(
+      screen.getByRole('button', { name: 'Button Link' })
+    ).toBeInTheDocument()
   })
 })
 
@@ -75,15 +68,20 @@ describe('Auth integration', () => {
   it('renders complete auth layout', () => {
     render(
       <AuthSection>
-        <AuthCard
-          title="Sign In"
-          subtitle="Welcome back"
-          footer={<AuthCardLink href="/signup">Create account</AuthCardLink>}
-        >
-          <AuthForm>
-            <input type="email" placeholder="Email" />
-            <button type="submit">Submit</button>
-          </AuthForm>
+        <AuthCard>
+          <AuthCardHeader>
+            <AuthTitle>Sign In</AuthTitle>
+            <p>Welcome back</p>
+          </AuthCardHeader>
+          <AuthCardBody>
+            <AuthForm>
+              <input type="email" placeholder="Email" />
+              <button type="submit">Submit</button>
+            </AuthForm>
+          </AuthCardBody>
+          <AuthCardFooter>
+            <AuthLink href="/signup">Create account</AuthLink>
+          </AuthCardFooter>
         </AuthCard>
       </AuthSection>
     )

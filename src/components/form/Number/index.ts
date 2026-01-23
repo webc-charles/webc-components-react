@@ -1,2 +1,2 @@
-export { InputNumber } from './Number'
-export type { InputNumberTypes } from './Number.types'
+export * from './Number'
+export type * from './Number.types'

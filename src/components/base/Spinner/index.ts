@@ -1,2 +1,2 @@
-export { Spinner } from './Spinner'
-export type { SpinnerSize, SpinnerTypes } from './Spinner.types'
+export * from './Spinner'
+export type * from './Spinner.types'

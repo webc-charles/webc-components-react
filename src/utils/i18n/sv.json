@@ -40,15 +40,7 @@
     "November",
     "December"
   ],
-  "days_short": [
-    "Sön",
-    "Mån",
-    "Tis",
-    "Ons",
-    "Tor",
-    "Fre",
-    "Lör"
-  ],
+  "days_short": ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
   "select_option": "Välj alternativ",
   "clear_all": "Rensa allt",
   "remove": "Ta bort",

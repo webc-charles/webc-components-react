@@ -40,15 +40,7 @@
     "Novembris",
     "Decembris"
   ],
-  "days_short": [
-    "Sv",
-    "Pr",
-    "Ot",
-    "Tr",
-    "Ce",
-    "Pk",
-    "Se"
-  ],
+  "days_short": ["Sv", "Pr", "Ot", "Tr", "Ce", "Pk", "Se"],
   "select_option": "Izvēlieties opciju",
   "clear_all": "Notīrīt visu",
   "remove": "Noņemt",

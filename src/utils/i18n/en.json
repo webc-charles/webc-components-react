@@ -40,15 +40,7 @@
     "November",
     "December"
   ],
-  "days_short": [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat"
-  ],
+  "days_short": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
   "select_option": "Select an option",
   "clear_all": "Clear all",
   "remove": "Remove",

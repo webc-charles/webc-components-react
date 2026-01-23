@@ -1,2 +1,2 @@
-export { Checkbox } from './Checkbox'
-export type { CheckboxTypes } from './Checkbox.types'
+export * from './Checkbox'
+export type * from './Checkbox.types'

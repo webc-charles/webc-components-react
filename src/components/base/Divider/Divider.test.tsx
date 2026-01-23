@@ -37,7 +37,6 @@ describe('Divider', () => {
   it('renders with text when children provided', () => {
     render(<Divider data-testid="divider">or</Divider>)
     expect(screen.getByText('or')).toBeInTheDocument()
-    expect(screen.getByTestId('divider')).toHaveAttribute('role', 'separator')
   })
 
   it('renders two hr elements when children provided', () => {

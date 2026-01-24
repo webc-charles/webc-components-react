@@ -38,6 +38,7 @@
   .item:focus-within & {
     background-color: var(--color-grey-6);
     color: var(--color-primary-2);
+    text-decoration: none;
   }
 }
 

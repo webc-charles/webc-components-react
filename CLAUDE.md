@@ -281,7 +281,33 @@ pnpm lint          # Biome check
 pnpm lint:fix      # Biome fix
 pnpm lint:css      # Stylelint check
 pnpm lint:css:fix  # Stylelint fix
+pnpm release       # Build, test, bump version, commit & push
 ```
+
+---
+
+## Release & Versioning
+
+### Version Strategy
+The release script auto-bumps **minor** when patch reaches 99:
+- Patch < 99: `1.0.50` → `1.0.51`
+- Patch >= 99: `1.0.99` → `1.1.0`
+
+This keeps version numbers from going past 2 digits in patch.
+
+### Release Workflow
+```bash
+# From react-components repo
+pnpm release "commit message"
+
+# Or use the pushui alias (from anywhere)
+pushui "commit message"
+```
+
+`pushui` runs `/Users/charles/Web/webc/scripts/publish-and-update.sh` which:
+1. Runs `pnpm release` (tests, builds, bumps version, pushes)
+2. Waits 120s for CI to publish to npm
+3. Updates frontend to use the new version
 
 ## Package Exports
 

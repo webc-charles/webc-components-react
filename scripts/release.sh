@@ -37,7 +37,13 @@ if ! pnpm build > /dev/null 2>&1; then
 fi
 
 echo -e "${GREEN}[4/5] Bumping version...${NC}"
-npm version patch --no-git-tag-version > /dev/null
+CURRENT_PATCH=$(node -p "require('./package.json').version.split('.')[2]")
+if [ "$CURRENT_PATCH" -ge 99 ]; then
+  echo -e "  ${YELLOW}Patch >= 99, bumping minor instead${NC}"
+  npm version minor --no-git-tag-version > /dev/null
+else
+  npm version patch --no-git-tag-version > /dev/null
+fi
 NEW_VERSION=$(node -p "require('./package.json').version")
 echo -e "  New version: ${YELLOW}${NEW_VERSION}${NC}"
 

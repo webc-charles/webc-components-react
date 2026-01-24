@@ -1,3 +1,5 @@
+@use 'styles/mq' as *;
+
 .item {
   align-items: center;
   display: flex;
@@ -91,17 +93,20 @@
 }
 
 .megaMenu {
-  left: 0;
+  left: 50%;
+  max-width: var(--container-max-width);
   opacity: 0;
-  padding: 2rem 0 0;
+  padding: 2rem 2rem 0;
   pointer-events: none;
   position: absolute;
   right: 0;
   top: 100%;
+  transform: translateX(-50%);
   transition:
     opacity var(--transition-default),
     visibility var(--transition-default);
   visibility: hidden;
+  width: 100%;
   z-index: var(--z-index-5);
 }
 
@@ -110,7 +115,9 @@
   border-radius: var(--radius-sm);
   color: var(--color-grey-1);
   margin: 0 auto;
-  max-width: var(--container-max-width);
-  padding: 4rem;
-}
+  padding: 2rem;
 
+  @include mq-lg {
+    padding: 4rem;
+  }
+}

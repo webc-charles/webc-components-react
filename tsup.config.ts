@@ -12,6 +12,7 @@ export default defineConfig({
   clean: true,
   external: ['react', 'react-dom'],
   sourcemap: false,
+  minify: true,
   esbuildOptions(options) {
     options.alias = {
       base: path.resolve(srcPath, 'components/base'),

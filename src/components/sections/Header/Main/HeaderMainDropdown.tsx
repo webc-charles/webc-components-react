@@ -65,9 +65,9 @@ export function HeaderMainDropdown({
       </TriggerComp>
 
       <div
-        ref={dropdownRef}
-        role="menu"
         inert
+        role="menu"
+        ref={dropdownRef}
         className={clsx(
           mega ? styles.megaMenu : styles.dropdown,
           isOpen && styles.isOpen

@@ -1,6 +1,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  width: 100%;
 }
 
 .sidebar {
@@ -42,7 +43,7 @@
   min-height: 8rem;
   position: relative;
 
-  > :last-child:not(.headerTitle):not(p) {
+  > :last-child:not(.headerTitle, p) {
     position: absolute;
     right: 0;
     top: 50%;

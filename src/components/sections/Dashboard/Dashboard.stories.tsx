@@ -59,8 +59,8 @@ export const DashboardPage: Story = {
 
       <DashboardMain>
         <DashboardHeader>
-          <DashboardTitle>Welcome johndoe</DashboardTitle>
-          <Avatar name="johndoe" size="xl" />
+          <DashboardTitle>Welcome Joe</DashboardTitle>
+          <Avatar name="johndoe" size="xl" variant="primary" />
         </DashboardHeader>
       </DashboardMain>
     </DashboardLayout>

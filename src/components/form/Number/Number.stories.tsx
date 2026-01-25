@@ -33,6 +33,8 @@ const meta: Meta<typeof InputNumber> = {
         defaultValue: { summary: 'false' },
       },
     },
+    incrementLabel: { control: 'text' },
+    decrementLabel: { control: 'text' },
   },
   args: {
     label: 'Label',

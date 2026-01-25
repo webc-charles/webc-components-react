@@ -79,6 +79,11 @@ export function Pagination({
   disabled = false,
   className,
   'aria-label': ariaLabel = 'Pagination',
+  firstPageLabel = 'First page',
+  previousPageLabel = 'Previous page',
+  nextPageLabel = 'Next page',
+  lastPageLabel = 'Last page',
+  pageLabel = (page) => `Page ${page}`,
   ...rest
 }: PaginationTypes) {
   const pages = useMemo(
@@ -199,7 +204,7 @@ export function Pagination({
             {renderNavLink(
               1,
               <ChevronsLeft size={18} aria-hidden="true" />,
-              'First page',
+              firstPageLabel,
               currentPage === 1
             )}
           </li>
@@ -210,7 +215,7 @@ export function Pagination({
             {renderNavLink(
               currentPage - 1,
               <ChevronLeft size={18} aria-hidden="true" />,
-              'Previous page',
+              previousPageLabel,
               currentPage === 1
             )}
           </li>
@@ -226,7 +231,7 @@ export function Pagination({
               renderPageLink(
                 page,
                 page,
-                `Page ${page}`,
+                pageLabel(page),
                 page === currentPage
               )
             )}
@@ -238,7 +243,7 @@ export function Pagination({
             {renderNavLink(
               currentPage + 1,
               <ChevronRight size={18} aria-hidden="true" />,
-              'Next page',
+              nextPageLabel,
               currentPage === totalPages
             )}
           </li>
@@ -249,7 +254,7 @@ export function Pagination({
             {renderNavLink(
               totalPages,
               <ChevronsRight size={18} aria-hidden="true" />,
-              'Last page',
+              lastPageLabel,
               currentPage === totalPages
             )}
           </li>

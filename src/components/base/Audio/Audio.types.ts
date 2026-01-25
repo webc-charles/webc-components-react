@@ -20,4 +20,8 @@ export type AudioTypes = Omit<ComponentPropsWithRef<'audio'>, 'src'> & {
   transcriptLabel?: string
   /** Fallback content for unsupported browsers */
   fallback?: ReactNode
+  /** Fallback text for unsupported browsers */
+  fallbackText?: string
+  /** Link text for audio fallback */
+  fallbackLinkText?: string
 }

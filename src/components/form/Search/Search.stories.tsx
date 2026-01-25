@@ -10,6 +10,11 @@ const meta: Meta<typeof InputSearch> = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    placeholder: { control: 'text' },
+    clearLabel: { control: 'text' },
+    noResultsText: { control: 'text' },
+  },
   decorators: [
     (Story) => (
       <div style={{ width: '400px' }}>

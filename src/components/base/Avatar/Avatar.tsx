@@ -28,6 +28,7 @@ export function Avatar({
   name,
   size = 'md',
   variant = 'default',
+  defaultLabel = 'Avatar',
   className,
   ...rest
 }: AvatarTypes) {
@@ -40,7 +41,7 @@ export function Avatar({
     <div
       ref={ref}
       role="img"
-      aria-label={alt || name || 'Avatar'}
+      aria-label={alt || name || defaultLabel}
       className={clsx(
         styles.avatar,
         styles[`size-${size}`],

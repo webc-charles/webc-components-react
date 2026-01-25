@@ -31,6 +31,9 @@ const meta: Meta<typeof Carousel> = {
   },
 }
 
+// CarouselDots props: label (Go to slide), navigationLabel (Slide navigation)
+// CarouselPrev/Next props: label
+
 export default meta
 type Story = StoryObj<typeof Carousel>
 

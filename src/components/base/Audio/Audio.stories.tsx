@@ -42,6 +42,14 @@ const meta: Meta<typeof Audio> = {
       control: 'boolean',
       description: 'Mute audio',
     },
+    fallbackText: {
+      control: 'text',
+      description: 'Fallback text for unsupported browsers',
+    },
+    fallbackLinkText: {
+      control: 'text',
+      description: 'Link text for audio fallback',
+    },
   },
 }
 

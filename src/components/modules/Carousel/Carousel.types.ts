@@ -31,4 +31,5 @@ export type CarouselNextTypes = ComponentPropsWithRef<'button'> & {
 
 export type CarouselDotsTypes = ComponentPropsWithRef<'div'> & {
   label?: string
+  navigationLabel?: string
 }

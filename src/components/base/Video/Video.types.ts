@@ -32,4 +32,8 @@ export type VideoTypes = Omit<ComponentPropsWithRef<'video'>, 'src'> & {
   caption?: ReactNode
   /** Fallback content for unsupported browsers */
   fallback?: ReactNode
+  /** Fallback text for unsupported browsers (default: "Your browser doesn't support HTML video.") */
+  fallbackText?: string
+  /** Link text for video fallback (default: "link to the video") */
+  fallbackLinkText?: string
 }

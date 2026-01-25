@@ -28,6 +28,8 @@ const meta: Meta<typeof InputPassword> = {
         defaultValue: { summary: 'false' },
       },
     },
+    showLabel: { control: 'text' },
+    hideLabel: { control: 'text' },
   },
   args: {
     label: 'Password',

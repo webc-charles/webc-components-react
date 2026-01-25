@@ -17,4 +17,6 @@ export type AvatarTypes = Omit<
   size?: AvatarSize
   /** Background color variant for fallback */
   variant?: ColorVariant
+  /** Default aria-label when no alt or name provided */
+  defaultLabel?: string
 }

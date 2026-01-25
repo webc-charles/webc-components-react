@@ -61,6 +61,10 @@ const meta: Meta<typeof SelectRoot> = {
       control: 'boolean',
       description: 'Shows loading spinner',
     },
+    clearAllLabel: { control: 'text' },
+    selectedOptionsLabel: { control: 'text' },
+    removeLabel: { control: 'text' },
+    searchLabel: { control: 'text' },
   },
   args: {
     disabled: false,

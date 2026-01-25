@@ -48,6 +48,10 @@ const meta: Meta<typeof Avatar> = {
         defaultValue: { summary: 'default' },
       },
     },
+    defaultLabel: {
+      control: 'text',
+      description: 'Default aria-label when no alt or name provided',
+    },
   },
   args: {
     size: 'md',

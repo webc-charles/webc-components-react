@@ -12,6 +12,8 @@ export function InputPassword({
   className,
   inputClassName,
   labelClassName,
+  showLabel = 'Show',
+  hideLabel = 'Hide',
   'aria-label': ariaLabel,
   ...rest
 }: InputPasswordTypes) {
@@ -44,7 +46,7 @@ export function InputPassword({
           disabled={disabled}
           className={styles.toggleButton}
           onClick={() => setShowPassword(!showPassword)}
-          aria-label={showPassword ? 'Hide' : 'Show'}
+          aria-label={showPassword ? hideLabel : showLabel}
           aria-pressed={showPassword}
         >
           {showPassword ? (

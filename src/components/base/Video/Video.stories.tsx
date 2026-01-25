@@ -39,6 +39,14 @@ const meta: Meta<typeof Video> = {
       control: 'boolean',
       description: 'Mute video',
     },
+    fallbackText: {
+      control: 'text',
+      description: 'Fallback text for unsupported browsers',
+    },
+    fallbackLinkText: {
+      control: 'text',
+      description: 'Link text for video fallback',
+    },
   },
 }
 

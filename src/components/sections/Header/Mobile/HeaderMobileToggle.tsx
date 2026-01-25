@@ -8,6 +8,8 @@ import styles from './HeaderMobileToggle.module.scss'
 export function HeaderMobileToggle({
   ref,
   label,
+  closeLabel = 'Close',
+  menuLabel = 'Menu',
   className,
   ...rest
 }: HeaderMobileToggleTypes) {
@@ -21,7 +23,7 @@ export function HeaderMobileToggle({
       onClick={toggle}
       aria-expanded={isOpen}
       aria-controls={mobileMenuId}
-      aria-label={label || (isOpen ? 'Close' : 'Menu')}
+      aria-label={label || (isOpen ? closeLabel : menuLabel)}
       className={clsx(styles.toggle, className)}
       {...rest}
     >

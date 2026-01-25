@@ -26,6 +26,11 @@ const meta: Meta<typeof InputDate> = {
       control: 'text',
       description: 'Label for the date picker',
     },
+    selectDateLabel: { control: 'text' },
+    previousMonthLabel: { control: 'text' },
+    nextMonthLabel: { control: 'text' },
+    cancelLabel: { control: 'text' },
+    applyLabel: { control: 'text' },
   },
   args: {
     placeholder: 'Select a date',

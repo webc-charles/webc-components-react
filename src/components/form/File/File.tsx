@@ -66,6 +66,12 @@ export function InputFile({
   multiple = false,
   disabled = false,
   accept,
+  chooseFileLabel = 'Choose a file',
+  chooseFilesLabel = 'Choose files',
+  noFileSelectedLabel = 'No file selected',
+  filesSelectedLabel = (count) => `${count} files selected`,
+  dropFileLabel = 'Drop file here',
+  dropFilesLabel = 'Drop files here',
   ...rest
 }: InputFileTypes) {
   const id = useId()
@@ -117,21 +123,21 @@ export function InputFile({
 
   const getButtonText = () => {
     if (buttonText) return buttonText
-    return multiple ? 'Choose files' : 'Choose a file'
+    return multiple ? chooseFilesLabel : chooseFileLabel
   }
 
   const getFileDisplay = () => {
     if (!files || files.length === 0) {
-      return 'No file selected'
+      return noFileSelectedLabel
     }
     if (files.length === 1) {
       return files[0].name
     }
-    return `${files.length} files selected`
+    return filesSelectedLabel(files.length)
   }
 
   const getDropText = () => {
-    return multiple ? 'Drop files here' : 'Drop file here'
+    return multiple ? dropFilesLabel : dropFileLabel
   }
 
   return (

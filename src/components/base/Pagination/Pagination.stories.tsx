@@ -5,6 +5,12 @@ const meta: Meta<typeof Pagination> = {
   title: 'Base/Pagination',
   component: Pagination,
   tags: ['autodocs'],
+  argTypes: {
+    firstPageLabel: { control: 'text' },
+    previousPageLabel: { control: 'text' },
+    nextPageLabel: { control: 'text' },
+    lastPageLabel: { control: 'text' },
+  },
 }
 
 export default meta

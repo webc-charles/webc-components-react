@@ -7,4 +7,6 @@ export type InputPasswordTypes = Omit<
   label?: string
   inputClassName?: string
   labelClassName?: string
+  showLabel?: string
+  hideLabel?: string
 }

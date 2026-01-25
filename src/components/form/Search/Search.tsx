@@ -31,6 +31,7 @@ export function InputSearch({
   onChange,
   placeholder,
   disabled,
+  clearLabel = 'Clear',
   'aria-label': ariaLabel,
   ...rest
 }: InputSearchTypes) {
@@ -263,7 +264,7 @@ export function InputSearch({
               type="button"
               onClick={handleClear}
               className={styles.clearButton}
-              aria-label="Clear"
+              aria-label={clearLabel}
             >
               <X size={18} aria-hidden="true" />
             </Button>

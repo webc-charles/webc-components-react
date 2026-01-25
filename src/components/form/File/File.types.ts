@@ -20,4 +20,16 @@ export type InputFileTypes = Omit<
   showFileNames?: boolean
   /** Accepted file types (e.g., ".jpg,.png", "image/*", "application/pdf") */
   accept?: string
+  /** Text for single file button (default: "Choose a file") */
+  chooseFileLabel?: string
+  /** Text for multiple files button (default: "Choose files") */
+  chooseFilesLabel?: string
+  /** Text when no file selected (default: "No file selected") */
+  noFileSelectedLabel?: string
+  /** Text showing file count (default: "{count} files selected") */
+  filesSelectedLabel?: (count: number) => string
+  /** Text for single file drop zone (default: "Drop file here") */
+  dropFileLabel?: string
+  /** Text for multiple files drop zone (default: "Drop files here") */
+  dropFilesLabel?: string
 }

@@ -38,4 +38,5 @@ export type InputSearchTypes = Omit<
   // Common
   value?: string
   onChange?: (value: string) => void
+  clearLabel?: string
 }

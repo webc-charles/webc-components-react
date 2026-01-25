@@ -32,6 +32,9 @@ const logoStyles = {
   color: 'inherit',
 }
 
+// HeaderMobileMenu props: aria-label (default: "Mobile navigation")
+// HeaderMobileToggle props: closeLabel, menuLabel
+
 const meta: Meta<typeof HeaderRoot> = {
   title: 'Sections/Header',
   component: HeaderRoot,

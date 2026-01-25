@@ -38,6 +38,11 @@ const meta: Meta<typeof InputFile> = {
       control: 'text',
       description: 'Accepted file types (e.g., ".pdf,.doc")',
     },
+    chooseFileLabel: { control: 'text' },
+    chooseFilesLabel: { control: 'text' },
+    noFileSelectedLabel: { control: 'text' },
+    dropFileLabel: { control: 'text' },
+    dropFilesLabel: { control: 'text' },
   },
   args: {
     showFileNames: true,

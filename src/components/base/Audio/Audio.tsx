@@ -12,6 +12,8 @@ export function Audio({
   transcriptUrl,
   transcriptLabel = 'View transcript',
   fallback,
+  fallbackText = "Your browser doesn't support HTML audio.",
+  fallbackLinkText = 'link to the audio',
   className,
   controls = true,
   ...rest
@@ -35,11 +37,11 @@ export function Audio({
 
       {fallback || (
         <p>
-          Your browser doesn't support HTML audio.
+          {fallbackText}
           {src && (
             <>
               {' '}
-              Here is a <a href={src}>link to the audio</a> instead.
+              <a href={src}>{fallbackLinkText}</a>
             </>
           )}
         </p>

@@ -23,6 +23,8 @@ const meta: Meta<typeof FooterRoot> = {
   },
 }
 
+// FooterBottomNav props: aria-label (default: "Legal navigation")
+
 export default meta
 type Story = StoryObj<typeof FooterRoot>
 

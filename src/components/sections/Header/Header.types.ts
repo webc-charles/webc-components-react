@@ -64,6 +64,8 @@ export type HeaderMobileToggleTypes = Omit<
   'children'
 > & {
   label?: string
+  closeLabel?: string
+  menuLabel?: string
 }
 
 export type HeaderMobileMenuTypes = ComponentPropsWithRef<'div'> & {

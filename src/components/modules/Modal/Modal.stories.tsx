@@ -28,6 +28,10 @@ const meta: Meta = {
         defaultValue: { summary: 'md' },
       },
     },
+    closeLabel: {
+      control: 'text',
+      description: 'Close button aria-label',
+    },
   },
   args: {
     title: 'Modal Title',

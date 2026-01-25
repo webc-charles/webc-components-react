@@ -226,6 +226,7 @@ export function CarouselDots({
   ref,
   className,
   label = 'Go to slide',
+  navigationLabel = 'Slide navigation',
   ...props
 }: CarouselDotsTypes) {
   const { selectedIndex, scrollSnaps, scrollTo } = useCarouselContext()
@@ -235,7 +236,7 @@ export function CarouselDots({
       ref={ref}
       className={clsx(styles.dots, className)}
       role="group"
-      aria-label="Slide navigation"
+      aria-label={navigationLabel}
       {...props}
     >
       {scrollSnaps.map((_, index) => (

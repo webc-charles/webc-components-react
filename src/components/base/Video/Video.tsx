@@ -20,6 +20,8 @@ export function Video({
   radius,
   caption,
   fallback,
+  fallbackText = "Your browser doesn't support HTML video.",
+  fallbackLinkText = 'link to the video',
   className,
   style,
   controls = true,
@@ -62,11 +64,11 @@ export function Video({
 
       {fallback || (
         <p>
-          Your browser doesn't support HTML video.
+          {fallbackText}
           {src && (
             <>
               {' '}
-              Here is a <a href={src}>link to the video</a> instead.
+              <a href={src}>{fallbackLinkText}</a>
             </>
           )}
         </p>

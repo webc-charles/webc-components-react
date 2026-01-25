@@ -26,7 +26,6 @@ export type DashboardTitleTypes = ComponentPropsWithRef<'h1'> & {
 
 export type DashboardNavTypes = ComponentPropsWithRef<'nav'> & {
   children: ReactNode
-  title?: string
 }
 
 export type DashboardNavLinkTypes = ComponentPropsWithRef<'a'> & {

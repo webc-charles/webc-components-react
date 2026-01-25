@@ -1,6 +1,6 @@
 @use 'mq' as *;
 
-// Spacing utility classes (Bootstrap style)
+// Spacing utility classes
 // Base: m-1, mt-3, p-4, pl-5
 // Responsive: mt-md-3, p-lg-5 (property-breakpoint-size)
 
@@ -43,6 +43,7 @@ $directions: (
   @each $size in $sizes {
     .m-sm-#{$size} { margin: var(--spacing-#{$size}); }
     .p-sm-#{$size} { padding: var(--spacing-#{$size}); }
+
     @each $dir, $prop in $directions {
       .m#{$dir}-sm-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-sm-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
@@ -55,6 +56,7 @@ $directions: (
   @each $size in $sizes {
     .m-md-#{$size} { margin: var(--spacing-#{$size}); }
     .p-md-#{$size} { padding: var(--spacing-#{$size}); }
+
     @each $dir, $prop in $directions {
       .m#{$dir}-md-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-md-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
@@ -67,6 +69,7 @@ $directions: (
   @each $size in $sizes {
     .m-lg-#{$size} { margin: var(--spacing-#{$size}); }
     .p-lg-#{$size} { padding: var(--spacing-#{$size}); }
+
     @each $dir, $prop in $directions {
       .m#{$dir}-lg-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-lg-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
@@ -79,6 +82,7 @@ $directions: (
   @each $size in $sizes {
     .m-xl-#{$size} { margin: var(--spacing-#{$size}); }
     .p-xl-#{$size} { padding: var(--spacing-#{$size}); }
+
     @each $dir, $prop in $directions {
       .m#{$dir}-xl-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-xl-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }

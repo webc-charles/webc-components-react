@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type DividerVariant = 'solid' | 'dashed' | 'dotted'
-export type DividerSpacing = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type DividerSpacing = 1 | 2 | 3 | 4 | 5
 
 export type DividerTypes = ComponentPropsWithRef<'hr'> & {
   /** Line style */

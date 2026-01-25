@@ -35,28 +35,24 @@
   border-top-style: dotted;
 }
 
-.spacing-none {
-  margin: 0;
+.spacing-1 {
+  margin: var(--spacing-1) 0;
 }
 
-.spacing-xs {
-  margin: .5rem 0;
+.spacing-2 {
+  margin: var(--spacing-2) 0;
 }
 
-.spacing-sm {
-  margin: 1rem 0;
+.spacing-3 {
+  margin: var(--spacing-3) 0;
 }
 
-.spacing-md {
-  margin: 2rem 0;
+.spacing-4 {
+  margin: var(--spacing-4) 0;
 }
 
-.spacing-lg {
-  margin: 3rem 0;
-}
-
-.spacing-xl {
-  margin: 4rem 0;
+.spacing-5 {
+  margin: var(--spacing-5) 0;
 }
 
 .hidden {

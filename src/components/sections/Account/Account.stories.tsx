@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Avatar } from 'base/Avatar'
 import { Note } from 'base/Note'
+import { Divider } from 'components/base'
 import { Button } from 'form/Button'
 import { InputFile } from 'form/File'
 import { InputPassword } from 'form/Password'
 import { InputText } from 'form/Text'
-import { DashboardHeader, DashboardTitle } from 'sections/Dashboard'
+import {
+  DashboardMainHeader,
+  DashboardMainTitle,
+} from 'sections/Dashboard'
 import {
   AccountCard,
   AccountCardBody,
@@ -34,17 +38,19 @@ type Story = StoryObj
 export const AccountPage: Story = {
   render: () => (
     <AccountSection>
-      <DashboardHeader>
-        <DashboardTitle>Account</DashboardTitle>
+      <DashboardMainHeader>
+        <DashboardMainTitle>Account</DashboardMainTitle>
         <p>Manage your account settings</p>
         <Avatar name="johndoe" size="xl" variant="primary" />
-      </DashboardHeader>
+      </DashboardMainHeader>
 
       <AccountCard>
         <AccountCardHeader>
           <AccountTitle>Profile</AccountTitle>
           <p>Update your personal information</p>
         </AccountCardHeader>
+
+        <Divider hidden spacing={2} />
 
         <AccountCardBody>
           <AccountForm>
@@ -65,6 +71,9 @@ export const AccountPage: Story = {
               Save Changes
             </Button>
           </AccountForm>
+
+          <Note variant="danger">A submit form error message</Note>
+          <Note variant="success">A submit form success message</Note>
         </AccountCardBody>
       </AccountCard>
 
@@ -74,6 +83,8 @@ export const AccountPage: Story = {
           <p>Upload a profile picture</p>
         </AccountCardHeader>
 
+        <Divider hidden spacing={2} />
+
         <AccountCardBody>
           <AccountForm>
             <InputFile
@@ -82,11 +93,9 @@ export const AccountPage: Story = {
               buttonText="Change Avatar"
             />
           </AccountForm>
-        </AccountCardBody>
 
-        <AccountCardFooter>
           <Note variant="danger">A submit form error message</Note>
-        </AccountCardFooter>
+        </AccountCardBody>
       </AccountCard>
 
       <AccountCard>
@@ -94,6 +103,8 @@ export const AccountPage: Story = {
           <AccountTitle>Security</AccountTitle>
           <p>Change your password</p>
         </AccountCardHeader>
+
+        <Divider hidden spacing={2} />
 
         <AccountCardBody>
           <AccountForm>
@@ -116,11 +127,9 @@ export const AccountPage: Story = {
               Update Password
             </Button>
           </AccountForm>
-        </AccountCardBody>
 
-        <AccountCardFooter>
           <Note variant="success">A submit form success message</Note>
-        </AccountCardFooter>
+        </AccountCardBody>
       </AccountCard>
     </AccountSection>
   ),

@@ -4,13 +4,14 @@ import { Logo } from 'components/base'
 import { LayoutDashboard, LogOut, UserCog } from 'lucide-react'
 import {
   DashboardBrand,
-  DashboardHeader,
   DashboardLayout,
   DashboardMain,
+  DashboardMainHeader,
+  DashboardMainTitle,
   DashboardNav,
   DashboardNavLink,
+  DashboardNavTitle,
   DashboardSidebar,
-  DashboardTitle,
 } from './index'
 
 const meta: Meta = {
@@ -36,7 +37,8 @@ export const DashboardPage: Story = {
           <Logo>Logo</Logo>
         </DashboardBrand>
 
-        <DashboardNav title="General">
+        <DashboardNav>
+          <DashboardNavTitle>General</DashboardNavTitle>
           <DashboardNavLink href="/dashboard" current>
             <LayoutDashboard size={21} />
             Dashboard
@@ -47,7 +49,8 @@ export const DashboardPage: Story = {
           </DashboardNavLink>
         </DashboardNav>
 
-        <DashboardNav title="Account">
+        <DashboardNav>
+          <DashboardNavTitle>Account</DashboardNavTitle>
           <DashboardNavLink asChild>
             <button type="button">
               <LogOut size={21} />
@@ -58,10 +61,10 @@ export const DashboardPage: Story = {
       </DashboardSidebar>
 
       <DashboardMain>
-        <DashboardHeader>
-          <DashboardTitle>Welcome Joe</DashboardTitle>
+        <DashboardMainHeader>
+          <DashboardMainTitle>Welcome Joe</DashboardMainTitle>
           <Avatar name="johndoe" size="xl" variant="primary" />
-        </DashboardHeader>
+        </DashboardMainHeader>
       </DashboardMain>
     </DashboardLayout>
   ),

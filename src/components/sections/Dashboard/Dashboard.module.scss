@@ -34,7 +34,7 @@
   padding: 2rem;
 }
 
-.header {
+.mainHeader {
   align-items: flex-start;
   border-radius: var(--radius-md);
   display: flex;
@@ -51,7 +51,7 @@
   }
 }
 
-.headerTitle {
+.mainTitle {
   font-size: var(--font-size-8);
 }
 
@@ -88,6 +88,7 @@
   &:focus-visible {
     background-color: var(--color-primary-2);
     color: var(--color-white);
+    text-decoration: none;
   }
 
   &.current {

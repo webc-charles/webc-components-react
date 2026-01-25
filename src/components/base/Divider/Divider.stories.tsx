@@ -13,8 +13,12 @@ const meta: Meta<typeof Divider> = {
     },
     spacing: {
       control: 'select',
-      options: ['none', 'sm', 'md', 'lg', 'xl'],
-      description: 'Vertical spacing',
+      options: [1, 2, 3, 4, 5],
+      description: 'Vertical spacing (1-5)',
+    },
+    hidden: {
+      control: 'boolean',
+      description: 'Hide the line (spacing only)',
     },
   },
 }
@@ -42,9 +46,9 @@ export const Dotted: Story = {
   },
 }
 
-export const SpacingNone: Story = {
+export const Spacing1: Story = {
   args: {
-    spacing: 'none',
+    spacing: 1,
   },
   decorators: [
     (Story) => (
@@ -57,9 +61,9 @@ export const SpacingNone: Story = {
   ],
 }
 
-export const SpacingSmall: Story = {
+export const Spacing2: Story = {
   args: {
-    spacing: 'sm',
+    spacing: 2,
   },
   decorators: [
     (Story) => (
@@ -72,9 +76,9 @@ export const SpacingSmall: Story = {
   ],
 }
 
-export const SpacingMedium: Story = {
+export const Spacing3: Story = {
   args: {
-    spacing: 'md',
+    spacing: 3,
   },
   decorators: [
     (Story) => (
@@ -87,9 +91,41 @@ export const SpacingMedium: Story = {
   ],
 }
 
-export const SpacingLarge: Story = {
+export const Spacing4: Story = {
   args: {
-    spacing: 'lg',
+    spacing: 4,
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        <p>Content above</p>
+        <Story />
+        <p>Content below</p>
+      </div>
+    ),
+  ],
+}
+
+export const Hidden: Story = {
+  args: {
+    spacing: 2,
+    hidden: true,
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        <p>Content above</p>
+        <Story />
+        <p>Content below (line hidden, spacing only)</p>
+      </div>
+    ),
+  ],
+}
+
+export const WithText: Story = {
+  args: {
+    spacing: 2,
+    children: 'or',
   },
   decorators: [
     (Story) => (

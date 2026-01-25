@@ -19,8 +19,8 @@ describe('Divider', () => {
   })
 
   it('applies spacing class', () => {
-    render(<Divider spacing="lg" data-testid="divider" />)
-    expect(screen.getByTestId('divider').className).toContain('spacing-lg')
+    render(<Divider spacing={4} data-testid="divider" />)
+    expect(screen.getByTestId('divider').className).toContain('spacing-4')
   })
 
   it('applies custom className', () => {
@@ -48,10 +48,10 @@ describe('Divider', () => {
 
   it('applies spacing to divider with text', () => {
     render(
-      <Divider spacing="md" data-testid="divider">
+      <Divider spacing={3} data-testid="divider">
         or
       </Divider>
     )
-    expect(screen.getByTestId('divider').className).toContain('spacing-md')
+    expect(screen.getByTestId('divider').className).toContain('spacing-3')
   })
 })

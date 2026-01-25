@@ -40,7 +40,7 @@ export const Login: Story = {
           <p>Sign in to your account</p>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={1} hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -59,7 +59,7 @@ export const Login: Story = {
             </Button>
           </AuthForm>
 
-          <Divider spacing="sm">or</Divider>
+          <Divider spacing={2}>or</Divider>
 
           <AuthForm>
             <Button variant="default" appearance="button">
@@ -71,7 +71,7 @@ export const Login: Story = {
           </AuthForm>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/forgot-password">
@@ -98,7 +98,7 @@ export const Signup: Story = {
           <p>Create your account</p>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -136,7 +136,7 @@ export const Signup: Story = {
             </Note>
           </AuthForm>
 
-          <Divider spacing="sm">or</Divider>
+          <Divider spacing={2}>or</Divider>
 
           <AuthForm>
             <Button variant="default" appearance="button">
@@ -148,7 +148,7 @@ export const Signup: Story = {
           </AuthForm>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/login">
@@ -170,7 +170,7 @@ export const ForgotPassword: Story = {
           <p>Enter your email to receive a reset link</p>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -185,7 +185,7 @@ export const ForgotPassword: Story = {
           </AuthForm>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/login">Back to sign in</AuthLink>
@@ -205,7 +205,7 @@ export const ResetPassword: Story = {
           <p>Enter your new password</p>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -225,7 +225,7 @@ export const ResetPassword: Story = {
           </AuthForm>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/login">Back to sign in</AuthLink>
@@ -244,7 +244,7 @@ export const EmailSent: Story = {
           <AuthTitle>Check your email</AuthTitle>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <Note variant="success">
@@ -260,7 +260,7 @@ export const EmailSent: Story = {
           </Link>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/">Back to Home Page</AuthLink>
@@ -278,7 +278,7 @@ export const VerifyEmailLoading: Story = {
           <AuthTitle>Verifying your email...</AuthTitle>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <Note variant="warning">
@@ -287,7 +287,7 @@ export const VerifyEmailLoading: Story = {
           </Note>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/">Back to Home Page</AuthLink>
@@ -305,7 +305,7 @@ export const VerifyEmailSuccess: Story = {
           <AuthTitle>Email verified</AuthTitle>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <Note variant="success">
@@ -318,7 +318,7 @@ export const VerifyEmailSuccess: Story = {
           </Link>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/">Back to Home Page</AuthLink>
@@ -336,7 +336,7 @@ export const VerifyEmailError: Story = {
           <AuthTitle>Verification failed</AuthTitle>
         </AuthCardHeader>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardBody>
           <Note variant="danger">
@@ -348,7 +348,7 @@ export const VerifyEmailError: Story = {
           </Link>
         </AuthCardBody>
 
-        <Divider spacing="sm" hidden />
+        <Divider spacing={2} hidden />
 
         <AuthCardFooter>
           <AuthLink href="/login">Back to Sign in</AuthLink>

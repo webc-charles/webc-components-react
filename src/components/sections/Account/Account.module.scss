@@ -14,16 +14,16 @@
 
 .cardHeader {
   flex-direction: column;
+  gap: .5rem
 }
 
 .cardBody {
-  flex-direction: column;
-  padding: 2rem 0 0;
+  gap: 1rem;
 }
 
 .cardFooter {
   flex-direction: column;
-  padding: 2rem 0 0;
+  gap: .5rem;
 }
 
 .title {
@@ -31,24 +31,16 @@
 }
 
 .form {
+  background: var(--color-grey-6);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 2rem;
+  width: 100%;
 }
 
-.form button[type='submit'] {
-  background-color: var(--color-primary-2);
-  border: none;
-  color: var(--color-white);
-  justify-content: center;
-  width: 20rem;
-
-  &:hover,
-  &:focus-visible {
-    background-color: var(--color-primary-1);
-  }
-}
-
+.form [type='submit'],
 .form [class*="file"] {
   width: 20rem
 }

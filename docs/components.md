@@ -52,11 +52,13 @@ Navigation trail.
 
 ### Divider
 
-Visual separator.
+Visual separator with optional text.
 
 ```tsx
 <Divider />
-<Divider variant="dashed" spacing="lg" />
+<Divider variant="dashed" spacing={3} />
+<Divider spacing={2} hidden />        {/* spacing only, no line */}
+<Divider spacing={2}>or</Divider>     {/* with text */}
 ```
 
 ### Image

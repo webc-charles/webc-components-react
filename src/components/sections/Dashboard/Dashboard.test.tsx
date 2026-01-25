@@ -4,22 +4,23 @@ import { render, screen } from 'utils/Test'
 import { describe, expect, it } from 'vitest'
 import {
   DashboardBrand,
-  DashboardHeader,
   DashboardLayout,
   DashboardMain,
+  DashboardMainHeader,
+  DashboardMainTitle,
   DashboardNav,
   DashboardNavLink,
+  DashboardNavTitle,
   DashboardSidebar,
-  DashboardTitle,
 } from './index'
 
 describe('DashboardHeader', () => {
   it('renders with title and avatar', () => {
     render(
-      <DashboardHeader>
-        <DashboardTitle>Welcome</DashboardTitle>
+      <DashboardMainHeader>
+        <DashboardMainTitle>Welcome</DashboardMainTitle>
         <span data-testid="avatar">Avatar</span>
-      </DashboardHeader>
+      </DashboardMainHeader>
     )
     expect(screen.getByText('Welcome')).toBeInTheDocument()
     expect(screen.getByTestId('avatar')).toBeInTheDocument()
@@ -28,7 +29,12 @@ describe('DashboardHeader', () => {
 
 describe('DashboardNav', () => {
   it('renders with title', () => {
-    render(<DashboardNav title="Navigation">Links</DashboardNav>)
+    render(
+      <DashboardNav>
+        <DashboardNavTitle>Navigation</DashboardNavTitle>
+        Links
+      </DashboardNav>
+    )
     expect(screen.getByText('Navigation')).toBeInTheDocument()
   })
 })
@@ -64,7 +70,8 @@ describe('Dashboard integration', () => {
       <DashboardLayout>
         <DashboardSidebar>
           <DashboardBrand>Logo</DashboardBrand>
-          <DashboardNav title="Menu">
+          <DashboardNav>
+            <DashboardNavTitle>Menu</DashboardNavTitle>
             <DashboardNavLink href="#" current>
               Dashboard
             </DashboardNavLink>
@@ -72,9 +79,9 @@ describe('Dashboard integration', () => {
           </DashboardNav>
         </DashboardSidebar>
         <DashboardMain>
-          <DashboardHeader>
-            <DashboardTitle>Welcome</DashboardTitle>
-          </DashboardHeader>
+          <DashboardMainHeader>
+            <DashboardMainTitle>Welcome</DashboardMainTitle>
+          </DashboardMainHeader>
         </DashboardMain>
       </DashboardLayout>
     )

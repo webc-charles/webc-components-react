@@ -1,0 +1,87 @@
+@use 'mq' as *;
+
+// Spacing utility classes (Bootstrap style)
+// Base: m-1, mt-3, p-4, pl-5
+// Responsive: mt-md-3, p-lg-5 (property-breakpoint-size)
+
+$sizes: 1, 2, 3, 4, 5;
+$directions: (
+  't': 'top',
+  'r': 'right',
+  'b': 'bottom',
+  'l': 'left',
+);
+
+// Base margin utilities
+@each $size in $sizes {
+  .m-#{$size} {
+    margin: var(--spacing-#{$size});
+  }
+
+  @each $dir, $prop in $directions {
+    .m#{$dir}-#{$size} {
+      margin-#{$prop}: var(--spacing-#{$size});
+    }
+  }
+}
+
+// Base padding utilities
+@each $size in $sizes {
+  .p-#{$size} {
+    padding: var(--spacing-#{$size});
+  }
+
+  @each $dir, $prop in $directions {
+    .p#{$dir}-#{$size} {
+      padding-#{$prop}: var(--spacing-#{$size});
+    }
+  }
+}
+
+// Responsive: sm (768px)
+@include mq-sm {
+  @each $size in $sizes {
+    .m-sm-#{$size} { margin: var(--spacing-#{$size}); }
+    .p-sm-#{$size} { padding: var(--spacing-#{$size}); }
+    @each $dir, $prop in $directions {
+      .m#{$dir}-sm-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
+      .p#{$dir}-sm-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+  }
+}
+
+// Responsive: md (1024px)
+@include mq-md {
+  @each $size in $sizes {
+    .m-md-#{$size} { margin: var(--spacing-#{$size}); }
+    .p-md-#{$size} { padding: var(--spacing-#{$size}); }
+    @each $dir, $prop in $directions {
+      .m#{$dir}-md-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
+      .p#{$dir}-md-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+  }
+}
+
+// Responsive: lg (1200px)
+@include mq-lg {
+  @each $size in $sizes {
+    .m-lg-#{$size} { margin: var(--spacing-#{$size}); }
+    .p-lg-#{$size} { padding: var(--spacing-#{$size}); }
+    @each $dir, $prop in $directions {
+      .m#{$dir}-lg-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
+      .p#{$dir}-lg-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+  }
+}
+
+// Responsive: xl (1400px)
+@include mq-xl {
+  @each $size in $sizes {
+    .m-xl-#{$size} { margin: var(--spacing-#{$size}); }
+    .p-xl-#{$size} { padding: var(--spacing-#{$size}); }
+    @each $dir, $prop in $directions {
+      .m#{$dir}-xl-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
+      .p#{$dir}-xl-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+  }
+}

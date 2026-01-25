@@ -36,10 +36,44 @@
 --line-height-relaxed
 ```
 
-### Spacing & Radius
+### Spacing
 
 ```scss
---spacing-xs through --spacing-xl
+--spacing-1: 0.5rem;
+--spacing-2: 1rem;
+--spacing-3: 2rem;
+--spacing-4: 3rem;
+--spacing-5: 4rem;
+```
+
+### Spacing Utility Classes
+
+Bootstrap-style margin and padding utilities:
+
+```html
+<!-- Base -->
+<div class="m-1">margin: 0.5rem</div>
+<div class="mt-2">margin-top: 1rem</div>
+<div class="p-3">padding: 2rem</div>
+<div class="pl-4">padding-left: 3rem</div>
+
+<!-- Responsive (breakpoint-size) -->
+<div class="m-1 m-md-3 m-lg-5">responsive margin</div>
+<div class="pt-2 pt-lg-4">responsive padding-top</div>
+```
+
+| Prefix | Property |
+|--------|----------|
+| `m-` | margin |
+| `mt-`, `mr-`, `mb-`, `ml-` | margin-top/right/bottom/left |
+| `p-` | padding |
+| `pt-`, `pr-`, `pb-`, `pl-` | padding-top/right/bottom/left |
+
+Breakpoints: `sm` (768px), `md` (1024px), `lg` (1200px), `xl` (1400px)
+
+### Border Radius
+
+```scss
 --radius-sm, --radius-md, --radius-lg, --radius-full
 ```
 

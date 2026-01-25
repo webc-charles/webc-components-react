@@ -1,4 +1,3 @@
-import { Divider } from 'base/Divider'
 import clsx from 'clsx'
 import { Card, CardBody, CardFooter, CardHeader } from 'modules/Card'
 import styles from './Auth.module.scss'
@@ -29,16 +28,13 @@ export function AuthCardHeader({
   ...rest
 }: AuthCardHeaderTypes) {
   return (
-    <>
-      <CardHeader
-        ref={ref}
-        className={clsx(styles.cardHeader, className)}
-        {...rest}
-      >
-        {children}
-      </CardHeader>
-      <Divider className={styles.divider} />
-    </>
+    <CardHeader
+      ref={ref}
+      className={clsx(styles.cardHeader, className)}
+      {...rest}
+    >
+      {children}
+    </CardHeader>
   )
 }
 
@@ -66,15 +62,12 @@ export function AuthCardFooter({
   ...rest
 }: AuthCardFooterTypes) {
   return (
-    <>
-      <Divider className={styles.divider} />
-      <CardFooter
-        ref={ref}
-        className={clsx(styles.cardFooter, className)}
-        {...rest}
-      >
-        {children}
-      </CardFooter>
-    </>
+    <CardFooter
+      ref={ref}
+      className={clsx(styles.cardFooter, className)}
+      {...rest}
+    >
+      {children}
+    </CardFooter>
   )
 }

@@ -8,6 +8,7 @@ export function Divider({
   spacing = 'none',
   className,
   children,
+  hidden,
   ...rest
 }: DividerTypes) {
   if (children) {
@@ -16,6 +17,7 @@ export function Divider({
         ref={ref as React.Ref<HTMLDivElement>}
         className={clsx(
           styles.dividerWithText,
+          hidden && styles.hidden,
           styles[`spacing-${spacing}`],
           className
         )}
@@ -37,6 +39,7 @@ export function Divider({
       ref={ref}
       className={clsx(
         styles.divider,
+        hidden && styles.hidden,
         styles[`variant-${variant}`],
         styles[`spacing-${spacing}`],
         className

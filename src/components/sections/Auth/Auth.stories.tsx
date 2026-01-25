@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Divider } from 'base/Divider'
-import { Spinner } from 'base/Spinner'
-import { Note } from 'components/base'
+import { Link } from 'base/Link'
+import { Note } from 'base/Note'
 import { Button } from 'form/Button'
 import { InputPassword } from 'form/Password'
 import { InputText } from 'form/Text'
@@ -40,6 +40,8 @@ export const Login: Story = {
           <p>Sign in to your account</p>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
           <AuthForm>
             <InputText
@@ -57,10 +59,10 @@ export const Login: Story = {
             </Button>
           </AuthForm>
 
-          <Divider spacing="md">or</Divider>
+          <Divider spacing="sm">or</Divider>
 
           <AuthForm>
-            <Button variant="default" appearance="outline">
+            <Button variant="default" appearance="button">
               Continue with Google
             </Button>
             <Button variant="secondary" appearance="button">
@@ -68,6 +70,8 @@ export const Login: Story = {
             </Button>
           </AuthForm>
         </AuthCardBody>
+
+        <Divider spacing="sm" hidden />
 
         <AuthCardFooter>
           <AuthLink href="/forgot-password">
@@ -77,6 +81,8 @@ export const Login: Story = {
           <AuthLink href="/signup">
             Don&apos;t have an account? Sign up
           </AuthLink>
+
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -91,6 +97,8 @@ export const Signup: Story = {
           <AuthTitle>Signup</AuthTitle>
           <p>Create your account</p>
         </AuthCardHeader>
+
+        <Divider spacing="sm" hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -110,7 +118,10 @@ export const Signup: Story = {
               label="Password"
               placeholder="Enter your password"
             />
-            <Note variant="danger">An error message</Note>
+            <Note variant="danger">
+              Password must be at least 8 characters and include a number
+              and special character.
+            </Note>
             <InputPassword
               name="confirmPassword"
               label="Confirm Password"
@@ -119,13 +130,16 @@ export const Signup: Story = {
             <Button type="submit" variant="primary" appearance="button">
               Create Account
             </Button>
-            <Note variant="success">A success message</Note>
+            <Note variant="success">
+              Account created successfully! Please check your email to
+              verify your account.
+            </Note>
           </AuthForm>
 
-          <Divider spacing="md">or</Divider>
+          <Divider spacing="sm">or</Divider>
 
           <AuthForm>
-            <Button variant="default" appearance="outline">
+            <Button variant="default" appearance="button">
               Continue with Google
             </Button>
             <Button variant="secondary" appearance="button">
@@ -134,10 +148,13 @@ export const Signup: Story = {
           </AuthForm>
         </AuthCardBody>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardFooter>
           <AuthLink href="/login">
             Already have an account? Sign in
           </AuthLink>
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -153,6 +170,8 @@ export const ForgotPassword: Story = {
           <p>Enter your email to receive a reset link</p>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
           <AuthForm>
             <InputText
@@ -166,8 +185,11 @@ export const ForgotPassword: Story = {
           </AuthForm>
         </AuthCardBody>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardFooter>
           <AuthLink href="/login">Back to sign in</AuthLink>
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -182,6 +204,8 @@ export const ResetPassword: Story = {
           <AuthTitle>Reset Password</AuthTitle>
           <p>Enter your new password</p>
         </AuthCardHeader>
+
+        <Divider spacing="sm" hidden />
 
         <AuthCardBody>
           <AuthForm>
@@ -201,8 +225,11 @@ export const ResetPassword: Story = {
           </AuthForm>
         </AuthCardBody>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardFooter>
           <AuthLink href="/login">Back to sign in</AuthLink>
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -217,17 +244,26 @@ export const EmailSent: Story = {
           <AuthTitle>Check your email</AuthTitle>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
-          <p>
+          <Note variant="success">
             We've sent a password reset link to your email address. Please
             check your inbox and follow the instructions.
-          </p>
+          </Note>
+          <Link
+            variant="default"
+            appearance="button"
+            href="/forgot-password"
+          >
+            Resend email
+          </Link>
         </AuthCardBody>
 
-        <AuthCardFooter>
-          <AuthLink href="/forgot-password">Resend email</AuthLink>
+        <Divider spacing="sm" hidden />
 
-          <AuthLink href="/login">Back to sign in</AuthLink>
+        <AuthCardFooter>
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -239,15 +275,23 @@ export const VerifyEmailLoading: Story = {
     <AuthSection>
       <AuthCard>
         <AuthCardHeader>
-          <AuthTitle>
-            <Spinner />
-            Verifying your email
-          </AuthTitle>
+          <AuthTitle>Verifying your email...</AuthTitle>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
-          <p>Please wait while we verify your email address.</p>
+          <Note variant="warning">
+            Please wait while we verify your email address. This may take a
+            few seconds. Do not close this page.
+          </Note>
         </AuthCardBody>
+
+        <Divider spacing="sm" hidden />
+
+        <AuthCardFooter>
+          <AuthLink href="/">Back to Home Page</AuthLink>
+        </AuthCardFooter>
       </AuthCard>
     </AuthSection>
   ),
@@ -258,20 +302,26 @@ export const VerifyEmailSuccess: Story = {
     <AuthSection>
       <AuthCard>
         <AuthCardHeader>
-          <AuthTitle className="text-success-2">Email verified</AuthTitle>
+          <AuthTitle>Email verified</AuthTitle>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
-          <p>
+          <Note variant="success">
             Your email has been successfully verified. You can now sign in
             to your account.
-          </p>
+          </Note>
+
+          <Link variant="primary" appearance="button" href="/login">
+            Sign in
+          </Link>
         </AuthCardBody>
 
-        <AuthCardFooter>
-          <AuthLink href="/forgot-password">Resend email</AuthLink>
+        <Divider spacing="sm" hidden />
 
-          <AuthLink href="/login">Back to sign in</AuthLink>
+        <AuthCardFooter>
+          <AuthLink href="/">Back to Home Page</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>
@@ -283,21 +333,25 @@ export const VerifyEmailError: Story = {
     <AuthSection>
       <AuthCard>
         <AuthCardHeader>
-          <AuthTitle className="text-danger-2">
-            Verification failed
-          </AuthTitle>
+          <AuthTitle>Verification failed</AuthTitle>
         </AuthCardHeader>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardBody>
-          <p>
+          <Note variant="danger">
             The verification link is invalid or has expired. Please request
             a new verification email.
-          </p>
+          </Note>
+          <Link href="/reset" variant="default" appearance="button">
+            Request new verification
+          </Link>
         </AuthCardBody>
 
+        <Divider spacing="sm" hidden />
+
         <AuthCardFooter>
-          <AuthLink href="/signup">Request new link</AuthLink>
-          <AuthLink href="/login">Sign in</AuthLink>
+          <AuthLink href="/login">Back to Sign in</AuthLink>
         </AuthCardFooter>
       </AuthCard>
     </AuthSection>

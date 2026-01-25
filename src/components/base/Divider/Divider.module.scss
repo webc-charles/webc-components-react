@@ -39,6 +39,10 @@
   margin: 0;
 }
 
+.spacing-xs {
+  margin: .5rem 0;
+}
+
 .spacing-sm {
   margin: 1rem 0;
 }
@@ -53,4 +57,8 @@
 
 .spacing-xl {
   margin: 4rem 0;
+}
+
+.hidden {
+  border: none;
 }

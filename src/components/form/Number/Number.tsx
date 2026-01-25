@@ -2,7 +2,6 @@ import { useId } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Number.module.scss'
 import type { InputNumberTypes } from './Number.types'
 
@@ -18,14 +17,11 @@ export function InputNumber({
   inputClassName,
   labelClassName,
   label,
-  incrementLabel,
-  decrementLabel,
+  incrementLabel = 'Increment',
+  decrementLabel = 'Decrement',
   ...rest
 }: InputNumberTypes) {
   const id = useId()
-  const t = useI18n()
-  const incLabel = incrementLabel ?? t.increment
-  const decLabel = decrementLabel ?? t.decrement
   const current = value ?? 0
   const canIncrement = max === undefined || current + step <= max
   const canDecrement = min === undefined || current - step >= min
@@ -68,8 +64,8 @@ export function InputNumber({
             className={clsx(styles.button, styles.increment)}
             onClick={increment}
             disabled={disabled || !canIncrement}
-            title={incLabel}
-            aria-label={incLabel}
+            title={incrementLabel}
+            aria-label={incrementLabel}
           >
             <ChevronUp size={14} aria-hidden />
           </Button>
@@ -79,8 +75,8 @@ export function InputNumber({
             className={clsx(styles.button, styles.decrement)}
             onClick={decrement}
             disabled={disabled || !canDecrement}
-            title={decLabel}
-            aria-label={decLabel}
+            title={decrementLabel}
+            aria-label={decrementLabel}
           >
             <ChevronDown size={14} aria-hidden />
           </Button>

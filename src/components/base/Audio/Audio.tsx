@@ -1,6 +1,5 @@
 import { useId } from 'react'
 import clsx from 'clsx'
-import { useI18n } from 'utils/i18n'
 import styles from './Audio.module.scss'
 import type { AudioTypes } from './Audio.types'
 
@@ -11,16 +10,14 @@ export function Audio({
   title,
   caption,
   transcriptUrl,
-  transcriptLabel,
+  transcriptLabel = 'View transcript',
   fallback,
   className,
   controls = true,
   ...rest
 }: AudioTypes) {
-  const t = useI18n()
   const titleId = useId()
   const captionId = useId()
-  const transcriptLabelText = transcriptLabel ?? t.view_transcript
 
   const audio = (
     <audio
@@ -38,13 +35,11 @@ export function Audio({
 
       {fallback || (
         <p>
-          {t.audio_not_supported}
+          Your browser doesn't support HTML audio.
           {src && (
             <>
               {' '}
-              {t.audio_fallback_link.split('{link}')[0]}
-              <a href={src}>{t.audio_link}</a>
-              {t.audio_fallback_link.split('{link}')[1]}
+              Here is a <a href={src}>link to the audio</a> instead.
             </>
           )}
         </p>
@@ -71,7 +66,7 @@ export function Audio({
 
         {transcriptUrl && (
           <a href={transcriptUrl} className={styles.transcript}>
-            {transcriptLabelText}
+            {transcriptLabel}
           </a>
         )}
       </figure>

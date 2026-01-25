@@ -57,6 +57,10 @@ export type SelectRootTypes = Omit<ComponentProps<'div'>, 'onChange'> & {
   hasMore?: boolean
   loading?: boolean
   children: ReactNode
+  clearAllLabel?: string
+  selectedOptionsLabel?: string
+  removeLabel?: string
+  searchLabel?: string
 }
 
 // CONTEXT
@@ -92,4 +96,8 @@ export type SelectContextTypes = {
   onLoadMore?: () => void
   hasMore?: boolean
   loading?: boolean
+  clearAllLabel: string
+  selectedOptionsLabel: string
+  removeLabel: string
+  searchLabel: string
 }

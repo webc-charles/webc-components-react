@@ -14,4 +14,11 @@ export type InputDateTypes = Omit<
   maxDate?: Date
   disabled?: boolean
   label?: string
+  months?: string[]
+  daysShort?: string[]
+  selectDateLabel?: string
+  previousMonthLabel?: string
+  nextMonthLabel?: string
+  cancelLabel?: string
+  applyLabel?: string
 }

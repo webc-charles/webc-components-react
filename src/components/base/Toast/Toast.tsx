@@ -2,7 +2,6 @@ import { useEffect, useEffectEvent, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { X } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Toast.module.scss'
 import type { ToastTypes } from './Toast.types'
 
@@ -11,10 +10,8 @@ export function Toast({
   children,
   duration = 10000,
   onRemove,
-  closeLabel,
+  closeLabel = 'Close notification',
 }: ToastTypes) {
-  const t = useI18n()
-  const closeLabelText = closeLabel ?? t.close_toast
   const [active, setActive] = useState(false)
   const [removing, setRemoving] = useState(false)
 
@@ -54,9 +51,9 @@ export function Toast({
 
       <Button
         type="button"
-        title={closeLabelText}
+        title={closeLabel}
         onClick={handleRemove}
-        aria-label={closeLabelText}
+        aria-label={closeLabel}
         className={styles.close}
       >
         <X size={18} aria-hidden />

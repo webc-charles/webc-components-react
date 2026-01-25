@@ -1,6 +1,5 @@
 import { useId } from 'react'
 import clsx from 'clsx'
-import { useI18n } from 'utils/i18n'
 import styles from './Video.module.scss'
 import type { VideoTypes } from './Video.types'
 
@@ -26,7 +25,6 @@ export function Video({
   controls = true,
   ...rest
 }: VideoTypes) {
-  const t = useI18n()
   const captionId = useId()
 
   const videoClass = clsx(
@@ -64,13 +62,11 @@ export function Video({
 
       {fallback || (
         <p>
-          {t.video_not_supported}
+          Your browser doesn't support HTML video.
           {src && (
             <>
               {' '}
-              {t.video_fallback_link.split('{link}')[0]}
-              <a href={src}>{t.video_link}</a>
-              {t.video_fallback_link.split('{link}')[1]}
+              Here is a <a href={src}>link to the video</a> instead.
             </>
           )}
         </p>

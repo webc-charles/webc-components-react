@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom'
 import clsx from 'clsx'
 import { Button, Spinner } from 'components'
 import { Search, X } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Search.module.scss'
 import type { InputSearchTypes, SearchResultTypes } from './Search.types'
 
@@ -36,7 +35,6 @@ export function InputSearch({
   ...rest
 }: InputSearchTypes) {
   const id = useId()
-  const t = useI18n()
   const [internalValue, setInternalValue] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [focusedIndex, setFocusedIndex] = useState(-1)
@@ -233,7 +231,7 @@ export function InputSearch({
         role="combobox"
         value={value}
         disabled={disabled}
-        placeholder={placeholder ?? t.search}
+        placeholder={placeholder ?? 'Search'}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={() => {
@@ -241,7 +239,7 @@ export function InputSearch({
             setIsOpen(true)
           }
         }}
-        aria-label={!label ? (ariaLabel ?? t.search) : undefined}
+        aria-label={!label ? (ariaLabel ?? 'Search') : undefined}
         aria-expanded={mode === 'dropdown' ? isOpen : undefined}
         aria-haspopup={mode === 'dropdown' ? 'listbox' : undefined}
         aria-controls={
@@ -265,7 +263,7 @@ export function InputSearch({
               type="button"
               onClick={handleClear}
               className={styles.clearButton}
-              aria-label={t.clear}
+              aria-label="Clear"
             >
               <X size={18} aria-hidden="true" />
             </Button>
@@ -311,7 +309,7 @@ export function InputSearch({
               </ul>
             ) : !loading ? (
               <div className={styles.noResults}>
-                {noResultsText ?? t.no_results}
+                {noResultsText ?? 'No results found'}
               </div>
             ) : null}
 

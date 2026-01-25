@@ -2,7 +2,6 @@ import { useId, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { Eye, EyeOff } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Password.module.scss'
 import type { InputPasswordTypes } from './Password.types'
 
@@ -19,7 +18,6 @@ export function InputPassword({
   const id = useId()
   const [showPassword, setShowPassword] = useState(false)
   const toggleId = `${id}-toggle`
-  const t = useI18n()
 
   return (
     <div className={clsx(styles.wrapper, className)}>
@@ -46,7 +44,7 @@ export function InputPassword({
           disabled={disabled}
           className={styles.toggleButton}
           onClick={() => setShowPassword(!showPassword)}
-          aria-label={showPassword ? t.hide : t.show}
+          aria-label={showPassword ? 'Hide' : 'Show'}
           aria-pressed={showPassword}
         >
           {showPassword ? (

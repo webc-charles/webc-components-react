@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A React component library built with TypeScript, SCSS Modules, and full i18n support (22 languages).
+A React component library built with TypeScript and SCSS Modules. Components use English by default and accept props for translated strings (translations are handled by the consuming application).
 
 ## Project Structure
 
@@ -16,7 +16,6 @@ webc-components-react/
 │   │   └── sections/       # Page-level layouts (6)
 │   ├── styles/             # Global SCSS & CSS variables
 │   ├── utils/              # Utilities, hooks
-│   ├── i18n/               # Translations (22 languages)
 │   ├── types/              # Shared TypeScript types
 │   └── index.ts            # Library entry point
 ├── dist/                   # Build output (ESM, CJS, types, CSS)
@@ -33,7 +32,6 @@ import { Title } from 'base/Title'
 import { Card } from 'modules/Card'
 import { Header } from 'sections/Header'
 import type { ColorVariant } from 'types'
-import { useI18n } from 'i18n'
 ```
 
 ---
@@ -137,25 +135,25 @@ sections/Footer/
 
 ---
 
-## i18n System
+## Internationalization
 
-### 22 Supported Languages
-en, fr, de, es, it, pt, nl, pl, sv, da, fi, el, cs, hu, ro, bg, hr, sk, sl, et, lv, lt
+**Components use English by default.** For translated strings, pass them as props.
 
-### Usage
 ```typescript
-import { I18nProvider, useI18n } from 'i18n'
+// Default English
+<InputDate />  // Uses "Select date", "Cancel", "Apply"
 
-// Provider at app root
-<I18nProvider locale="en">
-  <App />
-</I18nProvider>
-
-// In components
-const t = useI18n()
-t.close        // "Close"
-t.months[0]    // "January"
+// With translations (from consuming app)
+<InputDate
+  selectDateLabel={t.select_date}
+  cancelLabel={t.cancel}
+  applyLabel={t.apply}
+  months={t.months}
+  daysShort={t.days_short}
+/>
 ```
+
+Components with translatable strings expose `*Label` or `*Text` props for customization.
 
 ---
 
@@ -314,9 +312,6 @@ pushui "commit message"
 ```typescript
 // Components
 import { Button, Header, Select } from '@webc-charles/components-react'
-
-// i18n
-import { I18nProvider, useI18n } from '@webc-charles/components-react'
 
 // CSS (import once at app root)
 import '@webc-charles/components-react/index.css'

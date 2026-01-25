@@ -8,7 +8,6 @@ import {
 import clsx from 'clsx'
 import { Button } from 'components'
 import { Upload } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './File.module.scss'
 import type { InputFileTypes } from './File.types'
 
@@ -116,25 +115,23 @@ export function InputFile({
     }
   }
 
-  const t = useI18n()
-
   const getButtonText = () => {
     if (buttonText) return buttonText
-    return multiple ? t.select_files : t.select_file
+    return multiple ? 'Choose files' : 'Choose a file'
   }
 
   const getFileDisplay = () => {
     if (!files || files.length === 0) {
-      return t.no_file_selected
+      return 'No file selected'
     }
     if (files.length === 1) {
       return files[0].name
     }
-    return t.files_selected.replace('{count}', String(files.length))
+    return `${files.length} files selected`
   }
 
   const getDropText = () => {
-    return multiple ? t.drop_files_here : t.drop_file_here
+    return multiple ? 'Drop files here' : 'Drop file here'
   }
 
   return (

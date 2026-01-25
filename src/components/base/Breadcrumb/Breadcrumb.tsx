@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { Link } from 'components'
 import { ChevronRight } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Breadcrumb.module.scss'
 import type { BreadcrumbTypes } from './Breadcrumb.types'
 
@@ -11,10 +10,9 @@ export function Breadcrumb({
   separator,
   renderLink,
   className,
-  'aria-label': ariaLabel,
+  'aria-label': ariaLabel = 'Breadcrumb',
   ...rest
 }: BreadcrumbTypes) {
-  const t = useI18n()
   const separatorElement = separator ?? (
     <ChevronRight size={16} aria-hidden="true" />
   )
@@ -22,7 +20,7 @@ export function Breadcrumb({
   return (
     <nav
       ref={ref}
-      aria-label={ariaLabel ?? t.breadcrumb}
+      aria-label={ariaLabel}
       className={clsx(styles.breadcrumb, className)}
       {...rest}
     >

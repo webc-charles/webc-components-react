@@ -5,7 +5,6 @@ import { Note } from 'components/base'
 import { Button } from 'form/Button'
 import { InputPassword } from 'form/Password'
 import { InputText } from 'form/Text'
-import { Check, X } from 'lucide-react'
 import {
   AuthCard,
   AuthCardBody,

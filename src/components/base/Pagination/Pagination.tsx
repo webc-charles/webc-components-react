@@ -7,7 +7,6 @@ import {
   ChevronsLeft,
   ChevronsRight,
 } from 'lucide-react'
-import { useI18n } from 'utils/i18n'
 import styles from './Pagination.module.scss'
 import type { PaginationTypes } from './Pagination.types'
 
@@ -79,11 +78,9 @@ export function Pagination({
   showPrevNext = true,
   disabled = false,
   className,
-  'aria-label': ariaLabel,
+  'aria-label': ariaLabel = 'Pagination',
   ...rest
 }: PaginationTypes) {
-  const t = useI18n()
-
   const pages = useMemo(
     () =>
       generatePageRange(
@@ -188,7 +185,7 @@ export function Pagination({
   return (
     <nav
       ref={ref}
-      aria-label={ariaLabel ?? t.pagination}
+      aria-label={ariaLabel}
       className={clsx(
         styles.pagination,
         disabled && styles.disabled,
@@ -202,7 +199,7 @@ export function Pagination({
             {renderNavLink(
               1,
               <ChevronsLeft size={18} aria-hidden="true" />,
-              t.first_page,
+              'First page',
               currentPage === 1
             )}
           </li>
@@ -213,7 +210,7 @@ export function Pagination({
             {renderNavLink(
               currentPage - 1,
               <ChevronLeft size={18} aria-hidden="true" />,
-              t.previous_page,
+              'Previous page',
               currentPage === 1
             )}
           </li>
@@ -229,7 +226,7 @@ export function Pagination({
               renderPageLink(
                 page,
                 page,
-                t.page_n.replace('{n}', String(page)),
+                `Page ${page}`,
                 page === currentPage
               )
             )}
@@ -241,7 +238,7 @@ export function Pagination({
             {renderNavLink(
               currentPage + 1,
               <ChevronRight size={18} aria-hidden="true" />,
-              t.next_page,
+              'Next page',
               currentPage === totalPages
             )}
           </li>
@@ -252,7 +249,7 @@ export function Pagination({
             {renderNavLink(
               totalPages,
               <ChevronsRight size={18} aria-hidden="true" />,
-              t.last_page,
+              'Last page',
               currentPage === totalPages
             )}
           </li>

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
 import clsx from 'clsx'
-import { useI18n } from 'utils/i18n'
 import { useHeader } from '../HeaderContext'
 import type { HeaderMobileMenuTypes } from '../Header.types'
 import styles from './HeaderMobileMenu.module.scss'
@@ -9,10 +8,9 @@ export function HeaderMobileMenu({
   ref,
   children,
   className,
-  'aria-label': ariaLabel,
+  'aria-label': ariaLabel = 'Mobile navigation',
   ...rest
 }: HeaderMobileMenuTypes) {
-  const t = useI18n()
   const { isOpen, mobileMenuId } = useHeader()
   const menuRef = useRef<HTMLElement | null>(null)
 
@@ -73,7 +71,7 @@ export function HeaderMobileMenu({
       ref={setMenuRef}
       id={mobileMenuId}
       role="dialog"
-      aria-label={ariaLabel || t.mobile_navigation}
+      aria-label={ariaLabel}
       className={clsx(styles.menu, isOpen && styles.menuOpen, className)}
       {...rest}
     >

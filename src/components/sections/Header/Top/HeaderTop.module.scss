@@ -1,7 +1,7 @@
 @use 'styles/mq' as *;
 
 .topBar {
-  background-color: var(--color-grey-5);
+  background-color: var(--color-grey-7);
   display: none;
 
   @include mq-md {

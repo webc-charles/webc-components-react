@@ -1,0 +1,11 @@
+@use 'styles/mq' as *;
+
+.menu {
+  flex: 1;
+
+  @include mq-md {
+    background: var(--color-white-50);
+    border-radius: var(--radius-sm);
+    padding: 4rem;
+  }
+}

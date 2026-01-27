@@ -1,14 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Grid, GridItem, Link, Title } from 'components'
+import { Grid, GridItem, Image, Link, Logo } from 'components'
 import {
   FooterBottom,
   FooterBottomLink,
   FooterBottomNav,
   FooterMain,
   FooterMainLink,
+  FooterMainMenu,
   FooterMainNav,
+  FooterMainNavTitle,
   FooterRoot,
 } from './index'
+import { FooterMainLogo } from './Main/FooterMainLogo'
 
 const meta: Meta<typeof FooterRoot> = {
   title: 'Sections/Footer',
@@ -23,8 +26,6 @@ const meta: Meta<typeof FooterRoot> = {
   },
 }
 
-// FooterBottomNav props: aria-label (default: "Legal navigation")
-
 export default meta
 type Story = StoryObj<typeof FooterRoot>
 
@@ -32,64 +33,66 @@ export const Default: Story = {
   render: (args) => (
     <FooterRoot {...args}>
       <FooterMain>
-        <Grid col={1} colSM={2} colMD={4} gap="lg">
-          <GridItem>
-            <Title level="h3">Company</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">About</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Careers</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Press</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Products</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Features</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Pricing</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Integrations</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Resources</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Documentation</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Tutorials</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Blog</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Support</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Help Center</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Contact</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Status</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-        </Grid>
+        <FooterMainMenu>
+          <Grid col={1} colSM={2} colMD={4} gap="lg">
+            <GridItem>
+              <FooterMainNavTitle>Company</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">About</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Careers</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Press</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Products</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Features</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Pricing</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Integrations</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Resources</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Documentation</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Tutorials</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Blog</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Support</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Help Center</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Contact</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Status</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+          </Grid>
+        </FooterMainMenu>
       </FooterMain>
       <FooterBottom>
         <span>&copy; 2026 Company. All rights reserved.</span>
@@ -109,127 +112,93 @@ export const Default: Story = {
   ),
 }
 
-export const ThreeColumns: Story = {
-  render: () => (
-    <FooterRoot>
+export const WithLogo: Story = {
+  render: (args) => (
+    <FooterRoot {...args}>
       <FooterMain>
-        <Grid col={1} colSM={3} gap="lg">
-          <GridItem>
-            <Title level="h3">Navigation</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Home</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">About</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Services</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Contact</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Services</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Consulting</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Development</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Design</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Contact</Title>
-            <FooterMainNav aria-label="Contact information">
-              <span>contact@example.com</span>
-              <span>+1 234 567 890</span>
-            </FooterMainNav>
-          </GridItem>
-        </Grid>
+        <FooterMainLogo>
+          <Logo href="/">
+            <Image
+              src="/logoipsum-350.svg"
+              alt="Acme Logo"
+              width={144}
+              height={40}
+            />
+          </Logo>
+        </FooterMainLogo>
+        <FooterMainMenu>
+          <Grid col={1} colSM={2} colMD={4} gap="lg">
+            <GridItem>
+              <FooterMainNavTitle>Company</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">About</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Careers</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Press</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Products</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Features</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Pricing</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Integrations</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Resources</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Documentation</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Tutorials</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Blog</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+            <GridItem>
+              <FooterMainNavTitle>Support</FooterMainNavTitle>
+              <FooterMainNav>
+                <FooterMainLink asChild>
+                  <Link href="#">Help Center</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Contact</Link>
+                </FooterMainLink>
+                <FooterMainLink asChild>
+                  <Link href="#">Status</Link>
+                </FooterMainLink>
+              </FooterMainNav>
+            </GridItem>
+          </Grid>
+        </FooterMainMenu>
       </FooterMain>
-      <FooterBottom>
-        <span>&copy; 2026 Company</span>
-        <FooterBottomNav>
-          <FooterBottomLink asChild>
-            <Link href="#">Privacy</Link>
-          </FooterBottomLink>
-          <FooterBottomLink asChild>
-            <Link href="#">Terms</Link>
-          </FooterBottomLink>
-        </FooterBottomNav>
-      </FooterBottom>
-    </FooterRoot>
-  ),
-}
 
-export const Simple: Story = {
-  render: () => (
-    <FooterRoot>
       <FooterBottom>
         <span>&copy; 2026 Company. All rights reserved.</span>
         <FooterBottomNav>
           <FooterBottomLink asChild>
-            <Link href="#">Privacy</Link>
+            <Link href="#">Privacy Policy</Link>
           </FooterBottomLink>
           <FooterBottomLink asChild>
-            <Link href="#">Terms</Link>
+            <Link href="#">Terms of Service</Link>
           </FooterBottomLink>
           <FooterBottomLink asChild>
-            <Link href="#">Contact</Link>
-          </FooterBottomLink>
-        </FooterBottomNav>
-      </FooterBottom>
-    </FooterRoot>
-  ),
-}
-
-export const WithCurrentLink: Story = {
-  render: () => (
-    <FooterRoot>
-      <FooterMain>
-        <Grid col={1} colSM={2} gap="lg">
-          <GridItem>
-            <Title level="h3">Pages</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild current>
-                <Link href="#">Home</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">About</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Contact</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-          <GridItem>
-            <Title level="h3">Legal</Title>
-            <FooterMainNav>
-              <FooterMainLink asChild>
-                <Link href="#">Privacy Policy</Link>
-              </FooterMainLink>
-              <FooterMainLink asChild>
-                <Link href="#">Terms of Service</Link>
-              </FooterMainLink>
-            </FooterMainNav>
-          </GridItem>
-        </Grid>
-      </FooterMain>
-      <FooterBottom>
-        <span>&copy; 2026 Company</span>
-        <FooterBottomNav>
-          <FooterBottomLink asChild current>
-            <Link href="#">Privacy</Link>
-          </FooterBottomLink>
-          <FooterBottomLink asChild>
-            <Link href="#">Terms</Link>
+            <Link href="#">Cookies</Link>
           </FooterBottomLink>
         </FooterBottomNav>
       </FooterBottom>

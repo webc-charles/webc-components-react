@@ -1,3 +1,4 @@
+import { Title } from 'base/Title'
 import clsx from 'clsx'
 import type { FooterMainNavTypes } from '../Footer.types'
 import styles from './FooterMainNav.module.scss'
@@ -17,7 +18,11 @@ export function FooterMainNav({
       className={clsx(styles.nav, className)}
       {...rest}
     >
-      {title && <h3 className={styles.title}>{title}</h3>}
+      {title && (
+        <Title level="h3" className={styles.title}>
+          {title}
+        </Title>
+      )}
       {children}
     </nav>
   )

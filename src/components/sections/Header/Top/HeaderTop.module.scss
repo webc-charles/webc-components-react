@@ -2,6 +2,7 @@
 
 .topBar {
   background-color: var(--color-grey-7);
+  border-bottom: .1rem solid var(--color-grey-6);
   display: none;
 
   @include mq-md {

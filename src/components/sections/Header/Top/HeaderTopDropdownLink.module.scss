@@ -1,11 +1,10 @@
 .dropdownLink {
   background: none;
   border: none;
-  border-radius: var(--radius-sm);
-  color: var(--color-white);
+  color: var(--color-black);
   cursor: pointer;
   display: block;
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-3);
   line-height: var(--line-height-default);
   margin: 1rem 0 0;
   text-align: left;
@@ -19,12 +18,12 @@
 
   &:hover,
   &:focus-visible {
-    color: var(--color-primary-contrast);
+    color: var(--color-primary-2);
     text-decoration: none;
   }
 
   &.current {
-    color: var(--color-primary-contrast);
+    color: var(--color-primary-2);
     cursor: default;
     text-decoration: none;
   }

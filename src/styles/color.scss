@@ -32,14 +32,14 @@ $color-levels: (1, 2, 3, contrast);
 }
 
 // Grey background classes
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .bg-grey-#{$i} {
     background-color: var(--color-grey-#{$i});
   }
 }
 
 // Grey text classes
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .text-grey-#{$i} {
     color: var(--color-grey-#{$i});
   }

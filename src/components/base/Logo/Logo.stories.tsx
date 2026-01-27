@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Logo, LogoFallback, LogoImage } from './Logo'
-import logoExample from './logo-example.svg'
+import { Image } from 'base/Image'
+import { Logo, LogoFallback } from './Logo'
 
 const meta: Meta<typeof Logo> = {
   title: 'Base/Logo',
@@ -28,7 +28,7 @@ export const Playground: Story = {
 export const WithImage: Story = {
   render: () => (
     <Logo href="/">
-      <LogoImage
+      <Image
         src="/logoipsum-350.svg"
         alt="Acme Logo"
         width={144}
@@ -54,7 +54,7 @@ export const ImageFallbackComparison: Story = {
           With Image:
         </p>
         <Logo href="/">
-          <LogoImage
+          <Image
             src="/logoipsum-350.svg"
             alt="Acme Logo"
             width={120}

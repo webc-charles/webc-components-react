@@ -6,7 +6,6 @@ import {
   Image,
   Link,
   Logo,
-  LogoImage,
   Title,
 } from 'components'
 import {
@@ -208,7 +207,7 @@ export const Default: Story = {
       <HeaderMain>
         <HeaderMainLogo>
           <Logo href="/">
-            <LogoImage
+            <Image
               src="/logoipsum-350.svg"
               alt="Acme Logo"
               width={144}
@@ -248,7 +247,7 @@ export const Default: Story = {
         <HeaderMobileBar>
           <HeaderMobileLogo>
             <Logo href="/">
-              <LogoImage
+              <Image
                 src="/logoipsum-350.svg"
                 alt="Acme Logo"
                 width={144}
@@ -287,7 +286,7 @@ export const WithTopBar: Story = {
       <HeaderMain>
         <HeaderMainLogo>
           <Logo href="/">
-            <LogoImage
+            <Image
               src="/logoipsum-350.svg"
               alt="Acme Logo"
               width={144}
@@ -321,7 +320,7 @@ export const WithTopBar: Story = {
         <HeaderMobileBar>
           <HeaderMobileLogo>
             <Logo href="/">
-              <LogoImage
+              <Image
                 src="/logoipsum-350.svg"
                 alt="Acme Logo"
                 width={144}
@@ -343,7 +342,7 @@ export const WithDropdowns: Story = {
       <HeaderMain>
         <HeaderMainLogo>
           <Logo href="/">
-            <LogoImage
+            <Image
               src="/logoipsum-350.svg"
               alt="Acme Logo"
               width={144}
@@ -378,7 +377,7 @@ export const WithDropdowns: Story = {
         <HeaderMobileBar>
           <HeaderMobileLogo>
             <Logo href="/">
-              <LogoImage
+              <Image
                 src="/logoipsum-350.svg"
                 alt="Acme Logo"
                 width={144}
@@ -400,7 +399,7 @@ export const MegaMenu: Story = {
       <HeaderMain>
         <HeaderMainLogo>
           <Logo href="/">
-            <LogoImage
+            <Image
               src="/logoipsum-358.svg"
               alt="Acme Logo"
               width={144}
@@ -438,7 +437,7 @@ export const MegaMenu: Story = {
         <HeaderMobileBar>
           <HeaderMobileLogo>
             <Logo href="/">
-              <LogoImage
+              <Image
                 src="/logoipsum-359.svg"
                 alt="Acme Logo"
                 width={144}

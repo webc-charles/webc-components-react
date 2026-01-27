@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button, Grid, GridItem, Link, Title } from 'components'
+import {
+  Button,
+  Grid,
+  GridItem,
+  Image,
+  Link,
+  Logo,
+  LogoImage,
+  Title,
+} from 'components'
 import {
   HeaderMain,
   HeaderMainDropdown,
@@ -24,16 +33,6 @@ import {
   HeaderTopLink,
   HeaderTopNav,
 } from './index'
-
-const logoStyles = {
-  fontSize: '2rem',
-  fontWeight: 700,
-  textDecoration: 'none',
-  color: 'inherit',
-}
-
-// HeaderMobileMenu props: aria-label (default: "Mobile navigation")
-// HeaderMobileToggle props: closeLabel, menuLabel
 
 const meta: Meta<typeof HeaderRoot> = {
   title: 'Sections/Header',
@@ -208,9 +207,14 @@ export const Default: Story = {
     <HeaderRoot {...args}>
       <HeaderMain>
         <HeaderMainLogo>
-          <Link href="/" style={logoStyles}>
-            Logo
-          </Link>
+          <Logo href="/">
+            <LogoImage
+              src="/logoipsum-350.svg"
+              alt="Acme Logo"
+              width={144}
+              height={40}
+            />
+          </Logo>
         </HeaderMainLogo>
 
         <HeaderMainNav>
@@ -243,9 +247,14 @@ export const Default: Story = {
       <HeaderMobile>
         <HeaderMobileBar>
           <HeaderMobileLogo>
-            <Link href="/" style={logoStyles}>
-              Logo
-            </Link>
+            <Logo href="/">
+              <LogoImage
+                src="/logoipsum-350.svg"
+                alt="Acme Logo"
+                width={144}
+                height={40}
+              />
+            </Logo>
           </HeaderMobileLogo>
           <HeaderMobileToggle />
         </HeaderMobileBar>
@@ -259,13 +268,16 @@ export const WithTopBar: Story = {
   render: () => (
     <HeaderRoot>
       <HeaderTop>
-        <HeaderTopNav>
+        <HeaderTopNav aria-label="main-top-bar">
           <HeaderTopLink asChild>
             <Link href="/">Aide</Link>
           </HeaderTopLink>
           <HeaderTopLink asChild>
             <Link href="/">Contact</Link>
           </HeaderTopLink>
+        </HeaderTopNav>
+
+        <HeaderTopNav aria-label="locale-top-bar">
           <HeaderTopDropdown label="FR">
             <LanguageDropdownContent />
           </HeaderTopDropdown>
@@ -274,9 +286,14 @@ export const WithTopBar: Story = {
 
       <HeaderMain>
         <HeaderMainLogo>
-          <Link href="/" style={logoStyles}>
-            Logo
-          </Link>
+          <Logo href="/">
+            <LogoImage
+              src="/logoipsum-350.svg"
+              alt="Acme Logo"
+              width={144}
+              height={40}
+            />
+          </Logo>
         </HeaderMainLogo>
 
         <HeaderMainNav>
@@ -303,9 +320,14 @@ export const WithTopBar: Story = {
       <HeaderMobile>
         <HeaderMobileBar>
           <HeaderMobileLogo>
-            <Link href="/" style={logoStyles}>
-              Logo
-            </Link>
+            <Logo href="/">
+              <LogoImage
+                src="/logoipsum-350.svg"
+                alt="Acme Logo"
+                width={144}
+                height={40}
+              />
+            </Logo>
           </HeaderMobileLogo>
           <HeaderMobileToggle />
         </HeaderMobileBar>
@@ -320,9 +342,14 @@ export const WithDropdowns: Story = {
     <HeaderRoot>
       <HeaderMain>
         <HeaderMainLogo>
-          <Link href="/" style={logoStyles}>
-            Logo
-          </Link>
+          <Logo href="/">
+            <LogoImage
+              src="/logoipsum-350.svg"
+              alt="Acme Logo"
+              width={144}
+              height={40}
+            />
+          </Logo>
         </HeaderMainLogo>
 
         <HeaderMainNav>
@@ -350,9 +377,14 @@ export const WithDropdowns: Story = {
       <HeaderMobile>
         <HeaderMobileBar>
           <HeaderMobileLogo>
-            <Link href="/" style={logoStyles}>
-              Logo
-            </Link>
+            <Logo href="/">
+              <LogoImage
+                src="/logoipsum-350.svg"
+                alt="Acme Logo"
+                width={144}
+                height={40}
+              />
+            </Logo>
           </HeaderMobileLogo>
           <HeaderMobileToggle />
         </HeaderMobileBar>
@@ -367,9 +399,14 @@ export const MegaMenu: Story = {
     <HeaderRoot>
       <HeaderMain>
         <HeaderMainLogo>
-          <Link href="/" style={logoStyles}>
-            Enterprise
-          </Link>
+          <Logo href="/">
+            <LogoImage
+              src="/logoipsum-358.svg"
+              alt="Acme Logo"
+              width={144}
+              height={40}
+            />
+          </Logo>
         </HeaderMainLogo>
 
         <HeaderMainNav>
@@ -400,9 +437,14 @@ export const MegaMenu: Story = {
       <HeaderMobile>
         <HeaderMobileBar>
           <HeaderMobileLogo>
-            <Link href="/" style={logoStyles}>
-              Logo
-            </Link>
+            <Logo href="/">
+              <LogoImage
+                src="/logoipsum-359.svg"
+                alt="Acme Logo"
+                width={144}
+                height={40}
+              />
+            </Logo>
           </HeaderMobileLogo>
           <HeaderMobileToggle />
         </HeaderMobileBar>

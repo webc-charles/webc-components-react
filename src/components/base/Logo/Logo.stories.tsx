@@ -29,9 +29,9 @@ export const WithImage: Story = {
   render: () => (
     <Logo href="/">
       <LogoImage
-        src={logoExample}
+        src="/logoipsum-350.svg"
         alt="Acme Logo"
-        width={120}
+        width={144}
         height={40}
       />
     </Logo>
@@ -55,7 +55,7 @@ export const ImageFallbackComparison: Story = {
         </p>
         <Logo href="/">
           <LogoImage
-            src={logoExample}
+            src="/logoipsum-350.svg"
             alt="Acme Logo"
             width={120}
             height={40}

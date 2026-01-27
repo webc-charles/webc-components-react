@@ -31,7 +31,7 @@ export function HeaderTopDropdown({
   return (
     <div
       ref={itemRef}
-      className={clsx(styles.item, className)}
+      className={clsx(styles.dropdown, className)}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       onFocusCapture={handleFocus}
@@ -52,7 +52,7 @@ export function HeaderTopDropdown({
       >
         {label}
         <ChevronDown
-          size={12}
+          size={14}
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
@@ -62,9 +62,9 @@ export function HeaderTopDropdown({
         inert
         role="menu"
         ref={dropdownRef}
-        className={clsx(styles.dropdown, isOpen && styles.isOpen)}
+        className={clsx(styles.modal, isOpen && styles.isOpen)}
       >
-        <div className={styles.dropdownInner}>{children}</div>
+        <div className={styles.modalInner}>{children}</div>
       </div>
     </div>
   )

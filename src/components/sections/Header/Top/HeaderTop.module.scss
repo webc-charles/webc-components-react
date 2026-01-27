@@ -1,8 +1,7 @@
 @use 'styles/mq' as *;
 
 .topBar {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-grey-5);
   display: none;
 
   @include mq-md {
@@ -16,7 +15,7 @@
   font-size: var(--font-size-2);
   gap: 2rem;
   height: var(--height-top-menu);
-  justify-content: flex-end;
+  justify-content: space-between;
   margin: 0 auto;
   max-width: var(--container-max-width);
   padding: 0 2rem;
@@ -25,3 +24,5 @@
     justify-content: space-between;
   }
 }
+
+

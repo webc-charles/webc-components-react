@@ -82,7 +82,7 @@
   display: flex;
   flex: 1;
   font-size: var(--font-size-4);
-  font-weight: var(--font-weight-xl);
+  font-weight: var(--font-weight-lg);
   height: 4rem;
   justify-content: center;
 }
@@ -98,7 +98,6 @@
   cursor: pointer;
   display: flex;
   font-size: var(--font-size-4);
-  font-weight: var(--font-weight-md);
   justify-content: center;
   width: 4rem;
 
@@ -153,7 +152,7 @@
 .weekday {
   color: var(--color-grey-2);
   font-size: var(--font-size-3);
-  font-weight: var(--font-weight-xl);
+  font-weight: var(--font-weight-lg);
   line-height: var(--line-height-default);
   text-align: center;
   width: 4rem;

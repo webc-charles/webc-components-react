@@ -36,6 +36,16 @@
 --line-height-relaxed
 ```
 
+### Font Weights
+
+```scss
+--font-weight-md: 400;  // Body text (inherited from body)
+--font-weight-lg: 600;  // Subtitles, labels
+--font-weight-xl: 800;  // Headings, buttons
+```
+
+Body sets `font-weight: var(--font-weight-md)`, so most elements inherit it automatically.
+
 ### Spacing
 
 ```scss

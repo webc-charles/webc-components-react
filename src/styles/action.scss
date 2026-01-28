@@ -17,6 +17,7 @@
   &.appearance-button,
   &.appearance-outline {
     border-radius: var(--radius-md);
+    font-weight: var(--font-weight-lg);
     height: 4rem;
     padding: 0 2rem;
     text-decoration: none;

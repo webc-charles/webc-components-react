@@ -1,5 +1,6 @@
 .avatar {
   align-items: center;
+  background-color: var(--color-secondary-2);
   border-radius: 50%;
   display: inline-flex;
   flex-shrink: 0;
@@ -14,6 +15,8 @@
 }
 
 .initials {
+  color: var(--color-white);
+  font-weight: var(--font-weight-xl);
   text-transform: uppercase;
 }
 
@@ -47,7 +50,7 @@ $variants: default, primary, secondary, success, danger, warning, info;
 
 @each $variant in $variants {
   .variant-#{$variant} {
-    background-color: var(--color-#{$variant}-3);
+    background-color: var(--color-#{$variant}-2);
     color: var(--color-#{$variant}-1);
   }
 }

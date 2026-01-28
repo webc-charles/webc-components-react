@@ -23,7 +23,7 @@
   align-items: center;
   display: flex;
   height: 8rem;
-  justify-content: center;
+  justify-content: flex-start;
 
   img {
     max-height: 4rem;
@@ -36,7 +36,7 @@
   background-color: var(--color-grey-5);
   flex: 1;
   margin-left: 25rem;
-  padding: 2rem;
+  padding: 2rem 4rem;
 }
 
 .mainHeader {

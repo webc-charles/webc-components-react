@@ -4,7 +4,7 @@
 
 | Category       | Count | Components |
 |----------------|-------|------------|
-| **base/**      | 19    | Audio, Avatar, Badge, Breadcrumb, Divider, Iframe, Image, Link, Logo, Note, Pagination, Progress, RichText, Skeleton, Spinner, Title, Toast, Tooltip, Video |
+| **base/**      | 20    | Audio, Avatar, Badge, Breadcrumb, Divider, Iframe, Image, Layout, Link, Logo, Note, Pagination, Progress, RichText, Skeleton, Spinner, Title, Toast, Tooltip, Video |
 | **form/**      | 13    | Button, Checkbox, Date, File, Number, Password, Radio, Search, Select, Slider, Switch, Text, Textarea |
 | **modules/**   | 8     | Accordion, Banner, Card, Carousel, Grid, Modal, Tab, Table |
 | **sections/**  | 6     | Account, Auth, Dashboard, Footer, Header, Page |
@@ -68,6 +68,17 @@ Responsive image with optional caption.
 ```tsx
 <Image src="/photo.jpg" alt="Description" caption="Photo caption" />
 <Image src="/photo.jpg" alt="Photo" fit="cover" radius="medium" />
+```
+
+### Layout
+
+Content container with max-width and horizontal padding. Uses `--container-max-width` CSS variable.
+
+```tsx
+<Layout>
+  <Title level="h1">Page Title</Title>
+  <p>Content is centered and constrained to max-width.</p>
+</Layout>
 ```
 
 ### Link

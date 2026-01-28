@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Avatar } from 'base/Avatar'
-import { Logo } from 'components/base'
+import { Avatar, Image, Logo } from 'base'
 import { LayoutDashboard, LogOut, UserCog } from 'lucide-react'
 import {
   DashboardBrand,
@@ -34,7 +33,14 @@ export const DashboardPage: Story = {
     <DashboardLayout>
       <DashboardSidebar>
         <DashboardBrand>
-          <Logo>Logo</Logo>
+          <Logo href="/">
+            <Image
+              src="/logoipsum-358.svg"
+              alt="Acme Logo"
+              width={415}
+              height={109}
+            />
+          </Logo>
         </DashboardBrand>
 
         <DashboardNav>

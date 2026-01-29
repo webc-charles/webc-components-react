@@ -155,7 +155,35 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <div class="g-2 g-md-3">responsive gap</div>
 ```
 
+### Font Size
+
+Pattern: `fs-{breakpoint?}-{size}`
+
+| Size | Value |
+|------|-------|
+| `1` | 1rem |
+| `2` | 1.2rem |
+| `3` | 1.4rem |
+| `4` | 1.6rem (base) |
+| `5` | 1.8rem |
+| `6` | 2rem |
+| `7` | 2.5rem |
+| `8` | 3rem |
+| `lg` | 6rem |
+| `xl` | 8rem |
+
+```html
+<!-- Base -->
+<h2 class="fs-8">Large heading</h2>
+<p class="fs-5">Larger text</p>
+
+<!-- Responsive -->
+<h1 class="fs-6 fs-md-8 fs-lg-xl">Small on mobile, huge on desktop</h1>
+```
+
 ### Alignment
+
+Pattern: `{property}-{breakpoint?}-{value}`
 
 #### Text Align
 
@@ -188,6 +216,9 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <div class="justify-around">space-around</div>
 <div class="justify-evenly">space-evenly</div>
 
+<!-- Responsive justify -->
+<div class="justify-center justify-md-between">center on mobile, between on desktop</div>
+
 <!-- Align items -->
 <div class="items-start">flex-start</div>
 <div class="items-center">center</div>
@@ -195,14 +226,23 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <div class="items-stretch">stretch</div>
 <div class="items-baseline">baseline</div>
 
+<!-- Responsive items -->
+<div class="items-center items-md-start">center on mobile, start on desktop</div>
+
 <!-- Align self -->
 <div class="self-start">flex-start</div>
 <div class="self-center">center</div>
 <div class="self-end">flex-end</div>
 
+<!-- Responsive self -->
+<div class="self-center self-lg-end">center on mobile, end on large</div>
+
 <!-- Wrap -->
 <div class="flex-wrap">wrap</div>
 <div class="flex-nowrap">nowrap</div>
+
+<!-- Responsive wrap -->
+<div class="flex-wrap flex-md-nowrap">wrap on mobile, nowrap on desktop</div>
 ```
 
 ### Colors

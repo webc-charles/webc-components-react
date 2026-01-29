@@ -1,0 +1,65 @@
+@use 'mq' as *;
+
+// Font size utility classes
+// Base: fs-1, fs-2, fs-8, fs-lg, fs-xl
+// Responsive: fs-sm-1, fs-md-8, fs-lg-xl (fs-breakpoint-size)
+
+$sizes: 1, 2, 3, 4, 5, 6, 7, 8;
+$sizes-extra: lg, xl;
+
+// Base font size utilities
+@each $size in $sizes {
+  .fs-#{$size} {
+    font-size: var(--font-size-#{$size});
+  }
+}
+
+@each $size in $sizes-extra {
+  .fs-#{$size} {
+    font-size: var(--font-size-#{$size});
+  }
+}
+
+// Responsive: sm (768px)
+@include mq-sm {
+  @each $size in $sizes {
+    .fs-sm-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+
+  @each $size in $sizes-extra {
+    .fs-sm-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+}
+
+// Responsive: md (1024px)
+@include mq-md {
+  @each $size in $sizes {
+    .fs-md-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+
+  @each $size in $sizes-extra {
+    .fs-md-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+}
+
+// Responsive: lg (1200px)
+@include mq-lg {
+  @each $size in $sizes {
+    .fs-lg-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+
+  @each $size in $sizes-extra {
+    .fs-lg-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+}
+
+// Responsive: xl (1400px)
+@include mq-xl {
+  @each $size in $sizes {
+    .fs-xl-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+
+  @each $size in $sizes-extra {
+    .fs-xl-#{$size} { font-size: var(--font-size-#{$size}); }
+  }
+}

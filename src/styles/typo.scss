@@ -164,3 +164,40 @@ $heading-sizes: (
 .lowercase {
   text-transform: lowercase;
 }
+
+// Global heading font sizes (can be overwritten by fs-* classes)
+@each $level, $size in $heading-sizes {
+  #{$level} {
+    font-size: var(--font-size-#{$size});
+  }
+}
+
+// Global link defaults
+a {
+  color: var(--color-black);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primary-2);
+    text-decoration: underline;
+  }
+}
+
+// Global button reset
+button {
+  background: none;
+  font-size: var(--font-size-4);
+  outline: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primary-2);
+    text-decoration: underline;
+  }
+}
+
+// SVG inherits font size
+svg {
+  font-size: inherit;
+}

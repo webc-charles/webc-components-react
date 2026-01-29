@@ -2,6 +2,21 @@
 
 CSS utilities, mixins, and design tokens.
 
+## File Structure
+
+| File | Purpose |
+|------|---------|
+| `root.scss` | CSS variables (colors, typography, spacing) |
+| `reset.scss` | CSS reset and base element styles |
+| `main.scss` | Body layout, header padding, lists, links |
+| `font-size.scss` | Font size utility classes |
+| `align.scss` | Flexbox and text alignment utilities |
+| `spacing.scss` | Margin, padding, gap utilities |
+| `color.scss` | Background and text color utilities |
+| `typo.scss` | Typography mixins |
+
+---
+
 ## CSS Variables
 
 ### Colors

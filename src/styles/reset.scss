@@ -1,0 +1,84 @@
+// CSS Reset - base element resets
+
+* {
+  border: 0 solid;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-wrap: break-word;
+  padding: 0;
+
+  &::before,
+  &::after {
+    border: 0 solid;
+    box-sizing: border-box;
+  }
+}
+
+:focus {
+  outline: none;
+}
+
+html {
+  background: var(--color-grey-6);
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+
+  &.freeze {
+    height: 100%;
+    overflow: hidden;
+
+    @supports (height: 100vh) {
+      height: 100vh;
+    }
+
+    @supports (height: 100dvh) {
+      height: 100dvh;
+    }
+  }
+}
+
+body {
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--site-font);
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-md);
+  line-height: var(--line-height-default);
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+
+  &.freeze {
+    overflow: hidden;
+    padding-right: var(--scrollbar-width, 0);
+  }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  font-size: var(--font-size-4);
+  outline: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primary-2);
+    text-decoration: underline;
+  }
+}
+
+svg {
+  font-size: inherit;
+}

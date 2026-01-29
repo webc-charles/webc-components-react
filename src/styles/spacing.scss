@@ -11,6 +11,10 @@ $directions: (
   'b': 'bottom',
   'l': 'left',
 );
+$axes: (
+  'v': ('top', 'bottom'),
+  'h': ('left', 'right'),
+);
 
 // Base margin utilities
 @each $size in $sizes {
@@ -21,6 +25,14 @@ $directions: (
   @each $dir, $prop in $directions {
     .m#{$dir}-#{$size} {
       margin-#{$prop}: var(--spacing-#{$size});
+    }
+  }
+
+  @each $axis, $props in $axes {
+    .m#{$axis}-#{$size} {
+      @each $prop in $props {
+        margin-#{$prop}: var(--spacing-#{$size});
+      }
     }
   }
 }
@@ -36,6 +48,14 @@ $directions: (
       padding-#{$prop}: var(--spacing-#{$size});
     }
   }
+
+  @each $axis, $props in $axes {
+    .p#{$axis}-#{$size} {
+      @each $prop in $props {
+        padding-#{$prop}: var(--spacing-#{$size});
+      }
+    }
+  }
 }
 
 // Responsive: sm (768px)
@@ -47,6 +67,11 @@ $directions: (
     @each $dir, $prop in $directions {
       .m#{$dir}-sm-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-sm-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+
+    @each $axis, $props in $axes {
+      .m#{$axis}-sm-#{$size} { @each $prop in $props { margin-#{$prop}: var(--spacing-#{$size}); } }
+      .p#{$axis}-sm-#{$size} { @each $prop in $props { padding-#{$prop}: var(--spacing-#{$size}); } }
     }
   }
 }
@@ -61,6 +86,11 @@ $directions: (
       .m#{$dir}-md-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-md-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
     }
+
+    @each $axis, $props in $axes {
+      .m#{$axis}-md-#{$size} { @each $prop in $props { margin-#{$prop}: var(--spacing-#{$size}); } }
+      .p#{$axis}-md-#{$size} { @each $prop in $props { padding-#{$prop}: var(--spacing-#{$size}); } }
+    }
   }
 }
 
@@ -74,6 +104,11 @@ $directions: (
       .m#{$dir}-lg-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-lg-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
     }
+
+    @each $axis, $props in $axes {
+      .m#{$axis}-lg-#{$size} { @each $prop in $props { margin-#{$prop}: var(--spacing-#{$size}); } }
+      .p#{$axis}-lg-#{$size} { @each $prop in $props { padding-#{$prop}: var(--spacing-#{$size}); } }
+    }
   }
 }
 
@@ -86,6 +121,11 @@ $directions: (
     @each $dir, $prop in $directions {
       .m#{$dir}-xl-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
       .p#{$dir}-xl-#{$size} { padding-#{$prop}: var(--spacing-#{$size}); }
+    }
+
+    @each $axis, $props in $axes {
+      .m#{$axis}-xl-#{$size} { @each $prop in $props { margin-#{$prop}: var(--spacing-#{$size}); } }
+      .p#{$axis}-xl-#{$size} { @each $prop in $props { padding-#{$prop}: var(--spacing-#{$size}); } }
     }
   }
 }

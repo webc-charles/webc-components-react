@@ -39,10 +39,9 @@ CSS utilities, mixins, and design tokens.
 --font-size-4  /* 1.6rem (base) */
 --font-size-5  /* 1.8rem */
 --font-size-6  /* 2rem */
---font-size-7  /* 2.5rem */
---font-size-8  /* 3rem */
---font-size-lg /* 6rem */
---font-size-xl /* 8rem */
+--font-size-7  /* 3rem */
+--font-size-8  /* 4rem */
+--font-size-9  /* 6rem */
 
 /* Line height */
 --line-height-heading  /* 1.2 */
@@ -167,17 +166,16 @@ Pattern: `fs-{breakpoint?}-{size}`
 | `4` | 1.6rem (base) |
 | `5` | 1.8rem |
 | `6` | 2rem |
-| `7` | 2.5rem |
-| `8` | 3rem |
-| `lg` | 6rem |
-| `xl` | 8rem |
+| `7` | 3rem |
+| `8` | 4rem |
+| `9` | 6rem |
 
 **Default heading sizes** (applied globally to h1-h6 tags):
 
 | Tag | Size |
 |-----|------|
-| `h1` | fs-8 (3rem) |
-| `h2` | fs-7 (2.5rem) |
+| `h1` | fs-8 (4rem) |
+| `h2` | fs-7 (3rem) |
 | `h3` | fs-6 (2rem) |
 | `h4` | fs-5 (1.8rem) |
 | `h5` | fs-4 (1.6rem) |
@@ -189,7 +187,7 @@ Pattern: `fs-{breakpoint?}-{size}`
 <p class="fs-5">Larger text</p>
 
 <!-- Responsive -->
-<h1 class="fs-6 fs-md-8 fs-lg-xl">Small on mobile, huge on desktop</h1>
+<h1 class="fs-6 fs-md-8 fs-lg-9">Small on mobile, huge on desktop</h1>
 
 <!-- SEO vs visual: h2 tag for SEO, fs-8 for h1 visual size -->
 <h2 class="fs-8">Looks like h1, semantically h2</h2>

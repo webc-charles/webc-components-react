@@ -16,6 +16,13 @@ $axes: (
   'h': ('left', 'right'),
 );
 
+// Base gap utilities
+@each $size in $sizes {
+  .g-#{$size} {
+    gap: var(--spacing-#{$size});
+  }
+}
+
 // Base margin utilities
 @each $size in $sizes {
   .m-#{$size} {
@@ -63,6 +70,7 @@ $axes: (
   @each $size in $sizes {
     .m-sm-#{$size} { margin: var(--spacing-#{$size}); }
     .p-sm-#{$size} { padding: var(--spacing-#{$size}); }
+    .g-sm-#{$size} { gap: var(--spacing-#{$size}); }
 
     @each $dir, $prop in $directions {
       .m#{$dir}-sm-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
@@ -81,6 +89,7 @@ $axes: (
   @each $size in $sizes {
     .m-md-#{$size} { margin: var(--spacing-#{$size}); }
     .p-md-#{$size} { padding: var(--spacing-#{$size}); }
+    .g-md-#{$size} { gap: var(--spacing-#{$size}); }
 
     @each $dir, $prop in $directions {
       .m#{$dir}-md-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
@@ -99,6 +108,7 @@ $axes: (
   @each $size in $sizes {
     .m-lg-#{$size} { margin: var(--spacing-#{$size}); }
     .p-lg-#{$size} { padding: var(--spacing-#{$size}); }
+    .g-lg-#{$size} { gap: var(--spacing-#{$size}); }
 
     @each $dir, $prop in $directions {
       .m#{$dir}-lg-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }
@@ -117,6 +127,7 @@ $axes: (
   @each $size in $sizes {
     .m-xl-#{$size} { margin: var(--spacing-#{$size}); }
     .p-xl-#{$size} { padding: var(--spacing-#{$size}); }
+    .g-xl-#{$size} { gap: var(--spacing-#{$size}); }
 
     @each $dir, $prop in $directions {
       .m#{$dir}-xl-#{$size} { margin-#{$prop}: var(--spacing-#{$size}); }

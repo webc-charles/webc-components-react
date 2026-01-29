@@ -1,0 +1,96 @@
+@use 'mq' as *;
+
+$text-aligns: left, center, right;
+
+@each $align in $text-aligns {
+  .text-#{$align} {
+    text-align: $align;
+  }
+}
+
+$justify: (
+  'start': flex-start,
+  'center': center,
+  'end': flex-end,
+  'between': space-between,
+  'around': space-around,
+  'evenly': space-evenly,
+);
+
+@each $name, $value in $justify {
+  .justify-#{$name} {
+    justify-content: $value;
+  }
+}
+
+$items: (
+  'start': flex-start,
+  'center': center,
+  'end': flex-end,
+  'stretch': stretch,
+  'baseline': baseline,
+);
+
+@each $name, $value in $items {
+  .items-#{$name} {
+    align-items: $value;
+  }
+}
+
+@each $name, $value in $items {
+  .self-#{$name} {
+    align-self: $value;
+  }
+}
+
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-col-reverse { flex-direction: column-reverse; }
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+@include mq-sm {
+  @each $align in $text-aligns {
+    .text-sm-#{$align} { text-align: $align; }
+  }
+}
+
+@include mq-md {
+  @each $align in $text-aligns {
+    .text-md-#{$align} { text-align: $align; }
+  }
+}
+
+@include mq-lg {
+  @each $align in $text-aligns {
+    .text-lg-#{$align} { text-align: $align; }
+  }
+}
+
+@include mq-xl {
+  @each $align in $text-aligns {
+    .text-xl-#{$align} { text-align: $align; }
+  }
+}
+
+@include mq-sm {
+  .flex-sm-row { flex-direction: row; }
+  .flex-sm-col { flex-direction: column; }
+}
+
+@include mq-md {
+  .flex-md-row { flex-direction: row; }
+  .flex-md-col { flex-direction: column; }
+}
+
+@include mq-lg {
+  .flex-lg-row { flex-direction: row; }
+  .flex-lg-col { flex-direction: column; }
+}
+
+@include mq-xl {
+  .flex-xl-row { flex-direction: row; }
+  .flex-xl-col { flex-direction: column; }
+}

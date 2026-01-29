@@ -4,7 +4,7 @@
 
 | Category       | Count | Components |
 |----------------|-------|------------|
-| **base/**      | 20    | Audio, Avatar, Badge, Breadcrumb, Divider, Iframe, Image, Layout, Link, Logo, Note, Pagination, Progress, RichText, Skeleton, Spinner, Title, Toast, Tooltip, Video |
+| **base/**      | 21    | Audio, Avatar, Badge, Breadcrumb, Divider, Iframe, Image, Layout, Link, Logo, Note, Pagination, Progress, RichText, Section, Skeleton, Spinner, Title, Toast, Tooltip, Video |
 | **form/**      | 13    | Button, Checkbox, Date, File, Number, Password, Radio, Search, Select, Slider, Switch, Text, Textarea |
 | **modules/**   | 8     | Accordion, Banner, Card, Carousel, Grid, Modal, Tab, Table |
 | **sections/**  | 6     | Account, Auth, Dashboard, Footer, Header, Page |
@@ -129,6 +129,23 @@ CMS content rendering (WordPress, Strapi, etc.).
 
 ```tsx
 <RichText html={cmsContent} />
+```
+
+### Section
+
+Page section wrapper with optional header.
+
+```tsx
+<Section className="pv-5">
+  <SectionHeader>
+    <SectionTitle level="h2">Why Forgekit?</SectionTitle>
+  </SectionHeader>
+  <Layout>
+    <Grid col={3} gap="md">
+      {/* content */}
+    </Grid>
+  </Layout>
+</Section>
 ```
 
 ### Title

@@ -3,9 +3,3 @@
 .title {
   @include base-heading;
 }
-
-@each $level, $size in $heading-sizes {
-  .#{$level} {
-    font-size: var(--font-size-#{$size});
-  }
-}

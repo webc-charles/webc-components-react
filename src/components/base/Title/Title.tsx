@@ -14,7 +14,7 @@ export function Title({
   return (
     <Tag
       ref={ref as React.Ref<HTMLHeadingElement>}
-      className={clsx(styles.title, styles[Tag], className)}
+      className={clsx(styles.title, className)}
       {...rest}
     >
       {children}

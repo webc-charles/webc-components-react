@@ -1,4 +1,5 @@
 @use './mq' as *;
+@use './typo' as *;
 
 * {
   border: 0 solid;
@@ -78,6 +79,13 @@ body {
   &.freeze {
     overflow: hidden;
     padding-right: var(--scrollbar-width, 0);
+  }
+}
+
+// Heading font sizes (can be overwritten by fs-* classes)
+@each $level, $size in $heading-sizes {
+  #{$level} {
+    font-size: var(--font-size-#{$size});
   }
 }
 

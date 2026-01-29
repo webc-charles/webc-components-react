@@ -172,6 +172,17 @@ Pattern: `fs-{breakpoint?}-{size}`
 | `lg` | 6rem |
 | `xl` | 8rem |
 
+**Default heading sizes** (applied globally to h1-h6 tags):
+
+| Tag | Size |
+|-----|------|
+| `h1` | fs-8 (3rem) |
+| `h2` | fs-7 (2.5rem) |
+| `h3` | fs-6 (2rem) |
+| `h4` | fs-5 (1.8rem) |
+| `h5` | fs-4 (1.6rem) |
+| `h6` | fs-3 (1.4rem) |
+
 ```html
 <!-- Base -->
 <h2 class="fs-8">Large heading</h2>
@@ -179,6 +190,9 @@ Pattern: `fs-{breakpoint?}-{size}`
 
 <!-- Responsive -->
 <h1 class="fs-6 fs-md-8 fs-lg-xl">Small on mobile, huge on desktop</h1>
+
+<!-- SEO vs visual: h2 tag for SEO, fs-8 for h1 visual size -->
+<h2 class="fs-8">Looks like h1, semantically h2</h2>
 ```
 
 ### Alignment

@@ -11,410 +11,68 @@
 
 ## Base Components
 
-### Audio / Video / Iframe
-
-Media embedding with fallback support.
-
-```tsx
-<Audio src="/audio.mp3" title="Podcast" transcriptLabel="Transcript" />
-<Video src="/video.mp4" poster="/poster.jpg" />
-<Iframe src="https://youtube.com/embed/..." title="Video" aspectRatio="16/9" />
-```
-
-### Avatar
-
-User avatar with image or initials fallback.
-
-```tsx
-<Avatar src="/photo.jpg" alt="John" name="John Doe" />
-<Avatar name="John Doe" variant="primary" size="lg" />
-```
-
-### Badge
-
-Status indicators.
-
-```tsx
-<Badge variant="success">Active</Badge>
-<Badge variant="danger">Expired</Badge>
-```
-
-### Breadcrumb
-
-Navigation trail.
-
-```tsx
-<Breadcrumb aria-label="Navigation">
-  <BreadcrumbItem><Link href="/">Home</Link></BreadcrumbItem>
-  <BreadcrumbItem current>Products</BreadcrumbItem>
-</Breadcrumb>
-```
-
-### Divider
-
-Visual separator with optional text.
-
-```tsx
-<Divider />
-<Divider variant="dashed" spacing={3} />
-<Divider spacing={2} hidden />        {/* spacing only, no line */}
-<Divider spacing={2}>or</Divider>     {/* with text */}
-```
-
-### Image
-
-Responsive image with optional caption.
-
-```tsx
-<Image src="/photo.jpg" alt="Description" caption="Photo caption" />
-<Image src="/photo.jpg" alt="Photo" fit="cover" radius="medium" />
-```
-
-### Layout
-
-Content container with max-width and horizontal padding. Uses `--container-max-width` CSS variable.
-
-```tsx
-<Layout>
-  <Title level="h1">Page Title</Title>
-  <p>Content is centered and constrained to max-width.</p>
-</Layout>
-```
-
-### Link
-
-Navigation links with multiple appearances.
-
-```tsx
-<Link href="/about">About</Link>
-<Link href="/signup" appearance="button" variant="primary">Sign up</Link>
-```
-
-### Note
-
-Contextual messages.
-
-```tsx
-<Note variant="warning">
-  <Title level="h3">Warning</Title>
-  <p>This action cannot be undone.</p>
-</Note>
-```
-
-### Pagination
-
-Page navigation with accessibility.
-
-```tsx
-<Pagination
-  currentPage={1}
-  totalPages={10}
-  onPageChange={setPage}
-/>
-```
-
-### Progress / Spinner / Skeleton
-
-Loading states.
-
-```tsx
-<Spinner variant="primary" size="lg" />
-<Progress value={75} showLabel variant="success" />
-<Skeleton variant="text" />
-```
-
-### RichText
-
-CMS content rendering (WordPress, Strapi, etc.).
-
-```tsx
-<RichText html={cmsContent} />
-```
-
-### Section
-
-Page section wrapper with optional header.
-
-```tsx
-<Section className="pv-5">
-  <SectionHeader>
-    <SectionTitle level="h2">Why Forgekit?</SectionTitle>
-  </SectionHeader>
-  <Layout>
-    <Grid col={3} gap="md">
-      {/* content */}
-    </Grid>
-  </Layout>
-</Section>
-```
-
-### Title
-
-Semantic headings.
-
-```tsx
-<Title level="h1">Page Title</Title>
-<Title level="h2">Section</Title>
-```
-
-### Toast
-
-Notifications via context.
-
-```tsx
-const { addToast } = useToasts()
-addToast({ children: <p>Saved!</p> })
-```
-
-### Tooltip
-
-Hover hints.
-
-```tsx
-<Tooltip content="Help text" position="top">
-  <Button>Hover me</Button>
-</Tooltip>
-```
+| Component | Description | Docs |
+|-----------|-------------|------|
+| Audio | Audio player with transcript support | [Audio.md](../src/components/base/Audio/Audio.md) |
+| Avatar | User image with initials fallback | [Avatar.md](../src/components/base/Avatar/Avatar.md) |
+| Badge | Status indicator labels | [Badge.md](../src/components/base/Badge/Badge.md) |
+| Breadcrumb | Navigation trail | [Breadcrumb.md](../src/components/base/Breadcrumb/Breadcrumb.md) |
+| Divider | Visual separator | [Divider.md](../src/components/base/Divider/Divider.md) |
+| Iframe | Responsive embed | [Iframe.md](../src/components/base/Iframe/Iframe.md) |
+| Image | Responsive image with caption | [Image.md](../src/components/base/Image/Image.md) |
+| Layout | Content container | [Layout.md](../src/components/base/Layout/Layout.md) |
+| Link | Navigation anchor | [Link.md](../src/components/base/Link/Link.md) |
+| Logo | Site logo wrapper | [Logo.md](../src/components/base/Logo/Logo.md) |
+| Note | Contextual message boxes | [Note.md](../src/components/base/Note/Note.md) |
+| Pagination | Page navigation | [Pagination.md](../src/components/base/Pagination/Pagination.md) |
+| Progress | Progress bar | [Progress.md](../src/components/base/Progress/Progress.md) |
+| RichText | CMS HTML rendering | [RichText.md](../src/components/base/RichText/RichText.md) |
+| Section | Page section wrapper | [Section.md](../src/components/base/Section/Section.md) |
+| Skeleton | Loading placeholder | [Skeleton.md](../src/components/base/Skeleton/Skeleton.md) |
+| Spinner | Loading indicator | [Spinner.md](../src/components/base/Spinner/Spinner.md) |
+| Title | Semantic headings | [Title.md](../src/components/base/Title/Title.md) |
+| Toast | Notifications via context | [Toast.md](../src/components/base/Toast/Toast.md) |
+| Tooltip | Hover hints | [Tooltip.md](../src/components/base/Tooltip/Tooltip.md) |
+| Video | HTML5 video player | [Video.md](../src/components/base/Video/Video.md) |
 
 ## Form Components
 
-### Button
-
-```tsx
-<Button appearance="button" variant="primary">Click me</Button>
-<Button appearance="outline">Outline</Button>
-<Button loading>Submitting...</Button>
-```
-
-### InputText / InputPassword / InputNumber / InputTextarea
-
-```tsx
-<InputText label="Name" placeholder="Enter name" />
-<InputPassword label="Password" />
-<InputNumber label="Quantity" min={0} max={100} />
-<InputTextarea label="Bio" maxLength={500} showCount />
-```
-
-### InputFile
-
-```tsx
-<InputFile label="Upload" />
-<InputFile label="Drop files here" dropzone multiple />
-```
-
-### Checkbox / Switch
-
-```tsx
-<Checkbox label="Accept terms" />
-<Switch label="Dark mode" variant="success" />
-```
-
-### InputRadio
-
-```tsx
-<InputRadio
-  label="Size"
-  name="size"
-  options={[
-    { value: 'sm', label: 'Small' },
-    { value: 'md', label: 'Medium' },
-    { value: 'lg', label: 'Large' },
-  ]}
-/>
-```
-
-### InputDate
-
-```tsx
-<InputDate label="Birth date" selected={date} onChange={setDate} />
-```
-
-### InputSearch
-
-```tsx
-<InputSearch
-  mode="dropdown"
-  results={results}
-  onSearch={handleSearch}
-  onSelect={handleSelect}
-/>
-```
-
-### Select
-
-Compound component for single/multiple selection.
-
-```tsx
-<SelectRoot options={options} value={value} onChange={setValue}>
-  <SelectPlaceholder />
-  <SelectActions>
-    <SelectTrigger />
-  </SelectActions>
-  <SelectModal>
-    <OptionList controlId="fruit">
-      {options.map((opt, i) => (
-        <OptionListItem key={opt.value} option={opt} index={i} />
-      ))}
-    </OptionList>
-  </SelectModal>
-</SelectRoot>
-```
-
-### Slider
-
-```tsx
-<Slider defaultValue={30} aria-label="Volume" />
-<Slider range value={[20, 80]} onChange={setRange} valueLabelDisplay="on" />
-```
+| Component | Description | Docs |
+|-----------|-------------|------|
+| Button | Button with loading state | [Button.md](../src/components/form/Button/Button.md) |
+| Checkbox | Checkbox input | [Checkbox.md](../src/components/form/Checkbox/Checkbox.md) |
+| InputDate | Date picker | [Date.md](../src/components/form/Date/Date.md) |
+| InputFile | File upload with dropzone | [File.md](../src/components/form/File/File.md) |
+| InputNumber | Number input | [Number.md](../src/components/form/Number/Number.md) |
+| InputPassword | Password with toggle | [Password.md](../src/components/form/Password/Password.md) |
+| InputRadio | Radio button group | [Radio.md](../src/components/form/Radio/Radio.md) |
+| InputSearch | Search with dropdown | [Search.md](../src/components/form/Search/Search.md) |
+| Select | Compound select | [Select.md](../src/components/form/Select/Select.md) |
+| Slider | Range slider | [Slider.md](../src/components/form/Slider/Slider.md) |
+| Switch | Toggle switch | [Switch.md](../src/components/form/Switch/Switch.md) |
+| InputText | Text input | [Text.md](../src/components/form/Text/Text.md) |
+| InputTextarea | Multi-line input | [Textarea.md](../src/components/form/Textarea/Textarea.md) |
 
 ## Module Components
 
-### Accordion
-
-```tsx
-<Accordion type="single" defaultValue="item-1">
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Section 1</AccordionTrigger>
-    <AccordionContent>Content 1</AccordionContent>
-  </AccordionItem>
-</Accordion>
-```
-
-### Banner
-
-```tsx
-<Banner backgroundImage="/hero.jpg" overlay="dark" minHeight="50rem">
-  <BannerContent textColor="light" textAlign="center">
-    <BannerTitle>Welcome</BannerTitle>
-    <BannerSubtitle>Build something amazing</BannerSubtitle>
-  </BannerContent>
-</Banner>
-```
-
-### Card
-
-```tsx
-<Card>
-  <CardHeader><Title level="h3">Title</Title></CardHeader>
-  <CardBody><p>Content</p></CardBody>
-  <CardFooter><Button>Action</Button></CardFooter>
-</Card>
-```
-
-### Carousel
-
-```tsx
-<Carousel options={{ loop: true }}>
-  <CarouselContainer>
-    <CarouselSlide>Slide 1</CarouselSlide>
-  </CarouselContainer>
-  <CarouselNav />
-</Carousel>
-```
-
-### Grid
-
-```tsx
-<Grid col={1} colMD={2} colLG={3} gap={4}>
-  <Card>...</Card>
-</Grid>
-```
-
-### Modal
-
-```tsx
-const { addModal } = useModals()
-addModal({ title: 'Confirm', children: <p>Are you sure?</p> })
-```
-
-### Tab
-
-```tsx
-<Tab defaultValue="tab1">
-  <TabList>
-    <TabButton value="tab1">Tab 1</TabButton>
-  </TabList>
-  <TabPanels>
-    <TabPanel value="tab1">Content</TabPanel>
-  </TabPanels>
-</Tab>
-```
-
-### Table
-
-```tsx
-<Table hoverable>
-  <TableHead>
-    <TableRow>
-      <TableHeaderCell>Name</TableHeaderCell>
-    </TableRow>
-  </TableHead>
-  <TableBody>
-    <TableRow>
-      <TableCell>Alice</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
-```
+| Component | Description | Docs |
+|-----------|-------------|------|
+| Accordion | Expandable sections | [Accordion.md](../src/components/modules/Accordion/Accordion.md) |
+| Banner | Hero with background | [Banner.md](../src/components/modules/Banner/Banner.md) |
+| Card | Content container | [Card.md](../src/components/modules/Card/Card.md) |
+| Carousel | Image/content slider | [Carousel.md](../src/components/modules/Carousel/Carousel.md) |
+| Grid | Responsive grid layout | [Grid.md](../src/components/modules/Grid/Grid.md) |
+| Modal | Dialog overlay | [Modal.md](../src/components/modules/Modal/Modal.md) |
+| Tab | Tabbed interface | [Tab.md](../src/components/modules/Tab/Tab.md) |
+| Table | Data table | [Table.md](../src/components/modules/Table/Table.md) |
 
 ## Section Components
 
-### Header
-
-Responsive header with top bar, main navigation, and mobile menu.
-
-```tsx
-<HeaderRoot sticky>
-  <HeaderTop>
-    <HeaderTopNav>
-      <HeaderTopLink asChild><Link href="/help">Help</Link></HeaderTopLink>
-    </HeaderTopNav>
-  </HeaderTop>
-
-  <HeaderMain>
-    <HeaderMainLogo><Link href="/">Logo</Link></HeaderMainLogo>
-    <HeaderMainNav>
-      <HeaderMainLink asChild current><Link href="/">Home</Link></HeaderMainLink>
-    </HeaderMainNav>
-  </HeaderMain>
-
-  <HeaderMobile>
-    <HeaderMobileBar>
-      <HeaderMobileLogo><Link href="/">Logo</Link></HeaderMobileLogo>
-      <HeaderMobileToggle />
-    </HeaderMobileBar>
-    <HeaderMobileMenu>
-      <HeaderMobileNav>
-        <HeaderMobileLink asChild><Link href="/">Home</Link></HeaderMobileLink>
-      </HeaderMobileNav>
-    </HeaderMobileMenu>
-  </HeaderMobile>
-</HeaderRoot>
-```
-
-### Footer
-
-```tsx
-<FooterRoot>
-  <FooterMain>
-    <Grid col={1} colMD={4} gap="lg">
-      <GridItem>
-        <Title level="h3">Company</Title>
-        <FooterMainNav>
-          <FooterMainLink asChild><Link href="/about">About</Link></FooterMainLink>
-        </FooterMainNav>
-      </GridItem>
-    </Grid>
-  </FooterMain>
-  <FooterBottom>
-    <span>&copy; 2026 Company</span>
-    <FooterBottomNav>
-      <FooterBottomLink asChild><Link href="/privacy">Privacy</Link></FooterBottomLink>
-    </FooterBottomNav>
-  </FooterBottom>
-</FooterRoot>
-```
-
-### Auth / Account / Dashboard / Page
-
-Section components for common page layouts. See Storybook for examples.
+| Component | Description | Docs |
+|-----------|-------------|------|
+| Account | Account settings layout | [Account.md](../src/components/sections/Account/Account.md) |
+| Auth | Authentication pages | [Auth.md](../src/components/sections/Auth/Auth.md) |
+| Dashboard | Admin dashboard layout | [Dashboard.md](../src/components/sections/Dashboard/Dashboard.md) |
+| Footer | Site footer | [Footer.md](../src/components/sections/Footer/Footer.md) |
+| Header | Site header with nav | [Header.md](../src/components/sections/Header/Header.md) |
+| Page | Page root wrapper | [Page.md](../src/components/sections/Page/Page.md) |

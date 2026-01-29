@@ -1,150 +1,134 @@
 # Styling
 
+Quick reference for CSS utilities and theming. See [detailed documentation](../src/styles/styles.md) for mixins and full API.
+
 ## CSS Variables
 
 ### Colors
 
-7 variants with 4 levels each:
+| Variable | Description |
+|----------|-------------|
+| `--color-{variant}-1` | Dark (hover state) |
+| `--color-{variant}-2` | Base color |
+| `--color-{variant}-3` | Light (background) |
+| `--color-{variant}-contrast` | For dark backgrounds |
+| `--color-grey-1` to `--color-grey-7` | Grey scale (1=dark, 7=light) |
+| `--color-black`, `--color-white` | Black and white |
 
-```scss
-// Variants: default, primary, secondary, success, danger, warning, info
---color-{variant}-1        // Dark (hover)
---color-{variant}-2        // Base
---color-{variant}-3        // Light (background)
---color-{variant}-contrast // For dark backgrounds
+Variants: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `info`
+
+### Spacing
+
+| Variable | Value |
+|----------|-------|
+| `--spacing-1` | 0.5rem |
+| `--spacing-2` | 1rem |
+| `--spacing-3` | 2rem |
+| `--spacing-4` | 3rem |
+| `--spacing-5` | 4rem |
+
+### Typography
+
+| Variable | Value |
+|----------|-------|
+| `--font-size-1` to `--font-size-8` | 1rem to 3rem |
+| `--font-weight-md` | 400 |
+| `--font-weight-lg` | 600 |
+| `--font-weight-xl` | 800 |
+
+### Layout
+
+| Variable | Value |
+|----------|-------|
+| `--container-max-width` | 120rem |
+| `--radius-sm/md/lg` | 0.4/0.5/0.6rem |
+| `--z-index-1` to `--z-index-6` | 100-600 |
+
+## Utility Classes
+
+### Spacing
+
+Pattern: `{property}{direction?}-{breakpoint?}-{size}`
+
+```html
+<!-- Margin -->
+<div class="m-3">all sides</div>
+<div class="mt-2">top</div>
+<div class="mv-4">vertical</div>
+<div class="mh-3">horizontal</div>
+
+<!-- Padding -->
+<div class="p-3">all sides</div>
+<div class="pt-2">top</div>
+<div class="pv-4">vertical</div>
+
+<!-- Gap -->
+<div class="g-2">gap</div>
+
+<!-- Responsive -->
+<div class="p-2 p-md-4 p-lg-5">responsive</div>
 ```
 
-### Z-index Layers
+| Direction | Props |
+|-----------|-------|
+| `t/r/b/l` | top/right/bottom/left |
+| `v` | top + bottom |
+| `h` | left + right |
 
-```scss
---z-100  // Dropdowns
---z-200  // Sticky elements
---z-300  // Fixed elements
---z-400  // Modal backdrop
---z-500  // Modal content
---z-600  // Toasts
+| Breakpoint | Width |
+|------------|-------|
+| `sm` | ≥768px |
+| `md` | ≥1024px |
+| `lg` | ≥1200px |
+| `xl` | ≥1400px |
+
+### Alignment
+
+```html
+<!-- Text -->
+<p class="text-center">centered</p>
+<p class="text-left text-md-center">responsive</p>
+
+<!-- Flexbox -->
+<div class="flex-col flex-md-row">direction</div>
+<div class="justify-center">justify</div>
+<div class="items-center">align</div>
+<div class="flex-wrap">wrap</div>
+```
+
+| Class | Values |
+|-------|--------|
+| `text-{align}` | left, center, right |
+| `justify-{value}` | start, center, end, between, around, evenly |
+| `items-{value}` | start, center, end, stretch, baseline |
+| `self-{value}` | start, center, end, stretch, baseline |
+| `flex-{dir}` | row, col, row-reverse, col-reverse |
+
+### Colors
+
+```html
+<!-- Background -->
+<div class="bg-primary-2">primary</div>
+<div class="bg-grey-6">light grey</div>
+<div class="bg-white">white</div>
+
+<!-- Text -->
+<p class="text-primary-2">primary</p>
+<p class="text-grey-2">muted</p>
+<p class="text-danger-2">error</p>
 ```
 
 ### Typography
 
-```scss
---font-family-sans
---font-family-mono
---font-size-1 through --font-size-9
---line-height-tight
---line-height-normal
---line-height-relaxed
-```
-
-### Font Weights
-
-```scss
---font-weight-md: 400;  // Body text (inherited from body)
---font-weight-lg: 600;  // Subtitles, labels
---font-weight-xl: 800;  // Headings, buttons
-```
-
-Body sets `font-weight: var(--font-weight-md)`, so most elements inherit it automatically.
-
-### Spacing
-
-```scss
---spacing-1: 0.5rem;
---spacing-2: 1rem;
---spacing-3: 2rem;
---spacing-4: 3rem;
---spacing-5: 4rem;
-```
-
-### Spacing Utility Classes
-
-Bootstrap-style margin, padding, and gap utilities:
-
 ```html
-<!-- Base -->
-<div class="m-1">margin: 0.5rem</div>
-<div class="mt-2">margin-top: 1rem</div>
-<div class="mv-3">margin vertical (top + bottom)</div>
-<div class="p-3">padding: 2rem</div>
-<div class="ph-4">padding horizontal (left + right)</div>
-<div class="g-2">gap: 1rem</div>
-
-<!-- Responsive (breakpoint-size) -->
-<div class="m-1 m-md-3 m-lg-5">responsive margin</div>
-<div class="pv-2 pv-lg-4">responsive padding vertical</div>
-<div class="g-1 g-md-3">responsive gap</div>
+<span class="uppercase">UPPERCASE</span>
+<span class="capitalize">Capitalize</span>
+<span class="lowercase">lowercase</span>
 ```
 
-| Prefix | Property |
-|--------|----------|
-| `m-` | margin (all sides) |
-| `mt-`, `mr-`, `mb-`, `ml-` | margin-top/right/bottom/left |
-| `mv-`, `mh-` | margin vertical/horizontal |
-| `p-` | padding (all sides) |
-| `pt-`, `pr-`, `pb-`, `pl-` | padding-top/right/bottom/left |
-| `pv-`, `ph-` | padding vertical/horizontal |
-| `g-` | gap |
+## Theming
 
-Breakpoints: `sm` (768px), `md` (1024px), `lg` (1200px), `xl` (1400px)
-
-### Alignment Utility Classes
-
-Text alignment, flexbox justify/align utilities:
-
-```html
-<!-- Text alignment -->
-<div class="text-center">centered text</div>
-<div class="text-left text-md-center">responsive text align</div>
-
-<!-- Flex justify -->
-<div class="justify-center">justify-content: center</div>
-<div class="justify-between">justify-content: space-between</div>
-
-<!-- Flex align -->
-<div class="items-center">align-items: center</div>
-<div class="self-end">align-self: flex-end</div>
-
-<!-- Flex direction -->
-<div class="flex-col flex-md-row">column on mobile, row on desktop</div>
-```
-
-| Class | Property |
-|-------|----------|
-| `text-left`, `text-center`, `text-right` | text-align |
-| `justify-start`, `justify-center`, `justify-end`, `justify-between`, `justify-around`, `justify-evenly` | justify-content |
-| `items-start`, `items-center`, `items-end`, `items-stretch`, `items-baseline` | align-items |
-| `self-start`, `self-center`, `self-end`, `self-stretch`, `self-baseline` | align-self |
-| `flex-row`, `flex-col`, `flex-row-reverse`, `flex-col-reverse` | flex-direction |
-| `flex-wrap`, `flex-nowrap` | flex-wrap |
-
-Responsive variants: `text-md-center`, `flex-lg-row`, etc.
-
-### Border Radius
-
-```scss
---radius-sm, --radius-md, --radius-lg, --radius-full
-```
-
-## Color Variants
-
-```typescript
-type ColorVariant = 'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'
-```
-
-Used by: Button, Badge, Note, Spinner, Progress, Avatar, Switch, and more.
-
-## Contrast Mode
-
-For dark backgrounds, use `contrast` prop:
-
-```tsx
-<Button contrast appearance="button">Light button</Button>
-<Spinner contrast />
-```
-
-## Customizing Theme
-
-Override CSS variables in your CSS:
+Override CSS variables:
 
 ```css
 :root {
@@ -152,33 +136,24 @@ Override CSS variables in your CSS:
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
   --color-primary-contrast: #60a5fa;
-
-  --font-size-4: 1.6rem;
-  --radius-md: 0.5rem;
 }
 ```
 
-## Component SCSS Pattern
+## Contrast Mode
 
-```scss
-@use 'styles/color' as *;
+For dark backgrounds:
 
-.component {
-  // Base styles
-}
-
-@each $variant in $color-variants {
-  .variant-#{$variant} {
-    background-color: var(--color-#{$variant}-3);
-    color: var(--color-#{$variant}-1);
-  }
-}
+```tsx
+<Button contrast appearance="button">Light button</Button>
+<Spinner contrast />
 ```
 
-## Import Styles
-
-Import base styles once at app entry:
+## Import
 
 ```tsx
 import '@webc-charles/components-react/index.css'
 ```
+
+## Detailed Documentation
+
+For mixins and full SCSS API, see [src/styles/styles.md](../src/styles/styles.md).

@@ -79,6 +79,10 @@ CSS utilities, mixins, and design tokens.
 --spacing-3  /* 2rem */
 --spacing-4  /* 3rem */
 --spacing-5  /* 4rem */
+--spacing-6  /* 5rem */
+--spacing-7  /* 6rem */
+--spacing-8  /* 8rem */
+--spacing-9  /* 10rem */
 ```
 
 ### Layout
@@ -147,6 +151,10 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 | `3` | 2rem |
 | `4` | 3rem |
 | `5` | 4rem |
+| `6` | 5rem |
+| `7` | 6rem |
+| `8` | 8rem |
+| `9` | 10rem |
 
 | Breakpoint | Width |
 |------------|-------|

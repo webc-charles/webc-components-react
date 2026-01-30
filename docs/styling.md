@@ -26,6 +26,10 @@ Variants: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `in
 | `--spacing-3` | 2rem |
 | `--spacing-4` | 3rem |
 | `--spacing-5` | 4rem |
+| `--spacing-6` | 5rem |
+| `--spacing-7` | 6rem |
+| `--spacing-8` | 8rem |
+| `--spacing-9` | 10rem |
 
 ### Typography
 

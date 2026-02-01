@@ -74,14 +74,11 @@
 .content {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   padding: 2rem;
 
   @include mq-md {
-    max-width: 40rem;
-  }
-
-  @include mq-lg {
-    max-width: 60rem;
+    width: 60rem;
   }
 
   &.text-align-left {

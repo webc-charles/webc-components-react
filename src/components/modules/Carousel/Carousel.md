@@ -1,6 +1,6 @@
 # Carousel
 
-Image/content carousel with navigation controls and dots indicator. Built on embla-carousel-react.
+Image/content carousel with navigation controls and dots indicator. Built on [embla-carousel-react](https://www.embla-carousel.com/).
 
 ## Import
 
@@ -37,22 +37,6 @@ import {
     <CarouselPrev />
     <CarouselNext />
   </CarouselControls>
-  <CarouselDots />
-</Carousel>
-```
-
-### With Autoplay
-
-```tsx
-<Carousel autoplay autoplayInterval={5000}>
-  <CarouselContainer>
-    {slides.map(slide => (
-      <CarouselSlide key={slide.id}>
-        <Image src={slide.image} alt={slide.alt} />
-      </CarouselSlide>
-    ))}
-  </CarouselContainer>
-  <CarouselDots />
 </Carousel>
 ```
 
@@ -73,7 +57,7 @@ import {
 ### Multiple Visible Slides
 
 ```tsx
-<Carousel slidesToShow={3} gap={16}>
+<Carousel slidesPerView={3} gap={2}>
   <CarouselContainer>
     {products.map(product => (
       <CarouselSlide key={product.id}>
@@ -88,33 +72,46 @@ import {
 </Carousel>
 ```
 
-### Custom Navigation Icons
+### Free Scroll (No Snapping)
 
 ```tsx
-<Carousel>
+<Carousel dragFree>
+  <CarouselContainer>
+    {/* slides */}
+  </CarouselContainer>
+</Carousel>
+```
+
+### Vertical Carousel
+
+```tsx
+<Carousel axis="y" style={{ height: '400px' }}>
+  <CarouselContainer>
+    {/* slides */}
+  </CarouselContainer>
+</Carousel>
+```
+
+### Custom Alignment
+
+```tsx
+<Carousel align="start">
+  <CarouselContainer>
+    {/* slides */}
+  </CarouselContainer>
+</Carousel>
+```
+
+### With Dots Only
+
+```tsx
+<Carousel loop>
   <CarouselContainer>
     {/* slides */}
   </CarouselContainer>
   <CarouselControls>
-    <CarouselPrev>
-      <Icon name="arrow-left" />
-    </CarouselPrev>
-    <CarouselNext>
-      <Icon name="arrow-right" />
-    </CarouselNext>
+    <CarouselDots />
   </CarouselControls>
-</Carousel>
-```
-
-### Translated Labels
-
-```tsx
-<Carousel
-  prevLabel={t('carousel.prev')}
-  nextLabel={t('carousel.next')}
-  slideLabel={(index, total) => t('carousel.slide', { index, total })}
->
-  {/* content */}
 </Carousel>
 ```
 
@@ -124,19 +121,36 @@ import {
 
 Root container that provides context to child components.
 
+#### Custom Props
+
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `loop` | `boolean` | `false` | Enable infinite loop |
-| `autoplay` | `boolean` | `false` | Enable auto-advance |
-| `autoplayInterval` | `number` | `4000` | Autoplay delay in ms |
-| `slidesToShow` | `number` | `1` | Visible slides count |
-| `gap` | `number` | `0` | Gap between slides in px |
-| `startIndex` | `number` | `0` | Initial slide index |
-| `prevLabel` | `string` | `'Previous'` | Prev button aria-label |
-| `nextLabel` | `string` | `'Next'` | Next button aria-label |
-| `slideLabel` | `(index, total) => string` | - | Slide aria-label function |
-| `onSlideChange` | `(index: number) => void` | - | Slide change callback |
-| `className` | `string` | - | Additional CSS class |
+| `slidesPerView` | `number` | `1` | Number of visible slides. Sets slide width via CSS so multiple slides show at once. |
+| `gap` | `number` | `0` | Space between slides in rem units. Creates consistent gutters between slides. |
+
+#### Embla Options
+
+All [Embla Carousel options](https://www.embla-carousel.com/api/options/) are supported as props:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `active` | `boolean` | `true` | Enables/disables the carousel. When `false`, all interactions are disabled. Useful for conditional activation. |
+| `align` | `'start' \| 'center' \| 'end' \| number` | `'center'` | How slides align in the viewport. `'start'` aligns to left edge, `'center'` centers slides, `'end'` aligns to right edge. Use a number (0-1) for custom alignment. |
+| `axis` | `'x' \| 'y'` | `'x'` | Scroll direction. `'x'` for horizontal, `'y'` for vertical. Vertical requires a fixed height on the carousel. |
+| `breakpoints` | `object` | - | Responsive options. Keys are media queries, values are option objects. Example: `{ '(min-width: 768px)': { slidesToScroll: 2 } }` |
+| `containScroll` | `'trimSnaps' \| 'keepSnaps' \| false` | `'trimSnaps'` | Prevents scrolling past edges. `'trimSnaps'` removes snap points that show empty space. `'keepSnaps'` keeps all snaps but limits scroll. `false` allows overscrolling. |
+| `direction` | `'ltr' \| 'rtl'` | `'ltr'` | Scroll direction for RTL languages. Affects drag direction and button behavior. |
+| `dragFree` | `boolean` | `false` | Allows free-form scrolling without snapping. Slides stop where released instead of snapping to positions. Good for browse-heavy UIs. |
+| `dragThreshold` | `number` | `10` | Pixels to drag before scroll starts. Higher values prevent accidental drags. Lower values feel more responsive. |
+| `duration` | `number` | `25` | Animation speed (lower = faster). Controls how fast slides animate when using buttons or dots. Does not affect drag momentum. |
+| `inViewThreshold` | `number` | `0` | How much of a slide must be visible (0-1) to be considered "in view". Used by plugins and the `slidesInView` API. |
+| `loop` | `boolean` | `false` | Infinite looping. When enabled, scrolling past the last slide wraps to the first. Prev/Next buttons never disable. |
+| `skipSnaps` | `boolean` | `false` | Skip snap points when dragging quickly. Creates momentum-based scrolling that can skip multiple slides. |
+| `slidesToScroll` | `number \| 'auto'` | `1` | How many slides to scroll per button click. `'auto'` scrolls by the number of visible slides. Use with `slidesPerView` for grouped scrolling. |
+| `startIndex` | `number` | `0` | Initial slide (zero-indexed). Carousel starts at this slide without animation. |
+| `watchDrag` | `boolean \| function` | `true` | Enable/disable drag interactions. Pass a function for conditional dragging. `false` makes carousel button/dot-only. |
+| `watchResize` | `boolean \| function` | `true` | Reinitialize when container resizes. Recalculates slide positions. Disable for fixed-size carousels to improve performance. |
+| `watchSlides` | `boolean \| function` | `true` | Reinitialize when slides are added/removed. Disable if slides are static to improve performance. |
 
 ### CarouselContainer
 
@@ -157,7 +171,7 @@ Individual slide wrapper.
 
 ### CarouselControls
 
-Container for prev/next buttons.
+Container for navigation elements.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -169,7 +183,8 @@ Navigation buttons. Auto-disabled at boundaries (unless `loop`).
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `ReactNode` | Arrow icon | Custom content |
+| `label` | `string` | `'Previous/Next slide'` | Aria label for accessibility |
+| `children` | `ReactNode` | Chevron icon | Custom button content |
 | `className` | `string` | - | Additional CSS class |
 
 ### CarouselDots
@@ -178,42 +193,44 @@ Pagination dots indicator.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
+| `label` | `string` | `'Go to slide'` | Aria label prefix for dots |
+| `navigationLabel` | `string` | `'Slide navigation'` | Aria label for dots container |
 | `className` | `string` | - | Additional CSS class |
 
 ## Accessibility
 
-- `role="region"` with `aria-roledescription="carousel"`
-- Slides have `role="group"` with `aria-roledescription="slide"`
+- Live region announces current slide to screen readers
 - Navigation buttons have proper `aria-label`
 - Dots indicate current slide with `aria-current`
-- Autoplay pauses on hover/focus
+- Keyboard navigation supported
 
 ## Common Patterns
 
 ### Hero Carousel
 
 ```tsx
-<Carousel autoplay loop>
+<Carousel loop>
   <CarouselContainer>
     {heroes.map(hero => (
       <CarouselSlide key={hero.id}>
         <Banner
-          image={hero.image}
+          backgroundImage={hero.image}
           title={hero.title}
           subtitle={hero.subtitle}
-          cta={hero.cta}
         />
       </CarouselSlide>
     ))}
   </CarouselContainer>
-  <CarouselDots />
+  <CarouselControls>
+    <CarouselDots />
+  </CarouselControls>
 </Carousel>
 ```
 
 ### Product Carousel
 
 ```tsx
-<Carousel slidesToShow={4} gap={24}>
+<Carousel slidesPerView={4} gap={2} loop>
   <CarouselContainer>
     {products.map(product => (
       <CarouselSlide key={product.id}>
@@ -234,36 +251,29 @@ Pagination dots indicator.
 </Carousel>
 ```
 
-## Strapi Integration
+### Responsive Slides Per View
 
 ```tsx
 <Carousel
-  autoplay={data.autoplay}
-  loop={data.loop}
-  autoplayInterval={data.interval || 4000}
+  slidesPerView={1}
+  breakpoints={{
+    '(min-width: 640px)': { slidesToScroll: 2 },
+    '(min-width: 1024px)': { slidesToScroll: 3 },
+  }}
 >
-  <CarouselContainer>
-    {data.slides.map(slide => (
-      <CarouselSlide key={slide.id}>
-        <Image
-          src={getMediaUrl(slide.image.url)}
-          alt={slide.image.alternativeText}
-        />
-        {slide.caption && (
-          <div className="carousel-caption">
-            <Title level="h2">{slide.title}</Title>
-            <p>{slide.caption}</p>
-          </div>
-        )}
-      </CarouselSlide>
-    ))}
-  </CarouselContainer>
-  {data.showDots && <CarouselDots />}
-  {data.showControls && (
-    <CarouselControls>
-      <CarouselPrev />
-      <CarouselNext />
-    </CarouselControls>
-  )}
+  {/* Note: For responsive slidesPerView, use CSS classes on slides */}
 </Carousel>
 ```
+
+## CSS Variables
+
+The carousel exposes CSS variables for customization:
+
+```css
+.carousel {
+  --carousel-slides-per-view: 1;
+  --carousel-gap: 0rem;
+}
+```
+
+These are set automatically via `slidesPerView` and `gap` props.

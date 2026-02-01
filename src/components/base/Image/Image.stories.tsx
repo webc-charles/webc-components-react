@@ -360,7 +360,7 @@ export const CardThumbnail: Story = {
       style={{
         width: '300px',
         border: '0.1rem solid var(--color-grey-4)',
-        borderRadius: 'var(--radius-md)',
+        borderRadius: 'var(--radius-3)',
         overflow: 'hidden',
       }}
     >

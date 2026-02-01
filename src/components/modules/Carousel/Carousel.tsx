@@ -12,6 +12,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Carousel.module.scss'
 import type {
+  CarouselCSSProperties,
   CarouselContainerTypes,
   CarouselContextValue,
   CarouselControlsTypes,
@@ -36,11 +37,79 @@ function useCarouselContext() {
 
 export function Carousel({
   ref,
-  options,
+  // Embla options
+  active,
+  align,
+  axis,
+  breakpoints,
+  containScroll,
+  container,
+  direction,
+  dragFree,
+  dragThreshold,
+  duration,
+  inViewThreshold,
+  loop,
+  skipSnaps,
+  slides,
+  slidesToScroll,
+  startIndex,
+  watchDrag,
+  watchResize,
+  watchSlides,
+  // Custom options
+  slidesPerView,
+  gap,
+  // Rest
   className,
+  style,
   children,
   ...props
 }: CarouselTypes) {
+  const options = useMemo(() => {
+    const opts: Record<string, unknown> = {}
+    if (active !== undefined) opts.active = active
+    if (align !== undefined) opts.align = align
+    if (axis !== undefined) opts.axis = axis
+    if (breakpoints !== undefined) opts.breakpoints = breakpoints
+    if (containScroll !== undefined) opts.containScroll = containScroll
+    if (container !== undefined) opts.container = container
+    if (direction !== undefined) opts.direction = direction
+    if (dragFree !== undefined) opts.dragFree = dragFree
+    if (dragThreshold !== undefined) opts.dragThreshold = dragThreshold
+    if (duration !== undefined) opts.duration = duration
+    if (inViewThreshold !== undefined) opts.inViewThreshold = inViewThreshold
+    if (loop !== undefined) opts.loop = loop
+    if (skipSnaps !== undefined) opts.skipSnaps = skipSnaps
+    if (slides !== undefined) opts.slides = slides
+    if (slidesToScroll !== undefined) opts.slidesToScroll = slidesToScroll
+    if (startIndex !== undefined) opts.startIndex = startIndex
+    if (watchDrag !== undefined) opts.watchDrag = watchDrag
+    if (watchResize !== undefined) opts.watchResize = watchResize
+    if (watchSlides !== undefined) opts.watchSlides = watchSlides
+    return opts
+  }, [
+    active,
+    align,
+    axis,
+    breakpoints,
+    containScroll,
+    container,
+    direction,
+    dragFree,
+    dragThreshold,
+    duration,
+    inViewThreshold,
+    loop,
+    skipSnaps,
+    slides,
+    slidesToScroll,
+    startIndex,
+    watchDrag,
+    watchResize,
+    watchSlides,
+  ])
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
@@ -97,11 +166,18 @@ export function Carousel({
     ]
   )
 
+  const cssVariables: CarouselCSSProperties = {
+    ...style,
+    ...(slidesPerView && { '--carousel-slides-per-view': slidesPerView }),
+    ...(gap && { '--carousel-gap': `${gap}rem` }),
+  }
+
   return (
     <CarouselContext.Provider value={contextValue}>
       <div
         ref={ref}
-        className={clsx(styles.Carousel, className)}
+        className={clsx(styles.carousel, className)}
+        style={cssVariables}
         {...props}
       >
         <div className={styles.viewport} ref={emblaRef}>
@@ -163,12 +239,17 @@ export function CarouselSlide({
 
 export function CarouselControls({
   ref,
+  overlay,
   className,
   children,
   ...props
 }: CarouselControlsTypes) {
   return (
-    <div ref={ref} className={clsx(styles.controls, className)} {...props}>
+    <div
+      ref={ref}
+      className={clsx(styles.controls, overlay && styles.overlay, className)}
+      {...props}
+    >
       {children}
     </div>
   )

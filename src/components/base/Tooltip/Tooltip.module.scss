@@ -9,7 +9,7 @@ $arrow-size: 0.6rem;
 
 .tooltip {
   background-color: $tooltip-bg;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   color: $tooltip-color;
   display: flex;
   flex-direction: column;

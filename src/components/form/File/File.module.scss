@@ -25,7 +25,7 @@
   align-items: center;
   background-color: var(--color-white);
   border: 0.1rem solid var(--color-grey-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-3);
   color: var(--color-black);
   cursor: pointer;
   display: inline-flex;
@@ -63,7 +63,7 @@
   align-items: center;
   background-color: var(--color-grey-6);
   border: 0.2rem dashed var(--color-grey-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-3);
   cursor: pointer;
   display: flex;
   flex-direction: column;

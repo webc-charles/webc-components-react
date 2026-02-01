@@ -1,5 +1,5 @@
 .item {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
 }
 
 .trigger {
@@ -7,7 +7,7 @@
   background: none;
   background-color: var(--color-grey-6);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   color: var(--color-grey-1);
   cursor: pointer;
   display: flex;

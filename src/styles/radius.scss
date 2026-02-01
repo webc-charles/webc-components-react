@@ -1,0 +1,19 @@
+// Border radius utility classes
+// Usage: .r-1, .r-2, .r-full, etc.
+
+// Radius classes (matches --radius-1 through --radius-7)
+@for $i from 1 through 7 {
+  .r-#{$i} {
+    border-radius: var(--radius-#{$i});
+  }
+}
+
+// Full radius (circles/pills)
+.r-full {
+  border-radius: 9999px;
+}
+
+// No radius
+.r-none {
+  border-radius: 0;
+}

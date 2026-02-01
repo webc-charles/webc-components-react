@@ -99,10 +99,13 @@ CSS utilities, mixins, and design tokens.
 ### Border Radius
 
 ```css
---radius-xs  /* 0.3rem */
---radius-sm  /* 0.4rem */
---radius-md  /* 0.5rem */
---radius-lg  /* 0.6rem */
+--radius-1  /* 0.2rem */
+--radius-2  /* 0.4rem */
+--radius-3  /* 0.6rem */
+--radius-4  /* 0.8rem */
+--radius-5  /* 1rem */
+--radius-6  /* 1.5rem */
+--radius-7  /* 2rem */
 ```
 
 ### Z-Index

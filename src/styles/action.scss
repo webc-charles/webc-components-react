@@ -16,7 +16,7 @@
 @mixin action-appearances {
   &.appearance-button,
   &.appearance-outline {
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-3);
     font-weight: var(--font-weight-button);
     height: 4rem;
     padding: 0 2rem;
@@ -175,7 +175,7 @@
   background: transparent;
   background-color: var(--color-grey-6);
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   cursor: pointer;
   display: flex;
   font-size: var(--font-size-5);

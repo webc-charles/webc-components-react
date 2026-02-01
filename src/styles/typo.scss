@@ -44,14 +44,14 @@ $heading-sizes: (
 
 @mixin base-code-inline {
   background-color: var(--color-grey-6);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   padding: 0.5rem;
 }
 
 @mixin base-keyboard {
   background-color: var(--color-grey-6);
   border: 0.1rem solid var(--color-grey-5);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   padding: 0.5rem;
 }
 

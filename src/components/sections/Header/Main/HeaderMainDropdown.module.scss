@@ -25,7 +25,7 @@
   align-items: center;
   background: none;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   color: var(--color-grey-1);
   cursor: pointer;
   display: flex;
@@ -87,7 +87,7 @@
 
 .dropdownInner {
   background: var(--color-white);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   color: var(--color-grey-1);
   padding: 2rem;
 }
@@ -112,7 +112,7 @@
 
 .megaMenuInner {
   background: var(--color-white);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-2);
   color: var(--color-grey-1);
   margin: 0 auto;
   padding: 2rem;

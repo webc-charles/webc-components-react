@@ -11,7 +11,7 @@ $heading-sizes: (
 );
 
 @mixin base-heading {
-  font-weight: var(--font-weight-xl);
+  font-weight: var(--font-weight-heading);
   line-height: var(--line-height-heading);
 }
 
@@ -85,7 +85,7 @@ $heading-sizes: (
 
   th {
     background-color: var(--color-grey-6);
-    font-weight: var(--font-weight-lg);
+    font-weight: var(--font-weight-strong);
   }
 
   tbody tr:nth-child(even) {

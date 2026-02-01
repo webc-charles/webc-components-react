@@ -35,10 +35,11 @@ Variants: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `in
 
 | Variable | Value |
 |----------|-------|
-| `--font-size-1` to `--font-size-8` | 1rem to 3rem |
-| `--font-weight-md` | 400 |
-| `--font-weight-lg` | 600 |
-| `--font-weight-xl` | 800 |
+| `--font-size-1` to `--font-size-9` | 1rem to 6rem |
+| `--font-weight-body` | 400 |
+| `--font-weight-button` | 600 |
+| `--font-weight-strong` | 600 |
+| `--font-weight-heading` | 800 |
 
 ### Layout
 

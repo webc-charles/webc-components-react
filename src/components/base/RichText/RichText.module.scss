@@ -47,7 +47,7 @@
   // Bold, italic, underline
   strong,
   b {
-    font-weight: var(--font-weight-lg);
+    font-weight: var(--font-weight-strong);
   }
 
   em,
@@ -175,7 +175,7 @@
   }
 
   dt {
-    font-weight: var(--font-weight-lg);
+    font-weight: var(--font-weight-strong);
     margin-bottom: 0.5rem;
   }
 

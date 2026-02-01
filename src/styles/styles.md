@@ -63,9 +63,10 @@ CSS utilities, mixins, and design tokens.
 --line-height-default  /* 1.4 */
 
 /* Font weight */
---font-weight-md  /* 400 */
---font-weight-lg  /* 600 */
---font-weight-xl  /* 800 */
+--font-weight-body     /* 400 */
+--font-weight-button   /* 600 */
+--font-weight-strong   /* 600 */
+--font-weight-heading  /* 800 */
 
 /* Font family */
 --site-font

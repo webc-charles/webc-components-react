@@ -4,7 +4,7 @@ import { Grid } from './Grid'
 import { GridItem } from './GridItem'
 import type { GapSize } from './Grid.types'
 
-const gapSizes: GapSize[] = ['none', 'xs', 'sm', 'md', 'lg', 'xl']
+const gapSizes: GapSize[] = [0, 1, 2, 3, 4, 5]
 
 const gridStyles = {
   background: 'var(--color-grey-6)',
@@ -32,7 +32,7 @@ const meta: Meta<typeof Grid> = {
       options: gapSizes,
       description: 'Gap size between grid items',
       table: {
-        defaultValue: { summary: 'none' },
+        defaultValue: { summary: '0' },
       },
     },
     masonry: {
@@ -65,7 +65,7 @@ const meta: Meta<typeof Grid> = {
   },
   args: {
     col: 3,
-    gap: 'md',
+    gap: 2,
     masonry: false,
   },
 }
@@ -87,13 +87,13 @@ export const Playground: Story = {
   ),
   args: {
     col: 3,
-    gap: 'md',
+    gap: 2,
   },
 }
 
 export const TwoColumns: Story = {
   render: () => (
-    <Grid col={2} gap="lg" style={gridStyles}>
+    <Grid col={2} gap={4} style={gridStyles}>
       <GridItem>
         <Card style={cardStyles}>
           <CardBody>Left</CardBody>
@@ -110,7 +110,7 @@ export const TwoColumns: Story = {
 
 export const WithColSpan: Story = {
   render: () => (
-    <Grid col={4} gap="md" style={gridStyles}>
+    <Grid col={4} gap={2} style={gridStyles}>
       <GridItem col={2}>
         <Card style={cardStyles}>
           <CardBody>Span 2</CardBody>
@@ -169,7 +169,7 @@ const masonryItems = [
 
 export const Masonry: Story = {
   render: () => (
-    <Grid masonry col={3} gap="md" style={gridStyles}>
+    <Grid masonry col={3} gap={2} style={gridStyles}>
       {masonryItems.map((item) => (
         <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
           <CardBody>
@@ -193,7 +193,7 @@ export const Masonry: Story = {
 
 export const MasonryFourColumns: Story = {
   render: () => (
-    <Grid masonry col={4} gap="lg" style={gridStyles}>
+    <Grid masonry col={4} gap={4} style={gridStyles}>
       {masonryItems.map((item) => (
         <Card key={item.id} style={{ ...cardStyles, height: item.height }}>
           <CardBody>
@@ -215,7 +215,7 @@ export const MasonryResponsive: Story = {
       colSM={2}
       colMD={3}
       colLG={4}
-      gap="md"
+      gap={2}
       style={gridStyles}
     >
       {masonryItems.map((item) => (
@@ -241,7 +241,7 @@ export const MasonryResponsive: Story = {
 
 export const MasonryWithImages: Story = {
   render: () => (
-    <Grid masonry col={3} gap="md" style={gridStyles}>
+    <Grid masonry col={3} gap={2} style={gridStyles}>
       {[
         { id: 1, height: 300 },
         { id: 2, height: 200 },

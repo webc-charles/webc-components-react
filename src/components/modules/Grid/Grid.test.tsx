@@ -27,11 +27,11 @@ describe('Grid', () => {
 
   it('applies gap class', () => {
     render(
-      <Grid data-testid="grid" gap="lg">
+      <Grid data-testid="grid" gap={4}>
         <div>Content</div>
       </Grid>
     )
-    expect(screen.getByTestId('grid').className).toMatch(/grid--gap-lg/)
+    expect(screen.getByTestId('grid').className).toMatch(/grid--gap-4/)
   })
 
   it('applies custom className', () => {

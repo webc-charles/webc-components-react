@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from 'react'
 
-export type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type GapSize = 0 | 1 | 2 | 3 | 4 | 5
 
 export type GridTypes = ComponentPropsWithRef<'div'> & {
   col?: number

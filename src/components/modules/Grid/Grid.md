@@ -131,7 +131,7 @@ type GapSize = 0 | 1 | 2 | 3 | 4 | 5
   <Layout>
     <Grid col={1} colMD={3} gap={4}>
       <Card className="text-center p-4">
-        <Icon name="rocket" size="xl" />
+        <Icon name="rocket" />
         <Title level="h3">Fast</Title>
         <p>Lightning quick performance</p>
       </Card>

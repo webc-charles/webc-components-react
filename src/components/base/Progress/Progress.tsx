@@ -4,10 +4,10 @@ import type { ProgressTypes } from './Progress.types'
 
 export function Progress({
   ref,
+  height,
   value = 0,
   max = 100,
   variant = 'primary',
-  size = 'md',
   showLabel = false,
   indeterminate = false,
   label,
@@ -26,11 +26,11 @@ export function Progress({
       aria-label={label}
       className={clsx(
         styles.progress,
-        styles[`size-${size}`],
         styles[`variant-${variant}`],
         indeterminate && styles.indeterminate,
         className
       )}
+      style={{...(height ? {height} : {})}}
       {...rest}
     >
       <div

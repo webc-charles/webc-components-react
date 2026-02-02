@@ -1,6 +1,7 @@
 .progress {
   background-color: var(--color-grey-5);
   border-radius: 9999px;
+  height:.5rem;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -19,19 +20,6 @@
   right: 0;
   top: 50%;
   transform: translate(calc(100% + 0.8rem), -50%);
-}
-
-// Sizes
-.size-sm {
-  height: 0.4rem;
-}
-
-.size-md {
-  height: 0.8rem;
-}
-
-.size-lg {
-  height: 1.2rem;
 }
 
 // Variants

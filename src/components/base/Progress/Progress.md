@@ -30,12 +30,12 @@ import { Progress } from '@ui'
 {/* Displays: 30% */}
 ```
 
-### Sizes
+### Custom Height
 
 ```tsx
-<Progress value={50} size="sm" />
-<Progress value={50} size="md" />
-<Progress value={50} size="lg" />
+<Progress value={50} height="0.25rem" />
+<Progress value={50} height="0.5rem" />
+<Progress value={50} height="1rem" />
 ```
 
 ### Variants
@@ -67,7 +67,7 @@ import { Progress } from '@ui'
 | `value` | `number` | `0` | Current value |
 | `max` | `number` | `100` | Maximum value |
 | `variant` | `ColorVariant` | `'primary'` | Color theme |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Bar height |
+| `height` | `string` | `'0.5rem'` | Bar height |
 | `showLabel` | `boolean` | `false` | Show percentage text |
 | `indeterminate` | `boolean` | `false` | Animated loading state |
 | `label` | `string` | - | Accessible label |

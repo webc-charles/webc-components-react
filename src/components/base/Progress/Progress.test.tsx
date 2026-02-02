@@ -52,9 +52,9 @@ describe('Progress', () => {
     expect(screen.queryByText('75%')).not.toBeInTheDocument()
   })
 
-  it('applies size class', () => {
-    render(<Progress size="lg" data-testid="progress" />)
-    expect(screen.getByTestId('progress').className).toMatch(/size-lg/)
+  it('applies custom height', () => {
+    render(<Progress height="1rem" data-testid="progress" />)
+    expect(screen.getByTestId('progress')).toHaveStyle({ height: '1rem' })
   })
 
   it('applies variant class', () => {

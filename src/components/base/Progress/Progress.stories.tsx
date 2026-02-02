@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ColorVariant } from 'types'
 import { Progress } from './Progress'
-import type { ProgressSize } from './Progress.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -13,8 +12,6 @@ const variants: ColorVariant[] = [
   'warning',
   'info',
 ]
-
-const sizes: ProgressSize[] = ['sm', 'md', 'lg']
 
 const meta: Meta<typeof Progress> = {
   title: 'Base/Progress',
@@ -40,13 +37,9 @@ const meta: Meta<typeof Progress> = {
         defaultValue: { summary: 'primary' },
       },
     },
-    size: {
-      control: 'select',
-      options: sizes,
-      description: 'Size of the progress bar',
-      table: {
-        defaultValue: { summary: 'md' },
-      },
+    height: {
+      control: 'text',
+      description: 'Height (e.g., "0.5rem", "8px")',
     },
     showLabel: {
       control: 'boolean',
@@ -61,7 +54,6 @@ const meta: Meta<typeof Progress> = {
     value: 60,
     max: 100,
     variant: 'primary',
-    size: 'md',
     showLabel: false,
     indeterminate: false,
   },
@@ -96,18 +88,21 @@ export const AllVariants: Story = {
   ),
 }
 
-export const AllSizes: Story = {
+export const CustomHeight: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-      {sizes.map((s) => (
-        <div
-          key={s}
-          style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
-        >
-          <span style={{ width: '4rem', fontSize: '1.4rem' }}>{s}</span>
-          <Progress size={s} value={60} style={{ flex: 1 }} />
-        </div>
-      ))}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <span style={{ width: '6rem', fontSize: '1.4rem' }}>0.25rem</span>
+        <Progress height="0.25rem" value={60} style={{ flex: 1 }} />
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <span style={{ width: '6rem', fontSize: '1.4rem' }}>0.5rem</span>
+        <Progress height="0.5rem" value={60} style={{ flex: 1 }} />
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <span style={{ width: '6rem', fontSize: '1.4rem' }}>1rem</span>
+        <Progress height="1rem" value={60} style={{ flex: 1 }} />
+      </div>
     </div>
   ),
 }

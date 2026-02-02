@@ -227,7 +227,7 @@ Section heading.
 ```tsx
 <AccountCardBody>
   <div className="flex items-center g-4">
-    <Avatar src={avatarUrl} name={userName} width="6.4rem" fontSize={6} />
+    <Avatar src={avatarUrl} name={userName} width="6rem" fontSize={6} />
     <div>
       <InputFile
         label="Upload new photo"

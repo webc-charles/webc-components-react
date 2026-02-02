@@ -1,22 +1,15 @@
 import type { ComponentPropsWithRef } from 'react'
-import type { ColorVariant } from 'types'
-
-export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl'
+import type { ColorVariant, FontSizes } from 'types'
 
 export type AvatarTypes = Omit<
   ComponentPropsWithRef<'div'>,
   'children'
 > & {
-  /** Image URL */
   src?: string
-  /** Alt text for image */
   alt?: string
-  /** Name used to generate initials fallback */
   name?: string
-  /** Size of the avatar */
-  size?: AvatarSize
-  /** Background color variant for fallback */
+  width?: string
+  fontSize?: FontSizes
   variant?: ColorVariant
-  /** Default aria-label when no alt or name provided */
   defaultLabel?: string
 }

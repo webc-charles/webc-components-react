@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ColorVariant } from 'types'
 import { Avatar } from './Avatar'
-import type { AvatarSize } from './Avatar.types'
 
 const variants: ColorVariant[] = [
   'default',
@@ -12,8 +11,6 @@ const variants: ColorVariant[] = [
   'warning',
   'info',
 ]
-
-const sizes: AvatarSize[] = ['sm', 'md', 'lg', 'xl']
 
 const meta: Meta<typeof Avatar> = {
   title: 'Base/Avatar',
@@ -32,12 +29,18 @@ const meta: Meta<typeof Avatar> = {
       control: 'text',
       description: 'Name for initials fallback',
     },
-    size: {
-      control: 'select',
-      options: sizes,
+    width: {
+      control: 'text',
       description: 'Size of the avatar',
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: '3rem' },
+      },
+    },
+    fontSize: {
+      control: { type: 'number', min: 1, max: 9 },
+      description: 'Font size scale (1-9)',
+      table: {
+        defaultValue: { summary: '2' },
       },
     },
     variant: {
@@ -54,7 +57,6 @@ const meta: Meta<typeof Avatar> = {
     },
   },
   args: {
-    size: 'md',
     variant: 'default',
   },
 }
@@ -88,12 +90,13 @@ export const Fallback: Story = {
   args: {},
 }
 
-export const AllSizes: Story = {
+export const CustomSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-      {sizes.map((s) => (
-        <Avatar key={s} size={s} name="John Doe" variant="primary" />
-      ))}
+      <Avatar width="3rem" fontSize={2} name="John Doe" variant="primary" />
+      <Avatar width="4rem" fontSize={3} name="John Doe" variant="primary" />
+      <Avatar width="5rem" fontSize={4} name="John Doe" variant="primary" />
+      <Avatar width="6rem" fontSize={5} name="John Doe" variant="primary" />
     </div>
   ),
 }
@@ -122,24 +125,4 @@ export const ImageWithFallback: Story = {
       },
     },
   },
-}
-
-export const Group: Story = {
-  render: () => (
-    <div style={{ display: 'flex' }}>
-      {['Alice Brown', 'Bob Smith', 'Carol White', 'David Lee'].map(
-        (name, i) => (
-          <Avatar
-            key={name}
-            name={name}
-            variant={variants[i + 1]}
-            style={{
-              marginLeft: i > 0 ? '-0.8rem' : 0,
-              border: '2px solid white',
-            }}
-          />
-        )
-      )}
-    </div>
-  ),
 }

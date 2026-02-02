@@ -14,28 +14,24 @@ const getInitials = (name: string): string => {
   ).toUpperCase()
 }
 
-const iconSizes = {
-  sm: 14,
-  md: 18,
-  lg: 24,
-  xl: 32,
-}
-
 export function Avatar({
   ref,
   src,
   alt = '',
   name,
-  size = 'md',
+  width = '3.2rem',
+  fontSize = 2,
   variant = 'default',
   defaultLabel = 'Avatar',
   className,
+  style,
   ...rest
 }: AvatarTypes) {
   const [imgError, setImgError] = useState(false)
 
   const showImage = src && !imgError
   const initials = name ? getInitials(name) : null
+  const fontSizeVar = `var(--font-size-${fontSize})`
 
   return (
     <div
@@ -44,10 +40,10 @@ export function Avatar({
       aria-label={alt || name || defaultLabel}
       className={clsx(
         styles.avatar,
-        styles[`size-${size}`],
         styles[`variant-${variant}`],
         className
       )}
+      style={{ width, fontSize: fontSizeVar, ...style }}
       {...rest}
     >
       {showImage ? (
@@ -60,7 +56,7 @@ export function Avatar({
       ) : initials ? (
         <span className={styles.initials}>{initials}</span>
       ) : (
-        <User size={iconSizes[size]} aria-hidden />
+        <User style={{ width: fontSizeVar, height: fontSizeVar }} aria-hidden />
       )}
     </div>
   )

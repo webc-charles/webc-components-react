@@ -33,13 +33,13 @@ import { Avatar } from '@ui'
 // Shows image, falls back to "JD" on error
 ```
 
-### Sizes
+### Custom Sizes
 
 ```tsx
-<Avatar src="/photo.jpg" size="sm" />  {/* 24px */}
-<Avatar src="/photo.jpg" size="md" />  {/* 32px */}
-<Avatar src="/photo.jpg" size="lg" />  {/* 48px */}
-<Avatar src="/photo.jpg" size="xl" />  {/* 64px */}
+<Avatar src="/photo.jpg" width="2.4rem" fontSize={1} />
+<Avatar src="/photo.jpg" width="3.2rem" fontSize={2} />
+<Avatar src="/photo.jpg" width="4.8rem" fontSize={4} />
+<Avatar src="/photo.jpg" width="6.4rem" fontSize={6} />
 ```
 
 ### Color Variants
@@ -64,7 +64,8 @@ import { Avatar } from '@ui'
 | `src` | `string` | - | Image URL |
 | `alt` | `string` | `''` | Alt text for image |
 | `name` | `string` | - | Name used to generate initials fallback |
-| `size` | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Avatar size |
+| `width` | `string` | `'3.2rem'` | Avatar size (aspect-ratio: 1) |
+| `fontSize` | `1-9` | `2` | Font size scale (maps to `--font-size-{n}`) |
 | `variant` | `ColorVariant` | `'default'` | Background color for fallback |
 | `defaultLabel` | `string` | `'Avatar'` | Default aria-label when no alt or name |
 | `className` | `string` | - | Additional CSS class |
@@ -93,6 +94,7 @@ import { Avatar } from '@ui'
 <Avatar
   src={getMediaUrl(data.avatar?.url)}
   name={data.username}
-  size="lg"
+  width="4.8rem"
+  fontSize={4}
 />
 ```

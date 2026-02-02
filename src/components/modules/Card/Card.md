@@ -145,7 +145,7 @@ Bottom section for actions/metadata.
 ```tsx
 <Card className="text-center">
   <CardBody>
-    <Avatar src={member.photo} name={member.name} size="xl" />
+    <Avatar src={member.photo} name={member.name} width="6rem" fontSize={6} />
     <Title level="h3" className="mt-3">{member.name}</Title>
     <p>{member.role}</p>
   </CardBody>

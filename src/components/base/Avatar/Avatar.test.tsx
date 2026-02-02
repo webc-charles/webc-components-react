@@ -38,9 +38,10 @@ describe('Avatar', () => {
     expect(avatar.querySelector('svg')).toBeInTheDocument()
   })
 
-  it('applies size class', () => {
-    render(<Avatar name="Test" size="lg" data-testid="avatar" />)
-    expect(screen.getByTestId('avatar').className).toMatch(/size-lg/)
+  it('applies custom width', () => {
+    render(<Avatar name="Test" width="5rem" data-testid="avatar" />)
+    const avatar = screen.getByTestId('avatar')
+    expect(avatar).toHaveStyle({ width: '5rem' })
   })
 
   it('applies variant class', () => {

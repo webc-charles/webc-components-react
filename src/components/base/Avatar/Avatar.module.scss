@@ -1,5 +1,6 @@
 .avatar {
   align-items: center;
+  aspect-ratio: 1;
   background-color: var(--color-secondary-2);
   border-radius: 50%;
   display: inline-flex;
@@ -18,31 +19,6 @@
   color: var(--color-white);
   font-weight: var(--font-weight-heading);
   text-transform: uppercase;
-}
-
-// Sizes
-.size-sm {
-  font-size: 1rem;
-  height: 2.4rem;
-  width: 2.4rem;
-}
-
-.size-md {
-  font-size: 1.2rem;
-  height: 3.2rem;
-  width: 3.2rem;
-}
-
-.size-lg {
-  font-size: 1.6rem;
-  height: 4.8rem;
-  width: 4.8rem;
-}
-
-.size-xl {
-  font-size: 2rem;
-  height: 6.4rem;
-  width: 6.4rem;
 }
 
 // Variants

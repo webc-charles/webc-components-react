@@ -1,11 +1,21 @@
 # Modal
 
-Dialog overlay with focus trap, escape key handling, and body scroll lock.
+Dialog overlay with focus trap, escape key handling, and body scroll lock. Uses context-based API.
 
 ## Import
 
 ```tsx
-import { Modal } from '@ui'
+import { Modals, useModals } from '@ui'
+```
+
+## Setup
+
+Wrap your app with the `Modals` provider:
+
+```tsx
+<Modals>
+  <App />
+</Modals>
 ```
 
 ## Usage
@@ -13,92 +23,101 @@ import { Modal } from '@ui'
 ### Basic
 
 ```tsx
-const [isOpen, setIsOpen] = useState(false)
+const { addModal } = useModals()
 
-<Button onClick={() => setIsOpen(true)}>Open Modal</Button>
-
-<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-  <Title level="h2">Modal Title</Title>
-  <p>Modal content goes here.</p>
-  <Button onClick={() => setIsOpen(false)}>Close</Button>
-</Modal>
+<Button onClick={() => addModal({
+  title: 'Modal Title',
+  children: <p>Modal content goes here.</p>
+})}>
+  Open Modal
+</Button>
 ```
 
 ### With Custom Width
 
 ```tsx
-<Modal isOpen={isOpen} onClose={handleClose} width="600px">
-  {/* content */}
-</Modal>
+addModal({
+  title: 'Wide Modal',
+  width: '800px',
+  children: <p>Wide modal content.</p>
+})
 ```
 
-### Prevent Close on Overlay Click
+### Close on Backdrop Click
 
 ```tsx
-<Modal
-  isOpen={isOpen}
-  onClose={handleClose}
-  closeOnOverlayClick={false}
->
-  <p>Must use close button or Escape key.</p>
-  <Button onClick={handleClose}>Close</Button>
-</Modal>
+addModal({
+  title: 'Closeable Modal',
+  closeOnBackdrop: true,
+  children: <p>Click backdrop to close.</p>
+})
 ```
 
-### Prevent Close on Escape
+### Auto-Close Duration
 
 ```tsx
-<Modal
-  isOpen={isOpen}
-  onClose={handleClose}
-  closeOnEscape={false}
->
-  {/* content */}
-</Modal>
+addModal({
+  title: 'Notification',
+  duration: 3000,
+  children: <p>This closes automatically.</p>
+})
 ```
 
-### With Custom Close Button Label
+### Hide Close Button
 
 ```tsx
-<Modal
-  isOpen={isOpen}
-  onClose={handleClose}
-  closeLabel={t('modal.close')}
->
-  {/* content */}
-</Modal>
+addModal({
+  title: 'No Close Button',
+  hideCloseButton: true,
+  children: (
+    <div>
+      <p>Custom close handling.</p>
+      <Button onClick={() => removeModal(id)}>Close</Button>
+    </div>
+  )
+})
 ```
 
-### Full Screen Mode
+### Custom Close Label
 
 ```tsx
-<Modal isOpen={isOpen} onClose={handleClose} fullScreen>
-  {/* full screen content */}
-</Modal>
+addModal({
+  title: 'Modal',
+  closeLabel: t('modal.close'),
+  children: <p>Content</p>
+})
 ```
 
-## Props
+## Props (ModalConfigTypes)
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `isOpen` | `boolean` | **required** | Controls visibility |
-| `onClose` | `() => void` | **required** | Close handler |
-| `children` | `ReactNode` | - | Modal content |
-| `width` | `string` | `'500px'` | Modal width |
-| `fullScreen` | `boolean` | `false` | Full screen mode |
-| `closeOnOverlayClick` | `boolean` | `true` | Close on backdrop click |
-| `closeOnEscape` | `boolean` | `true` | Close on Escape key |
-| `closeLabel` | `string` | `'Close'` | Close button aria-label |
-| `showCloseButton` | `boolean` | `true` | Show X close button |
-| `className` | `string` | - | Class for modal content |
-| `overlayClassName` | `string` | - | Class for backdrop |
+| `title` | `ReactNode` | - | Modal header content |
+| `children` | `ReactNode` | **required** | Modal body content |
+| `width` | `string` | - | Modal width (e.g., '500px', '50vw') |
+| `closeOnBackdrop` | `boolean` | `false` | Close on backdrop click |
+| `duration` | `number` | `Infinity` | Auto-close after ms |
+| `closeLabel` | `string` | `'Close modal'` | Close button aria-label |
+| `hideCloseButton` | `boolean` | `false` | Hide X close button |
+
+## Hook API
+
+### useModals()
+
+Returns:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `modals` | `ModalConfigTypes[]` | Current open modals |
+| `addModal` | `(config) => void` | Open a new modal |
+| `removeModal` | `(id) => void` | Close modal by ID |
 
 ## Behavior
 
 - **Focus trap**: Tab cycles through focusable elements inside modal
 - **Body scroll lock**: Prevents background scrolling when open
-- **Portal rendering**: Renders at document root via portal
 - **Focus restoration**: Returns focus to trigger element on close
+- **Escape key**: Closes modal
 - **Animation**: Fade in/out with scale transform
 
 ## Accessibility
@@ -106,7 +125,7 @@ const [isOpen, setIsOpen] = useState(false)
 - `role="dialog"` with `aria-modal="true"`
 - Focus moves to modal on open
 - Focus trapped within modal
-- Escape key closes (unless disabled)
+- Escape key closes modal
 - `aria-label` on close button
 - Focus returns to trigger on close
 
@@ -115,107 +134,86 @@ const [isOpen, setIsOpen] = useState(false)
 ### Confirmation Dialog
 
 ```tsx
-const [showConfirm, setShowConfirm] = useState(false)
-const [pendingAction, setPendingAction] = useState(null)
+const { addModal, removeModal } = useModals()
 
 const handleDelete = () => {
-  setPendingAction('delete')
-  setShowConfirm(true)
+  const id = Date.now()
+  addModal({
+    title: 'Confirm Delete',
+    width: '400px',
+    children: (
+      <div>
+        <p>Are you sure you want to delete this item?</p>
+        <div className="flex justify-end g-2 mt-4">
+          <Button appearance="ghost" onClick={() => removeModal(id)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={() => {
+            deleteItem()
+            removeModal(id)
+          }}>
+            Delete
+          </Button>
+        </div>
+      </div>
+    )
+  })
 }
-
-const confirmAction = () => {
-  if (pendingAction === 'delete') {
-    deleteItem()
-  }
-  setShowConfirm(false)
-}
-
-<Modal
-  isOpen={showConfirm}
-  onClose={() => setShowConfirm(false)}
-  width="400px"
->
-  <Title level="h2">Confirm Delete</Title>
-  <p>Are you sure you want to delete this item?</p>
-  <div className="flex justify-end g-2 mt-4">
-    <Button appearance="ghost" onClick={() => setShowConfirm(false)}>
-      Cancel
-    </Button>
-    <Button variant="danger" onClick={confirmAction}>
-      Delete
-    </Button>
-  </div>
-</Modal>
 ```
 
 ### Form Modal
 
 ```tsx
-<Modal isOpen={isOpen} onClose={handleClose} width="500px">
-  <Title level="h2">Edit Profile</Title>
-  <form onSubmit={handleSubmit}>
-    <InputText
-      label="Name"
-      value={name}
-      onChange={setName}
-    />
-    <InputTextarea
-      label="Bio"
-      value={bio}
-      onChange={setBio}
-    />
-    <div className="flex justify-end g-2 mt-4">
-      <Button appearance="ghost" onClick={handleClose}>
-        Cancel
-      </Button>
-      <Button type="submit" variant="primary">
-        Save
-      </Button>
-    </div>
-  </form>
-</Modal>
+addModal({
+  title: 'Edit Profile',
+  width: '500px',
+  children: (
+    <form onSubmit={handleSubmit}>
+      <InputText label="Name" value={name} onChange={setName} />
+      <InputTextarea label="Bio" value={bio} onChange={setBio} />
+      <div className="flex justify-end g-2 mt-4">
+        <Button appearance="ghost" onClick={handleClose}>Cancel</Button>
+        <Button type="submit" variant="primary">Save</Button>
+      </div>
+    </form>
+  )
+})
 ```
 
 ### Image Lightbox
 
 ```tsx
-<Modal
-  isOpen={!!selectedImage}
-  onClose={() => setSelectedImage(null)}
-  width="90vw"
->
-  <Image
-    src={selectedImage?.url}
-    alt={selectedImage?.alt}
-    fit="contain"
-  />
-</Modal>
+addModal({
+  width: '90vw',
+  hideCloseButton: false,
+  closeOnBackdrop: true,
+  children: (
+    <Image src={selectedImage.url} alt={selectedImage.alt} fit="contain" />
+  )
+})
 ```
 
 ## Strapi Integration
 
 ```tsx
-{data.modal && (
-  <Modal
-    isOpen={modalOpen}
-    onClose={() => setModalOpen(false)}
-    width={data.modal.width || '500px'}
-  >
-    {data.modal.title && (
-      <Title level="h2">{data.modal.title}</Title>
-    )}
-    <RichText html={data.modal.content} />
-    {data.modal.cta && (
-      <div className="mt-4">
-        <Button
-          as="a"
-          href={data.modal.cta.url}
-          variant="primary"
-        >
-          {data.modal.cta.label}
-        </Button>
-      </div>
-    )}
-  </Modal>
-)}
+const { addModal } = useModals()
+
+const openModal = (data) => {
+  addModal({
+    title: data.title,
+    width: data.width || '500px',
+    children: (
+      <>
+        <RichText html={data.content} />
+        {data.cta && (
+          <div className="mt-4">
+            <Button as="a" href={data.cta.url} variant="primary">
+              {data.cta.label}
+            </Button>
+          </div>
+        )}
+      </>
+    )
+  })
+}
 ```

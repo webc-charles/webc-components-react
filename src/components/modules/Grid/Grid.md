@@ -13,7 +13,7 @@ import { Grid, GridItem } from '@ui'
 ### Basic
 
 ```tsx
-<Grid col={3} gap="md">
+<Grid col={3} gap={3}>
   <Card>Card 1</Card>
   <Card>Card 2</Card>
   <Card>Card 3</Card>
@@ -23,7 +23,7 @@ import { Grid, GridItem } from '@ui'
 ### Responsive Columns
 
 ```tsx
-<Grid col={1} colSM={2} colMD={3} colLG={4} gap="md">
+<Grid col={1} colSM={2} colMD={3} colLG={4} gap={3}>
   {items.map(item => (
     <Card key={item.id}>{item.title}</Card>
   ))}
@@ -33,7 +33,7 @@ import { Grid, GridItem } from '@ui'
 ### Responsive Gap
 
 ```tsx
-<Grid col={3} gap="sm" gapMD="md" gapLG="lg">
+<Grid col={3} gap={2} gapMD={3} gapLG={4}>
   {/* content */}
 </Grid>
 ```
@@ -41,7 +41,7 @@ import { Grid, GridItem } from '@ui'
 ### Masonry Layout
 
 ```tsx
-<Grid col={3} gap="md" masonry>
+<Grid col={3} gap={3} masonry>
   {images.map(img => (
     <Image key={img.id} src={img.url} alt={img.alt} />
   ))}
@@ -51,7 +51,7 @@ import { Grid, GridItem } from '@ui'
 ### With GridItem
 
 ```tsx
-<Grid col={4} gap="md">
+<Grid col={4} gap={3}>
   <GridItem col={2}>
     <Card>Spans 2 columns</Card>
   </GridItem>
@@ -94,24 +94,24 @@ import { Grid, GridItem } from '@ui'
 ### GapSize
 
 ```tsx
-type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+type GapSize = 0 | 1 | 2 | 3 | 4 | 5
 ```
 
 | Gap | Value |
 |-----|-------|
-| `none` | 0 |
-| `xs` | 0.5rem |
-| `sm` | 1rem |
-| `md` | 1.5rem |
-| `lg` | 2rem |
-| `xl` | 3rem |
+| `0` | 0 |
+| `1` | 0.5rem |
+| `2` | 1rem |
+| `3` | 1.5rem |
+| `4` | 2rem |
+| `5` | 3rem |
 
 ## Common Patterns
 
 ### Product Grid
 
 ```tsx
-<Grid col={1} colSM={2} colMD={3} colLG={4} gap="md">
+<Grid col={1} colSM={2} colMD={3} colLG={4} gap={3}>
   {products.map(product => (
     <Card key={product.id}>
       <Image src={product.image} alt={product.name} />
@@ -129,7 +129,7 @@ type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 ```tsx
 <Section className="pv-5">
   <Layout>
-    <Grid col={1} colMD={3} gap="lg">
+    <Grid col={1} colMD={3} gap={4}>
       <Card className="text-center p-4">
         <Icon name="rocket" size="xl" />
         <Title level="h3">Fast</Title>
@@ -144,7 +144,7 @@ type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 ### Mixed Sizes
 
 ```tsx
-<Grid col={4} gap="md">
+<Grid col={4} gap={3}>
   <GridItem col={2} row={2}>
     <Card className="h-full">Featured</Card>
   </GridItem>
@@ -162,7 +162,7 @@ type GapSize = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   col={1}
   colSM={2}
   colMD={data.columns || 3}
-  gap={data.gap || 'md'}
+  gap={data.gap || 3}
 >
   {data.cards.map(card => (
     <Card key={card.id}>

@@ -291,7 +291,7 @@ export function InputDate({
       </div>
 
       {isOpen && (
-        <Modal id={1} size="sm" onRemove={handleCancel} hideCloseButton>
+        <Modal id={1} onRemove={handleCancel} hideCloseButton>
           <div className={styles.calendar}>
             <div className={styles.header}>
               <Button

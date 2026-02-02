@@ -1,12 +1,10 @@
 import type { ReactNode } from 'react'
 
-export type ModalSizeTypes = 'sm' | 'md' | 'lg' | 'xl' | 'full'
-
 export type ModalConfigTypes = {
   id?: number
   title?: ReactNode
   children: ReactNode
-  size?: ModalSizeTypes
+  width?: string
   closeOnBackdrop?: boolean
   duration?: number
   closeLabel?: string

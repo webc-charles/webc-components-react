@@ -34,29 +34,9 @@
   max-height: 90vh;
   max-width: 100%;
   position: relative;
+  width: 30rem;
 
   @include anim-scale;
-
-  &.sm {
-    width: 33.5rem;
-  }
-
-  &.md {
-    width: 50rem;
-  }
-
-  &.lg {
-    width: 70rem;
-  }
-
-  &.xl {
-    width: 90rem;
-  }
-
-  &.full {
-    height: calc(100vh - 2rem);
-    width: calc(100vw - 2rem);
-  }
 }
 
 .modalHeader {

@@ -3,8 +3,6 @@ import { Button } from 'form/Button'
 import { Modals } from './Modals'
 import { useModals } from './ModalsContext'
 
-const sizes = ['sm', 'md', 'lg'] as const
-
 const meta: Meta = {
   title: 'Modules/Modal',
   tags: ['autodocs'],
@@ -20,13 +18,9 @@ const meta: Meta = {
       control: 'text',
       description: 'Modal title',
     },
-    size: {
-      control: 'select',
-      options: sizes,
-      description: 'Modal size',
-      table: {
-        defaultValue: { summary: 'md' },
-      },
+    width: {
+      control: 'text',
+      description: 'Modal width (e.g., "400px", "50vw")',
     },
     closeLabel: {
       control: 'text',
@@ -35,7 +29,7 @@ const meta: Meta = {
   },
   args: {
     title: 'Modal Title',
-    size: 'md',
+    width: '500px',
   },
 }
 
@@ -44,11 +38,11 @@ type Story = StoryObj
 
 const ModalTrigger = ({
   title = 'Modal Title',
-  size = 'md',
+  width,
   children = <p>Modal content goes here.</p>,
 }: {
   title?: string
-  size?: 'sm' | 'md' | 'lg'
+  width?: string
   children?: React.ReactNode
 }) => {
   const { addModal } = useModals()
@@ -56,7 +50,7 @@ const ModalTrigger = ({
     <Button
       variant="primary"
       appearance="button"
-      onClick={() => addModal({ title, size, children })}
+      onClick={() => addModal({ title, width, children })}
     >
       Open Modal
     </Button>
@@ -64,20 +58,20 @@ const ModalTrigger = ({
 }
 
 export const Playground: Story = {
-  render: (args: { title?: string; size?: 'sm' | 'md' | 'lg' }) => (
-    <ModalTrigger title={args.title} size={args.size}>
+  render: (args: { title?: string; width?: string }) => (
+    <ModalTrigger title={args.title} width={args.width}>
       <p>Click the button to open the modal.</p>
     </ModalTrigger>
   ),
   args: {
     title: 'Modal Title',
-    size: 'md',
+    width: '500px',
   },
 }
 
 export const Small: Story = {
   render: () => (
-    <ModalTrigger title="Small Modal" size="sm">
+    <ModalTrigger title="Small Modal" width="400px">
       <p>Small modal content.</p>
     </ModalTrigger>
   ),
@@ -85,7 +79,7 @@ export const Small: Story = {
 
 export const Medium: Story = {
   render: () => (
-    <ModalTrigger title="Medium Modal" size="md">
+    <ModalTrigger title="Medium Modal" width="500px">
       <p>Medium modal content.</p>
     </ModalTrigger>
   ),
@@ -93,7 +87,7 @@ export const Medium: Story = {
 
 export const Large: Story = {
   render: () => (
-    <ModalTrigger title="Large Modal" size="lg">
+    <ModalTrigger title="Large Modal" width="800px">
       <p>Large modal content.</p>
     </ModalTrigger>
   ),

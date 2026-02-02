@@ -8,7 +8,7 @@ import type { ModalTypes } from './Modal.types'
 export function Modal({
   id,
   title,
-  size = 'lg',
+  width,
   children,
   onRemove,
   duration = Infinity,
@@ -136,10 +136,10 @@ export function Modal({
         ref={modalRef}
         className={clsx(
           styles.modal,
-          styles[size],
           removing && styles.removing,
           active && !removing && styles.active
         )}
+        style={{ ...(width ? { width } : {}) }}
         onClick={(e) => e.stopPropagation()}
       >
         {title && (

@@ -1,7 +1,6 @@
 @use 'styles/mixins/typo' as *;
 
 $bd-color-divider: var(--color-grey-5);
-$tx-color-divider: var(--color-grey-5);
 
 .divider {
   @include base-hr;
@@ -21,7 +20,6 @@ $tx-color-divider: var(--color-grey-5);
 }
 
 .dividerText {
-  color: $tx-color-divider;
   font-size: var(--font-size-3);
   text-transform: uppercase;
 }

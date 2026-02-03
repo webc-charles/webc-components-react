@@ -1,8 +1,12 @@
 import type { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
 
+export type HeaderTextColor = 'light' | 'dark'
+
 export type HeaderTypes = ComponentPropsWithRef<'header'> & {
   children: ReactNode
   baseId?: string
+  transparent?: boolean
+  textColor?: HeaderTextColor
 }
 
 export type HeaderTopTypes = ComponentPropsWithRef<'div'> & {
@@ -134,4 +138,6 @@ export type HeaderContextTypes = {
   mobileToggleId: string
   registerNav: (type: HeaderNavTypes) => number
   getNavCount: (type: HeaderNavTypes) => number
+  isTransparent: boolean
+  textColor: HeaderTextColor
 }

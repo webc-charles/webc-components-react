@@ -52,6 +52,14 @@ body {
     }
   }
 
+  &.header-transparent {
+    padding-top: 0;
+
+    @include mq-md {
+      padding-top: 0;
+    }
+  }
+
   &.freeze {
     overflow: hidden;
     padding-right: var(--scrollbar-width);

@@ -15,10 +15,13 @@ export function HeaderRoot({
   ref,
   children,
   baseId,
+  transparent = false,
+  textColor = 'light',
   className,
   ...rest
 }: HeaderTypes) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [navCounts, setNavCounts] = useState({
     main: 0,
     top: 0,
@@ -76,6 +79,20 @@ export function HeaderRoot({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isOpen, mobileToggleId])
 
+  useEffect(() => {
+    if (!transparent) return
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [transparent])
+
+  const isTransparent = transparent && !isScrolled
+
   const value = useMemo(
     () => ({
       isOpen,
@@ -84,6 +101,8 @@ export function HeaderRoot({
       mobileToggleId,
       registerNav,
       getNavCount,
+      isTransparent,
+      textColor,
     }),
     [
       isOpen,
@@ -92,6 +111,8 @@ export function HeaderRoot({
       toggle,
       registerNav,
       getNavCount,
+      isTransparent,
+      textColor,
     ]
   )
 
@@ -99,7 +120,14 @@ export function HeaderRoot({
     <HeaderContext.Provider value={value}>
       <header
         ref={ref}
-        className={clsx(styles.header, className)}
+        className={clsx(
+          styles.header,
+          transparent && styles.transparent,
+          transparent &&
+            (textColor === 'light' ? styles.textLight : styles.textDark),
+          transparent && isScrolled && styles.scrolled,
+          className
+        )}
         {...rest}
       >
         <div

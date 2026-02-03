@@ -14,6 +14,8 @@ $bd-color-mobile-separator: var(--color-grey-5);
 $tx-color-link: var(--color-black);
 $tx-color-link-active: var(--color-primary-2);
 $tx-color-mobile-link-active: var(--color-white);
+$bg-color-transparent-topbar-light: var(--color-black-20);
+$bg-color-transparent-topbar-dark: var(--color-white-20);
 
 .header {
   left: 0;
@@ -108,6 +110,7 @@ $tx-color-mobile-link-active: var(--color-white);
   height: var(--height-top-menu);
   padding: 0 1rem;
   position: relative;
+  text-decoration: none;
 
   &:hover,
   &:focus-visible,
@@ -116,7 +119,6 @@ $tx-color-mobile-link-active: var(--color-white);
     background-color: $bg-color-dropdown;
     border-color: $bd-color-dropdown;
     color: $tx-color-link-active;
-    text-decoration: none;
 
     &::after {
       background: $bg-color-dropdown;
@@ -297,6 +299,7 @@ $tx-color-mobile-link-active: var(--color-white);
   gap: 0.5rem;
   height: 4rem;
   padding: 0 2rem;
+  text-decoration: none;
 
   &:hover,
   &:focus-visible,
@@ -304,7 +307,6 @@ $tx-color-mobile-link-active: var(--color-white);
   .withMainDropdown:focus-within & {
     background-color: $bg-color-link-active;
     color: $tx-color-link-active;
-    text-decoration: none;
   }
 }
 
@@ -603,4 +605,78 @@ $tx-color-mobile-link-active: var(--color-white);
 
 .chevronOpen {
   transform: rotate(180deg);
+}
+
+.transparent {
+  .topBar {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    transition:
+      background-color var(--transition-default),
+      border-color var(--transition-default);
+  }
+
+  .main {
+    background-color: transparent;
+    transition: background-color var(--transition-default);
+  }
+
+  .mobileBar {
+    background-color: transparent;
+    transition: background-color var(--transition-default);
+  }
+
+  &.textLight {
+    .topBar {
+      background-color: $bg-color-transparent-topbar-light;
+    }
+
+    .topLink,
+    .topTrigger,
+    .mainLink,
+    .mainDropdownTrigger,
+    .mobileToggle,
+    .chevron {
+      color: var(--color-white);
+    }
+  }
+
+  &.textDark {
+    .topBar {
+      background-color: $bg-color-transparent-topbar-dark;
+    }
+
+    .topLink,
+    .topTrigger,
+    .mainLink,
+    .mainDropdownTrigger,
+    .mobileToggle,
+    .chevron {
+      color: var(--color-black);
+    }
+  }
+
+  &.scrolled {
+    .topBar {
+      background-color: $bg-color-topbar;
+      border-bottom-color: $bd-color-topbar;
+    }
+
+    .main {
+      background-color: $bg-color-header;
+    }
+
+    .mobileBar {
+      background-color: $bg-color-header;
+    }
+
+    .topLink,
+    .topTrigger,
+    .mainLink,
+    .mainDropdownTrigger,
+    .mobileToggle,
+    .chevron {
+      color: $tx-color-link;
+    }
+  }
 }

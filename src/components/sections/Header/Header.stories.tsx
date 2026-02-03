@@ -6,8 +6,19 @@ import {
   Image,
   Link,
   Logo,
+  Section,
+  SectionHeader,
+  SectionTitle,
   Title,
 } from 'components'
+import {
+  Banner,
+  BannerActions,
+  BannerBody,
+  BannerContent,
+  BannerSubtitle,
+  BannerTitle,
+} from '../../modules/Banner'
 import {
   HeaderMain,
   HeaderMainDropdown,
@@ -84,7 +95,7 @@ const LanguageDropdownContent = () => (
 )
 
 const MegaMenuContent = () => (
-  <Grid col={4} gap="md">
+  <Grid col={4} gap={2}>
     <GridItem>
       <Title level="h4">Produits</Title>
       <HeaderMainDropdownLink asChild>
@@ -451,4 +462,122 @@ export const MegaMenu: Story = {
       </HeaderMobile>
     </HeaderRoot>
   ),
+}
+
+export const TransparentHero: Story = {
+  render: () => (
+    <>
+      <HeaderRoot transparent textColor="light">
+        <HeaderTop>
+          <HeaderTopNav aria-label="main-top-bar">
+            <HeaderTopLink asChild>
+              <Link href="/">Help</Link>
+            </HeaderTopLink>
+            <HeaderTopLink asChild>
+              <Link href="/">Contact</Link>
+            </HeaderTopLink>
+          </HeaderTopNav>
+
+          <HeaderTopNav aria-label="locale-top-bar">
+            <HeaderTopDropdown label="EN">
+              <LanguageDropdownContent />
+            </HeaderTopDropdown>
+          </HeaderTopNav>
+        </HeaderTop>
+
+        <HeaderMain>
+          <HeaderMainLogo>
+            <Logo href="/">
+              <Image
+                src="/logoipsum-350.svg"
+                alt="Acme Logo"
+                width={144}
+                height={40}
+              />
+            </Logo>
+          </HeaderMainLogo>
+
+          <HeaderMainNav>
+            <HeaderMainLink asChild current>
+              <Link href="/" aria-current="page">
+                Home
+              </Link>
+            </HeaderMainLink>
+            <HeaderMainLink asChild>
+              <Link href="/">Products</Link>
+            </HeaderMainLink>
+            <HeaderMainDropdown label="Solutions">
+              <ProductsDropdown />
+            </HeaderMainDropdown>
+            <HeaderMainLink asChild>
+              <Link href="/">About</Link>
+            </HeaderMainLink>
+          </HeaderMainNav>
+
+          <HeaderMainNav>
+            <Button appearance="outline" variant="primary" contrast>
+              Sign In
+            </Button>
+            <Button appearance="button" variant="primary" contrast>
+              Get Started
+            </Button>
+          </HeaderMainNav>
+        </HeaderMain>
+
+        <HeaderMobile>
+          <HeaderMobileBar>
+            <HeaderMobileLogo>
+              <Logo href="/">
+                <Image
+                  src="/logoipsum-350.svg"
+                  alt="Acme Logo"
+                  width={144}
+                  height={40}
+                />
+              </Logo>
+            </HeaderMobileLogo>
+            <HeaderMobileToggle />
+          </HeaderMobileBar>
+          <MobileMenuContent />
+        </HeaderMobile>
+      </HeaderRoot>
+
+      <Banner
+        backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80"
+        overlay="dark"
+        horizontalAlign="center"
+        verticalAlign="center"
+        className="h-screen"
+      >
+        <BannerContent textColor="light" textAlign="center">
+          <BannerTitle level="h1">Welcome to Our Platform</BannerTitle>
+          <BannerSubtitle className="mt-1 fs-5">
+            Experience the future of web development
+          </BannerSubtitle>
+          <BannerActions className="mt-5">
+            <Button appearance="button" variant="primary" contrast>
+              Get Started
+            </Button>
+            <Button appearance="outline" variant="default" contrast>
+              Learn More
+            </Button>
+          </BannerActions>
+        </BannerContent>
+      </Banner>
+
+      <Section className="p-8">
+        <SectionHeader>
+          <SectionTitle level="h2">Below the Fold</SectionTitle>
+        </SectionHeader>
+        <p>
+          Scroll up and down to see the header transition between
+          transparent and solid states. The header becomes solid once you
+          scroll past the hero section.
+        </p>
+      </Section>
+    </>
+  ),
+  parameters: {
+    layout: 'fullscreen',
+  },
 }

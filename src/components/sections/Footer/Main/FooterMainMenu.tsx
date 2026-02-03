@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Footer.module.scss'
 import type { FooterMainMenuTypes } from '../Footer.types'
-import styles from './FooterMainMenu.module.scss'
 
 export function FooterMainMenu({
   ref,

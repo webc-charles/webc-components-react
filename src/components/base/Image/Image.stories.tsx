@@ -373,9 +373,7 @@ export const CardThumbnail: Story = {
       />
       <div style={{ padding: '1rem' }}>
         <Title level="h3">Card Title</Title>
-        <p>
-          Card description text goes here.
-        </p>
+        <p>Card description text goes here.</p>
       </div>
     </div>
   ),

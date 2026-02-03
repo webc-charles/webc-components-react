@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderMobileTypes } from '../Header.types'
-import styles from './HeaderMobile.module.scss'
 
 export function HeaderMobile({
   ref,

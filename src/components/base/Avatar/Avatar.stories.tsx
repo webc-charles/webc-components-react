@@ -93,10 +93,30 @@ export const Fallback: Story = {
 export const CustomSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-      <Avatar width="3rem" fontSize={2} name="John Doe" variant="primary" />
-      <Avatar width="4rem" fontSize={3} name="John Doe" variant="primary" />
-      <Avatar width="5rem" fontSize={4} name="John Doe" variant="primary" />
-      <Avatar width="6rem" fontSize={5} name="John Doe" variant="primary" />
+      <Avatar
+        width="3rem"
+        fontSize={2}
+        name="John Doe"
+        variant="primary"
+      />
+      <Avatar
+        width="4rem"
+        fontSize={3}
+        name="John Doe"
+        variant="primary"
+      />
+      <Avatar
+        width="5rem"
+        fontSize={4}
+        name="John Doe"
+        variant="primary"
+      />
+      <Avatar
+        width="6rem"
+        fontSize={5}
+        name="John Doe"
+        variant="primary"
+      />
     </div>
   ),
 }

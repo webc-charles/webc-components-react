@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import { Button } from 'components'
 import { Menu, X } from 'lucide-react'
 import { useHeader } from '../HeaderContext'
+import styles from '../Header.module.scss'
 import type { HeaderMobileToggleTypes } from '../Header.types'
-import styles from './HeaderMobileToggle.module.scss'
 
 export function HeaderMobileToggle({
   ref,
@@ -24,7 +24,7 @@ export function HeaderMobileToggle({
       aria-expanded={isOpen}
       aria-controls={mobileMenuId}
       aria-label={label || (isOpen ? closeLabel : menuLabel)}
-      className={clsx(styles.toggle, className)}
+      className={clsx(styles.mobileToggle, className)}
       {...rest}
     >
       {isOpen ? (

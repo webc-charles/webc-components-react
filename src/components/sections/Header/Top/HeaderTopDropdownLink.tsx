@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
+import styles from '../Header.module.scss'
 import type { HeaderTopDropdownLinkTypes } from '../Header.types'
-import styles from './HeaderTopDropdownLink.module.scss'
 
 export function HeaderTopDropdownLink({
   asChild,
@@ -14,7 +14,7 @@ export function HeaderTopDropdownLink({
   return (
     <Comp
       className={clsx(
-        styles.dropdownLink,
+        styles.topDropdownLink,
         current && styles.current,
         className
       )}

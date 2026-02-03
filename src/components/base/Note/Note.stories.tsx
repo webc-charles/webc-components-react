@@ -49,7 +49,9 @@ export const Playground: Story = {
 export const WithHeader: Story = {
   render: () => (
     <Note variant="warning">
-      <NoteTitle level="h4" className="fs-5">Warning</NoteTitle>
+      <NoteTitle level="h4" className="fs-5">
+        Warning
+      </NoteTitle>
       <p>This action cannot be undone. Please proceed with caution.</p>
     </Note>
   ),
@@ -60,7 +62,9 @@ export const AllVariants: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {variants.map((v) => (
         <Note variant={v} key={v}>
-          <NoteTitle level="h4" className="fs-5">{v}</NoteTitle>
+          <NoteTitle level="h4" className="fs-5">
+            {v}
+          </NoteTitle>
           <p>This is a {v} note with a header.</p>
         </Note>
       ))}

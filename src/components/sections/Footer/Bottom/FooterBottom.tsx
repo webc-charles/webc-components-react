@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Footer.module.scss'
 import type { FooterBottomTypes } from '../Footer.types'
-import styles from './FooterBottom.module.scss'
 
 export function FooterBottom({
   ref,

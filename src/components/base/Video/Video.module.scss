@@ -1,15 +1,8 @@
-@use 'styles/typo' as *;
+@use 'styles/mixins/typo' as *;
 
 .video {
-  display: block;
   height: auto;
-  max-width: 100%;
   width: 100%;
-}
-
-.figure {
-  display: block;
-  margin: 0;
 }
 
 .caption {

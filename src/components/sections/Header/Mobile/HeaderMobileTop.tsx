@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderMobileTopTypes } from '../Header.types'
-import styles from './HeaderMobileTop.module.scss'
 
 export function HeaderMobileTop({
   ref,
@@ -9,11 +9,7 @@ export function HeaderMobileTop({
   ...rest
 }: HeaderMobileTopTypes) {
   return (
-    <div
-      ref={ref}
-      className={clsx(styles.headerMobileTop, className)}
-      {...rest}
-    >
+    <div ref={ref} className={clsx(styles.mobileTop, className)} {...rest}>
       {children}
     </div>
   )

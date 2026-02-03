@@ -1,5 +1,4 @@
 import { useId } from 'react'
-import clsx from 'clsx'
 import styles from './Audio.module.scss'
 import type { AudioTypes } from './Audio.types'
 
@@ -51,7 +50,7 @@ export function Audio({
 
   if (title || caption || transcriptUrl) {
     return (
-      <figure role="group" className={clsx(styles.figure, className)}>
+      <figure role="group" className={className}>
         {title && (
           <figcaption id={titleId} className={styles.title}>
             {title}

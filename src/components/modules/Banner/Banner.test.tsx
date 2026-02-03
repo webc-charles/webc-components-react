@@ -6,9 +6,9 @@ import { describe, expect, it } from 'vitest'
 import {
   Banner,
   BannerActions,
+  BannerBody,
   BannerContent,
   BannerSubtitle,
-  BannerBody,
   BannerTitle,
 } from './Banner'
 

@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use 'styles/mq' as *;
+@use 'styles/mixins/mq' as *;
 
 $gaps: (
   0: 0,

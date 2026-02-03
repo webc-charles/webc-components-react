@@ -33,7 +33,10 @@ describe('Spinner', () => {
   it('removes role when inline', () => {
     render(<Spinner inline data-testid="spinner" />)
     expect(screen.getByTestId('spinner')).not.toHaveAttribute('role')
-    expect(screen.getByTestId('spinner')).toHaveAttribute('aria-hidden', 'true')
+    expect(screen.getByTestId('spinner')).toHaveAttribute(
+      'aria-hidden',
+      'true'
+    )
   })
 
   it('forwards ref', () => {

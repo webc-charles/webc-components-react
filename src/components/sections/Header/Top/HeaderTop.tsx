@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderTopTypes } from '../Header.types'
-import styles from './HeaderTop.module.scss'
 
 export function HeaderTop({
   ref,
@@ -14,8 +14,8 @@ export function HeaderTop({
     <div ref={ref} className={clsx(styles.topBar, className)} {...rest}>
       <div
         className={clsx(
-          styles.container,
-          justify === 'between' && styles.between,
+          styles.topContainer,
+          justify === 'between' && styles.topBetween,
           containerClassName
         )}
       >

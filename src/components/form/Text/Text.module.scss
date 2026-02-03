@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 .wrapper {
   @include form-wrapper;

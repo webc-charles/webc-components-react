@@ -8,8 +8,8 @@ import {
 } from 'react'
 import clsx from 'clsx'
 import { HeaderContext } from './HeaderContext'
+import styles from './Header.module.scss'
 import type { HeaderNavTypes, HeaderTypes } from './Header.types'
-import styles from './HeaderRoot.module.scss'
 
 export function HeaderRoot({
   ref,

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderMainLogoTypes } from '../Header.types'
-import styles from './HeaderMainLogo.module.scss'
 
 export function HeaderMainLogo({
   ref,
@@ -9,7 +9,7 @@ export function HeaderMainLogo({
   ...rest
 }: HeaderMainLogoTypes) {
   return (
-    <div ref={ref} className={clsx(styles.logo, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.mainLogo, className)} {...rest}>
       {children}
     </div>
   )

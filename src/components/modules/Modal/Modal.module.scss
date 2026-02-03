@@ -1,5 +1,5 @@
-@use 'styles/action' as *;
-@use 'styles/anim' as *;
+@use 'styles/mixins/action' as *;
+@use 'styles/mixins/anim' as *;
 
 .modals {
   inset: 0;

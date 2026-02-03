@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
 import { useHeaderDropdown } from '../useHeaderDropdown'
+import styles from '../Header.module.scss'
 import type { HeaderTopDropdownTypes } from '../Header.types'
-import styles from './HeaderTopDropdown.module.scss'
 
 export function HeaderTopDropdown({
   children,
@@ -15,7 +15,7 @@ export function HeaderTopDropdown({
   ...rest
 }: HeaderTopDropdownTypes) {
   const isLink = Boolean(href)
-  const TriggerComp = href ? as || 'a' : Button
+  const Trigger = href ? as || 'a' : Button
 
   const {
     isOpen,
@@ -31,14 +31,14 @@ export function HeaderTopDropdown({
   return (
     <div
       ref={itemRef}
-      className={clsx(styles.dropdown, className)}
+      className={clsx(styles.withTopDropdown, className)}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       onFocusCapture={handleFocus}
       onBlur={handleBlur}
       {...rest}
     >
-      <TriggerComp
+      <Trigger
         ref={triggerRef}
         href={href}
         type={isLink ? undefined : 'button'}
@@ -46,7 +46,7 @@ export function HeaderTopDropdown({
         aria-haspopup="menu"
         aria-expanded={isOpen}
         aria-current={current ? 'page' : undefined}
-        className={styles.trigger}
+        className={styles.topTrigger}
         onClick={isLink ? undefined : () => setIsOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
@@ -56,15 +56,15 @@ export function HeaderTopDropdown({
           aria-hidden="true"
           className={clsx(styles.chevron, isOpen && styles.chevronOpen)}
         />
-      </TriggerComp>
+      </Trigger>
 
       <div
         inert
         role="menu"
         ref={dropdownRef}
-        className={clsx(styles.modal, isOpen && styles.isOpen)}
+        className={clsx(styles.topDropdown, isOpen && styles.isOpen)}
       >
-        <div className={styles.modalInner}>{children}</div>
+        <div className={styles.topDropdownInner}>{children}</div>
       </div>
     </div>
   )

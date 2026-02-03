@@ -40,7 +40,12 @@ export const AccountPage: Story = {
       <DashboardMainHeader>
         <DashboardMainTitle>Account</DashboardMainTitle>
         <p>Manage your account settings</p>
-        <Avatar name="johndoe" width="6rem" fontSize={6} variant="primary" />
+        <Avatar
+          name="johndoe"
+          width="6rem"
+          fontSize={6}
+          variant="primary"
+        />
       </DashboardMainHeader>
 
       <AccountCard>

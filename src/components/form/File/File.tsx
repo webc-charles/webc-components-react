@@ -182,9 +182,7 @@ export function InputFile({
         >
           <Upload size={24} aria-hidden />
 
-          <span>
-            {isDragging ? getDropText() : getButtonText()}
-          </span>
+          <span>{isDragging ? getDropText() : getButtonText()}</span>
 
           {showFileNames && files && files.length > 0 && (
             <span className={styles.fileNames}>{getFileDisplay()}</span>

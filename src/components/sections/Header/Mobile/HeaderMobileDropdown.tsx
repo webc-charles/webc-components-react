@@ -2,8 +2,8 @@ import { useEffect, useId, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
+import styles from '../Header.module.scss'
 import type { HeaderMobileDropdownTypes } from '../Header.types'
-import styles from './HeaderMobileDropdown.module.scss'
 
 export function HeaderMobileDropdown({
   ref,
@@ -26,12 +26,19 @@ export function HeaderMobileDropdown({
   }, [isExpanded])
 
   return (
-    <div ref={ref} className={clsx(styles.item, className)} {...rest}>
+    <div
+      ref={ref}
+      className={clsx(styles.withMobileDropdown, className)}
+      {...rest}
+    >
       <Button
         type="button"
         aria-expanded={isExpanded}
         aria-controls={dropdownId}
-        className={clsx(styles.trigger, isExpanded && styles.isOpen)}
+        className={clsx(
+          styles.mobileDropdownTrigger,
+          isExpanded && styles.isOpen
+        )}
         onClick={() => setIsExpanded((prev) => !prev)}
       >
         {label}
@@ -49,9 +56,12 @@ export function HeaderMobileDropdown({
         inert
         id={dropdownId}
         ref={dropdownRef}
-        className={clsx(styles.dropdown, isExpanded && styles.isOpen)}
+        className={clsx(
+          styles.mobileDropdown,
+          isExpanded && styles.isOpen
+        )}
       >
-        <div className={styles.dropdownInner}>{children}</div>
+        <div className={styles.mobileDropdownInner}>{children}</div>
       </div>
     </div>
   )

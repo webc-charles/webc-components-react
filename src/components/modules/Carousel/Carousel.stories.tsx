@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import clsx from 'clsx'
 import { Badge } from '../../base/Badge'
 import { Note } from '../../base/Note'
 import { Title } from '../../base/Title'
@@ -8,7 +9,7 @@ import {
   BannerSubtitle,
   BannerTitle,
 } from '../Banner'
-import { Card, CardBody, CardFooter, CardHeader } from '../Card'
+import { Card, CardBody, CardFooter } from '../Card'
 import {
   Carousel,
   CarouselContainer,
@@ -18,7 +19,6 @@ import {
   CarouselPrev,
   CarouselSlide,
 } from './Carousel'
-import clsx from 'clsx'
 
 const meta: Meta<typeof Carousel> = {
   title: 'Modules/Carousel',
@@ -39,28 +39,86 @@ export default meta
 type Story = StoryObj<typeof Carousel>
 
 const banners = [
-  { title: 'Welcome', subtitle: 'Get started with our platform', bg: 'bg-primary-1', text: 'light' as const },
-  { title: 'Features', subtitle: 'Discover what we offer', bg: 'bg-secondary-2', text: 'light' as const },
-  { title: 'Pricing', subtitle: 'Plans for every team', bg: 'bg-success-1', text: 'light' as const },
-  { title: 'Support', subtitle: 'We are here to help', bg: 'bg-info-2', text: 'light' as const },
-  { title: 'Updates', subtitle: 'Latest news and releases', bg: 'bg-warning-3', text: 'dark' as const },
-  { title: 'Contact', subtitle: 'Get in touch with us', bg: 'bg-danger-1', text: 'light' as const },
+  {
+    title: 'Welcome',
+    subtitle: 'Get started with our platform',
+    bg: 'bg-primary-1',
+    text: 'light' as const,
+  },
+  {
+    title: 'Features',
+    subtitle: 'Discover what we offer',
+    bg: 'bg-secondary-2',
+    text: 'light' as const,
+  },
+  {
+    title: 'Pricing',
+    subtitle: 'Plans for every team',
+    bg: 'bg-success-1',
+    text: 'light' as const,
+  },
+  {
+    title: 'Support',
+    subtitle: 'We are here to help',
+    bg: 'bg-info-2',
+    text: 'light' as const,
+  },
+  {
+    title: 'Updates',
+    subtitle: 'Latest news and releases',
+    bg: 'bg-warning-3',
+    text: 'dark' as const,
+  },
+  {
+    title: 'Contact',
+    subtitle: 'Get in touch with us',
+    bg: 'bg-danger-1',
+    text: 'light' as const,
+  },
 ]
 
 const cards = [
-  { title: 'Getting Started', variant: 'primary' as const, bg: 'bg-primary-3' },
+  {
+    title: 'Getting Started',
+    variant: 'primary' as const,
+    bg: 'bg-primary-3',
+  },
   { title: 'Components', variant: 'secondary' as const, bg: 'bg-grey-6' },
   { title: 'Theming', variant: 'success' as const, bg: 'bg-success-3' },
   { title: 'Accessibility', variant: 'info' as const, bg: 'bg-grey-7' },
-  { title: 'Performance', variant: 'warning' as const, bg: 'bg-warning-3' },
+  {
+    title: 'Performance',
+    variant: 'warning' as const,
+    bg: 'bg-warning-3',
+  },
   { title: 'Support', variant: 'danger' as const, bg: 'bg-danger-3' },
 ]
 
 const greyBanners = [
-  { title: 'Dark', subtitle: 'Grey level 1', bg: 'bg-grey-1', text: 'light' as const },
-  { title: 'Medium', subtitle: 'Grey level 3', bg: 'bg-grey-3', text: 'light' as const },
-  { title: 'Light', subtitle: 'Grey level 5', bg: 'bg-grey-5', text: 'dark' as const },
-  { title: 'Lighter', subtitle: 'Grey level 7', bg: 'bg-grey-7', text: 'dark' as const },
+  {
+    title: 'Dark',
+    subtitle: 'Grey level 1',
+    bg: 'bg-grey-1',
+    text: 'light' as const,
+  },
+  {
+    title: 'Medium',
+    subtitle: 'Grey level 3',
+    bg: 'bg-grey-3',
+    text: 'light' as const,
+  },
+  {
+    title: 'Light',
+    subtitle: 'Grey level 5',
+    bg: 'bg-grey-5',
+    text: 'dark' as const,
+  },
+  {
+    title: 'Lighter',
+    subtitle: 'Grey level 7',
+    bg: 'bg-grey-7',
+    text: 'dark' as const,
+  },
 ]
 
 export const Default: Story = {
@@ -69,7 +127,11 @@ export const Default: Story = {
       <CarouselContainer>
         {banners.slice(0, 3).map((banner, i) => (
           <CarouselSlide key={i}>
-            <Banner className={banner.bg} minHeight="20rem" horizontalAlign="center">
+            <Banner
+              className={banner.bg}
+              minHeight="20rem"
+              horizontalAlign="center"
+            >
               <BannerContent textColor={banner.text} textAlign="center">
                 <BannerTitle level="h2">{banner.title}</BannerTitle>
                 <BannerSubtitle>{banner.subtitle}</BannerSubtitle>
@@ -93,7 +155,11 @@ export const WithLoop: Story = {
       <CarouselContainer>
         {banners.map((banner, i) => (
           <CarouselSlide key={i}>
-            <Banner className={banner.bg} minHeight="24rem" horizontalAlign="center">
+            <Banner
+              className={banner.bg}
+              minHeight="24rem"
+              horizontalAlign="center"
+            >
               <BannerContent textColor={banner.text} textAlign="center">
                 <BannerTitle>{banner.title}</BannerTitle>
                 <BannerSubtitle>{banner.subtitle}</BannerSubtitle>
@@ -166,9 +232,13 @@ export const DragFree: Story = {
         {cards.map((card, i) => (
           <CarouselSlide key={i}>
             <Card className={card.bg}>
-              <CardBody style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+              <CardBody
+                style={{ textAlign: 'center', padding: '2rem 1rem' }}
+              >
                 <Badge variant={card.variant}>{card.variant}</Badge>
-                <Title level="h5" className="mt0">{card.title}</Title>
+                <Title level="h5" className="mt0">
+                  {card.title}
+                </Title>
               </CardBody>
             </Card>
           </CarouselSlide>
@@ -188,7 +258,7 @@ export const WithCards: Story = {
       <CarouselContainer>
         {cards.map((card, i) => (
           <CarouselSlide key={i}>
-            <Card className={clsx(card.bg, "p-3", "g-3", "r-3", "b")}>
+            <Card className={clsx(card.bg, 'p-3', 'g-3', 'r-3', 'b')}>
               <CardBody className="g-1">
                 <Title level="h3">{card.title}</Title>
                 <p>Explore this feature in detail.</p>
@@ -215,7 +285,11 @@ export const DotsOnly: Story = {
       <CarouselContainer>
         {banners.slice(0, 3).map((banner, i) => (
           <CarouselSlide key={i}>
-            <Banner className={banner.bg} minHeight="20rem" horizontalAlign='center'>
+            <Banner
+              className={banner.bg}
+              minHeight="20rem"
+              horizontalAlign="center"
+            >
               <BannerContent textColor={banner.text} textAlign="center">
                 <BannerTitle level="h2">{banner.title}</BannerTitle>
                 <BannerSubtitle>{banner.subtitle}</BannerSubtitle>
@@ -368,7 +442,11 @@ export const OverlayControls: Story = {
       <CarouselContainer>
         {banners.map((banner, i) => (
           <CarouselSlide key={i}>
-            <Banner className={banner.bg} minHeight="24rem" horizontalAlign="center">
+            <Banner
+              className={banner.bg}
+              minHeight="24rem"
+              horizontalAlign="center"
+            >
               <BannerContent textColor={banner.text} textAlign="center">
                 <BannerTitle>{banner.title}</BannerTitle>
                 <BannerSubtitle>{banner.subtitle}</BannerSubtitle>

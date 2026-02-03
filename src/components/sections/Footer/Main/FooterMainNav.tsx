@@ -1,7 +1,7 @@
 import { Title } from 'base/Title'
 import clsx from 'clsx'
+import styles from '../Footer.module.scss'
 import type { FooterMainNavTypes } from '../Footer.types'
-import styles from './FooterMainNav.module.scss'
 
 export function FooterMainNav({
   ref,
@@ -15,11 +15,11 @@ export function FooterMainNav({
     <nav
       ref={ref}
       aria-label={ariaLabel || title || 'Footer navigation'}
-      className={clsx(styles.nav, className)}
+      className={clsx(styles.mainNav, className)}
       {...rest}
     >
       {title && (
-        <Title level="h3" className={styles.title}>
+        <Title level="h3" className={styles.mainNavTitle}>
           {title}
         </Title>
       )}

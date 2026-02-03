@@ -219,7 +219,7 @@ export function AccordionTrigger({
   }
 
   return (
-    <Heading className={styles.header}>
+    <Heading>
       <Button
         ref={ref}
         type="button"

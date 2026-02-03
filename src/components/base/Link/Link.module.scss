@@ -1,11 +1,11 @@
-@use 'styles/action' as *;
+@use 'styles/mixins/action' as *;
 
-// Base reset - no visual styles
+
 .link {
   text-decoration: none;
 }
 
-// Styled link (when variant or appearance is set)
+
 .styled {
   @include action-base;
   @include action-appearances;

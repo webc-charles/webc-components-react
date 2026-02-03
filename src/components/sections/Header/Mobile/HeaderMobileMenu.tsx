@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef } from 'react'
 import clsx from 'clsx'
 import { useHeader } from '../HeaderContext'
+import styles from '../Header.module.scss'
 import type { HeaderMobileMenuTypes } from '../Header.types'
-import styles from './HeaderMobileMenu.module.scss'
 
 export function HeaderMobileMenu({
   ref,
@@ -72,7 +72,11 @@ export function HeaderMobileMenu({
       id={mobileMenuId}
       role="dialog"
       aria-label={ariaLabel}
-      className={clsx(styles.menu, isOpen && styles.menuOpen, className)}
+      className={clsx(
+        styles.mobileMenu,
+        isOpen && styles.mobileMenuOpen,
+        className
+      )}
       {...rest}
     >
       {children}

@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 $tx-color-checkbox: var(--color-white);
 $bg-color-checkbox: var(--color-white);

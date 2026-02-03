@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 $bg-color-modal: var(--color-white);
 $bd-color-modal: var(--color-grey-4);
@@ -51,13 +51,10 @@ $tx-color-choice-remove-active: var(--color-danger-2);
 
 .selectSearchInline {
   background: transparent;
-  border: none;
   flex: 1;
   font-family: inherit;
   font-weight: inherit;
   min-width: 5rem;
-  outline: none;
-  padding: 0;
 
   &::placeholder {
     color: $tx-color-placeholder;
@@ -103,9 +100,6 @@ $tx-color-choice-remove-active: var(--color-danger-2);
 .optionList {
   display: flex;
   flex-direction: column;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .optionListItem {
@@ -131,14 +125,12 @@ $tx-color-choice-remove-active: var(--color-danger-2);
 
   input {
     cursor: pointer;
-    margin: 0;
   }
 }
 
 .choiceClear {
   align-items: center;
   background: none;
-  border: none;
   color: $tx-color-clear;
   cursor: pointer;
   display: flex;
@@ -155,9 +147,6 @@ $tx-color-choice-remove-active: var(--color-danger-2);
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .choiceListItem {
@@ -178,7 +167,6 @@ $tx-color-choice-remove-active: var(--color-danger-2);
 .choiceListItemRemove {
   align-items: center;
   background-color: $bg-color-choice-remove;
-  border: none;
   border-radius: 0 var(--radius-1) var(--radius-1) 0;
   color: $tx-color-choice-remove;
   cursor: pointer;

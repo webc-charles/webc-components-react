@@ -1,5 +1,4 @@
 :root {
-  // BLACK
   --color-black: #000;
   --color-black-50: rgb(0 0 0 / 50%);
   --color-black-40: rgb(0 0 0 / 40%);
@@ -8,7 +7,6 @@
   --color-black-10: rgb(0 0 0 / 10%);
   --color-black-05: rgb(0 0 0 / 5%);
 
-  // WHITE
   --color-white: #fff;
   --color-white-50: rgb(255 255 255 / 50%);
   --color-white-40: rgb(255 255 255 / 40%);
@@ -17,7 +15,6 @@
   --color-white-10: rgb(255 255 255 / 10%);
   --color-white-05: rgb(255 255 255 / 5%);
 
-  // GREY
   --color-grey-1: #333;
   --color-grey-2: #666;
   --color-grey-3: #737373;
@@ -26,56 +23,41 @@
   --color-grey-6: #EEE;
   --color-grey-7: #F5F5F5;
 
-  // Color variants
-  // Each variant has 4 colors:
-  //   -1: dark (hover state, text on light bg)
-  //   -2: base (main color)
-  //   -3: light (background, hover in contrast mode)
-  //   -contrast: vibrant color for dark backgrounds
-
-  // Default variant
   --color-default-1: #000;
   --color-default-2: #333;
   --color-default-3: #eee;
   --color-default-contrast: #fff;
 
-  // Primary variant
   --color-primary-1: #002f5f;
   --color-primary-2: #06c;
   --color-primary-3: #cce0ff;
   --color-primary-contrast: #60a5fa;
 
-  // Secondary variant
   --color-secondary-1: #3d1480;
   --color-secondary-2: #7c3aed;
   --color-secondary-3: #ede9fe;
   --color-secondary-contrast: #a78bfa;
 
-  // Success variant
   --color-success-1: #115129;
   --color-success-2: #15803d;
   --color-success-3: #dcfce7;
   --color-success-contrast: #4ade80;
 
-  // Danger variant
   --color-danger-1: #5c1010;
   --color-danger-2: #dc2626;
   --color-danger-3: #fee2e2;
   --color-danger-contrast: #f87171;
 
-  // Warning variant
   --color-warning-1: #71320b;
   --color-warning-2: #b45309;
   --color-warning-3: #fef3c7;
   --color-warning-contrast: #fbbf24;
 
-  // Info variant
   --color-info-1: #104b5d;
   --color-info-2: #0e7490;
   --color-info-3: #cffafe;
   --color-info-contrast: #22d3ee;
 
-  // Typography
   --font-size-1: 1rem;
   --font-size-2: 1.2rem;
   --font-size-3: 1.4rem;
@@ -86,17 +68,14 @@
   --font-size-8: 4rem;
   --font-size-9: 6rem;
 
-  // Line height
   --line-height-heading: 1.2;
   --line-height-default: 1.4;
 
-  // Font weight
   --font-weight-body: 400;
   --font-weight-button: 600;
   --font-weight-strong: 600;
   --font-weight-heading: 800;
 
-  // Z-index layers
   --z-index-1: 100;
   --z-index-2: 200;
   --z-index-3: 300;
@@ -104,15 +83,12 @@
   --z-index-5: 500;
   --z-index-6: 600;
 
-  // Layout
   --screen-max-width: 168rem;
   --container-max-width: 120rem;
 
-  // Font
   --site-font: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', arial,
     sans-serif;
 
-  // Spacing
   --spacing-1: 0.5rem;
   --spacing-2: 1rem;
   --spacing-3: 2rem;
@@ -123,7 +99,6 @@
   --spacing-8: 8rem;
   --spacing-9: 10rem;
 
-  // Border radius
   --radius-1: 0.2rem;
   --radius-2: 0.4rem;
   --radius-3: 0.6rem;
@@ -132,11 +107,9 @@
   --radius-6: 1.5rem;
   --radius-7: 2rem;
 
-  // Component sizes
   --height-mobile-menu: 6rem;
   --height-main-menu: 6rem;
   --height-top-menu: 3rem;
 
-  // Transitions
   --transition-default: 0.2s ease;
 }

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Footer.module.scss'
 import type { FooterMainLogoTypes } from '../Footer.types'
-import styles from './FooterMainLogo.module.scss'
 
 export function FooterMainLogo({
   ref,

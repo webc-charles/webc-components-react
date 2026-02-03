@@ -24,7 +24,7 @@ $bg-color-progress: var(--color-grey-5);
   transform: translate(calc(100% + 0.8rem), -50%);
 }
 
-// Variants
+
 $variants: default, primary, secondary, success, danger, warning, info;
 
 @each $variant in $variants {
@@ -33,7 +33,7 @@ $variants: default, primary, secondary, success, danger, warning, info;
   }
 }
 
-// Indeterminate animation
+
 .indeterminate .bar {
   animation: indeterminate 1.5s ease-in-out infinite;
   width: 30%;

@@ -4,16 +4,34 @@ CSS utilities, mixins, and design tokens.
 
 ## File Structure
 
-| File | Purpose |
-|------|---------|
-| `root.scss` | CSS variables (colors, typography, spacing) |
-| `reset.scss` | CSS reset and base element styles |
-| `main.scss` | Body layout, header padding, lists, links |
-| `font-size.scss` | Font size utility classes |
-| `align.scss` | Flexbox and text alignment utilities |
-| `spacing.scss` | Margin, padding, gap utilities |
-| `color.scss` | Background and text color utilities |
-| `typo.scss` | Typography mixins |
+```
+styles/
+  root.scss              CSS variables (colors, typography, spacing)
+  index.scss             Entry point (imports base + utils)
+  base/                  Global element styles
+    reset.scss           CSS reset, base elements, heading sizes, .sr-only
+    layout.scss          Body layout, header padding
+  utils/                 Utility classes (emitted globally)
+    align.scss           Flexbox and text alignment
+    aspect.scss          Aspect ratio utilities
+    border.scss          Border utilities
+    color.scss           Background and text color
+    display.scss         Display utilities
+    font.scss            Font size, weight, text transform
+    opacity.scss         Opacity utilities
+    overflow.scss        Overflow utilities
+    position.scss        Position utilities
+    radius.scss          Border radius utilities
+    size.scss            Width and height utilities
+    spacing.scss         Margin, padding, gap (incl. zero + auto)
+  mixins/                Consumed via @use in components
+    action.scss          Button/link mixins
+    anim.scss            Animation mixins
+    color.scss           Color variant mixin
+    form.scss            Form input mixins
+    mq.scss              Media query mixins
+    typo.scss            Typography mixins
+```
 
 ---
 
@@ -26,7 +44,7 @@ CSS utilities, mixins, and design tokens.
 --color-black
 --color-black-50, --color-black-20, --color-black-10
 --color-white
---color-white-50, --color-white-20, , --color-white-10
+--color-white-50, --color-white-20, --color-white-10
 
 /* Grey scale (1=dark, 7=light) */
 --color-grey-1  /* #333 */
@@ -150,6 +168,7 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 
 | Size | Value |
 |------|-------|
+| `0` | 0 |
 | `1` | 0.5rem |
 | `2` | 1rem |
 | `3` | 2rem |
@@ -159,6 +178,13 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 | `7` | 6rem |
 | `8` | 8rem |
 | `9` | 10rem |
+
+| Special | Description |
+|---------|-------------|
+| `m-auto` | margin: auto |
+| `mh-auto` | margin left + right: auto (centering) |
+| `mv-auto` | margin top + bottom: auto |
+| `mt-auto`, `mr-auto`, `mb-auto`, `ml-auto` | directional auto |
 
 | Breakpoint | Width |
 |------------|-------|
@@ -175,10 +201,46 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <div class="ph-3">padding horizontal</div>
 <div class="g-2">gap</div>
 
+<!-- Zero -->
+<div class="m-0">no margin</div>
+<div class="p-0">no padding</div>
+<div class="mt-0">no margin top</div>
+
+<!-- Auto -->
+<div class="mh-auto">centered block</div>
+<div class="ml-auto">push right</div>
+
 <!-- Responsive -->
 <div class="p-2 p-md-4 p-lg-5">responsive padding</div>
 <div class="mt-2 mt-lg-4">responsive margin top</div>
 <div class="g-2 g-md-3">responsive gap</div>
+<div class="m-2 m-md-0">margin on mobile, none on desktop</div>
+<div class="mh-auto mh-md-0">centered on mobile, reset on desktop</div>
+```
+
+### Display
+
+Pattern: `d-{breakpoint?}-{value}`
+
+| Class | Value |
+|-------|-------|
+| `d-none` | none |
+| `d-block` | block |
+| `d-flex` | flex |
+| `d-grid` | grid |
+| `d-inline` | inline |
+| `d-inline-block` | inline-block |
+| `d-inline-flex` | inline-flex |
+
+All values support responsive breakpoints (sm, md, lg, xl).
+
+```html
+<!-- Hide/show -->
+<div class="d-none d-md-block">hidden on mobile, visible on desktop</div>
+<div class="d-block d-lg-none">visible on mobile, hidden on large</div>
+
+<!-- Responsive flex -->
+<div class="d-none d-md-flex">flex on desktop only</div>
 ```
 
 ### Font Size
@@ -218,6 +280,35 @@ Pattern: `fs-{breakpoint?}-{size}`
 
 <!-- SEO vs visual: h2 tag for SEO, fs-8 for h1 visual size -->
 <h2 class="fs-8">Looks like h1, semantically h2</h2>
+```
+
+### Font Weight
+
+| Class | Value |
+|-------|-------|
+| `fw-body` | 400 |
+| `fw-button` | 600 |
+| `fw-strong` | 600 |
+| `fw-heading` | 800 |
+
+```html
+<p class="fw-strong">Bold text</p>
+<span class="fw-heading">Extra bold</span>
+```
+
+### Text Transform
+
+| Class | Property |
+|-------|----------|
+| `text-uppercase` | text-transform: uppercase |
+| `text-lowercase` | text-transform: lowercase |
+| `text-capitalize` | text-transform: capitalize |
+| `text-nowrap` | white-space: nowrap |
+| `text-truncate` | overflow: hidden + text-overflow: ellipsis + nowrap |
+
+```html
+<span class="text-uppercase">uppercased</span>
+<p class="text-truncate">Long text that gets cut off with ellipsis...</p>
 ```
 
 ### Alignment
@@ -321,20 +412,92 @@ Pattern: `{property}-{breakpoint?}-{value}`
 <p class="text-white">white</p>
 ```
 
-### Typography
+### Border
+
+| Class | Description |
+|-------|-------------|
+| `b` | border all sides (grey-4) |
+| `b-t`, `b-r`, `b-b`, `b-l` | directional border (grey-4) |
+| `b-none` | remove border |
+| `b-{variant}-{level}` | colored border (e.g. `b-primary-2`) |
+| `b-grey-{1-7}` | grey border |
+| `b-black`, `b-white` | black/white border |
+
+### Border Radius
+
+| Class | Value |
+|-------|-------|
+| `r-1` through `r-7` | `--radius-1` through `--radius-7` |
+| `r-full` | 9999px (circle) |
+| `r-none` | 0 |
+
+### Overflow
+
+| Class | Property |
+|-------|----------|
+| `overflow-hidden` | overflow: hidden |
+| `overflow-auto` | overflow: auto |
+| `overflow-scroll` | overflow: scroll |
+| `overflow-x-auto` | overflow-x: auto |
+| `overflow-x-hidden` | overflow-x: hidden |
+| `overflow-y-auto` | overflow-y: auto |
+| `overflow-y-hidden` | overflow-y: hidden |
+
+### Size
+
+| Class | Property |
+|-------|----------|
+| `w-full` | width: 100% |
+| `w-auto` | width: auto |
+| `h-full` | height: 100% |
+| `h-auto` | height: auto |
+| `h-screen` | height: 100vh (100dvh where supported) |
+| `min-h-screen` | min-height: 100vh (100dvh where supported) |
+
+### Position
+
+| Class | Property |
+|-------|----------|
+| `relative` | position: relative |
+| `absolute` | position: absolute |
+| `fixed` | position: fixed |
+| `sticky` | position: sticky |
+| `static` | position: static |
+
+### Opacity
+
+Pattern: `opacity-{0-10}`
+
+| Class | Value |
+|-------|-------|
+| `opacity-0` | 0 |
+| `opacity-1` | 0.1 |
+| `opacity-2` | 0.2 |
+| ... | ... |
+| `opacity-5` | 0.5 |
+| ... | ... |
+| `opacity-10` | 1 |
+
+### Aspect Ratio
+
+| Class | Value |
+|-------|-------|
+| `aspect-square` | 1 / 1 |
+| `aspect-video` | 16 / 9 |
+| `aspect-4-3` | 4 / 3 |
+| `aspect-3-2` | 3 / 2 |
+
+### Accessibility
+
+| Class | Description |
+|-------|-------------|
+| `sr-only` | Visually hidden, accessible to screen readers |
 
 ```html
-<span class="capitalize">capitalize</span>
-<span class="uppercase">uppercase</span>
-<span class="lowercase">lowercase</span>
-```
-
-### Lists
-
-```html
-<ul class="disc">bulleted list</ul>
-<ul class="chevron">chevron list</ul>
-<ul class="decimal">numbered list</ul>
+<button>
+  <svg>...</svg>
+  <span class="sr-only">Close menu</span>
+</button>
 ```
 
 ---
@@ -344,18 +507,18 @@ Pattern: `{property}-{breakpoint?}-{value}`
 Import mixins in SCSS modules:
 
 ```scss
-@use 'styles/mq' as *;
-@use 'styles/typo' as *;
-@use 'styles/form' as *;
-@use 'styles/action' as *;
-@use 'styles/anim' as *;
-@use 'styles/color' as *;
+@use 'styles/mixins/mq' as *;
+@use 'styles/mixins/typo' as *;
+@use 'styles/mixins/form' as *;
+@use 'styles/mixins/action' as *;
+@use 'styles/mixins/anim' as *;
+@use 'styles/mixins/color' as *;
 ```
 
 ### Media Queries
 
 ```scss
-@use 'styles/mq' as *;
+@use 'styles/mixins/mq' as *;
 
 .component {
   padding: 1rem;
@@ -371,7 +534,7 @@ Import mixins in SCSS modules:
 ### Typography
 
 ```scss
-@use 'styles/typo' as *;
+@use 'styles/mixins/typo' as *;
 
 .heading {
   @include base-heading;
@@ -429,7 +592,7 @@ Import mixins in SCSS modules:
 ### Form
 
 ```scss
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 .field {
   @include form-wrapper;
@@ -455,7 +618,7 @@ Import mixins in SCSS modules:
 ### Action (Button/Link)
 
 ```scss
-@use 'styles/action' as *;
+@use 'styles/mixins/action' as *;
 
 .button {
   @include action-base;
@@ -472,7 +635,7 @@ Import mixins in SCSS modules:
 ### Animation
 
 ```scss
-@use 'styles/anim' as *;
+@use 'styles/mixins/anim' as *;
 
 .fade {
   @include anim-fade;
@@ -498,7 +661,7 @@ Animation classes use `.active` and `.removing` states:
 ### Color Variants
 
 ```scss
-@use 'styles/color' as *;
+@use 'styles/mixins/color' as *;
 
 .alert {
   @include color-variants('variant-');
@@ -521,7 +684,7 @@ Generates classes for all variants:
 ### Responsive Layout
 
 ```html
-<div class="flex-col flex-md-row g-3 g-lg-4">
+<div class="d-flex flex-col flex-md-row g-3 g-lg-4">
   <div class="p-3 p-md-4">Sidebar</div>
   <div class="p-3 p-md-4">Content</div>
 </div>
@@ -530,8 +693,8 @@ Generates classes for all variants:
 ### Centered Card
 
 ```html
-<div class="flex justify-center items-center p-4">
-  <div class="bg-white p-4">Card content</div>
+<div class="d-flex justify-center items-center p-4">
+  <div class="bg-white p-4 r-3">Card content</div>
 </div>
 ```
 
@@ -553,4 +716,28 @@ Generates classes for all variants:
 <span class="text-danger-2">Error message</span>
 <span class="text-warning-2">Warning message</span>
 <div class="bg-info-3 p-3">Info box</div>
+```
+
+### Hide on Mobile
+
+```html
+<nav class="d-none d-md-flex g-2">Desktop nav</nav>
+<button class="d-block d-md-none">Mobile menu</button>
+```
+
+### Truncated Text
+
+```html
+<p class="text-truncate" style="max-width: 200px">
+  Very long text that will be cut off with an ellipsis
+</p>
+```
+
+### Accessible Icon Button
+
+```html
+<button>
+  <svg>...</svg>
+  <span class="sr-only">Delete item</span>
+</button>
 ```

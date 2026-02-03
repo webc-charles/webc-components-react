@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import { Button } from 'components'
 import { ChevronDown } from 'lucide-react'
 import { useHeaderDropdown } from '../useHeaderDropdown'
+import styles from '../Header.module.scss'
 import type { HeaderMainDropdownTypes } from '../Header.types'
-import styles from './HeaderMainDropdown.module.scss'
 
 export function HeaderMainDropdown({
   children,
@@ -33,9 +33,9 @@ export function HeaderMainDropdown({
     <div
       ref={itemRef}
       className={clsx(
-        styles.item,
-        mega && styles.hasMega,
-        current && styles.isCurrent,
+        styles.withMainDropdown,
+        mega && styles.mainDropdownHasMega,
+        current && styles.mainDropdownCurrent,
         className
       )}
       onMouseEnter={() => setIsOpen(true)}
@@ -49,7 +49,10 @@ export function HeaderMainDropdown({
         href={href}
         type={isLink ? undefined : 'button'}
         tabIndex={isLink && current ? -1 : undefined}
-        className={clsx(styles.trigger, current && styles.triggerActive)}
+        className={clsx(
+          styles.mainDropdownTrigger,
+          current && styles.mainDropdownTriggerActive
+        )}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-current={current ? 'page' : undefined}
@@ -69,12 +72,14 @@ export function HeaderMainDropdown({
         role="menu"
         ref={dropdownRef}
         className={clsx(
-          mega ? styles.megaMenu : styles.dropdown,
+          mega ? styles.megaMenu : styles.mainDropdown,
           isOpen && styles.isOpen
         )}
       >
         <div
-          className={mega ? styles.megaMenuInner : styles.dropdownInner}
+          className={
+            mega ? styles.megaMenuInner : styles.mainDropdownInner
+          }
         >
           {children}
         </div>

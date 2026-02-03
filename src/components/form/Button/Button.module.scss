@@ -1,7 +1,6 @@
-@use 'styles/action' as *;
+@use 'styles/mixins/action' as *;
 
 .button {
-  border: none;
   cursor: pointer;
 
   &:disabled {

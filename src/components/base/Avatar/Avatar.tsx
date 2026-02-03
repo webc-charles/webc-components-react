@@ -56,7 +56,10 @@ export function Avatar({
       ) : initials ? (
         <span className={styles.initials}>{initials}</span>
       ) : (
-        <User style={{ width: fontSizeVar, height: fontSizeVar }} aria-hidden />
+        <User
+          style={{ width: fontSizeVar, height: fontSizeVar }}
+          aria-hidden
+        />
       )}
     </div>
   )

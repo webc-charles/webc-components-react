@@ -12,10 +12,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Carousel.module.scss'
 import type {
-  CarouselCSSProperties,
   CarouselContainerTypes,
   CarouselContextValue,
   CarouselControlsTypes,
+  CarouselCSSProperties,
   CarouselDotsTypes,
   CarouselNextTypes,
   CarouselPrevTypes,
@@ -78,7 +78,8 @@ export function Carousel({
     if (dragFree !== undefined) opts.dragFree = dragFree
     if (dragThreshold !== undefined) opts.dragThreshold = dragThreshold
     if (duration !== undefined) opts.duration = duration
-    if (inViewThreshold !== undefined) opts.inViewThreshold = inViewThreshold
+    if (inViewThreshold !== undefined)
+      opts.inViewThreshold = inViewThreshold
     if (loop !== undefined) opts.loop = loop
     if (skipSnaps !== undefined) opts.skipSnaps = skipSnaps
     if (slides !== undefined) opts.slides = slides
@@ -247,7 +248,11 @@ export function CarouselControls({
   return (
     <div
       ref={ref}
-      className={clsx(styles.controls, overlay && styles.overlay, className)}
+      className={clsx(
+        styles.controls,
+        overlay && styles.overlay,
+        className
+      )}
       {...props}
     >
       {children}

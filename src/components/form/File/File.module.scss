@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 $bg-color-button: var(--color-white);
 $bd-color-button: var(--color-black);
@@ -80,7 +80,6 @@ $bd-color-dropzone-active: var(--color-primary-2);
   &:focus {
     border-color: $bd-color-dropzone-active;
     color: $tx-color-dropzone-active;
-    outline: none;
   }
 
   &:hover:not(.disabled), &.dragging {

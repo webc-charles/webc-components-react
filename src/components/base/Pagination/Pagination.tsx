@@ -123,7 +123,7 @@ export function Pagination({
           className={clsx(
             styles.button,
             styles.disabled,
-            isCurrent && styles.current,
+            isCurrent && styles.current
           )}
         >
           {children}
@@ -133,7 +133,9 @@ export function Pagination({
 
     if (renderLink) {
       return (
-        <span key={index} className={styles.button}>{renderLink(page, children)}</span>
+        <span key={index} className={styles.button}>
+          {renderLink(page, children)}
+        </span>
       )
     }
 
@@ -196,30 +198,38 @@ export function Pagination({
     className
   )
 
-  const ellipsisClassList = clsx(
-    styles.button, 
-    styles.ellipsis
-  )
+  const ellipsisClassList = clsx(styles.button, styles.ellipsis)
 
   return (
-    <nav ref={ref} aria-label={ariaLabel} className={navClassList} {...rest}>
-      {showFirstLast && renderNavLink(
-        1,
-        <ChevronsLeft size={18} aria-hidden="true" />,
-        firstPageLabel,
-        currentPage === 1
-      )}
+    <nav
+      ref={ref}
+      aria-label={ariaLabel}
+      className={navClassList}
+      {...rest}
+    >
+      {showFirstLast &&
+        renderNavLink(
+          1,
+          <ChevronsLeft size={18} aria-hidden="true" />,
+          firstPageLabel,
+          currentPage === 1
+        )}
 
-      {showPrevNext && renderNavLink(
-        currentPage - 1,
-        <ChevronLeft size={18} aria-hidden="true" />,
-        previousPageLabel,
-        currentPage === 1
-      )}
+      {showPrevNext &&
+        renderNavLink(
+          currentPage - 1,
+          <ChevronLeft size={18} aria-hidden="true" />,
+          previousPageLabel,
+          currentPage === 1
+        )}
 
-      {pages.map((page, index) => (
+      {pages.map((page, index) =>
         page === 'ellipsis' ? (
-          <span key={index} className={ellipsisClassList} aria-hidden="true">
+          <span
+            key={index}
+            className={ellipsisClassList}
+            aria-hidden="true"
+          >
             …
           </span>
         ) : (
@@ -227,25 +237,27 @@ export function Pagination({
             page,
             page,
             pageLabel(page),
-            page === currentPage, 
+            page === currentPage,
             index
           )
         )
-      ))}
-
-      {showPrevNext && renderNavLink(
-        currentPage + 1,
-        <ChevronRight size={18} aria-hidden="true" />,
-        nextPageLabel,
-        currentPage === totalPages
       )}
 
-      {showFirstLast && renderNavLink(
-        totalPages,
-        <ChevronsRight size={18} aria-hidden="true" />,
-        lastPageLabel,
-        currentPage === totalPages
-      )}
+      {showPrevNext &&
+        renderNavLink(
+          currentPage + 1,
+          <ChevronRight size={18} aria-hidden="true" />,
+          nextPageLabel,
+          currentPage === totalPages
+        )}
+
+      {showFirstLast &&
+        renderNavLink(
+          totalPages,
+          <ChevronsRight size={18} aria-hidden="true" />,
+          lastPageLabel,
+          currentPage === totalPages
+        )}
     </nav>
   )
 }

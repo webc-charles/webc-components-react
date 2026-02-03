@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
+import styles from '../Footer.module.scss'
 import type { FooterMainLinkTypes } from '../Footer.types'
-import styles from './FooterMainLink.module.scss'
 
 export function FooterMainLink({
   asChild,

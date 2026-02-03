@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 $bd-color-radio: var(--color-grey-3);
 $bg-color-radio-after: var(--color-primary-2);

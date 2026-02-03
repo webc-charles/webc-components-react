@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderMobileBarTypes } from '../Header.types'
-import styles from './HeaderMobileBar.module.scss'
 
 export function HeaderMobileBar({
   ref,
@@ -9,7 +9,7 @@ export function HeaderMobileBar({
   ...rest
 }: HeaderMobileBarTypes) {
   return (
-    <div ref={ref} className={clsx(styles.bar, className)} {...rest}>
+    <div ref={ref} className={clsx(styles.mobileBar, className)} {...rest}>
       {children}
     </div>
   )

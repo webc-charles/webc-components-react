@@ -66,14 +66,12 @@ $bg-color-dot-active: var(--color-primary-2);
 .button {
   align-items: center;
   background: $bg-color-button;
-  border: none;
   border-radius: 50%;
   color: $tx-color-button;
   cursor: pointer;
   display: flex;
   height: 4rem;
   justify-content: center;
-  outline: none;
   width: 4rem;
 
   &:disabled {
@@ -97,12 +95,9 @@ $bg-color-dot-active: var(--color-primary-2);
 
 .dot {
   background-color: $bg-color-dot;
-  border: none;
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  outline: none;
-  padding: 0;
   width: 1rem;
 
   &.active,

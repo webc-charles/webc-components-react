@@ -26,5 +26,7 @@ export function useHeaderNavLabel(
   if (customLabel) return customLabel
 
   const navCount = getNavCount(type)
-  return navCount > 1 ? `${NAV_LABELS[type]} ${navIndex}` : NAV_LABELS[type]
+  return navCount > 1
+    ? `${NAV_LABELS[type]} ${navIndex}`
+    : NAV_LABELS[type]
 }

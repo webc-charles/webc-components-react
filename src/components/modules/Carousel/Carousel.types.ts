@@ -1,4 +1,4 @@
-import type { CSSProperties, ComponentPropsWithRef } from 'react'
+import type { ComponentPropsWithRef, CSSProperties } from 'react'
 import type { EmblaOptionsType } from 'embla-carousel'
 
 export type CarouselContextValue = {

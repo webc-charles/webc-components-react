@@ -1,5 +1,5 @@
-@use 'styles/color' as *;
-@use 'styles/typo' as *;
+@use 'styles/mixins/color' as *;
+@use 'styles/mixins/typo' as *;
 
 .note {
   @include base-note;

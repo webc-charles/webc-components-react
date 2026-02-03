@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Header.module.scss'
 import type { HeaderMainTypes } from '../Header.types'
-import styles from './HeaderMain.module.scss'
 
 export function HeaderMain({
   ref,
@@ -11,7 +11,7 @@ export function HeaderMain({
 }: HeaderMainTypes) {
   return (
     <div ref={ref} className={clsx(styles.main, className)} {...rest}>
-      <div className={clsx(styles.container, containerClassName)}>
+      <div className={clsx(styles.mainContainer, containerClassName)}>
         {children}
       </div>
     </div>

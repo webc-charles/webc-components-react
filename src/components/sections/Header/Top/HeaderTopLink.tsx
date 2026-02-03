@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { Slot } from 'utils'
+import styles from '../Header.module.scss'
 import type { HeaderTopLinkTypes } from '../Header.types'
-import styles from './HeaderTopLink.module.scss'
 
 export function HeaderTopLink({
   asChild,

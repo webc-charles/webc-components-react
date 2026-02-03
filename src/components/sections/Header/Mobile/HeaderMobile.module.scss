@@ -1,9 +1,0 @@
-@use 'styles/mq' as *;
-
-.mobile {
-  position: relative;
-
-  @include mq-md {
-    display: none;
-  }
-}

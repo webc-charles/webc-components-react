@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import styles from '../Footer.module.scss'
 import type { FooterBottomNavTypes } from '../Footer.types'
-import styles from './FooterBottomNav.module.scss'
 
 export function FooterBottomNav({
   ref,
@@ -13,7 +13,7 @@ export function FooterBottomNav({
     <nav
       ref={ref}
       aria-label={ariaLabel}
-      className={clsx(styles.nav, className)}
+      className={clsx(styles.bottomNav, className)}
       {...rest}
     >
       {children}

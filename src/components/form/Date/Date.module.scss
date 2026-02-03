@@ -1,4 +1,4 @@
-@use 'styles/form' as *;
+@use 'styles/mixins/form' as *;
 
 $tx-color-trigger: var(--color-grey-2);
 $tx-color-trigger-active: var(--color-primary-2);
@@ -29,14 +29,12 @@ $bg-color-button-2: var(--color-grey-5);
 .trigger {
   align-items: center;
   background: transparent;
-  border: none;
   color: $tx-color-trigger;
   cursor: pointer;
   display: flex;
   font-size: var(--font-size-5);
   height: 100%;
   justify-content: center;
-  padding: 0;
   position: absolute;
   right: 0;
   top: 0;
@@ -96,7 +94,6 @@ $bg-color-button-2: var(--color-grey-5);
 .day {
   align-items: center;
   aspect-ratio: 1;
-  background: transparent;
   background-color: $bg-color-button-1;
   border-radius: var(--radius-2);
   cursor: pointer;
@@ -124,7 +121,6 @@ $bg-color-button-2: var(--color-grey-5);
 
 .navButton {
   align-items: center;
-  background: transparent;
   background-color: $bg-color-button-1;
   border-radius: var(--radius-2);
   color: var(--color-black);

@@ -27,19 +27,13 @@ $bg-color-accordion-inner-expanded: var(--color-grey-5);
   }
 }
 
-.header {
-  margin: 0;
-}
-
 .trigger {
   align-items: center;
   background: transparent;
-  border: none;
   color: $tx-color-trigger;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  outline: none;
   padding: 1.5rem 2rem;
   text-align: left;
   transition: background-color 0.15s ease;

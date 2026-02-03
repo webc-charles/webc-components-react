@@ -1,4 +1,4 @@
-@use 'styles/typo' as *;
+@use 'styles/mixins/typo' as *;
 
 .richText {
   @include base-paragraph;
@@ -31,10 +31,6 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  a {
-    @include base-link;
   }
 
   strong,
@@ -185,7 +181,6 @@
   }
 
   iframe {
-    border: none;
     display: block;
     margin: 2rem 0;
     max-width: 100%;

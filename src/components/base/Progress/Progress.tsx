@@ -30,7 +30,7 @@ export function Progress({
         indeterminate && styles.indeterminate,
         className
       )}
-      style={{...(height ? {height} : {})}}
+      style={{ ...(height ? { height } : {}) }}
       {...rest}
     >
       <div

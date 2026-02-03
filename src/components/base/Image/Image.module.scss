@@ -1,14 +1,11 @@
-@use 'styles/typo' as *;
+@use 'styles/mixins/typo' as *;
 
 .image {
-  display: block;
   height: auto;
-  max-width: 100%;
 }
 
 .figure {
   display: inline-block;
-  margin: 0;
 }
 
 .caption {
@@ -17,7 +14,7 @@
   margin-top: 0.8rem;
 }
 
-// Object-fit variants
+
 .fitCover {
   object-fit: cover;
 }
@@ -38,7 +35,7 @@
   object-fit: scale-down;
 }
 
-// Object-position variants
+
 .positionCenter {
   object-position: center;
 }
@@ -75,7 +72,7 @@
   object-position: bottom right;
 }
 
-// Border-radius variants
+
 .radiusNone {
   border-radius: 0;
 }

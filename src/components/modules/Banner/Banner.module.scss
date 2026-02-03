@@ -1,4 +1,4 @@
-@use 'styles/mq' as *;
+@use 'styles/mixins/mq' as *;
 
 $bg-color-overlay-light: var(--color-white-50);
 $bg-color-overlay-dark: var(--color-black-50);

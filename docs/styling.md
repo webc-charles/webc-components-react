@@ -46,7 +46,7 @@ Variants: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `in
 | Variable | Value |
 |----------|-------|
 | `--container-max-width` | 120rem |
-| `--radius-sm/md/lg` | 0.4/0.5/0.6rem |
+| `--radius-1` to `--radius-7` | 0.2rem to 2rem |
 | `--z-index-1` to `--z-index-6` | 100-600 |
 
 ## Utility Classes
@@ -70,8 +70,17 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <!-- Gap -->
 <div class="g-2">gap</div>
 
+<!-- Zero -->
+<div class="m-0">no margin</div>
+<div class="p-0">no padding</div>
+
+<!-- Auto -->
+<div class="mh-auto">centered block</div>
+<div class="ml-auto">push right</div>
+
 <!-- Responsive -->
 <div class="p-2 p-md-4 p-lg-5">responsive</div>
+<div class="m-2 m-md-0">margin on mobile, none on desktop</div>
 ```
 
 | Direction | Props |
@@ -80,12 +89,34 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 | `v` | top + bottom |
 | `h` | left + right |
 
+| Size | Value |
+|------|-------|
+| `0` | 0 |
+| `1`-`9` | 0.5rem to 10rem |
+| `auto` | auto (margin only) |
+
 | Breakpoint | Width |
 |------------|-------|
 | `sm` | ≥768px |
 | `md` | ≥1024px |
 | `lg` | ≥1200px |
 | `xl` | ≥1400px |
+
+### Display
+
+Pattern: `d-{breakpoint?}-{value}`
+
+```html
+<div class="d-none d-md-block">hidden on mobile</div>
+<div class="d-block d-lg-none">hidden on large</div>
+<div class="d-none d-md-flex">flex on desktop only</div>
+```
+
+| Class | Values |
+|-------|--------|
+| `d-{value}` | none, block, flex, grid, inline, inline-block, inline-flex |
+
+All values support responsive breakpoints.
 
 ### Alignment
 
@@ -123,13 +154,84 @@ Pattern: `{property}{direction?}-{breakpoint?}-{size}`
 <p class="text-danger-2">error</p>
 ```
 
-### Typography
+### Font
 
 ```html
-<span class="uppercase">UPPERCASE</span>
-<span class="capitalize">Capitalize</span>
-<span class="lowercase">lowercase</span>
+<!-- Size (responsive) -->
+<h1 class="fs-6 fs-md-8 fs-lg-9">responsive heading</h1>
+
+<!-- Weight -->
+<p class="fw-strong">bold</p>
+<span class="fw-heading">extra bold</span>
+
+<!-- Transform -->
+<span class="text-uppercase">uppercased</span>
+<span class="text-capitalize">capitalized</span>
+<p class="text-truncate">truncated with ellipsis...</p>
+<span class="text-nowrap">no wrap</span>
 ```
+
+| Class | Values |
+|-------|--------|
+| `fs-{breakpoint?}-{1-9}` | font size (responsive) |
+| `fw-{weight}` | body, button, strong, heading |
+| `text-uppercase/lowercase/capitalize` | text transform |
+| `text-nowrap` | white-space: nowrap |
+| `text-truncate` | ellipsis overflow |
+
+### Border & Radius
+
+```html
+<div class="b">default border</div>
+<div class="b-t">top border</div>
+<div class="b-primary-2">colored border</div>
+<div class="r-3">rounded</div>
+<div class="r-full">circle</div>
+```
+
+### Overflow
+
+| Class | Property |
+|-------|----------|
+| `overflow-hidden` | overflow: hidden |
+| `overflow-auto` | overflow: auto |
+| `overflow-x-auto`, `overflow-y-auto` | axis overflow |
+| `overflow-x-hidden`, `overflow-y-hidden` | axis hidden |
+
+### Size
+
+| Class | Property |
+|-------|----------|
+| `w-full`, `w-auto` | width: 100% / auto |
+| `h-full`, `h-auto` | height: 100% / auto |
+| `h-screen`, `min-h-screen` | viewport height (dvh with fallback) |
+
+### Position
+
+| Class | Property |
+|-------|----------|
+| `relative`, `absolute`, `fixed`, `sticky`, `static` | position |
+
+### Opacity
+
+| Class | Value |
+|-------|-------|
+| `opacity-0` to `opacity-10` | 0 to 1 (steps of 0.1) |
+
+### Aspect Ratio
+
+| Class | Value |
+|-------|-------|
+| `aspect-square` | 1 / 1 |
+| `aspect-video` | 16 / 9 |
+| `aspect-4-3` | 4 / 3 |
+| `aspect-3-2` | 3 / 2 |
+
+### Accessibility
+
+| Class | Description |
+|-------|-------------|
+| `sr-only` | Visually hidden, accessible to screen readers |
 
 ## Theming
 

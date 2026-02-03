@@ -9,9 +9,6 @@ $tx-color-link-active: var(--color-primary-2);
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .item {
@@ -21,7 +18,6 @@ $tx-color-link-active: var(--color-primary-2);
 }
 
 .link {
-  outline: none;
   text-decoration: none;
 
   &:hover,

@@ -81,7 +81,7 @@ export function Video({
       <figure
         role="group"
         aria-labelledby={captionId}
-        className={clsx(styles.figure, className)}
+        className={className}
       >
         {video}
 

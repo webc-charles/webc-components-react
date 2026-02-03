@@ -326,7 +326,7 @@ Banner minHeight: "600px"
 | File | Action |
 |------|--------|
 | `src/styles/main.scss` | Add `--header-height` variable, header modifier classes |
-| `src/styles/layout.scss` | Create with hero utilities |
+| `src/styles/base/layout.scss` | Create with hero utilities |
 | `src/styles/index.scss` | Import layout.scss |
 | `HeaderMain.module.scss` | Add transparent, blur, shadow modes |
 | `HeaderTop.module.scss` | Add transparent mode |

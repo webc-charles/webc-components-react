@@ -4,9 +4,9 @@ import { Button } from 'form/Button'
 import {
   Banner,
   BannerActions,
+  BannerBody,
   BannerContent,
   BannerSubtitle,
-  BannerBody,
   BannerTitle,
 } from './Banner'
 import type {

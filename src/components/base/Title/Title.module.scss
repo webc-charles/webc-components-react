@@ -1,4 +1,4 @@
-@use 'styles/typo' as *;
+@use 'styles/mixins/typo' as *;
 
 .title {
   @include base-heading;

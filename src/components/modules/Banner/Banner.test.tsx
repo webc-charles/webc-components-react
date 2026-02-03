@@ -8,7 +8,7 @@ import {
   BannerActions,
   BannerContent,
   BannerSubtitle,
-  BannerText,
+  BannerBody,
   BannerTitle,
 } from './Banner'
 
@@ -32,7 +32,7 @@ describe('Banner', () => {
         <BannerContent>
           <BannerTitle>Title</BannerTitle>
           <BannerSubtitle>Subtitle</BannerSubtitle>
-          <BannerText>Body text</BannerText>
+          <BannerBody>Body text</BannerBody>
           <BannerActions>
             <Button>Action</Button>
           </BannerActions>

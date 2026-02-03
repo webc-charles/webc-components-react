@@ -1,6 +1,8 @@
 @use 'styles/action' as *;
 @use 'styles/mq' as *;
 
+$bg-color-toast: var(--color-white);
+
 .toasts {
   align-items: center;
   bottom: 0;
@@ -21,9 +23,8 @@
 }
 
 .toast {
-  background-color: var(--color-white);
+  background-color: $bg-color-toast;
   border-radius: var(--radius-3);
-  color: var(--color-black);
   display: flex;
   flex-direction: column;
   font-size: var(--font-size-4);

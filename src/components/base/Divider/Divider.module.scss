@@ -1,9 +1,12 @@
 @use 'styles/typo' as *;
 
+$bd-color-divider: var(--color-grey-5);
+$tx-color-divider: var(--color-grey-5);
+
 .divider {
   @include base-hr;
 
-  border-top-color: var(--color-grey-5);
+  border-top-color: $bd-color-divider;
   width: 100%;
 }
 
@@ -18,7 +21,7 @@
 }
 
 .dividerText {
-  color: var(--color-grey-3);
+  color: $tx-color-divider;
   font-size: var(--font-size-3);
   text-transform: uppercase;
 }

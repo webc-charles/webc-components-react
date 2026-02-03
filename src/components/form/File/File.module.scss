@@ -1,5 +1,15 @@
 @use 'styles/form' as *;
 
+$bg-color-button: var(--color-white);
+$bd-color-button: var(--color-black);
+$bg-color-button-active: var(--color-primary-2);
+$bd-color-button-active: var(--color-primary-2);
+$tx-color-dropzone-active: var(--color-primary-2);
+$bg-color-dropzone: var(--color-grey-6);
+$bg-color-dropzone-active: var(--color-primary-3);
+$bd-color-dropzone: var(--color-grey-4);
+$bd-color-dropzone-active: var(--color-primary-2);
+
 .wrapper {
   @include form-wrapper;
 }
@@ -23,23 +33,21 @@
 
 .button {
   align-items: center;
-  background-color: var(--color-white);
-  border: 0.1rem solid var(--color-grey-4);
+  background-color: $bg-color-button;
+  border: 0.1rem solid $bd-color-button;
   border-radius: var(--radius-3);
-  color: var(--color-black);
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
-  font-size: var(--font-size-4);
   gap: 1rem;
   height: 4rem;
   justify-content: center;
   padding: 0 2rem;
+  text-decoration: none;
 
-  &:hover:not(:disabled),
-  &:focus-visible:not(:disabled) {
-    background-color: var(--color-primary-2);
-    border-color: var(--color-primary-2);
+  &:is(:focus-visible, :hover):not(:disabled) {
+    background-color: $bg-color-button-active;
+    border-color: $bd-color-button-active;
     color: var(--color-white);
     text-decoration: none;
   }
@@ -47,13 +55,9 @@
   &:disabled {
     @include form-disabled;
   }
-
-
 }
 
 .fileNames {
-  color: var(--color-grey-2);
-  font-size: var(--font-size-4);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -61,45 +65,33 @@
 
 .dropzone {
   align-items: center;
-  background-color: var(--color-grey-6);
-  border: 0.2rem dashed var(--color-grey-4);
+  background-color: $bg-color-dropzone;
+  border: 0.2rem dashed $bd-color-dropzone;
   border-radius: var(--radius-3);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
   justify-content: center;
   min-height: 15rem;
   padding: 2rem;
   transition: all var(--transition-default);
 
   &:focus {
-    border-color: var(--color-primary-2);
+    border-color: $bd-color-dropzone-active;
+    color: $tx-color-dropzone-active;
     outline: none;
   }
 
-  &:hover:not(.disabled) {
-    background-color: var(--color-primary-3);
-    border-color: var(--color-primary-2);
-  }
-
-  &.dragging {
-    background-color: var(--color-primary-3);
-    border-color: var(--color-primary-2);
+  &:hover:not(.disabled), &.dragging {
+    background-color: $bg-color-dropzone-active;
+    border-color: $bd-color-dropzone-active;
+    color: $tx-color-dropzone-active;
   }
 
   &.disabled {
     @include form-disabled;
   }
-
-  svg {
-    color: var(--color-grey-3);
-  }
-}
-
-.dropzoneText {
-  color: var(--color-grey-2);
-  font-size: var(--font-size-4);
 }
 
 .dropzone .fileNames {

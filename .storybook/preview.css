@@ -1,3 +1,4 @@
-#storybook-root {
+body {
   display: block;
+  background: var(--color-grey-6);
 }

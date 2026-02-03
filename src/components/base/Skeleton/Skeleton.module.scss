@@ -1,5 +1,7 @@
+$bg-color-skeleton: var(--color-grey-5);
+
 .skeleton {
-  background-color: var(--color-grey-5);
+  background-color: $bg-color-skeleton;
 }
 
 .animated {

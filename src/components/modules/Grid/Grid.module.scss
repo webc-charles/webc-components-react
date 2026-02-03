@@ -10,28 +10,24 @@ $gaps: (
   5: 3rem,
 );
 
-// Base grid
 .grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(1, 1fr);
 }
 
-// Grid columns - base
 @for $i from 1 through 12 {
   .grid--#{$i} {
     grid-template-columns: repeat(#{$i}, 1fr);
   }
 }
 
-// Gap - base
 @each $name, $value in $gaps {
   .grid--gap-#{$name} {
     gap: $value;
   }
 }
 
-// GridItem column spans - base
 .gridItem {
   grid-column: span 1;
 }
@@ -42,7 +38,6 @@ $gaps: (
   }
 }
 
-// Row spans - base
 @for $i from 1 through 6 {
   .gridItem--row-#{$i} {
     grid-row: span #{$i};
@@ -53,7 +48,6 @@ $gaps: (
   }
 }
 
-// Responsive - XS
 @include mq-xs {
   @for $i from 1 through 12 {
     .grid--xs-#{$i} {
@@ -81,7 +75,6 @@ $gaps: (
   }
 }
 
-// Responsive - SM
 @include mq-sm {
   @for $i from 1 through 12 {
     .grid--sm-#{$i} {
@@ -109,7 +102,6 @@ $gaps: (
   }
 }
 
-// Responsive - MD
 @include mq-md {
   @for $i from 1 through 12 {
     .grid--md-#{$i} {
@@ -137,7 +129,6 @@ $gaps: (
   }
 }
 
-// Responsive - LG
 @include mq-lg {
   @for $i from 1 through 12 {
     .grid--lg-#{$i} {
@@ -165,7 +156,6 @@ $gaps: (
   }
 }
 
-// Responsive - XL
 @include mq-xl {
   @for $i from 1 through 12 {
     .grid--xl-#{$i} {
@@ -193,31 +183,25 @@ $gaps: (
   }
 }
 
-// Masonry layout using CSS columns
 .masonry {
   column-count: 1;
   column-gap: 1rem;
   display: block;
-
-  // Override grid display
   grid-template-columns: unset;
 }
 
-// Masonry columns - base
 @for $i from 1 through 12 {
   .masonry.grid--#{$i} {
     column-count: #{$i};
   }
 }
 
-// Masonry gaps - base
 @each $name, $value in $gaps {
   .masonry.grid--gap-#{$name} {
     column-gap: $value;
   }
 }
 
-// Masonry item
 .masonryItem {
   break-inside: avoid;
   margin-bottom: 1rem;
@@ -229,12 +213,10 @@ $gaps: (
   }
 }
 
-// Remove margin from last items (CSS can't do this perfectly with columns)
 .masonry.grid--gap-0 .masonryItem {
   margin-bottom: 0;
 }
 
-// Masonry responsive - XS
 @include mq-xs {
   @for $i from 1 through 12 {
     .masonry.grid--xs-#{$i} {
@@ -253,7 +235,6 @@ $gaps: (
   }
 }
 
-// Masonry responsive - SM
 @include mq-sm {
   @for $i from 1 through 12 {
     .masonry.grid--sm-#{$i} {
@@ -272,7 +253,6 @@ $gaps: (
   }
 }
 
-// Masonry responsive - MD
 @include mq-md {
   @for $i from 1 through 12 {
     .masonry.grid--md-#{$i} {
@@ -291,7 +271,6 @@ $gaps: (
   }
 }
 
-// Masonry responsive - LG
 @include mq-lg {
   @for $i from 1 through 12 {
     .masonry.grid--lg-#{$i} {
@@ -310,7 +289,6 @@ $gaps: (
   }
 }
 
-// Masonry responsive - XL
 @include mq-xl {
   @for $i from 1 through 12 {
     .masonry.grid--xl-#{$i} {

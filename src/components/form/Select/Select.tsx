@@ -375,7 +375,7 @@ const SelectModal = memo(
 
         {loading && (
           <div className={styles.selectLoading}>
-            <Spinner size="sm" inline />
+            <Spinner inline />
           </div>
         )}
       </div>,

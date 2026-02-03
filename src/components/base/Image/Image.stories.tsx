@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Image, Link } from 'components'
+import { Image, Link, Title } from 'components'
 import type { ImageFit, ImagePosition, ImageRadius } from './Image.types'
 
 const fitOptions: ImageFit[] = [
@@ -372,16 +372,8 @@ export const CardThumbnail: Story = {
         style={{ width: '100%' }}
       />
       <div style={{ padding: '1rem' }}>
-        <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.6rem' }}>
-          Card Title
-        </h3>
-        <p
-          style={{
-            margin: 0,
-            fontSize: '1.4rem',
-            color: 'var(--color-grey-2)',
-          }}
-        >
+        <Title level="h3">Card Title</Title>
+        <p>
           Card description text goes here.
         </p>
       </div>

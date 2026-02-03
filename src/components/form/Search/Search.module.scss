@@ -1,5 +1,13 @@
 @use 'styles/form' as *;
 
+$tx-color-icon: var(--color-grey-3);
+$tx-color-clear: var(--color-grey-3);
+$tx-color-clear-active: var(--color-primary-2);
+$bg-color-dropdown: var(--color-white);
+$bd-color-dropdown: var(--color-grey-4);
+$bg-color-result-active: var(--color-grey-6); 
+$tx-color-no-result: var(--color-grey-3);
+
 .wrapper {
   @include form-wrapper;
 }
@@ -13,7 +21,7 @@
 }
 
 .searchIcon {
-  color: var(--color-grey-3);
+  color: $tx-color-icon;
   left: 1.25rem;
   pointer-events: none;
   position: absolute;
@@ -27,7 +35,6 @@
   padding-left: 4rem;
   padding-right: 4rem;
 
-  // Hide default search cancel button
   &::-webkit-search-cancel-button {
     display: none;
   }
@@ -46,7 +53,7 @@
 .clearButton {
   align-items: center;
   border-radius: var(--radius-2);
-  color: var(--color-grey-3);
+  color: $tx-color-clear;
   cursor: pointer;
   display: flex;
   height: 3rem;
@@ -55,13 +62,13 @@
 
   &:hover,
   &:focus-visible {
-    color: var(--color-grey-1);
+    color: $tx-color-clear-active;
   }
 }
 
 .dropdown {
-  background-color: var(--color-white);
-  border: 0.1rem solid var(--color-grey-4);
+  background-color: $bg-color-dropdown;
+  border: 0.1rem solid $bd-color-dropdown;
   border-radius: var(--radius-3);
   max-height: 30rem;
   overflow-y: auto;
@@ -83,19 +90,17 @@
 
 .resultItem {
   cursor: pointer;
-  font-size: var(--font-size-4);
   padding: 1rem 2rem;
   transition: background-color var(--transition-default);
 
   &:hover,
   &.focused {
-    background-color: var(--color-grey-6);
+    background-color: $bg-color-result-active;
   }
 }
 
 .noResults {
-  color: var(--color-grey-3);
-  font-size: var(--font-size-4);
+  color: $tx-color-no-result;
   padding: 1rem;
   text-align: center;
 }

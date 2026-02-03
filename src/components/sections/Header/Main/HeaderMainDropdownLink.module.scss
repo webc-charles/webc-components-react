@@ -18,8 +18,8 @@
     padding: 0;
   }
 
-  &:hover,
-  &:focus-visible {
+  &:hover:not(.current),
+  &:focus-visible:not(.current) {
     color: var(--color-primary-2);
     text-decoration: underline;
   }

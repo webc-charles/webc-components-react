@@ -1,13 +1,9 @@
 @use 'styles/typo' as *;
 
-// stylelint-disable no-descending-specificity
 .richText {
-  color: var(--color-grey-1);
-
   @include base-paragraph;
   @include base-list;
 
-  // Headings
   h1,
   h2,
   h3,
@@ -16,7 +12,6 @@
   h6 {
     @include base-heading;
 
-    color: var(--color-grey-1);
     margin: 2rem 0 1rem;
 
     &:first-child {
@@ -30,7 +25,6 @@
     }
   }
 
-  // Paragraphs
   p {
     margin: 0 0 2rem;
 
@@ -39,12 +33,10 @@
     }
   }
 
-  // Links
   a {
     @include base-link;
   }
 
-  // Bold, italic, underline
   strong,
   b {
     font-weight: var(--font-weight-strong);
@@ -88,7 +80,6 @@
     bottom: -0.25em;
   }
 
-  // Blockquote
   blockquote {
     @include base-blockquote;
 
@@ -111,7 +102,6 @@
     }
   }
 
-  // Code
   code {
     @include base-code-inline;
   }
@@ -126,14 +116,12 @@
     @include base-keyboard;
   }
 
-  // Horizontal rule
   hr {
     @include base-hr;
 
     margin: 3rem 0;
   }
 
-  // Images (display: block & max-width already in main.scss)
   img {
     height: auto;
     margin: 2rem 0;
@@ -162,14 +150,12 @@
     }
   }
 
-  // Tables
   table {
     @include base-table;
 
     margin: 2rem 0;
   }
 
-  // Definition list
   dl {
     margin: 2rem 0;
   }
@@ -188,26 +174,16 @@
     }
   }
 
-  // Address
   address {
     font-style: normal;
     margin: 2rem 0;
   }
 
-  // Abbreviation
-  abbr[title] {
-    border-bottom: 0.1rem dotted var(--color-grey-3);
-    cursor: help;
-    text-decoration: none;
-  }
-
-  // Video/Audio (display: block & max-width already in main.scss)
   video,
   audio {
     margin: 2rem 0;
   }
 
-  // Iframe
   iframe {
     border: none;
     display: block;
@@ -215,4 +191,3 @@
     max-width: 100%;
   }
 }
-// stylelint-enable no-descending-specificity

@@ -1,5 +1,7 @@
 @use 'styles/mq' as *;
 
+$bg-color-form: var(--color-grey-7);
+
 .section {
   align-items: center;
   display: flex;
@@ -39,7 +41,7 @@
 }
 
 .form {
-  background: var(--color-grey-7);
+  background: $bg-color-form;
   border-radius: var(--radius-3);
   display: flex;
   flex-direction: column;
@@ -50,12 +52,5 @@
 
 .link {
   align-self: flex-start;
-  color: var(--color-black);
   font-size: var(--font-size-3);
-  text-decoration: underline;
-
-  &:hover,
-  &:focus-visible {
-    color: var(--color-primary-2);
-  }
 }

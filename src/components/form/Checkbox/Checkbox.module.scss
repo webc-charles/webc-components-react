@@ -1,5 +1,11 @@
 @use 'styles/form' as *;
 
+$tx-color-checkbox: var(--color-white);
+$bg-color-checkbox: var(--color-white);
+$bg-color-checkbox-active: var(--color-primary-2);
+$bd-color-checkbox: var(--color-black);
+$bd-color-checkbox-active: var(--color-primary-2);
+
 .wrapper {
   align-items: center;
   cursor: pointer;
@@ -15,8 +21,8 @@
 
 .checkbox {
   align-items: center;
-  background-color: var(--color-white);
-  border-color: var(--color-grey-3);
+  background-color: $bg-color-checkbox;
+  border-color: $bd-color-checkbox;
   border-radius: var(--radius-2);
   border-style: solid;
   border-width: 0.1rem;
@@ -27,21 +33,21 @@
   width: 2rem;
 
   &.checked {
-    background-color: var(--color-primary-2);
-    border-color: var(--color-primary-2);
+    background-color: $bg-color-checkbox-active;
+    border-color: $bd-color-checkbox-active;
   }
 }
 
 .hiddenInput:focus-visible + .checkbox:not(.checked) {
-  border-color: var(--color-primary-2);
+  border-color: $bd-color-checkbox-active;
 }
 
 .wrapper:hover:not(.disabled) .checkbox:not(.checked) {
-  border-color: var(--color-primary-2);
+  border-color: $bd-color-checkbox-active;
 }
 
 .checkIcon {
-  color: var(--color-white);
+  color: $tx-color-checkbox;
   font-size: var(--font-size-3);
 }
 

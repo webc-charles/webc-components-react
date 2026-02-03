@@ -1,26 +1,18 @@
-// Typography mixins for consistent styling across components
-// Used by: Title, Link, RichText, Image, Video, Audio, Note, Divider, etc.
-
-$heading-sizes: (
-  h1: 8,
-  h2: 7,
-  h3: 6,
-  h4: 5,
-  h5: 4,
-  h6: 3,
-);
-
 @mixin base-heading {
   font-weight: var(--font-weight-heading);
   line-height: var(--line-height-heading);
 }
 
 @mixin base-link {
-  color: var(--color-primary-2);
+  background: none;
+  color: var(--color-black);
+  font-size: var(--font-size-4);
+  outline: none;
   text-decoration: underline;
 
   &:hover,
   &:focus-visible {
+    color: var(--color-primary-2);
     text-decoration: none;
   }
 }
@@ -103,7 +95,6 @@ $heading-sizes: (
   padding: 0.2rem 0.5rem;
 }
 
-// stylelint-disable no-descending-specificity
 @mixin base-list {
   ul {
     list-style-type: disc;
@@ -165,39 +156,17 @@ $heading-sizes: (
   text-transform: lowercase;
 }
 
-// Global heading font sizes (can be overwritten by fs-* classes)
+$heading-sizes: (
+  h1: 8,
+  h2: 7,
+  h3: 6,
+  h4: 5,
+  h5: 4,
+  h6: 3,
+);
+
 @each $level, $size in $heading-sizes {
   #{$level} {
     font-size: var(--font-size-#{$size});
   }
-}
-
-// Global link defaults
-a {
-  color: var(--color-black);
-  text-decoration: none;
-
-  &:hover,
-  &:focus-visible {
-    color: var(--color-primary-2);
-    text-decoration: underline;
-  }
-}
-
-// Global button reset
-button {
-  background: none;
-  font-size: var(--font-size-4);
-  outline: none;
-
-  &:hover,
-  &:focus-visible {
-    color: var(--color-primary-2);
-    text-decoration: underline;
-  }
-}
-
-// SVG inherits font size
-svg {
-  font-size: inherit;
 }

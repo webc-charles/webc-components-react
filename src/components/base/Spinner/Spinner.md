@@ -16,12 +16,12 @@ import { Spinner } from '@ui'
 <Spinner />
 ```
 
-### Sizes
+### Custom Size
 
 ```tsx
-<Spinner size="sm" />  {/* 16px */}
-<Spinner size="md" />  {/* 24px */}
-<Spinner size="lg" />  {/* 32px */}
+<Spinner width="1.5rem" borderWidth="0.15rem" />
+<Spinner width="2rem" borderWidth="0.2rem" />
+<Spinner width="3rem" borderWidth="0.25rem" />
 ```
 
 ### Custom Label
@@ -35,7 +35,7 @@ import { Spinner } from '@ui'
 
 ```tsx
 <Button disabled>
-  <Spinner size="sm" inline /> Submitting...
+  <Spinner width="1.5rem" borderWidth="0.15rem" inline /> Submitting...
 </Button>
 ```
 
@@ -43,7 +43,8 @@ import { Spinner } from '@ui'
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Spinner size |
+| `width` | `string` | `'2rem'` | Width and height |
+| `borderWidth` | `string` | `'0.2rem'` | Border thickness |
 | `label` | `string` | `'Loading'` | Accessible label |
 | `inline` | `boolean` | `false` | Remove role for inline use |
 | `className` | `string` | - | Additional CSS class |
@@ -60,7 +61,7 @@ import { Spinner } from '@ui'
 
 ```tsx
 <div className="flex items-center justify-center" style={{ minHeight: '50vh' }}>
-  <Spinner size="lg" label="Loading page content" />
+  <Spinner width="3rem" borderWidth="0.25rem" label="Loading page content" />
 </div>
 ```
 
@@ -70,7 +71,7 @@ import { Spinner } from '@ui'
 <Button disabled={isLoading}>
   {isLoading ? (
     <>
-      <Spinner size="sm" inline /> Processing...
+      <Spinner width="1.5rem" borderWidth="0.15rem" inline /> Processing...
     </>
   ) : (
     'Submit'
@@ -94,7 +95,7 @@ import { Spinner } from '@ui'
 
 ```tsx
 <div className="flex flex-col items-center g-2">
-  <Spinner size="lg" />
+  <Spinner width="3rem" borderWidth="0.25rem" />
   <p>Loading your dashboard...</p>
 </div>
 ```

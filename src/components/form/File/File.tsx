@@ -182,7 +182,7 @@ export function InputFile({
         >
           <Upload size={24} aria-hidden />
 
-          <span className={styles.dropzoneText}>
+          <span>
             {isDragging ? getDropText() : getButtonText()}
           </span>
 

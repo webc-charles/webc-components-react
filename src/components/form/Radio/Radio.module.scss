@@ -1,5 +1,10 @@
 @use 'styles/form' as *;
 
+$bd-color-radio: var(--color-grey-3);
+$bg-color-radio-after: var(--color-primary-2);
+$bd-color-radio-active: var(--color-primary-2);
+$tx-color-label: var(--color-black);
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -39,7 +44,7 @@
 }
 
 .radio {
-  border: 0.1rem solid var(--color-grey-3);
+  border: 0.1rem solid $bd-color-radio;
   border-radius: 50%;
   flex-shrink: 0;
   height: 2rem;
@@ -47,7 +52,7 @@
   width: 2rem;
 
   &::after {
-    background-color: var(--color-primary-2);
+    background-color: $bg-color-radio-after;
     border-radius: 50%;
     content: '';
     height: 1rem;
@@ -67,11 +72,11 @@
   width: 0;
 
   &:focus-visible + .radio {
-    border-color: var(--color-primary-2);
+    border-color: $bd-color-radio-active;
   }
 
   &:checked + .radio {
-    border-color: var(--color-primary-2);
+    border-color: $bd-color-radio-active;
 
     &::after {
       transform: translate(-50%, -50%) scale(1);
@@ -80,6 +85,5 @@
 }
 
 .label {
-  color: var(--color-black);
-  font-size: var(--font-size-4);
+  color: $tx-color-label;
 }

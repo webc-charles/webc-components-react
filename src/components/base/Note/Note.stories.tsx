@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Note, Title } from 'components'
+import { Note, NoteTitle } from 'components'
 import type { ColorVariant } from 'types'
 
 const variants: ColorVariant[] = [
@@ -49,7 +49,7 @@ export const Playground: Story = {
 export const WithHeader: Story = {
   render: () => (
     <Note variant="warning">
-      <Title level="h4">Warning</Title>
+      <NoteTitle level="h4" className="fs-5">Warning</NoteTitle>
       <p>This action cannot be undone. Please proceed with caution.</p>
     </Note>
   ),
@@ -60,7 +60,7 @@ export const AllVariants: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {variants.map((v) => (
         <Note variant={v} key={v}>
-          <Title level="h4">{v}</Title>
+          <NoteTitle level="h4" className="fs-5">{v}</NoteTitle>
           <p>This is a {v} note with a header.</p>
         </Note>
       ))}

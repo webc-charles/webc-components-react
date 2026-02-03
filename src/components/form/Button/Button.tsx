@@ -37,7 +37,7 @@ export function Button({
       aria-busy={loading || undefined}
       {...rest}
     >
-      {loading ? <Spinner inline size="sm" /> : (children ?? title)}
+      {loading ? <Spinner inline /> : (children ?? title)}
     </button>
   )
 }

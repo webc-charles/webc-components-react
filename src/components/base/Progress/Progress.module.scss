@@ -1,5 +1,7 @@
+$bg-color-progress: var(--color-grey-5);
+
 .progress {
-  background-color: var(--color-grey-5);
+  background-color: $bg-color-progress;
   border-radius: 9999px;
   height:.5rem;
   overflow: hidden;
@@ -14,8 +16,8 @@
 }
 
 .label {
-  color: var(--color-grey-2);
   font-size: var(--font-size-2);
+  opacity: .5;
   position: absolute;
   right: 0;
   top: 50%;

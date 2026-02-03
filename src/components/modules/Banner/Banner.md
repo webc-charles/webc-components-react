@@ -10,7 +10,7 @@ import {
   BannerContent,
   BannerTitle,
   BannerSubtitle,
-  BannerText,
+  BannerBody,
   BannerActions,
 } from '@ui'
 ```
@@ -129,7 +129,7 @@ Main heading (uses Title component).
 
 Secondary text.
 
-### BannerText
+### BannerBody
 
 Body text paragraph.
 

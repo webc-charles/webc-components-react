@@ -1,6 +1,17 @@
 @use 'styles/form' as *;
 
-// WRAPPER & LABEL
+$bg-color-modal: var(--color-white);
+$bd-color-modal: var(--color-grey-4);
+$tx-color-placeholder: var(--color-grey-2);
+$tx-color-trigger: var(--color-grey-2);
+$tx-color-select: var(--color-black);
+$tx-color-clear: var(--color-grey-2);
+$tx-color-clear-active: var(--color-danger-2);
+$bg-color-choice-item: var(--color-grey-6);
+$bg-color-choice-remove: var(--color-grey-5);
+$tx-color-choice-remove: var(--color-grey-2);
+$bg-color-choice-remove-active: var(--color-danger-3);
+$tx-color-choice-remove-active: var(--color-danger-2);
 
 .wrapper {
   @include form-wrapper;
@@ -9,8 +20,6 @@
 .label {
   @include form-label;
 }
-
-// SELECT
 
 .selectRoot {
   @include form-input;
@@ -30,8 +39,8 @@
 }
 
 .selectModal {
-  background-color: var(--color-white);
-  border: 0.1rem solid var(--color-grey-4);
+  background-color: $bg-color-modal;
+  border: 0.1rem solid $bd-color-modal;
   border-radius: var(--radius-3);
   max-height: 20rem;
   overflow-y: auto;
@@ -43,17 +52,15 @@
 .selectSearchInline {
   background: transparent;
   border: none;
-  color: var(--color-black);
   flex: 1;
   font-family: inherit;
-  font-size: var(--font-size-4);
   font-weight: inherit;
   min-width: 5rem;
   outline: none;
   padding: 0;
 
   &::placeholder {
-    color: var(--color-grey-2);
+    color: $tx-color-placeholder;
   }
 }
 
@@ -66,7 +73,7 @@
 
 .selectTrigger {
   align-items: center;
-  color: var(--color-grey-2);
+  color: $tx-color-trigger;
   display: flex;
   flex-shrink: 0;
   justify-content: center;
@@ -86,16 +93,12 @@
 }
 
 .selectPlaceholder {
-  color: var(--color-grey-2);
-  font-size: var(--font-size-4);
+  color: $tx-color-placeholder;
 }
 
 .selectValue {
-  color: var(--color-black);
-  font-size: var(--font-size-4);
+  color: $tx-color-select;
 }
-
-// OPTIONS
 
 .optionList {
   display: flex;
@@ -109,7 +112,6 @@
   align-items: center;
   cursor: pointer;
   display: flex;
-  font-size: var(--font-size-4);
   gap: 1rem;
   padding: 0.5rem 1rem;
 
@@ -133,20 +135,18 @@
   }
 }
 
-// CHOICES
-
 .choiceClear {
   align-items: center;
   background: none;
   border: none;
-  color: var(--color-grey-2);
+  color: $tx-color-clear;
   cursor: pointer;
   display: flex;
   padding: 0.4rem;
 
   &:hover,
   &:focus-visible {
-    color: var(--color-danger-2);
+    color: $tx-color-clear-active;
   }
 }
 
@@ -162,10 +162,9 @@
 
 .choiceListItem {
   align-items: center;
-  background-color: var(--color-grey-6);
+  background-color: $bg-color-choice-item;
   border-radius: var(--radius-1);
   display: flex;
-  font-size: var(--font-size-4);
   max-width: 100%;
 }
 
@@ -178,10 +177,10 @@
 
 .choiceListItemRemove {
   align-items: center;
-  background-color: var(--color-grey-5);
+  background-color: $bg-color-choice-remove;
   border: none;
   border-radius: 0 var(--radius-1) var(--radius-1) 0;
-  color: var(--color-grey-2);
+  color: $tx-color-choice-remove;
   cursor: pointer;
   display: flex;
   min-height: 3rem;
@@ -189,7 +188,7 @@
 
   &:hover,
   &:focus-visible {
-    background-color: var(--color-danger-3);
-    color: var(--color-danger-2);
+    background-color: $bg-color-choice-remove-active;
+    color: $tx-color-choice-remove-active;
   }
 }

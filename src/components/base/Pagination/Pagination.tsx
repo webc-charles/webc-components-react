@@ -108,20 +108,22 @@ export function Pagination({
     page: number,
     children: React.ReactNode,
     ariaLabel: string,
-    isCurrent = false
+    isCurrent = false,
+    index: number
   ) => {
     const isDisabled = disabled || isCurrent
 
     if (isDisabled) {
       return (
         <span
+          key={index}
           aria-label={ariaLabel}
           aria-current={isCurrent ? 'page' : undefined}
           aria-disabled="true"
           className={clsx(
-            styles.page,
+            styles.button,
+            styles.disabled,
             isCurrent && styles.current,
-            styles.disabled
           )}
         >
           {children}
@@ -131,15 +133,16 @@ export function Pagination({
 
     if (renderLink) {
       return (
-        <span className={styles.page}>{renderLink(page, children)}</span>
+        <span key={index} className={styles.button}>{renderLink(page, children)}</span>
       )
     }
 
     return (
       <Link
+        key={index}
         href={getPageHref(page)}
         aria-label={ariaLabel}
-        className={styles.page}
+        className={styles.button}
         onClick={(e) => handleClick(e, page)}
       >
         {children}
@@ -158,9 +161,9 @@ export function Pagination({
     if (linkDisabled) {
       return (
         <span
-          aria-label={ariaLabel}
           aria-disabled="true"
-          className={clsx(styles.nav, styles.disabled)}
+          aria-label={ariaLabel}
+          className={clsx(styles.button, styles.disabled)}
         >
           {children}
         </span>
@@ -169,7 +172,7 @@ export function Pagination({
 
     if (renderLink) {
       return (
-        <span className={styles.nav}>{renderLink(page, children)}</span>
+        <span className={styles.button}>{renderLink(page, children)}</span>
       )
     }
 
@@ -177,7 +180,7 @@ export function Pagination({
       <Link
         href={getPageHref(page)}
         aria-label={ariaLabel}
-        className={styles.nav}
+        className={styles.button}
         onClick={(e) => handleClick(e, page)}
       >
         {children}
@@ -187,79 +190,62 @@ export function Pagination({
 
   if (totalPages <= 1) return null
 
+  const navClassList = clsx(
+    styles.pagination,
+    disabled && styles.disabled,
+    className
+  )
+
+  const ellipsisClassList = clsx(
+    styles.button, 
+    styles.ellipsis
+  )
+
   return (
-    <nav
-      ref={ref}
-      aria-label={ariaLabel}
-      className={clsx(
-        styles.pagination,
-        disabled && styles.disabled,
-        className
+    <nav ref={ref} aria-label={ariaLabel} className={navClassList} {...rest}>
+      {showFirstLast && renderNavLink(
+        1,
+        <ChevronsLeft size={18} aria-hidden="true" />,
+        firstPageLabel,
+        currentPage === 1
       )}
-      {...rest}
-    >
-      <ul className={styles.list}>
-        {showFirstLast && (
-          <li>
-            {renderNavLink(
-              1,
-              <ChevronsLeft size={18} aria-hidden="true" />,
-              firstPageLabel,
-              currentPage === 1
-            )}
-          </li>
-        )}
 
-        {showPrevNext && (
-          <li>
-            {renderNavLink(
-              currentPage - 1,
-              <ChevronLeft size={18} aria-hidden="true" />,
-              previousPageLabel,
-              currentPage === 1
-            )}
-          </li>
-        )}
+      {showPrevNext && renderNavLink(
+        currentPage - 1,
+        <ChevronLeft size={18} aria-hidden="true" />,
+        previousPageLabel,
+        currentPage === 1
+      )}
 
-        {pages.map((page, index) => (
-          <li key={index}>
-            {page === 'ellipsis' ? (
-              <span className={styles.ellipsis} aria-hidden="true">
-                …
-              </span>
-            ) : (
-              renderPageLink(
-                page,
-                page,
-                pageLabel(page),
-                page === currentPage
-              )
-            )}
-          </li>
-        ))}
+      {pages.map((page, index) => (
+        page === 'ellipsis' ? (
+          <span key={index} className={ellipsisClassList} aria-hidden="true">
+            …
+          </span>
+        ) : (
+          renderPageLink(
+            page,
+            page,
+            pageLabel(page),
+            page === currentPage, 
+            index
+          )
+        )
+      ))}
 
-        {showPrevNext && (
-          <li>
-            {renderNavLink(
-              currentPage + 1,
-              <ChevronRight size={18} aria-hidden="true" />,
-              nextPageLabel,
-              currentPage === totalPages
-            )}
-          </li>
-        )}
+      {showPrevNext && renderNavLink(
+        currentPage + 1,
+        <ChevronRight size={18} aria-hidden="true" />,
+        nextPageLabel,
+        currentPage === totalPages
+      )}
 
-        {showFirstLast && (
-          <li>
-            {renderNavLink(
-              totalPages,
-              <ChevronsRight size={18} aria-hidden="true" />,
-              lastPageLabel,
-              currentPage === totalPages
-            )}
-          </li>
-        )}
-      </ul>
+      {showFirstLast && renderNavLink(
+        totalPages,
+        <ChevronsRight size={18} aria-hidden="true" />,
+        lastPageLabel,
+        currentPage === totalPages
+      )}
     </nav>
   )
 }

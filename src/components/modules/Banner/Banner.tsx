@@ -3,9 +3,9 @@ import { Title } from 'components'
 import styles from './Banner.module.scss'
 import type {
   BannerActionsTypes,
+  BannerBodyTypes,
   BannerContentTypes,
   BannerSubtitleTypes,
-  BannerTextTypes,
   BannerTitleTypes,
   BannerTypes,
 } from './Banner.types'
@@ -82,8 +82,8 @@ export function BannerContent({
       ref={ref}
       className={clsx(
         styles.content,
-        textAlign && styles[`text-align-${textAlign}`],
         styles[`text-${textColor}`],
+        textAlign && styles[`text-align-${textAlign}`],
         className
       )}
       style={{ ...style, maxWidth }}
@@ -124,16 +124,16 @@ export function BannerSubtitle({
   )
 }
 
-export function BannerText({
+export function BannerBody({
   ref,
   className,
   children,
   ...props
-}: BannerTextTypes) {
+}: BannerBodyTypes) {
   return (
-    <p ref={ref} className={clsx(styles.text, className)} {...props}>
+    <div ref={ref} className={clsx(styles.body, className)} {...props}>
       {children}
-    </p>
+    </div>
   )
 }
 

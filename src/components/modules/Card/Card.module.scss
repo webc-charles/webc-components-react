@@ -1,5 +1,7 @@
+$bg-color-card: var(--color-white);
+
 .card {
-  background-color: var(--color-white);
+  background-color: $bg-color-card;
   display: flex;
   flex-direction: column;
 }

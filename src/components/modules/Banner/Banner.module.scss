@@ -1,5 +1,10 @@
 @use 'styles/mq' as *;
 
+$bg-color-overlay-light: var(--color-white-50);
+$bg-color-overlay-dark: var(--color-black-50);
+$tx-color-light: var(--color-white);
+$tx-color-dark: var(--color-black);
+
 .banner {
   background-position: center;
   background-repeat: no-repeat;
@@ -19,11 +24,11 @@
   }
 
   &.overlay-light::before {
-    background: var(--color-white-50);
+    background: $bg-color-overlay-light;
   }
 
   &.overlay-dark::before {
-    background: var(--color-black-50);
+    background: $bg-color-overlay-dark;
   }
 }
 
@@ -92,37 +97,34 @@
     text-align: right;
   }
 
-  .title {
-    color: inherit;
-  }
-
-  .subtitle {
-    color: inherit;
-    font-size: var(--font-size-4);
-  }
-
-  .text {
-    color: inherit;
-    font-size: var(--font-size-4);
-    margin: 2rem 0 0;
-    max-width: 100%;
-  }
-
   &.text-light {
-    color: var(--color-white);
+    color: $tx-color-light;
   }
 
   &.text-dark {
-    color: var(--color-black);
+    color: $tx-color-dark;
   }
+}
+
+.title {
+  color: inherit;
+  display: block;
+}
+
+.subtitle {
+  color: inherit;
+  display: block;
+}
+
+.body {
+  color: inherit;
+  display: block;
 }
 
 .actions {
   align-items: center;
   display: flex;
   gap: 2rem;
-  
-  margin: 4rem 0 0;
 
   .text-align-left & {
     justify-content: flex-start;

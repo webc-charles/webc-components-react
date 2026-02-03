@@ -1,7 +1,10 @@
+$bg-color-avatar: var(--color-secondary-2);
+$tx-color-avatar: var(--color-white);
+
 .avatar {
   align-items: center;
   aspect-ratio: 1;
-  background-color: var(--color-secondary-2);
+  background-color: $bg-color-avatar;
   border-radius: 50%;
   display: inline-flex;
   flex-shrink: 0;
@@ -16,12 +19,11 @@
 }
 
 .initials {
-  color: var(--color-white);
+  color: $tx-color-avatar;
   font-weight: var(--font-weight-heading);
   text-transform: uppercase;
 }
 
-// Variants
 $variants: default, primary, secondary, success, danger, warning, info;
 
 @each $variant in $variants {

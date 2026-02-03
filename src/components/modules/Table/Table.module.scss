@@ -1,5 +1,10 @@
 @use 'styles/typo' as *;
 
+$bg-color-row-even: var(--color-grey-7);
+$bg-color-row-hover: var(--color-grey-6);
+$bg-color-head: var(--color-grey-6);
+$bg-color-foot: var(--color-grey-6);
+
 .table {
   @include base-table;
 
@@ -7,7 +12,6 @@
   width: 100%;
 }
 
-// Remove default borders when not bordered
 .table:not(.bordered) {
   th,
   td {
@@ -15,53 +19,45 @@
   }
 }
 
-// Striped rows
 .table.striped tbody tr:nth-child(even) {
-  background-color: var(--color-grey-7, #fafafa);
+  background-color: $bg-color-row-even;
 }
 
 .table:not(.striped) tbody tr:nth-child(even) {
   background-color: transparent;
 }
 
-// Hoverable rows
 .table.hoverable tbody tr:hover {
-  background-color: var(--color-grey-6);
+  background-color: $bg-color-row-hover;
 }
 
-// Compact mode
 .table.compact th,
 .table.compact td {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
 }
 
-// Head
 .head {
-  background-color: var(--color-grey-6);
+  background-color: $bg-color-head;
 }
 
-// Foot
 .foot {
-  background-color: var(--color-grey-6);
+  background-color: $bg-color-foot;
   font-weight: var(--font-weight-strong);
 }
 
-// Header cell
 .headerCell {
   font-weight: var(--font-weight-strong);
   text-align: left;
 }
 
-// Cell
 .cell {
   text-align: left;
 }
 
-// Caption
 .caption {
-  color: var(--color-grey-2);
   font-size: var(--font-size-2);
-  padding: 0.75rem;
+  opacity: .5;
+  padding: 1rem;
   text-align: left;
 }
 

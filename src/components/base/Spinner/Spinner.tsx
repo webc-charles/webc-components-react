@@ -5,9 +5,11 @@ import type { SpinnerTypes } from './Spinner.types'
 export function Spinner({
   ref,
   className,
-  size = 'md',
+  width,
+  borderWidth,
   label = 'Loading',
   inline = false,
+  style,
   ...rest
 }: SpinnerTypes) {
   return (
@@ -16,7 +18,12 @@ export function Spinner({
       role={inline ? undefined : 'status'}
       aria-label={inline ? undefined : label}
       aria-hidden={inline || undefined}
-      className={clsx(styles.spinner, styles[`size-${size}`], className)}
+      className={clsx(styles.spinner, className)}
+      style={{
+        ...(width ? { width } : {}),
+        ...(borderWidth ? { borderWidth } : {}),
+        ...style,
+      }}
       {...rest}
     />
   )

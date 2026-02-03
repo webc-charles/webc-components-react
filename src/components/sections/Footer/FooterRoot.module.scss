@@ -1,5 +1,7 @@
+$bg-color-footer: var(--color-grey-5);
+
 .footer {
-  background: var(--color-grey-5);
+  background: $bg-color-footer;
   display: block;
 }
 

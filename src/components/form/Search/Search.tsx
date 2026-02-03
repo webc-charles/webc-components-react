@@ -258,7 +258,7 @@ export function InputSearch({
 
       {(value || loading) && !disabled && (
         <div className={styles.actions}>
-          {loading && <Spinner size="sm" inline />}
+          {loading && <Spinner inline />}
           {value && (
             <Button
               type="button"
@@ -316,7 +316,7 @@ export function InputSearch({
 
             {loading && hasMore && results.length > 0 && (
               <div className={styles.dropdownLoading}>
-                <Spinner size="sm" inline />
+                <Spinner inline />
               </div>
             )}
           </div>,

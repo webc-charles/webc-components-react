@@ -1,5 +1,12 @@
 @use 'styles/form' as *;
 
+$bd-color-input-active: var(--color-primary-2);
+$bg-color-nav: var(--color-grey-3);
+$bg-color-nav-active: var(--color-primary-2);
+$bg-color-button: var(--color-white);
+$bg-color-button-active: var(--color-primary-2);
+$tx-color-button-active: var(--color-white);
+
 .wrapper {
   @include form-wrapper;
 
@@ -38,12 +45,12 @@
 
   .wrapper:not(.disabled):hover &,
   .wrapper:not(.disabled):focus-within & {
-    border: 0.1rem solid var(--color-primary-2);
+    border: 0.1rem solid $bd-color-input-active;
   }
 }
 
 .nav {
-  background-color: var(--color-grey-3);
+  background-color: $bg-color-nav;
   border-radius: 0 var(--radius-2) var(--radius-2) 0;
   bottom: 0;
   display: flex;
@@ -57,13 +64,13 @@
 
   .wrapper:not(.disabled):hover &,
   .wrapper:not(.disabled):focus-within & {
-    background-color: var(--color-primary-2);
+    background-color: $bg-color-nav-active;
   }
 }
 
 .button {
   align-items: center;
-  background-color: var(--color-white);
+  background-color: $bg-color-button;
   border: none;
   box-shadow: none;
   color: var(--color-grey-2);
@@ -71,18 +78,16 @@
   display: flex;
   flex: 1;
   justify-content: center;
-  min-width: 3.8rem;
-  padding: 0 0.5rem;
+  min-width: 4rem;
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
-  &:focus-visible:not(:disabled),
-  &:hover:not(:disabled) {
-    background: var(--color-primary-2);
-    color: var(--color-white);
+  &:is(:focus-visible, :hover):not(:disabled) {
+    background: $bg-color-button-active;
+    color: $tx-color-button-active;
   }
 
   &.increment {

@@ -4,6 +4,10 @@ $track-width: 4.4rem;
 $track-height: 2.4rem;
 $thumb-size: 1.8rem;
 $thumb-margin: 0.3rem;
+$bg-color-track: var(--color-grey-4);
+$bg-color-track-active: var(--color-primary-2);
+$bg-color-thumb: var(--color-white);
+$tx-color-label: var(--color-black);
 
 .wrapper {
   align-items: center;
@@ -17,7 +21,7 @@ $thumb-margin: 0.3rem;
 }
 
 .track {
-  background-color: var(--color-grey-4);
+  background-color: $bg-color-track;
   border-radius: $track-height;
   display: inline-flex;
   height: $track-height;
@@ -26,7 +30,7 @@ $thumb-margin: 0.3rem;
   width: $track-width;
 
   &.checked {
-    background-color: var(--color-primary-2);
+    background-color: $bg-color-track-active;
   }
 }
 
@@ -42,7 +46,7 @@ $thumb-margin: 0.3rem;
 }
 
 .thumb {
-  background-color: var(--color-white);
+  background-color: $bg-color-thumb;
   border-radius: 50%;
   box-shadow: 0 0.1rem 0.3rem var(--color-black-20);
   height: $thumb-size;
@@ -56,6 +60,5 @@ $thumb-margin: 0.3rem;
 }
 
 .label {
-  color: var(--color-black);
-  font-size: var(--font-size-4);
+  color: $tx-color-label;
 }

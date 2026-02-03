@@ -42,6 +42,6 @@ export type BannerTitleTypes = TitleTypes
 
 export type BannerSubtitleTypes = ComponentPropsWithRef<'p'>
 
-export type BannerTextTypes = ComponentPropsWithRef<'p'>
+export type BannerBodyTypes = ComponentPropsWithRef<'div'>
 
 export type BannerActionsTypes = ComponentPropsWithRef<'div'>

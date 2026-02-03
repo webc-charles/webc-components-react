@@ -1,3 +1,9 @@
+$bg-color-sidebar: var(--color-white);
+$bg-color-main: var(--color-grey-6);
+$bg-color-link: var(--color-grey-5);
+$bg-color-link-active: var(--color-primary-2);
+$tx-color-link-active: var(--color-white);
+
 .layout {
   display: flex;
   min-height: 100vh;
@@ -5,7 +11,7 @@
 }
 
 .sidebar {
-  background-color: var(--color-white);
+  background-color: $bg-color-sidebar;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -33,7 +39,7 @@
 }
 
 .main {
-  background-color: var(--color-grey-6);
+  background-color: $bg-color-main;
   flex: 1;
   margin-left: 25rem;
   padding: 2rem 4rem 4rem;
@@ -73,10 +79,9 @@
 
 .navLink {
   align-items: center;
-  background-color: var(--color-grey-5);
+  background-color: $bg-color-link;
   border: none;
   border-radius: var(--radius-2);
-  color: var(--color-grey-1);
   cursor: pointer;
   display: flex;
   font-family: inherit;
@@ -90,14 +95,14 @@
 
   &:hover,
   &:focus-visible {
-    background-color: var(--color-primary-2);
-    color: var(--color-white);
+    background-color: $bg-color-link-active;
+    color: $tx-color-link-active;
     text-decoration: none;
   }
 
   &.current {
-    background-color: var(--color-primary-2);
-    color: var(--color-white);
+    background-color: $bg-color-link-active;
+    color: $tx-color-link-active;
     cursor: default;
   }
 }

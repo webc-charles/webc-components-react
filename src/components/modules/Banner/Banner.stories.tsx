@@ -6,7 +6,7 @@ import {
   BannerActions,
   BannerContent,
   BannerSubtitle,
-  BannerText,
+  BannerBody,
   BannerTitle,
 } from './Banner'
 import type {
@@ -92,10 +92,10 @@ export const Default: Story = {
       <BannerContent textColor="light">
         <BannerTitle>Welcome to Our Platform</BannerTitle>
         <BannerSubtitle>Build something amazing today</BannerSubtitle>
-        <BannerText>
+        <BannerBody>
           Discover the tools and resources you need to bring your ideas to
           life. Start your journey with us and transform the way you work.
-        </BannerText>
+        </BannerBody>
         <BannerActions>
           <Button variant="default" contrast appearance="button">
             Get Started
@@ -122,10 +122,10 @@ export const WithBackgroundImage: Story = {
         <BannerSubtitle>
           Adventure awaits beyond the horizon
         </BannerSubtitle>
-        <BannerText>
+        <BannerBody>
           Experience breathtaking views and unforgettable moments in
           nature's most spectacular landscapes.
-        </BannerText>
+        </BannerBody>
         <BannerActions>
           <Button variant="primary" contrast appearance="button">
             Book Now
@@ -154,10 +154,10 @@ export const WithBackgroundVideo: Story = {
       <BannerContent textColor="light" textAlign="center">
         <BannerTitle>Cinematic Experience</BannerTitle>
         <BannerSubtitle>Immerse yourself in motion</BannerSubtitle>
-        <BannerText>
+        <BannerBody>
           Video backgrounds create engaging, dynamic hero sections that
           capture attention instantly.
-        </BannerText>
+        </BannerBody>
         <BannerActions>
           <Button variant="primary" contrast appearance="button">
             Watch Now
@@ -182,10 +182,10 @@ export const LightOverlay: Story = {
       <BannerContent textColor="dark">
         <BannerTitle>Nature Retreats</BannerTitle>
         <BannerSubtitle>Find your peace</BannerSubtitle>
-        <BannerText>
+        <BannerBody>
           Disconnect from the everyday and reconnect with yourself in our
           carefully curated natural escapes.
-        </BannerText>
+        </BannerBody>
         <BannerActions>
           <Button variant="primary" appearance="button">
             Explore
@@ -207,9 +207,9 @@ export const RightAligned: Story = {
       <BannerContent textColor="light" maxWidth="50rem">
         <BannerTitle level="h2">Premium Collection</BannerTitle>
         <BannerSubtitle>Exclusive designs for you</BannerSubtitle>
-        <BannerText>
+        <BannerBody>
           Handcrafted with attention to every detail.
-        </BannerText>
+        </BannerBody>
         <BannerActions>
           <Button variant="secondary" contrast appearance="button">
             Shop Now

@@ -52,7 +52,6 @@ import type { ColorVariant } from 'types'
 
 export type ComponentTypes = ComponentPropsWithRef<'div'> & {
   variant?: ColorVariant
-  size?: 'sm' | 'md' | 'lg'
 }
 ```
 

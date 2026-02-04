@@ -235,7 +235,6 @@ Top utility bar (help links, language selector).
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `children` | `ReactNode` | - | TopNav components |
-| `justify` | `'end' \| 'between'` | `'between'` | Content alignment |
 | `containerClassName` | `string` | - | Inner container class |
 
 ### HeaderMain

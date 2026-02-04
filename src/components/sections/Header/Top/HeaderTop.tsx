@@ -7,18 +7,11 @@ export function HeaderTop({
   children,
   className,
   containerClassName,
-  justify = 'end',
   ...rest
 }: HeaderTopTypes) {
   return (
     <div ref={ref} className={clsx(styles.topBar, className)} {...rest}>
-      <div
-        className={clsx(
-          styles.topContainer,
-          justify === 'between' && styles.topBetween,
-          containerClassName
-        )}
-      >
+      <div className={clsx(styles.topContainer, containerClassName)}>
         {children}
       </div>
     </div>

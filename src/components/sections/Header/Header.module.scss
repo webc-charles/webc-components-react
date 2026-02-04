@@ -69,9 +69,6 @@ $tx-color-transparent-dark: var(--color-black);
   max-width: var(--container-max-width);
   padding: 0 2rem;
 
-  &.topBetween {
-    justify-content: space-between;
-  }
 }
 
 .topNav {
@@ -237,6 +234,10 @@ $tx-color-transparent-dark: var(--color-black);
     height: auto;
     max-height: 4rem;
     width: auto;
+  }
+
+  [data-logo='light'] {
+    display: none;
   }
 }
 
@@ -459,6 +460,10 @@ $tx-color-transparent-dark: var(--color-black);
 
 .mobileLogo {
   flex-shrink: 0;
+
+  [data-logo='light'] {
+    display: none;
+  }
 }
 
 .mobileToggle {
@@ -625,6 +630,17 @@ $tx-color-transparent-dark: var(--color-black);
     transition: background-color var(--transition-default);
   }
 
+  .mainLogo,
+  .mobileLogo {
+    [data-logo='default'] {
+      display: none;
+    }
+
+    [data-logo='light'] {
+      display: block;
+    }
+  }
+
   &.textLight {
     .topBar {
       background-color: $bg-color-transparent-topbar-light;
@@ -729,6 +745,16 @@ $tx-color-transparent-dark: var(--color-black);
       background-color: $bg-color-header;
     }
 
+    .mainLogo,
+    .mobileLogo {
+      [data-logo='default'] {
+        display: block;
+      }
+
+      [data-logo='light'] {
+        display: none;
+      }
+    }
 
     .chevron,
     .topLink,

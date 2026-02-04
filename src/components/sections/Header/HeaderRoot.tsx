@@ -120,6 +120,7 @@ export function HeaderRoot({
     <HeaderContext.Provider value={value}>
       <header
         ref={ref}
+        data-header-root
         className={clsx(
           styles.header,
           transparent && styles.transparent,

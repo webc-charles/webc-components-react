@@ -12,7 +12,6 @@ export type HeaderTypes = ComponentPropsWithRef<'header'> & {
 export type HeaderTopTypes = ComponentPropsWithRef<'div'> & {
   children: ReactNode
   containerClassName?: string
-  justify?: 'end' | 'between'
 }
 
 export type HeaderTopNavTypes = ComponentPropsWithRef<'nav'> & {

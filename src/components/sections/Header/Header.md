@@ -224,6 +224,8 @@ Root container providing context for mobile menu state.
 |------|------|---------|-------------|
 | `children` | `ReactNode` | - | Header content |
 | `baseId` | `string` | auto | Base ID for accessibility |
+| `transparent` | `boolean` | `false` | Transparent background mode |
+| `textColor` | `'light' \| 'dark'` | `'light'` | Text/icon color when transparent |
 | `className` | `string` | - | Additional CSS class |
 
 ### HeaderTop
@@ -282,6 +284,41 @@ All link components support `asChild` for custom link rendering and `current` fo
 | `HeaderMainDropdownLink` | Link in main dropdown |
 | `HeaderMobileLink` | Link in mobile menu |
 | `HeaderMobileDropdownLink` | Link in mobile dropdown |
+
+## Transparent Header
+
+Use `transparent` and `textColor` to overlay the header on hero content. The header becomes solid on scroll (10px threshold).
+
+```tsx
+<HeaderRoot transparent textColor="light">
+  <HeaderTop>{/* top bar */}</HeaderTop>
+  <HeaderMain>{/* main nav */}</HeaderMain>
+  <HeaderMobile>{/* mobile menu */}</HeaderMobile>
+</HeaderRoot>
+
+<Banner backgroundImage="..." overlay="dark" className="h-screen">
+  <BannerContent textColor="light">{/* hero content */}</BannerContent>
+</Banner>
+```
+
+Add `header-transparent` class to `<body>` to remove default header padding:
+
+```html
+<body class="with-main-nav with-mobile-nav header-transparent">
+```
+
+### Context
+
+`useHeader()` exposes `isTransparent` and `textColor` for consumer-side logic (e.g. logo swap):
+
+```tsx
+const { isTransparent, textColor } = useHeader()
+```
+
+| Value | Type | Description |
+|-------|------|-------------|
+| `isTransparent` | `boolean` | `true` when transparent and not scrolled |
+| `textColor` | `'light' \| 'dark'` | Current text color variant |
 
 ## Behavior
 

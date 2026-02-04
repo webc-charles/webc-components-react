@@ -46,8 +46,21 @@ Variants: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `in
 | Variable | Value |
 |----------|-------|
 | `--container-max-width` | 120rem |
+| `--height-mobile-menu` | 6rem |
+| `--height-main-menu` | 6rem |
+| `--height-top-menu` | 3rem |
 | `--radius-1` to `--radius-7` | 0.2rem to 2rem |
 | `--z-index-1` to `--z-index-6` | 100-600 |
+
+### Body Classes
+
+| Class | Description |
+|-------|-------------|
+| `with-mobile-nav` | Adds mobile header padding-top |
+| `with-main-nav` | Adds main nav padding-top (desktop) |
+| `with-top-nav` | Adds top bar padding-top (desktop) |
+| `header-transparent` | Removes header padding-top for transparent overlay |
+| `freeze` | Locks body scroll (used by modal/mobile menu) |
 
 ## Utility Classes
 

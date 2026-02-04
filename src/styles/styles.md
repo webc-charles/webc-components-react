@@ -114,6 +114,16 @@ styles/
 --height-top-menu      /* 3rem */
 ```
 
+### Body Classes (layout.scss)
+
+| Class | Description |
+|-------|-------------|
+| `with-mobile-nav` | Adds mobile header padding-top |
+| `with-main-nav` | Adds main nav padding-top (desktop) |
+| `with-top-nav` | Adds top bar padding-top (desktop) |
+| `header-transparent` | Removes header padding-top for transparent overlay |
+| `freeze` | Locks body scroll |
+
 ### Border Radius
 
 ```css

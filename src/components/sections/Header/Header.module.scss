@@ -639,6 +639,36 @@ $bg-color-transparent-topbar-dark: var(--color-white-20);
     .chevron {
       color: var(--color-white);
     }
+
+    .mainLink:hover,
+    .mainLink:focus-visible,
+    .mainDropdownTrigger:hover,
+    .mainDropdownTrigger:focus-visible,
+    .withMainDropdown:hover .mainDropdownTrigger,
+    .withMainDropdown:focus-within .mainDropdownTrigger {
+      background-color: var(--color-white-20);
+      color: var(--color-white);
+    }
+
+    .withMainDropdown:hover .chevron,
+    .withMainDropdown:focus-within .chevron,
+    .withTopDropdown:hover .chevron,
+    .withTopDropdown:focus-within .chevron {
+      color: var(--color-white);
+    }
+
+    .topTrigger:hover,
+    .topTrigger:focus-visible,
+    .withTopDropdown:hover .topTrigger,
+    .withTopDropdown:focus-within .topTrigger {
+      background-color: var(--color-white-20);
+      border-color: transparent;
+      color: var(--color-white);
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   &.textDark {
@@ -653,6 +683,36 @@ $bg-color-transparent-topbar-dark: var(--color-white-20);
     .mobileToggle,
     .chevron {
       color: var(--color-black);
+    }
+
+    .mainLink:hover,
+    .mainLink:focus-visible,
+    .mainDropdownTrigger:hover,
+    .mainDropdownTrigger:focus-visible,
+    .withMainDropdown:hover .mainDropdownTrigger,
+    .withMainDropdown:focus-within .mainDropdownTrigger {
+      background-color: var(--color-black-20);
+      color: var(--color-black);
+    }
+
+    .withMainDropdown:hover .chevron,
+    .withMainDropdown:focus-within .chevron,
+    .withTopDropdown:hover .chevron,
+    .withTopDropdown:focus-within .chevron {
+      color: var(--color-black);
+    }
+
+    .topTrigger:hover,
+    .topTrigger:focus-visible,
+    .withTopDropdown:hover .topTrigger,
+    .withTopDropdown:focus-within .topTrigger {
+      background-color: var(--color-black-20);
+      border-color: transparent;
+      color: var(--color-black);
+
+      &::after {
+        display: none;
+      }
     }
   }
 
@@ -670,13 +730,44 @@ $bg-color-transparent-topbar-dark: var(--color-white-20);
       background-color: $bg-color-header;
     }
 
+
+    .chevron,
     .topLink,
-    .topTrigger,
     .mainLink,
-    .mainDropdownTrigger,
+    .topTrigger,
     .mobileToggle,
-    .chevron {
+    .mainDropdownTrigger {
       color: $tx-color-link;
+    }
+
+    .mainLink:hover,
+    .mainLink:focus-visible,
+    .mainDropdownTrigger:hover,
+    .mainDropdownTrigger:focus-visible,
+    .withMainDropdown:hover .mainDropdownTrigger,
+    .withMainDropdown:focus-within .mainDropdownTrigger {
+      background-color: $bg-color-link-active;
+      color: $tx-color-link-active;
+    }
+
+    .withMainDropdown:hover .chevron,
+    .withMainDropdown:focus-within .chevron,
+    .withTopDropdown:hover .chevron,
+    .withTopDropdown:focus-within .chevron {
+      color: $tx-color-link-active;
+    }
+
+    .topTrigger:hover,
+    .topTrigger:focus-visible,
+    .withTopDropdown:hover .topTrigger,
+    .withTopDropdown:focus-within .topTrigger {
+      background-color: $bg-color-dropdown;
+      border-color: $bd-color-dropdown;
+      color: $tx-color-link-active;
+
+      &::after {
+        display: block;
+      }
     }
   }
 }

@@ -42,7 +42,24 @@ import {
   HeaderTopDropdownLink,
   HeaderTopLink,
   HeaderTopNav,
+  useHeader,
 } from './index'
+
+function HeaderActions() {
+  const { isTransparent, textColor } = useHeader()
+  const contrast = isTransparent && textColor === 'light'
+
+  return (
+    <HeaderMainNav>
+      <Button appearance="outline" variant="primary" contrast={contrast}>
+        Sign In
+      </Button>
+      <Button appearance="button" variant="primary" contrast={contrast}>
+        Get Started
+      </Button>
+    </HeaderMainNav>
+  )
+}
 
 const meta: Meta<typeof HeaderRoot> = {
   title: 'Sections/Header',
@@ -514,14 +531,7 @@ export const TransparentHero: Story = {
             </HeaderMainLink>
           </HeaderMainNav>
 
-          <HeaderMainNav>
-            <Button appearance="outline" variant="primary" contrast>
-              Sign In
-            </Button>
-            <Button appearance="button" variant="primary" contrast>
-              Get Started
-            </Button>
-          </HeaderMainNav>
+          <HeaderActions />
         </HeaderMain>
 
         <HeaderMobile>
@@ -632,14 +642,7 @@ export const TransparentDarkText: Story = {
             </HeaderMainLink>
           </HeaderMainNav>
 
-          <HeaderMainNav>
-            <Button appearance="outline" variant="primary" contrast>
-              Sign In
-            </Button>
-            <Button appearance="button" variant="primary" contrast>
-              Get Started
-            </Button>
-          </HeaderMainNav>
+          <HeaderActions />
         </HeaderMain>
 
         <HeaderMobile>

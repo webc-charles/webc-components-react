@@ -1,4 +1,4 @@
-export { useHeader } from './HeaderContext'
+export * from './HeaderContext'
 export * from './HeaderRoot'
 export * from './Main/HeaderMain'
 export * from './Main/HeaderMainDropdown'

@@ -240,6 +240,30 @@ All values support responsive breakpoints.
 | `aspect-4-3` | 4 / 3 |
 | `aspect-3-2` | 3 / 2 |
 
+### Object Fit
+
+| Class | Property |
+|-------|----------|
+| `fit-cover` | object-fit: cover |
+| `fit-contain` | object-fit: contain |
+| `fit-fill` | object-fit: fill |
+| `fit-none` | object-fit: none |
+| `fit-scale-down` | object-fit: scale-down |
+
+### Object Position
+
+| Class | Property |
+|-------|----------|
+| `obj-center` | object-position: center |
+| `obj-top` | object-position: top |
+| `obj-bottom` | object-position: bottom |
+| `obj-left` | object-position: left |
+| `obj-right` | object-position: right |
+| `obj-top-left` | object-position: top left |
+| `obj-top-right` | object-position: top right |
+| `obj-bottom-left` | object-position: bottom left |
+| `obj-bottom-right` | object-position: bottom right |
+
 ### Accessibility
 
 | Class | Description |

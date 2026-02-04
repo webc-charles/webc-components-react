@@ -188,7 +188,7 @@ addModal({
   hideCloseButton: false,
   closeOnBackdrop: true,
   children: (
-    <Image src={selectedImage.url} alt={selectedImage.alt} fit="contain" />
+    <Image src={selectedImage.url} alt={selectedImage.alt} className="fit-contain" />
   )
 })
 ```

@@ -11,32 +11,17 @@ describe('Image', () => {
     expect(screen.getByAltText('Test image')).toBeInTheDocument()
   })
 
-  it('applies fit class', () => {
-    render(
-      <Image src="test.jpg" alt="Test" fit="cover" data-testid="image" />
-    )
-    expect(screen.getByTestId('image').className).toMatch(/fitCover/)
-  })
-
-  it('applies radius class', () => {
-    render(
-      <Image src="test.jpg" alt="Test" radius="full" data-testid="image" />
-    )
-    expect(screen.getByTestId('image').className).toMatch(/radiusFull/)
-  })
-
-  it('applies aspect ratio style', () => {
+  it('applies className to img', () => {
     render(
       <Image
         src="test.jpg"
         alt="Test"
-        aspectRatio="16/9"
+        className="fit-cover r-full"
         data-testid="image"
       />
     )
-    expect(screen.getByTestId('image')).toHaveStyle({
-      aspectRatio: '16/9',
-    })
+    expect(screen.getByTestId('image')).toHaveClass('fit-cover')
+    expect(screen.getByTestId('image')).toHaveClass('r-full')
   })
 
   it('renders figure with caption', () => {
@@ -54,6 +39,20 @@ describe('Image', () => {
     expect(figure).toHaveAttribute('aria-labelledby')
 
     expect(screen.getByText('© 2024 Author')).toBeInTheDocument()
+  })
+
+  it('applies className to figure when caption present', () => {
+    render(
+      <Image
+        src="test.jpg"
+        alt="Test"
+        caption="Caption"
+        className="fit-cover"
+        data-testid="image"
+      />
+    )
+    const figure = screen.getByRole('group')
+    expect(figure).toHaveClass('fit-cover')
   })
 
   it('does not render figure without caption', () => {

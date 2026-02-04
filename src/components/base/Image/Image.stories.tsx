@@ -1,34 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Image, Link, Title } from 'components'
-import type { ImageFit, ImagePosition, ImageRadius } from './Image.types'
-
-const fitOptions: ImageFit[] = [
-  'cover',
-  'contain',
-  'fill',
-  'none',
-  'scale-down',
-]
-
-const positionOptions: ImagePosition[] = [
-  'center',
-  'top',
-  'bottom',
-  'left',
-  'right',
-  'top-left',
-  'top-right',
-  'bottom-left',
-  'bottom-right',
-]
-
-const radiusOptions: ImageRadius[] = [
-  'none',
-  'small',
-  'medium',
-  'large',
-  'full',
-]
 
 const meta: Meta<typeof Image> = {
   title: 'Base/Image',
@@ -42,25 +13,6 @@ const meta: Meta<typeof Image> = {
     alt: {
       control: 'text',
       description: 'Alt text (required for accessibility)',
-    },
-    fit: {
-      control: 'select',
-      options: [undefined, ...fitOptions],
-      description: 'Object-fit behavior',
-    },
-    position: {
-      control: 'select',
-      options: [undefined, ...positionOptions],
-      description: 'Object-position within container',
-    },
-    aspectRatio: {
-      control: 'text',
-      description: 'Aspect ratio (e.g., "16/9", "4/3", "1/1")',
-    },
-    radius: {
-      control: 'select',
-      options: [undefined, ...radiusOptions],
-      description: 'Border radius preset',
     },
     caption: {
       control: 'text',
@@ -83,8 +35,7 @@ export const Playground: Story = {
   args: {
     src: 'https://picsum.photos/800/600',
     alt: 'Random placeholder image',
-    fit: 'cover',
-    position: 'center',
+    className: 'fit-cover obj-center',
   },
   render: (args) => (
     <div style={containerStyle}>
@@ -99,7 +50,7 @@ export const WithCaption: Story = {
       src="https://picsum.photos/600/400"
       alt="A beautiful landscape"
       caption="© 2024 Photographer Name - All rights reserved"
-      radius="medium"
+      className="r-3"
       style={{ maxWidth: '400px' }}
     />
   ),
@@ -131,7 +82,7 @@ export const CaptionWithLink: Story = {
           on Unsplash
         </>
       }
-      radius="medium"
+      className="r-3"
       style={{ maxWidth: '400px' }}
     />
   ),
@@ -144,13 +95,15 @@ export const CaptionWithLink: Story = {
   },
 }
 
+const fitOptions = ['cover', 'contain', 'fill', 'none', 'scale-down'] as const
+
 export const ObjectFitCover: Story = {
   render: () => (
     <div style={containerStyle}>
       <Image
         src="https://picsum.photos/800/400"
         alt="Cover fit - image fills container, may crop"
-        fit="cover"
+        className="fit-cover"
         style={{ width: '100%', height: '100%' }}
       />
     </div>
@@ -171,7 +124,7 @@ export const ObjectFitContain: Story = {
       <Image
         src="https://picsum.photos/800/400"
         alt="Contain fit - entire image visible"
-        fit="contain"
+        className="fit-contain"
         style={{ width: '100%', height: '100%' }}
       />
     </div>
@@ -209,7 +162,7 @@ export const AllFitOptions: Story = {
             <Image
               src="https://picsum.photos/800/400"
               alt={`${fit} example`}
-              fit={fit}
+              className={`fit-${fit}`}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
@@ -218,6 +171,18 @@ export const AllFitOptions: Story = {
     </div>
   ),
 }
+
+const positionOptions = [
+  'center',
+  'top',
+  'bottom',
+  'left',
+  'right',
+  'top-left',
+  'top-right',
+  'bottom-left',
+  'bottom-right',
+] as const
 
 export const ObjectPosition: Story = {
   render: () => (
@@ -237,8 +202,7 @@ export const ObjectPosition: Story = {
             <Image
               src="https://picsum.photos/800/400"
               alt={`${position} position`}
-              fit="cover"
-              position={position}
+              className={`fit-cover obj-${position}`}
               style={{ width: '100%', height: '100%' }}
             />
           </div>
@@ -265,16 +229,15 @@ export const AspectRatios: Story = {
         gap: '1rem',
       }}
     >
-      {['1/1', '4/3', '16/9', '21/9'].map((ratio) => (
-        <div key={ratio}>
+      {(['aspect-square', 'aspect-4-3', 'aspect-video', 'aspect-3-2'] as const).map((cls) => (
+        <div key={cls}>
           <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
-            {ratio}
+            {cls}
           </p>
           <Image
             src="https://picsum.photos/800/600"
-            alt={`${ratio} aspect ratio`}
-            fit="cover"
-            aspectRatio={ratio}
+            alt={`${cls} aspect ratio`}
+            className={`fit-cover ${cls}`}
             style={{ width: '100%' }}
           />
         </div>
@@ -284,7 +247,7 @@ export const AspectRatios: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Set a fixed aspect ratio for responsive images.',
+        story: 'Set a fixed aspect ratio using utility classes.',
       },
     },
   },
@@ -293,16 +256,15 @@ export const AspectRatios: Story = {
 export const BorderRadius: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      {radiusOptions.map((radius) => (
-        <div key={radius}>
+      {(['r-none', 'r-2', 'r-3', 'r-4', 'r-full'] as const).map((cls) => (
+        <div key={cls}>
           <p style={{ marginBottom: '0.5rem', fontSize: '1.4rem' }}>
-            {radius}
+            {cls}
           </p>
           <Image
             src="https://picsum.photos/200/200"
-            alt={`${radius} radius`}
-            radius={radius}
-            fit="cover"
+            alt={`${cls} radius`}
+            className={`fit-cover ${cls}`}
             style={{ width: '100px', height: '100px' }}
           />
         </div>
@@ -317,29 +279,25 @@ export const Avatar: Story = {
       <Image
         src="https://picsum.photos/200/200"
         alt="Small avatar"
-        fit="cover"
-        radius="full"
+        className="fit-cover r-full"
         style={{ width: '32px', height: '32px' }}
       />
       <Image
         src="https://picsum.photos/200/200"
         alt="Medium avatar"
-        fit="cover"
-        radius="full"
+        className="fit-cover r-full"
         style={{ width: '48px', height: '48px' }}
       />
       <Image
         src="https://picsum.photos/200/200"
         alt="Large avatar"
-        fit="cover"
-        radius="full"
+        className="fit-cover r-full"
         style={{ width: '64px', height: '64px' }}
       />
       <Image
         src="https://picsum.photos/200/200"
         alt="Extra large avatar"
-        fit="cover"
-        radius="full"
+        className="fit-cover r-full"
         style={{ width: '96px', height: '96px' }}
       />
     </div>
@@ -348,7 +306,7 @@ export const Avatar: Story = {
     docs: {
       description: {
         story:
-          'Circular avatars using radius="full" with object-fit cover.',
+          'Circular avatars using `r-full` with `fit-cover` utility classes.',
       },
     },
   },
@@ -367,8 +325,7 @@ export const CardThumbnail: Story = {
       <Image
         src="https://picsum.photos/600/400"
         alt="Card thumbnail"
-        fit="cover"
-        aspectRatio="16/9"
+        className="fit-cover aspect-video"
         style={{ width: '100%' }}
       />
       <div style={{ padding: '1rem' }}>
@@ -393,8 +350,7 @@ export const HeroImage: Story = {
       <Image
         src="https://picsum.photos/1600/900"
         alt="Hero background"
-        fit="cover"
-        position="center"
+        className="fit-cover obj-center"
         style={{ width: '100%', height: '100%' }}
       />
       <div
@@ -427,7 +383,7 @@ export const Decorative: Story = {
   args: {
     src: 'https://picsum.photos/200/200',
     alt: '',
-    radius: 'medium',
+    className: 'r-3',
   },
   parameters: {
     docs: {

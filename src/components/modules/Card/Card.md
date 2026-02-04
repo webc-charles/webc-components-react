@@ -40,7 +40,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@ui'
 
 ```tsx
 <Card>
-  <Image src="/photo.jpg" alt="Featured" aspectRatio="16/9" fit="cover" />
+  <Image src="/photo.jpg" alt="Featured" className="aspect-video fit-cover" />
   <CardBody>
     <Title level="h3">Article Title</Title>
     <p>Article excerpt...</p>
@@ -52,7 +52,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@ui'
 
 ```tsx
 <Card className="flex-row">
-  <Image src="/photo.jpg" alt="" style={{ width: '200px' }} fit="cover" />
+  <Image src="/photo.jpg" alt="" style={{ width: '200px' }} className="fit-cover" />
   <div>
     <CardBody>
       <Title level="h3">Title</Title>
@@ -127,7 +127,7 @@ Bottom section for actions/metadata.
 
 ```tsx
 <Card>
-  <Image src={product.image} alt={product.name} aspectRatio="1/1" fit="cover" />
+  <Image src={product.image} alt={product.name} className="aspect-square fit-cover" />
   <CardBody>
     <Title level="h3">{product.name}</Title>
     <p className="text-lg">${product.price}</p>
@@ -160,8 +160,7 @@ Bottom section for actions/metadata.
     <Image
       src={getMediaUrl(data.image.url)}
       alt={data.image.alternativeText}
-      aspectRatio="16/9"
-      fit="cover"
+      className="aspect-video fit-cover"
     />
   )}
   <CardBody>

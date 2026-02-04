@@ -1,6 +1,6 @@
 # Image
 
-Responsive image with object-fit controls, aspect ratio, border radius, and optional caption.
+Responsive image with optional caption. Styling via utility classes.
 
 ## Import
 
@@ -26,40 +26,38 @@ import { Image } from '@ui'
 />
 ```
 
-### Object Fit
+### Object Fit (utility classes)
 
 ```tsx
-<Image src="/photo.jpg" alt="Photo" fit="cover" />
-<Image src="/photo.jpg" alt="Photo" fit="contain" />
-<Image src="/photo.jpg" alt="Photo" fit="fill" />
-<Image src="/photo.jpg" alt="Photo" fit="none" />
-<Image src="/photo.jpg" alt="Photo" fit="scale-down" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover" />
+<Image src="/photo.jpg" alt="Photo" className="fit-contain" />
+<Image src="/photo.jpg" alt="Photo" className="fit-fill" />
+<Image src="/photo.jpg" alt="Photo" className="fit-none" />
+<Image src="/photo.jpg" alt="Photo" className="fit-scale-down" />
 ```
 
-### Object Position
+### Object Position (utility classes)
 
 ```tsx
-<Image src="/photo.jpg" alt="Photo" fit="cover" position="center" />
-<Image src="/photo.jpg" alt="Photo" fit="cover" position="top" />
-<Image src="/photo.jpg" alt="Photo" fit="cover" position="bottom-right" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover obj-center" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover obj-top" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover obj-bottom-right" />
 ```
 
-### Aspect Ratio
+### Aspect Ratio (utility classes)
 
 ```tsx
-<Image src="/photo.jpg" alt="Photo" aspectRatio="16/9" fit="cover" />
-<Image src="/photo.jpg" alt="Photo" aspectRatio="1/1" fit="cover" />
-<Image src="/photo.jpg" alt="Photo" aspectRatio="4/3" fit="cover" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover aspect-video" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover aspect-square" />
+<Image src="/photo.jpg" alt="Photo" className="fit-cover aspect-4-3" />
 ```
 
-### Border Radius
+### Border Radius (utility classes)
 
 ```tsx
-<Image src="/photo.jpg" alt="Photo" radius="none" />
-<Image src="/photo.jpg" alt="Photo" radius="small" />
-<Image src="/photo.jpg" alt="Photo" radius="medium" />
-<Image src="/photo.jpg" alt="Photo" radius="large" />
-<Image src="/photo.jpg" alt="Photo" radius="full" />
+<Image src="/photo.jpg" alt="Photo" className="r-none" />
+<Image src="/photo.jpg" alt="Photo" className="r-3" />
+<Image src="/photo.jpg" alt="Photo" className="r-full" />
 ```
 
 ### With Next.js Image (asChild)
@@ -78,33 +76,35 @@ import NextImage from 'next/image'
 |------|------|---------|-------------|
 | `src` | `string` | - | Image source URL |
 | `alt` | `string` | **required** | Alt text for accessibility |
-| `fit` | `ImageFit` | - | Object-fit behavior |
-| `position` | `ImagePosition` | - | Object-position alignment |
-| `aspectRatio` | `string` | - | CSS aspect-ratio value |
-| `radius` | `ImageRadius` | - | Border radius |
 | `caption` | `ReactNode` | - | Caption below image |
 | `asChild` | `boolean` | `false` | Render as child element (slot pattern) |
-| `className` | `string` | - | Additional CSS class |
+| `className` | `string` | - | Additional CSS classes (use utility classes) |
 
-### ImageFit
+## Utility Classes
 
-```tsx
-type ImageFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
-```
-
-### ImagePosition
-
-```tsx
-type ImagePosition =
-  | 'center' | 'top' | 'bottom' | 'left' | 'right'
-  | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-```
-
-### ImageRadius
-
-```tsx
-type ImageRadius = 'none' | 'small' | 'medium' | 'large' | 'full'
-```
+| Class | Property |
+|-------|----------|
+| `fit-cover` | object-fit: cover |
+| `fit-contain` | object-fit: contain |
+| `fit-fill` | object-fit: fill |
+| `fit-none` | object-fit: none |
+| `fit-scale-down` | object-fit: scale-down |
+| `obj-center` | object-position: center |
+| `obj-top` | object-position: top |
+| `obj-bottom` | object-position: bottom |
+| `obj-left` | object-position: left |
+| `obj-right` | object-position: right |
+| `obj-top-left` | object-position: top left |
+| `obj-top-right` | object-position: top right |
+| `obj-bottom-left` | object-position: bottom left |
+| `obj-bottom-right` | object-position: bottom right |
+| `aspect-square` | aspect-ratio: 1 / 1 |
+| `aspect-video` | aspect-ratio: 16 / 9 |
+| `aspect-4-3` | aspect-ratio: 4 / 3 |
+| `aspect-3-2` | aspect-ratio: 3 / 2 |
+| `r-1` to `r-7` | border-radius |
+| `r-full` | border-radius: 9999px |
+| `r-none` | border-radius: 0 |
 
 ## Accessibility
 
@@ -119,7 +119,11 @@ type ImageRadius = 'none' | 'small' | 'medium' | 'large' | 'full'
   src={getMediaUrl(data.image.url)}
   alt={data.image.alternativeText || data.title}
   caption={data.caption}
-  aspectRatio={data.aspectRatio}
-  fit="cover"
+  className={clsx(
+    data.fit && `fit-${data.fit}`,
+    data.position && `obj-${data.position}`,
+    data.aspectRatio && `aspect-${data.aspectRatio}`,
+    data.radius && `r-${data.radius}`
+  )}
 />
 ```

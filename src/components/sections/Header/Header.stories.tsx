@@ -633,10 +633,10 @@ export const TransparentDarkText: Story = {
           </HeaderMainNav>
 
           <HeaderMainNav>
-            <Button appearance="outline" variant="primary">
+            <Button appearance="outline" variant="primary" contrast>
               Sign In
             </Button>
-            <Button appearance="button" variant="primary">
+            <Button appearance="button" variant="primary" contrast>
               Get Started
             </Button>
           </HeaderMainNav>

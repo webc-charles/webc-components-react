@@ -32,10 +32,6 @@ const meta: Meta<typeof Skeleton> = {
         defaultValue: { summary: 'true' },
       },
     },
-    borderRadius: {
-      control: 'text',
-      description: 'Border radius for rect variant',
-    },
   },
   args: {
     variant: 'text',
@@ -69,7 +65,7 @@ export const CustomSize: Story = {
     variant: 'rect',
     width: '300px',
     height: '150px',
-    borderRadius: '12px',
+    className: 'r-4',
   },
 }
 

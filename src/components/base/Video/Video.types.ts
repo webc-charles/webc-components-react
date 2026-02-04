@@ -1,7 +1,5 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react'
 
-export type VideoRadius = 'none' | 'sm' | 'md' | 'lg'
-
 export type VideoSource = {
   src: string
   type: string
@@ -24,10 +22,6 @@ export type VideoTypes = Omit<ComponentPropsWithRef<'video'>, 'src'> & {
   tracks?: VideoTrack[]
   /** Poster image URL */
   poster?: string
-  /** Aspect ratio (e.g., "16/9", "4/3", "1/1") */
-  aspectRatio?: string
-  /** Border radius preset */
-  radius?: VideoRadius
   /** Caption text displayed below the video */
   caption?: ReactNode
   /** Fallback content for unsupported browsers */

@@ -11,6 +11,4 @@ export type SkeletonTypes = ComponentPropsWithRef<'div'> & {
   height?: string | number
   /** Disable animation */
   animation?: boolean
-  /** Border radius for rect variant */
-  borderRadius?: string | number
 }

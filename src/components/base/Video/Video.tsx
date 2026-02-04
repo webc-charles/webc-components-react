@@ -3,39 +3,23 @@ import clsx from 'clsx'
 import styles from './Video.module.scss'
 import type { VideoTypes } from './Video.types'
 
-const radiusClassMap = {
-  none: styles.radiusNone,
-  sm: styles.radiusSm,
-  md: styles.radiusMd,
-  lg: styles.radiusLg,
-}
-
 export function Video({
   ref,
   src,
   sources,
   tracks,
   poster,
-  aspectRatio,
-  radius,
   caption,
   fallback,
   fallbackText = "Your browser doesn't support HTML video.",
   fallbackLinkText = 'link to the video',
   className,
-  style,
   controls = true,
   ...rest
 }: VideoTypes) {
   const captionId = useId()
 
-  const videoClass = clsx(
-    styles.video,
-    radius && radiusClassMap[radius],
-    !caption && className
-  )
-
-  const videoStyle = aspectRatio ? { ...style, aspectRatio } : style
+  const videoClass = clsx(styles.video, !caption && className)
 
   const video = (
     <video
@@ -44,7 +28,6 @@ export function Video({
       poster={poster}
       controls={controls}
       className={videoClass}
-      style={videoStyle}
       {...rest}
     >
       {sources?.map((source) => (

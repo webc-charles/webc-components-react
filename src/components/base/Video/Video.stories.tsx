@@ -14,15 +14,6 @@ const meta: Meta<typeof Video> = {
       control: 'text',
       description: 'Poster image URL',
     },
-    aspectRatio: {
-      control: 'text',
-      description: 'Aspect ratio (e.g., "16/9")',
-    },
-    radius: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
-      description: 'Border radius',
-    },
     controls: {
       control: 'boolean',
       description: 'Show video controls',
@@ -114,7 +105,7 @@ export const WithSubtitles: Story = {
         src: '/subtitles_fr.vtt',
         kind: 'subtitles',
         srclang: 'fr',
-        label: 'Français',
+        label: 'Fran\u00e7ais',
       },
     ],
     controls: true,
@@ -124,7 +115,7 @@ export const WithSubtitles: Story = {
 export const AspectRatio: Story = {
   args: {
     src: sampleVideo,
-    aspectRatio: '16/9',
+    className: 'aspect-video',
     controls: true,
   },
   decorators: [
@@ -140,7 +131,7 @@ export const Rounded: Story = {
   args: {
     src: sampleVideo,
     poster: samplePoster,
-    radius: 'md',
+    className: 'r-3',
     controls: true,
   },
 }
@@ -160,8 +151,8 @@ export const CustomFallback: Story = {
     src: sampleVideo,
     fallback: (
       <p>
-        Votre navigateur ne supporte pas la vidéo HTML5.{' '}
-        <a href={sampleVideo}>Télécharger la vidéo</a>.
+        Votre navigateur ne supporte pas la vid\u00e9o HTML5.{' '}
+        <a href={sampleVideo}>T\u00e9l\u00e9charger la vid\u00e9o</a>.
       </p>
     ),
     controls: true,

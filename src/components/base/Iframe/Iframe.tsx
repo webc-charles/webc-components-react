@@ -6,15 +6,11 @@ export function Iframe({
   ref,
   src,
   title,
-  aspectRatio = '16/9',
   allowFullScreen = true,
   className,
-  style,
   loading = 'lazy',
   ...rest
 }: IframeTypes) {
-  const iframeStyle = aspectRatio ? { ...style, aspectRatio } : style
-
   return (
     <iframe
       ref={ref}
@@ -23,7 +19,6 @@ export function Iframe({
       loading={loading}
       allowFullScreen={allowFullScreen}
       className={clsx(styles.iframe, className)}
-      style={iframeStyle}
       {...rest}
     />
   )

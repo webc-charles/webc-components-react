@@ -36,16 +36,12 @@ describe('Video', () => {
     expect(screen.getByText('Video caption')).toBeInTheDocument()
   })
 
-  it('applies radius class', () => {
-    render(<Video src="test.mp4" radius="md" data-testid="video" />)
-    expect(screen.getByTestId('video').className).toContain('radius')
-  })
-
-  it('applies aspect ratio style', () => {
-    render(<Video src="test.mp4" aspectRatio="16/9" data-testid="video" />)
-    expect(screen.getByTestId('video')).toHaveStyle({
-      aspectRatio: '16/9',
-    })
+  it('applies className', () => {
+    render(
+      <Video src="test.mp4" className="aspect-video r-3" data-testid="video" />
+    )
+    expect(screen.getByTestId('video')).toHaveClass('aspect-video')
+    expect(screen.getByTestId('video')).toHaveClass('r-3')
   })
 
   it('renders multiple sources', () => {

@@ -1,6 +1,6 @@
 # Iframe
 
-Responsive iframe embed with configurable aspect ratio.
+Responsive iframe embed. Use utility classes for aspect ratio.
 
 ## Import
 
@@ -16,16 +16,16 @@ import { Iframe } from '@ui'
 <Iframe
   src="https://www.youtube.com/embed/dQw4w9WgXcQ"
   title="Video Title"
+  className="aspect-video"
 />
 ```
 
-### Custom Aspect Ratio
+### Aspect Ratios (utility classes)
 
 ```tsx
-<Iframe src={url} title="Video" aspectRatio="16/9" />  {/* default */}
-<Iframe src={url} title="Video" aspectRatio="4/3" />
-<Iframe src={url} title="Video" aspectRatio="1/1" />
-<Iframe src={url} title="Video" aspectRatio="21/9" />
+<Iframe src={url} title="Video" className="aspect-video" />
+<Iframe src={url} title="Video" className="aspect-4-3" />
+<Iframe src={url} title="Video" className="aspect-square" />
 ```
 
 ### Vimeo Embed
@@ -34,7 +34,7 @@ import { Iframe } from '@ui'
 <Iframe
   src="https://player.vimeo.com/video/123456789"
   title="Vimeo Video"
-  aspectRatio="16/9"
+  className="aspect-video"
 />
 ```
 
@@ -44,7 +44,7 @@ import { Iframe } from '@ui'
 <Iframe
   src="https://www.google.com/maps/embed?pb=..."
   title="Office Location"
-  aspectRatio="4/3"
+  className="aspect-4-3"
 />
 ```
 
@@ -64,25 +64,14 @@ import { Iframe } from '@ui'
 |------|------|---------|-------------|
 | `src` | `string` | **required** | Source URL |
 | `title` | `string` | **required** | Accessible title |
-| `aspectRatio` | `string` | `'16/9'` | CSS aspect-ratio value |
 | `allowFullScreen` | `boolean` | `true` | Allow fullscreen mode |
 | `loading` | `'lazy' \| 'eager'` | `'lazy'` | Loading behavior |
-| `className` | `string` | - | Additional CSS class |
+| `className` | `string` | - | Additional CSS classes (use utility classes) |
 
 ## Accessibility
 
 - `title` is required for screen readers
 - Describes embedded content purpose
-
-## Common Aspect Ratios
-
-| Ratio | Use Case |
-|-------|----------|
-| `16/9` | Standard video, YouTube |
-| `4/3` | Classic video, maps |
-| `1/1` | Square embeds |
-| `21/9` | Ultrawide video |
-| `9/16` | Vertical video |
 
 ## Strapi Integration
 
@@ -90,6 +79,6 @@ import { Iframe } from '@ui'
 <Iframe
   src={data.embedUrl}
   title={data.title}
-  aspectRatio={data.aspectRatio || '16/9'}
+  className={data.aspectRatio ? `aspect-${data.aspectRatio}` : 'aspect-video'}
 />
 ```

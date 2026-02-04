@@ -1,6 +1,6 @@
 # Video
 
-HTML5 video player with multiple sources, captions, poster image, and optional caption.
+HTML5 video player with multiple sources, captions, poster image, and optional caption. Use utility classes for aspect ratio and border radius.
 
 ## Import
 
@@ -60,21 +60,21 @@ import { Video } from '@ui'
 />
 ```
 
-### Aspect Ratio
+### Aspect Ratio (utility classes)
 
 ```tsx
-<Video src="/videos/clip.mp4" aspectRatio="16/9" />
-<Video src="/videos/clip.mp4" aspectRatio="4/3" />
-<Video src="/videos/clip.mp4" aspectRatio="1/1" />
+<Video src="/videos/clip.mp4" className="aspect-video" />
+<Video src="/videos/clip.mp4" className="aspect-4-3" />
+<Video src="/videos/clip.mp4" className="aspect-square" />
 ```
 
-### Border Radius
+### Border Radius (utility classes)
 
 ```tsx
-<Video src="/videos/clip.mp4" radius="none" />
-<Video src="/videos/clip.mp4" radius="sm" />
-<Video src="/videos/clip.mp4" radius="md" />
-<Video src="/videos/clip.mp4" radius="lg" />
+<Video src="/videos/clip.mp4" className="r-none" />
+<Video src="/videos/clip.mp4" className="r-2" />
+<Video src="/videos/clip.mp4" className="r-3" />
+<Video src="/videos/clip.mp4" className="r-4" />
 ```
 
 ### With Caption
@@ -116,14 +116,12 @@ import { Video } from '@ui'
 | `sources` | `VideoSource[]` | - | Multiple sources for compatibility |
 | `tracks` | `VideoTrack[]` | - | Caption/subtitle tracks |
 | `poster` | `string` | - | Poster image URL |
-| `aspectRatio` | `string` | - | CSS aspect-ratio value |
-| `radius` | `'none' \| 'sm' \| 'md' \| 'lg'` | - | Border radius |
 | `caption` | `ReactNode` | - | Caption below video |
 | `controls` | `boolean` | `true` | Show video controls |
 | `fallback` | `ReactNode` | - | Custom fallback content |
 | `fallbackText` | `string` | `"Your browser doesn't support HTML video."` | Fallback text |
 | `fallbackLinkText` | `string` | `'link to the video'` | Fallback link text |
-| `className` | `string` | - | Additional CSS class |
+| `className` | `string` | - | Additional CSS classes (use utility classes) |
 
 ### VideoSource Type
 
@@ -160,6 +158,10 @@ type VideoTrack = {
   src={getMediaUrl(data.video.url)}
   poster={data.poster && getMediaUrl(data.poster.url)}
   caption={data.caption}
+  className={clsx(
+    data.aspectRatio && `aspect-${data.aspectRatio}`,
+    data.radius && `r-${data.radius}`
+  )}
   tracks={data.captions?.map(c => ({
     src: getMediaUrl(c.file.url),
     kind: 'captions',

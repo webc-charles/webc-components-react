@@ -80,30 +80,16 @@ describe('Iframe', () => {
     )
   })
 
-  it('applies aspect ratio style', () => {
-    render(
-      <Iframe
-        src="https://example.com"
-        title="Example"
-        aspectRatio="16/9"
-        data-testid="iframe"
-      />
-    )
-    expect(screen.getByTestId('iframe')).toHaveStyle({
-      aspectRatio: '16/9',
-    })
-  })
-
   it('applies custom className', () => {
     render(
       <Iframe
         src="https://example.com"
         title="Example"
-        className="custom"
+        className="aspect-video"
         data-testid="iframe"
       />
     )
-    expect(screen.getByTestId('iframe')).toHaveClass('custom')
+    expect(screen.getByTestId('iframe')).toHaveClass('aspect-video')
   })
 
   it('forwards ref', () => {

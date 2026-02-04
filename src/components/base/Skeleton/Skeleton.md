@@ -22,7 +22,7 @@ import { Skeleton } from '@ui'
 
 ```tsx
 <Skeleton variant="rect" width={300} height={200} />
-<Skeleton variant="rect" width="100%" height={400} borderRadius={8} />
+<Skeleton variant="rect" width="100%" height={400} className="r-4" />
 ```
 
 ### Circle Placeholder
@@ -45,7 +45,6 @@ import { Skeleton } from '@ui'
 | `variant` | `'text' \| 'circle' \| 'rect'` | `'text'` | Shape type |
 | `width` | `string \| number` | - | Width (px if number) |
 | `height` | `string \| number` | - | Height (px if number) |
-| `borderRadius` | `string \| number` | - | Border radius for rect |
 | `animation` | `boolean` | `true` | Enable shimmer animation |
 | `className` | `string` | - | Additional CSS class |
 
@@ -90,7 +89,7 @@ import { Skeleton } from '@ui'
 <article>
   <Skeleton variant="text" width="70%" height={32} />
   <Skeleton variant="text" width="40%" />
-  <Skeleton variant="rect" height={300} borderRadius={8} />
+  <Skeleton variant="rect" height={300} className="r-4" />
   <Skeleton variant="text" />
   <Skeleton variant="text" />
   <Skeleton variant="text" width="90%" />

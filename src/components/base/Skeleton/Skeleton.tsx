@@ -15,7 +15,6 @@ export function Skeleton({
   width,
   height,
   animation = true,
-  borderRadius,
   className,
   style,
   ...rest
@@ -32,7 +31,6 @@ export function Skeleton({
       style={{
         width: formatSize(width),
         height: formatSize(height),
-        borderRadius: formatSize(borderRadius),
         ...style,
       }}
       {...rest}

@@ -14,8 +14,10 @@ $bd-color-mobile-separator: var(--color-grey-5);
 $tx-color-link: var(--color-black);
 $tx-color-link-active: var(--color-primary-2);
 $tx-color-mobile-link-active: var(--color-white);
-$bg-color-transparent-topbar-light: var(--color-white-10);
+$bg-color-transparent-topbar-light: var(--color-white-20);
+$bg-color-transparent-main-light: var(--color-white-10);
 $bg-color-transparent-topbar-dark: var(--color-black-10);
+$bg-color-transparent-main-dark: var(--color-black-05);
 $bg-color-transparent-hover-light: var(--color-white-10);
 $bg-color-transparent-hover-dark: var(--color-black-10);
 $tx-color-transparent-light: var(--color-white);
@@ -326,7 +328,7 @@ $tx-color-transparent-dark: var(--color-black);
   left: 0;
   min-width: 20rem;
   opacity: 0;
-  padding: 2rem 0 0;
+  padding: 1rem 0 0;
   pointer-events: none;
   position: absolute;
   top: 100%;
@@ -354,7 +356,7 @@ $tx-color-transparent-dark: var(--color-black);
   left: 50%;
   max-width: var(--container-max-width);
   opacity: 0;
-  padding: 2rem 2rem 0;
+  padding: 1rem 2rem 0;
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -646,6 +648,10 @@ $tx-color-transparent-dark: var(--color-black);
       background-color: $bg-color-transparent-topbar-light;
     }
 
+    .main {
+      background-color: $bg-color-transparent-main-light;
+    }
+
     .topLink,
     .topTrigger,
     .mainLink,
@@ -689,6 +695,10 @@ $tx-color-transparent-dark: var(--color-black);
   &.textDark {
     .topBar {
       background-color: $bg-color-transparent-topbar-dark;
+    }
+
+    .main {
+      background-color: $bg-color-transparent-main-dark;
     }
 
     .topLink,

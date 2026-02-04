@@ -52,7 +52,7 @@ body {
     }
   }
 
-  &.header-transparent {
+  &.header-transparent.header-transparent {
     padding-top: 0;
 
     @include mq-md {
